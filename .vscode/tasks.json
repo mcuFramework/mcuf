@@ -1,0 +1,34 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                //"-Wfatal-errors",
+                "-I",
+                "${workspaceFolder}\\src\\main",
+                "-I",
+                "${workspaceFolder}\\src\\test",
+                "-I",
+                "${workspaceFolder}\\src\\resources",
+                "-g", 
+                //"${workspaceFolder}\\src\\main\\*.cpp", 
+                //"${workspaceFolder}\\src\\main\\*\\*.cpp", 
+                "${workspaceFolder}\\src\\main\\*\\*\\*.cpp",
+                "${workspaceFolder}\\src\\main\\*\\*\\*\\*.cpp",
+                "${workspaceFolder}\\src\\test\\*.cpp", 
+                //"${workspaceFolder}\\src\\test\\*\\*.cpp", 
+                //"${workspaceFolder}\\src\\test\\*\\*\\*.cpp",
+                //"${workspaceFolder}\\src\\test\\*\\*\\*\\*.cpp",
+                "-o", 
+                "debug\\${workspaceRootFolderName}_debug.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

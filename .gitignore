@@ -1,0 +1,5 @@
+# Keil project
+/.keil
+*.uvoptx
+*.uvguix.danny
+*.exe
