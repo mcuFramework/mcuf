@@ -4,8 +4,9 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef frameworl_FunctionEvent_FunctionEvent_hpp_
-#define frameworl_FunctionEvent_FunctionEvent_hpp_
+
+#ifndef MCUF_F730676C_6AFB_43FF_A269_0F8D00511C5D
+#define MCUF_F730676C_6AFB_43FF_A269_0F8D00511C5D
 
 /* ****************************************************************************************
  * Include
@@ -126,7 +127,9 @@ class mcuf::function::FunctionEvent :
 
 
 
-#endif //frameworl_FunctionEvent_FunctionEvent_hpp_
 /* *****************************************************************************************
  * End of file
  */ 
+
+
+#endif/* MCUF_F730676C_6AFB_43FF_A269_0F8D00511C5D */

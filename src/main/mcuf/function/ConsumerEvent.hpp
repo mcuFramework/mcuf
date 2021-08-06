@@ -4,8 +4,9 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef frameworl_function_ConsumerEvent_hpp_
-#define frameworl_function_ConsumerEvent_hpp_
+
+#ifndef MCUF_D2D64DF4_37AF_4608_A7A7_C551E3231977
+#define MCUF_D2D64DF4_37AF_4608_A7A7_C551E3231977
 
 /* ****************************************************************************************
  * Include
@@ -126,7 +127,9 @@ class mcuf::function::ConsumerEvent :
 
 
 
-#endif //frameworl_function_ConsumerEvent_hpp_
 /* *****************************************************************************************
  * End of file
  */ 
+
+
+#endif/* MCUF_D2D64DF4_37AF_4608_A7A7_C551E3231977 */

@@ -4,8 +4,9 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef frameworl_function_SupplierEvent_hpp_
-#define frameworl_function_SupplierEvent_hpp_
+
+#ifndef MCUF_ECCE32BB_1A96_496A_95AD_A35907FC3343
+#define MCUF_ECCE32BB_1A96_496A_95AD_A35907FC3343
 
 /* ****************************************************************************************
  * Include
@@ -122,7 +123,9 @@ class mcuf::function::SupplierEvent :
 
 
 
-#endif //frameworl_function_SupplierEvent_hpp_
 /* *****************************************************************************************
  * End of file
  */ 
+
+
+#endif/* MCUF_ECCE32BB_1A96_496A_95AD_A35907FC3343 */

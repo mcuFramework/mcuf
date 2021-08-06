@@ -4,8 +4,9 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef mcuf_function_h_
-#define mcuf_function_h_
+
+#ifndef MCUF_FB17C5B9_A85A_4905_AB0E_59307FFB99EC
+#define MCUF_FB17C5B9_A85A_4905_AB0E_59307FFB99EC
 
 /* ****************************************************************************************
  * Include folder
@@ -28,7 +29,10 @@
 #include "SupplierEvent.hpp"
 
  
-#endif //mcuf_function_h_
+
 /* *****************************************************************************************
  * End of file
  */ 
+
+
+#endif/* MCUF_FB17C5B9_A85A_4905_AB0E_59307FFB99EC */

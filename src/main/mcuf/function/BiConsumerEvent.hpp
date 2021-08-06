@@ -4,8 +4,9 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef frameworl_function_BiConsumerEvent_hpp_
-#define frameworl_function_BiConsumerEvent_hpp_
+
+#ifndef MCUF_FC6FA4E2_E818_4894_866D_38F6B2541263
+#define MCUF_FC6FA4E2_E818_4894_866D_38F6B2541263
 
 /* ****************************************************************************************
  * Include
@@ -127,7 +128,9 @@ class mcuf::function::BiConsumerEvent :
 
 
 
-#endif //frameworl_function_BiConsumerEvent_hpp_
 /* *****************************************************************************************
  * End of file
  */ 
+
+
+#endif/* MCUF_FC6FA4E2_E818_4894_866D_38F6B2541263 */
