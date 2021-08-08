@@ -75,12 +75,12 @@ class mcuf::util::BlockPool:
   /**
    * Construct.
    */
-  public: BlockPool(mcuf::lang::Memory flags, mcuf::lang::Memory memory, uint32_t elementSize);
+  public: BlockPool(mcuf::lang::Memory& flags, mcuf::lang::Memory& memory, uint32_t elementSize);
 
   /**
    * Construct.
    */
-  public: BlockPool(mcuf::lang::Memory memory, uint32_t elementSize);
+  public: BlockPool(mcuf::lang::Memory& memory, uint32_t elementSize);
   
   /**
    * Destruct.

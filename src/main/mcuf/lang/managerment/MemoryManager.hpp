@@ -85,7 +85,7 @@ class mcuf::lang::managerment::MemoryManager :
   /**
    * Construct.
    */
-  public: MemoryManager(mcuf::lang::Memory memory);
+  public: MemoryManager(mcuf::lang::Memory& memory);
 
   /**
    * Destruct.
@@ -131,12 +131,12 @@ class mcuf::lang::managerment::MemoryManager :
   /**
    * 
    */
-  public: bool free(mcuf::lang::Memory memory);
+  public: bool free(mcuf::lang::Memory& memory);
 
   /**
    * 
    */
-  public: bool expansion(mcuf::lang::Memory memory);
+  public: bool expansion(mcuf::lang::Memory& memory);
 
 
 
@@ -192,7 +192,7 @@ class mcuf::lang::managerment::MemoryManager :
   /**
    * 
    */
-  private: mcuf::util::VectorBlockPool* constructVectorBlockPool(mcuf::lang::Memory memory, uint16_t blockShift);
+  private: mcuf::util::VectorBlockPool* constructVectorBlockPool(mcuf::lang::Memory& memory, uint16_t blockShift);
 
   /**
    * 
@@ -212,7 +212,7 @@ class mcuf::lang::managerment::MemoryManager :
   /**
    * 
    */
-  private: void initBlocks(mcuf::lang::Memory memory);
+  private: void initBlocks(mcuf::lang::Memory& memory);
 
 };
 

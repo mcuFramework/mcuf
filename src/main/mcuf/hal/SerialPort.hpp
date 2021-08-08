@@ -12,9 +12,9 @@
  * Include
  */  
 #include "..\hal\Base.hpp"
+#include "..\function\BiConsumer.hpp"
 #include "..\lang\Memory.hpp"
-#include "..\function\Consumer.hpp"
-#include "..\function\ConsumerEvent.hpp"
+#include "..\lang\Pointer.hpp"
 
 
 
@@ -88,12 +88,16 @@ class mcuf::hal::SerialPort :
   /**
    * 
    */
-  public: virtual bool read(mcuf::lang::Memory& memory, mcuf::function::Consumer<mcuf::lang::Memory&>& function) = 0;
+  public: virtual bool read(mcuf::lang::Memory& memory, 
+                            mcuf::lang::Pointer* attachment,
+                            mcuf::function::BiConsumer<mcuf::lang::Memory&, mcuf::lang::Pointer&>* function) = 0;
 
   /**
    * 
    */
-  public: virtual bool write(mcuf::lang::Memory& memory, mcuf::function::Consumer<mcuf::lang::Memory&>& function) = 0;
+  public: virtual bool write(mcuf::lang::Memory& memory, 
+                             mcuf::lang::Pointer* attachment,
+                             mcuf::function::BiConsumer<mcuf::lang::Memory&, mcuf::lang::Pointer&>* function) = 0;
   
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -128,24 +132,6 @@ class mcuf::hal::SerialPort :
   /* **************************************************************************************
    * Public Method
    */
-
-  /**
-   * 
-   */
-  public: bool read(mcuf::lang::Memory& memory, 
-                    mcuf::function::ConsumerEvent<mcuf::lang::Memory&> function){
-
-    return this->read(memory, function);
-  }
-
-  /**
-   * 
-   */
-  public: bool write(mcuf::lang::Memory& memory, 
-                     mcuf::function::ConsumerEvent<mcuf::lang::Memory&> function){
-  
-    return this->write(memory, function);
-  }
 
   /* **************************************************************************************
    * Protected Method <Static>
