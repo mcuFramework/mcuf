@@ -55,27 +55,9 @@ class mcuf::hal::GeneralPurposeIO :
 
   /**
    * 
-   * @param port GPIO port.
    */
-  public: virtual uint32_t read(uint32_t port) = 0;
-  
-  /**
-   *
-   * @param port GPIO port.
-   * @param value GPIO write value.
-   */
-  public: virtual void set(uint32_t port, uint32_t value) = 0;
-  
-  /**
-   * 
-   */
-  public: virtual void clear(uint32_t port, uint32_t mask) = 0;
-  
-  /**
-   * 
-   */
-  public: virtual void toggle(uint32_t port, uint32_t mask) = 0;
-  
+  public: virtual uint32_t dir(uint32_t port) = 0;
+
   /**
    * 
    */
@@ -90,6 +72,37 @@ class mcuf::hal::GeneralPurposeIO :
    * 
    */
   public: virtual void dirSet(uint32_t port, uint32_t mask) = 0;
+
+  /**
+   * 
+   * @param port GPIO port.
+   */
+  public: virtual uint32_t pin(uint32_t port) = 0;
+
+  /**
+   * 
+   * @param port GPIO port.
+   */
+  public: virtual void pin(uint32_t port, uint32_t value) = 0;
+  
+  /**
+   * 
+   */
+  public: virtual void pinClear(uint32_t port, uint32_t mask) = 0;
+
+  /**
+   *
+   * @param port GPIO port.
+   * @param value GPIO write value.
+   */
+  public: virtual void pinSet(uint32_t port, uint32_t mask) = 0;
+  
+  /**
+   * 
+   */
+  public: virtual void pinToggle(uint32_t port, uint32_t mask) = 0;
+  
+
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -188,62 +201,67 @@ class mcuf::hal::GeneralPurposeIO::Pin:
    */
   
   /**
-   * Set io pin to high or low.
-   *
-   * @param value false = low, true = true.
+   * Get io direction.
+   * 
+   * @return false = input, true = output.
    */
-  public: virtual void setValue(bool value) = 0;
+  public: virtual bool dir(void) = 0;
+
+  /**
+   * Set io direction.
+   * 
+   * @param dir false = input, true = output.
+   */
+  public: virtual void dir(bool dir) = 0;
   
+   /**
+   * 
+   */
+  public: virtual PinMode pinMode(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual bool pinMode(PinMode mode) = 0; 
+
   /**
    * Set io pin to high.
    */
   public: virtual void setHigh(void) = 0;
   
   /**
+   * Set io direction to input.
+   */
+  public: virtual void setInput(void) = 0;
+
+  /**
    * Set io pin to low.
    */
   public: virtual void setLow(void) = 0;
   
   /**
-   * Set io not logic.
-   */
-  public: virtual void setToggle(void) = 0;
-  
-  /**
-   * Set io direction.
-   * 
-   * @param dir false = input, true = output.
-   */
-  public: virtual void setDir(bool dir) = 0;
-  
-  /**
-   * Set io direction to input.
-   */
-  public: virtual void setInput(void) = 0;
-  
-  /**
    * Set io direction to output.
    */
   public: virtual void setOutput(void) = 0;
-  
+
   /**
-   * Get io read value.
+   * Set io not logic.
+   */
+  public: virtual void setToggle(void) = 0;
+
+  /**
+   * Get io pin.
    *
    * @return false = low, true = high.
    */
-  public: virtual bool getValue(void) = 0;
-  
-  /**
-   * Get io ditrction.
-   *
-   * @return false = input, true = output.
-   */
-  public: virtual bool getDir(void) = 0;
+  public: virtual void value(void) = 0;
 
   /**
-   * 
+   * Set io pin to high or low.
+   *
+   * @param value false = low, true = high.
    */
-  public: virtual bool setPinMode(PinMode mode) = 0;
+  public: virtual void value(bool level) = 0;  
 
   /* **************************************************************************************
    * Abstract method <Protected>

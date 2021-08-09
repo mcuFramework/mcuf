@@ -32,7 +32,7 @@ BlockPool::BlockPool(void* flag, void* pointer, uint32_t elementSize, uint32_t c
 /**
  * 
  */
-BlockPool::BlockPool(Memory flags, Memory memory, uint32_t elementSize){    
+BlockPool::BlockPool(Memory& flags, Memory& memory, uint32_t elementSize){    
   uint32_t capacity = (memory.length() / elementSize);
   if(capacity >= (flags.length() << 3))
     this->mCapacity = (flags.length() << 3);
@@ -44,7 +44,7 @@ BlockPool::BlockPool(Memory flags, Memory memory, uint32_t elementSize){
 /**
  * 
  */
-BlockPool::BlockPool(Memory memory, uint32_t elementSize){
+BlockPool::BlockPool(Memory& memory, uint32_t elementSize){
   uint32_t capacity = (memory.length() / elementSize);
   uint32_t flags = (capacity >> 5);
 

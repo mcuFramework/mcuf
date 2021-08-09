@@ -8,95 +8,62 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "stdlib.h"
-#include "System.hpp"
-#include "mcuf.h"
+#include "PinDefine.hpp"
 
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::lang::System;
-using mcuf::lang::managerment::MemoryManager;
-using mcuf::lang::managerment::SystemComponent;
-
-/* ****************************************************************************************
- * Global Operator
- */  
-
-/**
- * 
- */
-void * operator new(size_t n){
-  if(System::memoryManager() == nullptr)
-    return malloc(n);
-
-  return System::memoryManager()->alloc(n);
-}
-
-/**
- * 
- */
-void * operator new[](size_t n){
-  if(System::memoryManager() == nullptr)
-    return malloc(n);
-
-  return System::memoryManager()->alloc(n);
-}
-
-
-
-/**
- * 
- */
-void operator delete (void* ptr){
-  if(System::memoryManager() == nullptr)
-    free(ptr);
-
-  bool result = System::memoryManager()->free(ptr);
-}
-
-/**
- * 
- */
-void operator delete (void* ptr, size_t size){
-  if(System::memoryManager() == nullptr)
-    free(ptr);
-
-  bool result = System::memoryManager()->free(ptr, size);
-}
-
-/* ****************************************************************************************
- * Static Variable
- */  
-SystemComponent System::component = SystemComponent();
+using mcuf::hal::PinDefine;
 
 /* ****************************************************************************************
  * Construct Method
  */
 
+/**
+ * 
+ */
+PinDefine::PinDefine(uint16_t port, uint16_t pin){
+  this->port = port;
+  this->pin = pin;
+  return;
+}
+
+/**
+ * 
+ */
+PinDefine::PinDefine(const PinDefine::PortPin& portPin){
+  this->port = portPin.port;
+  this->pin = portPin.pin;
+  return;
+}
+
+/**
+ * 
+ */
+PinDefine::PinDefine(void){
+  this->port = 0;
+  this->pin = 0;
+  return;
+}
+
 /* ****************************************************************************************
  * Operator Method
  */
 
+/**
+ * 
+ */
+PinDefine::operator PinDefine::PortPin(){
+  PortPin result;
+  result.port = this->port;
+  result.pin = this->pin;
+  return result;
+}
+
 /* ****************************************************************************************
  * Public Method <Static>
  */
-
-/**
- * 
- */
-void System::init(void){
-  System::component.lock();
-}
-
-/**
- * 
- */
-MemoryManager* System::memoryManager(void){
-  return System::component.mMemoryManager;
-}
-
-
+ 
 /* ****************************************************************************************
  * Public Method <Override>
  */

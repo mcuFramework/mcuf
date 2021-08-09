@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
+#include "../function/Consumer.hpp"
 #include "../hal/Base.hpp"
-#include "../function/BiConsumer.hpp"
+#include "../lang/Pointer.hpp"
 
 
 
@@ -55,28 +56,8 @@ class mcuf::hal::PinEdgeTrigger:
   /**
    * 
    */
-  public: virtual bool enableRise(void* attachment, void(*function)(PinEdgeTrigger*, void*)) = 0;
+  public: virtual void disableAll(void) = 0;
 
-  /**
-   * 
-   */
-  public: virtual bool enableRise(void* attachment, mcuf::function::BiConsumer<PinEdgeTrigger*, void*> function) = 0;
-  
-  /**
-   * 
-   */
-  public: virtual bool enableFall(void* attachment, void(*function)(PinEdgeTrigger*, void*)) = 0;
-  
-  /**
-   * 
-   */
-  public: virtual bool enableFall(void* attachment, mcuf::function::BiConsumer<PinEdgeTrigger*, void*> function) = 0;
-
-  /**
-   * 
-   */
-  public: virtual void disableRise(void) = 0;
-  
   /**
    * 
    */
@@ -85,7 +66,19 @@ class mcuf::hal::PinEdgeTrigger:
   /**
    * 
    */
-  public: virtual void disableAll(void) = 0;
+  public: virtual void disableRise(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual bool enableFall(mcuf::lang::Pointer* attachment, 
+                                  mcuf::function::Consumer<mcuf::lang::Pointer&> function) = 0;
+
+  /**
+   * 
+   */
+  public: virtual bool enableRise(mcuf::lang::Pointer* attachment, 
+                                  mcuf::function::Consumer<mcuf::lang::Pointer&> function) = 0;
 
   /* **************************************************************************************
    * Abstract method <Protected>

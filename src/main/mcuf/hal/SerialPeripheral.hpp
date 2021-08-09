@@ -12,8 +12,8 @@
  * Include
  */  
 #include "../hal/Base.hpp"
-#include "../function/Consumer.hpp"
-#include "../function/ConsumerEvent.hpp"
+#include "../function/BiConsumer.hpp"
+#include "../lang/Pointer.hpp"
 
 
 
@@ -119,8 +119,9 @@ class mcuf::hal::SerialPeripheral:
   /**
    * 
    */
-  public: virtual bool transfer(SerialPeripheral::Packet& packet, 
-                                mcuf::function::Consumer<Packet&>& function) = 0;
+  public: virtual bool transfer(Packet& packet,
+                                mcuf::lang::Pointer attachment,
+                                mcuf::function::BiConsumer<Packet, mcuf::lang::Pointer>& function) = 0;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -155,15 +156,6 @@ class mcuf::hal::SerialPeripheral:
   /* **************************************************************************************
    * Public Method
    */
-
-  /**
-   * 
-   */
-  public: bool transfer(SerialPeripheral::Packet& packet, 
-                        mcuf::function::ConsumerEvent<Packet&> function){
-    
-    return this->transfer(packet, function);
-  }
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -214,6 +206,10 @@ class mcuf::hal::SerialPeripheral::Packet:
   /* **************************************************************************************
    * Variable <Private>
    */
+  private: void* mTransferPointer;
+  private: void* mReceiverPointer;
+  private: uint16_t mLength;
+  private: uint16_t mDummy;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -230,7 +226,12 @@ class mcuf::hal::SerialPeripheral::Packet:
   /**
    * 
    */
-  public: Packet(void) = default;
+  public: Packet(void);
+
+  /**
+   * 
+   */
+  public: Packet(void* transferPointer, void* receiverPointer, uint16_t length, uint16_t dummy); 
   
   /**
    * 
@@ -252,6 +253,57 @@ class mcuf::hal::SerialPeripheral::Packet:
   /* **************************************************************************************
    * Public Method
    */
+
+  /**
+   * 
+   */
+  public: uint16_t dummy(void);
+  
+  /**
+   * 
+   */
+  public: Packet* dummy(uint16_t dummy);
+
+  /**
+   * 
+   */
+  public: uint16_t length(void);
+  
+  /**
+   * 
+   */
+  public: Packet* length(uint16_t length);
+
+  /**
+   * 
+   */
+  public: void* ReceiverPointer(void);
+
+  /**
+   * 
+   */
+  public: Packet* ReceiverPointer(void* pointer);
+
+  /**
+   * 
+   */
+  public: Packet* ReceiverPointer(mcuf::lang::Pointer pointer);  
+
+  /**
+   * 
+   */
+  public: void* TransferPointer(void);
+
+  /**
+   * 
+   */
+  public: Packet* TransferPointer(void* pointer);
+
+  /**
+   * 
+   */
+  public: Packet* TransferPointer(mcuf::lang::Pointer pointer);  
+
 
   /* **************************************************************************************
    * Protected Method <Static>

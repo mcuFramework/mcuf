@@ -73,6 +73,13 @@ class mcuf::lang::Pointer :
    * @param pointer pointer.
    */
   public: Pointer(void* pointer);
+
+  /**
+   * Construct a pointer.
+   * 
+   * @param pointer pointer at value.
+   */
+  public: Pointer(uint32_t pointer);
   
   /**
    * Disconstruct.

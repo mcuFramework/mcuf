@@ -53,14 +53,14 @@ class mcuf::hal::Base:
    */
   
   /**
-   * initialze hardware;
-   */
-  public: virtual bool init(void) = 0;
-  
-  /**
    * uninitialze hardware.
    */
   public: virtual bool deinit(void) = 0;
+
+  /**
+   * initialze hardware;
+   */
+  public: virtual bool init(void) = 0;
   
   /**
    * get hardware initialzed status.

@@ -38,7 +38,6 @@ class mcuf::hal::FlashStorage :
   /* **************************************************************************************
    * Subclass
    */
-  public: class Packet;
 
   /* **************************************************************************************
    * Variable <Public>
@@ -80,19 +79,24 @@ class mcuf::hal::FlashStorage :
   /**
    * 
    */
-  public: virtual bool write(Packet& packet,
-                             mcuf::function::Consumer<Packet&>& function) = 0;
+  public: virtual bool write(mcuf::lang::Memory& memory,
+                             mcuf::function::Consumer<mcuf::lang::Memory&>* function) = 0;
 
   /**
    * 
    */
-  public: virtual mcuf::lang::Pointer readDirect(uint32_t address, uint32_t size) = 0;
+  public: virtual mcuf::lang::Pointer readDirect(uint32_t address) = 0;
 
   /**
    * 
    */
-  public: virtual bool read(mcuf::hal::FlashStorage::Packet& packet,
-                            mcuf::function::Consumer<Packet&>& function) = 0;
+  public: virtual mcuf::lang::Memory readDirect(uint32_t address, uint32_t size) = 0;  
+
+  /**
+   * 
+   */
+  public: virtual bool read(mcuf::lang::Memory& memory,
+                            mcuf::function::Consumer<mcuf::lang::Memory&>* function) = 0;
 
   
   
@@ -129,142 +133,6 @@ class mcuf::hal::FlashStorage :
   /* **************************************************************************************
    * Public Method
    */
-
-  /**
-   * 
-   */
-  public: virtual bool write(Packet& packet, 
-                             mcuf::function::ConsumerEvent<Packet&> function){
-
-    return this->write(packet, function);
-  }
-
-  /**
-   * 
-   */
-  public: virtual bool read(Packet& packet, 
-                             mcuf::function::ConsumerEvent<Packet&> function){
-
-    return this->read(packet, function);
-  }  
-
-  /* **************************************************************************************
-   * Protected Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Protected Method
-   */
-
-  /* **************************************************************************************
-   * Private Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Private Method <Override>
-   */
-   
-  /* **************************************************************************************
-   * Private Method
-   */
-};
-
-
-
-/* ****************************************************************************************
- * Class FlashStorage::
- */  
-class mcuf::hal::FlashStorage::Packet:
-      public mcuf::lang::Object{
-
-  /* **************************************************************************************
-   * Subclass
-   */
-
-  /* **************************************************************************************
-   * Variable <Public>
-   */
-
-  /* **************************************************************************************
-   * Variable <Protected>
-   */
-
-  /* **************************************************************************************
-   * Variable <Private>
-   */
-  private: mcuf::lang::Memory mMemory;
-  private: uint32_t mAddress;
-  private: uint32_t mLength;
-
-
-  /* **************************************************************************************
-   * Abstract method <Public>
-   */
-  
-  /* **************************************************************************************
-   * Abstract method <Protected>
-   */
-
-  /* **************************************************************************************
-   * Construct Method
-   */
-
-  /**
-   * 
-   */
-  public: Packet(mcuf::lang::Memory& memory, uint32_t address, uint32_t length) :
-          mMemory(memory.pointer(), memory.length()){
-    
-    this->mAddress = address;
-    this->mLength = length;
-    return;
-  }
-  
-  /**
-   * 
-   */
-  public: virtual ~Packet() = default;
-  
-  /* **************************************************************************************
-   * Operator Method
-   */
-
-  /* **************************************************************************************
-   * Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Memory memory(){
-    return this->mMemory;
-  }
-
-  /**
-   * 
-   */
-  public: uint32_t address(void){
-    return this->mAddress;
-  }
-
-  /**
-   * 
-   */
-  public: uint32_t length(void){
-    return this->mLength;
-  }
 
   /* **************************************************************************************
    * Protected Method <Static>

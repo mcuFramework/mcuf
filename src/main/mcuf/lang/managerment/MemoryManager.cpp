@@ -8,7 +8,6 @@
 /* ****************************************************************************************
  * Include
  */  
-#include <stdio.h>
 #include "MemoryManager.hpp"
 #include "mcuf.h"
 
@@ -39,7 +38,7 @@ const uint16_t MemoryManager::BASE_BLOCK_SIZE = 1024;
 /**
  * 
  */
-MemoryManager::MemoryManager(mcuf::lang::Memory memory){
+MemoryManager::MemoryManager(mcuf::lang::Memory& memory){
   this->initEntityPool();
   this->initBlocks(memory);
 
@@ -62,7 +61,6 @@ MemoryManager::MemoryManager(mcuf::lang::Memory memory){
  * 
  */
 void* MemoryManager::alloc(size_t size){
-  printf("alloc[size:%d]\n", size);
   if(size > this->BASE_BLOCK_SIZE)
     return nullptr;
 
@@ -90,7 +88,6 @@ bool MemoryManager::free(void* pointer){
  * 
  */
 bool MemoryManager::free(void* pointer, size_t size){ 
-  printf("free[address:0x%08X, size:%d]\n", reinterpret_cast<int>(pointer), size);
   uint16_t blockShift = this->foundBlockShift(size);
 
   for(int i=blockShift; i<this->NUMBER_OF_BLOCK_QUANTITY; ++i){
@@ -109,14 +106,14 @@ bool MemoryManager::free(void* pointer, size_t size){
 /**
  * 
  */
-bool MemoryManager::free(Memory memory){
+bool MemoryManager::free(Memory& memory){
   return this->free(memory.pointer(), memory.length());
 }
 
 /**
  * 
  */
-bool MemoryManager::expansion(Memory memory){
+bool MemoryManager::expansion(Memory& memory){
   return true;
 }
 
@@ -259,7 +256,7 @@ Memory MemoryManager::allocEntityBlockMemory(void){
 /**
  * 
  */
-VectorBlockPool* MemoryManager::constructVectorBlockPool(Memory memory, uint16_t blockShift){
+VectorBlockPool* MemoryManager::constructVectorBlockPool(Memory& memory, uint16_t blockShift){
   if(memory.isEmpty())
     return nullptr;
 
@@ -331,7 +328,7 @@ int MemoryManager::foundBlockShift(size_t size){
 /**
  * 
  */
-void MemoryManager::initBlocks(Memory baseMemory){
+void MemoryManager::initBlocks(Memory& baseMemory){
   for(int i=0; i<this->NUMBER_OF_BLOCK_QUANTITY-1; i++){
     Memory memory = baseMemory.subMemory((this->BASE_BLOCK_SIZE * i), this->BASE_BLOCK_SIZE);
     this->blocks[i] = this->constructVectorBlockPool(memory, i);

@@ -35,6 +35,14 @@ Pointer::Pointer(void* pointer){
   return;
 }
 
+/**
+ * 
+ */
+Pointer::Pointer(uint32_t pointer){
+  this->mPointer = (uint8_t*)pointer;
+  return;
+}
+
 /* ****************************************************************************************
  * Operator Method
  */

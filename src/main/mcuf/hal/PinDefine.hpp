@@ -74,29 +74,17 @@ class mcuf::hal::PinDefine :
   /**
    * 
    */
-  public: PinDefine(uint16_t port, uint16_t pin){
-    this->port = port;
-    this->pin = pin;
-    return;
-  }
+  public: PinDefine(uint16_t port, uint16_t pin);
   
   /**
    * 
    */
-  public: PinDefine(const PinDefine::PortPin& portPin){
-    this->port = portPin.port;
-    this->pin = portPin.pin;
-    return;
-  }
+  public: PinDefine(const PinDefine::PortPin& portPin);
 
   /**
    * 
    */
-  public: PinDefine(void){
-    this->port = 0;
-    this->pin = 0;
-    return;
-  }
+  public: PinDefine(void);
 
   /**
    * 
@@ -110,12 +98,7 @@ class mcuf::hal::PinDefine :
   /**
    * 
    */
-  public: inline operator PinDefine::PortPin(){
-    PortPin result;
-    result.port = this->port;
-    result.pin = this->pin;
-    return result;
-  }
+  public: operator PinDefine::PortPin();
 
   /* **************************************************************************************
    * Public Method <Static>
