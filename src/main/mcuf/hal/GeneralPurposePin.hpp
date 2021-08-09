@@ -67,7 +67,7 @@ class mcuf::hal::GeneralPurposePin:
    */
   public: virtual void dir(bool dir) = 0;
   
-   /**
+  /**
    * 
    */
   public: virtual PinMode pinMode(void) = 0;
@@ -107,7 +107,7 @@ class mcuf::hal::GeneralPurposePin:
    *
    * @return false = low, true = high.
    */
-  public: virtual void value(void) = 0;
+  public: virtual bool value(void) = 0;
 
   /**
    * Set io pin to high or low.
