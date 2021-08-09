@@ -5,7 +5,7 @@
             "includePath": [
                 "${workspaceFolder}\\src\\main",
                 "${workspaceFolder}\\src\\test",
-                "${workspaceFolder}\\src\\resources",
+                //"${workspaceFolder}\\src\\resources",
                 "C:\\MinGW\\include"
             ],
             "defines": [
@@ -19,7 +19,7 @@
                 "path": [
                     "${workspaceFolder}\\src\\main",
                     "${workspaceFolder}\\src\\test",
-                    "${workspaceFolder}\\src\\resources",
+                    //"${workspaceFolder}\\src\\resources",
                     "C:\\MinGW\\include"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
