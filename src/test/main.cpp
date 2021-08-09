@@ -11,12 +11,9 @@ using namespace mcuf::io::channel;
 using namespace mcuf::hal;
 
 
-void foo(){
-  
-}
 
 
 int main(){
-
+  
   system("pause");
 }
