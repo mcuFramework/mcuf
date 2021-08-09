@@ -1,17 +1,10 @@
-/**
- * Copyright (c) 2020 ZxyKira
- * All rights reserved.
- * 
- * SPDX-License-Identifier: MIT
- */
-
-#ifndef MCUF_DA8BBDE6_3AFE_4070_945C_08F9966A0B20
-#define MCUF_DA8BBDE6_3AFE_4070_945C_08F9966A0B20
+#ifndef MCUF_BCEF8EF1_8E8F_4C7F_B575_41D3DEE77164
+#define MCUF_BCEF8EF1_8E8F_4C7F_B575_41D3DEE77164
 
 /* ****************************************************************************************
  * Include
  */  
-#include "Base.hpp"
+#include "../lang/Object.hpp"
 
 
 
@@ -20,22 +13,30 @@
  */  
 namespace mcuf{
   namespace hal{
-    class GeneralPurposeIO;
+    class GeneralPurposePin;
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class GeneralPurposeIO
+ * Class GeneralPurposeIO::Pin
  */  
-class mcuf::hal::GeneralPurposeIO : 
-      public mcuf::hal::Base{
+class mcuf::hal::GeneralPurposePin:
+      public mcuf::lang::Object{
 
   /* **************************************************************************************
    * Subclass
    */
 
+  /* **************************************************************************************
+   * Enum PinMode
+   */
+  public: enum PinMode{
+    NOT_SUPPORT,
+    PULL_UP,
+    PULL_DOWN,
+    OPEN_DRAIN,
+  };
+   
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -51,71 +52,70 @@ class mcuf::hal::GeneralPurposeIO :
   /* **************************************************************************************
    * Abstract method <Public>
    */
+  
+  /**
+   * Get io direction.
+   * 
+   * @return false = input, true = output.
+   */
+  public: virtual bool dir(void) = 0;
+
+  /**
+   * Set io direction.
+   * 
+   * @param dir false = input, true = output.
+   */
+  public: virtual void dir(bool dir) = 0;
+  
+   /**
+   * 
+   */
+  public: virtual PinMode pinMode(void) = 0;
 
   /**
    * 
    */
-  public: virtual uint32_t dir(uint32_t port) = 0;
+  public: virtual bool pinMode(PinMode mode) = 0; 
 
   /**
-   * 
+   * Set io pin to high.
    */
-  public: virtual void dir(uint32_t port, uint32_t value) = 0;
+  public: virtual void setHigh(void) = 0;
   
   /**
-   * 
+   * Set io direction to input.
    */
-  public: virtual void dirClear(uint32_t port, uint32_t mask) = 0;
-  
-  /**
-   * 
-   */
-  public: virtual void dirSet(uint32_t port, uint32_t mask) = 0;
+  public: virtual void setInput(void) = 0;
 
   /**
-   * Get port value.
-   * 
-   * @param port GPIO port.
-   * @return pin value 0 = low, 1 = high.
+   * Set io pin to low.
    */
-  public: virtual uint32_t pin(uint32_t port) = 0;
+  public: virtual void setLow(void) = 0;
+  
+  /**
+   * Set io direction to output.
+   */
+  public: virtual void setOutput(void) = 0;
 
   /**
-   * Set port value.
-   * 
-   * @param port GPIO port.
-   * @param value 0 = low, 
-   *              1 = high.
+   * Set io not logic.
    */
-  public: virtual void pin(uint32_t port, uint32_t value) = 0;
-  
-  /**
-   * Set port mask low.
-   * 
-   * @param port GPIO port.
-   * @param value 0 = No operation. 
-   *              1 = Set output bit low.
-   */
-  public: virtual void pinClear(uint32_t port, uint32_t mask) = 0;
+  public: virtual void setToggle(void) = 0;
 
   /**
-   * Set port mask high.
-   * 
-   * @param port GPIO port.
-   * @param value 0 = No operation. 
-   *              1 = Set output bit high.
+   * Get io pin.
+   *
+   * @return false = low, true = high.
    */
-  public: virtual void pinSet(uint32_t port, uint32_t mask) = 0;
-  
+  public: virtual void value(void) = 0;
+
   /**
-   * Set port mask toggle.
-   * 
-   * @param port GPIO port.
-   * @param value 0 = No operation. 
-   *              1 = Set output bit toggle.
+   * Set io pin to high or low.
+   *
+   * @param value false = low, true = high.
    */
-  public: virtual void pinToggle(uint32_t port, uint32_t mask) = 0;
-  
+  public: virtual void value(bool level) = 0;  
+
   /* **************************************************************************************
    * Abstract method <Protected>
    */
@@ -127,13 +127,13 @@ class mcuf::hal::GeneralPurposeIO :
   /**
    * 
    */
-  public: GeneralPurposeIO(void) = default;
-
+  public: GeneralPurposePin(void) = default;
+  
   /**
    * 
    */
-  public: virtual ~GeneralPurposeIO() = default;
-  
+  public: virtual ~GeneralPurposePin() = default;
+
   /* **************************************************************************************
    * Operator Method
    */
@@ -172,7 +172,7 @@ class mcuf::hal::GeneralPurposeIO :
    
   /* **************************************************************************************
    * Private Method
-   */  
+   */
 };
 
 
@@ -182,4 +182,4 @@ class mcuf::hal::GeneralPurposeIO :
  */ 
 
 
-#endif/* MCUF_DA8BBDE6_3AFE_4070_945C_08F9966A0B20 */
+#endif/* MCUF_BCEF8EF1_8E8F_4C7F_B575_41D3DEE77164 */

@@ -21,6 +21,7 @@
 #include "Base.hpp"
 #include "FlashStorage.hpp"
 #include "GeneralPurposeIO.hpp"
+#include "GeneralPurposePin.hpp"
 #include "InterIntegratedCircuit.hpp"
 #include "PinDefine.hpp"
 #include "PinEdgeTrigger.hpp"

@@ -528,6 +528,11 @@
               <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.hpp</FilePath>
             </File>
             <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.hpp</FilePath>
+            </File>
+            <File>
               <FileName>hal.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\hal.h</FilePath>
@@ -1046,7 +1051,7 @@
         <TargetCommonOption>
           <Device>ARMCM0P</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.7.0</PackID>
+          <PackID>ARM.CMSIS.5.8.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0+") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -1556,6 +1561,11 @@
               <FileName>GeneralPurposeIO.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.hpp</FilePath>
             </File>
             <File>
               <FileName>hal.h</FileName>
@@ -2076,7 +2086,7 @@
         <TargetCommonOption>
           <Device>ARMCM3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.7.0</PackID>
+          <PackID>ARM.CMSIS.5.8.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M3") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -2586,6 +2596,11 @@
               <FileName>GeneralPurposeIO.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.hpp</FilePath>
             </File>
             <File>
               <FileName>hal.h</FileName>
@@ -3106,7 +3121,7 @@
         <TargetCommonOption>
           <Device>ARMCM4</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.7.0</PackID>
+          <PackID>ARM.CMSIS.5.8.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -3616,6 +3631,11 @@
               <FileName>GeneralPurposeIO.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.hpp</FilePath>
             </File>
             <File>
               <FileName>hal.h</FileName>
@@ -4136,7 +4156,7 @@
         <TargetCommonOption>
           <Device>ARMCM4_FP</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.7.0</PackID>
+          <PackID>ARM.CMSIS.5.8.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -4646,6 +4666,11 @@
               <FileName>GeneralPurposeIO.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.hpp</FilePath>
             </File>
             <File>
               <FileName>hal.h</FileName>
@@ -5166,7 +5191,7 @@
         <TargetCommonOption>
           <Device>ARMCM7</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.7.0</PackID>
+          <PackID>ARM.CMSIS.5.8.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M7") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -5676,6 +5701,11 @@
               <FileName>GeneralPurposeIO.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.hpp</FilePath>
             </File>
             <File>
               <FileName>hal.h</FileName>
