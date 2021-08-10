@@ -4,39 +4,33 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
-#ifndef MCUF_D6A75B59_D8E5_4FB2_BAB8_41477CE17D21
-#define MCUF_D6A75B59_D8E5_4FB2_BAB8_41477CE17D21
-
+#ifndef MCUF_FC2DBE4C_D417_448E_8824_A88F579A5EF3
+#define MCUF_FC2DBE4C_D417_448E_8824_A88F579A5EF3
 /* ****************************************************************************************
  * Include
  */  
-#include "..\lang\Object.hpp"
-#include "..\lang\Pointer.hpp"
-
-
+#include "../lang/Memory.hpp"
+#include "../util/Queue.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  namespace lang{
-    class Memory;
+  namespace util{
+    class QueueMemory;
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class Integer
+ * Class Object
  */  
-class mcuf::lang::Memory:
-      public mcuf::lang::Object{
+class mcuf::util::QueueMemory :
+      public mcuf::util::Queue<mcuf::lang::Memory>{
 
   /* **************************************************************************************
    * Subclass
    */
-  
+
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -48,13 +42,13 @@ class mcuf::lang::Memory:
   /* **************************************************************************************
    * Variable <Private>
    */
-  protected: void* mPointer;
-  protected: uint32_t mLength;
+  private: mcuf::lang::Memory mMemory;
+  private: uint32_t mElementSize;
 
   /* **************************************************************************************
    * Abstract method <Public>
    */
-   
+
   /* **************************************************************************************
    * Abstract method <Protected>
    */
@@ -64,14 +58,14 @@ class mcuf::lang::Memory:
    */
 
   /**
-   * 
-   */  
-  public: Memory(void* pointer, uint32_t length);
-  
+   * Construct.
+   */
+  public: QueueMemory(mcuf::lang::Memory memory, uint32_t elementSize);
+
   /**
-   * 
-   */  
-  public: virtual ~Memory() = default;
+   * Disconstruct.
+   */
+  public: virtual ~QueueMemory(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -80,11 +74,6 @@ class mcuf::lang::Memory:
   /* **************************************************************************************
    * Public Method <Static>
    */
-  
-  /**
-   * 
-   */
-  public: static mcuf::lang::Memory nullMemory(void);
 
   /* **************************************************************************************
    * Public Method <Override>
@@ -93,75 +82,6 @@ class mcuf::lang::Memory:
   /* **************************************************************************************
    * Public Method
    */
-
-  /**
-   * 
-   */
-  public: Memory& clear(void);
-
-  /**
-   * 
-   * @return copy of number.
-   */
-  public: uint32_t copy(Memory& sourec);
-
-  /**
-   * 
-   * @return copy of number.
-   */
-  public: uint32_t copy(Memory& sourec, uint32_t shift);
-
-  /**
-   * 
-   * @return copy of number.
-   */
-  public: uint32_t copy(Memory& sourec, uint32_t srcStart, uint32_t srcLength);
-
-  /**
-   * 
-   * @return copy of number.
-   */
-  public: uint32_t copy(Memory& sourec, uint32_t shift, uint32_t srcStart, uint32_t srcLength);
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Pointer getPointer();
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Pointer getPointer(uint32_t offset);
-
-  /**
-   * 
-   */
-  public: bool isEmpty(void);
-
-  /**
-   * 
-   */
-  public: uint32_t length(void);
-
-  /**
-   * 
-   */
-  public: void* pointer(void);
-
-  /**
-   * 
-   */
-  public: void* pointer(uint32_t offset);
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Memory subMemory(uint32_t beginIndex);
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -185,15 +105,15 @@ class mcuf::lang::Memory:
    
   /* **************************************************************************************
    * Private Method
-   */
-    
+   */  
+
 };
 
 
 
 /* *****************************************************************************************
- *  End of file
+ * End of file
  */ 
 
 
-#endif/* MCUF_D6A75B59_D8E5_4FB2_BAB8_41477CE17D21 */
+#endif /* MCUF_FC2DBE4C_D417_448E_8824_A88F579A5EF3 */

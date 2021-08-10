@@ -8,13 +8,15 @@
 /* ****************************************************************************************
  * Include
  */  
+#include <string.h>
 #include "Memory.hpp"
 
-#include <string.h>
+#include "../lang/Math.hpp"
 
 /* ****************************************************************************************
  * Using
  */  
+using mcuf::lang::Math;
 using mcuf::lang::Memory;
 using mcuf::lang::Pointer;
 
@@ -59,7 +61,26 @@ Memory Memory::nullMemory(void){
  */
 Memory& Memory::clear(void){
   memset(this->mPointer, 0x00, this->mLength);
+
   return *this;
+}
+
+/**
+ * 
+ */
+uint32_t Memory::copy(Memory& sourec){
+  uint32_t result = Math::min(this->mLength, sourec.mLength);
+  memcpy(this->mPointer, sourec.mPointer, result);
+  return result;
+}
+
+/**
+ * 
+ */
+uint32_t Memory::copy(Memory& sourec, uint32_t shift){
+  uint32_t result = Math::min((this->mLength - shift), sourec.mLength);
+  memcpy(this->pointer(shift), sourec.mPointer, result);
+  return 0;
 }
 
 /**

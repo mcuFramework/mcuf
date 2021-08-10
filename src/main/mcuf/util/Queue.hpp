@@ -57,7 +57,7 @@ class mcuf::util::Queue:
    * Inserts the specified element into this queue if it is possible to do so immediately 
    * without violating capacity restrictions.
    * 
-   * @param E:e the element to add.
+   * @param e the element to add.
    * @return true if the element was added to this queue, else false.
    */
   public: virtual bool offer(E e) = 0;

@@ -87,6 +87,20 @@ uint32_t Math::ceil(uint32_t dividend, uint32_t divisor){
   return result;
 }
 
+/**
+ * 
+ */
+uint32_t Math::min(uint32_t a, uint32_t b){
+  return ((a)<(b)?(a):(b));
+}
+
+/**
+ * 
+ */
+uint32_t Math::max(uint32_t a, uint32_t b){
+  return ((a)>(b)?(a):(b));
+}
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */

@@ -8,13 +8,14 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "Object.hpp"
+#include "../util/QueueMemory.hpp"
  
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::lang::Object;
- 
+using mcuf::lang::Memory;
+using mcuf::util::QueueMemory;
+
 /* ****************************************************************************************
  * Construct Method
  */
@@ -22,22 +23,6 @@ using mcuf::lang::Object;
 /* ****************************************************************************************
  * Operator Method
  */
-
-/**
- * 
- */
-void* Object::operator new(size_t n){
-  return ::operator new(n);
-}
-
-/**
- * 
- */
-void* Object::operator new(size_t n, void* p){
-  return p;
-}
-
-
 
 /* ****************************************************************************************
  * Public Method <Static>
@@ -50,26 +35,9 @@ void* Object::operator new(size_t n, void* p){
 /* ****************************************************************************************
  * Public Method
  */
+QueueMemory::QueueMemory(Memory memory, uint32_t elementSize) :
+             mMemory(memory) {
 
-/**
- * 
- */
-bool Object::equal(Object* object){
-  return (this == object);
-}
-
-/**
- * 
- */
-bool Object::equal(Object& object){
-  return (this == &object);
-}
-
-/**
- * 
- */
-void Object::finalize(void){
-  delete this;
 }
 
 /* ****************************************************************************************

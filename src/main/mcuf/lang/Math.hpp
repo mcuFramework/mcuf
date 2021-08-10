@@ -124,6 +124,16 @@ class mcuf::lang::Math :
    */
   public: static uint32_t ceil(uint32_t dividend, uint32_t divisor);  
 
+  /**
+   * 
+   */
+  public: static uint32_t min(uint32_t a, uint32_t b);
+
+  /**
+   * 
+   */
+  public: static uint32_t max(uint32_t a, uint32_t b);
+
   /* **************************************************************************************
    * Public Method <Override>
    */

@@ -28,6 +28,7 @@
 #include "Map.hpp"
 #include "Pool.hpp"
 #include "Queue.hpp"
+#include "QueueMemory.hpp"
 #include "Scanner.hpp"
 #include "Stack.hpp"
 #include "Timer.hpp"
