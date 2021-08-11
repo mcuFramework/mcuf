@@ -44,12 +44,12 @@ class mcuf::lang::Pointer :
   /* **************************************************************************************
    * Variable <Protected>
    */
+  protected: void* mPointer;
 
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: uint8_t* mPointer;
-
+  
   /* **************************************************************************************
    * Abstract method <Public>
    */
@@ -115,6 +115,51 @@ class mcuf::lang::Pointer :
   /**
    * 
    */
+  public: Pointer& copy(const void* source, uint32_t length);
+
+  /**
+   * 
+   */
+  public: Pointer& copy(const void* source, uint32_t shift, uint32_t length);  
+
+  /**
+   * 
+   */
+  public: Pointer& copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);  
+
+  /**
+   * 
+   */
+  public: Pointer& copy(Pointer& source, uint32_t length);
+
+  /**
+   * 
+   */
+  public: Pointer& copy(Pointer& source, uint32_t shift, uint32_t length);  
+
+  /**
+   * 
+   */
+  public: Pointer& copy(Pointer& source, uint32_t shift, uint32_t start, uint32_t length);  
+
+  /**
+   * 
+   */
+  public: char getByte(uint32_t shift);
+
+  /**
+   * 
+   */
+  public: int getInteger(uint32_t shift);
+
+  /**
+   * 
+   */
+  public: short getShort(uint32_t shift);
+
+  /**
+   * 
+   */
   public: Pointer getPointer(void);
 
   /**
@@ -125,7 +170,7 @@ class mcuf::lang::Pointer :
   /**
    * 
    */
-  public: uint32_t getValue(void);
+  public: uint32_t getPointerValue(void);
 
   /**
    * 

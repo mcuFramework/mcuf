@@ -61,7 +61,6 @@ Memory Memory::nullMemory(void){
  */
 Memory& Memory::clear(void){
   memset(this->mPointer, 0x00, this->mLength);
-
   return *this;
 }
 
@@ -80,21 +79,49 @@ uint32_t Memory::copy(Memory& sourec){
 uint32_t Memory::copy(Memory& sourec, uint32_t shift){
   uint32_t result = Math::min((this->mLength - shift), sourec.mLength);
   memcpy(this->pointer(shift), sourec.mPointer, result);
-  return 0;
+  return result;
 }
 
 /**
  * 
  */
-Pointer Memory::getPointer(){
-  return Pointer(this->mPointer);
+uint32_t Memory::copy(Memory& sourec, uint32_t start, uint32_t length){
+  if((start + length) > sourec.mLength){
+    if(start > sourec.mLength)
+      return 0;
+    
+    length = (sourec.mLength - start);
+  }
+
+  length = Math::min(this->mLength, sourec.mLength);
+  memcpy(this->mPointer, sourec.pointer(start), length);
+  return length;
 }
 
 /**
  * 
  */
-Pointer Memory::getPointer(uint32_t offse){
-  return Pointer(this->pointer(offse));
+uint32_t Memory::copy(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length){
+  if((start + length) > sourec.mLength){
+    if(start > sourec.mLength)
+      return 0;
+    
+    length = (sourec.mLength - start);
+  }
+
+  if(shift > this->mLength)
+    return 0;
+
+  length = Math::min((this->mLength - shift), length);
+  memcpy(this->pointer(shift), sourec.pointer(start), length);
+  return length;
+}
+
+/**
+ * 
+ */
+mcuf::lang::Pointer& Memory::getPointer(void){
+  return *this;
 }
 
 /**
@@ -109,21 +136,6 @@ bool Memory::isEmpty(void){
  */
 uint32_t Memory::length(void){
   return this->mLength;
-}
-
-
-/**
- * 
- */
-void* Memory::pointer(void){
-  return this->mPointer;
-}
-
-/**
- * 
- */
-void* Memory::pointer(uint32_t offset){
-  return &((uint8_t*)this->mPointer)[offset];
 }
 
 /**

@@ -89,17 +89,12 @@ class mcuf::util::Queue:
   /**
    * Construct.
    */
-  public: Queue(void):
-          Collection<E>(){
-    return;
-  }
+  public: Queue(void) = default;
 
   /**
    * Disconstruct.
    */
-  public: ~Queue(){
-    return;
-  }
+  public: virtual ~Queue() = default;
 
   /* **************************************************************************************
    * Operator Method

@@ -30,8 +30,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Integer
  */  
-class mcuf::lang::Memory:
-      public mcuf::lang::Object{
+class mcuf::lang::Memory :
+      public mcuf::lang::Pointer{
 
   /* **************************************************************************************
    * Subclass
@@ -45,11 +45,11 @@ class mcuf::lang::Memory:
    * Variable <Protected>
    */
 
+  protected: uint32_t mLength;
+
   /* **************************************************************************************
    * Variable <Private>
    */
-  protected: void* mPointer;
-  protected: uint32_t mLength;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -115,23 +115,18 @@ class mcuf::lang::Memory:
    * 
    * @return copy of number.
    */
-  public: uint32_t copy(Memory& sourec, uint32_t srcStart, uint32_t srcLength);
+  public: uint32_t copy(Memory& sourec, uint32_t start, uint32_t length);
 
   /**
    * 
    * @return copy of number.
    */
-  public: uint32_t copy(Memory& sourec, uint32_t shift, uint32_t srcStart, uint32_t srcLength);
+  public: uint32_t copy(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length);
 
   /**
    * 
    */
-  public: mcuf::lang::Pointer getPointer();
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Pointer getPointer(uint32_t offset);
+  public: mcuf::lang::Pointer& getPointer(void);
 
   /**
    * 
@@ -142,16 +137,6 @@ class mcuf::lang::Memory:
    * 
    */
   public: uint32_t length(void);
-
-  /**
-   * 
-   */
-  public: void* pointer(void);
-
-  /**
-   * 
-   */
-  public: void* pointer(uint32_t offset);
 
   /**
    * 

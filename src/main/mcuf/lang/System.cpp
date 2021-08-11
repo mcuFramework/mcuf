@@ -43,26 +43,52 @@ void * operator new[](size_t n){
   return System::memoryManager()->alloc(n);
 }
 
-
-
 /**
  * 
  */
 void operator delete (void* ptr){
-  if(System::memoryManager() == nullptr)
-    free(ptr);
+  if(System::memoryManager() != nullptr){
+    if(System::memoryManager()->free(ptr))
+      return;
+  }
 
-  bool result = System::memoryManager()->free(ptr);
+  free(ptr);
+}
+
+/**
+ * 
+ */
+void operator delete[] (void* ptr){
+  if(System::memoryManager() != nullptr){
+    if(System::memoryManager()->free(ptr))
+      return;
+  }
+
+  free(ptr);
 }
 
 /**
  * 
  */
 void operator delete (void* ptr, size_t size){
-  if(System::memoryManager() == nullptr)
-    free(ptr);
+  if(System::memoryManager() != nullptr){
+    if(System::memoryManager()->free(ptr, size))
+      return;
+  }
 
-  bool result = System::memoryManager()->free(ptr, size);
+  free(ptr);
+}
+
+/**
+ * 
+ */
+void operator delete[] (void* ptr, size_t size){
+  if(System::memoryManager() != nullptr){
+    if(System::memoryManager()->free(ptr, size))
+      return;
+  }
+
+  free(ptr);
 }
 
 /* ****************************************************************************************

@@ -8,6 +8,7 @@
 /* ****************************************************************************************
  * Include
  */ 
+#include <string.h>
 #include "Pointer.hpp"
 
 /* ****************************************************************************************
@@ -78,8 +79,70 @@ Pointer Pointer::nullPointer(void){
 /**
  * 
  */
-Pointer Pointer::getPointer(void){
+Pointer& Pointer::copy(const void* source, uint32_t length){
+  memcpy(this->mPointer, source, length);
   return *this;
+}
+
+/**
+ * 
+ */
+Pointer& Pointer::copy(const void* source, uint32_t shift, uint32_t length){
+  memcpy(this->pointer(shift), source, length);
+  return *this;
+}
+
+/**
+ * 
+ */
+Pointer& Pointer::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
+  memcpy(this->pointer(shift), &((uint8_t*)source)[start], length);
+  return *this;
+}
+
+/**
+ * 
+ */
+Pointer& Pointer::copy(Pointer& source, uint32_t length){
+  memcpy(this->mPointer, source.mPointer, length);
+  return *this;
+}
+
+/**
+ * 
+ */
+Pointer& Pointer::copy(Pointer& source, uint32_t shift, uint32_t length){
+  memcpy(this->pointer(shift), source.mPointer, length);
+  return *this;
+}
+
+/**
+ * 
+ */
+Pointer& Pointer::copy(Pointer& source, uint32_t shift, uint32_t start, uint32_t length){
+  memcpy(this->pointer(shift), source.pointer(start), length);
+  return *this;
+}
+
+/**
+ * 
+ */
+char Pointer::getByte(uint32_t shift){
+  return *(char*)this->pointer(shift);
+}
+
+/**
+ * 
+ */
+int Pointer::getInteger(uint32_t shift){
+  return *(int*)this->pointer(shift);
+}
+
+/**
+ * 
+ */
+short Pointer::getShort(uint32_t shift){
+  return *(short*)this->pointer(shift);
 }
 
 /**
@@ -92,7 +155,7 @@ Pointer Pointer::getPointer(uint32_t offset){
 /**
  * 
  */
-uint32_t Pointer::getValue(void){
+uint32_t Pointer::getPointerValue(void){
   return reinterpret_cast<uint32_t>(this->mPointer);
 }
 
