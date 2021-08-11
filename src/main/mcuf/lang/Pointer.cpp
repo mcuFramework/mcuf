@@ -103,30 +103,6 @@ Pointer& Pointer::copy(const void* source, uint32_t shift, uint32_t start, uint3
 /**
  * 
  */
-Pointer& Pointer::copy(Pointer& source, uint32_t length){
-  memcpy(this->mPointer, source.mPointer, length);
-  return *this;
-}
-
-/**
- * 
- */
-Pointer& Pointer::copy(Pointer& source, uint32_t shift, uint32_t length){
-  memcpy(this->pointer(shift), source.mPointer, length);
-  return *this;
-}
-
-/**
- * 
- */
-Pointer& Pointer::copy(Pointer& source, uint32_t shift, uint32_t start, uint32_t length){
-  memcpy(this->pointer(shift), source.pointer(start), length);
-  return *this;
-}
-
-/**
- * 
- */
 char Pointer::getByte(uint32_t shift){
   return *(char*)this->pointer(shift);
 }

@@ -68,7 +68,7 @@ class mcuf::lang::HeapMemory:
   /**
    * 
    */  
-  public: ~HeapMemory();
+  public: ~HeapMemory(void);
 
   /* **************************************************************************************
    * Operator Method

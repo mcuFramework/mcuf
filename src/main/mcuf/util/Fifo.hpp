@@ -45,9 +45,10 @@ class mcuf::util::Fifo :
    */
   private: mcuf::lang::Memory mMemory;
   private: uint16_t mElementSize;
-  private: uint16_t mTail;
+  private: uint16_t mLength;
   private: uint16_t mHead;
-  private: uint16_t mCapacity;
+  private: uint16_t mTail;
+  private: bool mEmpty;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -64,7 +65,7 @@ class mcuf::util::Fifo :
   /**
    * Construct.
    */
-  public: Fifo(mcuf::lang::Memory memory, uint32_t elementSize);
+  public: Fifo(mcuf::lang::Memory& memory, uint32_t elementSize);
 
   /**
    * Disconstruct.
@@ -97,7 +98,7 @@ class mcuf::util::Fifo :
    *
    * @action - The action to be performed for each element.
    */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory>& action) = 0;
+  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory>& action);
 
   /**
    * Returns true if this collection contains no elements.
@@ -116,11 +117,6 @@ class mcuf::util::Fifo :
   /* **************************************************************************************
    * Public Method
    */
-
-  /**
-   * 
-   */
-  public: void flush(void);
 
   /**
    * 
@@ -145,12 +141,12 @@ class mcuf::util::Fifo :
   /**
    * 
    */
-  public: bool insert(mcuf::lang::Memory memory);
+  public: bool insertHead(mcuf::lang::Memory& memory);
 
   /**
    * 
    */
-  public: bool insert(void* pointer);
+  public: bool insertHead(void* pointer);
 
   /**
    * 
@@ -160,12 +156,17 @@ class mcuf::util::Fifo :
   /**
    * 
    */
-  public: bool pop(mcuf::lang::Memory memory);
+  public: uint32_t length(void);
 
   /**
    * 
    */
-  public: bool pop(void* pointer);
+  public: bool popTail(mcuf::lang::Memory& memory);
+
+  /**
+   * 
+   */
+  public: bool popTail(void* pointer);  
 
   /* **************************************************************************************
    * Protected Method <Static>

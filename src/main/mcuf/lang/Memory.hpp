@@ -90,6 +90,21 @@ class mcuf::lang::Memory :
    * Public Method <Override>
    */
 
+  /**
+   * 
+   */
+  public: virtual Pointer& copy(const void* source, uint32_t length);
+
+  /**
+   * 
+   */
+  public: virtual Pointer& copy(const void* source, uint32_t shift, uint32_t length);
+
+  /**
+   * 
+   */
+  public: virtual Pointer& copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);
+
   /* **************************************************************************************
    * Public Method
    */
@@ -103,25 +118,25 @@ class mcuf::lang::Memory :
    * 
    * @return copy of number.
    */
-  public: uint32_t copy(Memory& sourec);
+  public: Memory& copyMemory(Memory& sourec);
 
   /**
    * 
    * @return copy of number.
    */
-  public: uint32_t copy(Memory& sourec, uint32_t shift);
+  public: Memory& copyMemory(Memory& sourec, uint32_t shift);
 
   /**
    * 
    * @return copy of number.
    */
-  public: uint32_t copy(Memory& sourec, uint32_t start, uint32_t length);
+  public: Memory& copyMemory(Memory& sourec, uint32_t shift, uint32_t length);
 
   /**
    * 
    * @return copy of number.
    */
-  public: uint32_t copy(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length);
+  public: Memory& copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length);
 
   /**
    * 

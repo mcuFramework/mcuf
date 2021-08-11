@@ -52,6 +52,43 @@ Memory Memory::nullMemory(void){
  * Public Method <Override>
  */
 
+/**
+ * 
+ */
+Pointer& Memory::copy(const void* source, uint32_t length){
+  if(length > this->mLength)
+    return Pointer::copy(source, this->mLength);
+
+  return Pointer::copy(source, length);
+}
+
+/**
+ * 
+ */
+Pointer& Memory::copy(const void* source, uint32_t shift, uint32_t length){
+  if((shift + length) > this->mLength){
+    if(shift > this->mLength)
+      return *this;
+    
+    length = this->mLength - shift;
+  }
+
+  return Pointer::copy(source, shift, length);
+}
+
+/**
+ * 
+ */
+Pointer& Memory::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
+  if(shift > this->mLength)
+    return *this;
+  
+  if(length > (this->mLength - shift))
+    length = (this->mLength - shift);
+  
+  return Pointer::copy(source, shift, start, length);
+}
+
 /* ****************************************************************************************
  * Public Method
  */
@@ -67,54 +104,33 @@ Memory& Memory::clear(void){
 /**
  * 
  */
-uint32_t Memory::copy(Memory& sourec){
-  uint32_t result = Math::min(this->mLength, sourec.mLength);
-  memcpy(this->mPointer, sourec.mPointer, result);
-  return result;
+Memory& Memory::copyMemory(Memory& sourec){
+  this->copy(sourec.mPointer, sourec.mLength);
+  return *this;
 }
 
 /**
  * 
  */
-uint32_t Memory::copy(Memory& sourec, uint32_t shift){
-  uint32_t result = Math::min((this->mLength - shift), sourec.mLength);
-  memcpy(this->pointer(shift), sourec.mPointer, result);
-  return result;
+Memory& Memory::copyMemory(Memory& sourec, uint32_t shift){
+  this->copy(sourec.mPointer, shift, sourec.mLength);
+  return *this;
 }
 
 /**
  * 
  */
-uint32_t Memory::copy(Memory& sourec, uint32_t start, uint32_t length){
-  if((start + length) > sourec.mLength){
-    if(start > sourec.mLength)
-      return 0;
-    
-    length = (sourec.mLength - start);
-  }
-
-  length = Math::min(this->mLength, sourec.mLength);
-  memcpy(this->mPointer, sourec.pointer(start), length);
-  return length;
+Memory& Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t length){
+  this->copy(sourec.mPointer, shift, length);
+  return *this;
 }
 
 /**
  * 
  */
-uint32_t Memory::copy(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length){
-  if((start + length) > sourec.mLength){
-    if(start > sourec.mLength)
-      return 0;
-    
-    length = (sourec.mLength - start);
-  }
-
-  if(shift > this->mLength)
-    return 0;
-
-  length = Math::min((this->mLength - shift), length);
-  memcpy(this->pointer(shift), sourec.pointer(start), length);
-  return length;
+Memory& Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length){
+  this->copy(sourec.mPointer, shift, start, length);
+  return *this;
 }
 
 /**

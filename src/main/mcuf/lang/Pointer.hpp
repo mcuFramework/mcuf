@@ -120,27 +120,12 @@ class mcuf::lang::Pointer :
   /**
    * 
    */
-  public: Pointer& copy(const void* source, uint32_t shift, uint32_t length);  
+  public: Pointer& copy(const void* source, uint32_t shift, uint32_t length);
 
   /**
    * 
    */
-  public: Pointer& copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);  
-
-  /**
-   * 
-   */
-  public: Pointer& copy(Pointer& source, uint32_t length);
-
-  /**
-   * 
-   */
-  public: Pointer& copy(Pointer& source, uint32_t shift, uint32_t length);  
-
-  /**
-   * 
-   */
-  public: Pointer& copy(Pointer& source, uint32_t shift, uint32_t start, uint32_t length);  
+  public: Pointer& copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);
 
   /**
    * 
