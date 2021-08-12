@@ -8,7 +8,6 @@
 #ifndef MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C
 #define MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C
 
-
 /* ****************************************************************************************
  * Include
  */  
@@ -92,6 +91,13 @@ class mcuf::lang::System:
    * 
    */
   public: static mcuf::lang::managerment::MemoryManager* memoryManager(void);
+
+  /**
+   * 
+   */
+  public: static void throwSystemError(const char* message){
+    while(1);
+  }
 
   /* **************************************************************************************
    * Public Method <Override>
