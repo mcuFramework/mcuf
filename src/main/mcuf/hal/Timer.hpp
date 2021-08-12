@@ -66,7 +66,7 @@ class mcuf::hal::Timer :
   /**
    * 
    */
-  public: virtual int getRemaining(void) = 0;
+  public: virtual bool isDone(void) = 0;
 
   /**
    * 
