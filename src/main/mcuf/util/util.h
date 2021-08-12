@@ -25,6 +25,7 @@
 #include "Fifo.hpp"
 #include "FixedQueue.hpp"
 #include "HeapBlockPool.hpp"
+#include "HeapFifo.hpp"
 #include "HeapVectorBlockPool.hpp"
 #include "Map.hpp"
 #include "Pool.hpp"

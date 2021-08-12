@@ -25,6 +25,20 @@ using mcuf::util::Fifo;
 /**
  * 
  */
+Fifo::Fifo(void* memory, uint32_t size, uint32_t elementSize) :
+      mMemory(memory, size){
+
+  this->mElementSize = elementSize;
+  this->mLength = (size / elementSize);
+  this->mHead = 0;
+  this->mTail = 0;
+  this->mEmpty = true;
+  return;
+}
+
+/**
+ * 
+ */
 Fifo::Fifo(Memory& memory, uint32_t elementSize) :
       mMemory(memory){
   

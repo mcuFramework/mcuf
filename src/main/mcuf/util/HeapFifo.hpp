@@ -4,29 +4,29 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_FC2DBE4C_D417_448E_8824_A88F579A5EF3
-#define MCUF_FC2DBE4C_D417_448E_8824_A88F579A5EF3
+
+#ifndef MCUF_D05E4481_5CDE_46E0_A44E_D0955341F7B6
+#define MCUF_D05E4481_5CDE_46E0_A44E_D0955341F7B6
+
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
-#include "../lang/Memory.hpp"
-#include "../util/Collection.hpp"
+#include "Fifo.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace util{
-    class Fifo;
+    class HeapFifo;
   }
 }
 
 /* ****************************************************************************************
  * Class Object
  */  
-class mcuf::util::Fifo :
-      public mcuf::util::Collection<mcuf::lang::Memory>{
+class mcuf::util::HeapFifo : 
+      public mcuf::util::Fifo{
 
   /* **************************************************************************************
    * Subclass
@@ -39,16 +39,10 @@ class mcuf::util::Fifo :
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: mcuf::lang::Memory mMemory;
 
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: uint16_t mElementSize;
-  private: uint16_t mLength;
-  private: uint16_t mHead;
-  private: uint16_t mTail;
-  private: bool mEmpty;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -65,17 +59,12 @@ class mcuf::util::Fifo :
   /**
    * Construct.
    */
-  public: Fifo(void* memory, uint32_t size, uint32_t elementSize);
-
-  /**
-   * Construct.
-   */
-  public: Fifo(mcuf::lang::Memory& memory, uint32_t elementSize);
+  public: HeapFifo(uint32_t elementSize, uint32_t capacity);
 
   /**
    * Disconstruct.
    */
-  public: virtual ~Fifo(void) = default;
+  public: ~HeapFifo(void);
 
   /* **************************************************************************************
    * Operator Method
@@ -89,89 +78,9 @@ class mcuf::util::Fifo :
    * Public Method <Override>
    */
 
-  /**
-   * Removes all of the elements from this collection. The collection will be empty after 
-   * this method returns.
-   */
-  public: virtual void clear(void) override;
-
-  /**
-   * Performs the given action for each element of the Iterable until all elements have 
-   * been processed or the action throws an exception. Unless otherwise specified by the 
-   * implementing class, actions are performed in the order of iteration (if an iteration 
-   * order is specified). 
-   *
-   * @action - The action to be performed for each element.
-   */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory>& action);
-
-  /**
-   * Returns true if this collection contains no elements.
-   * 
-   * @return true if this collection contains no elements.
-   */
-  public: virtual bool isEmpty(void) override;
-
-  /**
-   * Returns the number of elements in this collection.
-   * 
-   * @return the number of elements in this collection.
-   */
-  public: virtual uint32_t size(void) override;
-
   /* **************************************************************************************
    * Public Method
    */
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Memory getHead(void);
-
-  /**
-   * 
-   */
-  public: void* getHeadPointer(void);
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Memory getTail(void);
-
-  /**
-   * 
-   */
-  public: void* getTailPointer(void);  
-
-  /**
-   * 
-   */
-  public: bool insertHead(mcuf::lang::Memory& memory);
-
-  /**
-   * 
-   */
-  public: bool insertHead(void* pointer);
-
-  /**
-   * 
-   */
-  public: bool isFull(void);
-
-  /**
-   * 
-   */
-  public: uint32_t length(void);
-
-  /**
-   * 
-   */
-  public: bool popTail(mcuf::lang::Memory& memory);
-
-  /**
-   * 
-   */
-  public: bool popTail(void* pointer);  
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -204,6 +113,4 @@ class mcuf::util::Fifo :
 /* *****************************************************************************************
  * End of file
  */ 
-
-
-#endif /* MCUF_FC2DBE4C_D417_448E_8824_A88F579A5EF3 */
+#endif /* MCUF_D05E4481_5CDE_46E0_A44E_D0955341F7B6 */
