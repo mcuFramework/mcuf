@@ -58,7 +58,27 @@ class mcuf::hal::SerialPort :
   /**
    * 
    */
-  public: virtual bool open(void) = 0;
+  public: virtual bool abortRead(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual bool abortWrite(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual int available(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual uint32_t baudrate(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual uint32_t baudrate(uint32_t rate) = 0;
 
   /**
    * 
@@ -73,31 +93,21 @@ class mcuf::hal::SerialPort :
   /**
    * 
    */
-  public: virtual uint32_t baudrate(uint32_t rate) = 0;
-  
-  /**
-   * 
-   */
-  public: virtual uint32_t baudrate(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual int available(void) = 0;
+  public: virtual bool open(void) = 0;
 
   /**
    * 
    */
   public: virtual bool read(mcuf::lang::Memory& memory, 
-                            mcuf::lang::Pointer* attachment,
-                            mcuf::function::BiConsumer<mcuf::lang::Memory&, mcuf::lang::Pointer&>* function) = 0;
+                            void* attachment,
+                            mcuf::function::BiConsumer<mcuf::lang::Memory&, void*>* function) = 0;
 
   /**
    * 
    */
   public: virtual bool write(mcuf::lang::Memory& memory, 
-                             mcuf::lang::Pointer* attachment,
-                             mcuf::function::BiConsumer<mcuf::lang::Memory&, mcuf::lang::Pointer&>* function) = 0;
+                             void* attachment,
+                             mcuf::function::BiConsumer<mcuf::lang::Memory&, void*>* function) = 0;
   
   /* **************************************************************************************
    * Abstract method <Protected>

@@ -82,8 +82,8 @@ class mcuf::hal::Timer :
    * 
    */
   public: virtual bool startAtTick(uint32_t tick,
-                                   mcuf::lang::Pointer* attachment,  
-                                   mcuf::function::Consumer<mcuf::lang::Pointer&>* execute) = 0;
+                                   void* attachment,  
+                                   mcuf::function::Consumer<void*>* execute) = 0;
   
   /**
    * 
@@ -94,8 +94,8 @@ class mcuf::hal::Timer :
    * 
    */
   public: virtual bool startAtTime(uint32_t microSecond, 
-                                   mcuf::lang::Pointer* attachment,  
-                                   mcuf::function::Consumer<mcuf::lang::Pointer&>* execute) = 0;
+                                   void* attachment,  
+                                   mcuf::function::Consumer<void*>* execute) = 0;
   
   /* **************************************************************************************
    * Abstract method <Protected>

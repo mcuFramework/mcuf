@@ -512,11 +512,6 @@
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\hal\PinDefine.cpp</FilePath>
             </File>
-            <File>
-              <FileName>SerialPeripheral.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.cpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -1321,11 +1316,6 @@
               <FileName>PinDefine.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\hal\PinDefine.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>SerialPeripheral.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -2132,11 +2122,6 @@
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\hal\PinDefine.cpp</FilePath>
             </File>
-            <File>
-              <FileName>SerialPeripheral.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.cpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -2941,11 +2926,6 @@
               <FileName>PinDefine.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\hal\PinDefine.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>SerialPeripheral.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3752,11 +3732,6 @@
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\hal\PinDefine.cpp</FilePath>
             </File>
-            <File>
-              <FileName>SerialPeripheral.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.cpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -4561,11 +4536,6 @@
               <FileName>PinDefine.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\hal\PinDefine.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>SerialPeripheral.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.cpp</FilePath>
             </File>
           </Files>
         </Group>

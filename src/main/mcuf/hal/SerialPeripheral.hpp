@@ -37,7 +37,12 @@ class mcuf::hal::SerialPeripheral:
   /* **************************************************************************************
    * Subclass
    */
-  public: class Packet;
+  public: struct Packet{
+    void* mTransferPointer;
+    void* mReceiverPointer;
+    uint16_t mLength;
+    uint16_t mDummy;
+  };
 
   /* **************************************************************************************
    * Enum Polarity
@@ -74,37 +79,7 @@ class mcuf::hal::SerialPeripheral:
   /**
    * 
    */
-  public: virtual bool isBusy(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual bool lsb(bool enable) = 0;
-
-  /**
-   * 
-   */
-  public: virtual bool lsb(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual bool polarity(Polarity set) = 0;
-
-  /**
-   * 
-   */
-  public: virtual Polarity polarity(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual bool phase(Phase set) = 0;
-
-  /**
-   * 
-   */
-  public: virtual Phase phase(void) = 0;
+  public: virtual uint32_t clockRate(void) = 0;
 
   /**
    * 
@@ -114,14 +89,44 @@ class mcuf::hal::SerialPeripheral:
   /**
    * 
    */
-  public: virtual uint32_t clockRate(void) = 0;
+  public: virtual bool isBusy(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual bool lsb(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual bool lsb(bool enable) = 0;
+
+  /**
+   * 
+   */
+  public: virtual Phase phase(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual bool phase(Phase set) = 0;
+
+  /**
+   * 
+   */
+  public: virtual Polarity polarity(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual bool polarity(Polarity set) = 0;
 
   /**
    * 
    */
   public: virtual bool transfer(Packet& packet,
-                                mcuf::lang::Pointer attachment,
-                                mcuf::function::BiConsumer<Packet, mcuf::lang::Pointer>& function) = 0;
+                                void* attachment,
+                                mcuf::function::BiConsumer<Packet, void*>& function) = 0;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -156,154 +161,6 @@ class mcuf::hal::SerialPeripheral:
   /* **************************************************************************************
    * Public Method
    */
-
-  /* **************************************************************************************
-   * Protected Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Protected Method
-   */
-
-  /* **************************************************************************************
-   * Private Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Private Method <Override>
-   */
-   
-  /* **************************************************************************************
-   * Private Method
-   */
-    
-};
-
-
-
-/* ****************************************************************************************
- * Class SerialPeripheral
- */  
-class mcuf::hal::SerialPeripheral::Packet:
-      public mcuf::lang::Object{
-
-  /* **************************************************************************************
-   * Subclass
-   */
-
-  /* **************************************************************************************
-   * Variable <Public>
-   */
-
-  /* **************************************************************************************
-   * Variable <Protected>
-   */
-
-  /* **************************************************************************************
-   * Variable <Private>
-   */
-  private: void* mTransferPointer;
-  private: void* mReceiverPointer;
-  private: uint16_t mLength;
-  private: uint16_t mDummy;
-
-  /* **************************************************************************************
-   * Abstract method <Public>
-   */
-   
-  /* **************************************************************************************
-   * Abstract method <Protected>
-   */
-
-  /* **************************************************************************************
-   * Construct Method
-   */
-
-  /**
-   * 
-   */
-  public: Packet(void);
-
-  /**
-   * 
-   */
-  public: Packet(void* transferPointer, void* receiverPointer, uint16_t length, uint16_t dummy); 
-  
-  /**
-   * 
-   */
-  public: virtual ~Packet() = default;
-
-  /* **************************************************************************************
-   * Operator Method
-   */
-
-  /* **************************************************************************************
-   * Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-
-  /**
-   * 
-   */
-  public: uint16_t dummy(void);
-  
-  /**
-   * 
-   */
-  public: Packet* dummy(uint16_t dummy);
-
-  /**
-   * 
-   */
-  public: uint16_t length(void);
-  
-  /**
-   * 
-   */
-  public: Packet* length(uint16_t length);
-
-  /**
-   * 
-   */
-  public: void* ReceiverPointer(void);
-
-  /**
-   * 
-   */
-  public: Packet* ReceiverPointer(void* pointer);
-
-  /**
-   * 
-   */
-  public: Packet* ReceiverPointer(mcuf::lang::Pointer pointer);  
-
-  /**
-   * 
-   */
-  public: void* TransferPointer(void);
-
-  /**
-   * 
-   */
-  public: Packet* TransferPointer(void* pointer);
-
-  /**
-   * 
-   */
-  public: Packet* TransferPointer(mcuf::lang::Pointer pointer);  
-
 
   /* **************************************************************************************
    * Protected Method <Static>
