@@ -103,7 +103,7 @@ class mcuf::util::Fifo :
    *
    * @action - The action to be performed for each element.
    */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory>& action);
+  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory>& action) override;
 
   /**
    * Returns true if this collection contains no elements.
