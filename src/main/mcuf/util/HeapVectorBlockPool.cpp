@@ -57,6 +57,15 @@ HeapVectorBlockPool::~HeapVectorBlockPool(void){
  * Public Method
  */
 
+/**
+ * 
+ */
+void HeapVectorBlockPool::expansion(uint32_t capacity){
+  HeapVectorBlockPool* p = new HeapVectorBlockPool(this->mElementSize, capacity);
+  this->vectorAdd(p);
+  return;
+}
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */

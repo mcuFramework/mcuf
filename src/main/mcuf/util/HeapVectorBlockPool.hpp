@@ -87,6 +87,11 @@ class mcuf::util::HeapVectorBlockPool :
   /* **************************************************************************************
    * Public Method
    */
+  
+  /**
+   * 
+   */
+  public: void expansion(uint32_t capacity);
 
   /* **************************************************************************************
    * Protected Method <Static>
