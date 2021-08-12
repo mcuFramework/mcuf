@@ -11,8 +11,7 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../function/BiConsumer.hpp"
-#include "../function/BiConsumerEvent.hpp"
+#include "../function/Consumer.hpp"
 #include "../hal/Base.hpp"
 #include "../lang/Pointer.hpp"
 
@@ -84,7 +83,7 @@ class mcuf::hal::Timer :
    */
   public: virtual bool startAtTick(uint32_t tick,
                                    mcuf::lang::Pointer* attachment,  
-                                   mcuf::function::BiConsumer<Timer&, mcuf::lang::Pointer&>* execute) = 0;
+                                   mcuf::function::Consumer<mcuf::lang::Pointer&>* execute) = 0;
   
   /**
    * 
@@ -96,7 +95,7 @@ class mcuf::hal::Timer :
    */
   public: virtual bool startAtTime(uint32_t microSecond, 
                                    mcuf::lang::Pointer* attachment,  
-                                   mcuf::function::BiConsumer<Timer&, mcuf::lang::Pointer&>* execute) = 0;
+                                   mcuf::function::Consumer<mcuf::lang::Pointer&>* execute) = 0;
   
   /* **************************************************************************************
    * Abstract method <Protected>
