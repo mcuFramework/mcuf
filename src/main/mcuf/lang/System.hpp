@@ -95,7 +95,7 @@ class mcuf::lang::System:
   /**
    * 
    */
-  public: static void throwSystemError(const char* message){
+  public: static void throwSystemError(const char* path, const char* message){
     while(1);
   }
 
