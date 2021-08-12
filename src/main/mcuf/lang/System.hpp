@@ -99,6 +99,13 @@ class mcuf::lang::System:
     while(1);
   }
 
+  /**
+   * 
+   */
+  public: static void throwSystemWarning(const char* path, const char* message){
+    return;
+  }
+
   /* **************************************************************************************
    * Public Method <Override>
    */
