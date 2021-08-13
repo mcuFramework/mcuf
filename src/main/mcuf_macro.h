@@ -16,7 +16,7 @@
   #define THROW_ERROR(message) mcuf::lang::System::throwSystemError(__PRETTY_FUNCTION__, message)
   #define THROW_WARNING(message) mcuf::lang::System::throwSystemWarning(__PRETTY_FUNCTION__, message)
   #define ASSERT_THROW_ERROR(expr, message) if(!expr) THROW_ERROR(message)
-  #define ASSERT_THROW_ERROR(expr, message) if(!expr) THROW_WARNING(message)
+  #define ASSERT_THROW_WARNING(expr, message) if(!expr) THROW_WARNING(message)
 #else
   #ifdef DEBUG_NMSG
     #define THROW_ERROR(message) while(1)
