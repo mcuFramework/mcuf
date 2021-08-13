@@ -12,36 +12,15 @@
  * Macro
  */
 
-#ifdef DEBUG
-  #define THROW_ERROR(message) mcuf::lang::System::throwSystemError(__PRETTY_FUNCTION__, message)
-  #define THROW_WARNING(message) mcuf::lang::System::throwSystemWarning(__PRETTY_FUNCTION__, message)
-#else
-  #ifdef DEBUG_NMSG
-    #define THROW_ERROR(message) while(1)
-    #define THROW_WARNING(message)
-  #else
-    #define THROW_ERROR(message)
-    #define THROW_WARNING(message)
-  #endif
-#endif
-
-
-
 /* ****************************************************************************************
  * Include
  */
-
-
+#include "mcuf_macro.h"
 
 /* ****************************************************************************************
  * Include folder
  */
 #include "mcuf\mcuf.h"
-
-
-
-
-
 
 /* *****************************************************************************************
  * End of file
