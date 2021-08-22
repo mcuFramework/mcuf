@@ -22,6 +22,8 @@
 namespace mcuf{
   namespace lang{
     class Memory;
+    class String;
+    class System;
   }
 }
 
@@ -32,6 +34,9 @@ namespace mcuf{
  */  
 class mcuf::lang::Memory :
       public mcuf::lang::Pointer{
+
+  friend String;
+  friend System;
 
   /* **************************************************************************************
    * Subclass

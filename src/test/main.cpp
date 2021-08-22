@@ -10,12 +10,20 @@ using namespace mcuf::io;
 using namespace mcuf::io::channel;
 using namespace mcuf::hal;
 
+uint8_t heapMemory[24576];
+uint8_t memoryManagerEntity[sizeof(MemoryManager)];
 
+void systemInit(){
+  System::component.memoryManager();
+  Memory memory = Memory(heapMemory, sizeof(heapMemory));
+  MemoryManager* memoryManager = new(memoryManagerEntity) MemoryManager(memory);
+  System::component.memoryManager(memoryManager);
+  System::init();
+}
 
-uint32_t buffer[8];
 
 int main(){
-
+  systemInit();
 
   system("pause");
 }

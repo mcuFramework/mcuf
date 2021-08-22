@@ -15,12 +15,11 @@
 /* ****************************************************************************************
  * Include folder
  */
+#include "function\function.h"
 #include "hal\hal.h"
+#include "io\io.h"
 #include "lang\lang.h"
 #include "util\util.h"
-#include "io\io.h"
-#include "function\function.h"
-
 
 
 /* *****************************************************************************************

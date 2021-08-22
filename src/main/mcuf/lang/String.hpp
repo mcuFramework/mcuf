@@ -5,39 +5,32 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_E1AC23E1_8083_4962_A2F8_4FCBBA37F659
-#define MCUF_E1AC23E1_8083_4962_A2F8_4FCBBA37F659
+#ifndef MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055
+#define MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055
 
 /* ****************************************************************************************
  * Include
  */  
-#include "../../hal/Timer.hpp"
-#include "../../lang/Object.hpp"
-#include "../../lang/managerment/MemoryManager.hpp"
+#include <stdarg.h>
+
+#include "../../mcuf_config.h"
+
+#include "../lang/Object.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace lang{
-    class System;
-
-    namespace managerment{
-      class SystemComponent;
-    }
+    class String;
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class SystemComponent
+ * Class String
  */  
-class mcuf::lang::managerment::SystemComponent :
+class mcuf::lang::String : 
       public mcuf::lang::Object{
-      
-
-  friend mcuf::lang::System;
 
   /* **************************************************************************************
    * Subclass
@@ -46,6 +39,7 @@ class mcuf::lang::managerment::SystemComponent :
   /* **************************************************************************************
    * Variable <Public>
    */
+  public: static char emptyString;
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -54,11 +48,18 @@ class mcuf::lang::managerment::SystemComponent :
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: bool locked = false;
-  private: mcuf::lang::managerment::MemoryManager* mMemoryManager;
-  private: mcuf::hal::Timer* mTimer;
 
-   
+  /**
+   * Static
+   */
+  private: static char handleMemory[MCUF_STRING_HANDLE_MEMORY_SIZE];
+
+  /**
+   * Non-static
+   */
+  private: char* mPointer;
+  private: uint32_t mSize;
+
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -75,12 +76,22 @@ class mcuf::lang::managerment::SystemComponent :
   /**
    * Construct.
    */
-  public: SystemComponent(void) = default;
+  private: String(char* str, uint32_t size);
+
+  /**
+   * Construct.
+   */
+  public: String(const char* original);
+
+  /**
+   * Construct.
+   */
+  public: String(void);
 
   /**
    * Disconstruct.
    */
-  public: virtual ~SystemComponent(void) = default;
+  public: ~String(void);
 
   /* **************************************************************************************
    * Operator Method
@@ -90,6 +101,16 @@ class mcuf::lang::managerment::SystemComponent :
    * Public Method <Static>
    */
 
+  /**
+   * 
+   */
+  public: static String format(const char* format, va_list arg);
+
+  /**
+   * 
+   */
+  public: static String format(const char* format, ...);
+
   /* **************************************************************************************
    * Public Method <Override>
    */
@@ -97,26 +118,41 @@ class mcuf::lang::managerment::SystemComponent :
   /* **************************************************************************************
    * Public Method
    */
+  
+  // /**
+  //  * 
+  //  */
+  // public: char charAt(int index);
+
+  // /**
+  //  * 
+  //  */
+  // public: int compairTo(String& anotherString);
+
+  // /**
+  //  * 
+  //  */
+  // public: int compareToIgnoreCase(String str);
+
+  // /**
+  //  * 
+  //  */
+  // public: String& concat(String str); 
 
   /**
    * 
    */
-  public: bool memoryManager(mcuf::lang::managerment::MemoryManager* managerment);
+  public: bool isConst(void);
 
   /**
    * 
    */
-  public: mcuf::lang::managerment::MemoryManager* memoryManager(void);
+  public: uint32_t length(void);
 
   /**
    * 
    */
-  public: bool timer(mcuf::hal::Timer* timer);
-
-  /**
-   * 
-   */
-  public: mcuf::hal::Timer* timer(void);
+  public: const char* toPointer(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -129,16 +165,6 @@ class mcuf::lang::managerment::SystemComponent :
   /* **************************************************************************************
    * Protected Method
    */
-
-  /**
-   * 
-   */
-  protected: void lock(void);
-
-  /**
-   * 
-   */
-  protected: void unlock(void);
 
   /* **************************************************************************************
    * Private Method <Static>
@@ -159,6 +185,6 @@ class mcuf::lang::managerment::SystemComponent :
 /* *****************************************************************************************
  * End of file
  */ 
+ 
 
-
-#endif/* MCUF_E1AC23E1_8083_4962_A2F8_4FCBBA37F659 */
+#endif/* MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055 */

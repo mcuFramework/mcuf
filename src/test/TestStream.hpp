@@ -5,39 +5,26 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_E1AC23E1_8083_4962_A2F8_4FCBBA37F659
-#define MCUF_E1AC23E1_8083_4962_A2F8_4FCBBA37F659
+#ifndef MCUF_E558154C_6539_46CF_9DFD_8E9891A12C72
+#define MCUF_E558154C_6539_46CF_9DFD_8E9891A12C72
 
 /* ****************************************************************************************
  * Include
  */  
-#include "../../hal/Timer.hpp"
-#include "../../lang/Object.hpp"
-#include "../../lang/managerment/MemoryManager.hpp"
+#include "mcuf.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
-  namespace lang{
-    class System;
-
-    namespace managerment{
-      class SystemComponent;
-    }
-  }
+namespace test{
+  class TestStream;
 }
 
-
-
 /* ****************************************************************************************
- * Class SystemComponent
+ * Class Object
  */  
-class mcuf::lang::managerment::SystemComponent :
-      public mcuf::lang::Object{
-      
-
-  friend mcuf::lang::System;
+class test::TestStream : 
+      public mcuf::io::Stream{
 
   /* **************************************************************************************
    * Subclass
@@ -54,11 +41,6 @@ class mcuf::lang::managerment::SystemComponent :
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: bool locked = false;
-  private: mcuf::lang::managerment::MemoryManager* mMemoryManager;
-  private: mcuf::hal::Timer* mTimer;
-
-   
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -75,12 +57,12 @@ class mcuf::lang::managerment::SystemComponent :
   /**
    * Construct.
    */
-  public: SystemComponent(void) = default;
+  public: TestStream(void) = default;
 
   /**
    * Disconstruct.
    */
-  public: virtual ~SystemComponent(void) = default;
+  public: virtual ~TestStream(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -94,29 +76,49 @@ class mcuf::lang::managerment::SystemComponent :
    * Public Method <Override>
    */
 
+  /**
+   *
+   */
+  public: virtual int available(void) override;
+
+  /** 
+   * 
+   */
+  public: virtual void close(void) override;
+
+  /**
+   *
+   */
+  public: virtual void flush(void) override;
+  
+  /**
+   * 
+   */
+  public: virtual bool isOpen(void) override;  
+
+  /**
+   *  read async
+   */
+  public: virtual bool read(mcuf::io::channel::ByteBuffer& byteBuffer, 
+                            void* attachment,
+                            mcuf::io::channel::CompletionHandler<int, void*>* handler) override;
+    
+  /**
+   *  
+   */
+  public: virtual int skip(int skip) override;
+
+  /**
+   *  write nonBlocking
+   */
+  public: virtual bool write(mcuf::io::channel::ByteBuffer& byteBuffer, 
+                             void* attachment,
+                             mcuf::io::channel::CompletionHandler<int, void*>* handler) override;
+																
+
   /* **************************************************************************************
    * Public Method
    */
-
-  /**
-   * 
-   */
-  public: bool memoryManager(mcuf::lang::managerment::MemoryManager* managerment);
-
-  /**
-   * 
-   */
-  public: mcuf::lang::managerment::MemoryManager* memoryManager(void);
-
-  /**
-   * 
-   */
-  public: bool timer(mcuf::hal::Timer* timer);
-
-  /**
-   * 
-   */
-  public: mcuf::hal::Timer* timer(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -129,16 +131,6 @@ class mcuf::lang::managerment::SystemComponent :
   /* **************************************************************************************
    * Protected Method
    */
-
-  /**
-   * 
-   */
-  protected: void lock(void);
-
-  /**
-   * 
-   */
-  protected: void unlock(void);
 
   /* **************************************************************************************
    * Private Method <Static>
@@ -160,5 +152,4 @@ class mcuf::lang::managerment::SystemComponent :
  * End of file
  */ 
 
-
-#endif/* MCUF_E1AC23E1_8083_4962_A2F8_4FCBBA37F659 */
+#endif/* MCUF_E558154C_6539_46CF_9DFD_8E9891A12C72 */

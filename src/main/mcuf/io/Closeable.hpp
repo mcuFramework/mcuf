@@ -5,123 +5,123 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_CE4E94B8_1588_4FED_8DB8_1C22B3E8CDB4
-#define MCUF_CE4E94B8_1588_4FED_8DB8_1C22B3E8CDB4
+#ifndef MCUF_B08DB2A3_7AA4_4166_A88E_E997AA2B0BAD
+#define MCUF_B08DB2A3_7AA4_4166_A88E_E997AA2B0BAD
+
 
 /* ****************************************************************************************
  * Include
- */
-
-#include "../io/channel/ByteBuffer.hpp"
-#include "../io/channel/CompletionHandler.hpp"
-#include "../lang/Object.hpp"
-
+ */  
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace io{
-    class OutputStream;
+    class Closeable;
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class Map
- */
-class mcuf::io::OutputStream : 
-      public mcuf::lang::Object{
+ * Class Closeable
+ */  
+class mcuf::io::Closeable{
+
   /* **************************************************************************************
-   *  Variable <Public>
+   * Subclass
    */
 
   /* **************************************************************************************
-   *  Variable <Protected>
+   * Variable <Public>
    */
 
   /* **************************************************************************************
-   *  Variable <Private>
+   * Variable <Protected>
    */
 
   /* **************************************************************************************
-   *  Abstract method <Public>
-   */
-  
-  /**
-   *
-   */
-  public: virtual void flush(void) = 0;
-  
-  /**
-   *  write nonBlocking
-   */
-  public: virtual bool write(mcuf::io::channel::ByteBuffer& byteBuffer, 
-                             void* attachment,
-                             mcuf::io::channel::CompletionHandler<int, void*>* handler) = 0;
-  
-  /* **************************************************************************************
-   *  Abstract method <Protected>
+   * Variable <Private>
    */
 
   /* **************************************************************************************
-   *  Construct Method
+   * Abstract method <Public>
    */
+
+  /** 
+   * 
+   */
+  public: virtual void close(void) = 0;
 
   /**
    * 
    */
-  public: OutputStream(void) = default;
-  
+  public: virtual bool isOpen(void) = 0;  
+
+  /* **************************************************************************************
+   * Abstract method <Protected>
+   */
+
+  /* **************************************************************************************
+   * Construct Method
+   */
+
   /**
-   * 
+   * Construct.
    */
-  public: virtual ~OutputStream() = default;
+  public: Closeable(void) = default;
+
+  /**
+   * Disconstruct.
+   */
+  public: virtual ~Closeable(void) = default;
 
   /* **************************************************************************************
-   *  Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   *  Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   *  Public Method
+   * Operator Method
    */
 
   /* **************************************************************************************
-   *  Protected Method <Static>
+   * Public Method <Static>
    */
 
   /* **************************************************************************************
-   *  Protected Method <Override>
+   * Public Method <Override>
    */
 
   /* **************************************************************************************
-   *  Protected Method
+   * Public Method
    */
 
   /* **************************************************************************************
-   *  Private Method <Static>
+   * Protected Method <Static>
    */
 
   /* **************************************************************************************
-   *  Private Method <Override>
+   * Protected Method <Override>
+   */
+
+  /* **************************************************************************************
+   * Protected Method
+   */
+
+  /* **************************************************************************************
+   * Private Method <Static>
+   */
+
+  /* **************************************************************************************
+   * Private Method <Override>
    */
    
   /* **************************************************************************************
-   *  Private Method
-   */
-    
+   * Private Method
+   */  
+
 };
 
 
 
 /* *****************************************************************************************
- *    End of file
+ * End of file
  */ 
 
 
-#endif/* MCUF_CE4E94B8_1588_4FED_8DB8_1C22B3E8CDB4 */
+#endif/* MCUF_B08DB2A3_7AA4_4166_A88E_E997AA2B0BAD */

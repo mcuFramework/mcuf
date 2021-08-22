@@ -11,6 +11,7 @@
 /* ****************************************************************************************
  * Include
  */  
+#include <stdio.h>
 
 #include "../hal/Timer.hpp"
 #include "../lang/Object.hpp"
@@ -85,6 +86,39 @@ class mcuf::lang::System:
   /**
    * 
    */
+  public: static mcuf::lang::Memory allocMemory(size_t size);
+
+  /**
+   * 
+   */
+  public: static void* allocPointer(size_t size);
+
+  /**
+   * 
+   */
+  public: static void freeMemory(mcuf::lang::Memory& memory);
+
+  /**
+   * 
+   */
+  public: static void freePointer(void* pointer);
+
+  /**
+   * 
+   */
+  public: static void freePointer(void* pointer, size_t size);
+
+  /**
+   * 
+   */
+  public: static void info(const char* path, const char* message){
+    printf("INFO: %s - %s\n", path, message);
+    return;
+  }
+
+  /**
+   * 
+   */
   public: static void init(void);
 
   /**
@@ -92,10 +126,12 @@ class mcuf::lang::System:
    */
   public: static mcuf::lang::managerment::MemoryManager* memoryManager(void);
 
+
   /**
    * 
    */
   public: static void throwSystemError(const char* path, const char* message){
+    printf("ERROR: %s - %s\n", path, message);
     while(1);
   }
 
@@ -103,6 +139,7 @@ class mcuf::lang::System:
    * 
    */
   public: static void throwSystemWarning(const char* path, const char* message){
+    printf("WARNING: %s - %s\n", path, message);
     return;
   }
 

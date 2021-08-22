@@ -1,4 +1,3 @@
-
 /**
  * Copyright (c) 2020 ZxyKira
  * All rights reserved.
@@ -9,13 +8,14 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "SystemComponent.hpp"
- 
+#include "TestStream.hpp"
+
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::lang::managerment::SystemComponent; 
-using mcuf::lang::managerment::MemoryManager;
+using test::TestStream;
+using mcuf::io::channel::ByteBuffer;
+using mcuf::io::channel::CompletionHandler;
 
 /* ****************************************************************************************
  * Construct Method
@@ -33,46 +33,72 @@ using mcuf::lang::managerment::MemoryManager;
  * Public Method <Override>
  */
 
+/**
+ *
+ */
+int TestStream::available(void){
+  return 0;
+}
+
+/** 
+ * 
+ */
+void TestStream::close(void){
+  return;
+}
+
+/**
+ *
+ */
+void TestStream::flush(void){
+  return;
+}
+
+/**
+ * 
+ */
+bool TestStream::isOpen(void){
+  return true;
+}
+
+/**
+ *  read async
+ */
+bool TestStream::read(ByteBuffer& byteBuffer, 
+                      void* attachment,
+                      CompletionHandler<int, void*>* handler){
+
+  return false;
+}
+  
+/**
+ *  
+ */
+int TestStream::skip(int skip){
+  return 0;
+}
+
+/**
+ *  write nonBlocking
+ */
+bool TestStream::write(ByteBuffer& byteBuffer, 
+                       void* attachment,
+                       CompletionHandler<int, void*>* handler){
+
+  uint8_t* base = byteBuffer.lowerArray(byteBuffer.position());
+
+  for(int i=byteBuffer.position(); i<byteBuffer.limit(); i++)
+    putchar(base[i]);
+
+  byteBuffer.position(byteBuffer.limit());
+
+  return true;
+}
+
 /* ****************************************************************************************
  * Public Method
  */
 
-/**
- * 
- */
-bool SystemComponent::memoryManager(MemoryManager* memoryManager){
-  if(this->locked)
-    return false;
-  
-  this->mMemoryManager = memoryManager;
-  return true;
-}
-
-/**
- * 
- */
-MemoryManager* SystemComponent::memoryManager(void){
-  return this->mMemoryManager;
-}
-
-/**
- * 
- */
-bool SystemComponent::timer(mcuf::hal::Timer* timer){
-  if(this->locked)
-    return false;
-  
-  this->mTimer = timer;
-  return true;
-}
-
-/**
- * 
- */
-mcuf::hal::Timer* SystemComponent::timer(void){
-  return this->mTimer;
-}
- 
 /* ****************************************************************************************
  * Protected Method <Static>
  */
@@ -85,22 +111,6 @@ mcuf::hal::Timer* SystemComponent::timer(void){
  * Protected Method
  */
 
-/**
- * 
- */
-void SystemComponent::lock(void){
-  this->locked = true;
-  return;
-}
-
-/**
- * 
- */
-void SystemComponent::unlock(void){
-  this->locked = false;
-  return;
-}
-
 /* ****************************************************************************************
  * Private Method
  */
@@ -108,4 +118,3 @@ void SystemComponent::unlock(void){
 /* ****************************************************************************************
  * End of file
  */ 
- 

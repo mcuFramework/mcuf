@@ -52,6 +52,23 @@ ByteBuffer::ByteBuffer(mcuf::lang::Memory& memory){
 /**
  * 
  */
+uint8_t* ByteBuffer::lowerArray(void){
+  return this->mPointer;
+}
+
+/**
+ * 
+ */
+uint8_t* ByteBuffer::lowerArray(uint32_t offset){
+  if(offset >= this->mCapacity)
+    return nullptr;
+  
+  return &this->mPointer[offset];
+}
+
+/**
+ * 
+ */
 uint32_t ByteBuffer::limit(void){
   return this->mLimit;
 }

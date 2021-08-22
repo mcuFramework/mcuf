@@ -5,16 +5,16 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_CE4E94B8_1588_4FED_8DB8_1C22B3E8CDB4
-#define MCUF_CE4E94B8_1588_4FED_8DB8_1C22B3E8CDB4
+#ifndef MCUF_D6F50448_94E0_40DA_953B_6531A94F130B
+#define MCUF_D6F50448_94E0_40DA_953B_6531A94F130B
 
 /* ****************************************************************************************
  * Include
- */
+ */  
+#include <stdarg.h>
 
-#include "../io/channel/ByteBuffer.hpp"
-#include "../io/channel/CompletionHandler.hpp"
-#include "../lang/Object.hpp"
+#include "OutputStream.hpp"
+
 
 
 /* ****************************************************************************************
@@ -22,106 +22,99 @@
  */  
 namespace mcuf{
   namespace io{
-    class OutputStream;
+    class PrintStream;
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class Map
- */
-class mcuf::io::OutputStream : 
-      public mcuf::lang::Object{
+ * Class PrintStream
+ */  
+class mcuf::io::PrintStream{
+
   /* **************************************************************************************
-   *  Variable <Public>
+   * Subclass
    */
 
   /* **************************************************************************************
-   *  Variable <Protected>
+   * Variable <Public>
    */
 
   /* **************************************************************************************
-   *  Variable <Private>
+   * Variable <Protected>
    */
 
   /* **************************************************************************************
-   *  Abstract method <Public>
-   */
-  
-  /**
-   *
-   */
-  public: virtual void flush(void) = 0;
-  
-  /**
-   *  write nonBlocking
-   */
-  public: virtual bool write(mcuf::io::channel::ByteBuffer& byteBuffer, 
-                             void* attachment,
-                             mcuf::io::channel::CompletionHandler<int, void*>* handler) = 0;
-  
-  /* **************************************************************************************
-   *  Abstract method <Protected>
+   * Variable <Private>
    */
 
   /* **************************************************************************************
-   *  Construct Method
+   * Abstract method <Public>
+   */
+
+  /* **************************************************************************************
+   * Abstract method <Protected>
+   */
+
+  /* **************************************************************************************
+   * Construct Method
    */
 
   /**
-   * 
+   * Construct.
    */
-  public: OutputStream(void) = default;
-  
+  public: PrintStream(void) = default;
+
   /**
-   * 
+   * Disconstruct.
    */
-  public: virtual ~OutputStream() = default;
+  public: virtual ~PrintStream(void) = default;
 
   /* **************************************************************************************
-   *  Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   *  Public Method <Override>
+   * Operator Method
    */
 
   /* **************************************************************************************
-   *  Public Method
+   * Public Method <Static>
    */
 
   /* **************************************************************************************
-   *  Protected Method <Static>
+   * Public Method <Override>
    */
 
   /* **************************************************************************************
-   *  Protected Method <Override>
+   * Public Method
+   */
+  
+  /* **************************************************************************************
+   * Protected Method <Static>
    */
 
   /* **************************************************************************************
-   *  Protected Method
+   * Protected Method <Override>
    */
 
   /* **************************************************************************************
-   *  Private Method <Static>
+   * Protected Method
    */
 
   /* **************************************************************************************
-   *  Private Method <Override>
+   * Private Method <Static>
+   */
+
+  /* **************************************************************************************
+   * Private Method <Override>
    */
    
   /* **************************************************************************************
-   *  Private Method
-   */
-    
+   * Private Method
+   */  
+
 };
 
 
 
 /* *****************************************************************************************
- *    End of file
+ * End of file
  */ 
 
-
-#endif/* MCUF_CE4E94B8_1588_4FED_8DB8_1C22B3E8CDB4 */
+#endif/* MCUF_D6F50448_94E0_40DA_953B_6531A94F130B */

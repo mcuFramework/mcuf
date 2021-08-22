@@ -11,8 +11,10 @@
 /* ****************************************************************************************
  * Include
  */
+#include "../../lang/Array.hpp"
 #include "../../lang/Object.hpp"
 #include "../../lang/Memory.hpp"
+
 
 
 
@@ -86,6 +88,16 @@ class mcuf::io::channel::ByteBuffer :
   /* **************************************************************************************
    *  Public Method
    */
+
+  /**
+   * 
+   */
+  public: uint8_t* lowerArray(void);
+
+  /**
+   * 
+   */
+  public: uint8_t* lowerArray(uint32_t offset);  
 
   /**
    * 

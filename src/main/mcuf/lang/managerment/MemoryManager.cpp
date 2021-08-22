@@ -9,7 +9,11 @@
  * Include
  */  
 #include "MemoryManager.hpp"
-#include "mcuf.h"
+
+#include "../../lang/Math.hpp"
+#include "../../lang/Memory.hpp"
+#include "../../util/VectorBlockPool.hpp"
+
 
 /* ****************************************************************************************
  * Using
@@ -23,9 +27,14 @@ using mcuf::lang::managerment::MemoryManager;
 /* ****************************************************************************************
  * Variable <Public>
  */
-const uint16_t MemoryManager::BLOCK_SIZE[9] = {4, 8, 16, 24, 32, 48, 64, 128, 1024};
-const uint16_t MemoryManager::NUMBER_OF_BLOCK_QUANTITY = sizeof(MemoryManager::BLOCK_SIZE) / sizeof(MemoryManager::BLOCK_SIZE[0]);
-const uint16_t MemoryManager::BASE_BLOCK_SIZE = 1024;
+const uint16_t MemoryManager::BLOCK_SIZE[MCUF_MEMORY_MANAGERMENT_BLOCk_TYPE_QUANTITY] 
+      = {MCUF_MEMORY_MANAGERMENT_BLOCk_TYPE, MCUF_MEMORY_MANAGERMENT_BASE_BLOCK_SIZE};
+
+const uint16_t MemoryManager::NUMBER_OF_BLOCK_QUANTITY 
+      = MCUF_MEMORY_MANAGERMENT_BLOCk_TYPE_QUANTITY;
+
+const uint16_t MemoryManager::BASE_BLOCK_SIZE 
+      = MCUF_MEMORY_MANAGERMENT_BASE_BLOCK_SIZE;
 
 /* ****************************************************************************************
  * Construct Method
@@ -106,7 +115,7 @@ bool MemoryManager::free(void* pointer, size_t size){
 /**
  * 
  */
-bool MemoryManager::free(Memory& memory){
+bool MemoryManager::freeMemory(Memory& memory){
   return this->free(memory.pointer(), memory.length());
 }
 
@@ -114,7 +123,7 @@ bool MemoryManager::free(Memory& memory){
  * 
  */
 bool MemoryManager::expansion(Memory& memory){
-  return true;
+  return false;
 }
 
 /* ****************************************************************************************
@@ -223,7 +232,7 @@ Memory MemoryManager::allocEntityBlockMemory(void){
     return result;
 
   if(size > memory.length()){
-    this->free(memory);
+    this->freeMemory(memory);
     return result;
   }
   
@@ -298,13 +307,13 @@ bool MemoryManager::expansionBlock(uint16_t blockShift){
     return false;
 
   if(this->BLOCK_SIZE[blockShift] >= memory.length()){
-    this->free(memory);
+    this->freeMemory(memory);
     return false;
   }
 
   VectorBlockPool* result = this->constructVectorBlockPool(memory, blockShift);
   if(result == nullptr){
-    this->free(memory);
+    this->freeMemory(memory);
     return false;
   }
 

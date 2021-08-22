@@ -1,4 +1,3 @@
-
 /**
  * Copyright (c) 2020 ZxyKira
  * All rights reserved.
@@ -9,13 +8,12 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "SystemComponent.hpp"
- 
+#include "PrintStream.hpp"
+
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::lang::managerment::SystemComponent; 
-using mcuf::lang::managerment::MemoryManager;
+using mcuf::io::PrintStream;
 
 /* ****************************************************************************************
  * Construct Method
@@ -37,42 +35,6 @@ using mcuf::lang::managerment::MemoryManager;
  * Public Method
  */
 
-/**
- * 
- */
-bool SystemComponent::memoryManager(MemoryManager* memoryManager){
-  if(this->locked)
-    return false;
-  
-  this->mMemoryManager = memoryManager;
-  return true;
-}
-
-/**
- * 
- */
-MemoryManager* SystemComponent::memoryManager(void){
-  return this->mMemoryManager;
-}
-
-/**
- * 
- */
-bool SystemComponent::timer(mcuf::hal::Timer* timer){
-  if(this->locked)
-    return false;
-  
-  this->mTimer = timer;
-  return true;
-}
-
-/**
- * 
- */
-mcuf::hal::Timer* SystemComponent::timer(void){
-  return this->mTimer;
-}
- 
 /* ****************************************************************************************
  * Protected Method <Static>
  */
@@ -85,22 +47,6 @@ mcuf::hal::Timer* SystemComponent::timer(void){
  * Protected Method
  */
 
-/**
- * 
- */
-void SystemComponent::lock(void){
-  this->locked = true;
-  return;
-}
-
-/**
- * 
- */
-void SystemComponent::unlock(void){
-  this->locked = false;
-  return;
-}
-
 /* ****************************************************************************************
  * Private Method
  */
@@ -108,4 +54,3 @@ void SystemComponent::unlock(void){
 /* ****************************************************************************************
  * End of file
  */ 
- 

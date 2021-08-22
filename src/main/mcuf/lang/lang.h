@@ -25,6 +25,7 @@
 #include "Math.hpp"
 #include "Memory.hpp"
 #include "Pointer.hpp"
+#include "String.hpp"
 #include "System.hpp"
 #include "Object.hpp"
 #include "Throwable.hpp"

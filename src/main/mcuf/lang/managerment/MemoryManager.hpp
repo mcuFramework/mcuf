@@ -11,6 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
+#include "../../../mcuf_config.h"
+
 #include "../../lang/Object.hpp"
 #include "../../lang/Memory.hpp"
 #include "../../util/VectorBlockPool.hpp"
@@ -58,7 +60,7 @@ class mcuf::lang::managerment::MemoryManager :
    */
   public: static const uint16_t BASE_BLOCK_SIZE;
   public: static const uint16_t NUMBER_OF_BLOCK_QUANTITY;
-  public: static const uint16_t BLOCK_SIZE[9];
+  public: static const uint16_t BLOCK_SIZE[MCUF_MEMORY_MANAGERMENT_BLOCk_TYPE_QUANTITY];
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -68,7 +70,7 @@ class mcuf::lang::managerment::MemoryManager :
    * Variable <Private>
    */
   public: mcuf::util::VectorBlockPool* entityPool;
-  public: mcuf::util::VectorBlockPool* blocks[9];
+  public: mcuf::util::VectorBlockPool* blocks[MCUF_MEMORY_MANAGERMENT_BLOCk_TYPE_QUANTITY];
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -131,7 +133,7 @@ class mcuf::lang::managerment::MemoryManager :
   /**
    * 
    */
-  public: bool free(mcuf::lang::Memory& memory);
+  public: bool freeMemory(mcuf::lang::Memory& memory);
 
   /**
    * 

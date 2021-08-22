@@ -11,6 +11,7 @@
 /* ****************************************************************************************
  * Include
  */
+#include "Closeable.hpp"
 #include "InputStream.hpp"
 #include "OutputStream.hpp"
 
@@ -32,7 +33,8 @@ namespace mcuf{
  */
 class mcuf::io::Stream : 
       public mcuf::io::OutputStream, 
-      public mcuf::io::InputStream{
+      public mcuf::io::InputStream,
+      public mcuf::io::Closeable{
 
   /* **************************************************************************************
    *  Variable <Public>
@@ -48,17 +50,7 @@ class mcuf::io::Stream :
 
   /* **************************************************************************************
    *  Abstract method <Public>
-   */
-
-  /**
-   * 
-   */
-  public: virtual bool isOpen(void) = 0;
-  
-  /**
-   * 
-   */
-  public: virtual void close(void) = 0;
+   */  
 
   /* **************************************************************************************
    *  Abstract method <Protected>

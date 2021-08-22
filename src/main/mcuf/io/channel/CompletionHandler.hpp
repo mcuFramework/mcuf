@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_E53668E5_D93E_46D2_93F7_8B711799684E
-#define MCUF_E53668E5_D93E_46D2_93F7_8B711799684E
+#ifndef MCUF_F628179A_5A6B_4572_99A4_3338D77AED7B
+#define MCUF_F628179A_5A6B_4572_99A4_3338D77AED7B
 
 /* ****************************************************************************************
  * Include
@@ -59,7 +59,7 @@ class mcuf::io::channel::CompletionHandler :
   /**
    *  read sync
    */
-  public: virtual int failed(mcuf::lang::Throwable exc, A attachment) = 0;
+  public: virtual int failed(mcuf::lang::Throwable& exc, A attachment) = 0;
 
   /* **************************************************************************************
    *  Abstract method <Protected>
@@ -123,4 +123,4 @@ class mcuf::io::channel::CompletionHandler :
  */ 
 
 
-#endif/* MCUF_E53668E5_D93E_46D2_93F7_8B711799684E */
+#endif/* MCUF_F628179A_5A6B_4572_99A4_3338D77AED7B */

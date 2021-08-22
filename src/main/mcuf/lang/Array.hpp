@@ -83,6 +83,7 @@ class mcuf::lang::Array:
    * Disconstruct.
    */
   public: virtual ~Array() = default;
+  
   /* **************************************************************************************
    * Operator Method
    */

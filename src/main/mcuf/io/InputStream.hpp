@@ -11,6 +11,9 @@
 /* ****************************************************************************************
  * Include
  */
+
+#include "../io/channel/ByteBuffer.hpp"
+#include "../io/channel/CompletionHandler.hpp"
 #include "../lang/Object.hpp"
 
 
@@ -55,10 +58,9 @@ class mcuf::io::InputStream :
   /**
    *  read async
    */
-  public: virtual bool read(mcuf::io::channel::ByteBuffer* byteBuffer, 
-                            mcuf::lang::Pointer& attachment,
-                            mcuf::io::channel::CompletionHandler<mcuf::lang::number::Integer, 
-                                                                 mcuf::lang::Pointer>) = 0;
+  public: virtual bool read(mcuf::io::channel::ByteBuffer& byteBuffer, 
+                            void* attachment,
+                            mcuf::io::channel::CompletionHandler<int, void*>* handler) = 0;
     
   /**
    *  
