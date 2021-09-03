@@ -33,6 +33,19 @@ ByteBuffer::ByteBuffer(mcuf::lang::Memory& memory){
   return;
 }
 
+/**
+ * 
+ */
+ByteBuffer::ByteBuffer(void* pointer, size_t length){
+  this->mLimit = length;
+  this->mCapacity = length;
+  this->mPointer = (uint8_t*)pointer;
+  this->mPosition = 0;
+  this->mMark = 0;
+
+  return;
+}
+
 /* ****************************************************************************************
  * Operator Method
  */
@@ -108,6 +121,13 @@ ByteBuffer& ByteBuffer::position(uint32_t newPosition){
      this->mPosition = this->mLimit;
     
   return *this;
+}
+
+/**
+ * 
+ */
+bool ByteBuffer::readOnly(void){
+  return false;
 }
 
 /**
@@ -216,10 +236,10 @@ int ByteBuffer::getInt(void){
     return 0;
   
   int result = 0;
-  result |= (((short)this->mPointer[this->mPosition++]) << 24);
-  result |= (((short)this->mPointer[this->mPosition++]) << 16);
-  result |= (((short)this->mPointer[this->mPosition++]) << 8);
-  result |= (((short)this->mPointer[this->mPosition++]));
+  result |= (((int)this->mPointer[this->mPosition++]) << 24);
+  result |= (((int)this->mPointer[this->mPosition++]) << 16);
+  result |= (((int)this->mPointer[this->mPosition++]) << 8);
+  result |= (((int)this->mPointer[this->mPosition++]));
   return result;
 }
 

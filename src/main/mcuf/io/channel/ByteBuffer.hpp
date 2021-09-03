@@ -48,10 +48,10 @@ class mcuf::io::channel::ByteBuffer :
   /* **************************************************************************************
    *  Variable <Private>
    */
-  private: uint32_t mMark;
-  private: uint32_t mLimit;
-  private: uint32_t mPosition;
-  private: uint32_t mCapacity;
+  private: uint16_t mMark;
+  private: uint16_t mLimit;
+  private: uint16_t mPosition;
+  private: uint16_t mCapacity;
   private: uint8_t* mPointer;
 
 
@@ -71,6 +71,11 @@ class mcuf::io::channel::ByteBuffer :
    * 
    */
   public: ByteBuffer(mcuf::lang::Memory& memory);
+
+  /**
+   * 
+   */
+  public: ByteBuffer(void* pointer, size_t length);
   
   /**
    * 
@@ -137,6 +142,11 @@ class mcuf::io::channel::ByteBuffer :
    * 
    */
   public: uint32_t remaining(void);
+
+  /**
+   * 
+   */
+  public: bool readOnly(void);
 
   /**
    * 
