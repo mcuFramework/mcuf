@@ -104,45 +104,45 @@ class mcuf::util::BlockPool:
    *
    * @return element size of byte.
    */
-  public: virtual uint32_t elementSize(void);
+  public: virtual uint32_t elementSize(void) override;
   
   /**
    * Returns this pool's capacity.
    *
    * @return The capacity of this pool.
    */
-  public: virtual uint32_t capacity(void);
+  public: virtual uint32_t capacity(void) override;
   
   /**
    * Returns the number of elements in this pool.
    *
    * @return the number of elements in this pool.
    */
-  public: virtual uint32_t size(void);
+  public: virtual uint32_t size(void) override;
   
   /**
    * Removes all of the elements from this pool (optional operation). The pool will be empty after this method returns.
    */
-  public: virtual void clear(void);
+  public: virtual void clear(void) override;
   
   /**
    * Returns true if this pool contains no elements.
    *
    * @return true if this pool contains no elements.
    */
-  public: virtual bool isEmpty(void);
+  public: virtual bool isEmpty(void) override;
   
   /**
    * Alloc memory from pool.
    *
    * @return element pointer if pool not full, otherwise null pointer.
    */
-  public: virtual void* alloc(void);
+  public: virtual void* alloc(void) override;
 
   /**
    * 
    */
-  public: virtual mcuf::lang::Memory allocMemory(void);
+  public: virtual mcuf::lang::Memory allocMemory(void) override;
   
   /**
    * Alloc memory from pool and copy element.
@@ -150,7 +150,7 @@ class mcuf::util::BlockPool:
    * @element Element pointer.
    * @return element pointer if pool not full, otherwise null pointer.
    */
-  public: virtual void* add(void* element);
+  public: virtual void* add(void* element) override;
   
   /**
    * Free this element memory.  
@@ -158,7 +158,7 @@ class mcuf::util::BlockPool:
    * @element Element pointer.
    * @return true if this poll found element and remove.
    */
-  public: virtual bool remove(void* element);
+  public: virtual bool remove(void* element) override;
 
   /**
    * Performs the given action for each element of the Iterable until all elements have 
@@ -168,7 +168,7 @@ class mcuf::util::BlockPool:
    *
    * @action - The action to be performed for each element.
    */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory&>& consumer);
+  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory&>& consumer) override;
   
   /* **************************************************************************************
    * Public Method

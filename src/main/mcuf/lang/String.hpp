@@ -111,6 +111,16 @@ class mcuf::lang::String :
    */
   public: static String format(const char* format, ...);
 
+  /**
+   * 
+   */
+  public: static char* formatChar(const char* format, va_list arg);
+
+  /**
+   * 
+   */
+  public: static char* formatChar(const char* format, ...);
+
   /* **************************************************************************************
    * Public Method <Override>
    */

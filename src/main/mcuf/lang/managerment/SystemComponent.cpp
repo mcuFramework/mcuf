@@ -13,7 +13,8 @@
  
 /* ****************************************************************************************
  * Using
- */  
+ */
+using mcuf::io::OutputStream;  
 using mcuf::lang::managerment::SystemComponent; 
 using mcuf::lang::managerment::MemoryManager;
 
@@ -40,11 +41,11 @@ using mcuf::lang::managerment::MemoryManager;
 /**
  * 
  */
-bool SystemComponent::memoryManager(MemoryManager* memoryManager){
+bool SystemComponent::memoryManager(MemoryManager* m){
   if(this->locked)
     return false;
   
-  this->mMemoryManager = memoryManager;
+  this->mMemoryManager = m;
   return true;
 }
 
@@ -58,11 +59,29 @@ MemoryManager* SystemComponent::memoryManager(void){
 /**
  * 
  */
-bool SystemComponent::timer(mcuf::hal::Timer* timer){
+bool SystemComponent::outputString(OutputStream* o){
   if(this->locked)
     return false;
   
-  this->mTimer = timer;
+  this->mOutputString = o;
+  return true;
+}
+
+/**
+ * 
+ */
+OutputStream* SystemComponent::outputString(void){
+  return this->mOutputString;
+}
+
+/**
+ * 
+ */
+bool SystemComponent::timer(mcuf::hal::Timer* t){
+  if(this->locked)
+    return false;
+  
+  this->mTimer = t;
   return true;
 }
 

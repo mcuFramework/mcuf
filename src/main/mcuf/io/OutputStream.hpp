@@ -57,7 +57,7 @@ class mcuf::io::OutputStream :
   /**
    *  write nonBlocking
    */
-  public: virtual bool write(mcuf::io::channel::ByteBuffer& byteBuffer, 
+  public: virtual void write(mcuf::io::channel::ByteBuffer* byteBuffer, 
                              void* attachment,
                              mcuf::io::channel::CompletionHandler<int, void*>* handler) = 0;
   

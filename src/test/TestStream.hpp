@@ -99,7 +99,7 @@ class test::TestStream :
   /**
    *  read async
    */
-  public: virtual bool read(mcuf::io::channel::ByteBuffer& byteBuffer, 
+  public: virtual void read(mcuf::io::channel::ByteBuffer* byteBuffer, 
                             void* attachment,
                             mcuf::io::channel::CompletionHandler<int, void*>* handler) override;
     
@@ -111,7 +111,7 @@ class test::TestStream :
   /**
    *  write nonBlocking
    */
-  public: virtual bool write(mcuf::io::channel::ByteBuffer& byteBuffer, 
+  public: virtual void write(mcuf::io::channel::ByteBuffer* byteBuffer, 
                              void* attachment,
                              mcuf::io::channel::CompletionHandler<int, void*>* handler) override;
 																

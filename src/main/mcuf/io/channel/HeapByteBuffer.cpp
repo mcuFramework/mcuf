@@ -8,10 +8,13 @@
 /* ****************************************************************************************
  * Include
  */  
- 
+#include "HeapByteBuffer.hpp"
+
 /* ****************************************************************************************
  * Using
  */  
+using mcuf::io::channel::ByteBuffer;
+using mcuf::io::channel::HeapByteBuffer;
 
 /* ****************************************************************************************
  * Macro
@@ -24,6 +27,32 @@
 /* ****************************************************************************************
  * Construct Method
  */
+
+/**
+ * 
+ */
+HeapByteBuffer::HeapByteBuffer(size_t length) : 
+                ByteBuffer(new char[length], length){
+  
+  return;
+}
+
+/**
+ * 
+ */
+HeapByteBuffer::HeapByteBuffer(void* pointer, size_t length) : 
+                ByteBuffer(pointer, length){
+
+  return;
+}
+
+/**
+ * 
+ */
+HeapByteBuffer::~HeapByteBuffer(void){
+  delete this->lowerArray();
+  return;
+}
 
 /* ****************************************************************************************
  * Operator Method

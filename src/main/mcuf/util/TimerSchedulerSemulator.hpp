@@ -52,7 +52,7 @@ class mcuf::util::TimerSchedulerSemulator:
    * Class ConsumerClear
    */
   public: class ConsumerClear: 
-                 public mcuf::function::Consumer<mcuf::lang::Memory&>{
+                public mcuf::function::Consumer<mcuf::lang::Memory&>{
 
     public: ConsumerClear(void) = default;
 

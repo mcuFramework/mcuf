@@ -11,9 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include <stdio.h>
-
 #include "../hal/Timer.hpp"
+#include "../io/PrintStream.hpp"
 #include "../lang/Object.hpp"
 #include "../lang/managerment/SystemComponent.hpp"
 #include "../lang/managerment/MemoryManager.hpp"
@@ -33,7 +32,7 @@ namespace mcuf{
 /**
  * Class System
  */
-class mcuf::lang::System:
+class mcuf::lang::System final:
       public mcuf::lang::Object{
 
   /* **************************************************************************************
@@ -44,6 +43,7 @@ class mcuf::lang::System:
    * Variable <Public>
    */
   public: static mcuf::lang::managerment::SystemComponent component;
+  public: static mcuf::io::PrintStream out;
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -111,10 +111,7 @@ class mcuf::lang::System:
   /**
    * 
    */
-  public: static void info(const char* path, const char* message){
-    printf("INFO: %s - %s\n", path, message);
-    return;
-  }
+  public: static void info(const char* path, const char* message);
 
   /**
    * 
@@ -126,22 +123,15 @@ class mcuf::lang::System:
    */
   public: static mcuf::lang::managerment::MemoryManager* memoryManager(void);
 
+  /**
+   * 
+   */
+  public: static void throwSystemError(const char* path, const char* message);
 
   /**
    * 
    */
-  public: static void throwSystemError(const char* path, const char* message){
-    printf("ERROR: %s - %s\n", path, message);
-    while(1);
-  }
-
-  /**
-   * 
-   */
-  public: static void throwSystemWarning(const char* path, const char* message){
-    printf("WARNING: %s - %s\n", path, message);
-    return;
-  }
+  public: static void throwSystemWarning(const char* path, const char* message);
 
   /* **************************************************************************************
    * Public Method <Override>

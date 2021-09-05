@@ -62,7 +62,12 @@ class mcuf::io::channel::HeapByteBuffer :
   /**
    * Construct.
    */
-  private: HeapByteBuffer(size_t length);
+  public: HeapByteBuffer(size_t length);
+
+  /**
+   * Construct.
+   */
+  public: HeapByteBuffer(void* pointer, size_t length);
 
   /**
    * Distruct.

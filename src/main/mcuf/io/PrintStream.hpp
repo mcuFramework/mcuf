@@ -15,6 +15,7 @@
 
 #include "OutputStream.hpp"
 
+#include "../lang/String.hpp"
 
 
 /* ****************************************************************************************
@@ -34,10 +35,41 @@ class mcuf::io::PrintStream{
   /* **************************************************************************************
    * Subclass
    */
+  public: class CompletionHandlerConst;
+  public: class CompletionHandlerHeap;
+
+  /* **************************************************************************************
+   * Class CompletionHandlerConst
+   */
+  public: class CompletionHandlerConst : 
+                public mcuf::io::channel::CompletionHandler<int, void*>{
+
+    public: CompletionHandlerConst(void) = default;
+    public: virtual ~CompletionHandlerConst(void) = default;
+
+    public: virtual void completed(int result, void* attachment) override;
+    public: virtual void failed(mcuf::lang::Throwable& exc, void* attachment) override;
+  };
+
+  /* **************************************************************************************
+   * Class CompletionHandlerHeap
+   */
+  public: class CompletionHandlerHeap : 
+                public mcuf::io::channel::CompletionHandler<int, void*>{
+
+    public: CompletionHandlerHeap(void) = default;
+    public: virtual ~CompletionHandlerHeap(void) = default;
+
+    public: virtual void completed(int result, void* attachment) override;
+    public: virtual void failed(mcuf::lang::Throwable& exc, void* attachment) override;
+  };  
 
   /* **************************************************************************************
    * Variable <Public>
    */
+  public: static const char textNextLine[];
+  public: static const char textTrue[];
+  public: static const char textFalse[];
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -46,6 +78,10 @@ class mcuf::io::PrintStream{
   /* **************************************************************************************
    * Variable <Private>
    */
+  private: mcuf::io::OutputStream* outputStream;
+  private: CompletionHandlerConst completionHandlerConst = CompletionHandlerConst();
+  private: CompletionHandlerHeap completionHandlerHeap = CompletionHandlerHeap();
+
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -62,7 +98,7 @@ class mcuf::io::PrintStream{
   /**
    * Construct.
    */
-  public: PrintStream(void) = default;
+  public: PrintStream(mcuf::io::OutputStream* outputStream);
 
   /**
    * Disconstruct.
@@ -84,6 +120,41 @@ class mcuf::io::PrintStream{
   /* **************************************************************************************
    * Public Method
    */
+
+  /**
+   * 
+   */
+  public: PrintStream& format(const char* format, ...);
+
+  /**
+   * 
+   */
+  public: PrintStream& print(bool b);
+
+  /**
+   * 
+   */
+  public: PrintStream& print(int i);
+
+  /**
+   * 
+   */
+  public: PrintStream& print(const char* string);
+
+  /**
+   * 
+   */
+  public: PrintStream& println(bool b);
+
+  /**
+   * 
+   */
+  public: PrintStream& println(int i);
+
+  /**
+   * 
+   */
+  public: PrintStream& println(const char* string); 
   
   /* **************************************************************************************
    * Protected Method <Static>

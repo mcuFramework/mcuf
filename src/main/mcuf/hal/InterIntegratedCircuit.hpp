@@ -12,6 +12,8 @@
  * Include
  */  
 #include "..\hal\Base.hpp"
+#include "..\io\channel\ByteBuffer.hpp"
+#include "..\io\channel\CompletionHandler.hpp"
 
 
 
@@ -85,6 +87,32 @@ class mcuf::hal::InterIntegratedCircuit :
   /* **************************************************************************************
    * Public Method
    */
+  
+  /**
+   * 
+   */
+  public: virtual uint32_t clockRate(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual uint32_t clockRate(uint32_t clock) = 0;
+
+  /**
+   * 
+   */
+  public: void read(uint8_t address, 
+                    mcuf::io::channel::ByteBuffer* bytebuffer,
+                    void* attachment,
+                    mcuf::io::channel::CompletionHandler<int, void*>* handler);
+
+  /**
+   * 
+   */
+  public: void write(uint8_t address, 
+                     mcuf::io::channel::ByteBuffer* bytebuffer,
+                     void* attachment,
+                     mcuf::io::channel::CompletionHandler<int, void*>* handler);
 
   /* **************************************************************************************
    * Protected Method <Static>

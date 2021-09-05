@@ -8,6 +8,7 @@
 /* ****************************************************************************************
  * Include
  */  
+#include <stdio.h>
 #include "TestStream.hpp"
 
 /* ****************************************************************************************
@@ -64,11 +65,14 @@ bool TestStream::isOpen(void){
 /**
  *  read async
  */
-bool TestStream::read(ByteBuffer& byteBuffer, 
+void TestStream::read(ByteBuffer* byteBuffer, 
                       void* attachment,
                       CompletionHandler<int, void*>* handler){
 
-  return false;
+  if(handler){
+    mcuf::lang::Throwable throwable = mcuf::lang::Throwable();
+    handler->failed(throwable, attachment);
+  }
 }
   
 /**
@@ -81,18 +85,20 @@ int TestStream::skip(int skip){
 /**
  *  write nonBlocking
  */
-bool TestStream::write(ByteBuffer& byteBuffer, 
+void TestStream::write(ByteBuffer* byteBuffer, 
                        void* attachment,
                        CompletionHandler<int, void*>* handler){
 
-  uint8_t* base = byteBuffer.lowerArray(byteBuffer.position());
+  uint8_t* base = byteBuffer->lowerArray(byteBuffer->position());
 
-  for(int i=byteBuffer.position(); i<byteBuffer.limit(); i++)
+  for(int i=byteBuffer->position(); i<byteBuffer->limit(); i++)
     putchar(base[i]);
 
-  byteBuffer.position(byteBuffer.limit());
+  byteBuffer->position(byteBuffer->limit());
 
-  return true;
+  if(handler){
+    handler->completed(0, attachment);
+  }
 }
 
 /* ****************************************************************************************

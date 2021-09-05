@@ -10,13 +10,13 @@
       <TargetName>mcuf_m0</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
+      <pCCUsed>6150000::V6.15::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>ARMCM0</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -185,6 +185,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -351,7 +352,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -420,31 +421,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\driver</GroupName>
-          <Files>
-            <File>
-              <FileName>driver.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\driver.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\driver\titanmec</GroupName>
-          <Files>
-            <File>
-              <FileName>titanmec.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\titanmec\titanmec.h</FilePath>
-            </File>
-            <File>
-              <FileName>TM1629A.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\titanmec\TM1629A.hpp</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>main\mcuf\function</GroupName>
           <Files>
             <File>
@@ -508,15 +484,80 @@
           <GroupName>main\mcuf\hal</GroupName>
           <Files>
             <File>
+              <FileName>AnalogDigitalConverter.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverter.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Base.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\Base.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\FlashStorage.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposeIO.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\hal.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterIntegratedCircuit.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\InterIntegratedCircuit.hpp</FilePath>
+            </File>
+            <File>
               <FileName>PinDefine.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\hal\PinDefine.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinDefine.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PinDefine.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinEdgeTrigger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PinEdgeTrigger.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeripheral.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPort.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\Timer.hpp</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>main\mcuf\io</GroupName>
           <Files>
+            <File>
+              <FileName>Closeable.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Closeable.hpp</FilePath>
+            </File>
             <File>
               <FileName>InputStream.hpp</FileName>
               <FileType>5</FileType>
@@ -531,6 +572,16 @@
               <FileName>OutputStream.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
             <File>
               <FileName>Stream.hpp</FileName>
@@ -548,9 +599,14 @@
               <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.hpp</FilePath>
+              <FileName>ConstByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.cpp</FilePath>
             </File>
             <File>
               <FileName>channel.h</FileName>
@@ -558,9 +614,24 @@
               <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
             </File>
             <File>
+              <FileName>ByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>CompletionHandler.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\CompletionHandler.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ConstByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -638,6 +709,16 @@
               <FilePath>.\src\main\mcuf\lang\Pointer.hpp</FilePath>
             </File>
             <File>
+              <FileName>String.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\String.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>String.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\String.hpp</FilePath>
+            </File>
+            <File>
               <FileName>System.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\System.cpp</FilePath>
@@ -668,14 +749,34 @@
               <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.cpp</FilePath>
             </File>
             <File>
+              <FileName>GlobalStack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>managerment.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
+            </File>
+            <File>
               <FileName>MemoryManager.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.cpp</FilePath>
             </File>
             <File>
+              <FileName>MemoryManager.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.hpp</FilePath>
+            </File>
+            <File>
               <FileName>SystemComponent.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\SystemComponent.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SystemComponent.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\SystemComponent.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -688,9 +789,19 @@
               <FilePath>.\src\main\mcuf\lang\number\Boolean.cpp</FilePath>
             </File>
             <File>
+              <FileName>Boolean.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Boolean.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Byte.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Byte.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Byte.hpp</FilePath>
             </File>
             <File>
               <FileName>Integer.cpp</FileName>
@@ -698,9 +809,19 @@
               <FilePath>.\src\main\mcuf\lang\number\Integer.cpp</FilePath>
             </File>
             <File>
+              <FileName>Integer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Integer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Long.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Long.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Long.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Long.hpp</FilePath>
             </File>
             <File>
               <FileName>Number.cpp</FileName>
@@ -708,9 +829,29 @@
               <FilePath>.\src\main\mcuf\lang\number\Number.cpp</FilePath>
             </File>
             <File>
+              <FileName>number.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\number.h</FilePath>
+            </File>
+            <File>
+              <FileName>Number.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Number.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>NumberTemplate.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\NumberTemplate.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Short.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Short.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Short.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Short.hpp</FilePath>
             </File>
             <File>
               <FileName>UnsignedByte.cpp</FileName>
@@ -718,9 +859,19 @@
               <FilePath>.\src\main\mcuf\lang\number\UnsignedByte.cpp</FilePath>
             </File>
             <File>
+              <FileName>UnsignedByte.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedByte.hpp</FilePath>
+            </File>
+            <File>
               <FileName>UnsignedInteger.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\UnsignedInteger.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UnsignedInteger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedInteger.hpp</FilePath>
             </File>
             <File>
               <FileName>UnsignedLong.cpp</FileName>
@@ -728,9 +879,19 @@
               <FilePath>.\src\main\mcuf\lang\number\UnsignedLong.cpp</FilePath>
             </File>
             <File>
+              <FileName>UnsignedLong.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedLong.hpp</FilePath>
+            </File>
+            <File>
               <FileName>UnsignedShort.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\UnsignedShort.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UnsignedShort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedShort.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -743,9 +904,24 @@
               <FilePath>.\src\main\mcuf\util\AlignedStack.cpp</FilePath>
             </File>
             <File>
+              <FileName>AlignedStack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\AlignedStack.hpp</FilePath>
+            </File>
+            <File>
               <FileName>BlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Collection.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
             </File>
             <File>
               <FileName>Executor.cpp</FileName>
@@ -753,9 +929,24 @@
               <FilePath>.\src\main\mcuf\util\Executor.cpp</FilePath>
             </File>
             <File>
+              <FileName>Executor.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Executor.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Fifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Fifo.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FixedQueue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\FixedQueue.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapBlockPool.cpp</FileName>
@@ -763,9 +954,19 @@
               <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
             </File>
             <File>
+              <FileName>HeapBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapBlockPool.hpp</FilePath>
+            </File>
+            <File>
               <FileName>HeapFifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\HeapFifo.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapFifo.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapFifo.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapVectorBlockPool.cpp</FileName>
@@ -773,9 +974,54 @@
               <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.cpp</FilePath>
             </File>
             <File>
+              <FileName>HeapVectorBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Map.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MapEntity.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MapEntity.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Pool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Queue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Scanner.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Stack.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stack.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Stack.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>TimerScheduler.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerScheduler.hpp</FilePath>
             </File>
             <File>
               <FileName>TimerSchedulerSemulator.cpp</FileName>
@@ -783,14 +1029,34 @@
               <FilePath>.\src\main\mcuf\util\TimerSchedulerSemulator.cpp</FilePath>
             </File>
             <File>
+              <FileName>TimerSchedulerSemulator.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerSchedulerSemulator.hpp</FilePath>
+            </File>
+            <File>
               <FileName>TimerTask.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTask.cpp</FilePath>
             </File>
             <File>
+              <FileName>TimerTask.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerTask.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
+            </File>
+            <File>
               <FileName>VectorBlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\VectorBlockPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VectorBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VectorBlockPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -990,6 +1256,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -1156,7 +1423,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -1225,31 +1492,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\driver</GroupName>
-          <Files>
-            <File>
-              <FileName>driver.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\driver.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\driver\titanmec</GroupName>
-          <Files>
-            <File>
-              <FileName>titanmec.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\titanmec\titanmec.h</FilePath>
-            </File>
-            <File>
-              <FileName>TM1629A.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\titanmec\TM1629A.hpp</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>main\mcuf\function</GroupName>
           <Files>
             <File>
@@ -1313,15 +1555,80 @@
           <GroupName>main\mcuf\hal</GroupName>
           <Files>
             <File>
+              <FileName>AnalogDigitalConverter.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverter.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Base.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\Base.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\FlashStorage.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposeIO.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\hal.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterIntegratedCircuit.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\InterIntegratedCircuit.hpp</FilePath>
+            </File>
+            <File>
               <FileName>PinDefine.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\hal\PinDefine.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinDefine.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PinDefine.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinEdgeTrigger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PinEdgeTrigger.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeripheral.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPort.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\Timer.hpp</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>main\mcuf\io</GroupName>
           <Files>
+            <File>
+              <FileName>Closeable.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Closeable.hpp</FilePath>
+            </File>
             <File>
               <FileName>InputStream.hpp</FileName>
               <FileType>5</FileType>
@@ -1336,6 +1643,16 @@
               <FileName>OutputStream.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
             <File>
               <FileName>Stream.hpp</FileName>
@@ -1353,9 +1670,14 @@
               <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.hpp</FilePath>
+              <FileName>ConstByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.cpp</FilePath>
             </File>
             <File>
               <FileName>channel.h</FileName>
@@ -1363,9 +1685,24 @@
               <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
             </File>
             <File>
+              <FileName>ByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>CompletionHandler.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\CompletionHandler.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ConstByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1443,6 +1780,16 @@
               <FilePath>.\src\main\mcuf\lang\Pointer.hpp</FilePath>
             </File>
             <File>
+              <FileName>String.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\String.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>String.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\String.hpp</FilePath>
+            </File>
+            <File>
               <FileName>System.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\System.cpp</FilePath>
@@ -1473,14 +1820,34 @@
               <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.cpp</FilePath>
             </File>
             <File>
+              <FileName>GlobalStack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>managerment.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
+            </File>
+            <File>
               <FileName>MemoryManager.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.cpp</FilePath>
             </File>
             <File>
+              <FileName>MemoryManager.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.hpp</FilePath>
+            </File>
+            <File>
               <FileName>SystemComponent.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\SystemComponent.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SystemComponent.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\SystemComponent.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1493,9 +1860,19 @@
               <FilePath>.\src\main\mcuf\lang\number\Boolean.cpp</FilePath>
             </File>
             <File>
+              <FileName>Boolean.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Boolean.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Byte.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Byte.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Byte.hpp</FilePath>
             </File>
             <File>
               <FileName>Integer.cpp</FileName>
@@ -1503,9 +1880,19 @@
               <FilePath>.\src\main\mcuf\lang\number\Integer.cpp</FilePath>
             </File>
             <File>
+              <FileName>Integer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Integer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Long.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Long.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Long.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Long.hpp</FilePath>
             </File>
             <File>
               <FileName>Number.cpp</FileName>
@@ -1513,9 +1900,29 @@
               <FilePath>.\src\main\mcuf\lang\number\Number.cpp</FilePath>
             </File>
             <File>
+              <FileName>number.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\number.h</FilePath>
+            </File>
+            <File>
+              <FileName>Number.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Number.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>NumberTemplate.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\NumberTemplate.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Short.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Short.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Short.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Short.hpp</FilePath>
             </File>
             <File>
               <FileName>UnsignedByte.cpp</FileName>
@@ -1523,9 +1930,19 @@
               <FilePath>.\src\main\mcuf\lang\number\UnsignedByte.cpp</FilePath>
             </File>
             <File>
+              <FileName>UnsignedByte.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedByte.hpp</FilePath>
+            </File>
+            <File>
               <FileName>UnsignedInteger.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\UnsignedInteger.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UnsignedInteger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedInteger.hpp</FilePath>
             </File>
             <File>
               <FileName>UnsignedLong.cpp</FileName>
@@ -1533,9 +1950,19 @@
               <FilePath>.\src\main\mcuf\lang\number\UnsignedLong.cpp</FilePath>
             </File>
             <File>
+              <FileName>UnsignedLong.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedLong.hpp</FilePath>
+            </File>
+            <File>
               <FileName>UnsignedShort.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\UnsignedShort.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UnsignedShort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedShort.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1548,9 +1975,24 @@
               <FilePath>.\src\main\mcuf\util\AlignedStack.cpp</FilePath>
             </File>
             <File>
+              <FileName>AlignedStack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\AlignedStack.hpp</FilePath>
+            </File>
+            <File>
               <FileName>BlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Collection.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
             </File>
             <File>
               <FileName>Executor.cpp</FileName>
@@ -1558,9 +2000,24 @@
               <FilePath>.\src\main\mcuf\util\Executor.cpp</FilePath>
             </File>
             <File>
+              <FileName>Executor.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Executor.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Fifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Fifo.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FixedQueue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\FixedQueue.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapBlockPool.cpp</FileName>
@@ -1568,9 +2025,19 @@
               <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
             </File>
             <File>
+              <FileName>HeapBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapBlockPool.hpp</FilePath>
+            </File>
+            <File>
               <FileName>HeapFifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\HeapFifo.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapFifo.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapFifo.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapVectorBlockPool.cpp</FileName>
@@ -1578,9 +2045,54 @@
               <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.cpp</FilePath>
             </File>
             <File>
+              <FileName>HeapVectorBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Map.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MapEntity.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MapEntity.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Pool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Queue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Scanner.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Stack.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stack.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Stack.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>TimerScheduler.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerScheduler.hpp</FilePath>
             </File>
             <File>
               <FileName>TimerSchedulerSemulator.cpp</FileName>
@@ -1588,14 +2100,34 @@
               <FilePath>.\src\main\mcuf\util\TimerSchedulerSemulator.cpp</FilePath>
             </File>
             <File>
+              <FileName>TimerSchedulerSemulator.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerSchedulerSemulator.hpp</FilePath>
+            </File>
+            <File>
               <FileName>TimerTask.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTask.cpp</FilePath>
             </File>
             <File>
+              <FileName>TimerTask.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerTask.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
+            </File>
+            <File>
               <FileName>VectorBlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\VectorBlockPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VectorBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VectorBlockPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1795,6 +2327,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -1961,7 +2494,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -2030,31 +2563,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\driver</GroupName>
-          <Files>
-            <File>
-              <FileName>driver.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\driver.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\driver\titanmec</GroupName>
-          <Files>
-            <File>
-              <FileName>titanmec.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\titanmec\titanmec.h</FilePath>
-            </File>
-            <File>
-              <FileName>TM1629A.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\titanmec\TM1629A.hpp</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>main\mcuf\function</GroupName>
           <Files>
             <File>
@@ -2118,15 +2626,80 @@
           <GroupName>main\mcuf\hal</GroupName>
           <Files>
             <File>
+              <FileName>AnalogDigitalConverter.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverter.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Base.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\Base.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\FlashStorage.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposeIO.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\hal.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterIntegratedCircuit.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\InterIntegratedCircuit.hpp</FilePath>
+            </File>
+            <File>
               <FileName>PinDefine.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\hal\PinDefine.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinDefine.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PinDefine.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinEdgeTrigger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PinEdgeTrigger.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeripheral.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPort.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\Timer.hpp</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>main\mcuf\io</GroupName>
           <Files>
+            <File>
+              <FileName>Closeable.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Closeable.hpp</FilePath>
+            </File>
             <File>
               <FileName>InputStream.hpp</FileName>
               <FileType>5</FileType>
@@ -2141,6 +2714,16 @@
               <FileName>OutputStream.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
             <File>
               <FileName>Stream.hpp</FileName>
@@ -2158,9 +2741,14 @@
               <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.hpp</FilePath>
+              <FileName>ConstByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.cpp</FilePath>
             </File>
             <File>
               <FileName>channel.h</FileName>
@@ -2168,9 +2756,24 @@
               <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
             </File>
             <File>
+              <FileName>ByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>CompletionHandler.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\CompletionHandler.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ConstByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -2248,6 +2851,16 @@
               <FilePath>.\src\main\mcuf\lang\Pointer.hpp</FilePath>
             </File>
             <File>
+              <FileName>String.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\String.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>String.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\String.hpp</FilePath>
+            </File>
+            <File>
               <FileName>System.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\System.cpp</FilePath>
@@ -2278,14 +2891,34 @@
               <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.cpp</FilePath>
             </File>
             <File>
+              <FileName>GlobalStack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>managerment.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
+            </File>
+            <File>
               <FileName>MemoryManager.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.cpp</FilePath>
             </File>
             <File>
+              <FileName>MemoryManager.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.hpp</FilePath>
+            </File>
+            <File>
               <FileName>SystemComponent.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\SystemComponent.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SystemComponent.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\SystemComponent.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -2298,9 +2931,19 @@
               <FilePath>.\src\main\mcuf\lang\number\Boolean.cpp</FilePath>
             </File>
             <File>
+              <FileName>Boolean.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Boolean.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Byte.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Byte.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Byte.hpp</FilePath>
             </File>
             <File>
               <FileName>Integer.cpp</FileName>
@@ -2308,9 +2951,19 @@
               <FilePath>.\src\main\mcuf\lang\number\Integer.cpp</FilePath>
             </File>
             <File>
+              <FileName>Integer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Integer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Long.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Long.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Long.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Long.hpp</FilePath>
             </File>
             <File>
               <FileName>Number.cpp</FileName>
@@ -2318,9 +2971,29 @@
               <FilePath>.\src\main\mcuf\lang\number\Number.cpp</FilePath>
             </File>
             <File>
+              <FileName>number.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\number.h</FilePath>
+            </File>
+            <File>
+              <FileName>Number.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Number.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>NumberTemplate.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\NumberTemplate.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Short.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Short.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Short.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Short.hpp</FilePath>
             </File>
             <File>
               <FileName>UnsignedByte.cpp</FileName>
@@ -2328,9 +3001,19 @@
               <FilePath>.\src\main\mcuf\lang\number\UnsignedByte.cpp</FilePath>
             </File>
             <File>
+              <FileName>UnsignedByte.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedByte.hpp</FilePath>
+            </File>
+            <File>
               <FileName>UnsignedInteger.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\UnsignedInteger.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UnsignedInteger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedInteger.hpp</FilePath>
             </File>
             <File>
               <FileName>UnsignedLong.cpp</FileName>
@@ -2338,9 +3021,19 @@
               <FilePath>.\src\main\mcuf\lang\number\UnsignedLong.cpp</FilePath>
             </File>
             <File>
+              <FileName>UnsignedLong.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedLong.hpp</FilePath>
+            </File>
+            <File>
               <FileName>UnsignedShort.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\UnsignedShort.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UnsignedShort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedShort.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -2353,9 +3046,24 @@
               <FilePath>.\src\main\mcuf\util\AlignedStack.cpp</FilePath>
             </File>
             <File>
+              <FileName>AlignedStack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\AlignedStack.hpp</FilePath>
+            </File>
+            <File>
               <FileName>BlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Collection.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
             </File>
             <File>
               <FileName>Executor.cpp</FileName>
@@ -2363,9 +3071,24 @@
               <FilePath>.\src\main\mcuf\util\Executor.cpp</FilePath>
             </File>
             <File>
+              <FileName>Executor.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Executor.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Fifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Fifo.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FixedQueue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\FixedQueue.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapBlockPool.cpp</FileName>
@@ -2373,9 +3096,19 @@
               <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
             </File>
             <File>
+              <FileName>HeapBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapBlockPool.hpp</FilePath>
+            </File>
+            <File>
               <FileName>HeapFifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\HeapFifo.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapFifo.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapFifo.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapVectorBlockPool.cpp</FileName>
@@ -2383,9 +3116,54 @@
               <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.cpp</FilePath>
             </File>
             <File>
+              <FileName>HeapVectorBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Map.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MapEntity.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MapEntity.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Pool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Queue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Scanner.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Stack.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stack.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Stack.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>TimerScheduler.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerScheduler.hpp</FilePath>
             </File>
             <File>
               <FileName>TimerSchedulerSemulator.cpp</FileName>
@@ -2393,14 +3171,34 @@
               <FilePath>.\src\main\mcuf\util\TimerSchedulerSemulator.cpp</FilePath>
             </File>
             <File>
+              <FileName>TimerSchedulerSemulator.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerSchedulerSemulator.hpp</FilePath>
+            </File>
+            <File>
               <FileName>TimerTask.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTask.cpp</FilePath>
             </File>
             <File>
+              <FileName>TimerTask.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerTask.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
+            </File>
+            <File>
               <FileName>VectorBlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\VectorBlockPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VectorBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VectorBlockPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -2600,6 +3398,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -2766,7 +3565,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -2835,31 +3634,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\driver</GroupName>
-          <Files>
-            <File>
-              <FileName>driver.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\driver.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\driver\titanmec</GroupName>
-          <Files>
-            <File>
-              <FileName>titanmec.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\titanmec\titanmec.h</FilePath>
-            </File>
-            <File>
-              <FileName>TM1629A.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\titanmec\TM1629A.hpp</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>main\mcuf\function</GroupName>
           <Files>
             <File>
@@ -2923,15 +3697,80 @@
           <GroupName>main\mcuf\hal</GroupName>
           <Files>
             <File>
+              <FileName>AnalogDigitalConverter.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverter.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Base.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\Base.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\FlashStorage.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposeIO.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\hal.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterIntegratedCircuit.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\InterIntegratedCircuit.hpp</FilePath>
+            </File>
+            <File>
               <FileName>PinDefine.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\hal\PinDefine.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinDefine.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PinDefine.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinEdgeTrigger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PinEdgeTrigger.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeripheral.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPort.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\Timer.hpp</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>main\mcuf\io</GroupName>
           <Files>
+            <File>
+              <FileName>Closeable.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Closeable.hpp</FilePath>
+            </File>
             <File>
               <FileName>InputStream.hpp</FileName>
               <FileType>5</FileType>
@@ -2946,6 +3785,16 @@
               <FileName>OutputStream.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
             <File>
               <FileName>Stream.hpp</FileName>
@@ -2963,9 +3812,14 @@
               <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.hpp</FilePath>
+              <FileName>ConstByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.cpp</FilePath>
             </File>
             <File>
               <FileName>channel.h</FileName>
@@ -2973,9 +3827,24 @@
               <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
             </File>
             <File>
+              <FileName>ByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>CompletionHandler.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\CompletionHandler.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ConstByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3053,6 +3922,16 @@
               <FilePath>.\src\main\mcuf\lang\Pointer.hpp</FilePath>
             </File>
             <File>
+              <FileName>String.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\String.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>String.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\String.hpp</FilePath>
+            </File>
+            <File>
               <FileName>System.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\System.cpp</FilePath>
@@ -3083,14 +3962,34 @@
               <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.cpp</FilePath>
             </File>
             <File>
+              <FileName>GlobalStack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>managerment.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
+            </File>
+            <File>
               <FileName>MemoryManager.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.cpp</FilePath>
             </File>
             <File>
+              <FileName>MemoryManager.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.hpp</FilePath>
+            </File>
+            <File>
               <FileName>SystemComponent.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\SystemComponent.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SystemComponent.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\SystemComponent.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3103,9 +4002,19 @@
               <FilePath>.\src\main\mcuf\lang\number\Boolean.cpp</FilePath>
             </File>
             <File>
+              <FileName>Boolean.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Boolean.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Byte.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Byte.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Byte.hpp</FilePath>
             </File>
             <File>
               <FileName>Integer.cpp</FileName>
@@ -3113,9 +4022,19 @@
               <FilePath>.\src\main\mcuf\lang\number\Integer.cpp</FilePath>
             </File>
             <File>
+              <FileName>Integer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Integer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Long.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Long.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Long.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Long.hpp</FilePath>
             </File>
             <File>
               <FileName>Number.cpp</FileName>
@@ -3123,9 +4042,29 @@
               <FilePath>.\src\main\mcuf\lang\number\Number.cpp</FilePath>
             </File>
             <File>
+              <FileName>number.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\number.h</FilePath>
+            </File>
+            <File>
+              <FileName>Number.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Number.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>NumberTemplate.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\NumberTemplate.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Short.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Short.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Short.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Short.hpp</FilePath>
             </File>
             <File>
               <FileName>UnsignedByte.cpp</FileName>
@@ -3133,9 +4072,19 @@
               <FilePath>.\src\main\mcuf\lang\number\UnsignedByte.cpp</FilePath>
             </File>
             <File>
+              <FileName>UnsignedByte.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedByte.hpp</FilePath>
+            </File>
+            <File>
               <FileName>UnsignedInteger.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\UnsignedInteger.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UnsignedInteger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedInteger.hpp</FilePath>
             </File>
             <File>
               <FileName>UnsignedLong.cpp</FileName>
@@ -3143,9 +4092,19 @@
               <FilePath>.\src\main\mcuf\lang\number\UnsignedLong.cpp</FilePath>
             </File>
             <File>
+              <FileName>UnsignedLong.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedLong.hpp</FilePath>
+            </File>
+            <File>
               <FileName>UnsignedShort.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\UnsignedShort.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UnsignedShort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedShort.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3158,9 +4117,24 @@
               <FilePath>.\src\main\mcuf\util\AlignedStack.cpp</FilePath>
             </File>
             <File>
+              <FileName>AlignedStack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\AlignedStack.hpp</FilePath>
+            </File>
+            <File>
               <FileName>BlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Collection.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
             </File>
             <File>
               <FileName>Executor.cpp</FileName>
@@ -3168,9 +4142,24 @@
               <FilePath>.\src\main\mcuf\util\Executor.cpp</FilePath>
             </File>
             <File>
+              <FileName>Executor.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Executor.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Fifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Fifo.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FixedQueue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\FixedQueue.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapBlockPool.cpp</FileName>
@@ -3178,9 +4167,19 @@
               <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
             </File>
             <File>
+              <FileName>HeapBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapBlockPool.hpp</FilePath>
+            </File>
+            <File>
               <FileName>HeapFifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\HeapFifo.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapFifo.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapFifo.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapVectorBlockPool.cpp</FileName>
@@ -3188,9 +4187,54 @@
               <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.cpp</FilePath>
             </File>
             <File>
+              <FileName>HeapVectorBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Map.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MapEntity.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MapEntity.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Pool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Queue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Scanner.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Stack.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stack.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Stack.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>TimerScheduler.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerScheduler.hpp</FilePath>
             </File>
             <File>
               <FileName>TimerSchedulerSemulator.cpp</FileName>
@@ -3198,14 +4242,34 @@
               <FilePath>.\src\main\mcuf\util\TimerSchedulerSemulator.cpp</FilePath>
             </File>
             <File>
+              <FileName>TimerSchedulerSemulator.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerSchedulerSemulator.hpp</FilePath>
+            </File>
+            <File>
               <FileName>TimerTask.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTask.cpp</FilePath>
             </File>
             <File>
+              <FileName>TimerTask.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerTask.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
+            </File>
+            <File>
               <FileName>VectorBlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\VectorBlockPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VectorBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VectorBlockPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3405,6 +4469,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>2</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -3571,7 +4636,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -3640,31 +4705,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\driver</GroupName>
-          <Files>
-            <File>
-              <FileName>driver.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\driver.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\driver\titanmec</GroupName>
-          <Files>
-            <File>
-              <FileName>titanmec.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\titanmec\titanmec.h</FilePath>
-            </File>
-            <File>
-              <FileName>TM1629A.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\titanmec\TM1629A.hpp</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>main\mcuf\function</GroupName>
           <Files>
             <File>
@@ -3728,15 +4768,80 @@
           <GroupName>main\mcuf\hal</GroupName>
           <Files>
             <File>
+              <FileName>AnalogDigitalConverter.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverter.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Base.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\Base.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\FlashStorage.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposeIO.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\hal.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterIntegratedCircuit.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\InterIntegratedCircuit.hpp</FilePath>
+            </File>
+            <File>
               <FileName>PinDefine.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\hal\PinDefine.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinDefine.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PinDefine.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinEdgeTrigger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PinEdgeTrigger.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeripheral.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPort.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\Timer.hpp</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>main\mcuf\io</GroupName>
           <Files>
+            <File>
+              <FileName>Closeable.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Closeable.hpp</FilePath>
+            </File>
             <File>
               <FileName>InputStream.hpp</FileName>
               <FileType>5</FileType>
@@ -3751,6 +4856,16 @@
               <FileName>OutputStream.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
             <File>
               <FileName>Stream.hpp</FileName>
@@ -3768,9 +4883,14 @@
               <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.hpp</FilePath>
+              <FileName>ConstByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.cpp</FilePath>
             </File>
             <File>
               <FileName>channel.h</FileName>
@@ -3778,9 +4898,24 @@
               <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
             </File>
             <File>
+              <FileName>ByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>CompletionHandler.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\CompletionHandler.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ConstByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3858,6 +4993,16 @@
               <FilePath>.\src\main\mcuf\lang\Pointer.hpp</FilePath>
             </File>
             <File>
+              <FileName>String.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\String.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>String.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\String.hpp</FilePath>
+            </File>
+            <File>
               <FileName>System.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\System.cpp</FilePath>
@@ -3888,14 +5033,34 @@
               <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.cpp</FilePath>
             </File>
             <File>
+              <FileName>GlobalStack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>managerment.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
+            </File>
+            <File>
               <FileName>MemoryManager.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.cpp</FilePath>
             </File>
             <File>
+              <FileName>MemoryManager.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.hpp</FilePath>
+            </File>
+            <File>
               <FileName>SystemComponent.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\SystemComponent.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SystemComponent.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\SystemComponent.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3908,9 +5073,19 @@
               <FilePath>.\src\main\mcuf\lang\number\Boolean.cpp</FilePath>
             </File>
             <File>
+              <FileName>Boolean.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Boolean.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Byte.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Byte.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Byte.hpp</FilePath>
             </File>
             <File>
               <FileName>Integer.cpp</FileName>
@@ -3918,9 +5093,19 @@
               <FilePath>.\src\main\mcuf\lang\number\Integer.cpp</FilePath>
             </File>
             <File>
+              <FileName>Integer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Integer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Long.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Long.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Long.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Long.hpp</FilePath>
             </File>
             <File>
               <FileName>Number.cpp</FileName>
@@ -3928,9 +5113,29 @@
               <FilePath>.\src\main\mcuf\lang\number\Number.cpp</FilePath>
             </File>
             <File>
+              <FileName>number.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\number.h</FilePath>
+            </File>
+            <File>
+              <FileName>Number.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Number.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>NumberTemplate.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\NumberTemplate.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Short.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Short.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Short.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Short.hpp</FilePath>
             </File>
             <File>
               <FileName>UnsignedByte.cpp</FileName>
@@ -3938,9 +5143,19 @@
               <FilePath>.\src\main\mcuf\lang\number\UnsignedByte.cpp</FilePath>
             </File>
             <File>
+              <FileName>UnsignedByte.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedByte.hpp</FilePath>
+            </File>
+            <File>
               <FileName>UnsignedInteger.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\UnsignedInteger.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UnsignedInteger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedInteger.hpp</FilePath>
             </File>
             <File>
               <FileName>UnsignedLong.cpp</FileName>
@@ -3948,9 +5163,19 @@
               <FilePath>.\src\main\mcuf\lang\number\UnsignedLong.cpp</FilePath>
             </File>
             <File>
+              <FileName>UnsignedLong.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedLong.hpp</FilePath>
+            </File>
+            <File>
               <FileName>UnsignedShort.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\UnsignedShort.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UnsignedShort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedShort.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3963,9 +5188,24 @@
               <FilePath>.\src\main\mcuf\util\AlignedStack.cpp</FilePath>
             </File>
             <File>
+              <FileName>AlignedStack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\AlignedStack.hpp</FilePath>
+            </File>
+            <File>
               <FileName>BlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Collection.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
             </File>
             <File>
               <FileName>Executor.cpp</FileName>
@@ -3973,9 +5213,24 @@
               <FilePath>.\src\main\mcuf\util\Executor.cpp</FilePath>
             </File>
             <File>
+              <FileName>Executor.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Executor.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Fifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Fifo.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FixedQueue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\FixedQueue.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapBlockPool.cpp</FileName>
@@ -3983,9 +5238,19 @@
               <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
             </File>
             <File>
+              <FileName>HeapBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapBlockPool.hpp</FilePath>
+            </File>
+            <File>
               <FileName>HeapFifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\HeapFifo.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapFifo.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapFifo.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapVectorBlockPool.cpp</FileName>
@@ -3993,9 +5258,54 @@
               <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.cpp</FilePath>
             </File>
             <File>
+              <FileName>HeapVectorBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Map.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MapEntity.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MapEntity.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Pool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Queue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Scanner.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Stack.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stack.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Stack.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>TimerScheduler.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerScheduler.hpp</FilePath>
             </File>
             <File>
               <FileName>TimerSchedulerSemulator.cpp</FileName>
@@ -4003,14 +5313,34 @@
               <FilePath>.\src\main\mcuf\util\TimerSchedulerSemulator.cpp</FilePath>
             </File>
             <File>
+              <FileName>TimerSchedulerSemulator.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerSchedulerSemulator.hpp</FilePath>
+            </File>
+            <File>
               <FileName>TimerTask.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTask.cpp</FilePath>
             </File>
             <File>
+              <FileName>TimerTask.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerTask.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
+            </File>
+            <File>
               <FileName>VectorBlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\VectorBlockPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VectorBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VectorBlockPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -4210,6 +5540,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -4376,7 +5707,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -4445,31 +5776,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\driver</GroupName>
-          <Files>
-            <File>
-              <FileName>driver.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\driver.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\driver\titanmec</GroupName>
-          <Files>
-            <File>
-              <FileName>titanmec.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\titanmec\titanmec.h</FilePath>
-            </File>
-            <File>
-              <FileName>TM1629A.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\driver\titanmec\TM1629A.hpp</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>main\mcuf\function</GroupName>
           <Files>
             <File>
@@ -4533,15 +5839,80 @@
           <GroupName>main\mcuf\hal</GroupName>
           <Files>
             <File>
+              <FileName>AnalogDigitalConverter.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverter.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Base.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\Base.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\FlashStorage.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposeIO.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPurposePin.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\hal.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterIntegratedCircuit.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\InterIntegratedCircuit.hpp</FilePath>
+            </File>
+            <File>
               <FileName>PinDefine.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\hal\PinDefine.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinDefine.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PinDefine.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PinEdgeTrigger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PinEdgeTrigger.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeripheral.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPort.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\Timer.hpp</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
           <GroupName>main\mcuf\io</GroupName>
           <Files>
+            <File>
+              <FileName>Closeable.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Closeable.hpp</FilePath>
+            </File>
             <File>
               <FileName>InputStream.hpp</FileName>
               <FileType>5</FileType>
@@ -4556,6 +5927,16 @@
               <FileName>OutputStream.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
             <File>
               <FileName>Stream.hpp</FileName>
@@ -4573,9 +5954,14 @@
               <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.hpp</FilePath>
+              <FileName>ConstByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.cpp</FilePath>
             </File>
             <File>
               <FileName>channel.h</FileName>
@@ -4583,9 +5969,24 @@
               <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
             </File>
             <File>
+              <FileName>ByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>CompletionHandler.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\CompletionHandler.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ConstByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapByteBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -4663,6 +6064,16 @@
               <FilePath>.\src\main\mcuf\lang\Pointer.hpp</FilePath>
             </File>
             <File>
+              <FileName>String.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\String.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>String.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\String.hpp</FilePath>
+            </File>
+            <File>
               <FileName>System.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\System.cpp</FilePath>
@@ -4693,14 +6104,34 @@
               <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.cpp</FilePath>
             </File>
             <File>
+              <FileName>GlobalStack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>managerment.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
+            </File>
+            <File>
               <FileName>MemoryManager.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.cpp</FilePath>
             </File>
             <File>
+              <FileName>MemoryManager.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.hpp</FilePath>
+            </File>
+            <File>
               <FileName>SystemComponent.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\SystemComponent.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SystemComponent.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\SystemComponent.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -4713,9 +6144,19 @@
               <FilePath>.\src\main\mcuf\lang\number\Boolean.cpp</FilePath>
             </File>
             <File>
+              <FileName>Boolean.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Boolean.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Byte.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Byte.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Byte.hpp</FilePath>
             </File>
             <File>
               <FileName>Integer.cpp</FileName>
@@ -4723,9 +6164,19 @@
               <FilePath>.\src\main\mcuf\lang\number\Integer.cpp</FilePath>
             </File>
             <File>
+              <FileName>Integer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Integer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Long.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Long.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Long.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Long.hpp</FilePath>
             </File>
             <File>
               <FileName>Number.cpp</FileName>
@@ -4733,9 +6184,29 @@
               <FilePath>.\src\main\mcuf\lang\number\Number.cpp</FilePath>
             </File>
             <File>
+              <FileName>number.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\number.h</FilePath>
+            </File>
+            <File>
+              <FileName>Number.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Number.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>NumberTemplate.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\NumberTemplate.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Short.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\Short.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Short.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\Short.hpp</FilePath>
             </File>
             <File>
               <FileName>UnsignedByte.cpp</FileName>
@@ -4743,9 +6214,19 @@
               <FilePath>.\src\main\mcuf\lang\number\UnsignedByte.cpp</FilePath>
             </File>
             <File>
+              <FileName>UnsignedByte.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedByte.hpp</FilePath>
+            </File>
+            <File>
               <FileName>UnsignedInteger.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\UnsignedInteger.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UnsignedInteger.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedInteger.hpp</FilePath>
             </File>
             <File>
               <FileName>UnsignedLong.cpp</FileName>
@@ -4753,9 +6234,19 @@
               <FilePath>.\src\main\mcuf\lang\number\UnsignedLong.cpp</FilePath>
             </File>
             <File>
+              <FileName>UnsignedLong.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedLong.hpp</FilePath>
+            </File>
+            <File>
               <FileName>UnsignedShort.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\number\UnsignedShort.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>UnsignedShort.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\number\UnsignedShort.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -4768,9 +6259,24 @@
               <FilePath>.\src\main\mcuf\util\AlignedStack.cpp</FilePath>
             </File>
             <File>
+              <FileName>AlignedStack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\AlignedStack.hpp</FilePath>
+            </File>
+            <File>
               <FileName>BlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Collection.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
             </File>
             <File>
               <FileName>Executor.cpp</FileName>
@@ -4778,9 +6284,24 @@
               <FilePath>.\src\main\mcuf\util\Executor.cpp</FilePath>
             </File>
             <File>
+              <FileName>Executor.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Executor.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Fifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Fifo.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>FixedQueue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\FixedQueue.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapBlockPool.cpp</FileName>
@@ -4788,9 +6309,19 @@
               <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
             </File>
             <File>
+              <FileName>HeapBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapBlockPool.hpp</FilePath>
+            </File>
+            <File>
               <FileName>HeapFifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\HeapFifo.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>HeapFifo.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapFifo.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapVectorBlockPool.cpp</FileName>
@@ -4798,9 +6329,54 @@
               <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.cpp</FilePath>
             </File>
             <File>
+              <FileName>HeapVectorBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Map.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MapEntity.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MapEntity.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Pool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Queue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Scanner.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Stack.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stack.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stack.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Stack.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>TimerScheduler.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerScheduler.hpp</FilePath>
             </File>
             <File>
               <FileName>TimerSchedulerSemulator.cpp</FileName>
@@ -4808,14 +6384,34 @@
               <FilePath>.\src\main\mcuf\util\TimerSchedulerSemulator.cpp</FilePath>
             </File>
             <File>
+              <FileName>TimerSchedulerSemulator.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerSchedulerSemulator.hpp</FilePath>
+            </File>
+            <File>
               <FileName>TimerTask.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTask.cpp</FilePath>
             </File>
             <File>
+              <FileName>TimerTask.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TimerTask.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
+            </File>
+            <File>
               <FileName>VectorBlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\VectorBlockPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VectorBlockPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VectorBlockPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -4843,5 +6439,14 @@
     <components/>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>mcuf</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

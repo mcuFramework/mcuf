@@ -54,12 +54,12 @@ class mcuf::io::channel::CompletionHandler :
   /**
    *
    */
-  public: virtual int completed(V result, A attachment) = 0;
+  public: virtual void completed(V result, A attachment) = 0;
   
   /**
    *  read sync
    */
-  public: virtual int failed(mcuf::lang::Throwable& exc, A attachment) = 0;
+  public: virtual void failed(mcuf::lang::Throwable& exc, A attachment) = 0;
 
   /* **************************************************************************************
    *  Abstract method <Protected>

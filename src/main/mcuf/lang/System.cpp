@@ -8,13 +8,14 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "stdlib.h"
+#include <stdlib.h>
 #include "System.hpp"
 #include "mcuf.h"
 
 /* ****************************************************************************************
  * Using
  */  
+using mcuf::io::PrintStream;
 using mcuf::lang::Memory;
 using mcuf::lang::System;
 using mcuf::lang::managerment::MemoryManager;
@@ -70,6 +71,7 @@ void operator delete[] (void* ptr, size_t size){
  * Static Variable
  */  
 SystemComponent System::component = SystemComponent();
+PrintStream System::out = PrintStream(nullptr);
 
 /* ****************************************************************************************
  * Construct Method
@@ -94,7 +96,7 @@ Memory System::allocMemory(size_t size){
 
     result = malloc(size);
 
-    ASSERT_THROW_ERROR(result, "System heap memory is empty.");
+    ASSERT_THROW_WARNING(result, "System heap memory is empty.");
     
     return Memory(result, size);
   }
@@ -113,7 +115,7 @@ void* System::allocPointer(size_t size){
 
     result = malloc(size);
 
-    ASSERT_THROW_ERROR(result, "System heap memory is empty.");
+    ASSERT_THROW_WARNING(result, "System heap memory is empty.");
     
     return result;
   }
@@ -128,7 +130,7 @@ void* System::allocPointer(size_t size){
   
   result = malloc(size);
 
-  ASSERT_THROW_ERROR(result, "System heap memory is empty.");
+  ASSERT_THROW_WARNING(result, "System heap memory is empty.");
   
   return result;
 }
@@ -179,8 +181,17 @@ void System::freePointer(void* pointer, size_t size){
 /**
  * 
  */
+void System::info(const char* path, const char* message){
+  System::out.format("INFO: %s - %s\n", path, message);
+  return;
+}
+
+/**
+ * 
+ */
 void System::init(void){
   System::component.lock();
+  System::out = PrintStream(System::component.mOutputString);
 }
 
 /**
@@ -190,6 +201,21 @@ MemoryManager* System::memoryManager(void){
   return System::component.mMemoryManager;
 }
 
+/**
+ * 
+ */
+void System::throwSystemError(const char* path, const char* message){
+  System::out.format("ERROR: %s - %s\n", path, message);
+  while(1);
+}
+
+/**
+ * 
+ */
+void System::throwSystemWarning(const char* path, const char* message){
+  System::out.format("WARNING: %s - %s\n", path, message);
+  return;
+}
 
 /* ****************************************************************************************
  * Public Method <Override>

@@ -64,8 +64,9 @@ String::String(void){
  * Disconstruct.
  */
 String::~String(void){
-  if(this->mSize != 0);
-  System::freePointer(this->mPointer, this->mSize);
+  if(this->mSize != 0)
+    System::freePointer(this->mPointer, this->mSize);
+  
   return;
 }
 
@@ -100,6 +101,29 @@ String String::format(const char* format, ...){
   memory.copy(String::handleMemory, len);
   return String((char*)memory.mPointer, memory.mLength);
 }
+
+/**
+ * 
+ */
+char* String::formatChar(const char* format, va_list args){
+  int len = vsnprintf(String::handleMemory, MCUF_STRING_HANDLE_MEMORY_SIZE, format, args);
+  Memory memory = System::allocMemory(len);
+  memory.copy(String::handleMemory, len);
+  return (char*)memory.pointer();
+}
+
+/**
+ * 
+ */
+char* String::formatChar(const char* format, ...){
+  va_list args;
+  va_start (args, format);
+  int len = vsnprintf(String::handleMemory, MCUF_STRING_HANDLE_MEMORY_SIZE, format, args);
+  va_end (args);
+  Memory memory = System::allocMemory(len);
+  memory.copy(String::handleMemory, len);
+  return (char*)memory.pointer();
+}
  
 /* ****************************************************************************************
  * Public Method <Override>
@@ -133,7 +157,7 @@ uint32_t String::length(void){
       return strlen(this->mPointer);
   }
 
-  return strnlen(this->mPointer, this->mSize);
+  return strlen(this->mPointer);
 }
 
 /**

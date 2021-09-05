@@ -146,7 +146,7 @@ class mcuf::io::channel::ByteBuffer :
   /**
    * 
    */
-  public: bool readOnly(void);
+  public: virtual bool readOnly(void);
 
   /**
    * 
@@ -161,7 +161,7 @@ class mcuf::io::channel::ByteBuffer :
   /**
    * 
    */
-  public: ByteBuffer& putByte(char value);
+  public: virtual ByteBuffer& putByte(char value);
 
   /**
    * 
@@ -171,7 +171,7 @@ class mcuf::io::channel::ByteBuffer :
   /**
    * 
    */
-  public: ByteBuffer& putShort(short value);
+  public: virtual ByteBuffer& putShort(short value);
 
   /**
    * 
@@ -181,7 +181,7 @@ class mcuf::io::channel::ByteBuffer :
   /**
    * 
    */
-  public: ByteBuffer& putInt(int value);
+  public: virtual ByteBuffer& putInt(int value);
 
   /**
    * 

@@ -58,7 +58,7 @@ class mcuf::io::InputStream :
   /**
    *  read async
    */
-  public: virtual bool read(mcuf::io::channel::ByteBuffer& byteBuffer, 
+  public: virtual void read(mcuf::io::channel::ByteBuffer* byteBuffer, 
                             void* attachment,
                             mcuf::io::channel::CompletionHandler<int, void*>* handler) = 0;
     

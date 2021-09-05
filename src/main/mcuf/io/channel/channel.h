@@ -19,6 +19,8 @@
  */
 #include "ByteBuffer.hpp"
 #include "CompletionHandler.hpp"
+#include "ConstByteBuffer.hpp"
+#include "HeapByteBuffer.hpp"
 
 
 

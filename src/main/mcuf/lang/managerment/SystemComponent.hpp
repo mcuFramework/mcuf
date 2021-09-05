@@ -11,6 +11,7 @@
 /* ****************************************************************************************
  * Include
  */  
+#include "../../io/OutputStream.hpp"
 #include "../../hal/Timer.hpp"
 #include "../../lang/Object.hpp"
 #include "../../lang/managerment/MemoryManager.hpp"
@@ -55,6 +56,8 @@ class mcuf::lang::managerment::SystemComponent :
    * Variable <Private>
    */
   private: bool locked = false;
+  
+  private: mcuf::io::OutputStream* mOutputString;
   private: mcuf::lang::managerment::MemoryManager* mMemoryManager;
   private: mcuf::hal::Timer* mTimer;
 
@@ -101,7 +104,7 @@ class mcuf::lang::managerment::SystemComponent :
   /**
    * 
    */
-  public: bool memoryManager(mcuf::lang::managerment::MemoryManager* managerment);
+  public: bool memoryManager(mcuf::lang::managerment::MemoryManager* m);
 
   /**
    * 
@@ -111,7 +114,17 @@ class mcuf::lang::managerment::SystemComponent :
   /**
    * 
    */
-  public: bool timer(mcuf::hal::Timer* timer);
+  public: bool outputString(mcuf::io::OutputStream* o);
+
+  /**
+   * 
+   */
+  public: mcuf::io::OutputStream* outputString(void);
+
+  /**
+   * 
+   */
+  public: bool timer(mcuf::hal::Timer* t);
 
   /**
    * 

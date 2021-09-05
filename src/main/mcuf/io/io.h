@@ -20,6 +20,7 @@
  */
 #include "InputStream.hpp"
 #include "OutputStream.hpp"
+#include "PrintStream.hpp"
 #include "Stream.hpp"
 
 
