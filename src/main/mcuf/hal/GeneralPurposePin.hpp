@@ -31,10 +31,11 @@ class mcuf::hal::GeneralPurposePin:
    * Enum PinMode
    */
   public: enum PinMode{
-    NOT_SUPPORT,
-    PULL_UP,
-    PULL_DOWN,
-    OPEN_DRAIN,
+    PinMode_NotSupport,
+    PinMode_PushPull,
+    PinMode_Pullup,
+    PinMode_Pulldown,
+    PinMode_opendrain,
   };
    
   /* **************************************************************************************
