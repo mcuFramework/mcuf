@@ -11,8 +11,10 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
-#include "../function/BiConsumer.hpp"
+#include "mcuf_base.h"
+#include "mcuf/function/BiConsumer.hpp"
+#include "mcuf/lang/Object.hpp"
+
 
 
 /* ****************************************************************************************
@@ -30,8 +32,7 @@ namespace mcuf{
  * Class MapEntity
  */  
 template<typename K, typename V>
-class mcuf::util::MapEntity :
-      mcuf::lang::Object{
+class mcuf::util::MapEntity extends mcuf::lang::Object{
   
   /* **************************************************************************************
    * Subclass

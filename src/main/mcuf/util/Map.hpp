@@ -11,16 +11,15 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
-#include "../function/BiConsumer.hpp"
-
+#include "mcuf_base.h"
+#include "mcuf/function/BiConsumer.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace util{
-    template<typename K, typename V> class Map;
+    template<typename K, typename V> interface Map;
   }
 }
 
@@ -30,8 +29,7 @@ namespace mcuf{
  * Class Map
  */  
 template<typename K, typename V>
-class mcuf::util::Map :
-      mcuf::lang::Object{
+interface mcuf::util::Map{
   
   /* **************************************************************************************
    * Subclass

@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
-#include "../function/Consumer.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
+#include "mcuf/function/Consumer.hpp"
 
 
 
@@ -21,7 +22,7 @@
  */  
 namespace mcuf{
   namespace lang{
-    template<typename T> class Iterable;
+    template<typename T> interface Iterable;
   }
 }
 
@@ -31,8 +32,7 @@ namespace mcuf{
  * Class Iterable
  */  
 template<typename T>
-class mcuf::lang::Iterable: 
-      public mcuf::lang::Object{
+interface mcuf::lang::Iterable{
   
   /* **************************************************************************************
    * Subclass

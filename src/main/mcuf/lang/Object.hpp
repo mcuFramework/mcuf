@@ -63,12 +63,12 @@ class mcuf::lang::Object{
   /**
    * Construct.
    */
-  public: Object(void) = default;
+  public: Object(void);
 
   /**
-   * Disconstruct.
+   * Destructor.
    */
-  public: virtual ~Object(void) = default;
+  public: ~Object(void);
 
   /* **************************************************************************************
    * Operator Method

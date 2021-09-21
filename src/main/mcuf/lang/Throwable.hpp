@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
 
 
 
@@ -20,7 +21,7 @@
  */  
 namespace mcuf{
   namespace lang{
-    class Throwable;
+    interface Throwable;
   }
 }
 
@@ -29,8 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Throwable
  */  
-class mcuf::lang::Throwable :
-      public mcuf::lang::Object{
+interface mcuf::lang::Throwable{
 
   /* **************************************************************************************
    * Subclass
@@ -63,17 +63,12 @@ class mcuf::lang::Throwable :
   /**
    * Construct.
    */
-  public: Throwable(void) :
-          Object(){
-    return;
-  };
+  public: Throwable(void) = default;
 
   /**
-   * Disconstruct.
+   * Destructor.
    */
-  public: ~Throwable(void){
-    return;
-  }
+  public: virtual ~Throwable(void) = default;
 
   /* **************************************************************************************
    * Operator Method

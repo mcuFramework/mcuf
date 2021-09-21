@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "..\lang\Memory.hpp"
-#include "..\lang\Pointer.hpp"
+#include "mcuf_base.h"
+#include "mcuf\lang\Memory.hpp"
+#include "mcuf\lang\Pointer.hpp"
 
 
 
@@ -31,8 +32,7 @@ namespace mcuf{
  * Class Array
  */  
 template<typename E>
-class mcuf::lang::Array:
-      public mcuf::lang::Object{
+class mcuf::lang::Array extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Subclass

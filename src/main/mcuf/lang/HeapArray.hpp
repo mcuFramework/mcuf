@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "..\lang\Array.hpp"
+#include "mcuf_base.h"
+#include "mcuf\lang\Array.hpp"
 
 
 
@@ -30,8 +31,7 @@ namespace mcuf{
  * Class TimerTask
  */  
 template<typename E>
-class mcuf::lang::HeapArray:
-      public mcuf::lang::Array<E>{
+class mcuf::lang::HeapArray extends mcuf::lang::Array<E>{
 
   /* **************************************************************************************
    * Subclass

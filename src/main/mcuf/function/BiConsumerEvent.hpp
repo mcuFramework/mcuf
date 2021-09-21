@@ -11,9 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../function/BiConsumer.hpp"
-
-
+#include "mcuf_base.h"
+#include "mcuf/function/BiConsumer.hpp"
+#include "mcuf/lang/Object.hpp"
 
 /* ****************************************************************************************
  * Namespace
@@ -30,8 +30,8 @@ namespace mcuf{
  * Class BiConsumerEvent
  */  
 template<class T, class U>
-class mcuf::function::BiConsumerEvent : 
-      public mcuf::function::BiConsumer<T, U>{
+class mcuf::function::BiConsumerEvent extends mcuf::lang::Object
+      implements mcuf::function::BiConsumer<T, U> {
 
   /* **************************************************************************************
    * Subclass
@@ -48,7 +48,7 @@ class mcuf::function::BiConsumerEvent :
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: void (*event)(T, U);
+  private: void (*mEvent)(T, U);
 
 
   /* **************************************************************************************
@@ -68,14 +68,14 @@ class mcuf::function::BiConsumerEvent :
    */
   public: BiConsumerEvent(void (*event)(T, U)){
 
-    this->event = event;
+    this->mEvent = event;
     return;
   }
   
   /**
-   * Disconstruct.
+   * Destructor.
    */
-  public: virtual ~BiConsumerEvent() = default;
+  public: ~BiConsumerEvent() = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -93,7 +93,7 @@ class mcuf::function::BiConsumerEvent :
    * 
    */
   public: virtual void accept(T t, U u){
-    this->event(t, u);
+    this->mEvent(t, u);
   }
 
   /* **************************************************************************************

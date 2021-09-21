@@ -11,8 +11,7 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
-
+#include "mcuf_base.h"
 
 
 /* ****************************************************************************************
@@ -20,7 +19,7 @@
  */  
 namespace mcuf{
   namespace function{
-    template<typename T, typename R> class Function;
+    template<typename T, typename R> interface Function;
   }
 }
 
@@ -30,8 +29,7 @@ namespace mcuf{
  * Class Function
  */  
 template<typename T, typename R>
-class mcuf::function::Function :
-      public mcuf::lang::Object{
+interface mcuf::function::Function{
 
   /* **************************************************************************************
    * Subclass

@@ -11,9 +11,10 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "..\hal\Base.hpp"
-#include "..\io\channel\ByteBuffer.hpp"
-#include "..\io\channel\CompletionHandler.hpp"
+#include "mcuf_base.h"
+#include "mcuf\hal\Base.hpp"
+#include "mcuf\io\channel\ByteBuffer.hpp"
+#include "mcuf\io\channel\CompletionHandler.hpp"
 
 
 
@@ -22,7 +23,7 @@
  */  
 namespace mcuf{
   namespace hal{
-    class InterIntegratedCircuit;
+    interface InterIntegratedCircuit;
   }
 }
 
@@ -31,8 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class InterIntegratedCircuit
  */  
-class mcuf::hal::InterIntegratedCircuit :
-      public mcuf::hal::Base{
+interface mcuf::hal::InterIntegratedCircuit implement mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass
@@ -101,18 +101,18 @@ class mcuf::hal::InterIntegratedCircuit :
   /**
    * 
    */
-  public: void read(uint8_t address, 
-                    mcuf::io::channel::ByteBuffer* bytebuffer,
-                    void* attachment,
-                    mcuf::io::channel::CompletionHandler<int, void*>* handler);
+  public: virtual void read(uint8_t address, 
+                            mcuf::io::channel::ByteBuffer* bytebuffer,
+                            void* attachment,
+                            mcuf::io::channel::CompletionHandler<int, void*>* handler);
 
   /**
    * 
    */
-  public: void write(uint8_t address, 
-                     mcuf::io::channel::ByteBuffer* bytebuffer,
-                     void* attachment,
-                     mcuf::io::channel::CompletionHandler<int, void*>* handler);
+  public: virtual void write(uint8_t address, 
+                             mcuf::io::channel::ByteBuffer* bytebuffer,
+                             void* attachment,
+                             mcuf::io::channel::CompletionHandler<int, void*>* handler);
 
   /* **************************************************************************************
    * Protected Method <Static>

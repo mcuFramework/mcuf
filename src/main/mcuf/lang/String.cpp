@@ -13,8 +13,8 @@
 
 #include "String.hpp"
 
-#include "../lang/Memory.hpp"
-#include "../lang/System.hpp"
+#include "mcuf/lang/Memory.hpp"
+#include "mcuf/lang/System.hpp"
 
 
 /* ****************************************************************************************

@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "Queue.hpp"
+#include "mcuf_base.h"
+#include "mcuf/util/Queue.hpp"
 
 
 
@@ -30,8 +31,8 @@ namespace mcuf{
  * Class Queue
  */  
 template<typename E>
-class mcuf::util::FixedQueue: 
-      public mcuf::util::Queue<E>{
+class mcuf::util::FixedQueue extends mcuf::lang::Object
+      implements mcuf::util::Queue<E>{
   
   /* **************************************************************************************
    * Subclass

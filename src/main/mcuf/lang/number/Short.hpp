@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "NumberTemplate.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/number/Number.hpp"
 
 
 
@@ -31,8 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Short
  */  
-class mcuf::lang::number::Short : 
-      public mcuf::lang::number::NumberTemplate<short>{
+class mcuf::lang::number::Short extends mcuf::lang::number::Number{
 
   /* **************************************************************************************
    * Subclass
@@ -80,7 +80,72 @@ class mcuf::lang::number::Short :
   /* **************************************************************************************
    * Operator Method
    */
+  
+  /**
+   * 
+   */
+  public: operator short(void);
 
+  /**
+   * 
+   */  
+  public: bool operator==(int value);
+
+  /**
+   * 
+   */
+  public: bool operator==(Short& value);
+
+  /**
+   * 
+   */
+  public: bool operator==(Number& value);
+
+  /**
+   * 
+   */
+  public: Short operator=(Short value);
+
+  /**
+   * 
+   */
+  public: Short operator+=(int value);
+
+  /**
+   * 
+   */
+  public: Short operator-=(int value);
+
+  /**
+   * 
+   */
+  public: Short operator*=(int value);
+
+  /**
+   * 
+   */
+  public: Short operator/=(int value);
+  
+  /**
+   * 
+   */
+  public: Short operator++(int);
+  
+  /**
+   * 
+   */
+  public: Short operator++(void);
+
+  /**
+   * 
+   */
+  public: Short operator--(int);
+  
+  /**
+   * 
+   */
+  public: Short& operator--(void);
+  
   /* **************************************************************************************
    * Public Method <Static>
    */

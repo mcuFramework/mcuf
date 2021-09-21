@@ -11,9 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../function/Consumer.hpp"
-#include "../hal/Base.hpp"
-#include "../lang/Pointer.hpp"
+#include "mcuf/function/Consumer.hpp"
+#include "mcuf/hal/Base.hpp"
+#include "mcuf/lang/Pointer.hpp"
 
 
 /* ****************************************************************************************
@@ -21,7 +21,7 @@
  */  
 namespace mcuf{
   namespace hal{  
-    class Timer;
+    interface Timer;
   }
 }
 
@@ -30,8 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Timer
  */  
-class mcuf::hal::Timer : 
-      public mcuf::hal::Base{
+interface mcuf::hal::Timer implement mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass

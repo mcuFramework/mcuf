@@ -11,6 +11,7 @@
 /* ****************************************************************************************
  * Include
  */
+#include "mcuf_base.h"
 #include "mcuf_macro.h" 
 #include "mcuf/lang/Object.hpp"
 
@@ -28,8 +29,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Object
  */  
-class mcuf::util::RingBuffer :
-      public mcuf::lang::Object{
+class mcuf::util::RingBuffer extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Subclass

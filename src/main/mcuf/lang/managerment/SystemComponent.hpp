@@ -11,10 +11,11 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../../io/OutputStream.hpp"
-#include "../../hal/Timer.hpp"
-#include "../../lang/Object.hpp"
-#include "../../lang/managerment/MemoryManager.hpp"
+#include "mcuf_base.h"
+#include "mcuf/io/OutputStream.hpp"
+#include "mcuf/hal/Timer.hpp"
+#include "mcuf/lang/Object.hpp"
+#include "mcuf/lang/managerment/MemoryManager.hpp"
 
 /* ****************************************************************************************
  * Namespace
@@ -34,9 +35,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class SystemComponent
  */  
-class mcuf::lang::managerment::SystemComponent :
-      public mcuf::lang::Object{
-      
+class mcuf::lang::managerment::SystemComponent extends mcuf::lang::Object{
 
   friend mcuf::lang::System;
 

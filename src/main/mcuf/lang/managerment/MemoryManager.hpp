@@ -11,11 +11,12 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../../../mcuf_config.h"
+#include "mcuf_base.h"
+#include "mcuf_config.h"
 
-#include "../../lang/Object.hpp"
-#include "../../lang/Memory.hpp"
-#include "../../util/VectorBlockPool.hpp"
+#include "mcuf/lang/Object.hpp"
+#include "mcuf/lang/Memory.hpp"
+#include "mcuf/util/VectorBlockPool.hpp"
 
 
 /* ****************************************************************************************
@@ -34,8 +35,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class MemoryManager
  */  
-class mcuf::lang::managerment::MemoryManager :
-      public mcuf::lang::Object{
+class mcuf::lang::managerment::MemoryManager extends mcuf::lang::Object{
 
   
   /* **************************************************************************************

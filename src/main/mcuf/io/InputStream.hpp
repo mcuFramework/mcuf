@@ -11,10 +11,10 @@
 /* ****************************************************************************************
  * Include
  */
-
-#include "../io/channel/ByteBuffer.hpp"
-#include "../io/channel/CompletionHandler.hpp"
-#include "../lang/Object.hpp"
+#include "mcuf_base.h"
+#include "mcuf/io/channel/ByteBuffer.hpp"
+#include "mcuf/io/channel/CompletionHandler.hpp"
+#include "mcuf/lang/Object.hpp"
 
 
 
@@ -23,7 +23,7 @@
  */  
 namespace mcuf{
   namespace io{
-    class InputStream;
+    interface InputStream;
   }
 }
 
@@ -32,8 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Map
  */
-class mcuf::io::InputStream : 
-      public mcuf::lang::Object{
+interface mcuf::io::InputStream{
   /* **************************************************************************************
    *  Variable <Public>
    */

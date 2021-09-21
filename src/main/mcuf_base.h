@@ -5,29 +5,29 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_D46FF4AF_578F_427C_B2BC_D33963AD1C03
-#define MCUF_D46FF4AF_578F_427C_B2BC_D33963AD1C03
+#ifndef MCUF_CD0A76D9_22FA_45EB_AFF3_DF16721AA2B8
+#define MCUF_CD0A76D9_22FA_45EB_AFF3_DF16721AA2B8
 
 /* ****************************************************************************************
  * Macro
  */
-
-
+#define extends :public
+#define implements ,public
+#define implement :public  
+#define interface class
 
 /* ****************************************************************************************
  * Include
  */
-#include "mcuf_base.h"
-#include "mcuf_macro.h"
+#include <stdint.h>
+
 
 /* ****************************************************************************************
  * Include folder
  */
-#include "mcuf\mcuf.h"
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-
-#endif /* MCUF_D46FF4AF_578F_427C_B2BC_D33963AD1C03 */
+#endif/* MCUF_CD0A76D9_22FA_45EB_AFF3_DF16721AA2B8 */

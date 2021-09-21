@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
 
 /* ****************************************************************************************
  * Namespace
@@ -28,8 +29,7 @@ namespace mcuf{
  * Class Object
  */  
 template<typename E>
-class mcuf::lang::Vector :
-      public mcuf::lang::Object{
+class mcuf::lang::Vector extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Subclass

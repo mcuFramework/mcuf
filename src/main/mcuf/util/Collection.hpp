@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Iterable.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Iterable.hpp"
 
 
 
@@ -20,7 +21,7 @@
  */  
 namespace mcuf{
   namespace util{
-    template<typename T> class Collection;
+    template<typename T> interface Collection;
   }
 }
 
@@ -30,8 +31,7 @@ namespace mcuf{
  * Class Collection
  */  
 template<typename T>
-class mcuf::util::Collection: 
-      public mcuf::lang::Iterable<T>{
+interface mcuf::util::Collection implement mcuf::lang::Iterable<T>{
   
   /* **************************************************************************************
    * Subclass

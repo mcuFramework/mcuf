@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../util/BlockPool.hpp"
-#include "../lang/Vector.hpp"
+#include "mcuf_base.h"
+#include "mcuf/util/BlockPool.hpp"
+#include "mcuf/lang/Vector.hpp"
 
 
 /* ****************************************************************************************
@@ -29,9 +30,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class VectorBlockPool
  */  
-class mcuf::util::VectorBlockPool : 
-      public mcuf::util::BlockPool, 
-      public mcuf::lang::Vector<mcuf::util::VectorBlockPool>{
+class mcuf::util::VectorBlockPool extends mcuf::util::BlockPool
+      implements mcuf::lang::Vector<mcuf::util::VectorBlockPool>{
 
   /* **************************************************************************************
    * Subclass

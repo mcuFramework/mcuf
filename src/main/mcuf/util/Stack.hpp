@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */ 
-#include "../util/Collection.hpp"
-#include "../lang/Memory.hpp"
+#include "mcuf_base.h"
+#include "mcuf/util/Collection.hpp"
+#include "mcuf/lang/Memory.hpp"
 
 
 
@@ -30,8 +31,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Stack
  */  
-class mcuf::util::Stack :
-      public mcuf::util::Collection<mcuf::lang::Memory&>{
+class mcuf::util::Stack extends mcuf::lang::Object
+      implements mcuf::util::Collection<mcuf::lang::Memory&>{
   
   /* **************************************************************************************
    * Subclass

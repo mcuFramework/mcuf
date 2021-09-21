@@ -11,7 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../function/Runnable.hpp"
+#include "mcuf_base.h"
+#include "mcuf/function/Runnable.hpp"
+#include "mcuf/lang/Object.hpp"
 
 
 
@@ -29,8 +31,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Boolean
  */  
-class mcuf::function::RunnableEvent : 
-      public mcuf::function::Runnable{
+class mcuf::function::RunnableEvent extends mcuf::lang::Object
+      implements mcuf::function::Runnable{
 
   /* **************************************************************************************
    * Subclass

@@ -11,7 +11,7 @@
 #include <string.h>
 #include "Memory.hpp"
 
-#include "../lang/Math.hpp"
+#include "mcuf/lang/Math.hpp"
 
 /* ****************************************************************************************
  * Using

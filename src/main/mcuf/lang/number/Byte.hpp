@@ -11,8 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-
-#include "NumberTemplate.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/number/Number.hpp"
 
 
 
@@ -32,8 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Byte
  */  
-class mcuf::lang::number::Byte : 
-      public mcuf::lang::number::NumberTemplate<char>{
+class mcuf::lang::number::Byte extends mcuf::lang::number::Number{
       
   /* **************************************************************************************
    * Subclass
@@ -81,7 +80,72 @@ class mcuf::lang::number::Byte :
   /* **************************************************************************************
    * Operator Method
    */
+   
+  /**
+   * 
+   */
+  public: operator char(void);
 
+  /**
+   * 
+   */  
+  public: bool operator==(int v);
+
+  /**
+   * 
+   */
+  public: bool operator==(Byte& v);
+
+  /**
+   * 
+   */
+  public: bool operator==(Number& v);
+  
+  /**
+   * 
+   */
+  public: char operator=(char v);
+
+  /**
+   * 
+   */
+  public: Byte operator+=(int v);
+
+  /**
+   * 
+   */
+  public: Byte operator-=(int v);
+
+  /**
+   * 
+   */
+  public: Byte operator*=(int v);
+
+  /**
+   * 
+   */
+  public: Byte operator/=(int v);
+  
+  /**
+   * 
+   */
+  public: Byte operator++(int);
+  
+  /**
+   * 
+   */
+  public: Byte operator++(void);
+
+  /**
+   * 
+   */
+  public: Byte operator--(int);
+  
+  /**
+   * 
+   */
+  public: Byte& operator--(void);
+  
   /* **************************************************************************************
    * Public Method <Static>
    */

@@ -11,10 +11,10 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../util/Collection.hpp"
-#include "../lang/Memory.hpp"
-#include "../lang/Array.hpp"
-#include "../function/Consumer.hpp"
+#include "mcuf/function/Consumer.hpp"
+#include "mcuf/lang/Array.hpp"
+#include "mcuf/lang/Memory.hpp"
+#include "mcuf/util/Collection.hpp"
 
 
 
@@ -23,7 +23,7 @@
  */  
 namespace mcuf{
   namespace util{
-    class Pool;
+    interface Pool;
   }
 }
 
@@ -32,8 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Pool
  */  
-class mcuf::util::Pool: 
-      public mcuf::util::Collection<mcuf::lang::Memory&>{
+interface mcuf::util::Pool implement mcuf::util::Collection<mcuf::lang::Memory&>{
   
   /* **************************************************************************************
    * Subclass

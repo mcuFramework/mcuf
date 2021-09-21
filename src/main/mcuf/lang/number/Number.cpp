@@ -34,15 +34,71 @@ using mcuf::lang::number::Number;
 /**
  * 
  */
+bool Number::booleanValue(void){
+  return this->mValue;
+}
+  
+/**
+ * 
+ */
+char Number::byteValue(void){
+  return this->mValue;
+}
+
+/**
+ * 
+ */
+unsigned char Number::unsignedByteValue(void){
+  return this->mValue;
+}
+  
+/**
+ * 
+ */
+short Number::shortValue(void){
+  return this->mValue;
+}
+
+/**
+ * 
+ */                                  
+unsigned short Number::unsignedShortValue(void){
+  return this->mValue;
+}
+
+/**
+ * 
+ */
+int Number::intValue(void){
+  return this->mValue;
+}
+
+/**
+ * 
+ */
+unsigned int Number::unsignedIntValue(void){
+  return this->mValue;
+}
+
+/**
+ * 
+ */
+float Number::floatValue(void){
+  return this->mValue;
+}
+
+/**
+ * 
+ */
 bool Number::equal(Number* object){
-  return (this->unsignedLongValue() == object->unsignedLongValue());
+  return (this->intValue() == object->intValue());
 }
 
 /**
  * 
  */
 bool Number::equal(Number& object){
-  return (this->unsignedLongValue() == object.unsignedLongValue());
+  return (this->intValue() == object.intValue());
 }
 
 /* ****************************************************************************************

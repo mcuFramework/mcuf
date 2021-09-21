@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../function/Function.hpp"
-
+#include "mcuf_base.h"
+#include "mcuf/function/Function.hpp"
+#include "mcuf/lang/Object.hpp"
 
 
 /* ****************************************************************************************
@@ -30,8 +31,8 @@ namespace mcuf{
  * Class FunctionEvent
  */  
 template<typename T, typename R>
-class mcuf::function::FunctionEvent : 
-      public mcuf::function::Function<T, R>{
+class mcuf::function::FunctionEvent extends mcuf::lang::Object
+      implements mcuf::function::Function<T, R>{
 
   /* **************************************************************************************
    * Subclass

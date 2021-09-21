@@ -11,8 +11,7 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
-
+#include "mcuf_base.h"
 
 
 /* ****************************************************************************************
@@ -20,7 +19,7 @@
  */  
 namespace mcuf{
   namespace function{
-    template<typename T, typename U> class BiConsumer;
+    template<typename T, typename U> interface BiConsumer;
   }
 }
 
@@ -30,8 +29,7 @@ namespace mcuf{
  * Class BiConsumer
  */  
 template<typename T, typename U>
-class mcuf::function::BiConsumer :
-      public mcuf::lang::Object{
+interface mcuf::function::BiConsumer{
 
   /* **************************************************************************************
    * Subclass

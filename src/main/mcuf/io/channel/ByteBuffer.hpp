@@ -11,9 +11,10 @@
 /* ****************************************************************************************
  * Include
  */
-#include "../../lang/Array.hpp"
-#include "../../lang/Object.hpp"
-#include "../../lang/Memory.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Array.hpp"
+#include "mcuf/lang/Object.hpp"
+#include "mcuf/lang/Memory.hpp"
 
 
 
@@ -34,8 +35,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Map
  */
-class mcuf::io::channel::ByteBuffer : 
-      public mcuf::lang::Object{
+class mcuf::io::channel::ByteBuffer extends mcuf::lang::Object{
 
   /* **************************************************************************************
    *  Variable <Public>

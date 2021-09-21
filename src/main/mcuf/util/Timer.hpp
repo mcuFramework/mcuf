@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
-#include "TimerTask.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
+#include "mcuf/util/TimerTask.hpp"
 
 
 
@@ -21,7 +22,7 @@
  */  
 namespace mcuf{
   namespace util{
-    class Timer;
+    interface Timer;
   }
 }
 
@@ -30,8 +31,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Timer
  */  
-class mcuf::util::Timer: 
-      public mcuf::lang::Object{
+interface mcuf::util::Timer{
 
   /* **************************************************************************************
    * Subclass

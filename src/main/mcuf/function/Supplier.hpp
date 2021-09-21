@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
 
 
 
@@ -20,7 +21,7 @@
  */  
 namespace mcuf{
   namespace function{
-    template<typename T> class Supplier;
+    template<typename T> interface Supplier;
   }
 }
 
@@ -30,8 +31,7 @@ namespace mcuf{
  * Class Supplier
  */  
 template<typename T>
-class mcuf::function::Supplier : 
-      public mcuf::lang::Object{
+interface mcuf::function::Supplier{
 
   /* **************************************************************************************
    * Subclass

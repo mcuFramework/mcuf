@@ -5,41 +5,34 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_B3EAD09E_123F_4FD3_B329_BFB99FE91D79
-#define MCUF_B3EAD09E_123F_4FD3_B329_BFB99FE91D79
+#ifndef MCUF_B16985A9_A63C_403C_9D7B_5B3BB7B33CFA
+#define MCUF_B16985A9_A63C_403C_9D7B_5B3BB7B33CFA
 
 /* ****************************************************************************************
- * UnsignedInteger
+ * Include
  */  
-#include "NumberTemplate.hpp"
-
-
+#include "mcuf_base.h"
 
 /* ****************************************************************************************
  * Namespace
- */  
+ */
 namespace mcuf{
-  namespace lang{
-    namespace number{
-      class UnsignedInteger;
-    }
+  namespace hal{
+    interface AnalogDigitalConverterChannel;
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class UnsignedInteger
+ * Class AnalogDigitalConverterChannel
  */  
-class mcuf::lang::number::UnsignedInteger : 
-      public mcuf::lang::number::NumberTemplate<unsigned int>{
+interface mcuf::hal::AnalogDigitalConverterChannel{
 
   /* **************************************************************************************
    * Subclass
    */
-  
+
   /* **************************************************************************************
-   * Variable <Public>
+     * Variable <Public>
    */
 
   /* **************************************************************************************
@@ -53,7 +46,22 @@ class mcuf::lang::number::UnsignedInteger :
   /* **************************************************************************************
    * Abstract method <Public>
    */
-   
+
+  /**
+   * 
+   */
+  public: virtual bool enable(void) = 0;
+  
+  /**
+   * 
+   */
+  public: virtual bool disable(void) = 0;
+  
+  /**
+   * 
+   */
+  public: virtual uint32_t read(void) = 0;
+
   /* **************************************************************************************
    * Abstract method <Protected>
    */
@@ -63,19 +71,14 @@ class mcuf::lang::number::UnsignedInteger :
    */
 
   /**
-   * Construct.
+   * 
    */
-  public: UnsignedInteger(void) = default;
-
-  /**
-   * Construct.
-   */
-  public: UnsignedInteger(unsigned int value);
+  public: AnalogDigitalConverterChannel(void) = default;
   
   /**
-   * Disconstruct.
+   * 
    */
-  public: virtual ~UnsignedInteger() = default;
+  public: virtual ~AnalogDigitalConverterChannel(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -88,7 +91,7 @@ class mcuf::lang::number::UnsignedInteger :
   /* **************************************************************************************
    * Public Method <Override>
    */
-             
+
   /* **************************************************************************************
    * Public Method
    */
@@ -115,15 +118,11 @@ class mcuf::lang::number::UnsignedInteger :
    
   /* **************************************************************************************
    * Private Method
-   */
-    
-};
-
-
+   */  
+};  
 
 /* *****************************************************************************************
  * End of file
- */ 
+ */
 
-
-#endif/* MCUF_B3EAD09E_123F_4FD3_B329_BFB99FE91D79 */
+#endif/* MCUF_B16985A9_A63C_403C_9D7B_5B3BB7B33CFA */

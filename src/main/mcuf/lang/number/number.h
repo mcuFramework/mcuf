@@ -19,14 +19,8 @@
 #include "Boolean.hpp"
 #include "Byte.hpp"
 #include "Integer.hpp"
-#include "Long.hpp"
 #include "Number.hpp"
-#include "NumberTemplate.hpp"
 #include "Short.hpp"
-#include "UnsignedByte.hpp"
-#include "UnsignedInteger.hpp"
-#include "UnsignedLong.hpp"
-#include "UnsignedShort.hpp"
  
 #endif //mcuf_lang_number_h_
 /* *****************************************************************************************

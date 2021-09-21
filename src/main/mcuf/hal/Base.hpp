@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
 
 
 
@@ -20,7 +21,7 @@
  */  
 namespace mcuf{
   namespace hal{
-    class Base;
+    interface Base;
   }
 }
 
@@ -29,8 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Base
  */  
-class mcuf::hal::Base: 
-      public mcuf::lang::Object{
+interface mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass

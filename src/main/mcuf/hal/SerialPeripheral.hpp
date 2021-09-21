@@ -10,10 +10,11 @@
 
 /* ****************************************************************************************
  * Include
- */  
-#include "../hal/Base.hpp"
-#include "../function/BiConsumer.hpp"
-#include "../lang/Pointer.hpp"
+ */
+#include "mcuf_base.h"
+#include "mcuf/hal/Base.hpp"
+#include "mcuf/function/BiConsumer.hpp"
+#include "mcuf/lang/Pointer.hpp"
 
 
 
@@ -22,7 +23,7 @@
  */  
 namespace mcuf{
   namespace hal{
-    class SerialPeripheral;
+    interface SerialPeripheral;
   }
 }
 
@@ -31,8 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class SerialPeripheral
  */  
-class mcuf::hal::SerialPeripheral:
-      public mcuf::hal::Base{
+interface mcuf::hal::SerialPeripheral implement mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass
@@ -124,9 +124,9 @@ class mcuf::hal::SerialPeripheral:
   /**
    * 
    */
-  public: virtual bool transfer(Packet& packet,
+  public: virtual bool transfer(Packet* packet,
                                 void* attachment,
-                                mcuf::function::BiConsumer<Packet, void*>& function) = 0;
+                                mcuf::function::BiConsumer<Packet*, void*>* function) = 0;
 
   /* **************************************************************************************
    * Abstract method <Protected>

@@ -11,8 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../function/Consumer.hpp"
-
+#include "mcuf/function/Consumer.hpp"
+#include "mcuf/lang/Object.hpp"
 
 
 /* ****************************************************************************************
@@ -30,8 +30,8 @@ namespace mcuf{
  * Class ConsumerEvent
  */  
 template<typename T>
-class mcuf::function::ConsumerEvent :
-      public mcuf::function::Consumer<T>{
+class mcuf::function::ConsumerEvent extends mcuf::lang::Object 
+      implements mcuf::function::Consumer<T>{
 
   /* **************************************************************************************
    * Subclass

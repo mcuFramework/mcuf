@@ -11,9 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Memory.hpp"
-
-
+#include "mcuf_base.h"
+#include "mcuf/lang/Memory.hpp"
 
 /* ****************************************************************************************
  * Namespace
@@ -24,13 +23,10 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
  * Class Integer
  */  
-class mcuf::lang::HeapMemory:
-      public mcuf::lang::Memory{
+class mcuf::lang::HeapMemory extends mcuf::lang::Memory{
 
   /* **************************************************************************************
    * Subclass

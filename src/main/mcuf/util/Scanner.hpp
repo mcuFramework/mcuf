@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
 
 
 
@@ -29,8 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Scanner
  */  
-class mcuf::util::Scanner: 
-      public mcuf::lang::Object{
+class mcuf::util::Scanner extends mcuf::lang::Object{
   
   /* **************************************************************************************
    * Subclass

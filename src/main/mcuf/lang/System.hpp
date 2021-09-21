@@ -10,12 +10,13 @@
 
 /* ****************************************************************************************
  * Include
- */  
-#include "../hal/Timer.hpp"
-#include "../io/PrintStream.hpp"
-#include "../lang/Object.hpp"
-#include "../lang/managerment/SystemComponent.hpp"
-#include "../lang/managerment/MemoryManager.hpp"
+ */
+#include "mcuf_base.h"
+#include "mcuf/hal/Timer.hpp"
+#include "mcuf/io/PrintStream.hpp"
+#include "mcuf/lang/Object.hpp"
+#include "mcuf/lang/managerment/SystemComponent.hpp"
+#include "mcuf/lang/managerment/MemoryManager.hpp"
 
 
 /* ****************************************************************************************
@@ -32,8 +33,7 @@ namespace mcuf{
 /**
  * Class System
  */
-class mcuf::lang::System final:
-      public mcuf::lang::Object{
+class mcuf::lang::System final extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Subclass

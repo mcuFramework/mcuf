@@ -10,9 +10,9 @@
  */  
 #include "MemoryManager.hpp"
 
-#include "../../lang/Math.hpp"
-#include "../../lang/Memory.hpp"
-#include "../../util/VectorBlockPool.hpp"
+#include "mcuf/lang/Math.hpp"
+#include "mcuf/lang/Memory.hpp"
+#include "mcuf/util/VectorBlockPool.hpp"
 
 
 /* ****************************************************************************************

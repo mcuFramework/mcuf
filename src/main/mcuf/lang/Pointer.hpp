@@ -11,10 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-
-#include "Object.hpp"
-
-
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
 
 /* ****************************************************************************************
  * Namespace
@@ -25,13 +23,10 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
  * Class Pointer
  */  
-class mcuf::lang::Pointer : 
-      public mcuf::lang::Object{
+class mcuf::lang::Pointer extends mcuf::lang::Object{
       
   /* **************************************************************************************
    * Subclass
@@ -82,7 +77,7 @@ class mcuf::lang::Pointer :
   public: Pointer(uint32_t pointer);
   
   /**
-   * Disconstruct.
+   * Destructor.
    */
   public: virtual ~Pointer() = default;
 

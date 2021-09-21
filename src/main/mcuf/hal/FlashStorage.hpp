@@ -11,11 +11,11 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../hal/Base.hpp"
-#include "../function/Consumer.hpp"
-#include "../function/ConsumerEvent.hpp"
-#include "../lang/Memory.hpp"
-#include "../lang/Pointer.hpp"
+#include "mcuf/hal/Base.hpp"
+#include "mcuf/function/Consumer.hpp"
+#include "mcuf/function/ConsumerEvent.hpp"
+#include "mcuf/lang/Memory.hpp"
+#include "mcuf/lang/Pointer.hpp"
 
 
 /* ****************************************************************************************
@@ -23,7 +23,7 @@
  */  
 namespace mcuf{
   namespace hal{  
-    class FlashStorage;
+    interface FlashStorage;
   }
 }
 
@@ -32,8 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class FlashStorage
  */  
-class mcuf::hal::FlashStorage : 
-      public mcuf::hal::Base{
+interface mcuf::hal::FlashStorage implement mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass

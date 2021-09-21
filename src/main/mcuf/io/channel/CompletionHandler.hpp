@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */
-#include "../../lang/Object.hpp"
-#include "../../lang/Throwable.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
+#include "mcuf/lang/Throwable.hpp"
 
 
 
@@ -22,7 +23,7 @@
 namespace mcuf{
   namespace io{
     namespace channel{
-      template<typename V, typename A> class CompletionHandler;
+      template<typename V, typename A> interface CompletionHandler;
     }
   }
 }
@@ -33,8 +34,7 @@ namespace mcuf{
  * Class Map
  */
 template<typename V, typename A>
-class mcuf::io::channel::CompletionHandler :
-      public mcuf::lang::Object{
+interface mcuf::io::channel::CompletionHandler{
   /* **************************************************************************************
    *  Variable <Public>
    */

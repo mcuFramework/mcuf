@@ -11,6 +11,7 @@
 /* ****************************************************************************************
  * Include
  */  
+#include "mcuf_base.h"
 #include "ByteBuffer.hpp"
 
 
@@ -28,8 +29,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Object
  */  
-class mcuf::io::channel::HeapByteBuffer :
-      public mcuf::io::channel::ByteBuffer{
+class mcuf::io::channel::HeapByteBuffer extends mcuf::io::channel::ByteBuffer{
 
   /* **************************************************************************************
    * Subclass

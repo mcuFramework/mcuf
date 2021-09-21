@@ -9,9 +9,10 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
-#include "../lang/Memory.hpp"
-#include "../util/Collection.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
+#include "mcuf/lang/Memory.hpp"
+#include "mcuf/util/Collection.hpp"
 
 /* ****************************************************************************************
  * Namespace
@@ -25,8 +26,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Object
  */  
-class mcuf::util::Fifo :
-      public mcuf::util::Collection<mcuf::lang::Memory>{
+class mcuf::util::Fifo extends mcuf::lang::Object 
+      implements mcuf::util::Collection<mcuf::lang::Memory>{
 
   /* **************************************************************************************
    * Subclass

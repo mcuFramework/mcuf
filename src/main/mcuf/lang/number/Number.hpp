@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../../lang/Object.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
 
 
 
@@ -31,8 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Integer
  */  
-class mcuf::lang::number::Number: 
-      public mcuf::lang::Object{
+class mcuf::lang::number::Number extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Subclass
@@ -45,7 +45,8 @@ class mcuf::lang::number::Number:
   /* **************************************************************************************
    * Variable <Protected>
    */
-
+  protected: uint32_t mValue;
+  
   /* **************************************************************************************
    * Variable <Private>
    */
@@ -53,61 +54,6 @@ class mcuf::lang::number::Number:
   /* **************************************************************************************
    * Abstract method <Public>
    */
-
-  /**
-   * 
-   */  
-  public: virtual bool booleanValue(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual char byteValue(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual unsigned char unsignedByteValue(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual short shortValue(void) = 0;
-
-  /**
-   * 
-   */                                       
-  public: virtual unsigned short unsignedShortValue(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual int intValue(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual unsigned int unsignedIntValue(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual long long longValue(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual unsigned long long unsignedLongValue(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual float floatValue(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual double doublevalue(void) = 0;
   
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -142,6 +88,46 @@ class mcuf::lang::number::Number:
   /* **************************************************************************************
    * Public Method
    */
+
+  /**
+   * 
+   */  
+  public: bool booleanValue(void);
+
+  /**
+   * 
+   */
+  public: char byteValue(void);
+
+  /**
+   * 
+   */
+  public: unsigned char unsignedByteValue(void);
+
+  /**
+   * 
+   */
+  public: short shortValue(void);
+
+  /**
+   * 
+   */                                       
+  public: unsigned short unsignedShortValue(void);
+
+  /**
+   * 
+   */
+  public: int intValue(void);
+
+  /**
+   * 
+   */
+  public: unsigned int unsignedIntValue(void);
+
+  /**
+   * 
+   */
+  public: float floatValue(void);
 
   /**
    * 

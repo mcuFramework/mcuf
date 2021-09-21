@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../util/Pool.hpp"
-#include "../lang/Memory.hpp"
+#include "mcuf_base.h"
+#include "mcuf/util/Pool.hpp"
+#include "mcuf/lang/Memory.hpp"
 
 
 
@@ -30,8 +31,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class BlockPool
  */  
-class mcuf::util::BlockPool:
-      public mcuf::util::Pool{
+class mcuf::util::BlockPool implement mcuf::util::Pool{
   
   /* **************************************************************************************
    * Subclass

@@ -11,9 +11,9 @@
 /* ****************************************************************************************
  * Include
  */
-#include "Closeable.hpp"
-#include "InputStream.hpp"
-#include "OutputStream.hpp"
+#include "mcuf/io/Closeable.hpp"
+#include "mcuf/io/InputStream.hpp"
+#include "mcuf/io/OutputStream.hpp"
 
 
 
@@ -22,7 +22,7 @@
  */  
 namespace mcuf{
   namespace io{
-    class Stream;
+    interface Stream;
   }
 }
 
@@ -31,10 +31,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Map
  */
-class mcuf::io::Stream : 
-      public mcuf::io::OutputStream, 
-      public mcuf::io::InputStream,
-      public mcuf::io::Closeable{
+interface mcuf::io::Stream implement mcuf::io::OutputStream, mcuf::io::InputStream, 
+            mcuf::io::Closeable{
 
   /* **************************************************************************************
    *  Variable <Public>

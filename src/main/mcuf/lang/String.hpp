@@ -13,9 +13,9 @@
  */  
 #include <stdarg.h>
 
-#include "../../mcuf_config.h"
-
-#include "../lang/Object.hpp"
+#include "mcuf_base.h"
+#include "mcuf_config.h"
+#include "mcuf/lang/Object.hpp"
 
 /* ****************************************************************************************
  * Namespace
@@ -29,8 +29,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class String
  */  
-class mcuf::lang::String : 
-      public mcuf::lang::Object{
+class mcuf::lang::String extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Subclass

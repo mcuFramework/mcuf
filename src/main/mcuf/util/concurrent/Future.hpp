@@ -11,9 +11,7 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../../lang/Object.hpp"
-
-
+#include "mcuf_base.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -21,7 +19,7 @@
 namespace mcuf{
   namespace util{
     namespace concurrent{
-      template<typename V> class Future;
+      template<typename V> interface Future;
     }
   }
 }
@@ -32,8 +30,7 @@ namespace mcuf{
  * Class Future
  */  
 template<typename V>
-class mcuf::util::concurrent::Future :
-      mcuf::lang::Object{
+interface mcuf::util::concurrent::Future{
   
   /* **************************************************************************************
    * Subclass

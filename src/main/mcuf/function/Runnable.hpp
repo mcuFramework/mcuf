@@ -11,16 +11,14 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
-
-
+#include "mcuf_base.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace function{
-    class Runnable;
+    interface Runnable;
   }
 }
 
@@ -29,8 +27,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Boolean
  */  
-class mcuf::function::Runnable : 
-      public mcuf::lang::Object{
+interface mcuf::function::Runnable{
 
   /* **************************************************************************************
    * Subclass

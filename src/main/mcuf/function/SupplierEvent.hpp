@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../function/Supplier.hpp"
-
+#include "mcuf_base.h"
+#include "mcuf/function/Supplier.hpp"
+#include "mcuf/lang//Object.hpp"
 
 
 /* ****************************************************************************************
@@ -30,8 +31,8 @@ namespace mcuf{
  * Class SupplierEvent
  */  
 template<typename T>
-class mcuf::function::SupplierEvent :
-      public mcuf::function::Supplier<T>{
+class mcuf::function::SupplierEvent extends mcuf::lang::Object
+      implements mcuf::function::Supplier<T>{
 
   /* **************************************************************************************
    * Subclass

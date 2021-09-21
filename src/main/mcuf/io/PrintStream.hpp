@@ -12,10 +12,10 @@
  * Include
  */  
 #include <stdarg.h>
-
-#include "OutputStream.hpp"
-
-#include "../lang/String.hpp"
+#include "mcuf_base.h"
+#include "mcuf/io/OutputStream.hpp"
+#include "mcuf/lang/Object.hpp"
+#include "mcuf/lang/String.hpp"
 
 
 /* ****************************************************************************************
@@ -30,7 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class PrintStream
  */  
-class mcuf::io::PrintStream{
+class mcuf::io::PrintStream extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Subclass
@@ -41,12 +41,12 @@ class mcuf::io::PrintStream{
   /* **************************************************************************************
    * Class CompletionHandlerConst
    */
-  public: class CompletionHandlerConst : 
-                public mcuf::io::channel::CompletionHandler<int, void*>{
+  public: class CompletionHandlerConst extends mcuf::lang::Object
+                implements mcuf::io::channel::CompletionHandler<int, void*>{
 
     public: CompletionHandlerConst(void) = default;
     public: virtual ~CompletionHandlerConst(void) = default;
-
+                  
     public: virtual void completed(int result, void* attachment) override;
     public: virtual void failed(mcuf::lang::Throwable& exc, void* attachment) override;
   };
@@ -54,8 +54,8 @@ class mcuf::io::PrintStream{
   /* **************************************************************************************
    * Class CompletionHandlerHeap
    */
-  public: class CompletionHandlerHeap : 
-                public mcuf::io::channel::CompletionHandler<int, void*>{
+  public: class CompletionHandlerHeap extends mcuf::lang::Object
+                implements mcuf::io::channel::CompletionHandler<int, void*>{
 
     public: CompletionHandlerHeap(void) = default;
     public: virtual ~CompletionHandlerHeap(void) = default;

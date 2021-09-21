@@ -27,8 +27,110 @@ using mcuf::lang::number::Integer;
  * 
  */
 Integer::Integer(int value){
-  this->value = value;
+  this->mValue = value;
   return;
+}
+
+/**
+ * 
+ */
+Integer::operator int(){
+  return this->mValue;
+}
+
+/**
+ * 
+ */  
+bool Integer::operator==(int v){
+  return (this->mValue == static_cast<int>(v));
+}
+
+/**
+ * 
+ */
+bool Integer::operator==(Integer& v){
+  return (this->mValue == v.mValue);
+}
+
+/**
+ * 
+ */
+bool Integer::operator==(Number& v){
+  return (this->mValue == v.intValue());
+}
+
+/**
+ * 
+ */
+int Integer::operator=(int v){
+  this->mValue = v;
+  return this->mValue;
+}
+
+/**
+ * 
+ */
+Integer Integer::operator+=(int v){
+  this->mValue += v;
+  return *this;
+}
+
+/**
+ * 
+ */
+Integer Integer::operator-=(int v){
+  this->mValue -= v;
+  return *this;
+}
+
+/**
+ * 
+ */
+Integer Integer::operator*=(int v){
+  this->mValue *= v;
+  return *this;
+}
+
+/**
+ * 
+ */
+Integer Integer::operator/=(int v){
+  this->mValue /= v;
+  return *this;
+}
+
+/**
+ * 
+ */
+Integer Integer::operator++(int){
+  Integer tmp = *this;
+  ++this->mValue;
+  return tmp;
+}
+
+/**
+ * 
+ */
+Integer Integer::operator++(){
+  ++this->mValue;
+  return *this;
+}
+
+/**
+ * 
+ */
+Integer Integer::operator--(int){
+  Integer tmp = *this;
+  --this->mValue;
+  return tmp;
+}
+
+/**
+ * 
+ */
+Integer& Integer::operator--(void){
+  --this->mValue;
+  return *this;
 }
 
 /* ****************************************************************************************

@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Integer
  */  
-#include "NumberTemplate.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/number/Number.hpp"
 
 
 
@@ -31,8 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Integer
  */  
-class mcuf::lang::number::Integer : 
-      public mcuf::lang::number::NumberTemplate<int>{
+class mcuf::lang::number::Integer extends mcuf::lang::number::Number{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -77,6 +77,71 @@ class mcuf::lang::number::Integer :
    * Operator Method
    */
 
+  /**
+   * 
+   */
+  public: operator int(void);
+
+  /**
+   * 
+   */  
+  public: bool operator==(int v);
+
+  /**
+   * 
+   */
+  public: bool operator==(Integer& v);
+
+  /**
+   * 
+   */
+  public: bool operator==(Number& v);
+
+  /**
+   * 
+   */
+  public: int operator=(int v);
+
+  /**
+   * 
+   */
+  public: Integer operator+=(int v);
+
+  /**
+   * 
+   */
+  public: Integer operator-=(int v);
+
+  /**
+   * 
+   */
+  public: Integer operator*=(int v);
+
+  /**
+   * 
+   */
+  public: Integer operator/=(int v);
+  
+  /**
+   * 
+   */
+  public: Integer operator++(int);
+  
+  /**
+   * 
+   */
+  public: Integer operator++(void);
+
+  /**
+   * 
+   */
+  public: Integer operator--(int);
+  
+  /**
+   * 
+   */
+  public: Integer& operator--(void);
+  
   /* **************************************************************************************
    * Public Method <Static>
    */

@@ -11,11 +11,12 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "..\function\Consumer.hpp"
-#include "..\function\ConsumerEvent.hpp"
-#include "..\util\BlockPool.hpp"
-#include "..\util\Timer.hpp"
-#include "..\util\TimerTask.hpp"
+#include "mcuf_base.h"
+#include "mcuf\function\Consumer.hpp"
+#include "mcuf\function\ConsumerEvent.hpp"
+#include "mcuf\util\BlockPool.hpp"
+#include "mcuf\util\Timer.hpp"
+#include "mcuf\util\TimerTask.hpp"
 
 
 
@@ -33,8 +34,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class TimerSchedulerSemulator
  */  
-class mcuf::util::TimerSchedulerSemulator:
-      public mcuf::util::Timer{
+class mcuf::util::TimerSchedulerSemulator extends mcuf::lang::Object
+      implements mcuf::util::Timer{
 
   /* **************************************************************************************
    * Subclass
@@ -51,8 +52,8 @@ class mcuf::util::TimerSchedulerSemulator:
   /* **************************************************************************************
    * Class ConsumerClear
    */
-  public: class ConsumerClear: 
-                public mcuf::function::Consumer<mcuf::lang::Memory&>{
+  public: class ConsumerClear extends mcuf::lang::Object
+                implements mcuf::function::Consumer<mcuf::lang::Memory&>{
 
     public: ConsumerClear(void) = default;
 
@@ -63,8 +64,8 @@ class mcuf::util::TimerSchedulerSemulator:
   /* **************************************************************************************
    * Class ConsumerPurge
    */
-  public: class ConsumerPurge: 
-                public mcuf::function::Consumer<mcuf::lang::Memory&>{
+  public: class ConsumerPurge extends mcuf::lang::Object
+                implements mcuf::function::Consumer<mcuf::lang::Memory&>{
 
     private: TimerSchedulerSemulator* base;
     private: uint32_t purge;
@@ -84,8 +85,8 @@ class mcuf::util::TimerSchedulerSemulator:
   /* **************************************************************************************
    * Class ConsumerTick
    */
-  public: class ConsumerTick: 
-                public mcuf::function::Consumer<mcuf::lang::Memory&>{
+  public: class ConsumerTick extends mcuf::lang::Object
+                implements mcuf::function::Consumer<mcuf::lang::Memory&>{
 
     private: TimerSchedulerSemulator* base;
     private: uint32_t tickMilliSecond;

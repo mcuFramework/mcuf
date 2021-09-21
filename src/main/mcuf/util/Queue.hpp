@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "Collection.hpp"
+#include "mcuf_base.h"
+#include "mcuf/util/Collection.hpp"
 
 
 
@@ -20,7 +21,7 @@
  */  
 namespace mcuf{
   namespace util{
-    template<typename E> class Queue;
+    template<typename E> interface Queue;
   }
 }
 
@@ -30,8 +31,7 @@ namespace mcuf{
  * Class Queue
  */  
 template<typename E>
-class mcuf::util::Queue: 
-      public mcuf::util::Collection<E>{
+interface mcuf::util::Queue implement mcuf::util::Collection<E>{
   
   /* **************************************************************************************
    * Subclass

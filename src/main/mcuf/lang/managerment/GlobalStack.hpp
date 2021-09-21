@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */ 
-#include "../../util/AlignedStack.hpp"
+#include "mcuf_base.h"
+#include "mcuf/util/AlignedStack.hpp"
 
 
 
@@ -31,8 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class GlobalStack
  */  
-class mcuf::lang::managerment::GlobalStack :
-      public mcuf::util::AlignedStack{
+class mcuf::lang::managerment::GlobalStack extends mcuf::util::AlignedStack{
   
   /* **************************************************************************************
    * Subclass

@@ -80,7 +80,7 @@ int Math::ceil(int dividend, int divisor){
  * 
  */
 uint32_t Math::ceil(uint32_t dividend, uint32_t divisor){
-  int result = dividend/divisor;
+  uint32_t result = dividend/divisor;
   if(dividend%divisor)
     ++result;
   

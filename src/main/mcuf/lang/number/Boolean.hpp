@@ -11,8 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-
-#include "NumberTemplate.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/number/Number.hpp"
 
 
 
@@ -32,23 +32,22 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Boolean
  */  
-class mcuf::lang::number::Boolean : 
-      public mcuf::lang::number::NumberTemplate<bool>{
+class mcuf::lang::number::Boolean extends mcuf::lang::number::Number{
       
   /* **************************************************************************************
    * Subclass
    */
    
   /* **************************************************************************************
-   * Variable <Public>
+   * valueariable <Public>
    */
 
   /* **************************************************************************************
-   * Variable <Protected>
+   * valueariable <Protected>
    */
 
   /* **************************************************************************************
-   * Variable <Private>
+   * valueariable <Private>
    */
 
   /* **************************************************************************************
@@ -66,12 +65,12 @@ class mcuf::lang::number::Boolean :
   /**
    * Construct.
    */
-  public: Boolean(void) = default;
+  public: Boolean(void);
 
   /**
    * Construct.
    */
-  public: Boolean(bool value);
+  public: Boolean(bool valuealue);
   
   /**
    * Disconstruct.
@@ -81,7 +80,72 @@ class mcuf::lang::number::Boolean :
   /* **************************************************************************************
    * Operator Method
    */
+   
+  /**
+   * 
+   */
+  public: operator bool(void);
+  
+  /**
+   * 
+   */  
+  public: bool operator==(bool value);
 
+  /**
+   * 
+   */
+  public: bool operator==(Boolean& value);
+
+  /**
+   * 
+   */
+  public: bool operator==(Number& value);
+  
+  /**
+   * 
+   */
+  public: bool operator=(bool value);
+
+  /**
+   * 
+   */
+  public: Boolean operator+=(int value);
+
+  /**
+   * 
+   */
+  public: Boolean operator-=(int value);
+
+  /**
+   * 
+   */
+  public: Boolean operator*=(int value);
+
+  /**
+   * 
+   */
+  public: Boolean operator/=(int value);
+  
+  /**
+   * 
+   */
+  public: Boolean operator++(int);
+  
+  /**
+   * 
+   */
+  public: Boolean operator++(void);
+
+  /**
+   * 
+   */
+  public: Boolean operator--(int);
+  
+  /**
+   * 
+   */
+  public: Boolean& operator--(void);
+  
   /* **************************************************************************************
    * Public Method <Static>
    */

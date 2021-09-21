@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../function/Consumer.hpp"
-#include "../hal/Base.hpp"
+#include "mcuf_base.h"
+#include "mcuf/function/Consumer.hpp"
+#include "mcuf/hal/Base.hpp"
 
 
 
@@ -21,7 +22,7 @@
  */  
 namespace mcuf{
   namespace hal{
-    class PinEdgeTrigger;
+    interface PinEdgeTrigger;
   }
 }
 
@@ -29,8 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class PinEdgeTrigger
  */  
-class mcuf::hal::PinEdgeTrigger: 
-      public mcuf::hal::Base{
+interface mcuf::hal::PinEdgeTrigger implement mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass

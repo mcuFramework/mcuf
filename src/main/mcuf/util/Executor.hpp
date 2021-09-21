@@ -11,9 +11,10 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
-#include "../function/Runnable.hpp"
-#include "../util/Queue.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
+#include "mcuf/function/Runnable.hpp"
+#include "mcuf/util/Queue.hpp"
 
 
 
@@ -31,8 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Executor
  */  
-class mcuf::util::Executor: 
-      public mcuf::lang::Object{
+class mcuf::util::Executor extends mcuf::lang::Object{
   
   /* **************************************************************************************
    * Subclass

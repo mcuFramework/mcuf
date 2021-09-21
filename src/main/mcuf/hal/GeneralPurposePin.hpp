@@ -4,24 +4,21 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../lang/Object.hpp"
-
-
+#include "mcuf_base.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace hal{
-    class GeneralPurposePin;
+    interface GeneralPurposePin;
   }
 }
 
 /* ****************************************************************************************
  * Class GeneralPurposeIO::Pin
  */  
-class mcuf::hal::GeneralPurposePin:
-      public mcuf::lang::Object{
+interface mcuf::hal::GeneralPurposePin{
 
   /* **************************************************************************************
    * Subclass

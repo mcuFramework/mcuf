@@ -11,7 +11,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../util/BlockPool.hpp"
+#include "mcuf_base.h"
+#include "mcuf/util/BlockPool.hpp"
 
 
 
@@ -29,8 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class HeapBlockPool
  */  
-class mcuf::util::HeapBlockPool:
-    public mcuf::util::BlockPool{
+class mcuf::util::HeapBlockPool extends mcuf::util::BlockPool{
   
   /* **************************************************************************************
    * Subclass

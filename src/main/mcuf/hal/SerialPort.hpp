@@ -11,10 +11,11 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "..\hal\Base.hpp"
-#include "..\function\BiConsumer.hpp"
-#include "..\lang\Memory.hpp"
-#include "..\lang\Pointer.hpp"
+#include "mcuf_base.h"
+#include "mcuf\hal\Base.hpp"
+#include "mcuf\function\BiConsumer.hpp"
+#include "mcuf\lang\Memory.hpp"
+#include "mcuf\lang\Pointer.hpp"
 
 
 
@@ -23,7 +24,7 @@
  */  
 namespace mcuf{
   namespace hal{
-    class SerialPort;
+    interface SerialPort;
   }
 }
 
@@ -32,8 +33,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class SerialPort
  */  
-class mcuf::hal::SerialPort : 
-      public mcuf::hal::Base{
+interface mcuf::hal::SerialPort implement mcuf::hal::Base{
         
   /* **************************************************************************************
    * Subclass

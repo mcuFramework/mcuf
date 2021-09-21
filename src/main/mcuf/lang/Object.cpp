@@ -19,6 +19,18 @@ using mcuf::lang::Object;
  * Construct Method
  */
 
+/**
+ *
+ */
+Object::Object(){
+}
+
+/**
+ *
+ */
+Object::~Object(){
+}
+
 /* ****************************************************************************************
  * Operator Method
  */

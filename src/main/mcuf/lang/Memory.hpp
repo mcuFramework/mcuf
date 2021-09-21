@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "..\lang\Object.hpp"
-#include "..\lang\Pointer.hpp"
+#include "mcuf_base.h"
+#include "mcuf\lang\Object.hpp"
+#include "mcuf\lang\Pointer.hpp"
 
 
 
@@ -32,8 +33,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Integer
  */  
-class mcuf::lang::Memory :
-      public mcuf::lang::Pointer{
+class mcuf::lang::Memory extends mcuf::lang::Pointer{
 
   friend String;
   friend System;

@@ -11,8 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "../function/Runnable.hpp"
-
+#include "mcuf_base.h"
+#include "mcuf/function/Runnable.hpp"
+#include "mcuf/lang/Object.hpp"
   
 
 /* ****************************************************************************************
@@ -30,8 +31,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class TimerTask
  */  
-class mcuf::util::TimerTask:
-      public mcuf::function::Runnable{
+class mcuf::util::TimerTask extends mcuf::lang::Object
+      implements mcuf::function::Runnable{
   
   /* **************************************************************************************
    * Subclass

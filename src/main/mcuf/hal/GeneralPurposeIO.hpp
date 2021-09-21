@@ -11,16 +11,15 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "Base.hpp"
-
-
+#include "mcuf_base.h"
+#include "mcuf/hal/base.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace hal{
-    class GeneralPurposeIO;
+    interface GeneralPurposeIO;
   }
 }
 
@@ -29,8 +28,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class GeneralPurposeIO
  */  
-class mcuf::hal::GeneralPurposeIO : 
-      public mcuf::hal::Base{
+interface mcuf::hal::GeneralPurposeIO implement mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass

@@ -11,7 +11,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "TimerSchedulerSemulator.hpp"
+#include "mcuf_base.h"
+#include "mcuf/lang/Object.hpp"
+#include "mcuf/util/TimerSchedulerSemulator.hpp"
 
 
 
@@ -29,7 +31,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class TimerScheduler
  */  
-class mcuf::util::TimerScheduler{
+class mcuf::util::TimerScheduler extends mcuf::lang::Object{
   
   /* **************************************************************************************
    * Subclass
