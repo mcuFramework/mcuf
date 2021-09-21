@@ -11,13 +11,27 @@
 /* ****************************************************************************************
  * Macro
  */
- 
-#define MESSAGE_OUT_OF_ENUM "Out of enum."
-#define MESSAGE_OUT_OF_MEMORY "Out of memory."
-#define MESSAGE_OUT_OF_RANGE "Out of range."
-#define MESSAGE_NULL_POINTER "Null pointer."
 
-#define MCUF_DEBUG
+#ifndef VACCESS
+#define VACCESS(type, target) (*(volatile type *) &(target))
+  
+#endif
+
+#ifndef MESSAGE_OUT_OF_ENUM
+#define MESSAGE_OUT_OF_ENUM "Out of enum."
+#endif
+
+#ifndef MESSAGE_OUT_OF_MEMORY
+#define MESSAGE_OUT_OF_MEMORY "Out of memory."
+#endif
+
+#ifndef MESSAGE_OUT_OF_RANGE
+#define MESSAGE_OUT_OF_RANGE "Out of range."
+#endif
+
+#ifndef MESSAGE_NULL_POINTER
+#define MESSAGE_NULL_POINTER "Null pointer."
+#endif
 
 #ifdef MCUF_DEBUG
   #define INFO(message) mcuf::lang::System::info(__PRETTY_FUNCTION__, message)

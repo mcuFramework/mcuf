@@ -994,6 +994,16 @@
               <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
             </File>
             <File>
+              <FileName>RingBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\RingBuffer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Queue.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
@@ -1087,7 +1097,7 @@
         <TargetCommonOption>
           <Device>ARMCM0P</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0+") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -2065,6 +2075,16 @@
               <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
             </File>
             <File>
+              <FileName>RingBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\RingBuffer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Queue.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
@@ -2158,7 +2178,7 @@
         <TargetCommonOption>
           <Device>ARMCM3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M3") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -3136,6 +3156,16 @@
               <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
             </File>
             <File>
+              <FileName>RingBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\RingBuffer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Queue.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
@@ -3229,7 +3259,7 @@
         <TargetCommonOption>
           <Device>ARMCM4</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -4207,6 +4237,16 @@
               <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
             </File>
             <File>
+              <FileName>RingBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\RingBuffer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Queue.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
@@ -4300,7 +4340,7 @@
         <TargetCommonOption>
           <Device>ARMCM4_FP</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -5278,6 +5318,16 @@
               <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
             </File>
             <File>
+              <FileName>RingBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\RingBuffer.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Queue.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
@@ -5371,7 +5421,7 @@
         <TargetCommonOption>
           <Device>ARMCM7</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M7") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -6347,6 +6397,16 @@
               <FileName>Pool.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\RingBuffer.hpp</FilePath>
             </File>
             <File>
               <FileName>Queue.hpp</FileName>
