@@ -15,11 +15,26 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::util::HeapFifo;
+using mcuf::lang::LinkedEntity;
+
+/* ****************************************************************************************
+ * Macro
+ */
+ 
+/* ****************************************************************************************
+ * Variable
+ */
 
 /* ****************************************************************************************
  * Construct Method
  */
+
+/**
+ * 
+ */
+LinkedEntity::LinkedEntity(void* base){
+  this->mBase = base;
+}
 
 /* ****************************************************************************************
  * Operator Method
@@ -40,16 +55,67 @@ using mcuf::util::HeapFifo;
 /**
  * 
  */
-HeapFifo::HeapFifo(uint32_t elementSize, uint32_t capacity) :
-          Fifo(new uint8_t[elementSize * capacity], (elementSize * capacity), elementSize){
+void* LinkedEntity::get(void){
+  return this->mBase;
 }
 
 /**
  * 
  */
-HeapFifo::~HeapFifo(void){
-  delete (uint8_t*)this->mMemory.pointer();
+void LinkedEntity::add(LinkedEntity* LinkedEntity){
+  if(this->hasNext())
+    this->mNext->add(LinkedEntity);
+
+  else
+    this->mNext = LinkedEntity;
 }
+
+/**
+ * 
+ */
+void LinkedEntity::insert(LinkedEntity* LinkedEntity){
+  if(this->hasNext())
+    LinkedEntity->add(this->mNext);
+  
+  this->mNext = LinkedEntity;
+  return;
+}
+
+/**
+ * 
+ */
+LinkedEntity* LinkedEntity::next(void){
+  return this->mNext;
+}
+
+/**
+ * 
+ */
+bool LinkedEntity::hasNext(void){
+  return (this->mNext != nullptr);
+}
+
+/**
+ * 
+ */
+LinkedEntity* LinkedEntity::remove(void){
+  if(!this->hasNext())
+    return nullptr;
+  
+  LinkedEntity* result = this->mNext;
+  this->mNext = result->mNext;
+  return result;
+}
+
+/**
+ * 
+ */
+LinkedEntity* LinkedEntity::removeAll(void){
+  LinkedEntity* result = this->mNext;
+  this->mNext = nullptr;
+  return result;
+}
+
 
 /* ****************************************************************************************
  * Protected Method <Static>
@@ -62,7 +128,11 @@ HeapFifo::~HeapFifo(void){
 /* ****************************************************************************************
  * Protected Method
  */
-
+ 
+/* ****************************************************************************************
+ * Private Method <Static>
+ */
+ 
 /* ****************************************************************************************
  * Private Method
  */

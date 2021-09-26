@@ -11,10 +11,12 @@
 /* ****************************************************************************************
  * Include
  */  
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 #include "mcuf/util/BlockPool.hpp"
-#include "mcuf/lang/Vector.hpp"
-
+#include "mcuf/lang/Linked.hpp"
+#include "mcuf/lang/LinkedEntity.hpp"
 
 /* ****************************************************************************************
  * Namespace
@@ -25,13 +27,11 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
  * Class VectorBlockPool
  */  
 class mcuf::util::VectorBlockPool extends mcuf::util::BlockPool
-      implements mcuf::lang::Vector<mcuf::util::VectorBlockPool>{
+      implements mcuf::lang::Linked<VectorBlockPool>{
 
   /* **************************************************************************************
    * Subclass
@@ -48,6 +48,7 @@ class mcuf::util::VectorBlockPool extends mcuf::util::BlockPool
   /* **************************************************************************************
    * Variable <Private>
    */
+  private: mcuf::lang::LinkedEntity mLinkedEntity;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -85,7 +86,41 @@ class mcuf::util::VectorBlockPool extends mcuf::util::BlockPool
    */
 
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> - mcuf::lang::Linked<VectorBlockPool>
+   */
+
+  /**
+   * 
+   */
+  public: virtual void addLinked(VectorBlockPool* e) override;
+
+  /**
+   * 
+   */
+  public: virtual void insertLinked(VectorBlockPool* e) override;
+
+  /**
+   *
+   */
+  public: virtual VectorBlockPool* getNextLinked(void) override;
+
+  /**
+   * 
+   */
+  public: virtual bool hasNextLinked(void) override;
+
+  /**
+   * 
+   */
+  public: virtual VectorBlockPool* removeLinked(void) override;
+
+  /**
+   * 
+   */
+  public: virtual VectorBlockPool* removeAllLinked(void) override;
+
+  /* **************************************************************************************
+   * Public Method <Override> - mcuf::util::BlockPool
    */
 
   /**
@@ -94,31 +129,31 @@ class mcuf::util::VectorBlockPool extends mcuf::util::BlockPool
    * @element Element pointer.
    * @return element pointer if pool not full, otherwise null pointer.
    */
-  public: virtual void* add(void* element);
+  public: virtual void* add(void* element) override;
 
   /**
    * Alloc memory from pool.
    *
    * @return element pointer if pool not full, otherwise null pointer.
    */
-  public: virtual void* alloc(void);
+  public: virtual void* alloc(void) override;
 
   /**
    * 
    */
-  public: virtual mcuf::lang::Memory allocMemory(void);
+  public: virtual mcuf::lang::Memory allocMemory(void) override;
 
   /**
    * Returns this pool's capacity.
    *
    * @return The capacity of this pool.
    */
-  public: virtual uint32_t capacity(void);
+  public: virtual uint32_t capacity(void) override;
 
   /**
    * Removes all of the elements from this pool (optional operation). The pool will be empty after this method returns.
    */
-  public: virtual void clear(void);
+  public: virtual void clear(void) override;
   
   /**
    * Performs the given action for each element of the Iterable until all elements have 
@@ -128,31 +163,23 @@ class mcuf::util::VectorBlockPool extends mcuf::util::BlockPool
    *
    * @action - The action to be performed for each element.
    */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory&>& consumer);
-
-  /**
-   * 
-   */
-  public: virtual VectorBlockPool* getBase(void);
+  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory&>& consumer) override;
 
   /**
    * Returns true if this pool contains no elements.
    *
    * @return true if this pool contains no elements.
    */
-  public: virtual bool isEmpty(void);
+  public: virtual bool isEmpty(void) override;
   
-  /**
-   * 
-   */
-  public: bool isFull(void);
+
 
   /**
    * Returns the number of elements in this pool.
    *
    * @return the number of elements in this pool.
    */
-  public: virtual uint32_t size(void);
+  public: virtual uint32_t size(void) override;
   
   /**
    * Free this element memory.  
@@ -160,11 +187,16 @@ class mcuf::util::VectorBlockPool extends mcuf::util::BlockPool
    * @element Element pointer.
    * @return true if this poll found element and remove.
    */
-  public: virtual bool remove(void* element);
+  public: virtual bool remove(void* element) override;
 
   /* **************************************************************************************
    * Public Method
    */
+   
+  /**
+   * 
+   */
+  public: bool isFull(void);   
 
   /* **************************************************************************************
    * Protected Method <Static>

@@ -406,6 +406,114 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>main\cmsis_rtos</GroupName>
+          <Files>
+            <File>
+              <FileName>cmsis_armclang.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_armclang.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmsis_compiler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_compiler.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmsis_os2.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_os2.h</FilePath>
+            </File>
+            <File>
+              <FileName>os_tick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\os_tick.h</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_CM0.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM0.lib</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_CM3.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM3.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>RTX_CM4F.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM4F.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>RTX_Config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_Config.c</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_Config.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_evr.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_evr.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_lib.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_os.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_os.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>main\mcuf</GroupName>
           <Files>
             <File>
@@ -659,6 +767,21 @@
               <FilePath>.\src\main\mcuf\lang\lang.h</FilePath>
             </File>
             <File>
+              <FileName>Linked.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Linked.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedEntity.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\LinkedEntity.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedEntity.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\LinkedEntity.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Math.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Math.cpp</FilePath>
@@ -722,11 +845,6 @@
               <FileName>Throwable.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Throwable.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Vector.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Vector.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1422,6 +1540,114 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>main\cmsis_rtos</GroupName>
+          <Files>
+            <File>
+              <FileName>cmsis_armclang.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_armclang.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmsis_compiler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_compiler.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmsis_os2.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_os2.h</FilePath>
+            </File>
+            <File>
+              <FileName>os_tick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\os_tick.h</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_CM0.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM0.lib</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_CM3.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM3.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>RTX_CM4F.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM4F.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>RTX_Config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_Config.c</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_Config.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_evr.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_evr.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_lib.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_os.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_os.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>main\mcuf</GroupName>
           <Files>
             <File>
@@ -1675,6 +1901,21 @@
               <FilePath>.\src\main\mcuf\lang\lang.h</FilePath>
             </File>
             <File>
+              <FileName>Linked.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Linked.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedEntity.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\LinkedEntity.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedEntity.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\LinkedEntity.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Math.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Math.cpp</FilePath>
@@ -1738,11 +1979,6 @@
               <FileName>Throwable.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Throwable.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Vector.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Vector.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -2438,6 +2674,114 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>main\cmsis_rtos</GroupName>
+          <Files>
+            <File>
+              <FileName>cmsis_armclang.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_armclang.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmsis_compiler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_compiler.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmsis_os2.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_os2.h</FilePath>
+            </File>
+            <File>
+              <FileName>os_tick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\os_tick.h</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_CM0.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM0.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>RTX_CM3.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM3.lib</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_CM4F.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM4F.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>RTX_Config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_Config.c</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_Config.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_evr.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_evr.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_lib.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_os.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_os.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>main\mcuf</GroupName>
           <Files>
             <File>
@@ -2691,6 +3035,21 @@
               <FilePath>.\src\main\mcuf\lang\lang.h</FilePath>
             </File>
             <File>
+              <FileName>Linked.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Linked.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedEntity.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\LinkedEntity.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedEntity.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\LinkedEntity.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Math.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Math.cpp</FilePath>
@@ -2754,11 +3113,6 @@
               <FileName>Throwable.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Throwable.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Vector.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Vector.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3058,7 +3412,7 @@
       <TargetName>mcuf_m4</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
+      <pCCUsed>6150000::V6.15::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -3454,6 +3808,114 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>main\cmsis_rtos</GroupName>
+          <Files>
+            <File>
+              <FileName>cmsis_armclang.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_armclang.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmsis_compiler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_compiler.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmsis_os2.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_os2.h</FilePath>
+            </File>
+            <File>
+              <FileName>os_tick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\os_tick.h</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_CM0.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM0.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>RTX_CM3.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM3.lib</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_CM4F.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM4F.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>RTX_Config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_Config.c</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_Config.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_evr.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_evr.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_lib.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_os.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_os.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>main\mcuf</GroupName>
           <Files>
             <File>
@@ -3707,6 +4169,21 @@
               <FilePath>.\src\main\mcuf\lang\lang.h</FilePath>
             </File>
             <File>
+              <FileName>Linked.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Linked.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedEntity.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\LinkedEntity.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedEntity.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\LinkedEntity.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Math.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Math.cpp</FilePath>
@@ -3770,11 +4247,6 @@
               <FileName>Throwable.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Throwable.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Vector.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Vector.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -4470,6 +4942,114 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>main\cmsis_rtos</GroupName>
+          <Files>
+            <File>
+              <FileName>cmsis_armclang.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_armclang.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmsis_compiler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_compiler.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmsis_os2.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_os2.h</FilePath>
+            </File>
+            <File>
+              <FileName>os_tick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\os_tick.h</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_CM0.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM0.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>RTX_CM3.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM3.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>RTX_CM4F.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM4F.lib</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_Config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_Config.c</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_Config.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_evr.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_evr.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_lib.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_os.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_os.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>main\mcuf</GroupName>
           <Files>
             <File>
@@ -4723,6 +5303,21 @@
               <FilePath>.\src\main\mcuf\lang\lang.h</FilePath>
             </File>
             <File>
+              <FileName>Linked.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Linked.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedEntity.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\LinkedEntity.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedEntity.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\LinkedEntity.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Math.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Math.cpp</FilePath>
@@ -4786,11 +5381,6 @@
               <FileName>Throwable.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Throwable.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Vector.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Vector.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -5486,6 +6076,114 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>main\cmsis_rtos</GroupName>
+          <Files>
+            <File>
+              <FileName>cmsis_armclang.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_armclang.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmsis_compiler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_compiler.h</FilePath>
+            </File>
+            <File>
+              <FileName>cmsis_os2.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\cmsis_os2.h</FilePath>
+            </File>
+            <File>
+              <FileName>os_tick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\os_tick.h</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_CM0.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM0.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>RTX_CM3.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM3.lib</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>RTX_CM4F.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_CM4F.lib</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_Config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_Config.c</FilePath>
+            </File>
+            <File>
+              <FileName>RTX_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\RTX_Config.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_evr.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_evr.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_lib.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtx_os.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\cmsis_rtos\rtx_os.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>main\mcuf</GroupName>
           <Files>
             <File>
@@ -5739,6 +6437,21 @@
               <FilePath>.\src\main\mcuf\lang\lang.h</FilePath>
             </File>
             <File>
+              <FileName>Linked.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Linked.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedEntity.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\LinkedEntity.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedEntity.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\LinkedEntity.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Math.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Math.cpp</FilePath>
@@ -5802,11 +6515,6 @@
               <FileName>Throwable.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Throwable.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Vector.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Vector.hpp</FilePath>
             </File>
           </Files>
         </Group>

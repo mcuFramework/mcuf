@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_FD4111EE_0931_4502_B503_145E36DCD477
-#define MCUF_FD4111EE_0931_4502_B503_145E36DCD477
+#ifndef MCUF_B0F0F032_A3B1_4BA1_B0A8_BB7F11C63CBD
+#define MCUF_B0F0F032_A3B1_4BA1_B0A8_BB7F11C63CBD
 
 /* ****************************************************************************************
  * Include
@@ -14,21 +14,21 @@
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
-#include "mcuf/util/VectorBlockPool.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  namespace util{
-    class HeapVectorBlockPool;
+  namespace lang{
+    template<typename E> interface Linked;
   }
 }
 
 /* ****************************************************************************************
- * Class HeapVectorBlockPool
+ * Class Linked
  */  
-class mcuf::util::HeapVectorBlockPool extends mcuf::util::VectorBlockPool{
+template<typename E>
+interface mcuf::lang::Linked{
 
   /* **************************************************************************************
    * Subclass
@@ -49,6 +49,36 @@ class mcuf::util::HeapVectorBlockPool extends mcuf::util::VectorBlockPool{
   /* **************************************************************************************
    * Abstract method <Public>
    */
+   
+  /**
+   * 
+   */
+  public: virtual void addLinked(E* e) = 0;
+
+  /**
+   * 
+   */
+  public: virtual void insertLinked(E* e) = 0;
+
+  /**
+   *
+   */
+  public: virtual E* getNextLinked(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual bool hasNextLinked(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual E* removeLinked(void) = 0;
+
+  /**
+   * 
+   */
+  public: virtual E* removeAllLinked(void) = 0;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -60,16 +90,13 @@ class mcuf::util::HeapVectorBlockPool extends mcuf::util::VectorBlockPool{
 
   /**
    * Construct.
-   * 
-   * @param uint32_t-elementSize element size.
-   * @param uint32_t-capacity capacity.
    */
-  public: HeapVectorBlockPool(uint32_t elementSize, uint32_t capacity);
+  public: Linked(void) = default;
 
   /**
    * Disconstruct.
    */
-  public: ~HeapVectorBlockPool(void);
+  public: virtual ~Linked(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -86,11 +113,6 @@ class mcuf::util::HeapVectorBlockPool extends mcuf::util::VectorBlockPool{
   /* **************************************************************************************
    * Public Method
    */
-  
-  /**
-   * 
-   */
-  public: void expansion(uint32_t capacity);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -118,8 +140,10 @@ class mcuf::util::HeapVectorBlockPool extends mcuf::util::VectorBlockPool{
 
 };
 
+
+
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif/* MCUF_FD4111EE_0931_4502_B503_145E36DCD477 */
+#endif/* MCUF_B0F0F032_A3B1_4BA1_B0A8_BB7F11C63CBD */

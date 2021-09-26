@@ -11,14 +11,14 @@
 /* ****************************************************************************************
  * Include
  */  
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 #include "mcuf\function\Consumer.hpp"
 #include "mcuf\function\ConsumerEvent.hpp"
 #include "mcuf\util\BlockPool.hpp"
 #include "mcuf\util\Timer.hpp"
 #include "mcuf\util\TimerTask.hpp"
-
-
 
 /* ****************************************************************************************
  * Namespace
@@ -28,8 +28,6 @@ namespace mcuf{
     class TimerSchedulerSemulator;
   }
 }
-
-
 
 /* ****************************************************************************************
  * Class TimerSchedulerSemulator

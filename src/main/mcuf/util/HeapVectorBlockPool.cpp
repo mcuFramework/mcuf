@@ -8,7 +8,8 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "HeapVectorBlockPool.hpp"
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf.h"
 
 /* ****************************************************************************************
@@ -62,7 +63,7 @@ HeapVectorBlockPool::~HeapVectorBlockPool(void){
  */
 void HeapVectorBlockPool::expansion(uint32_t capacity){
   HeapVectorBlockPool* p = new HeapVectorBlockPool(this->mElementSize, capacity);
-  this->vectorAdd(p);
+  this->addLinked(p);
   return;
 }
 

@@ -31,7 +31,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class BlockPool
  */  
-class mcuf::util::BlockPool implement mcuf::util::Pool{
+class mcuf::util::BlockPool extends mcuf::lang::Object
+      implements mcuf::util::Pool{
   
   /* **************************************************************************************
    * Subclass

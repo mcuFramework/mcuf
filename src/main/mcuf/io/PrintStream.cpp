@@ -8,11 +8,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "PrintStream.hpp"
 
-#include "mcuf/io/channel/ByteBuffer.hpp"
-#include "mcuf/io/channel/ConstByteBuffer.hpp"
-#include "mcuf/io/channel/HeapByteBuffer.hpp"
+//-----------------------------------------------------------------------------------------
+#include "mcuf.h"
 
 /* ****************************************************************************************
  * Using

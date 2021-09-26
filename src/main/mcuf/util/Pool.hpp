@@ -11,12 +11,12 @@
 /* ****************************************************************************************
  * Include
  */  
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf/function/Consumer.hpp"
 #include "mcuf/lang/Array.hpp"
 #include "mcuf/lang/Memory.hpp"
 #include "mcuf/util/Collection.hpp"
-
-
 
 /* ****************************************************************************************
  * Namespace
@@ -26,8 +26,6 @@ namespace mcuf{
     interface Pool;
   }
 }
-
-
 
 /* ****************************************************************************************
  * Class Pool
@@ -154,14 +152,10 @@ interface mcuf::util::Pool implement mcuf::util::Collection<mcuf::lang::Memory&>
    * Private Method
    */
   
-  
 };
- 
-
 
 /* *****************************************************************************************
  * End of file
  */ 
-
 
 #endif/* MCUF_B4F9BAD4_2126_4397_B252_0E3E47A7DA8F */

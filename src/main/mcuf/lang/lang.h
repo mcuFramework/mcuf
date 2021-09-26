@@ -22,6 +22,8 @@
 #include "HeapArray.hpp"
 #include "HeapMemory.hpp"
 #include "Iterable.hpp"
+#include "Linked.hpp"
+#include "LinkedEntity.hpp"
 #include "Math.hpp"
 #include "Memory.hpp"
 #include "Pointer.hpp"
@@ -29,7 +31,6 @@
 #include "System.hpp"
 #include "Object.hpp"
 #include "Throwable.hpp"
-#include "Vector.hpp"
 
 
 

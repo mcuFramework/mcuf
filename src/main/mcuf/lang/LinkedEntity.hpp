@@ -5,12 +5,14 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_F289C704_EAEA_4650_BD9A_A332BBFC783C
-#define MCUF_F289C704_EAEA_4650_BD9A_A332BBFC783C
+#ifndef MCUF_AE54A221_DC19_452D_9BEB_00BF5CA639E4
+#define MCUF_AE54A221_DC19_452D_9BEB_00BF5CA639E4
 
 /* ****************************************************************************************
  * Include
  */  
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 #include "mcuf/lang/Object.hpp"
 
@@ -19,17 +21,14 @@
  */  
 namespace mcuf{
   namespace lang{
-    template<typename E> class Vector;
+    class LinkedEntity;
   }
 }
-
-
 
 /* ****************************************************************************************
  * Class Object
  */  
-template<typename E>
-class mcuf::lang::Vector extends mcuf::lang::Object{
+class mcuf::lang::LinkedEntity extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Subclass
@@ -42,7 +41,8 @@ class mcuf::lang::Vector extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: Vector<E>* nextVector = nullptr;
+  protected: void* mBase;
+  protected: LinkedEntity* mNext;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -51,11 +51,6 @@ class mcuf::lang::Vector extends mcuf::lang::Object{
   /* **************************************************************************************
    * Abstract method <Public>
    */
-
-  /**
-   * 
-   */
-  public: virtual E* getBase(void) = 0;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -68,15 +63,12 @@ class mcuf::lang::Vector extends mcuf::lang::Object{
   /**
    * Construct.
    */
-  public: Vector(void){
-    this->nextVector = nullptr;
-    return;
-  }
+  public: LinkedEntity(void* base);
 
   /**
    * Disconstruct.
    */
-  public: virtual ~Vector(void) = default;
+  public: virtual ~LinkedEntity(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -97,48 +89,37 @@ class mcuf::lang::Vector extends mcuf::lang::Object{
   /**
    * 
    */
-  public: void vectorAdd(Vector<E>* vector){
-    if(this->hasNextVector())
-      this->nextVector->vectorAdd(vector);
-    
-    else
-      this->nextVector = vector;
-  }
+  public: void* get(void);
 
   /**
    * 
    */
-  public: void vectorInsert(Vector<E>* vector){
-    vector->nextVector = this->nextVector;
-    this->nextVector = vector;
-  }
+  public: void add(LinkedEntity* LinkedEntity);
 
   /**
    * 
    */
-  public: Vector<E>* getNextVector(void){
-    return this->nextVector;
-  }
+  public: void insert(LinkedEntity* LinkedEntity);
 
   /**
    * 
    */
-  public: bool hasNextVector(void){
-    return (this->nextVector != nullptr);
-  }
+  public: LinkedEntity* next(void);
 
   /**
    * 
    */
-  public: Vector<E>* vectorRemove(void){
-    if(!this->hasNextVector())
-      return nullptr;
-    
-    Vector<E>* result = nextVector;
-    this->nextVector = result->nextVector;
-    return result;
-  }
+  public: bool hasNext(void);
 
+  /**
+   * 
+   */
+  public: LinkedEntity* remove(void);
+
+  /**
+   * 
+   */
+  public: LinkedEntity* removeAll(void);  
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -166,10 +147,8 @@ class mcuf::lang::Vector extends mcuf::lang::Object{
 
 };
 
-
-
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif/* MCUF_F289C704_EAEA_4650_BD9A_A332BBFC783C */
+#endif/* MCUF_AE54A221_DC19_452D_9BEB_00BF5CA639E4 */

@@ -8,7 +8,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "BlockPool.hpp"
+
+//-----------------------------------------------------------------------------------------
+#include "mcuf.h"
 
 /* ****************************************************************************************
  * Using
@@ -74,8 +76,8 @@ BlockPool::BlockPool(Memory& memory, uint32_t elementSize){
  */
 void* BlockPool::add(void* element){
   void* block = this->alloc();
-  if(block == 0)
-    return 0;
+  if(block == nullptr)
+    return nullptr;
   
   memcpy(block, element, this->mElementSize);
   return block;
@@ -86,7 +88,7 @@ void* BlockPool::add(void* element){
  */
 void* BlockPool::alloc(void){
   if(this->isFull())
-    return 0;
+    return nullptr;
   
   return this->getBlock(this->foundAndSetFlag());
 }

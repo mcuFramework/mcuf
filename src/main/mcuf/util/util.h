@@ -30,6 +30,7 @@
 #include "Map.hpp"
 #include "Pool.hpp"
 #include "Queue.hpp"
+#include "RingBuffer.hpp"
 #include "Scanner.hpp"
 #include "Stack.hpp"
 #include "Timer.hpp"

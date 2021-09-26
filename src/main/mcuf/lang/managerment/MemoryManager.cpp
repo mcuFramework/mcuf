@@ -8,12 +8,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "MemoryManager.hpp"
 
-#include "mcuf/lang/Math.hpp"
-#include "mcuf/lang/Memory.hpp"
-#include "mcuf/util/VectorBlockPool.hpp"
-
+//-----------------------------------------------------------------------------------------
+#include "mcuf.h"
 
 /* ****************************************************************************************
  * Using
@@ -245,7 +242,7 @@ Memory MemoryManager::allocEntityBlockMemory(void){
     bytes = (bytes & ~0x00000003) + 4;
 
   if(bytes > size){
-    this->entityPool->vectorAdd(new(result.pointer()) VectorBlockPool(memory, size));
+    this->entityPool->addLinked(new(result.pointer()) VectorBlockPool(memory, size));
   }else{
     Memory flag = Memory::nullMemory();
     if((this->BASE_BLOCK_SIZE % size) < bytes)
@@ -253,10 +250,10 @@ Memory MemoryManager::allocEntityBlockMemory(void){
 
 
     if(flag.isEmpty())
-      this->entityPool->vectorAdd(new(result.pointer()) VectorBlockPool(memory, size));
+      this->entityPool->addLinked(new(result.pointer()) VectorBlockPool(memory, size));
 
     else
-      this->entityPool->vectorAdd(new(result.pointer()) VectorBlockPool(flag, memory, size));
+      this->entityPool->addLinked(new(result.pointer()) VectorBlockPool(flag, memory, size));
   }
     
   return this->entityPool->allocMemory();
@@ -317,7 +314,7 @@ bool MemoryManager::expansionBlock(uint16_t blockShift){
     return false;
   }
 
-  this->blocks[blockShift]->vectorAdd(result);
+  this->blocks[blockShift]->addLinked(result);
   return true;
 }
 

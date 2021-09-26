@@ -11,11 +11,11 @@
 /* ****************************************************************************************
  * Include
  */
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 #include "mcuf_macro.h" 
 #include "mcuf/lang/Object.hpp"
-
-
 
 /* ****************************************************************************************
  * Namespace
@@ -138,7 +138,7 @@ class mcuf::util::RingBuffer extends mcuf::lang::Object{
    *
    * @return	1 if the ring buffer is empty, otherwise 0.
    */
-  public: bool isEmpty(void){
+  public: inline bool isEmpty(void){
     return (VACCESS(uint32_t, this->mHead) == VACCESS(uint32_t, this->mTail));
   }
 
@@ -187,8 +187,6 @@ class mcuf::util::RingBuffer extends mcuf::lang::Object{
    */  
 
 };
-
-
 
 /* *****************************************************************************************
  * End of file
