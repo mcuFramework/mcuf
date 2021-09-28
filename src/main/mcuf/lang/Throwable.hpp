@@ -21,7 +21,7 @@
  */  
 namespace mcuf{
   namespace lang{
-    interface Throwable;
+    class Throwable;
   }
 }
 
@@ -30,7 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Throwable
  */  
-interface mcuf::lang::Throwable{
+class mcuf::lang::Throwable extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Subclass
@@ -43,6 +43,7 @@ interface mcuf::lang::Throwable{
   /* **************************************************************************************
    * Variable <Protected>
    */
+  protected: const char* mMessage;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -63,7 +64,12 @@ interface mcuf::lang::Throwable{
   /**
    * Construct.
    */
-  public: Throwable(void) = default;
+  public: Throwable(void);
+  
+  /**
+   * Construct.
+   */
+  public: Throwable(const char* message);
 
   /**
    * Destructor.
@@ -85,6 +91,12 @@ interface mcuf::lang::Throwable{
   /* **************************************************************************************
    * Public Method
    */
+  
+  /**
+   *
+   */
+  public: const char* getMessage(void);
+  
 
   /* **************************************************************************************
    * Protected Method <Static>

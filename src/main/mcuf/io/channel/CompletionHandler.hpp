@@ -57,9 +57,9 @@ interface mcuf::io::channel::CompletionHandler{
   public: virtual void completed(V result, A attachment) = 0;
   
   /**
-   *  read sync
+   *
    */
-  public: virtual void failed(mcuf::lang::Throwable& exc, A attachment) = 0;
+  public: virtual void failed(mcuf::lang::Throwable* exc, A attachment) = 0;
 
   /* **************************************************************************************
    *  Abstract method <Protected>
