@@ -5,32 +5,28 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_A1CEB570_37B1_46EF_A349_E340807CFCCB
-#define MCUF_A1CEB570_37B1_46EF_A349_E340807CFCCB
+#ifndef MCUF_E88C2036_9666_4C5D_8F92_CB77EC035D49
+#define MCUF_E88C2036_9666_4C5D_8F92_CB77EC035D49
 
 /* ****************************************************************************************
  * Include
  */  
 #include "mcuf_base.h"
-#include "mcuf/lang/Object.hpp"
-
-
+#include "mcuf/lang/Throwable.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  namespace lang{
-    class Throwable;
+  namespace io{
+    class IOException;
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class Throwable
+ * Class Object
  */  
-class mcuf::lang::Throwable extends mcuf::lang::Object{
+class mcuf::io::IOException extends mcuf::lang::Throwable{
 
   /* **************************************************************************************
    * Subclass
@@ -43,8 +39,6 @@ class mcuf::lang::Throwable extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: const char* mType;
-  protected: const char* mMessage;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -65,17 +59,17 @@ class mcuf::lang::Throwable extends mcuf::lang::Object{
   /**
    * Construct.
    */
-  public: Throwable(void);
+  public: IOException(void);
   
   /**
-   * Construct.
+   *
    */
-  public: Throwable(const char* message);
+  public: IOException(const char* message);
 
   /**
-   * Destructor.
+   * Disconstruct.
    */
-  public: virtual ~Throwable(void) = default;
+  public: virtual ~IOException(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -92,14 +86,6 @@ class mcuf::lang::Throwable extends mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method
    */
-  
-  public: const char* getType(void);
-  
-  /**
-   *
-   */
-  public: const char* getMessage(void);
-  
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -127,11 +113,10 @@ class mcuf::lang::Throwable extends mcuf::lang::Object{
 
 };
 
- 
+
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-
-#endif/* MCUF_A1CEB570_37B1_46EF_A349_E340807CFCCB */
+#endif/* MCUF_E88C2036_9666_4C5D_8F92_CB77EC035D49 */

@@ -19,6 +19,7 @@
  * Include
  */
 #include "InputStream.hpp"
+#include "IOException.hpp"
 #include "OutputStream.hpp"
 #include "PrintStream.hpp"
 #include "Stream.hpp"

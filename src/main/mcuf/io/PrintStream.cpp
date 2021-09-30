@@ -67,7 +67,7 @@ void PrintStream::CompletionHandlerConst::completed(int result, void* attachment
 /**
  * 
  */
-void PrintStream::CompletionHandlerConst::failed(mcuf::lang::Throwable* exc, void* attachment){
+void PrintStream::CompletionHandlerConst::failed(mcuf::lang::Throwable& exc, void* attachment){
   ConstByteBuffer* b = (ConstByteBuffer*)attachment;
   delete b;
   return;
@@ -88,7 +88,7 @@ void PrintStream::CompletionHandlerHeap::completed(int result, void* attachment)
 /**
  * 
  */
-void PrintStream::CompletionHandlerHeap::failed(mcuf::lang::Throwable* exc, void* attachment){
+void PrintStream::CompletionHandlerHeap::failed(mcuf::lang::Throwable& exc, void* attachment){
   HeapByteBuffer* b = (HeapByteBuffer*)attachment;
   delete b;
   return;

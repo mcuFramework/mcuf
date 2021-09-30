@@ -59,7 +59,7 @@ interface mcuf::io::channel::CompletionHandler{
   /**
    *
    */
-  public: virtual void failed(mcuf::lang::Throwable* exc, A attachment) = 0;
+  public: virtual void failed(mcuf::lang::Throwable& exc, A attachment) = 0;
 
   /* **************************************************************************************
    *  Abstract method <Protected>

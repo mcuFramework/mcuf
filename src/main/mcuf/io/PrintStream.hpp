@@ -48,7 +48,7 @@ class mcuf::io::PrintStream extends mcuf::lang::Object{
     public: virtual ~CompletionHandlerConst(void) = default;
                   
     public: virtual void completed(int result, void* attachment) override;
-    public: virtual void failed(mcuf::lang::Throwable* exc, void* attachment) override;
+    public: virtual void failed(mcuf::lang::Throwable& exc, void* attachment) override;
   };
 
   /* **************************************************************************************
@@ -61,7 +61,7 @@ class mcuf::io::PrintStream extends mcuf::lang::Object{
     public: virtual ~CompletionHandlerHeap(void) = default;
 
     public: virtual void completed(int result, void* attachment) override;
-    public: virtual void failed(mcuf::lang::Throwable* exc, void* attachment) override;
+    public: virtual void failed(mcuf::lang::Throwable& exc, void* attachment) override;
   };  
 
   /* **************************************************************************************
