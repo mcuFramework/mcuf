@@ -14,23 +14,6 @@
 
 #ifndef VACCESS
 #define VACCESS(type, target) (*(volatile type *) &(target))
-  
-#endif
-
-#ifndef MESSAGE_OUT_OF_ENUM
-#define MESSAGE_OUT_OF_ENUM "Out of enum."
-#endif
-
-#ifndef MESSAGE_OUT_OF_MEMORY
-#define MESSAGE_OUT_OF_MEMORY "Out of memory."
-#endif
-
-#ifndef MESSAGE_OUT_OF_RANGE
-#define MESSAGE_OUT_OF_RANGE "Out of range."
-#endif
-
-#ifndef MESSAGE_NULL_POINTER
-#define MESSAGE_NULL_POINTER "Null pointer."
 #endif
 
 #ifdef MCUF_DEBUG
@@ -41,17 +24,17 @@
   #define ASSERT_THROW_WARNING(expr, message) if(!(expr)) THROW_WARNING(message)
 #else
   #ifdef MCUF_DEBUG_NMSG
-    #define INFO(message)
+    #define INFO(message) ((void)0)
     #define THROW_ERROR(message) while(1)
-    #define THROW_WARNING(message)
+    #define THROW_WARNING(message) ((void)0)
     #define ASSERT_THROW_ERROR(expr, message) if(!expr) THROW_ERROR(message)
-    #define ASSERT_THROW_WARNING(expr, message)
+    #define ASSERT_THROW_WARNING(expr, message) ((void)0)
   #else
-    #define INFO(message)
-    #define THROW_ERROR(message)
-    #define THROW_WARNING(message)
-    #define ASSERT_THROW_ERROR(expr, message)
-    #define ASSERT_THROW_WARNING(expr, message)
+    #define INFO(message) ((void)0)
+    #define THROW_ERROR(message) ((void)0)
+    #define THROW_WARNING(message) ((void)0)
+    #define ASSERT_THROW_ERROR(expr, message) ((void)0)
+    #define ASSERT_THROW_WARNING(expr, message) ((void)0)
   #endif
 #endif
 

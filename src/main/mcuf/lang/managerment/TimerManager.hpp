@@ -5,39 +5,32 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_E1AC23E1_8083_4962_A2F8_4FCBBA37F659
-#define MCUF_E1AC23E1_8083_4962_A2F8_4FCBBA37F659
+#ifndef MCUF_DAABF10E_A6DD_48CC_9079_D339B3588669
+#define MCUF_DAABF10E_A6DD_48CC_9079_D339B3588669
 
 /* ****************************************************************************************
  * Include
  */  
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
-#include "mcuf/io/OutputStream.hpp"
-#include "mcuf/hal/Timer.hpp"
-#include "mcuf/lang/Object.hpp"
-#include "mcuf/lang/managerment/MemoryManager.hpp"
+#include "mcuf/util/TimerScheduler.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace lang{
-    class System;
-
     namespace managerment{
-      class SystemComponent;
+      class TimerManager;
     }
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class SystemComponent
+ * Class Object
  */  
-class mcuf::lang::managerment::SystemComponent extends mcuf::lang::Object{
-
-  friend mcuf::lang::System;
+class mcuf::lang::managerment::TimerManager extends mcuf::util::TimerScheduler{
 
   /* **************************************************************************************
    * Subclass
@@ -54,13 +47,9 @@ class mcuf::lang::managerment::SystemComponent extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: bool locked = false;
-  
-  private: mcuf::io::OutputStream* mOutputString;
-  private: mcuf::lang::managerment::MemoryManager* mMemoryManager;
-  private: mcuf::hal::Timer* mTimer;
-
-   
+  private: uint64_t mTimerMemory[4];
+  private: void* mTimerID;
+  private: uint32_t mTick;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -77,12 +66,12 @@ class mcuf::lang::managerment::SystemComponent extends mcuf::lang::Object{
   /**
    * Construct.
    */
-  public: SystemComponent(void) = default;
+  public: TimerManager(mcuf::lang::Memory& memory);
 
   /**
    * Disconstruct.
    */
-  public: virtual ~SystemComponent(void) = default;
+  public: virtual ~TimerManager(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -99,36 +88,16 @@ class mcuf::lang::managerment::SystemComponent extends mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method
    */
-
+   
   /**
-   * 
+   *
    */
-  public: bool memoryManager(mcuf::lang::managerment::MemoryManager* m);
-
+  public: bool start(uint32_t tick);
+  
   /**
-   * 
+   *
    */
-  public: mcuf::lang::managerment::MemoryManager* memoryManager(void);
-
-  /**
-   * 
-   */
-  public: bool outputString(mcuf::io::OutputStream* o);
-
-  /**
-   * 
-   */
-  public: mcuf::io::OutputStream* outputString(void);
-
-  /**
-   * 
-   */
-  public: bool timer(mcuf::hal::Timer* t);
-
-  /**
-   * 
-   */
-  public: mcuf::hal::Timer* timer(void);
+  public: bool stop(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -142,19 +111,14 @@ class mcuf::lang::managerment::SystemComponent extends mcuf::lang::Object{
    * Protected Method
    */
 
-  /**
-   * 
-   */
-  protected: void lock(void);
-
-  /**
-   * 
-   */
-  protected: void unlock(void);
-
   /* **************************************************************************************
    * Private Method <Static>
    */
+  
+  /**
+   *
+   */
+  private: static void entryPoint(void* attachment);
 
   /* **************************************************************************************
    * Private Method <Override>
@@ -166,11 +130,8 @@ class mcuf::lang::managerment::SystemComponent extends mcuf::lang::Object{
 
 };
 
-
-
 /* *****************************************************************************************
  * End of file
  */ 
 
-
-#endif/* MCUF_E1AC23E1_8083_4962_A2F8_4FCBBA37F659 */
+#endif/* MCUF_DAABF10E_A6DD_48CC_9079_D339B3588669 */

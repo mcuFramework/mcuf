@@ -20,7 +20,8 @@
 
 #include "GlobalStack.hpp"
 #include "MemoryManager.hpp"
-#include "SystemComponent.hpp"
+#include "ExecutorManager.hpp"
+#include "TimerManager.hpp"
  
 
  

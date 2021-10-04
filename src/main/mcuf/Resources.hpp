@@ -5,32 +5,31 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055
-#define MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055
+#ifndef MCUF_ADD5434B_ED19_4DB8_9CDA_378B788B8852
+#define MCUF_ADD5434B_ED19_4DB8_9CDA_378B788B8852
 
 /* ****************************************************************************************
  * Include
  */  
-#include <stdarg.h>
 
-#include "mcuf_base.h"
-#include "mcuf_config.h"
-#include "mcuf/lang/Object.hpp"
+#include "stdint.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  namespace lang{
-    class String;
-  }
+  class Resources;
 }
 
 /* ****************************************************************************************
- * Class String
+ * Class Resources
  */  
-class mcuf::lang::String extends mcuf::lang::Object{
+class mcuf::Resources{
 
+  /* **************************************************************************************
+   * Substruct
+   */
+  
   /* **************************************************************************************
    * Subclass
    */
@@ -38,7 +37,46 @@ class mcuf::lang::String extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Public>
    */
-  public: static char emptyString;
+  
+  /**
+   * System
+   */
+  public: static void* const systemStack;
+  public: static const uint32_t systemStackSize;
+  
+  public: static void* const stringMemroy;
+  public: static const uint32_t stringMemroySize;
+  
+  /**
+   * Executor
+   */
+  public: static void* const executorHandle;
+  public: static const uint32_t executorHandleSize;
+  
+  public: static void* const executorStack;
+  public: static const uint32_t executorStackSize;  
+  
+  public: static void* const executorTaskMemory;
+  public: static const uint32_t executorTaskMemorySize;
+  
+  /**
+   * Timer
+   */
+  public: static void* const timerHandle;
+  public: static const uint32_t timerHandleSize;
+  
+  public: static void* const timerTaskMemory;
+  public: static const uint32_t timerTaskMemorySize;
+  
+  /**
+   * Memory manager
+   */
+  public: static void* const memoryManagerHandle;
+  public: static const uint32_t memoryManagerHandleSize;
+  
+  public: static void* const memoryManagerBuffer;
+  public: static const uint32_t memoryManagerBufferSize;
+  
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -47,13 +85,6 @@ class mcuf::lang::String extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-
-  /**
-   * Non-static
-   */
-  private: char* mPointer;
-  private: uint32_t mSize;
-
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -70,22 +101,12 @@ class mcuf::lang::String extends mcuf::lang::Object{
   /**
    * Construct.
    */
-  private: String(char* str, uint32_t size);
-
-  /**
-   * Construct.
-   */
-  public: String(const char* original);
-
-  /**
-   * Construct.
-   */
-  public: String(void);
+  private: Resources(void) = default;
 
   /**
    * Disconstruct.
    */
-  public: ~String(void);
+  public: virtual ~Resources(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -95,26 +116,6 @@ class mcuf::lang::String extends mcuf::lang::Object{
    * Public Method <Static>
    */
 
-  /**
-   * 
-   */
-  public: static String format(const char* format, va_list arg);
-
-  /**
-   * 
-   */
-  public: static String format(const char* format, ...);
-
-  /**
-   * 
-   */
-  public: static char* formatChar(const char* format, va_list arg);
-
-  /**
-   * 
-   */
-  public: static char* formatChar(const char* format, ...);
-
   /* **************************************************************************************
    * Public Method <Override>
    */
@@ -122,41 +123,6 @@ class mcuf::lang::String extends mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method
    */
-  
-  // /**
-  //  * 
-  //  */
-  // public: char charAt(int index);
-
-  // /**
-  //  * 
-  //  */
-  // public: int compairTo(String& anotherString);
-
-  // /**
-  //  * 
-  //  */
-  // public: int compareToIgnoreCase(String str);
-
-  // /**
-  //  * 
-  //  */
-  // public: String& concat(String str); 
-
-  /**
-   * 
-   */
-  public: bool isConst(void);
-
-  /**
-   * 
-   */
-  public: uint32_t length(void);
-
-  /**
-   * 
-   */
-  public: const char* toPointer(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -184,11 +150,8 @@ class mcuf::lang::String extends mcuf::lang::Object{
 
 };
 
-
-
 /* *****************************************************************************************
  * End of file
  */ 
- 
 
-#endif/* MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055 */
+#endif/* MCUF_ADD5434B_ED19_4DB8_9CDA_378B788B8852 */

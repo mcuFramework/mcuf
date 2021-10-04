@@ -1,4 +1,3 @@
-
 /**
  * Copyright (c) 2020 ZxyKira
  * All rights reserved.
@@ -9,16 +8,23 @@
 /* ****************************************************************************************
  * Include
  */  
+#include <string.h>
 
 //-----------------------------------------------------------------------------------------
+#include "cmsis_rtos/rtx_os.h"
 #include "mcuf.h"
- 
+
 /* ****************************************************************************************
  * Using
+ */  
+using mcuf::lang::managerment::TimerManager;
+using mcuf::lang::Memory;
+using mcuf::util::Pool;
+using mcuf::util::TimerScheduler;
+
+/* ****************************************************************************************
+ * Variable <Static>
  */
-using mcuf::io::OutputStream;  
-using mcuf::lang::managerment::SystemComponent; 
-using mcuf::lang::managerment::MemoryManager;
 
 /* ****************************************************************************************
  * Construct Method
@@ -27,6 +33,15 @@ using mcuf::lang::managerment::MemoryManager;
 /* ****************************************************************************************
  * Operator Method
  */
+
+/**
+ *
+ */
+TimerManager::TimerManager(Memory& memory) construct TimerScheduler(memory){
+  memset(this->mTimerMemory, 0x00, sizeof(this->mTimerMemory));
+  this->mTimerID = nullptr;
+  this->mTick = 0;
+}
 
 /* ****************************************************************************************
  * Public Method <Static>
@@ -41,59 +56,51 @@ using mcuf::lang::managerment::MemoryManager;
  */
 
 /**
- * 
+ *
  */
-bool SystemComponent::memoryManager(MemoryManager* m){
-  if(this->locked)
+bool TimerManager::start(uint32_t tick){
+  if(this->mTimerID != nullptr)
     return false;
   
-  this->mMemoryManager = m;
+  if(tick == 0)
+    return false;
+  
+  this->mTick = tick;
+  
+  osTimerAttr_t attr;
+  attr.attr_bits = 0;
+  attr.name = "TimerManager";
+  attr.cb_mem = this->mTimerMemory;
+  attr.cb_size = sizeof(this->mTimerMemory);
+  
+  this->mTimerID = osTimerNew(TimerManager::entryPoint, osTimerPeriodic, this, &attr);
+  
+  if(this->mTimerID == nullptr)
+    return false;
+  
+  if(osTimerStart(this->mTimerID, tick) != osOK){
+    this->stop();
+    return false;
+  }
+
+  return true;
+}
+  
+/**
+ *
+ */
+bool TimerManager::stop(void){
+  if(this->mTimerID == nullptr)
+    return false;
+  
+  osTimerStop(this->mTimerID);
+  osTimerDelete(this->mTimerID);
+  this->mTimerID = nullptr;
+  this->mTick = 0;
+  
   return true;
 }
 
-/**
- * 
- */
-MemoryManager* SystemComponent::memoryManager(void){
-  return this->mMemoryManager;
-}
-
-/**
- * 
- */
-bool SystemComponent::outputString(OutputStream* o){
-  if(this->locked)
-    return false;
-  
-  this->mOutputString = o;
-  return true;
-}
-
-/**
- * 
- */
-OutputStream* SystemComponent::outputString(void){
-  return this->mOutputString;
-}
-
-/**
- * 
- */
-bool SystemComponent::timer(mcuf::hal::Timer* t){
-  if(this->locked)
-    return false;
-  
-  this->mTimer = t;
-  return true;
-}
-
-/**
- * 
- */
-mcuf::hal::Timer* SystemComponent::timer(void){
-  return this->mTimer;
-}
- 
 /* ****************************************************************************************
  * Protected Method <Static>
  */
@@ -106,20 +113,16 @@ mcuf::hal::Timer* SystemComponent::timer(void){
  * Protected Method
  */
 
-/**
- * 
+/* ****************************************************************************************
+ * Private Method  <Static>
  */
-void SystemComponent::lock(void){
-  this->locked = true;
-  return;
-}
 
 /**
- * 
+ *
  */
-void SystemComponent::unlock(void){
-  this->locked = false;
-  return;
+void TimerManager::entryPoint(void* attacmnent){
+  TimerManager* timerManager = static_cast<TimerManager*>(attacmnent);
+  timerManager->tick(timerManager->mTick);
 }
 
 /* ****************************************************************************************
@@ -129,4 +132,3 @@ void SystemComponent::unlock(void){
 /* ****************************************************************************************
  * End of file
  */ 
- 

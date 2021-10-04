@@ -12,7 +12,7 @@
  * Include
  */  
 #include "mcuf_base.h"
-#include "mcuf/function/Consumer.hpp"
+#include "mcuf/function/Runnable.hpp"
 #include "mcuf/hal/Base.hpp"
 
 
@@ -70,14 +70,12 @@ interface mcuf::hal::PinEdgeTrigger implement mcuf::hal::Base{
   /**
    * 
    */
-  public: virtual bool enableFall(void* attachment, 
-                                  mcuf::function::Consumer<void*> function) = 0;
+  public: virtual bool enableFall(mcuf::function::Runnable& runnable) = 0;
 
   /**
    * 
    */
-  public: virtual bool enableRise(void* attachment, 
-                                  mcuf::function::Consumer<void*> function) = 0;
+  public: virtual bool enableRise(mcuf::function::Runnable& runnable) = 0;
 
   /* **************************************************************************************
    * Abstract method <Protected>

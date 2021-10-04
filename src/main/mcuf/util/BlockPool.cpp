@@ -27,7 +27,7 @@ using mcuf::function::Consumer;
  * 
  */
 BlockPool::BlockPool(void* flag, void* pointer, uint32_t elementSize, uint32_t capacity){
-  this->construct(flag, pointer, elementSize, capacity);
+  this->init(flag, pointer, elementSize, capacity);
   return;
 }
 
@@ -39,7 +39,7 @@ BlockPool::BlockPool(Memory& flags, Memory& memory, uint32_t elementSize){
   if(capacity >= (flags.length() << 3))
     this->mCapacity = (flags.length() << 3);
     
-  this->construct(flags.pointer(), memory.pointer(), elementSize, capacity);
+  this->init(flags.pointer(), memory.pointer(), elementSize, capacity);
   return;
 }
 
@@ -55,7 +55,7 @@ BlockPool::BlockPool(Memory& memory, uint32_t elementSize){
 
   capacity = ((memory.length() - flags*4) / elementSize);
     
-  this->construct(memory.pointer(), &((uint8_t*)memory.pointer())[flags*4], elementSize, capacity);
+  this->init(memory.pointer(), &((uint8_t*)memory.pointer())[flags*4], elementSize, capacity);
   return;
 }
 
@@ -198,7 +198,7 @@ bool BlockPool::isFull(void){
 /**
  * 
  */
-void BlockPool::construct(void* flag, void* pointer, uint32_t elementSize, uint32_t capacity){
+void BlockPool::init(void* flag, void* pointer, uint32_t elementSize, uint32_t capacity){
   this->mLastFlag = 0xFFFFFFFF;
   this->mElementSize = elementSize;
   this->mFlags = (uint8_t*)flag;

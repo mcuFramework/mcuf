@@ -37,10 +37,6 @@ const uint16_t MemoryManager::BASE_BLOCK_SIZE
  * Construct Method
  */
 
-/* ****************************************************************************************
- * Operator Method
- */
-
 /**
  * 
  */
@@ -50,6 +46,10 @@ MemoryManager::MemoryManager(mcuf::lang::Memory& memory){
 
   return;
 }
+
+/* ****************************************************************************************
+ * Operator Method
+ */
 
 /* ****************************************************************************************
  * Public Method <Static>

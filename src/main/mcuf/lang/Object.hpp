@@ -35,6 +35,10 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Subclass
    */
+  
+  /* **************************************************************************************
+   * Subclass
+   */
 
   /* **************************************************************************************
    * Variable <Public>
@@ -96,6 +100,8 @@ class mcuf::lang::Object{
    * Public Method
    */
 
+  public: void delay(uint32_t milliseconds);
+
   /**
    * 
    */
@@ -110,6 +116,21 @@ class mcuf::lang::Object{
    * 
    */
   public: void finalize(void);
+  
+  /**
+   *
+   */
+  public: void wait(void);
+  
+  /**
+   * 
+   */
+  public: bool wait(uint32_t timeout);
+  
+  /**
+   *
+   */
+  public: bool yield(void);
 
   /* **************************************************************************************
    * Protected Method <Static>

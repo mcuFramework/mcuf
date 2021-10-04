@@ -207,7 +207,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Object
   /**
    * 
    */
-  private: void construct(void* flag, void* pointer, uint32_t elementSize, uint32_t capacity);
+  private: void init(void* flag, void* pointer, uint32_t elementSize, uint32_t capacity);
 
   /**
    *

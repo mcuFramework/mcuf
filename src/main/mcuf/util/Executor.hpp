@@ -14,7 +14,7 @@
 #include "mcuf_base.h"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/function/Runnable.hpp"
-#include "mcuf/util/Queue.hpp"
+#include "mcuf/util/Fifo.hpp"
 
 
 
@@ -32,7 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Executor
  */  
-class mcuf::util::Executor extends mcuf::lang::Object{
+class mcuf::util::Executor extends mcuf::util::Fifo{
   
   /* **************************************************************************************
    * Subclass
@@ -49,7 +49,6 @@ class mcuf::util::Executor extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-  protected: mcuf::util::Queue<mcuf::function::Runnable*>* queue;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -66,7 +65,7 @@ class mcuf::util::Executor extends mcuf::lang::Object{
   /**
    * Construct.
    */
-  public: Executor(mcuf::util::Queue<mcuf::function::Runnable*>* queue);
+  public: Executor(mcuf::lang::Memory& memory);
 
   /**
    * Disconstruct.
@@ -82,9 +81,9 @@ class mcuf::util::Executor extends mcuf::lang::Object{
    */
 
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> - mcuf::function::Runnable
    */
-
+   
   /* **************************************************************************************
    * Public Method
    */
@@ -94,18 +93,17 @@ class mcuf::util::Executor extends mcuf::lang::Object{
    * 
    * @param command task.
    */
-  public: void execute(mcuf::function::Runnable* command);
+  public: bool execute(mcuf::function::Runnable& runnable);
 
   /**
    * 
    */
-  public: void action(void);
-
+  public: bool actionSingle(void);
+  
   /**
    * 
    */
-  public: void run(void);
-
+  public: void actionAll(void);  
 
   /* **************************************************************************************
    * Protected Method <Static>

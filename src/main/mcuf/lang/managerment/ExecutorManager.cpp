@@ -10,112 +10,82 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "cmsis_rtos/rtx_os.h"
 #include "mcuf.h"
- 
+
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::lang::Object;
- 
+using mcuf::lang::Memory;
+using mcuf::lang::Thread;
+using mcuf::lang::managerment::ExecutorManager;
+using mcuf::util::Executor;
+
+/* ****************************************************************************************
+ * Variable <Static>
+ */
+
 /* ****************************************************************************************
  * Construct Method
  */
+
+/**
+ *
+ */
+ExecutorManager::ExecutorManager(Memory& memory) construct Executor(memory), 
+  mThreadEvent(*this, "ExecutorManager"){
+  
+  this->mStart = false;
+}
 
 /* ****************************************************************************************
  * Operator Method
  */
 
-/**
- * 
- */
-void* Object::operator new(size_t n){
-  return ::operator new(n);
-}
-
-/**
- * 
- */
-void* Object::operator new(size_t n, void* p){
-  return p;
-}
-
 /* ****************************************************************************************
  * Public Method <Static>
  */
- 
+
 /* ****************************************************************************************
  * Public Method <Override>
  */
 
+/**
+ *
+ */
+bool ExecutorManager::execute(Runnable& runnable){
+  bool result = Executor::execute(runnable);
+  this->mThreadEvent.notify();
+  return result;
+}
+
+/* ****************************************************************************************
+ * Public Method <Override> - mcuf::function::Runnable
+ */
+
+/**
+ *
+ */
+void ExecutorManager::run(void){
+  this->mStart = true;
+  
+  while(this->mStart){
+    this->actionAll();
+    
+    if(this->isEmpty())
+      this->wait();
+  }
+}
+
 /* ****************************************************************************************
  * Public Method
  */
-
-/**
- *
- */
-void Object::delay(uint32_t milliseconds){
-  osDelay(milliseconds);
-  return;
-}
-
-/**
- * 
- */
-bool Object::equal(Object* object){
-  return (this == object);
-}
-
-/**
- * 
- */
-bool Object::equal(Object& object){
-  return (this == &object);
-}
-
-/**
- * 
- */
-void Object::finalize(void){
-  delete this;
-}
-
-/**
- *
- */
-void Object::wait(void){
-  osThreadFlagsClear(0x00000001U);
-  osThreadFlagsWait(0x00000001U, osFlagsWaitAny, osWaitForever);
-}
-
-/**
- *
- */
-bool Object::wait(uint32_t timeout){
-  osThreadFlagsClear(0x00000001U);
-  if(osThreadFlagsWait(0x00000001U, osFlagsWaitAny, timeout) == osFlagsErrorTimeout)
-    return true;
-  
-  return false;
-}
-
-/**
- *
- */
-bool Object::yield(void){
-  if(osThreadYield() == osOK)
-    return true;
-  
-  return false;
-}
 
 /* ****************************************************************************************
  * Protected Method <Static>
  */
  
 /* ****************************************************************************************
- * Protected Method <Override>
+ * Protected Method <Override> 
  */ 
 
 /* ****************************************************************************************

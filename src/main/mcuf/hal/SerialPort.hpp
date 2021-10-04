@@ -13,8 +13,8 @@
  */  
 #include "mcuf_base.h"
 #include "mcuf\hal\Base.hpp"
-#include "mcuf\function\BiConsumer.hpp"
-#include "mcuf\lang\Memory.hpp"
+#include "mcuf\function\Consumer.hpp"
+#include "mcuf\io\channel\ByteBuffer.hpp"
 #include "mcuf\lang\Pointer.hpp"
 
 
@@ -68,11 +68,6 @@ interface mcuf::hal::SerialPort implement mcuf::hal::Base{
   /**
    * 
    */
-  public: virtual int available(void) = 0;
-
-  /**
-   * 
-   */
   public: virtual uint32_t baudrate(void) = 0;
 
   /**
@@ -83,31 +78,14 @@ interface mcuf::hal::SerialPort implement mcuf::hal::Base{
   /**
    * 
    */
-  public: virtual void close(void) = 0;
+  public: virtual bool read(mcuf::io::channel::ByteBuffer& byteBuffer, 
+                            mcuf::function::Consumer<mcuf::io::channel::ByteBuffer&>* consumer) = 0;
 
   /**
    * 
    */
-  public: virtual bool isOpen(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual bool open(void) = 0;
-
-  /**
-   * 
-   */
-  public: virtual bool read(mcuf::lang::Memory& memory, 
-                            void* attachment,
-                            mcuf::function::BiConsumer<mcuf::lang::Memory&, void*>* function) = 0;
-
-  /**
-   * 
-   */
-  public: virtual bool write(mcuf::lang::Memory& memory, 
-                             void* attachment,
-                             mcuf::function::BiConsumer<mcuf::lang::Memory&, void*>* function) = 0;
+  public: virtual bool write(mcuf::io::channel::ByteBuffer& byteBuffer, 
+                             mcuf::function::Consumer<mcuf::io::channel::ByteBuffer&>* consumer) = 0;
   
   /* **************************************************************************************
    * Abstract method <Protected>

@@ -20,11 +20,11 @@
  */  
 using mcuf::lang::String;
 using mcuf::lang::System;
+using mcuf::Resources;
 
 /* ****************************************************************************************
  * Variable
  */
-char String::handleMemory[MCUF_STRING_HANDLE_MEMORY_SIZE];
 char String::emptyString = 0x00;
 
 /* ****************************************************************************************
@@ -81,9 +81,9 @@ String::~String(void){
  * 
  */
 String String::format(const char* format, va_list args){
-  int len = vsnprintf(String::handleMemory, MCUF_STRING_HANDLE_MEMORY_SIZE, format, args);
+  int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
   Memory memory = System::allocMemory(len);
-  memory.copy(String::handleMemory, len);
+  memory.copy((char*)Resources::stringMemroy, len);
   return String((char*)memory.mPointer, memory.mLength);
 }
 
@@ -93,10 +93,10 @@ String String::format(const char* format, va_list args){
 String String::format(const char* format, ...){
   va_list args;
   va_start (args, format);
-  int len = vsnprintf(String::handleMemory, MCUF_STRING_HANDLE_MEMORY_SIZE, format, args);
+  int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
   va_end (args);
   Memory memory = System::allocMemory(len);
-  memory.copy(String::handleMemory, len);
+  memory.copy((char*)Resources::stringMemroy, len);
   return String((char*)memory.mPointer, memory.mLength);
 }
 
@@ -104,9 +104,9 @@ String String::format(const char* format, ...){
  * 
  */
 char* String::formatChar(const char* format, va_list args){
-  int len = vsnprintf(String::handleMemory, MCUF_STRING_HANDLE_MEMORY_SIZE, format, args);
+  int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
   Memory memory = System::allocMemory(len);
-  memory.copy(String::handleMemory, len);
+  memory.copy((char*)Resources::stringMemroy, len);
   return (char*)memory.pointer();
 }
 
@@ -116,10 +116,10 @@ char* String::formatChar(const char* format, va_list args){
 char* String::formatChar(const char* format, ...){
   va_list args;
   va_start (args, format);
-  int len = vsnprintf(String::handleMemory, MCUF_STRING_HANDLE_MEMORY_SIZE, format, args);
+  int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
   va_end (args);
   Memory memory = System::allocMemory(len);
-  memory.copy(String::handleMemory, len);
+  memory.copy((char*)Resources::stringMemroy, len);
   return (char*)memory.pointer();
 }
  

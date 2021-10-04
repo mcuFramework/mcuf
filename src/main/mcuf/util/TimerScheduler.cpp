@@ -15,25 +15,35 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::util::TimerSchedulerSemulator;
+using mcuf::util::TimerScheduler;
 using mcuf::util::TimerTask;
+using mcuf::util::BlockPool;
 using mcuf::lang::Memory;
+
 
 /* ****************************************************************************************
  * Construct Method
  */
 
-TimerSchedulerSemulator::TimerSchedulerSemulator(mcuf::util::Pool* pool){
-  this->pool = pool;
+/**
+ *
+ */
+TimerScheduler::TimerScheduler(Memory& memory) construct BlockPool(memory, sizeof(void*)){
   return;
 }
 
-TimerSchedulerSemulator::~TimerSchedulerSemulator(){
+/**
+ *
+ */
+TimerScheduler::~TimerScheduler(){
   this->cancel();
   return;
 }
 
-TimerSchedulerSemulator::ConsumerTick::ConsumerTick(TimerSchedulerSemulator* base){
+/**
+ *
+ */
+TimerScheduler::ConsumerTick::ConsumerTick(TimerScheduler* base){
   this->base = base;
 }
 
@@ -52,9 +62,8 @@ TimerSchedulerSemulator::ConsumerTick::ConsumerTick(TimerSchedulerSemulator* bas
 /**
  * cancel
  */
-
-void TimerSchedulerSemulator::cancel(void){
-  this->pool->forEach(this->consumerClear);
+void TimerScheduler::cancel(void){
+  this->forEach(this->consumerClear);
   return;
 }
 
@@ -62,10 +71,9 @@ void TimerSchedulerSemulator::cancel(void){
 /**
  * purge
  */
-
-uint32_t TimerSchedulerSemulator::purge(void){
+uint32_t TimerScheduler::purge(void){
   this->consumerPurge.clear();
-  this->pool->forEach(this->consumerPurge);
+  this->forEach(this->consumerPurge);
   return this->consumerPurge.get();
 }
 
@@ -73,23 +81,21 @@ uint32_t TimerSchedulerSemulator::purge(void){
 /**
  * schedule
  */
-
-bool TimerSchedulerSemulator::schedule(TimerTask& task, uint32_t delay){
+bool TimerScheduler::schedule(TimerTask& task, uint32_t delay){
     return this->scheduleAtFixedRate(task, delay, 0);
-  }
+}
 
 
 /**
  * scheduleAtFixedRate
  */
-
-bool TimerSchedulerSemulator::scheduleAtFixedRate(TimerTask& task, uint32_t delay, uint32_t period){
+bool TimerScheduler::scheduleAtFixedRate(TimerTask& task, uint32_t delay, uint32_t period){
   if(TimerTask::Viewer::isTimerTaskRunning(task))
     return false;
     
   void* pTask = &task;
 
-  void* result = this->pool->add(&pTask);
+  void* result = this->add(&pTask);
   if(result == 0x00000000)
     return false;
     
@@ -104,10 +110,9 @@ bool TimerSchedulerSemulator::scheduleAtFixedRate(TimerTask& task, uint32_t dela
 /**
  * 
  */
-
-void TimerSchedulerSemulator::tick(uint32_t milliSecont){
+void TimerScheduler::tick(uint32_t milliSecont){
   this->consumerTick.setTickMilliSecond(milliSecont);
-  this->pool->forEach(this->consumerTick);
+  this->forEach(this->consumerTick);
 }
 
 /* ****************************************************************************************
@@ -117,8 +122,7 @@ void TimerSchedulerSemulator::tick(uint32_t milliSecont){
 /**
  * 
  */
-
-void TimerSchedulerSemulator::ConsumerClear::accept(Memory& t){
+void TimerScheduler::ConsumerClear::accept(Memory& t){
   TimerTask* timerTask = (TimerTask*)(*((uint32_t*)t.pointer()));
   TimerTask::Viewer::setTimerTaskDelayPeriod(*timerTask, 0, 0);
 }
@@ -131,13 +135,12 @@ void TimerSchedulerSemulator::ConsumerClear::accept(Memory& t){
 /**
  * 
  */
-
-void TimerSchedulerSemulator::ConsumerPurge::accept(Memory& t){
+void TimerScheduler::ConsumerPurge::accept(Memory& t){
   TimerTask* timerTask = (TimerTask*)(*((uint32_t*)t.pointer()));
 
   if(!TimerTask::Viewer::isTimerTaskRunning(*timerTask)){
     this->purge++;
-    this->base->pool->remove(t.pointer());
+    this->base->remove(t.pointer());
   }
 }
 
@@ -145,8 +148,7 @@ void TimerSchedulerSemulator::ConsumerPurge::accept(Memory& t){
 /**
  * 
  */
-
-void TimerSchedulerSemulator::ConsumerPurge::clear(void){
+void TimerScheduler::ConsumerPurge::clear(void){
   this->purge = 0;
 }
 
@@ -154,8 +156,7 @@ void TimerSchedulerSemulator::ConsumerPurge::clear(void){
 /**
  * 
  */
-
-uint32_t TimerSchedulerSemulator::ConsumerPurge::get(void){
+uint32_t TimerScheduler::ConsumerPurge::get(void){
   return this->purge;
 }
 
@@ -167,8 +168,7 @@ uint32_t TimerSchedulerSemulator::ConsumerPurge::get(void){
 /**
  * 
  */
-
-void TimerSchedulerSemulator::ConsumerTick::accept(Memory& t){
+void TimerScheduler::ConsumerTick::accept(Memory& t){
   TimerTask* timerTask = (TimerTask*)(*((uint32_t*)t.pointer()));
       
   if(TimerTask::Viewer::subTimerTaskDelay(*timerTask, this->tickMilliSecond)){
@@ -178,7 +178,7 @@ void TimerSchedulerSemulator::ConsumerTick::accept(Memory& t){
     if(period)
       TimerTask::Viewer::setTimerTaskDelay(*timerTask, period);
     else
-      this->base->pool->remove(t.pointer());
+      this->base->remove(t.pointer());
   }
 }
 
@@ -186,8 +186,7 @@ void TimerSchedulerSemulator::ConsumerTick::accept(Memory& t){
 /**
  * 
  */
-
-uint32_t TimerSchedulerSemulator::ConsumerTick::getTickMilliSecond(void){
+uint32_t TimerScheduler::ConsumerTick::getTickMilliSecond(void){
   return this->tickMilliSecond;
 }
 
@@ -195,8 +194,7 @@ uint32_t TimerSchedulerSemulator::ConsumerTick::getTickMilliSecond(void){
 /**
  * 
  */
-
-void TimerSchedulerSemulator::ConsumerTick::setTickMilliSecond(uint32_t milliSecond){
+void TimerScheduler::ConsumerTick::setTickMilliSecond(uint32_t milliSecond){
   this->tickMilliSecond = milliSecond;
 }
 

@@ -26,10 +26,13 @@
 #include "LinkedEntity.hpp"
 #include "Math.hpp"
 #include "Memory.hpp"
+#include "Message.hpp"
 #include "Pointer.hpp"
 #include "String.hpp"
 #include "System.hpp"
 #include "Object.hpp"
+#include "Thread.hpp"
+#include "ThreadEvent.hpp"
 #include "Throwable.hpp"
 
 

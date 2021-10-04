@@ -10,14 +10,22 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "cmsis_rtos/rtx_os.h"
 #include "mcuf.h"
  
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::lang::Object;
- 
+using mcuf::lang::Message;
+
+/* ****************************************************************************************
+ * Variable <Static>
+ */
+const char* Message::NULL_ = "null";
+const char* Message::NULL_POINTER = "null pointer";
+const char* Message::OUT_OF_ENUM = "out of enum";
+const char* Message::OUT_OF_MEMORY = "out of memory";
+const char* Message::OUT_OF_RANGE = "out of range";
+
 /* ****************************************************************************************
  * Construct Method
  */
@@ -25,20 +33,6 @@ using mcuf::lang::Object;
 /* ****************************************************************************************
  * Operator Method
  */
-
-/**
- * 
- */
-void* Object::operator new(size_t n){
-  return ::operator new(n);
-}
-
-/**
- * 
- */
-void* Object::operator new(size_t n, void* p){
-  return p;
-}
 
 /* ****************************************************************************************
  * Public Method <Static>
@@ -51,64 +45,6 @@ void* Object::operator new(size_t n, void* p){
 /* ****************************************************************************************
  * Public Method
  */
-
-/**
- *
- */
-void Object::delay(uint32_t milliseconds){
-  osDelay(milliseconds);
-  return;
-}
-
-/**
- * 
- */
-bool Object::equal(Object* object){
-  return (this == object);
-}
-
-/**
- * 
- */
-bool Object::equal(Object& object){
-  return (this == &object);
-}
-
-/**
- * 
- */
-void Object::finalize(void){
-  delete this;
-}
-
-/**
- *
- */
-void Object::wait(void){
-  osThreadFlagsClear(0x00000001U);
-  osThreadFlagsWait(0x00000001U, osFlagsWaitAny, osWaitForever);
-}
-
-/**
- *
- */
-bool Object::wait(uint32_t timeout){
-  osThreadFlagsClear(0x00000001U);
-  if(osThreadFlagsWait(0x00000001U, osFlagsWaitAny, timeout) == osFlagsErrorTimeout)
-    return true;
-  
-  return false;
-}
-
-/**
- *
- */
-bool Object::yield(void){
-  if(osThreadYield() == osOK)
-    return true;
-  
-  return false;
-}
 
 /* ****************************************************************************************
  * Protected Method <Static>

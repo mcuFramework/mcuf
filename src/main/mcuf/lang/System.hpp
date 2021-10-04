@@ -15,8 +15,10 @@
 #include "mcuf/hal/Timer.hpp"
 #include "mcuf/io/PrintStream.hpp"
 #include "mcuf/lang/Object.hpp"
-#include "mcuf/lang/managerment/SystemComponent.hpp"
+#include "mcuf/lang/Thread.hpp"
 #include "mcuf/lang/managerment/MemoryManager.hpp"
+#include "mcuf/lang/managerment/TimerManager.hpp"
+#include "mcuf/lang/managerment/ExecutorManager.hpp"
 
 
 /* ****************************************************************************************
@@ -42,7 +44,6 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Public>
    */
-  public: static mcuf::lang::managerment::SystemComponent component;
   public: static mcuf::io::PrintStream out;
 
   /* **************************************************************************************
@@ -52,6 +53,11 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
+  private: static mcuf::lang::managerment::MemoryManager* mMemoryManager;
+  private: static mcuf::lang::managerment::ExecutorManager* mExecutorManager;
+  private: static mcuf::lang::managerment::TimerManager* mTimerManager;
+  private: static mcuf::lang::Thread* mThread;
+  
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -94,6 +100,11 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   public: static void* allocPointer(size_t size);
 
   /**
+   *
+   */
+  public: static bool execute(mcuf::function::Runnable& runnable);
+
+  /**
    * 
    */
   public: static void freeMemory(mcuf::lang::Memory& memory);
@@ -109,6 +120,11 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   public: static void freePointer(void* pointer, size_t size);
 
   /**
+   *
+   */
+  public: static mcuf::util::Timer& getTimer(void);
+
+  /**
    * 
    */
   public: static void info(const char* path, const char* message);
@@ -116,12 +132,12 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /**
    * 
    */
-  public: static void init(void);
-
-  /**
-   * 
-   */
   public: static mcuf::lang::managerment::MemoryManager* memoryManager(void);
+  
+  /**
+   *
+   */
+  public: static bool start(mcuf::lang::Thread& thread, mcuf::io::OutputStream* outputStream);
 
   /**
    * 
@@ -164,6 +180,36 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Private Method
    */  
+  
+  /**
+   *
+   */
+  private: static void entryPoint(void* attachment);  
+  
+  /**
+   *
+   */
+  private: static void initMemoryManager(void);
+  
+  /**
+   *
+   */
+  private: static void initPrintStream(mcuf::io::OutputStream* outputStream);
+  
+  /**
+   *
+   */
+  private: static void initThread(mcuf::lang::Thread& thread);
+  
+  /**
+   *
+   */
+  private: static void initTimer(void);
+  
+  /**
+   *
+   */
+  private: static void initExecutor(void);   
 };
 
 

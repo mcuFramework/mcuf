@@ -5,31 +5,31 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055
-#define MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055
+#ifndef MCUF_C2842937_BF83_418E_9A72_EBE18B10E733
+#define MCUF_C2842937_BF83_418E_9A72_EBE18B10E733
 
 /* ****************************************************************************************
  * Include
  */  
-#include <stdarg.h>
 
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
-#include "mcuf_config.h"
-#include "mcuf/lang/Object.hpp"
+#include "mcuf/function/Runnable.hpp"
+#include "mcuf/lang/Thread.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace lang{
-    class String;
+    class ThreadEvent;
   }
 }
 
 /* ****************************************************************************************
- * Class String
+ * Class Object
  */  
-class mcuf::lang::String extends mcuf::lang::Object{
+class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
 
   /* **************************************************************************************
    * Subclass
@@ -38,7 +38,6 @@ class mcuf::lang::String extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Public>
    */
-  public: static char emptyString;
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -47,13 +46,7 @@ class mcuf::lang::String extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-
-  /**
-   * Non-static
-   */
-  private: char* mPointer;
-  private: uint32_t mSize;
-
+  private: mcuf::function::Runnable* mRunnable;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -70,22 +63,17 @@ class mcuf::lang::String extends mcuf::lang::Object{
   /**
    * Construct.
    */
-  private: String(char* str, uint32_t size);
+  public: ThreadEvent(mcuf::function::Runnable& runnable);
 
   /**
    * Construct.
    */
-  public: String(const char* original);
-
-  /**
-   * Construct.
-   */
-  public: String(void);
+  public: ThreadEvent(mcuf::function::Runnable& runnable ,const char* name);
 
   /**
    * Disconstruct.
    */
-  public: ~String(void);
+  public: virtual ~ThreadEvent(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -95,68 +83,14 @@ class mcuf::lang::String extends mcuf::lang::Object{
    * Public Method <Static>
    */
 
-  /**
-   * 
-   */
-  public: static String format(const char* format, va_list arg);
-
-  /**
-   * 
-   */
-  public: static String format(const char* format, ...);
-
-  /**
-   * 
-   */
-  public: static char* formatChar(const char* format, va_list arg);
-
-  /**
-   * 
-   */
-  public: static char* formatChar(const char* format, ...);
-
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> - mcuf::lang::Thread
    */
+  public: void run(void) override;
 
   /* **************************************************************************************
    * Public Method
    */
-  
-  // /**
-  //  * 
-  //  */
-  // public: char charAt(int index);
-
-  // /**
-  //  * 
-  //  */
-  // public: int compairTo(String& anotherString);
-
-  // /**
-  //  * 
-  //  */
-  // public: int compareToIgnoreCase(String str);
-
-  // /**
-  //  * 
-  //  */
-  // public: String& concat(String str); 
-
-  /**
-   * 
-   */
-  public: bool isConst(void);
-
-  /**
-   * 
-   */
-  public: uint32_t length(void);
-
-  /**
-   * 
-   */
-  public: const char* toPointer(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -184,11 +118,8 @@ class mcuf::lang::String extends mcuf::lang::Object{
 
 };
 
-
-
 /* *****************************************************************************************
  * End of file
  */ 
- 
 
-#endif/* MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055 */
+#endif/* MCUF_C2842937_BF83_418E_9A72_EBE18B10E733 */

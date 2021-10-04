@@ -78,7 +78,7 @@
 //   <i> RTOS Functions called from ISR store requests to this buffer.
 //   <i> Default: 16 entries
 #ifndef OS_ISR_FIFO_QUEUE
-#define OS_ISR_FIFO_QUEUE           8
+#define OS_ISR_FIFO_QUEUE           16
 #endif
  
 //   <q>Object Memory usage counters
@@ -194,7 +194,7 @@
 //   <i> Defines priority for timer thread
 //   <i> Default: High
 #ifndef OS_TIMER_THREAD_PRIO
-#define OS_TIMER_THREAD_PRIO        40
+#define OS_TIMER_THREAD_PRIO        48
 #endif
  
 //   <o>Timer Thread Stack size [bytes] <0-1073741824:8>
@@ -218,7 +218,7 @@
 //   <i> May be set to 0 when timers are not used.
 //   <i> Default: 4
 #ifndef OS_TIMER_CB_QUEUE
-#define OS_TIMER_CB_QUEUE           4
+#define OS_TIMER_CB_QUEUE           2
 #endif
  
 // </h>

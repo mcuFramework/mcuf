@@ -15,9 +15,10 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::util::Executor;
-using mcuf::util::Queue;
 using mcuf::function::Runnable;
+using mcuf::lang::Memory;
+using mcuf::util::Executor;
+using mcuf::util::Fifo;
 
 /* ****************************************************************************************
  * Construct Method
@@ -26,9 +27,7 @@ using mcuf::function::Runnable;
 /**
  * 
  */
-Executor::Executor(Queue<Runnable*>* queue){
-  this->queue = queue;
-  this->queue->clear();
+Executor::Executor(Memory& memory) construct Fifo(memory, 4){
   return;
 }
 
@@ -41,8 +40,10 @@ Executor::Executor(Queue<Runnable*>* queue){
  */
  
 /* ****************************************************************************************
- * Public Method <Override>
+ * Public Method <Override> - mcuf::function::Runnable
  */
+
+
 
 /* ****************************************************************************************
  * Public Method
@@ -51,24 +52,41 @@ Executor::Executor(Queue<Runnable*>* queue){
 /**
  * 
  */
-void Executor::execute(mcuf::function::Runnable* command){
-  this->queue->offer(command);
+bool Executor::execute(Runnable& runnable){
+  uint32_t addr = reinterpret_cast<uint32_t>(&runnable);
+  return this->insertHead(&addr);
 }
 
 /**
  * 
  */
-void Executor::action(void){
-  if(!this->queue->isEmpty())
-    this->queue->poll()->run();
+void Executor::actionAll(void){
+  uint32_t addr;
+  while(!this->isEmpty()){
+    this->popTail(&addr);
+    Runnable* command = reinterpret_cast<Runnable*>(addr);
+    if(command != nullptr)
+      command->run();
+  }
 }
 
 /**
  * 
  */
-void Executor::run(void){
-  while(!this->queue->isEmpty())
-    this->queue->poll()->run();
+bool Executor::actionSingle(void){
+  if(this->isEmpty())
+    return false;
+  
+  uint32_t addr;
+  this->popTail(&addr);
+  Runnable* command = reinterpret_cast<Runnable*>(addr);
+  
+  if(command != nullptr){
+    command->run();
+    return true;
+  }else{
+    return false;
+  }
 }
 
 /* ****************************************************************************************

@@ -35,7 +35,6 @@
 #include "Stack.hpp"
 #include "Timer.hpp"
 #include "TimerScheduler.hpp"
-#include "TimerSchedulerSemulator.hpp"
 #include "TimerTask.hpp"
 #include "VectorBlockPool.hpp"
 
