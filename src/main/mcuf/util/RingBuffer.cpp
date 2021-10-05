@@ -24,6 +24,7 @@
  * Using
  */  
 using mcuf::util::RingBuffer;
+using mcuf::lang::Memory;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -31,6 +32,10 @@ using mcuf::util::RingBuffer;
 
 /* ****************************************************************************************
  * Construct Method
+ */
+
+/**
+ *
  */
 RingBuffer::RingBuffer(void* buffer, uint32_t bufferSize){
   this->mData = buffer;
@@ -47,6 +52,15 @@ RingBuffer::RingBuffer(void* buffer, uint32_t bufferSize){
   
   this->mCount = bufferSize;
 }
+
+/**
+ * Construct.
+ */
+RingBuffer::RingBuffer(Memory& memory){
+  RingBuffer(memory.pointer(), memory.length());
+}
+
+
 
 /* ****************************************************************************************
  * Operator Method

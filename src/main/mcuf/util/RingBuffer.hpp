@@ -15,6 +15,7 @@
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 #include "mcuf_macro.h" 
+#include "mcuf/lang/Memory.hpp"
 #include "mcuf/lang/Object.hpp"
 
 /* ****************************************************************************************
@@ -68,6 +69,11 @@ class mcuf::util::RingBuffer extends mcuf::lang::Object{
    * Construct.
    */
   public: RingBuffer(void* buffer, uint32_t bufferSize);
+  
+  /**
+   * Construct.
+   */
+  public: RingBuffer(mcuf::lang::Memory& memory);  
 
   /**
    * Disconstruct.
