@@ -76,6 +76,16 @@ interface mcuf::hal::SerialPort implement mcuf::hal::Base{
   public: virtual uint32_t baudrate(uint32_t rate) = 0;
 
   /**
+   *
+   */
+  public: virtual bool readBusy(void) = 0;
+
+  /**
+   *
+   */
+  public: virtual bool writeBusy(void) = 0;
+
+  /**
    * 
    */
   public: virtual bool read(mcuf::io::channel::ByteBuffer& byteBuffer, 
