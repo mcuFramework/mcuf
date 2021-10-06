@@ -181,7 +181,7 @@ bool Fifo::insertHead(void* pointer){
   if(this->mHead >= this->mLength)
     this->mHead = 0;
 
-  return false;
+  return true;
 }
 
 /**
