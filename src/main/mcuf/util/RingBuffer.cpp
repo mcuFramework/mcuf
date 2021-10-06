@@ -56,8 +56,8 @@ RingBuffer::RingBuffer(void* buffer, uint32_t bufferSize){
 /**
  * Construct.
  */
-RingBuffer::RingBuffer(Memory& memory){
-  RingBuffer(memory.pointer(), memory.length());
+RingBuffer::RingBuffer(Memory& memory) construct RingBuffer(memory.pointer(), memory.length()){
+  return;
 }
 
 
