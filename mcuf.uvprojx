@@ -752,6 +752,16 @@
               <FilePath>.\src\main\mcuf\lang\Array.hpp</FilePath>
             </File>
             <File>
+              <FileName>ArrayPrototype.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\ArrayPrototype.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ArrayPrototype.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
+            </File>
+            <File>
               <FileName>HeapMemory.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\HeapMemory.cpp</FilePath>
@@ -1985,6 +1995,16 @@
               <FileName>Array.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ArrayPrototype.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\ArrayPrototype.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ArrayPrototype.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapMemory.cpp</FileName>
@@ -3222,6 +3242,16 @@
               <FilePath>.\src\main\mcuf\lang\Array.hpp</FilePath>
             </File>
             <File>
+              <FileName>ArrayPrototype.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\ArrayPrototype.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ArrayPrototype.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
+            </File>
+            <File>
               <FileName>HeapMemory.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\HeapMemory.cpp</FilePath>
@@ -4455,6 +4485,16 @@
               <FileName>Array.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ArrayPrototype.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\ArrayPrototype.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ArrayPrototype.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapMemory.cpp</FileName>
@@ -5692,6 +5732,16 @@
               <FilePath>.\src\main\mcuf\lang\Array.hpp</FilePath>
             </File>
             <File>
+              <FileName>ArrayPrototype.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\ArrayPrototype.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ArrayPrototype.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
+            </File>
+            <File>
               <FileName>HeapMemory.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\HeapMemory.cpp</FilePath>
@@ -6925,6 +6975,16 @@
               <FileName>Array.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ArrayPrototype.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\ArrayPrototype.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ArrayPrototype.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapMemory.cpp</FileName>

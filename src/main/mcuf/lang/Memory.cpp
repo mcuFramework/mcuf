@@ -34,6 +34,20 @@ Memory::Memory(void* pointer, uint32_t length){
   return;
 }
 
+/**
+ * 
+ */
+Memory::Memory(Memory* memory){
+  if(memory == nullptr){
+    this->mPointer = nullptr;
+    this->mLength = 0;
+  }else{
+    this->mPointer = memory->mPointer;
+    this->mLength = memory->mLength;
+  }
+  return;
+}
+
 /* ****************************************************************************************
  * Operator Method
  */
@@ -46,7 +60,7 @@ Memory::Memory(void* pointer, uint32_t length){
  * 
  */
 Memory Memory::nullMemory(void){
-  return mcuf::lang::Memory(nullptr, 0);
+  return mcuf::lang::Memory(nullptr);
 }
 
 /* ****************************************************************************************

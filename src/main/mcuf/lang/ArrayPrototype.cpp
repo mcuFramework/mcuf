@@ -8,10 +8,15 @@
 /* ****************************************************************************************
  * Include
  */  
- 
+
+//-----------------------------------------------------------------------------------------
+#include "mcuf.h"
+
 /* ****************************************************************************************
  * Using
  */  
+using mcuf::lang::ArrayPrototype;
+using mcuf::lang::Memory;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -25,6 +30,14 @@
  * Operator Method
  */
 
+/** 
+ * 
+ */
+ArrayPrototype::ArrayPrototype(Memory& memory, uint32_t elementSize) construct Memory(&memory){
+  return;
+}
+
+
 /* ****************************************************************************************
  * Public Method <Static>
  */
@@ -36,6 +49,25 @@
 /* ****************************************************************************************
  * Public Method
  */
+
+/**
+ * 
+ */
+void ArrayPrototype::set(const void* src, uint32_t shift){
+  uint32_t location = shift * this->mElementSize;
+  this->copy(src, location, this->mElementSize);
+}
+
+/**
+ * 
+ */
+void* ArrayPrototype::get(uint32_t shift){
+  uint32_t location = shift * this->mElementSize;
+  if(location >= this->mLength)
+    return nullptr;
+  
+  return this->pointer(location);
+}
 
 /* ****************************************************************************************
  * Protected Method <Static>

@@ -88,6 +88,16 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
    * Public Method
    */
 
+  /**
+   *  
+   */
+  public: void set(const void* src, uint32_t shift);
+
+  /**
+   * 
+   */
+  public: void* get(uint32_t shift);
+
   /* **************************************************************************************
    * Protected Method <Static>
    */

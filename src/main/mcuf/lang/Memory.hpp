@@ -74,6 +74,11 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   public: Memory(void* pointer, uint32_t length);
   
   /**
+   *
+   */
+  public: Memory(Memory* memory);
+  
+  /**
    * 
    */  
   public: virtual ~Memory() = default;
