@@ -80,7 +80,7 @@ class mcuf::lang::Array extends mcuf::lang::Object{
   }
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~Array() = default;
   

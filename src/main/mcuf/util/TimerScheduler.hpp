@@ -133,7 +133,7 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool
   
   
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: ~TimerScheduler();
   

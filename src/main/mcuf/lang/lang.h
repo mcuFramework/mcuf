@@ -19,7 +19,6 @@
  * Include
  */
 #include "Array.hpp"
-#include "HeapArray.hpp"
 #include "HeapMemory.hpp"
 #include "Iterable.hpp"
 #include "Linked.hpp"

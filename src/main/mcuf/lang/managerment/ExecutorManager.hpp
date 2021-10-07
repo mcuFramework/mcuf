@@ -71,7 +71,7 @@ class mcuf::lang::managerment::ExecutorManager extends mcuf::util::Executor
   public: ExecutorManager(mcuf::lang::Memory& memory);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~ExecutorManager(void) = default;
 

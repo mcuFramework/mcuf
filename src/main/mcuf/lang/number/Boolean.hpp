@@ -73,7 +73,7 @@ class mcuf::lang::number::Boolean extends mcuf::lang::number::Number{
   public: Boolean(bool valuealue);
   
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~Boolean() = default;
 

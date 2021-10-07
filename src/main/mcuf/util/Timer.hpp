@@ -61,7 +61,7 @@ interface mcuf::util::Timer{
    *
    * This method may be called repeatedly; the second and subsequent calls have no effect.
    */
-  public: virtual void cancel() = 0;
+  virtual void cancel() abstract;
   
   /**
    * Removes all cancelled tasks from this timer's task queue. Calling this method has no 
@@ -79,7 +79,7 @@ interface mcuf::util::Timer{
    * 
    * @return the number of tasks removed from the queue.
    */
-  public: virtual uint32_t purge() = 0;
+  virtual uint32_t purge() abstract;
   
   /**
    * Schedules the specified task for execution after the specified delay.
@@ -88,12 +88,12 @@ interface mcuf::util::Timer{
    * @delay delay in milliseconds before task is to be executed.
    * @return true successful, false if task was already scheduled or cancelled.
    */
-  public: virtual bool schedule(mcuf::util::TimerTask& task, uint32_t delay) = 0;
+  virtual bool schedule(mcuf::util::TimerTask& task, uint32_t delay) abstract;
   
   /**
    * 
    */
-  public: virtual bool scheduleAtFixedRate(mcuf::util::TimerTask& task, uint32_t delay, uint32_t period) = 0;
+  virtual bool scheduleAtFixedRate(mcuf::util::TimerTask& task, uint32_t delay, uint32_t period) abstract;
   
   
   /* **************************************************************************************
@@ -103,16 +103,6 @@ interface mcuf::util::Timer{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * Construct.
-   */
-  public: Timer(void) = default;
-  
-  /**
-   * Disconstruct.
-   */
-  public: virtual ~Timer(void) = default;
 	
   /* **************************************************************************************
    * Operator Method

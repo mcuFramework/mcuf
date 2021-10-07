@@ -54,7 +54,7 @@ interface mcuf::function::BiConsumer{
   /**
    * 
    */
-  public: virtual void accept(T t, U u) = 0;
+  virtual void accept(T t, U u) abstract;
   
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -63,16 +63,6 @@ interface mcuf::function::BiConsumer{
   /* **************************************************************************************
    * Construct Method
    */
-  
-  /**
-   * Construct.
-   */
-  public: BiConsumer(void) = default;
-  
-  /**
-   * Disconstruct.
-   */
-  public: virtual ~BiConsumer() = default;
 
   /* **************************************************************************************
    * Operator Method

@@ -101,7 +101,7 @@ class mcuf::io::PrintStream extends mcuf::lang::Object{
   public: PrintStream(mcuf::io::OutputStream* outputStream);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~PrintStream(void) = default;
 

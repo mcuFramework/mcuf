@@ -27,7 +27,7 @@ interface mcuf::hal::GeneralPurposePin{
   /* **************************************************************************************
    * Enum PinMode
    */
-  public: enum PinMode{
+  enum PinMode{
     PinMode_NotSupport,
     PinMode_PushPull,
     PinMode_Pullup,
@@ -56,63 +56,63 @@ interface mcuf::hal::GeneralPurposePin{
    * 
    * @return false = input, true = output.
    */
-  public: virtual bool dir(void) = 0;
+  virtual bool dir(void) abstract;
 
   /**
    * Set io direction.
    * 
    * @param dir false = input, true = output.
    */
-  public: virtual void dir(bool dir) = 0;
+  virtual void dir(bool dir) abstract;
   
   /**
    * 
    */
-  public: virtual PinMode pinMode(void) = 0;
+  virtual PinMode pinMode(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool pinMode(PinMode mode) = 0; 
+  virtual bool pinMode(PinMode mode) abstract; 
 
   /**
    * Set io pin to high.
    */
-  public: virtual void setHigh(void) = 0;
+  virtual void setHigh(void) abstract;
   
   /**
    * Set io direction to input.
    */
-  public: virtual void setInput(void) = 0;
+  virtual void setInput(void) abstract;
 
   /**
    * Set io pin to low.
    */
-  public: virtual void setLow(void) = 0;
+  virtual void setLow(void) abstract;
   
   /**
    * Set io direction to output.
    */
-  public: virtual void setOutput(void) = 0;
+  virtual void setOutput(void) abstract;
 
   /**
    * Set io not logic.
    */
-  public: virtual void setToggle(void) = 0;
+  virtual void setToggle(void) abstract;
 
   /**
    * Get io pin.
    *
    * @return false = low, true = high.
    */
-  public: virtual bool value(void) = 0;
+  virtual bool value(void) abstract;
 
   /**
    * Set io pin to high or low.
    *
    * @param value false = low, true = high.
    */
-  public: virtual void value(bool level) = 0;  
+  virtual void value(bool level) abstract;  
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -121,16 +121,6 @@ interface mcuf::hal::GeneralPurposePin{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * 
-   */
-  public: GeneralPurposePin(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~GeneralPurposePin() = default;
 
   /* **************************************************************************************
    * Operator Method

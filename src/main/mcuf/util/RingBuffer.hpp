@@ -76,7 +76,7 @@ class mcuf::util::RingBuffer extends mcuf::lang::Object{
   public: RingBuffer(mcuf::lang::Memory& memory);  
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~RingBuffer(void) = default;
 

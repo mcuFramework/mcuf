@@ -77,7 +77,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   private: System(void) = default;
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~System(void) = default;
 

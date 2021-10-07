@@ -73,7 +73,7 @@ class mcuf::lang::number::Short extends mcuf::lang::number::Number{
   public: Short(short value);
   
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~Short() = default;
 

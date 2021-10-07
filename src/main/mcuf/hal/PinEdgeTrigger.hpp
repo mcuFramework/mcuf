@@ -55,27 +55,27 @@ interface mcuf::hal::PinEdgeTrigger implement mcuf::hal::Base{
   /**
    * 
    */
-  public: virtual void disableAll(void) = 0;
+  virtual void disableAll(void) abstract;
 
   /**
    * 
    */
-  public: virtual void disableFall(void) = 0;
+  virtual void disableFall(void) abstract;
 
   /**
    * 
    */
-  public: virtual void disableRise(void) = 0;
+  virtual void disableRise(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool enableFall(mcuf::function::Runnable& runnable) = 0;
+  virtual bool enableFall(mcuf::function::Runnable& runnable) abstract;
 
   /**
    * 
    */
-  public: virtual bool enableRise(mcuf::function::Runnable& runnable) = 0;
+  virtual bool enableRise(mcuf::function::Runnable& runnable) abstract;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -84,16 +84,6 @@ interface mcuf::hal::PinEdgeTrigger implement mcuf::hal::Base{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * 
-   */
-  public: PinEdgeTrigger(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~PinEdgeTrigger() = default;
 
   /* **************************************************************************************
    * Operator Method

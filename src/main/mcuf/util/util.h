@@ -23,7 +23,6 @@
 #include "Collection.hpp"
 #include "Executor.hpp"
 #include "Fifo.hpp"
-#include "FixedQueue.hpp"
 #include "HeapBlockPool.hpp"
 #include "HeapFifo.hpp"
 #include "HeapVectorBlockPool.hpp"

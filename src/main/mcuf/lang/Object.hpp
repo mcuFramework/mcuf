@@ -70,7 +70,7 @@ class mcuf::lang::Object{
   public: Object(void) = default;
 
   /**
-   * Destructor.
+   * Destruct.
    */
   public: virtual ~Object(void) = default;
 

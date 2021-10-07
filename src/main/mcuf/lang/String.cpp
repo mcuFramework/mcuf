@@ -59,7 +59,7 @@ String::String(void){
 }
 
 /**
- * Disconstruct.
+ * Destruct.
  */
 String::~String(void){
   if(this->mSize != 0)

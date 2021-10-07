@@ -50,17 +50,17 @@ interface mcuf::hal::AnalogDigitalConverterChannel{
   /**
    * 
    */
-  public: virtual bool enable(void) = 0;
+  virtual bool enable(void) abstract;
   
   /**
    * 
    */
-  public: virtual bool disable(void) = 0;
+  virtual bool disable(void) abstract;
   
   /**
    * 
    */
-  public: virtual uint32_t read(void) = 0;
+  virtual uint32_t read(void) abstract;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -69,16 +69,6 @@ interface mcuf::hal::AnalogDigitalConverterChannel{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * 
-   */
-  public: AnalogDigitalConverterChannel(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~AnalogDigitalConverterChannel(void) = default;
 
   /* **************************************************************************************
    * Operator Method

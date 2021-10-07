@@ -55,46 +55,46 @@ interface mcuf::hal::Timer implement mcuf::hal::Base{
   /**
    * 
    */
-  public: virtual void cancel(void) = 0;
+  virtual void cancel(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool isBusy(void) = 0;
+  virtual bool isBusy(void) abstract;
   
   /**
    * 
    */
-  public: virtual bool isDone(void) = 0;
+  virtual bool isDone(void) abstract;
 
   /**
    * 
    */
-  public: virtual uint32_t getTickBaseMilliSecond(void) = 0;
+  virtual uint32_t getTickBaseMilliSecond(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool startAtTick(uint32_t tick) = 0;
+  virtual bool startAtTick(uint32_t tick) abstract;
 
   /**
    * 
    */
-  public: virtual bool startAtTick(uint32_t tick,
+  virtual bool startAtTick(uint32_t tick,
                                    void* attachment,  
-                                   mcuf::function::Consumer<void*>* execute) = 0;
+                                   mcuf::function::Consumer<void*>* execute) abstract;
   
   /**
    * 
    */
-  public: virtual bool startAtTime(uint32_t microSecond) = 0;
+  virtual bool startAtTime(uint32_t microSecond) abstract;
 
   /**
    * 
    */
-  public: virtual bool startAtTime(uint32_t microSecond, 
+  virtual bool startAtTime(uint32_t microSecond, 
                                    void* attachment,  
-                                   mcuf::function::Consumer<void*>* execute) = 0;
+                                   mcuf::function::Consumer<void*>* execute) abstract;
   
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -103,16 +103,6 @@ interface mcuf::hal::Timer implement mcuf::hal::Base{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * 
-   */
-  public: Timer(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~Timer() = default;
   
   /* **************************************************************************************
    * Operator Method

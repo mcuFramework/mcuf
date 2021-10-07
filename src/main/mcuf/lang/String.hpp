@@ -83,7 +83,7 @@ class mcuf::lang::String extends mcuf::lang::Object{
   public: String(void);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: ~String(void);
 

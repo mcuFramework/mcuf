@@ -51,17 +51,17 @@ interface mcuf::hal::AnalogDigitalConverter implement mcuf::hal::Base{
   /**
    * 
    */
-  public: virtual bool enableChannel(uint32_t channel) = 0;
+  virtual bool enableChannel(uint32_t channel) = 0;
   
   /**
    * 
    */
-  public: virtual bool disableChannel(uint32_t channel) = 0;
+  virtual bool disableChannel(uint32_t channel) = 0;
   
   /**
    * 
    */
-  public: virtual uint32_t read(uint32_t channel) = 0;
+  virtual uint32_t read(uint32_t channel) = 0;
   
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -70,16 +70,6 @@ interface mcuf::hal::AnalogDigitalConverter implement mcuf::hal::Base{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * 
-   */
-  public: AnalogDigitalConverter(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~AnalogDigitalConverter() = default;
   
   /* **************************************************************************************
    * Operator Method

@@ -42,52 +42,52 @@ interface mcuf::util::Map{
   /**
    * 
    */
-  public: virtual bool containsKey(K key) = 0;
+  virtual bool containsKey(K key) abstract;
 
   /**
    * 
    */
-  public: virtual bool containsValue(V value) = 0;
+  virtual bool containsValue(V value) abstract;
 
   /**
    *
    */
-  public: virtual V get(K key) = 0;
+  virtual V get(K key) abstract;
 
   /**
    * 
    */
-  public: virtual V put(K key, V value) = 0;
+  virtual V put(K key, V value) abstract;
 
   /**
    * 
    */
-  public: virtual V remove(K key) = 0;
+  virtual V remove(K key) abstract;
 
   /**
    * 
    */
-  public: virtual V replace(K key, V value) = 0;
+  virtual V replace(K key, V value) abstract;
 
   /**
    * 
    */
-  public: virtual void clear(void) = 0;
+  virtual void clear(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool isEmpty(void) = 0;
+  virtual bool isEmpty(void) abstract;
 
   /** 
    * 
    */
-  public: virtual uint32_t size(void) = 0;
+  virtual uint32_t size(void) abstract;
 
   /**
    * 
    */
-  public: virtual void forEach(mcuf::function::BiConsumer<K, V>& function) = 0;
+  virtual void forEach(mcuf::function::BiConsumer<K, V>& function) abstract;
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -108,16 +108,6 @@ interface mcuf::util::Map{
   /* **************************************************************************************
    * Construct Method
    */
-  
-  /**
-   * Construct.
-   */
-  public: Map(void) = default;
-
-  /**
-   * Disconstruct.
-   */
-  public: virtual ~Map() = default;
 
   /* **************************************************************************************
    * Operator Method

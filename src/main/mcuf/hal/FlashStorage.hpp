@@ -57,45 +57,45 @@ interface mcuf::hal::FlashStorage implement mcuf::hal::Base{
   /**
    * 
    */
-  public: virtual uint32_t flashSize(void) = 0;
+  virtual uint32_t flashSize(void) abstract;
 
   /**
    * 
    */
-  public: virtual uint32_t pageSize(void) = 0;
+  virtual uint32_t pageSize(void) abstract;
 
   /**
    * 
    */
-  public: virtual uint32_t sectorSize(void) = 0;
+  virtual uint32_t sectorSize(void) abstract;
 
   /**
    * 
    */
-  public: virtual uint32_t minimumWriteSize(void) = 0;
+  virtual uint32_t minimumWriteSize(void) abstract;
 
 
   /**
    * 
    */
-  public: virtual bool write(mcuf::lang::Memory& memory,
-                             mcuf::function::Consumer<mcuf::lang::Memory&>* function) = 0;
+  virtual bool write(mcuf::lang::Memory& memory,
+                     mcuf::function::Consumer<mcuf::lang::Memory&>* function) abstract;
 
   /**
    * 
    */
-  public: virtual mcuf::lang::Pointer readDirect(uint32_t address) = 0;
+  virtual mcuf::lang::Pointer readDirect(uint32_t address) abstract;
 
   /**
    * 
    */
-  public: virtual mcuf::lang::Memory readDirect(uint32_t address, uint32_t size) = 0;  
+  virtual mcuf::lang::Memory readDirect(uint32_t address, uint32_t size) abstract;  
 
   /**
    * 
    */
-  public: virtual bool read(mcuf::lang::Memory& memory,
-                            mcuf::function::Consumer<mcuf::lang::Memory&>* function) = 0;
+  virtual bool read(mcuf::lang::Memory& memory,
+                    mcuf::function::Consumer<mcuf::lang::Memory&>* function) abstract;
 
   
   
@@ -106,16 +106,6 @@ interface mcuf::hal::FlashStorage implement mcuf::hal::Base{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * 
-   */
-  public: FlashStorage(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~FlashStorage(void) = default;
   
   /* **************************************************************************************
    * Operator Method

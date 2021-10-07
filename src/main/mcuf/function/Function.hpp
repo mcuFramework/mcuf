@@ -54,7 +54,7 @@ interface mcuf::function::Function{
   /**
    * 
    */
-  public: virtual R apply(T t) = 0;
+  virtual R apply(T t) abstract;
   
   
   /* **************************************************************************************
@@ -64,16 +64,6 @@ interface mcuf::function::Function{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * 
-   */
-  public: Function(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~Function() = default;
 
   /* **************************************************************************************
    * Operator Method

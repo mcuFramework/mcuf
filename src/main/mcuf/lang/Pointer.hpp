@@ -77,7 +77,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
   public: Pointer(uint32_t pointer);
   
   /**
-   * Destructor.
+   * Destruct.
    */
   public: virtual ~Pointer() = default;
 

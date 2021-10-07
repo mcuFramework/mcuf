@@ -53,22 +53,22 @@ interface mcuf::hal::GeneralPurposeIO implement mcuf::hal::Base{
   /**
    * 
    */
-  public: virtual uint32_t dir(uint32_t port) = 0;
+  virtual uint32_t dir(uint32_t port) abstract;
 
   /**
    * 
    */
-  public: virtual void dir(uint32_t port, uint32_t value) = 0;
+  virtual void dir(uint32_t port, uint32_t value) abstract;
   
   /**
    * 
    */
-  public: virtual void dirClear(uint32_t port, uint32_t mask) = 0;
+  virtual void dirClear(uint32_t port, uint32_t mask) abstract;
   
   /**
    * 
    */
-  public: virtual void dirSet(uint32_t port, uint32_t mask) = 0;
+  virtual void dirSet(uint32_t port, uint32_t mask) abstract;
 
   /**
    * Get port value.
@@ -76,7 +76,7 @@ interface mcuf::hal::GeneralPurposeIO implement mcuf::hal::Base{
    * @param port GPIO port.
    * @return pin value 0 = low, 1 = high.
    */
-  public: virtual uint32_t pin(uint32_t port) = 0;
+  virtual uint32_t pin(uint32_t port) abstract;
 
   /**
    * Set port value.
@@ -85,7 +85,7 @@ interface mcuf::hal::GeneralPurposeIO implement mcuf::hal::Base{
    * @param value 0 = low, 
    *              1 = high.
    */
-  public: virtual void pin(uint32_t port, uint32_t value) = 0;
+  virtual void pin(uint32_t port, uint32_t value) abstract;
   
   /**
    * Set port mask low.
@@ -94,7 +94,7 @@ interface mcuf::hal::GeneralPurposeIO implement mcuf::hal::Base{
    * @param value 0 = No operation. 
    *              1 = Set output bit low.
    */
-  public: virtual void pinClear(uint32_t port, uint32_t mask) = 0;
+  virtual void pinClear(uint32_t port, uint32_t mask) abstract;
 
   /**
    * Set port mask high.
@@ -103,7 +103,7 @@ interface mcuf::hal::GeneralPurposeIO implement mcuf::hal::Base{
    * @param value 0 = No operation. 
    *              1 = Set output bit high.
    */
-  public: virtual void pinSet(uint32_t port, uint32_t mask) = 0;
+  virtual void pinSet(uint32_t port, uint32_t mask) abstract;
   
   /**
    * Set port mask toggle.
@@ -112,7 +112,7 @@ interface mcuf::hal::GeneralPurposeIO implement mcuf::hal::Base{
    * @param value 0 = No operation. 
    *              1 = Set output bit toggle.
    */
-  public: virtual void pinToggle(uint32_t port, uint32_t mask) = 0;
+  virtual void pinToggle(uint32_t port, uint32_t mask) abstract;
   
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -121,16 +121,6 @@ interface mcuf::hal::GeneralPurposeIO implement mcuf::hal::Base{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * 
-   */
-  public: GeneralPurposeIO(void) = default;
-
-  /**
-   * 
-   */
-  public: virtual ~GeneralPurposeIO() = default;
   
   /* **************************************************************************************
    * Operator Method

@@ -104,7 +104,7 @@ class mcuf::Resources{
   private: Resources(void) = default;
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~Resources(void) = default;
 

@@ -67,7 +67,7 @@ class mcuf::io::IOException extends mcuf::lang::Throwable{
   public: IOException(const char* message);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~IOException(void) = default;
 

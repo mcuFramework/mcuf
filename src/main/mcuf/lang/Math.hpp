@@ -63,7 +63,7 @@ class mcuf::lang::Math extends mcuf::lang::Object{
   public: Math(void) = default;
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~Math(void) = default;
 

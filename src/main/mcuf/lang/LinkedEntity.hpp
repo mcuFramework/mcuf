@@ -66,7 +66,7 @@ class mcuf::lang::LinkedEntity extends mcuf::lang::Object{
   public: LinkedEntity(void* base);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~LinkedEntity(void) = default;
 

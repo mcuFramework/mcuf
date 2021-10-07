@@ -57,26 +57,26 @@ interface mcuf::util::Pool implement mcuf::util::Collection<mcuf::lang::Memory&>
    *
    * @return element size of byte.
    */
-  public: virtual uint32_t elementSize(void) = 0;
+  virtual uint32_t elementSize(void) abstract;
   
   /**
    * Returns this pool's capacity.
    *
    * @return The capacity of this pool.
    */
-  public: virtual uint32_t capacity(void) = 0;
+  virtual uint32_t capacity(void) abstract;
   
   /**
    * Alloc memory from pool.
    *
    * @return element pointer if pool not full, otherwise null pointer.
    */
-  public: virtual void* alloc(void) = 0;
+  virtual void* alloc(void) abstract;
 
   /**
    * 
    */
-  public: virtual mcuf::lang::Memory allocMemory(void) = 0;
+  virtual mcuf::lang::Memory allocMemory(void) abstract;
   
   /**
    * Alloc memory from pool and copy element.
@@ -84,7 +84,7 @@ interface mcuf::util::Pool implement mcuf::util::Collection<mcuf::lang::Memory&>
    * @element Element pointer.
    * @return element pointer if pool not full, otherwise null pointer.
    */
-  public: virtual void* add(void* elenemt) = 0;
+  virtual void* add(void* elenemt) abstract;
   
   /**
    * Free this element memory.  
@@ -92,7 +92,7 @@ interface mcuf::util::Pool implement mcuf::util::Collection<mcuf::lang::Memory&>
    * @element Element pointer.
    * @return true if this poll found element and remove.
    */
-  public: virtual bool remove(void* element) = 0;
+  virtual bool remove(void* element) abstract;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -101,16 +101,6 @@ interface mcuf::util::Pool implement mcuf::util::Collection<mcuf::lang::Memory&>
   /* **************************************************************************************
    * Construct Method
    */
-  
-  /**
-   * Construct.
-   */
-  public: Pool(void) = default;
-
-  /**
-   * Disconstruct.
-   */
-  public: virtual ~Pool() = default;
 
   /* **************************************************************************************
    * Operator Method

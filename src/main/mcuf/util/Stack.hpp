@@ -74,7 +74,7 @@ class mcuf::util::Stack extends mcuf::lang::Object
   public: Stack(mcuf::lang::Memory& memory);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~Stack() = default;
 

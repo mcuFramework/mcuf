@@ -69,7 +69,7 @@ class mcuf::lang::number::Integer extends mcuf::lang::number::Number{
   public: Integer(int value);
   
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~Integer() = default;
 

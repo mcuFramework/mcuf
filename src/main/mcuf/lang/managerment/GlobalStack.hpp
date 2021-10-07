@@ -73,7 +73,7 @@ class mcuf::lang::managerment::GlobalStack extends mcuf::util::AlignedStack{
   public: GlobalStack(mcuf::lang::Memory& memory);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~GlobalStack() = default;
 

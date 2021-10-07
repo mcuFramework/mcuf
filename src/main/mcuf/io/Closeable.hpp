@@ -51,12 +51,12 @@ interface mcuf::io::Closeable{
   /** 
    * 
    */
-  public: virtual void close(void) = 0;
+  virtual void close(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool isOpen(void) = 0;  
+  virtual bool isOpen(void) abstract;  
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -65,16 +65,6 @@ interface mcuf::io::Closeable{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * Construct.
-   */
-  public: Closeable(void) = default;
-
-  /**
-   * Disconstruct.
-   */
-  public: virtual ~Closeable(void) = default;
 
   /* **************************************************************************************
    * Operator Method

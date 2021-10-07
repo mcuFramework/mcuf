@@ -58,44 +58,44 @@ interface mcuf::hal::SerialPort implement mcuf::hal::Base{
   /**
    * 
    */
-  public: virtual bool abortRead(void) = 0;
+  virtual bool abortRead(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool abortWrite(void) = 0;
+  virtual bool abortWrite(void) abstract;
 
   /**
    * 
    */
-  public: virtual uint32_t baudrate(void) = 0;
+  virtual uint32_t baudrate(void) abstract;
 
   /**
    * 
    */
-  public: virtual uint32_t baudrate(uint32_t rate) = 0;
+  virtual uint32_t baudrate(uint32_t rate) abstract;
 
   /**
    *
    */
-  public: virtual bool readBusy(void) = 0;
+  virtual bool readBusy(void) abstract;
 
   /**
    *
    */
-  public: virtual bool writeBusy(void) = 0;
+  virtual bool writeBusy(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool read(mcuf::io::channel::ByteBuffer& byteBuffer, 
-                            mcuf::function::Consumer<mcuf::io::channel::ByteBuffer&>* consumer) = 0;
+  virtual bool read(mcuf::io::channel::ByteBuffer& byteBuffer, 
+                            mcuf::function::Consumer<mcuf::io::channel::ByteBuffer&>* consumer) abstract;
 
   /**
    * 
    */
-  public: virtual bool write(mcuf::io::channel::ByteBuffer& byteBuffer, 
-                             mcuf::function::Consumer<mcuf::io::channel::ByteBuffer&>* consumer) = 0;
+  virtual bool write(mcuf::io::channel::ByteBuffer& byteBuffer, 
+                             mcuf::function::Consumer<mcuf::io::channel::ByteBuffer&>* consumer) abstract;
   
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -104,16 +104,6 @@ interface mcuf::hal::SerialPort implement mcuf::hal::Base{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * 
-   */
-  public: SerialPort(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~SerialPort() = default;
   
   /* **************************************************************************************
    * Operator Method

@@ -69,7 +69,7 @@ class mcuf::lang::managerment::TimerManager extends mcuf::util::TimerScheduler{
   public: TimerManager(mcuf::lang::Memory& memory);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~TimerManager(void) = default;
 

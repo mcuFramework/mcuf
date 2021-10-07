@@ -55,27 +55,27 @@ interface mcuf::util::concurrent::Future{
   /**
    * 
    */
-  public: virtual bool cancel(bool mayInterruptIfRunning) = 0;
+  virtual bool cancel(bool mayInterruptIfRunning) abstract;
 
   /**
    * 
    */
-  public: virtual V get(void) = 0;
+  virtual V get(void) abstract;
 
   /**
    * 
    */
-  public: virtual V get(uint32_t timeoutMilliSecond) = 0;
+  virtual V get(uint32_t timeoutMilliSecond) abstract;
 
   /**
    * 
    */
-  public: virtual bool isCancelled(void) = 0;
+  virtual bool isCancelled(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool isDone(void) = 0;
+  virtual bool isDone(void) abstract;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -84,16 +84,6 @@ interface mcuf::util::concurrent::Future{
   /* **************************************************************************************
    * Construct Method
    */
-  
-  /**
-   * Construct.
-   */
-  public: Future(void) = default;
-
-  /**
-   * Disconstruct.
-   */
-  public: virtual ~Future() = default;
 
   /* **************************************************************************************
    * Operator Method

@@ -57,21 +57,21 @@ interface mcuf::util::Collection implement mcuf::lang::Iterable<T>{
    * Removes all of the elements from this collection. The collection will be empty after 
    * this method returns.
    */
-  public: virtual void clear(void) = 0;
+  virtual void clear(void) abstract;
 
   /**
    * Returns true if this collection contains no elements.
    * 
    * @return true if this collection contains no elements.
    */
-  public: virtual bool isEmpty(void) = 0;
+  virtual bool isEmpty(void) abstract;
 
   /**
    * Returns the number of elements in this collection.
    * 
    * @return the number of elements in this collection.
    */
-  public: virtual uint32_t size(void) = 0;
+  virtual uint32_t size(void) abstract;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -80,16 +80,6 @@ interface mcuf::util::Collection implement mcuf::lang::Iterable<T>{
   /* **************************************************************************************
    * Construct Method
    */
-  
-  /**
-   * Construct.
-   */
-  public: Collection(void) = default;
-
-  /**
-   * Disconstruct.
-   */
-  public: virtual ~Collection() = default;
 
   /* **************************************************************************************
    * Operator Method

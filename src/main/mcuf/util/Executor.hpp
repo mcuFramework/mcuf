@@ -68,7 +68,7 @@ class mcuf::util::Executor extends mcuf::util::Fifo{
   public: Executor(mcuf::lang::Memory& memory);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~Executor() = default;
 

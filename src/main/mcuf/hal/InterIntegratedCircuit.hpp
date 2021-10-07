@@ -62,16 +62,6 @@ interface mcuf::hal::InterIntegratedCircuit implement mcuf::hal::Base{
    * Construct Method
    */
 
-  /**
-   * 
-   */
-  public: InterIntegratedCircuit(void) = default;
-
-  /**
-   * 
-   */
-  public: virtual ~InterIntegratedCircuit() = default;
-
   /* **************************************************************************************
    * Operator Method
    */
@@ -91,28 +81,28 @@ interface mcuf::hal::InterIntegratedCircuit implement mcuf::hal::Base{
   /**
    * 
    */
-  public: virtual uint32_t clockRate(void) = 0;
+  virtual uint32_t clockRate(void) abstract;
 
   /**
    * 
    */
-  public: virtual uint32_t clockRate(uint32_t clock) = 0;
+  virtual uint32_t clockRate(uint32_t clock) abstract;
 
   /**
    * 
    */
-  public: virtual void read(uint8_t address, 
-                            mcuf::io::channel::ByteBuffer* bytebuffer,
-                            void* attachment,
-                            mcuf::io::channel::CompletionHandler<int, void*>* handler);
+  virtual void read(uint8_t address, 
+                     mcuf::io::channel::ByteBuffer* bytebuffer,
+                     void* attachment,
+                     mcuf::io::channel::CompletionHandler<int, void*>* handler) abstract;
 
   /**
    * 
    */
-  public: virtual void write(uint8_t address, 
-                             mcuf::io::channel::ByteBuffer* bytebuffer,
-                             void* attachment,
-                             mcuf::io::channel::CompletionHandler<int, void*>* handler);
+  virtual void write(uint8_t address, 
+                     mcuf::io::channel::ByteBuffer* bytebuffer,
+                     void* attachment,
+                     mcuf::io::channel::CompletionHandler<int, void*>* handler) abstract;
 
   /* **************************************************************************************
    * Protected Method <Static>

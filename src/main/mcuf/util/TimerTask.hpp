@@ -75,7 +75,7 @@ class mcuf::util::TimerTask extends mcuf::lang::Object
   public: TimerTask(void) = default;
     
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~TimerTask(void) = default;
 

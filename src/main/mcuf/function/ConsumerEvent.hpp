@@ -72,7 +72,7 @@ class mcuf::function::ConsumerEvent extends mcuf::lang::Object
   }
   
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~ConsumerEvent() = default;
 

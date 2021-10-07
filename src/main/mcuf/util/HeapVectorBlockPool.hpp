@@ -67,7 +67,7 @@ class mcuf::util::HeapVectorBlockPool extends mcuf::util::VectorBlockPool{
   public: HeapVectorBlockPool(uint32_t elementSize, uint32_t capacity);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: ~HeapVectorBlockPool(void);
 

@@ -52,19 +52,19 @@ interface mcuf::io::InputStream{
   /**
    *
    */
-  public: virtual int available(void) = 0;
+  virtual int available(void) abstract;
   
   /**
    *  read async
    */
-  public: virtual void read(mcuf::io::channel::ByteBuffer* byteBuffer, 
+  virtual void read(mcuf::io::channel::ByteBuffer* byteBuffer, 
                             void* attachment,
-                            mcuf::io::channel::CompletionHandler<int, void*>* handler) = 0;
+                            mcuf::io::channel::CompletionHandler<int, void*>* handler) abstract;
     
   /**
    *  
    */
-  public: virtual int skip(int skip) = 0;
+  virtual int skip(int skip) abstract;
 
   /* **************************************************************************************
    *  Abstract method <Protected>
@@ -85,16 +85,6 @@ interface mcuf::io::InputStream{
   /* **************************************************************************************
    *  Public Method
    */
-  
-  /**
-   * 
-   */
-  public: InputStream(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~InputStream() = default;
   
   /* **************************************************************************************
    *  Protected Method <Static>

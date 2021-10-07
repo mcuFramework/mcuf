@@ -69,7 +69,7 @@ class mcuf::lang::Message extends mcuf::lang::Object{
   private: Message(void) = default;
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~Message(void) = default;
 

@@ -73,7 +73,7 @@ class mcuf::lang::number::Byte extends mcuf::lang::number::Number{
   public: Byte(char value);
   
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~Byte() = default;
 

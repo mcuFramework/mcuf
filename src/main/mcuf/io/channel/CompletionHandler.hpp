@@ -54,12 +54,12 @@ interface mcuf::io::channel::CompletionHandler{
   /**
    *
    */
-  public: virtual void completed(V result, A attachment) = 0;
+  virtual void completed(V result, A attachment) abstract;
   
   /**
    *
    */
-  public: virtual void failed(mcuf::lang::Throwable& exc, A attachment) = 0;
+  virtual void failed(mcuf::lang::Throwable& exc, A attachment) abstract;
 
   /* **************************************************************************************
    *  Abstract method <Protected>
@@ -80,16 +80,6 @@ interface mcuf::io::channel::CompletionHandler{
   /* **************************************************************************************
    *  Public Method
    */
-  
-  /**
-   * 
-   */
-  public: CompletionHandler(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~CompletionHandler() = default;
   
   /* **************************************************************************************
    *  Protected Method <Static>

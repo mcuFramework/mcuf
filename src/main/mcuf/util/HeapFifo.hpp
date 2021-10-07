@@ -64,7 +64,7 @@ class mcuf::util::HeapFifo extends mcuf::util::Fifo{
   public: HeapFifo(uint32_t elementSize, uint32_t capacity);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: ~HeapFifo(void);
 

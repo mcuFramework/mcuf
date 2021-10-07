@@ -11,12 +11,14 @@
 /* ****************************************************************************************
  * Macro
  */
-#define abstract 
+
+#define abstract =0
+#define abstracts 
 #define construct :
 #define extends :public
 #define implements ,public
 #define implement :public  
-#define interface class
+#define interface struct
 
 
 /* ****************************************************************************************

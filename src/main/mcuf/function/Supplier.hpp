@@ -56,7 +56,7 @@ interface mcuf::function::Supplier{
   /**
    * 
    */
-  public: virtual T get(void) = 0;
+  virtual T get(void) abstract;
   
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -65,16 +65,6 @@ interface mcuf::function::Supplier{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * 
-   */
-  public: Supplier(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~Supplier() = default;
 
   /* **************************************************************************************
    * Operator Method

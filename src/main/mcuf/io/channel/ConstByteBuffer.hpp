@@ -74,7 +74,7 @@ class mcuf::io::channel::ConstByteBuffer extends mcuf::io::channel::ByteBuffer{
   public: ConstByteBuffer(const char* string);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~ConstByteBuffer(void) = default;
 

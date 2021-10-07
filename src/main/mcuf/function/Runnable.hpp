@@ -52,7 +52,7 @@ interface mcuf::function::Runnable{
   /**
    * 
    */
-  public: virtual void run(void) = 0;
+  virtual void run(void) abstract;
   
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -61,16 +61,6 @@ interface mcuf::function::Runnable{
   /* **************************************************************************************
    * Construct Method
    */
-  
-  /**
-   * 
-   */
-  public: Runnable(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~Runnable() = default;
 
   /* **************************************************************************************
    * Operator Method

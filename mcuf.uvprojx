@@ -687,11 +687,6 @@
               <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
             <File>
-              <FileName>Stream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\Stream.hpp</FilePath>
-            </File>
-            <File>
               <FileName>IOException.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\IOException.cpp</FilePath>
@@ -755,11 +750,6 @@
               <FileName>Array.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapArray.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapArray.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapMemory.cpp</FileName>
@@ -1057,11 +1047,6 @@
               <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
             </File>
             <File>
-              <FileName>FixedQueue.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\FixedQueue.hpp</FilePath>
-            </File>
-            <File>
               <FileName>HeapBlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
@@ -1095,11 +1080,6 @@
               <FileName>Map.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MapEntity.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MapEntity.hpp</FilePath>
             </File>
             <File>
               <FileName>Pool.hpp</FileName>
@@ -1942,11 +1922,6 @@
               <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
             <File>
-              <FileName>Stream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\Stream.hpp</FilePath>
-            </File>
-            <File>
               <FileName>IOException.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\IOException.cpp</FilePath>
@@ -2010,11 +1985,6 @@
               <FileName>Array.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapArray.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapArray.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapMemory.cpp</FileName>
@@ -2312,11 +2282,6 @@
               <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
             </File>
             <File>
-              <FileName>FixedQueue.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\FixedQueue.hpp</FilePath>
-            </File>
-            <File>
               <FileName>HeapBlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
@@ -2350,11 +2315,6 @@
               <FileName>Map.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MapEntity.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MapEntity.hpp</FilePath>
             </File>
             <File>
               <FileName>Pool.hpp</FileName>
@@ -3197,11 +3157,6 @@
               <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
             <File>
-              <FileName>Stream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\Stream.hpp</FilePath>
-            </File>
-            <File>
               <FileName>IOException.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\IOException.cpp</FilePath>
@@ -3265,11 +3220,6 @@
               <FileName>Array.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapArray.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapArray.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapMemory.cpp</FileName>
@@ -3567,11 +3517,6 @@
               <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
             </File>
             <File>
-              <FileName>FixedQueue.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\FixedQueue.hpp</FilePath>
-            </File>
-            <File>
               <FileName>HeapBlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
@@ -3605,11 +3550,6 @@
               <FileName>Map.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MapEntity.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MapEntity.hpp</FilePath>
             </File>
             <File>
               <FileName>Pool.hpp</FileName>
@@ -4452,11 +4392,6 @@
               <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
             <File>
-              <FileName>Stream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\Stream.hpp</FilePath>
-            </File>
-            <File>
               <FileName>IOException.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\IOException.cpp</FilePath>
@@ -4520,11 +4455,6 @@
               <FileName>Array.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapArray.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapArray.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapMemory.cpp</FileName>
@@ -4822,11 +4752,6 @@
               <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
             </File>
             <File>
-              <FileName>FixedQueue.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\FixedQueue.hpp</FilePath>
-            </File>
-            <File>
               <FileName>HeapBlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
@@ -4860,11 +4785,6 @@
               <FileName>Map.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MapEntity.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MapEntity.hpp</FilePath>
             </File>
             <File>
               <FileName>Pool.hpp</FileName>
@@ -5707,11 +5627,6 @@
               <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
             <File>
-              <FileName>Stream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\Stream.hpp</FilePath>
-            </File>
-            <File>
               <FileName>IOException.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\IOException.cpp</FilePath>
@@ -5775,11 +5690,6 @@
               <FileName>Array.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapArray.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapArray.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapMemory.cpp</FileName>
@@ -6077,11 +5987,6 @@
               <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
             </File>
             <File>
-              <FileName>FixedQueue.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\FixedQueue.hpp</FilePath>
-            </File>
-            <File>
               <FileName>HeapBlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
@@ -6115,11 +6020,6 @@
               <FileName>Map.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MapEntity.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MapEntity.hpp</FilePath>
             </File>
             <File>
               <FileName>Pool.hpp</FileName>
@@ -6962,11 +6862,6 @@
               <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
             <File>
-              <FileName>Stream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\Stream.hpp</FilePath>
-            </File>
-            <File>
               <FileName>IOException.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\IOException.cpp</FilePath>
@@ -7030,11 +6925,6 @@
               <FileName>Array.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapArray.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapArray.hpp</FilePath>
             </File>
             <File>
               <FileName>HeapMemory.cpp</FileName>
@@ -7332,11 +7222,6 @@
               <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
             </File>
             <File>
-              <FileName>FixedQueue.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\FixedQueue.hpp</FilePath>
-            </File>
-            <File>
               <FileName>HeapBlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
@@ -7370,11 +7255,6 @@
               <FileName>Map.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MapEntity.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MapEntity.hpp</FilePath>
             </File>
             <File>
               <FileName>Pool.hpp</FileName>

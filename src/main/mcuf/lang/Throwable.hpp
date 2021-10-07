@@ -73,7 +73,7 @@ class mcuf::lang::Throwable extends mcuf::lang::Object{
   public: Throwable(const char* message);
 
   /**
-   * Destructor.
+   * Destruct.
    */
   public: virtual ~Throwable(void) = default;
 

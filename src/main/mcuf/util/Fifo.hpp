@@ -74,7 +74,7 @@ class mcuf::util::Fifo extends mcuf::lang::Object
   public: Fifo(mcuf::lang::Memory& memory, uint32_t elementSize);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~Fifo(void) = default;
 

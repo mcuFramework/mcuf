@@ -69,7 +69,7 @@ class mcuf::util::HeapBlockPool extends mcuf::util::BlockPool{
   public: HeapBlockPool(uint32_t elementSize, uint32_t capacity);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: ~HeapBlockPool();
   

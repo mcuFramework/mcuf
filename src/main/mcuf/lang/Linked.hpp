@@ -53,32 +53,32 @@ interface mcuf::lang::Linked{
   /**
    * 
    */
-  public: virtual void addLinked(E* e) = 0;
+  virtual void addLinked(E* e) abstract;
 
   /**
    * 
    */
-  public: virtual void insertLinked(E* e) = 0;
+  virtual void insertLinked(E* e) abstract;
 
   /**
    *
    */
-  public: virtual E* getNextLinked(void) = 0;
+  virtual E* getNextLinked(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool hasNextLinked(void) = 0;
+  virtual bool hasNextLinked(void) abstract;
 
   /**
    * 
    */
-  public: virtual E* removeLinked(void) = 0;
+  virtual E* removeLinked(void) abstract;
 
   /**
    * 
    */
-  public: virtual E* removeAllLinked(void) = 0;
+  virtual E* removeAllLinked(void) abstract;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -87,16 +87,6 @@ interface mcuf::lang::Linked{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * Construct.
-   */
-  public: Linked(void) = default;
-
-  /**
-   * Disconstruct.
-   */
-  public: virtual ~Linked(void) = default;
 
   /* **************************************************************************************
    * Operator Method

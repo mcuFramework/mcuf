@@ -55,19 +55,19 @@ interface mcuf::hal::Base{
   /**
    * uninitialze hardware.
    */
-  public: virtual bool deinit(void) = 0;
+  virtual bool deinit(void) abstract;
 
   /**
    * initialze hardware;
    */
-  public: virtual bool init(void) = 0;
+  virtual bool init(void) abstract;
   
   /**
    * get hardware initialzed status.
    * 
    * @return false = not init, true = initd
    */
-  public: virtual bool isInit(void) = 0;
+  virtual bool isInit(void) abstract;
   
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -76,16 +76,6 @@ interface mcuf::hal::Base{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * 
-   */
-  public: Base(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~Base() = default;
 
   /* **************************************************************************************
    * Operator Method

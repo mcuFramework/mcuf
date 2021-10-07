@@ -37,7 +37,7 @@ interface mcuf::hal::SerialPeripheral implement mcuf::hal::Base{
   /* **************************************************************************************
    * Subclass
    */
-  public: struct Packet{
+  struct Packet{
     void* mTransferPointer;
     void* mReceiverPointer;
     uint16_t mLength;
@@ -47,7 +47,7 @@ interface mcuf::hal::SerialPeripheral implement mcuf::hal::Base{
   /* **************************************************************************************
    * Enum Polarity
    */
-  public: enum Polarity{
+  enum Polarity{
     ACTIVE_HIGH = 0x0U,
     ACTIVE_LOW = 0x1U
   };
@@ -55,7 +55,7 @@ interface mcuf::hal::SerialPeripheral implement mcuf::hal::Base{
   /* **************************************************************************************
    * Enum Phase
    */
-  public: enum Phase{
+  enum Phase{
     FIRST_EDGE = 0x0U,
     SECOND_EDGE = 0x1U
   };
@@ -79,54 +79,54 @@ interface mcuf::hal::SerialPeripheral implement mcuf::hal::Base{
   /**
    * 
    */
-  public: virtual uint32_t clockRate(void) = 0;
+  virtual uint32_t clockRate(void) abstract;
 
   /**
    * 
    */
-  public: virtual uint32_t clockRate(uint32_t clock) = 0;
+  virtual uint32_t clockRate(uint32_t clock) abstract;
 
   /**
    * 
    */
-  public: virtual bool isBusy(void) = 0;
+  virtual bool isBusy(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool lsb(void) = 0;
+  virtual bool lsb(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool lsb(bool enable) = 0;
+  virtual bool lsb(bool enable) abstract;
 
   /**
    * 
    */
-  public: virtual Phase phase(void) = 0;
+  virtual Phase phase(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool phase(Phase set) = 0;
+  virtual bool phase(Phase set) abstract;
 
   /**
    * 
    */
-  public: virtual Polarity polarity(void) = 0;
+  virtual Polarity polarity(void) abstract;
 
   /**
    * 
    */
-  public: virtual bool polarity(Polarity set) = 0;
+  virtual bool polarity(Polarity set) abstract;
 
   /**
    * 
    */
-  public: virtual bool transfer(Packet* packet,
+  virtual bool transfer(Packet* packet,
                                 void* attachment,
-                                mcuf::function::BiConsumer<Packet*, void*>* function) = 0;
+                                mcuf::function::BiConsumer<Packet*, void*>* function) abstract;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -135,16 +135,6 @@ interface mcuf::hal::SerialPeripheral implement mcuf::hal::Base{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * 
-   */
-  public: SerialPeripheral(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~SerialPeripheral() = default;
 
   /* **************************************************************************************
    * Operator Method

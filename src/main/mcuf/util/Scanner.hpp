@@ -66,7 +66,7 @@ class mcuf::util::Scanner extends mcuf::lang::Object{
   }
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~Scanner() = default;
 

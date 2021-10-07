@@ -51,14 +51,14 @@ interface mcuf::io::OutputStream{
   /**
    *
    */
-  public: virtual void flush(void) = 0;
+  virtual void flush(void) abstract;
   
   /**
    *  write nonBlocking
    */
-  public: virtual void write(mcuf::io::channel::ByteBuffer* byteBuffer, 
+  virtual void write(mcuf::io::channel::ByteBuffer* byteBuffer, 
                              void* attachment,
-                             mcuf::io::channel::CompletionHandler<int, void*>* handler) = 0;
+                             mcuf::io::channel::CompletionHandler<int, void*>* handler) abstract;
   
   /* **************************************************************************************
    *  Abstract method <Protected>
@@ -67,16 +67,6 @@ interface mcuf::io::OutputStream{
   /* **************************************************************************************
    *  Construct Method
    */
-
-  /**
-   * 
-   */
-  public: OutputStream(void) = default;
-  
-  /**
-   * 
-   */
-  public: virtual ~OutputStream() = default;
 
   /* **************************************************************************************
    *  Public Method <Static>

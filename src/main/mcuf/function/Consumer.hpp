@@ -54,7 +54,7 @@ interface mcuf::function::Consumer{
   /**
    * 
    */
-  public: virtual void accept(T t) = 0;
+  virtual void accept(T t) abstract;
   
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -63,16 +63,6 @@ interface mcuf::function::Consumer{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * Construct.
-   */
-  public: Consumer(void) = default;
-
-  /**
-   * Disconstruct.
-   */
-  public: virtual ~Consumer() = default;
 
   /* **************************************************************************************
    * Operator Method

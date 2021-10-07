@@ -71,7 +71,7 @@ class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
   public: ThreadEvent(mcuf::function::Runnable& runnable ,const char* name);
 
   /**
-   * Disconstruct.
+   * Destruct.
    */
   public: virtual ~ThreadEvent(void) = default;
 
