@@ -81,7 +81,7 @@ Memory MemoryManager::allocMemory(size_t size){
     return Memory::nullMemory();
 
   return this->allocAuto(size);
-}
+} 
 
 /**
  * 
