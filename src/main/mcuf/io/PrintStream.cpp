@@ -17,8 +17,9 @@
  */  
 using mcuf::io::PrintStream;
 using mcuf::io::channel::ByteBuffer;
-using mcuf::io::channel::ConstByteBuffer;
-using mcuf::io::channel::HeapByteBuffer;
+using mcuf::io::channel::ByteBuffer;
+using mcuf::io::channel::ByteBuffer;
+using mcuf::lang::Memory;
 using mcuf::lang::String;
 
 /* ****************************************************************************************
@@ -59,7 +60,7 @@ PrintStream::PrintStream(mcuf::io::OutputStream* outputStream){
  * 
  */
 void PrintStream::CompletionHandlerConst::completed(int result, void* attachment){
-  ConstByteBuffer* b = (ConstByteBuffer*)attachment;
+  ByteBuffer* b = (ByteBuffer*)attachment;
   delete b;
   return;
 }
@@ -68,7 +69,7 @@ void PrintStream::CompletionHandlerConst::completed(int result, void* attachment
  * 
  */
 void PrintStream::CompletionHandlerConst::failed(mcuf::lang::Throwable& exc, void* attachment){
-  ConstByteBuffer* b = (ConstByteBuffer*)attachment;
+  ByteBuffer* b = (ByteBuffer*)attachment;
   delete b;
   return;
 }
@@ -80,7 +81,7 @@ void PrintStream::CompletionHandlerConst::failed(mcuf::lang::Throwable& exc, voi
  * 
  */
 void PrintStream::CompletionHandlerHeap::completed(int result, void* attachment){
-  HeapByteBuffer* b = (HeapByteBuffer*)attachment;
+  ByteBuffer* b = (ByteBuffer*)attachment;
   delete b;
   return;
 }
@@ -89,7 +90,7 @@ void PrintStream::CompletionHandlerHeap::completed(int result, void* attachment)
  * 
  */
 void PrintStream::CompletionHandlerHeap::failed(mcuf::lang::Throwable& exc, void* attachment){
-  HeapByteBuffer* b = (HeapByteBuffer*)attachment;
+  ByteBuffer* b = (ByteBuffer*)attachment;
   delete b;
   return;
 }
@@ -106,14 +107,12 @@ PrintStream& PrintStream::format(const char* format, ...){
     return *this;
 
   char* string;
-  HeapByteBuffer* byteBuffer;
+  ByteBuffer* byteBuffer;
 
   va_list args;
   va_start (args, format);
-  string = String::formatChar(format, args);
-  va_end (args);
-
-  byteBuffer = new HeapByteBuffer(string, strlen(string));
+  byteBuffer = new ByteBuffer(String::formatMemory(format, args));
+  va_end (args);  
 
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerHeap);
 
@@ -127,12 +126,12 @@ PrintStream& PrintStream::print(bool b){
   if(this->outputStream == nullptr)
     return *this;
 
-  ConstByteBuffer* byteBuffer;
+  ByteBuffer* byteBuffer;
 
   if(b)
-    byteBuffer = new ConstByteBuffer(PrintStream::textTrue, sizeof(PrintStream::textTrue)-2);
+    byteBuffer = new ByteBuffer(Memory(PrintStream::textTrue, sizeof(PrintStream::textTrue)-2));
   else
-    byteBuffer = new ConstByteBuffer(PrintStream::textFalse, sizeof(PrintStream::textFalse)-2);
+    byteBuffer = new ByteBuffer(Memory(PrintStream::textFalse, sizeof(PrintStream::textFalse)-2));
 
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerConst);
   
@@ -146,8 +145,7 @@ PrintStream& PrintStream::print(int i){
   if(this->outputStream == nullptr)
     return *this;
 
-  char* string = String::formatChar("%d", i);
-  HeapByteBuffer* byteBuffer = new HeapByteBuffer(string, strlen(string));
+  ByteBuffer* byteBuffer = new ByteBuffer(String::formatMemory("%d", i));
 
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerHeap);
   return *this;
@@ -160,9 +158,9 @@ PrintStream& PrintStream::print(const char* string){
   if(this->outputStream == nullptr)
     return *this;
 
-  ConstByteBuffer* byteBuffer;
+  ByteBuffer* byteBuffer;
   
-  byteBuffer = new ConstByteBuffer(string);
+  byteBuffer = new ByteBuffer(Memory(string));
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerConst);
 
   return *this;
@@ -175,12 +173,12 @@ PrintStream& PrintStream::println(bool b){
   if(this->outputStream == nullptr)
     return *this;
 
-  ConstByteBuffer* byteBuffer;
+  ByteBuffer* byteBuffer;
 
   if(b)
-    byteBuffer = new ConstByteBuffer(PrintStream::textTrue, sizeof(PrintStream::textTrue)-1);
+    byteBuffer = new ByteBuffer(Memory(PrintStream::textTrue, sizeof(PrintStream::textTrue)-1));
   else
-    byteBuffer = new ConstByteBuffer(PrintStream::textFalse, sizeof(PrintStream::textFalse)-1);
+    byteBuffer = new ByteBuffer(Memory(PrintStream::textFalse, sizeof(PrintStream::textFalse)-1));
 
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerConst);
 
@@ -194,8 +192,7 @@ PrintStream& PrintStream::println(int i){
   if(this->outputStream == nullptr)
     return *this;
 
-  char* string = String::formatChar("%d\n", i);
-  HeapByteBuffer* byteBuffer = new HeapByteBuffer(string, strlen(string));
+  ByteBuffer* byteBuffer = new ByteBuffer(String::formatMemory("%d\n", i));
   
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerHeap);
   return *this;
@@ -208,12 +205,12 @@ PrintStream& PrintStream::println(const char* string){
   if(this->outputStream == nullptr)
     return *this;
 
-  ConstByteBuffer* byteBuffer;
+  ByteBuffer* byteBuffer;
   
-  byteBuffer = new ConstByteBuffer(string);
+  byteBuffer = new ByteBuffer(string);
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerConst);
 
-  byteBuffer = new ConstByteBuffer(PrintStream::textNextLine);
+  byteBuffer = new ByteBuffer(PrintStream::textNextLine);
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerConst);
 
   return *this;

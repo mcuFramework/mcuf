@@ -39,6 +39,15 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   friend System;
 
   /* **************************************************************************************
+   * Enum Flag
+   */
+  private: enum MemoryFlag{
+    MEMORY_FLAG_HEAP_MEMORY = 0x00000001,
+    MEMORY_FLAG_CONST       = 0x00000002,
+    MEMORY_FLAG_RESERVED    = 0xFFFFFFFF  ///< Prevents enum down-size compiler optimization.
+  };
+  
+  /* **************************************************************************************
    * Subclass
    */
   
@@ -49,7 +58,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /* **************************************************************************************
    * Variable <Protected>
    */
-
+  protected: uint32_t mFlag;
   protected: uint32_t mLength;
 
   /* **************************************************************************************
@@ -68,10 +77,22 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * Construct Method
    */
 
+  private: Memory(void);
+
   /**
    * 
    */  
-  public: Memory(void* pointer, uint32_t length);
+  public: Memory(const char* pointer);
+
+  /**
+   * 
+   */  
+  public: Memory(const void* pointer, size_t length);
+
+  /**
+   * 
+   */  
+  public: Memory(void* pointer, size_t length);
   
   /**
    *
@@ -79,9 +100,14 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   public: Memory(Memory* memory);
   
   /**
+   *
+   */
+  public: Memory(size_t size);
+  
+  /**
    * 
    */  
-  public: virtual ~Memory() = default;
+  public: ~Memory(void);
 
   /* **************************************************************************************
    * Operator Method
@@ -95,7 +121,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * 
    */
   public: static mcuf::lang::Memory nullMemory(void);
-
+  
   /* **************************************************************************************
    * Public Method <Override>
    */
@@ -152,6 +178,11 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * 
    */
   public: mcuf::lang::Pointer& getPointer(void);
+
+  /**
+   *
+   */
+  public: bool isReadOnly(void);
 
   /**
    * 

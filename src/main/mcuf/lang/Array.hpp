@@ -10,8 +10,10 @@
 
 /* ****************************************************************************************
  * Include
- */  
+ */
+
 #include "mcuf_base.h"
+#include "mcuf\lang\ArrayPrototype.hpp"
 #include "mcuf\lang\Memory.hpp"
 #include "mcuf\lang\Pointer.hpp"
 
@@ -32,7 +34,7 @@ namespace mcuf{
  * Class Array
  */  
 template<typename E>
-class mcuf::lang::Array extends mcuf::lang::Object{
+class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
 
   /* **************************************************************************************
    * Subclass
@@ -45,8 +47,6 @@ class mcuf::lang::Array extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: E* e;
-  protected: uint32_t mLength;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -64,18 +64,17 @@ class mcuf::lang::Array extends mcuf::lang::Object{
    * Construct Method
    */
 
-  public: Array(mcuf::lang::Memory& memory){
-    this->e = (E*)memory.pointer();
-    this->mLength = (memory.length() / sizeof(E));
+  /**
+   *
+   */
+  public: Array(mcuf::lang::Memory& memory) construct mcuf::lang::ArrayPrototype(memory, sizeof(E)){
+    return;
   }
 
   /**
    * Construct.
    */
-  public: Array(E* e, uint32_t length){
-    
-    this->e = e;
-    this->mLength = length;
+  public: Array(E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, length, sizeof(E)){
     return;
   }
 
@@ -87,21 +86,21 @@ class mcuf::lang::Array extends mcuf::lang::Object{
   /* **************************************************************************************
    * Operator Method
    */
-  
+
   /**
    * Operator array.
    */
   public: inline E& operator[](int index){
-    return this->e[index];
+    return ((E*)this->mPointer)[index];
   }
 
   /**
    * Operator array.
    */
   public: inline E& operator[](int index) const{
-    return this->e[index];
+    return ((E*)this->mPointer)[index];
   }
-
+  
   /* **************************************************************************************
    * Public Method <Static>
    */
@@ -112,53 +111,25 @@ class mcuf::lang::Array extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Public Method
+
    */
 
   /**
    * Length
    */
   public: uint32_t length(void) const {
-    return this->mLength;
+    return this->mLength / sizeof(E);
   }
-
-  /**
-   * 
-   */
-  public: Array<E>& clear(void){
-    memset(this->e, 0x00, sizeof(e) * this->mLength);
-    return *this;
-  }
-
-  /**
-   * 
-   */
-  public: Array<E>& clear(uint32_t shift){
-    memset(&this->e[shift], 0x00, sizeof(E));
-    return *this;
-  }
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Memory getMemory(){
-    return mcuf::lang::Memory(this->e, this->mLength * sizeof(E));
-  }
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Pointer getPointer(void){
-    return mcuf::lang::Pointer(this->e, sizeof(E));
-  }
-
+  
   /**
    * 
    */
   public: int indexOf(const E e){
     int result = -1;
+    int length = this->length();
 
-    for(int i=0; i<this->mLength; i++){
-      if(memcmp(&this->e[i], &e, sizeof(E)) != 0)
+    for(int i=0; i<length; i++){
+      if(memcmp(&this[i], &e, sizeof(E)) != 0)
         continue;
 
       result = i;
@@ -167,44 +138,14 @@ class mcuf::lang::Array extends mcuf::lang::Object{
 
     return result;
   }
-
+  
   /**
    * 
    */
   public: bool contains(const E e){
     return (this->indexOf(e) != -1);
   }
-
-  /**
-   * 
-   */
-  public: Array<E>& put(E e, uint32_t shift){
-    this->e[shift] = e;
-    return *this;
-  }
-
-  /**
-   * 
-   */
-  public: Array<E>& put(const E& e, uint32_t shift){
-    this->e[shift] = e;
-    return *this;
-  }
-
-  /**
-   * 
-   */
-  public: E get(uint32_t shift){
-    return this->e[ shift];
-  }
-
-  /**
-   * 
-   */
-  public: E* getArray(){
-    return this->e;
-  }
-
+  
   /* **************************************************************************************
    * Protected Method <Static>
    */
@@ -230,11 +171,9 @@ class mcuf::lang::Array extends mcuf::lang::Object{
    */
     
 };
-
-
-
-/* *****************************************************************************************
- *  End of file
+ 
+/* ****************************************************************************************
+ * End of file
  */ 
 
 

@@ -26,9 +26,33 @@ using mcuf::lang::Pointer;
  */
 
 /**
+ *
+ */
+Memory::Memory(void){
+  this->mFlag = 0x00000000;
+  return;
+}
+
+/**
+ *
+ */
+Memory::Memory(const char* pointer) construct Memory(pointer, strlen(pointer)){
+  return;
+}
+
+/**
+ *
+ */
+Memory::Memory(const void* pointer, uint32_t length) construct Memory(){
+  this->mPointer = const_cast<void*>(pointer);
+  this->mLength = length;
+  this->mFlag |= this->MEMORY_FLAG_CONST;
+}
+
+/**
  * 
  */
-Memory::Memory(void* pointer, uint32_t length){    
+Memory::Memory(void* pointer, uint32_t length) construct Memory(){
   this->mPointer = pointer;
   this->mLength = length;
   return;
@@ -38,14 +62,24 @@ Memory::Memory(void* pointer, uint32_t length){
  * 
  */
 Memory::Memory(Memory* memory){
-  if(memory == nullptr){
-    this->mPointer = nullptr;
-    this->mLength = 0;
-  }else{
-    this->mPointer = memory->mPointer;
-    this->mLength = memory->mLength;
-  }
+  *this = memory;
   return;
+}
+
+/**
+ *
+ */
+Memory::Memory(size_t size) construct Memory(System::allocMemory(size)){
+  this->mFlag |= this->MEMORY_FLAG_HEAP_MEMORY;
+  return;
+}
+
+/**
+ *
+ */
+Memory::~Memory(void){
+  if(this->mFlag & this->MEMORY_FLAG_HEAP_MEMORY)
+    System::freeMemory(*this);
 }
 
 /* ****************************************************************************************
@@ -60,7 +94,7 @@ Memory::Memory(Memory* memory){
  * 
  */
 Memory Memory::nullMemory(void){
-  return mcuf::lang::Memory(nullptr);
+  return Memory((const void*)nullptr, 0);
 }
 
 /* ****************************************************************************************
@@ -71,6 +105,9 @@ Memory Memory::nullMemory(void){
  * 
  */
 Pointer& Memory::copy(const void* source, uint32_t length){
+  if(this->mFlag & this->MEMORY_FLAG_CONST)
+    return *this;
+  
   if(length > this->mLength)
     return Pointer::copy(source, this->mLength);
 
@@ -81,6 +118,9 @@ Pointer& Memory::copy(const void* source, uint32_t length){
  * 
  */
 Pointer& Memory::copy(const void* source, uint32_t shift, uint32_t length){
+  if(this->mFlag & this->MEMORY_FLAG_CONST)
+    return *this;  
+  
   if((shift + length) > this->mLength){
     if(shift > this->mLength)
       return *this;
@@ -95,6 +135,9 @@ Pointer& Memory::copy(const void* source, uint32_t shift, uint32_t length){
  * 
  */
 Pointer& Memory::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
+  if(this->mFlag & this->MEMORY_FLAG_CONST)
+    return *this;  
+  
   if(shift > this->mLength)
     return *this;
   
@@ -112,7 +155,9 @@ Pointer& Memory::copy(const void* source, uint32_t shift, uint32_t start, uint32
  * 
  */
 Memory& Memory::clear(void){
-  memset(this->mPointer, 0x00, this->mLength);
+  if(!(this->mFlag & this->MEMORY_FLAG_CONST))
+    memset(this->mPointer, 0x00, this->mLength);
+  
   return *this;
 }
 
@@ -120,7 +165,9 @@ Memory& Memory::clear(void){
  * 
  */
 Memory& Memory::copyMemory(Memory& sourec){
-  this->copy(sourec.mPointer, sourec.mLength);
+  if(!(this->mFlag & this->MEMORY_FLAG_CONST))
+    this->copy(sourec.mPointer, sourec.mLength);
+  
   return *this;
 }
 
@@ -128,7 +175,9 @@ Memory& Memory::copyMemory(Memory& sourec){
  * 
  */
 Memory& Memory::copyMemory(Memory& sourec, uint32_t shift){
-  this->copy(sourec.mPointer, shift, sourec.mLength);
+  if(!(this->mFlag & this->MEMORY_FLAG_CONST))
+    this->copy(sourec.mPointer, shift, sourec.mLength);
+  
   return *this;
 }
 
@@ -136,7 +185,9 @@ Memory& Memory::copyMemory(Memory& sourec, uint32_t shift){
  * 
  */
 Memory& Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t length){
-  this->copy(sourec.mPointer, shift, length);
+  if(!(this->mFlag & this->MEMORY_FLAG_CONST))
+    this->copy(sourec.mPointer, shift, length);
+  
   return *this;
 }
 
@@ -144,7 +195,9 @@ Memory& Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t length){
  * 
  */
 Memory& Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length){
-  this->copy(sourec.mPointer, shift, start, length);
+  if(!(this->mFlag & this->MEMORY_FLAG_CONST))
+    this->copy(sourec.mPointer, shift, start, length);
+  
   return *this;
 }
 
@@ -189,8 +242,11 @@ Memory Memory::subMemory(uint32_t beginIndex, uint32_t length){
   uint32_t remainingLength = (this->mLength - beginIndex);
   if(length >= remainingLength)
     length = remainingLength;
+  
+  Memory result = System::allocMemory(remainingLength);
+  
 
-  return Memory(this->pointer(beginIndex), length);
+  return result;
 }
 
 /* ****************************************************************************************

@@ -14,6 +14,7 @@
  
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
+#include "mcuf/lang/ArrayPrototype.hpp"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/lang/Memory.hpp"
 
@@ -31,7 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Map
  */
-class mcuf::io::channel::ByteBuffer extends mcuf::lang::Object{
+class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
 
   /* **************************************************************************************
    *  Variable <Public>
@@ -48,8 +49,6 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Object{
   private: uint16_t mLimit;
   private: uint16_t mPosition;
   private: uint16_t mCapacity;
-  private: uint8_t* mPointer;
-
 
   /* **************************************************************************************
    *  Abstract method <Public>
@@ -67,16 +66,21 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Object{
    * 
    */
   public: ByteBuffer(mcuf::lang::Memory& memory);
-
-  /**
-   * 
-   */
-  public: ByteBuffer(void* pointer, size_t length);
   
   /**
    * 
    */
-  public: virtual ~ByteBuffer() = default;
+  public: ByteBuffer(mcuf::lang::Memory&& memory);  
+  
+  /**
+   *
+   */
+  public: ByteBuffer(size_t size);
+  
+  /**
+   * 
+   */
+  public: virtual ~ByteBuffer(void) = default;
 
   /* **************************************************************************************
    *  Public Method <Static>
@@ -153,11 +157,36 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Object{
    * 
    */
   public: ByteBuffer& rewind(void);
+  
+  /**
+   *
+   */
+  public: virtual ByteBuffer& put(const char* string);
+  
+  /**
+   *
+   */
+  public: virtual ByteBuffer& put(const void* ptr, size_t size);
+  
+  /**
+   *
+   */
+  public: virtual ByteBuffer& putArray(mcuf::lang::ArrayPrototype& arrayPrototype);
 
   /**
    * 
    */
-  public: virtual ByteBuffer& putByte(char value);
+  public: virtual ByteBuffer& putByte(const char value);
+
+  /**
+   * 
+   */
+  public: virtual ByteBuffer& putShort(const short value);
+
+  /**
+   * 
+   */
+  public: virtual ByteBuffer& putInt(const int value);
 
   /**
    * 
@@ -167,17 +196,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Object{
   /**
    * 
    */
-  public: virtual ByteBuffer& putShort(short value);
-
-  /**
-   * 
-   */
   public: short getShort(void);
-
-  /**
-   * 
-   */
-  public: virtual ByteBuffer& putInt(int value);
 
   /**
    * 

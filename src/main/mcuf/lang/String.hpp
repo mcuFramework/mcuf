@@ -15,6 +15,7 @@
 
 #include "mcuf_base.h"
 #include "mcuf_config.h"
+#include "mcuf/lang/Memory.hpp"
 #include "mcuf/lang/Object.hpp"
 
 /* ****************************************************************************************
@@ -29,7 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class String
  */  
-class mcuf::lang::String extends mcuf::lang::Object{
+class mcuf::lang::String extends mcuf::lang::Memory{
 
   /* **************************************************************************************
    * Subclass
@@ -48,13 +49,6 @@ class mcuf::lang::String extends mcuf::lang::Object{
    * Variable <Private>
    */
 
-  /**
-   * Non-static
-   */
-  private: char* mPointer;
-  private: uint32_t mSize;
-
-
   /* **************************************************************************************
    * Abstract method <Public>
    */
@@ -70,22 +64,22 @@ class mcuf::lang::String extends mcuf::lang::Object{
   /**
    * Construct.
    */
-  private: String(char* str, uint32_t size);
-
+  public: String(const char* str);
+  
   /**
-   * Construct.
+   * Construct
    */
-  public: String(const char* original);
-
+  public: String(mcuf::lang::Memory& memory);
+  
   /**
-   * Construct.
+   * Construct
    */
-  public: String(void);
+  public: String(mcuf::lang::Memory&& memory);
 
   /**
    * Destruct.
    */
-  public: ~String(void);
+  public: virtual ~String(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -104,16 +98,16 @@ class mcuf::lang::String extends mcuf::lang::Object{
    * 
    */
   public: static String format(const char* format, ...);
-
+  
   /**
-   * 
+   *
    */
-  public: static char* formatChar(const char* format, va_list arg);
-
+  public: static mcuf::lang::Memory formatMemory(const char* format, va_list arg);
+  
   /**
-   * 
+   *
    */
-  public: static char* formatChar(const char* format, ...);
+  public: static mcuf::lang::Memory formatMemory(const char* format, ...);
 
   /* **************************************************************************************
    * Public Method <Override>
@@ -142,16 +136,6 @@ class mcuf::lang::String extends mcuf::lang::Object{
   //  * 
   //  */
   // public: String& concat(String str); 
-
-  /**
-   * 
-   */
-  public: bool isConst(void);
-
-  /**
-   * 
-   */
-  public: uint32_t length(void);
 
   /**
    * 

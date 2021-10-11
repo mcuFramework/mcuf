@@ -20,6 +20,7 @@
  */  
 using mcuf::lang::String;
 using mcuf::lang::System;
+using mcuf::lang::Memory;
 using mcuf::Resources;
 
 /* ****************************************************************************************
@@ -34,40 +35,23 @@ char String::emptyString = 0x00;
 /**
  * Construct.
  */
-String::String(char* str, uint32_t size){
-  this->mPointer = str;
-  this->mSize = size;
+String::String(const char* str) construct Memory(str){
   return;
 }
 
 /**
  * Construct.
  */
-String::String(const char* original){
-  this->mPointer = (char*) original;
-  this->mSize = 0;
+String::String(Memory& memory) construct Memory(memory){
   return;
 }
 
 /**
  * Construct.
  */
-String::String(void){
-  this->mPointer = nullptr;
-  this->mSize = 0;
+String::String(Memory&& memory) construct Memory(memory){
   return;
 }
-
-/**
- * Destruct.
- */
-String::~String(void){
-  if(this->mSize != 0)
-    System::freePointer(this->mPointer, this->mSize);
-  
-  return;
-}
-
 
 /* ****************************************************************************************
  * Operator Method
@@ -84,7 +68,7 @@ String String::format(const char* format, va_list args){
   int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
   Memory memory = System::allocMemory(len);
   memory.copy((char*)Resources::stringMemroy, len);
-  return String((char*)memory.mPointer, memory.mLength);
+  return String(memory);
 }
 
 /**
@@ -92,35 +76,31 @@ String String::format(const char* format, va_list args){
  */
 String String::format(const char* format, ...){
   va_list args;
-  va_start (args, format);
-  int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
-  va_end (args);
-  Memory memory = System::allocMemory(len);
-  memory.copy((char*)Resources::stringMemroy, len);
-  return String((char*)memory.mPointer, memory.mLength);
+  va_start(args, format);
+  Memory memory = String::formatMemory(format, args);
+  va_end(args);
+  return String(memory);
 }
 
 /**
- * 
+ *
  */
-char* String::formatChar(const char* format, va_list args){
+Memory String::formatMemory(const char* format, va_list args){
   int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
   Memory memory = System::allocMemory(len);
   memory.copy((char*)Resources::stringMemroy, len);
-  return (char*)memory.pointer();
+  return memory;
 }
 
 /**
- * 
+ *
  */
-char* String::formatChar(const char* format, ...){
+Memory String::formatMemory(const char* format, ...){
   va_list args;
   va_start (args, format);
-  int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
+  Memory memory = String::formatMemory(format, args);
   va_end (args);
-  Memory memory = System::allocMemory(len);
-  memory.copy((char*)Resources::stringMemroy, len);
-  return (char*)memory.pointer();
+  return memory;
 }
  
 /* ****************************************************************************************
@@ -132,40 +112,13 @@ char* String::formatChar(const char* format, ...){
  */
 
 /**
- *
- */
-bool String::isConst(void){
-  if(this->mSize != 0)
-    return false;
-
-  if(this->mPointer == nullptr)
-    return false;
-  
-  return true;
-}
-
-/**
- * 
- */
-uint32_t String::length(void){
-  if(this->mSize == 0){
-    if(this->mPointer == nullptr)
-      return 0;
-    else
-      return strlen(this->mPointer);
-  }
-
-  return strlen(this->mPointer);
-}
-
-/**
  * 
  */
 const char* String::toPointer(void){
   if(this->mPointer == nullptr)
     return &String::emptyString;
 
-  return this->mPointer;
+  return static_cast<const char*>(this->mPointer);
 }
 
 

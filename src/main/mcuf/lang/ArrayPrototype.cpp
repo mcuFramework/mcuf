@@ -34,6 +34,15 @@ using mcuf::lang::Memory;
  * 
  */
 ArrayPrototype::ArrayPrototype(Memory& memory, uint32_t elementSize) construct Memory(&memory){
+  this->mElementSize = elementSize;
+  return;
+}
+
+/**
+ *
+ */
+ArrayPrototype::ArrayPrototype(void* pointer, uint32_t size, uint32_t elementSize) construct Memory(pointer, size){
+  this->mElementSize = elementSize;
   return;
 }
 

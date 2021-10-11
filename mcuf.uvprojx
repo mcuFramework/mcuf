@@ -707,16 +707,6 @@
               <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ConstByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.cpp</FilePath>
-            </File>
-            <File>
               <FileName>channel.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
@@ -730,16 +720,6 @@
               <FileName>CompletionHandler.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\CompletionHandler.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ConstByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -760,16 +740,6 @@
               <FileName>ArrayPrototype.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapMemory.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapMemory.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapMemory.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapMemory.hpp</FilePath>
             </File>
             <File>
               <FileName>Iterable.hpp</FileName>
@@ -1952,16 +1922,6 @@
               <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ConstByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.cpp</FilePath>
-            </File>
-            <File>
               <FileName>channel.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
@@ -1975,16 +1935,6 @@
               <FileName>CompletionHandler.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\CompletionHandler.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ConstByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -2005,16 +1955,6 @@
               <FileName>ArrayPrototype.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapMemory.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapMemory.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapMemory.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapMemory.hpp</FilePath>
             </File>
             <File>
               <FileName>Iterable.hpp</FileName>
@@ -3197,16 +3137,6 @@
               <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ConstByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.cpp</FilePath>
-            </File>
-            <File>
               <FileName>channel.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
@@ -3220,16 +3150,6 @@
               <FileName>CompletionHandler.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\CompletionHandler.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ConstByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3250,16 +3170,6 @@
               <FileName>ArrayPrototype.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapMemory.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapMemory.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapMemory.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapMemory.hpp</FilePath>
             </File>
             <File>
               <FileName>Iterable.hpp</FileName>
@@ -3789,7 +3699,7 @@
           <CreateLib>1</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>1</BrowseInformation>
+          <BrowseInformation>0</BrowseInformation>
           <ListingPath>.\.keil\Listings\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -4442,16 +4352,6 @@
               <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ConstByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.cpp</FilePath>
-            </File>
-            <File>
               <FileName>channel.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
@@ -4465,16 +4365,6 @@
               <FileName>CompletionHandler.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\CompletionHandler.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ConstByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -4495,16 +4385,6 @@
               <FileName>ArrayPrototype.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapMemory.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapMemory.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapMemory.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapMemory.hpp</FilePath>
             </File>
             <File>
               <FileName>Iterable.hpp</FileName>
@@ -5687,16 +5567,6 @@
               <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ConstByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.cpp</FilePath>
-            </File>
-            <File>
               <FileName>channel.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
@@ -5710,16 +5580,6 @@
               <FileName>CompletionHandler.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\CompletionHandler.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ConstByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -5740,16 +5600,6 @@
               <FileName>ArrayPrototype.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapMemory.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapMemory.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapMemory.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapMemory.hpp</FilePath>
             </File>
             <File>
               <FileName>Iterable.hpp</FileName>
@@ -6932,16 +6782,6 @@
               <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>ConstByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.cpp</FilePath>
-            </File>
-            <File>
               <FileName>channel.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
@@ -6955,16 +6795,6 @@
               <FileName>CompletionHandler.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\channel\CompletionHandler.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ConstByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ConstByteBuffer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapByteBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\HeapByteBuffer.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -6985,16 +6815,6 @@
               <FileName>ArrayPrototype.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapMemory.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapMemory.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapMemory.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\HeapMemory.hpp</FilePath>
             </File>
             <File>
               <FileName>Iterable.hpp</FileName>
