@@ -29,6 +29,10 @@ class mcuf::Resources{
   /* **************************************************************************************
    * Substruct
    */
+  struct Buffer{
+    void* const point;
+    const uint32_t size;
+  };
   
   /* **************************************************************************************
    * Subclass
@@ -38,45 +42,32 @@ class mcuf::Resources{
    * Variable <Public>
    */
   
-  /**
-   * System
-   */
-  public: static void* const systemStack;
-  public: static const uint32_t systemStackSize;
+  public: struct System{
+    Buffer stack;
+    Buffer string;
+  }static const system; 
   
-  public: static void* const stringMemroy;
-  public: static const uint32_t stringMemroySize;
+  public: struct Executor{
+    Buffer handle;
+    Buffer stack;
+    Buffer task;
+  }static const executor;
   
-  /**
-   * Executor
-   */
-  public: static void* const executorHandle;
-  public: static const uint32_t executorHandleSize;
+  public: struct Timer{
+    Buffer handle;
+    Buffer task;
+  }static const timer;
   
-  public: static void* const executorStack;
-  public: static const uint32_t executorStackSize;  
-  
-  public: static void* const executorTaskMemory;
-  public: static const uint32_t executorTaskMemorySize;
-  
-  /**
-   * Timer
-   */
-  public: static void* const timerHandle;
-  public: static const uint32_t timerHandleSize;
-  
-  public: static void* const timerTaskMemory;
-  public: static const uint32_t timerTaskMemorySize;
-  
-  /**
-   * Memory manager
-   */
-  public: static void* const memoryManagerHandle;
-  public: static const uint32_t memoryManagerHandleSize;
-  
-  public: static void* const memoryManagerBuffer;
-  public: static const uint32_t memoryManagerBufferSize;
-  
+  public: struct MemoryManager{
+    Buffer handle;
+    Buffer memory;
+    struct{
+      uint32_t pageSize;
+      uint32_t* subPageList;
+      uint32_t subPageListLength;
+    }config;
+
+  }static const memoryManager;
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -115,6 +106,19 @@ class mcuf::Resources{
   /* **************************************************************************************
    * Public Method <Static>
    */
+   
+  /**
+   *
+   */
+  public: static bool inline checkMemory(const Buffer& buffer, uint32_t size){
+    if(buffer.point == nullptr)
+      return false;
+    
+    if(buffer.size < 0)
+      return false;
+    
+    return true;
+  }
 
   /* **************************************************************************************
    * Public Method <Override>

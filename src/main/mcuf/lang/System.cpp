@@ -291,20 +291,14 @@ void System::entryPoint(void* attachment){
  *
  */
 void System::initMemoryManager(void){
-  if(Resources::memoryManagerHandle == nullptr)
+  if(Resources::checkMemory(Resources::memoryManager.handle, sizeof(MemoryManager)))
     return;
   
-  if(Resources::memoryManagerHandleSize < sizeof(MemoryManager))
+  if(Resources::checkMemory(Resources::memoryManager.memory, 16384))
     return;
   
-  if(Resources::memoryManagerBuffer == nullptr)
-    return;
-  
-  if(Resources::memoryManagerBufferSize < 16384)
-    return;
-  
-  Memory memory = Memory(Resources::memoryManagerBuffer, Resources::memoryManagerBufferSize);
-  System::mMemoryManager = new(Resources::memoryManagerHandle) MemoryManager(memory);
+  Memory memory = Memory(Resources::memoryManager.memory.point, Resources::memoryManager.memory.size);
+  System::mMemoryManager = new(Resources::memoryManager.handle.point) MemoryManager(memory);
   return;  
 }
 
@@ -324,15 +318,15 @@ void System::initThread(Thread& thread){
   if(System::mThread != nullptr)
     return;
   
-  if(Resources::systemStack == nullptr)
+  if(Resources::system.stack.point == nullptr)
     return;
   
-  if(Resources::systemStackSize < 256)
+  if(Resources::system.stack.size < 256)
     return;
   
   osKernelInitialize();
   
-  Memory stackMemory = Memory(Resources::systemStack, Resources::systemStackSize);
+  Memory stackMemory = Memory(Resources::system.stack.point, Resources::system.stack.size);
   
   if(!thread.start(stackMemory, Thread::PRIORITY_ABOVE_NORMAL, System::entryPoint)){
     THROW_ERROR("System thread start fail.");
@@ -347,20 +341,14 @@ void System::initThread(Thread& thread){
  *
  */
 void System::initTimer(void){
-  if(Resources::timerHandle == nullptr)
-    return;
+  if(Resources::checkMemory(Resources::timer.handle, sizeof(TimerManager)))
+    return;  
   
-  if(Resources::timerHandleSize < sizeof(TimerManager))
-    return;
+  if(Resources::checkMemory(Resources::timer.task, 64))
+    return;  
   
-  if(Resources::timerTaskMemory == nullptr)
-    return;
-  
-  if(Resources::timerTaskMemorySize < 64)
-    return;
-  
-  Memory taskMemory = Memory(Resources::timerTaskMemory, Resources::timerTaskMemorySize);
-  System::mTimerManager = new(Resources::timerHandle) TimerManager(taskMemory);
+  Memory taskMemory = Memory(Resources::timer.task.point, Resources::timer.task.size);
+  System::mTimerManager = new(Resources::timer.handle.point) TimerManager(taskMemory);
   
   if(!mTimerManager->start(5))
     THROW_ERROR("System timer start fail.");
@@ -372,28 +360,19 @@ void System::initTimer(void){
  *
  */
 void System::initExecutor(void){
-  if(Resources::executorHandle == nullptr)
+  if(Resources::checkMemory(Resources::executor.handle, sizeof(ExecutorManager)))
     return;
   
-  if(Resources::executorHandleSize < sizeof(ExecutorManager))
+  if(Resources::checkMemory(Resources::executor.stack, 256))
     return;
   
-  if(Resources::executorStack == nullptr)
+  if(Resources::checkMemory(Resources::executor.task, 64))
     return;
   
-  if(Resources::executorStackSize < 256)
-    return;
+  Memory stackMemory = Memory(Resources::executor.stack.point, Resources::executor.stack.size);
+  Memory taskMemory = Memory(Resources::executor.task.point, Resources::executor.task.size);
   
-  if(Resources::executorTaskMemory == nullptr)
-    return;
-  
-  if(Resources::executorTaskMemorySize < 64)
-    return;
-  
-  Memory stackMemory = Memory(Resources::executorStack, Resources::executorStackSize);
-  Memory taskMemory = Memory(Resources::executorTaskMemory, Resources::executorTaskMemorySize);
-  
-  System::mExecutorManager = new(Resources::executorHandle) ExecutorManager(taskMemory);
+  System::mExecutorManager = new(Resources::executor.handle.point) ExecutorManager(taskMemory);
   
   if(!System::mExecutorManager->mThreadEvent.start(stackMemory, Thread::PRIORITY_HIGH))
     THROW_ERROR("System executor start fail.");

@@ -13,44 +13,37 @@
 // <h>System
 // =======================
 
-//   <o>System stack size [Byte] <256-65536>
+//   <o>System stack size [byte] <256-65536>
 #ifndef MCUF_DEFINE_SYSTEM_THREAD_STACK_SIZE
 #define MCUF_DEFINE_SYSTEM_THREAD_STACK_SIZE 1024
 #endif
 
-//   <o>String format cache [Byte] <256-65536>
+//   <o>String format cache [byte] <256-65536>
 #ifndef MCUF_DEFINE_SYSTEM_STRING_SIZE
 #define MCUF_DEFINE_SYSTEM_STRING_SIZE 1024
 #endif
 
-//   <e>Executor
-//   <i> Enables Executor.
-#ifndef MCUF_DEFINE_EXECUTOR_ENABLE
-#define MCUF_DEFINE_EXECUTOR_ENABLE 1
-#endif
+//   <h>Executor
+// =======================
 
-//   <o>Stack size [Byte] <256-65536>
+//   <o>Stack size [byte] <256-65536>
 #ifndef MCUF_DEFINE_EXECUTOR_STACK_SIZE
 #define MCUF_DEFINE_EXECUTOR_STACK_SIZE 1024
 #endif
 
-//   <o>Task number [Byte] <16-65536>
+//   <o>Task number [byte] <16-65536>
 #ifndef MCUF_DEFINE_EXECUTOR_TASK_NUMBER
 #define MCUF_DEFINE_EXECUTOR_TASK_NUMBER 64
 #endif
-//   </e>
+//   </h>
 
-//   <e>Timer
-//   <i> Enables Timer.
-#ifndef MCUF_DEFINE_TIMER_ENABLE
-#define MCUF_DEFINE_TIMER_ENABLE 1
-#endif
+//   <h>Timer
 
-//   <o>Task number [Byte] <16-65536>
+//   <o>Task number [byte] <16-65536>
 #ifndef MCUF_DEFINE_TIMER_TASK_NUMBER
 #define MCUF_DEFINE_TIMER_TASK_NUMBER 64
 #endif
-//   </e>
+//   </h>
 
 
 // </h>
@@ -58,17 +51,23 @@
 // <h>Memory
 // =======================
 
-//   <e>MemoryManager
-//   <i> Enables MemoryManager.
-#ifndef MCUF_DEFINE_MEMORYMANAGER_ENABLE
-#define MCUF_DEFINE_MEMORYMANAGER_ENABLE 1
+//   <h>MemoryManager
+
+//   <o>Page size [byte]
+//   <512=> 512 <1024=> 1024 <2048=> 2048 <4096=> 4096 <8192=> 8192 <16384=> 16384 <32768=> 32768
+#ifndef MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE
+#define MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE 1024
 #endif
 
-//   <o>Size [kByte] <16-65536>
-#ifndef MCUF_DEFINE_MEMORYMANAGER_SIZE
-#define MCUF_DEFINE_MEMORYMANAGER_SIZE 16
+
+//   <o>Page quantity <16-65536>
+#ifndef MCUF_DEFINE_MEMORYMANAGER_PAGE_QUANTITY
+#define MCUF_DEFINE_MEMORYMANAGER_PAGE_QUANTITY 16
 #endif
-//   </e>
+
+
+
+//   </h>
 
 // </h>
 

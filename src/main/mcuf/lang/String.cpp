@@ -65,9 +65,9 @@ String::String(Memory&& memory) construct Memory(memory){
  * 
  */
 String String::format(const char* format, va_list args){
-  int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
+  int len = vsnprintf((char*)Resources::system.string.point, Resources::system.string.size, format, args);
   Memory memory = System::allocMemory(len);
-  memory.copy((char*)Resources::stringMemroy, len);
+  memory.copy((char*)Resources::system.string.point, len);
   return String(memory);
 }
 
@@ -86,9 +86,9 @@ String String::format(const char* format, ...){
  *
  */
 Memory String::formatMemory(const char* format, va_list args){
-  int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
+  int len = vsnprintf((char*)Resources::system.string.point, Resources::system.string.size, format, args);
   Memory memory = System::allocMemory(len);
-  memory.copy((char*)Resources::stringMemroy, len);
+  memory.copy((char*)Resources::system.string.point, len);
   return memory;
 }
 
