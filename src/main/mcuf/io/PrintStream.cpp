@@ -111,7 +111,7 @@ PrintStream& PrintStream::format(const char* format, ...){
 
   va_list args;
   va_start (args, format);
-  byteBuffer = new ByteBuffer(String::formatMemory(format, args));
+  byteBuffer = new ByteBuffer(String::format(format, args));
   va_end (args);  
 
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerHeap);
@@ -145,7 +145,7 @@ PrintStream& PrintStream::print(int i){
   if(this->outputStream == nullptr)
     return *this;
 
-  ByteBuffer* byteBuffer = new ByteBuffer(String::formatMemory("%d", i));
+  ByteBuffer* byteBuffer = new ByteBuffer(String::format("%d", i));
 
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerHeap);
   return *this;
@@ -160,7 +160,7 @@ PrintStream& PrintStream::print(const char* string){
 
   ByteBuffer* byteBuffer;
   
-  byteBuffer = new ByteBuffer(Memory(string));
+  byteBuffer = new ByteBuffer(Memory(string, strlen(string)));
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerConst);
 
   return *this;
@@ -192,7 +192,7 @@ PrintStream& PrintStream::println(int i){
   if(this->outputStream == nullptr)
     return *this;
 
-  ByteBuffer* byteBuffer = new ByteBuffer(String::formatMemory("%d\n", i));
+  ByteBuffer* byteBuffer = new ByteBuffer(String::format("%d\n", i));
   
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerHeap);
   return *this;
@@ -207,10 +207,10 @@ PrintStream& PrintStream::println(const char* string){
 
   ByteBuffer* byteBuffer;
   
-  byteBuffer = new ByteBuffer(string);
+  byteBuffer = new ByteBuffer(Memory(string, strlen(string)));
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerConst);
 
-  byteBuffer = new ByteBuffer(PrintStream::textNextLine);
+  byteBuffer = new ByteBuffer(Memory(PrintStream::textNextLine, strlen(PrintStream::textNextLine)));
   this->outputStream->write(byteBuffer, byteBuffer, &this->completionHandlerConst);
 
   return *this;

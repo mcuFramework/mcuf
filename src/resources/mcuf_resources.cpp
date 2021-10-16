@@ -48,6 +48,28 @@ namespace mcuf{
       uint64_t memory[HOW_U64(MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE * MCUF_DEFINE_MEMORYMANAGER_PAGE_QUANTITY)];
     }memoryManager;    
   }static resourcesMemory;
+  
+  struct ResourcesMemoryConfig{
+    #if (MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE == 512)
+    uint32_t blockList[];
+    #elif (MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE == 1024)
+    
+    #elif (MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE == 2048)
+    
+    #elif (MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE == 4096)
+    
+    #elif (MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE == 8192)
+    
+    #elif (MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE == 16384)
+    
+    #elif (MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE == 32768)
+    
+    #endif
+    
+  }const static resourcesMemoryConfig = {
+  
+    
+  };
 }
 
 /* ****************************************************************************************
@@ -80,6 +102,10 @@ const Resources::Timer Resources::timer = {
 const Resources::MemoryManager Resources::memoryManager = {
   MEMORY(memoryManager.handle),
   MEMORY(memoryManager.memory),
+  {
+    MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE,
+    
+  }
 };
 
 

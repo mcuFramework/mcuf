@@ -39,7 +39,6 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Variable <Public>
    */
-  public: static char emptyString;
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -60,6 +59,11 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Construct Method
    */
+
+  /**
+   *
+   */
+  private: String(uint32_t size);
 
   /**
    * Construct.
@@ -98,16 +102,6 @@ class mcuf::lang::String extends mcuf::lang::Memory{
    * 
    */
   public: static String format(const char* format, ...);
-  
-  /**
-   *
-   */
-  public: static mcuf::lang::Memory formatMemory(const char* format, va_list arg);
-  
-  /**
-   *
-   */
-  public: static mcuf::lang::Memory formatMemory(const char* format, ...);
 
   /* **************************************************************************************
    * Public Method <Override>
@@ -137,10 +131,6 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   //  */
   // public: String& concat(String str); 
 
-  /**
-   * 
-   */
-  public: const char* toPointer(void);
 
   /* **************************************************************************************
    * Protected Method <Static>

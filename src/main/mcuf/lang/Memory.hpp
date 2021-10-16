@@ -41,9 +41,9 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /* **************************************************************************************
    * Enum Flag
    */
-  private: enum MemoryFlag{
-    MEMORY_FLAG_HEAP_MEMORY = 0x00000001,
-    MEMORY_FLAG_CONST       = 0x00000002,
+  protected: enum MemoryFlag{
+    MEMORY_FLAG_HEAP_MEMORY = (0x1<<0U),
+    MEMORY_FLAG_CONST       = (0x1<<1U),
     MEMORY_FLAG_RESERVED    = 0xFFFFFFFF  ///< Prevents enum down-size compiler optimization.
   };
   
@@ -60,6 +60,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    */
   protected: uint32_t mFlag;
   protected: uint32_t mLength;
+  protected: Memory* mReference;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -81,13 +82,13 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
 
   /**
    * 
-   */  
-  public: Memory(const char* pointer);
+   */
+  public: Memory(const Memory& memory);
 
   /**
-   * 
-   */  
-  public: Memory(const void* pointer, size_t length);
+   *
+   */
+  public: Memory(const void* pointer, uint32_t length);
 
   /**
    * 
@@ -97,12 +98,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /**
    *
    */
-  public: Memory(Memory* memory);
-  
-  /**
-   *
-   */
-  public: Memory(size_t size);
+  public: Memory(uint32_t size);
   
   /**
    * 
@@ -173,11 +169,6 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * @return copy of number.
    */
   public: Memory& copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length);
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Pointer& getPointer(void);
 
   /**
    *

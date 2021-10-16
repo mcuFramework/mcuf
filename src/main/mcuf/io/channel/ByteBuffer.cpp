@@ -36,14 +36,18 @@ ByteBuffer::ByteBuffer(Memory&& memory) construct Memory(memory){
 /**
  * 
  */
-ByteBuffer::ByteBuffer(Memory& memory) construct ByteBuffer(&memory){
+ByteBuffer::ByteBuffer(Memory& memory) construct Memory(memory){
+  this->mLimit = this->mLength;
+  this->mPosition = 0;
+  this->mMark = 0;  
   return;
 }
 
 /**
  *
  */
-ByteBuffer::ByteBuffer(size_t size) construct ByteBuffer(System::allocMemory(size)){
+ByteBuffer::ByteBuffer(uint32_t size) construct Memory(size){
+  
   return;
 }
 
@@ -74,7 +78,7 @@ uint8_t* ByteBuffer::lowerArray(void){
  * 
  */
 uint8_t* ByteBuffer::lowerArray(uint32_t offset){
-  if(offset >= this->mCapacity)
+  if(offset >= this->mLength)
     return nullptr;
   
   return &static_cast<uint8_t*>(this->mPointer)[offset];
@@ -93,8 +97,8 @@ uint32_t ByteBuffer::limit(void){
 ByteBuffer& ByteBuffer::limit(uint32_t newLimit){
   this->mLimit = newLimit;
   
-  if(this->mLimit >= this->mCapacity)
-    this->mLimit = this->mCapacity;
+  if(this->mLimit >= this->mLength)
+    this->mLimit = this->mLength;
   
   return *this;
 }
@@ -103,7 +107,7 @@ ByteBuffer& ByteBuffer::limit(uint32_t newLimit){
  * 
  */
 uint32_t ByteBuffer::capacity(void){
-  return this->mCapacity;
+  return this->mLength;
 }
 
 /**
@@ -136,7 +140,7 @@ bool ByteBuffer::readOnly(void){
  */
 ByteBuffer& ByteBuffer::reset(void){
   this->mPosition = 0;
-  this->mLimit = this->mCapacity;
+  this->mLimit = this->mLength;
   return *this;
 }
 

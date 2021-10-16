@@ -48,7 +48,6 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   private: uint16_t mMark;
   private: uint16_t mLimit;
   private: uint16_t mPosition;
-  private: uint16_t mCapacity;
 
   /* **************************************************************************************
    *  Abstract method <Public>
@@ -75,7 +74,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   /**
    *
    */
-  public: ByteBuffer(size_t size);
+  public: ByteBuffer(uint32_t size);
   
   /**
    * 

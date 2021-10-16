@@ -12,7 +12,10 @@
 #include <string.h>
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/lang/Math.hpp"
+#include "mcuf/lang/Memory.hpp"
+#include "mcuf/lang/Pointer.hpp"
+#include "mcuf/lang/System.hpp"
 
 /* ****************************************************************************************
  * Using
@@ -30,23 +33,29 @@ using mcuf::lang::Pointer;
  */
 Memory::Memory(void){
   this->mFlag = 0x00000000;
+  this->mReference = this;
   return;
 }
 
 /**
  *
  */
-Memory::Memory(const char* pointer) construct Memory(pointer, strlen(pointer)){
-  return;
+Memory::Memory(const Memory& memory){
+  *this = memory;
+  if(!(this->mFlag & this->MEMORY_FLAG_HEAP_MEMORY))
+    return;
+  
+  this->mReference->mReference = this;
 }
 
 /**
- *
+ * 
  */
 Memory::Memory(const void* pointer, uint32_t length) construct Memory(){
   this->mPointer = const_cast<void*>(pointer);
   this->mLength = length;
   this->mFlag |= this->MEMORY_FLAG_CONST;
+  return;
 }
 
 /**
@@ -59,17 +68,9 @@ Memory::Memory(void* pointer, uint32_t length) construct Memory(){
 }
 
 /**
- * 
- */
-Memory::Memory(Memory* memory){
-  *this = memory;
-  return;
-}
-
-/**
  *
  */
-Memory::Memory(size_t size) construct Memory(System::allocMemory(size)){
+Memory::Memory(uint32_t size) construct Memory(System::allocMemory(size)){
   this->mFlag |= this->MEMORY_FLAG_HEAP_MEMORY;
   return;
 }
@@ -78,8 +79,25 @@ Memory::Memory(size_t size) construct Memory(System::allocMemory(size)){
  *
  */
 Memory::~Memory(void){
-  if(this->mFlag & this->MEMORY_FLAG_HEAP_MEMORY)
+  if(!(this->mFlag & this->MEMORY_FLAG_HEAP_MEMORY))
+    return;
+  
+  if(this->mReference == this){
     System::freeMemory(*this);
+    return;
+  }
+  
+  Memory* link = this;
+  
+  //remove this in reference link
+  while(true){
+    if(link->mReference == this){
+      link->mReference = this->mReference;
+      break;
+    }
+    link = link->mReference;
+  }
+  return;
 }
 
 /* ****************************************************************************************
@@ -198,13 +216,6 @@ Memory& Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint3
   if(!(this->mFlag & this->MEMORY_FLAG_CONST))
     this->copy(sourec.mPointer, shift, start, length);
   
-  return *this;
-}
-
-/**
- * 
- */
-mcuf::lang::Pointer& Memory::getPointer(void){
   return *this;
 }
 
