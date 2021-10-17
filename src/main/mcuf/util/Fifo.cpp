@@ -27,11 +27,10 @@ using mcuf::util::Fifo;
 /**
  * 
  */
-Fifo::Fifo(void* memory, uint32_t size, uint32_t elementSize) :
-      mMemory(memory, size){
+Fifo::Fifo(uint32_t elementSize, uint32_t count) construct Memory(elementSize * count){
 
   this->mElementSize = elementSize;
-  this->mLength = (size / elementSize);
+  this->mLength = count;
   this->mHead = 0;
   this->mTail = 0;
   this->mEmpty = true;
@@ -41,9 +40,7 @@ Fifo::Fifo(void* memory, uint32_t size, uint32_t elementSize) :
 /**
  * 
  */
-Fifo::Fifo(Memory& memory, uint32_t elementSize) :
-      mMemory(memory){
-  
+Fifo::Fifo(Memory& memory, uint32_t elementSize) construct Memory(memory){
   this->mElementSize = elementSize;
   this->mLength = (memory.length() / elementSize);
   this->mHead = 0;
@@ -85,7 +82,7 @@ void Fifo::forEach(Consumer<Memory>& action){
     if(i>=this->mLength)
       i=0;
 
-    Memory memory = this->mMemory.subMemory((this->mElementSize * i), this->mElementSize);
+    Memory memory = this->subMemory((this->mElementSize * i), this->mElementSize);
     action.accept(memory);
   }
 }
@@ -136,7 +133,7 @@ void* Fifo::getHeadPointer(void){
   if(this->mEmpty)
     return nullptr;
   
-  return mMemory.pointer(this->mHead * this->mElementSize);
+  return this->pointer(this->mHead * this->mElementSize);
 }
 
 /**
@@ -157,7 +154,7 @@ void* Fifo::getTailPointer(void){
   if(this->mEmpty)
     return nullptr;
   
-  return mMemory.pointer(this->mTail * this->mElementSize);
+  return this->pointer(this->mTail * this->mElementSize);
 }
   
 /**
@@ -175,7 +172,7 @@ bool Fifo::insertHead(void* pointer){
     return false;
 
   this->mEmpty = false;
-  mMemory.copy(pointer, (this->mElementSize * this->mHead), 0, this->mElementSize);
+  this->copy(pointer, (this->mElementSize * this->mHead), 0, this->mElementSize);
   
   ++this->mHead;
   if(this->mHead >= this->mLength)
@@ -213,7 +210,7 @@ bool Fifo::popTail(void* pointer){
     return false;
   
   Pointer p = pointer;
-  p.copy(mMemory.pointer(this->mElementSize * this->mTail), 0, 0, this->mElementSize);
+  p.copy(this->pointer(this->mElementSize * this->mTail), 0, 0, this->mElementSize);
 
   ++this->mTail;
   if(this->mTail >= this->mLength)

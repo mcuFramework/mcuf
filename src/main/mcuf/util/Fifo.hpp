@@ -26,7 +26,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Object
  */  
-class mcuf::util::Fifo extends mcuf::lang::Object 
+class mcuf::util::Fifo extends mcuf::lang::Memory 
       implements mcuf::util::Collection<mcuf::lang::Memory>{
 
   /* **************************************************************************************
@@ -40,7 +40,6 @@ class mcuf::util::Fifo extends mcuf::lang::Object
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: mcuf::lang::Memory mMemory;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -66,7 +65,7 @@ class mcuf::util::Fifo extends mcuf::lang::Object
   /**
    * Construct.
    */
-  public: Fifo(void* memory, uint32_t size, uint32_t elementSize);
+  public: Fifo(uint32_t elementSize, uint32_t count);
 
   /**
    * Construct.

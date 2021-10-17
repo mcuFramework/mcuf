@@ -12,7 +12,10 @@
 #include <string.h>
 //-----------------------------------------------------------------------------------------
 #include "cmsis_rtos/rtx_os.h"
-#include "mcuf.h"
+#include "mcuf_base.h"
+#include "mcuf_macro.h"
+#include "mcuf/lang/System.hpp"
+#include "mcuf/lang/Thread.hpp"
 
 /* ****************************************************************************************
  * Macro

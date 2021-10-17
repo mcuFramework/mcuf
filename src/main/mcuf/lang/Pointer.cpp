@@ -12,7 +12,7 @@
 #include <string.h>
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/lang/Pointer.hpp"
 
 /* ****************************************************************************************
  * Using
@@ -52,12 +52,17 @@ Pointer::Pointer(uint32_t pointer){
  */
 
 /**
- * Operator equal
+ * 
  */
-void* Pointer::operator=(void* pointer){
-  this->mPointer = (uint8_t*)pointer;
-
-  return this->mPointer;
+bool Pointer::operator==(const void* pointer){
+  return (this->mPointer == pointer);
+}
+  
+/**
+ * 
+ */
+bool Pointer::operator==(const Pointer& pointer){
+  return (this->mPointer == pointer.mPointer);
 }
 
 /* ****************************************************************************************

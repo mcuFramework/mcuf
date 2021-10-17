@@ -88,7 +88,12 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
   /**
    * Operator equal
    */
-  public: void* operator=(void* pointer);
+  public: bool operator==(const void* pointer);
+  
+  /**
+   * Operator equal
+   */
+  public: bool operator==(const Pointer& pointer);  
 
   /* **************************************************************************************
    * Public Method <Static>

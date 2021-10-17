@@ -1027,36 +1027,6 @@
               <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
             </File>
             <File>
-              <FileName>HeapBlockPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapBlockPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapBlockPool.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapFifo.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapFifo.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapFifo.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapFifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapVectorBlockPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapVectorBlockPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Map.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
@@ -2240,36 +2210,6 @@
               <FileName>Fifo.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapBlockPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapBlockPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapBlockPool.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapFifo.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapFifo.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapFifo.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapFifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapVectorBlockPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapVectorBlockPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.hpp</FilePath>
             </File>
             <File>
               <FileName>Map.hpp</FileName>
@@ -3457,36 +3397,6 @@
               <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
             </File>
             <File>
-              <FileName>HeapBlockPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapBlockPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapBlockPool.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapFifo.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapFifo.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapFifo.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapFifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapVectorBlockPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapVectorBlockPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Map.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
@@ -4672,36 +4582,6 @@
               <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
             </File>
             <File>
-              <FileName>HeapBlockPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapBlockPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapBlockPool.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapFifo.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapFifo.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapFifo.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapFifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapVectorBlockPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapVectorBlockPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Map.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
@@ -5834,36 +5714,6 @@
               <FileName>Fifo.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapBlockPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapBlockPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapBlockPool.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapFifo.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapFifo.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapFifo.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapFifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapVectorBlockPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapVectorBlockPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.hpp</FilePath>
             </File>
             <File>
               <FileName>Map.hpp</FileName>
@@ -7049,36 +6899,6 @@
               <FileName>Fifo.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapBlockPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapBlockPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapBlockPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapBlockPool.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapFifo.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapFifo.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapFifo.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapFifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapVectorBlockPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>HeapVectorBlockPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\HeapVectorBlockPool.hpp</FilePath>
             </File>
             <File>
               <FileName>Map.hpp</FileName>
