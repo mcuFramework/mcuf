@@ -31,7 +31,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class BlockPool
  */  
-class mcuf::util::BlockPool extends mcuf::lang::Object
+class mcuf::util::BlockPool extends mcuf::lang::Memory
       implements mcuf::util::Pool{
   
   /* **************************************************************************************
@@ -45,8 +45,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Object
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: uint8_t* mFlags;
-  protected: uint8_t* mPointer;
+  protected: mcuf::lang::Memory mMemoryFlag;
   protected: uint32_t mCapacity;
   protected: uint32_t mElementSize;
   protected: uint32_t mSize;
@@ -69,19 +68,19 @@ class mcuf::util::BlockPool extends mcuf::lang::Object
    */
 
   /**
-   * Construct.
+   *  
    */
-  protected: BlockPool(void* flag, void* pointer, uint32_t elementSize, uint32_t capacity);
+  public: BlockPool(uint32_t pageSize, uint32_t elementSize);
 
   /**
    * Construct.
    */
-  public: BlockPool(mcuf::lang::Memory& flags, mcuf::lang::Memory& memory, uint32_t elementSize);
+  public: BlockPool(mcuf::lang::Memory& flag, mcuf::lang::Memory& page, uint32_t elementSize);
 
   /**
    * Construct.
    */
-  public: BlockPool(mcuf::lang::Memory& memory, uint32_t elementSize);
+  public: BlockPool(mcuf::lang::Memory& page, uint32_t elementSize);
   
   /**
    * Destruct.

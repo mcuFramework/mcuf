@@ -11,7 +11,10 @@
 
 #include <string.h>
 //-----------------------------------------------------------------------------------------
+#ifndef MCUF_CMSISRTOS2_DISABLE
 #include "cmsis_rtos/rtx_os.h"
+#endif
+
 #include "mcuf_base.h"
 #include "mcuf_macro.h"
 #include "mcuf/lang/System.hpp"
@@ -54,7 +57,9 @@ Thread::Thread(void){
 Thread::Thread(const char* name){
   memset(this->mThreadMemory, 0x00, sizeof(this->mThreadMemory));
   this->mThreadID = nullptr;
+  #ifndef MCUF_CMSISRTOS2_DISABLE
   GET_MEMORY()->name = name;
+  #endif
 }
 
 /**
@@ -82,7 +87,11 @@ Thread::~Thread(void){
  *
  */
 const char* Thread::getName(void){
+#ifndef MCUF_CMSISRTOS2_DISABLE
   return GET_MEMORY()->name;
+#else
+  return nullptr;
+#endif
 }
 
 /**

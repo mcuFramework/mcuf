@@ -34,6 +34,7 @@ using mcuf::lang::Pointer;
 Memory::Memory(void){
   this->mFlag = 0x00000000;
   this->mReference = this;
+  this->mPointer = nullptr;
   return;
 }
 

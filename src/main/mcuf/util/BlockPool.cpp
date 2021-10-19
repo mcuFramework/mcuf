@@ -15,6 +15,7 @@
 /* ****************************************************************************************
  * Using
  */  
+using mcuf::lang::Math;
 using mcuf::util::BlockPool;
 using mcuf::lang::Memory;
 using mcuf::function::Consumer;
@@ -24,22 +25,28 @@ using mcuf::function::Consumer;
  */
 
 /**
- * 
+ *
  */
-BlockPool::BlockPool(void* flag, void* pointer, uint32_t elementSize, uint32_t capacity){
-  this->init(flag, pointer, elementSize, capacity);
-  return;
+BlockPool::BlockPool(uint32_t pageSize, uint32_t elementSize) construct Memory(pageSize), mMemoryFlag(){
+  this->mElementSize = elementSize;
+  uint32_t capacity = this->mLength / elementSize;
+  uint32_t flagRequestSize = Math::ceil(capacity, 8U);
+  uint32_t remainSize = (this->mLength % elementSize);
+  
+  
+  this->mMemoryFlag.~Memory();
+  
 }
 
 /**
  * 
  */
-BlockPool::BlockPool(Memory& flags, Memory& memory, uint32_t elementSize){    
-  uint32_t capacity = (memory.length() / elementSize);
-  if(capacity >= (flags.length() << 3))
-    this->mCapacity = (flags.length() << 3);
+BlockPool::BlockPool(Memory& flag, Memory& page, uint32_t elementSize) construct Memory(page), mMemoryFlag(flag){    
+  uint32_t capacity = (page.length() / elementSize);
+  if(capacity >= (this->mMemoryFlag.length() << 3))
+    this->mCapacity = (this->mMemoryFlag.length() << 3);
     
-  this->init(flags.pointer(), memory.pointer(), elementSize, capacity);
+  this->init(this->mMemoryFlag.pointer(), this->pointer(), elementSize, capacity);
   return;
 }
 
@@ -211,6 +218,13 @@ void BlockPool::init(void* flag, void* pointer, uint32_t elementSize, uint32_t c
 /**
  *
  */
+Memory BlockPool::initFlagMemory(void){
+
+}
+
+/**
+ *
+ */
 void BlockPool::flagFormat(void){
   uint32_t size = (this->mCapacity >> 3);
   if(this->mCapacity & 0x00000007)
@@ -341,6 +355,8 @@ uint32_t BlockPool::getBlockShift(void* block){
   else
     return shift;
 }
+
+
 
 /* ****************************************************************************************
  * End of file

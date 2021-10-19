@@ -12,7 +12,9 @@
 #include <stdlib.h>
 
 //-----------------------------------------------------------------------------------------
+#ifndef MCUF_CMSISRTOS2_DISABLE
 #include "cmsis_rtos/rtx_os.h"
+#endif
 #include "mcuf.h"
 
 /* ****************************************************************************************
@@ -226,8 +228,10 @@ void System::info(const char* path, const char* message){
 bool System::start(Thread& thread, OutputStream* outputStream){
   System::initPrintStream(outputStream);
   System::initMemoryManager();
+#ifndef MCUF_CMSISRTOS2_DISABLE
   System::initThread(thread);
   osKernelStart();
+#endif
   return true;
 }
 
@@ -324,7 +328,9 @@ void System::initThread(Thread& thread){
   if(Resources::system.stack.size < 256)
     return;
   
+#ifndef MCUF_CMSISRTOS2_DISABLE  
   osKernelInitialize();
+#endif
   
   Memory stackMemory = Memory(Resources::system.stack.point, Resources::system.stack.size);
   

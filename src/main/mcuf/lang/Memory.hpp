@@ -78,7 +78,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * Construct Method
    */
 
-  private: Memory(void);
+  public: Memory(void);
 
   /**
    * 
