@@ -13,9 +13,9 @@
  */  
 #include "mcuf_base.h"
 #include "mcuf\hal\Base.hpp"
+#include "mcuf\hal\SerialPortEvent.hpp"
 #include "mcuf\function\Consumer.hpp"
 #include "mcuf\io\channel\ByteBuffer.hpp"
-#include "mcuf\lang\Pointer.hpp"
 
 
 
@@ -89,13 +89,13 @@ interface mcuf::hal::SerialPort implement mcuf::hal::Base{
    * 
    */
   virtual bool read(mcuf::io::channel::ByteBuffer& byteBuffer, 
-                            mcuf::function::Consumer<mcuf::io::channel::ByteBuffer&>* consumer) abstract;
+                    mcuf::hal::SerialPortEvent* event) abstract;
 
   /**
    * 
    */
   virtual bool write(mcuf::io::channel::ByteBuffer& byteBuffer, 
-                             mcuf::function::Consumer<mcuf::io::channel::ByteBuffer&>* consumer) abstract;
+                     mcuf::hal::SerialPortEvent* event) abstract;
   
   /* **************************************************************************************
    * Abstract method <Protected>

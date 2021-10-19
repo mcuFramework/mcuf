@@ -86,7 +86,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Object
   /**
    * Destruct.
    */
-  public: virtual ~BlockPool() = default;
+  public: virtual ~BlockPool(void) = default;
   
   /* **************************************************************************************
    * Operator Method
