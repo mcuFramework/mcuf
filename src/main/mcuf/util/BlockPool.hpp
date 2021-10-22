@@ -13,6 +13,7 @@
  */  
 #include "mcuf_base.h"
 #include "mcuf/util/Pool.hpp"
+#include "mcuf/lang/Linked.hpp"
 #include "mcuf/lang/Memory.hpp"
 
 
@@ -32,7 +33,7 @@ namespace mcuf{
  * Class BlockPool
  */  
 class mcuf::util::BlockPool extends mcuf::lang::Memory
-      implements mcuf::util::Pool{
+      implements mcuf::util::Pool, mcuf::lang::Linked<BlockPool>{
   
   /* **************************************************************************************
    * Subclass
