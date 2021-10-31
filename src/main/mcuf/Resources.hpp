@@ -62,9 +62,9 @@ class mcuf::Resources{
     Buffer handle;
     Buffer memory;
     struct{
-      uint32_t pageSize;
-      uint32_t* subPageList;
-      uint32_t subPageListLength;
+      const uint32_t pageSize;
+      const uint32_t* subPageList;
+      const uint32_t subPageListLength;
     }config;
 
   }static const memoryManager;

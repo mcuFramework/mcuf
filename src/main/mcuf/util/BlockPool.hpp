@@ -50,6 +50,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory
   protected: uint32_t mElementSize;
   protected: uint32_t mSize;
   protected: uint32_t mLastFlag;
+  protected: uint8_t* mFlags;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -75,7 +76,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory
   /**
    * Construct.
    */
-  public: BlockPool(mcuf::lang::Memory& flag, mcuf::lang::Memory& page, uint32_t elementSize);
+  public: BlockPool(mcuf::lang::Memory& page, uint32_t elementSize, mcuf::lang::Memory& flag);
 
   /**
    * Construct.
@@ -206,17 +207,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory
   /**
    * 
    */
-  private: void init(void* flag, void* pointer, uint32_t elementSize, uint32_t capacity);
-
-  /**
-   *
-   */
-  private: void flagFormat(void);
-  
-  /**
-   * 
-   */
-  private: uint32_t getFixedSize(uint32_t capacity, uint32_t elementSize);
+  private: void init(uint32_t elementSize);
   
   /**
    *

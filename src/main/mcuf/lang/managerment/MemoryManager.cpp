@@ -15,7 +15,7 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::util::VectorBlockPool;
+using mcuf::util::LinkedBlockPool;
 using mcuf::lang::Math;
 using mcuf::lang::Memory;
 using mcuf::lang::managerment::MemoryManager;
@@ -223,7 +223,7 @@ Memory MemoryManager::allocEntityBlockMemory(void){
     return result;
 
   Memory memory = this->allocFloor(this->BASE_BLOCK_SIZE);
-  size_t size = sizeof(VectorBlockPool);
+  size_t size = sizeof(LinkedBlockPool);
 
   if(memory.isEmpty())
     return result;
@@ -242,7 +242,7 @@ Memory MemoryManager::allocEntityBlockMemory(void){
     bytes = (bytes & ~0x00000003) + 4;
 
   if(bytes > size){
-    this->entityPool->addLinked(new(result.pointer()) VectorBlockPool(memory, size));
+    this->entityPool->addLinked(new(result.pointer()) LinkedBlockPool(memory, size));
   }else{
     Memory flag = Memory::nullMemory();
     if((this->BASE_BLOCK_SIZE % size) < bytes)
@@ -250,10 +250,10 @@ Memory MemoryManager::allocEntityBlockMemory(void){
 
 
     if(flag.isEmpty())
-      this->entityPool->addLinked(new(result.pointer()) VectorBlockPool(memory, size));
+      this->entityPool->addLinked(new(result.pointer()) LinkedBlockPool(memory, size));
 
     else
-      this->entityPool->addLinked(new(result.pointer()) VectorBlockPool(flag, memory, size));
+      this->entityPool->addLinked(new(result.pointer()) LinkedBlockPool(memory, size, flag));
   }
     
   return this->entityPool->allocMemory();
@@ -262,7 +262,7 @@ Memory MemoryManager::allocEntityBlockMemory(void){
 /**
  * 
  */
-VectorBlockPool* MemoryManager::constructVectorBlockPool(Memory& memory, uint16_t blockShift){
+LinkedBlockPool* MemoryManager::constructLinkedBlockPool(Memory& memory, uint16_t blockShift){
   if(memory.isEmpty())
     return nullptr;
 
@@ -283,16 +283,16 @@ VectorBlockPool* MemoryManager::constructVectorBlockPool(Memory& memory, uint16_
     bytes = (bytes & ~0x00000003) + 4;
 
   if(bytes > size)
-    return new(base.pointer()) VectorBlockPool(memory, size);
+    return new(base.pointer()) LinkedBlockPool(memory, size);
 
   if((this->BASE_BLOCK_SIZE % size) < bytes)
     flag = this->allocCeil(bytes);
 
   if(flag.isEmpty())
-    return new(base.pointer()) VectorBlockPool(memory, size);
+    return new(base.pointer()) LinkedBlockPool(memory, size);
 
   else
-    return new(base.pointer()) VectorBlockPool(flag, memory, size);
+    return new(base.pointer()) LinkedBlockPool(memory, size, flag);
 }
 
 /**
@@ -308,7 +308,7 @@ bool MemoryManager::expansionBlock(uint16_t blockShift){
     return false;
   }
 
-  VectorBlockPool* result = this->constructVectorBlockPool(memory, blockShift);
+  LinkedBlockPool* result = this->constructLinkedBlockPool(memory, blockShift);
   if(result == nullptr){
     this->freeMemory(memory);
     return false;
@@ -337,12 +337,12 @@ int MemoryManager::foundBlockShift(size_t size){
 void MemoryManager::initBlocks(Memory& baseMemory){
   for(int i=0; i<this->NUMBER_OF_BLOCK_QUANTITY-1; i++){
     Memory memory = baseMemory.subMemory((this->BASE_BLOCK_SIZE * i), this->BASE_BLOCK_SIZE);
-    this->blocks[i] = this->constructVectorBlockPool(memory, i);
+    this->blocks[i] = this->constructLinkedBlockPool(memory, i);
   }
 
   int i = NUMBER_OF_BLOCK_QUANTITY-1;
   Memory memory = baseMemory.subMemory((this->BASE_BLOCK_SIZE * i));
-  this->blocks[i] = this->constructVectorBlockPool(memory, i);
+  this->blocks[i] = this->constructLinkedBlockPool(memory, i);
 }
 
 /**
@@ -351,7 +351,7 @@ void MemoryManager::initBlocks(Memory& baseMemory){
 void MemoryManager::initEntityPool(void){
   Memory entityMemory = Memory(this->handleMemory.m, sizeof(this->handleMemory.m));
   Memory entityFlag = Memory(this->handleMemory.f, sizeof(this->handleMemory.f));
-  this->entityPool = new(this->handleMemory.entity) VectorBlockPool(entityFlag, entityMemory, sizeof(VectorBlockPool));
+  this->entityPool = new(this->handleMemory.entity) LinkedBlockPool(entityMemory, sizeof(LinkedBlockPool), entityFlag);
 }
 
 /* ****************************************************************************************

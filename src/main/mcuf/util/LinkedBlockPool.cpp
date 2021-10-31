@@ -18,7 +18,7 @@
 using mcuf::lang::Memory;
 using mcuf::lang::Linked;
 using mcuf::lang::LinkedEntity;
-using mcuf::util::VectorBlockPool;
+using mcuf::util::LinkedBlockPool;
 using mcuf::function::Consumer;
  
 /* ****************************************************************************************
@@ -32,8 +32,8 @@ using mcuf::function::Consumer;
 /**
  * 
  */
-VectorBlockPool::VectorBlockPool(void* flag, void* pointer, uint32_t elementSize, uint32_t capacity) :
-                 BlockPool(flag, pointer, elementSize, capacity),
+LinkedBlockPool::LinkedBlockPool(uint32_t pageSize, uint32_t elementSize) construct
+                 BlockPool(pageSize, elementSize),
                  mLinkedEntity(this){
   
   return;
@@ -42,8 +42,8 @@ VectorBlockPool::VectorBlockPool(void* flag, void* pointer, uint32_t elementSize
  * 
  */
 
-VectorBlockPool::VectorBlockPool(Memory flags, Memory memory, uint32_t elementSize) : 
-                 BlockPool(flags, memory, elementSize),
+LinkedBlockPool::LinkedBlockPool(Memory& page, uint32_t elementSize, Memory& flag) construct
+                 BlockPool(page, elementSize, flag),
                  mLinkedEntity(this){
   
   return;
@@ -52,8 +52,8 @@ VectorBlockPool::VectorBlockPool(Memory flags, Memory memory, uint32_t elementSi
 /**
  * 
  */
-VectorBlockPool::VectorBlockPool(Memory memory, uint32_t elementSize) :
-                 BlockPool(memory, elementSize),
+LinkedBlockPool::LinkedBlockPool(Memory& page, uint32_t elementSize) construct
+                 BlockPool(page, elementSize),
                  mLinkedEntity(this){
   
   return;
@@ -64,13 +64,13 @@ VectorBlockPool::VectorBlockPool(Memory memory, uint32_t elementSize) :
  */
  
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::lang::Linked<VectorBlockPool>
+ * Public Method <Override> - mcuf::lang::Linked<LinkedBlockPool>
  */
 
 /**
  * 
  */
-void VectorBlockPool::addLinked(VectorBlockPool* e){
+void LinkedBlockPool::addLinked(LinkedBlockPool* e){
   this->mLinkedEntity.add(&e->mLinkedEntity);
   return;
 }
@@ -78,7 +78,7 @@ void VectorBlockPool::addLinked(VectorBlockPool* e){
 /**
  * 
  */
-void VectorBlockPool::insertLinked(VectorBlockPool* e){
+void LinkedBlockPool::insertLinked(LinkedBlockPool* e){
   this->mLinkedEntity.insert(&e->mLinkedEntity);
   return;
 }
@@ -86,37 +86,37 @@ void VectorBlockPool::insertLinked(VectorBlockPool* e){
 /**
  *
  */
-VectorBlockPool* VectorBlockPool::getNextLinked(void){
-  return static_cast<VectorBlockPool*>(this->mLinkedEntity.get());
+LinkedBlockPool* LinkedBlockPool::getNextLinked(void){
+  return static_cast<LinkedBlockPool*>(this->mLinkedEntity.get());
 }
 
 /**
  * 
  */
-bool VectorBlockPool::hasNextLinked(void){
+bool LinkedBlockPool::hasNextLinked(void){
   return this->mLinkedEntity.hasNext();
 }
 
 /**
  * 
  */
-VectorBlockPool* VectorBlockPool::removeLinked(void){
+LinkedBlockPool* LinkedBlockPool::removeLinked(void){
   LinkedEntity* linkedEntity = this->mLinkedEntity.remove();
   if(linkedEntity == nullptr)
     return nullptr;
   
-  return static_cast<VectorBlockPool*>(linkedEntity->get());
+  return static_cast<LinkedBlockPool*>(linkedEntity->get());
 }
 
 /**
  * 
  */
-VectorBlockPool* VectorBlockPool::removeAllLinked(void){
+LinkedBlockPool* LinkedBlockPool::removeAllLinked(void){
   LinkedEntity* linkedEntity = this->mLinkedEntity.removeAll();
   if(linkedEntity == nullptr)
     return nullptr;
   
-  return static_cast<VectorBlockPool*>(linkedEntity->get());
+  return static_cast<LinkedBlockPool*>(linkedEntity->get());
 }
 
 /* ****************************************************************************************
@@ -126,7 +126,7 @@ VectorBlockPool* VectorBlockPool::removeAllLinked(void){
 /**
  * 
  */
-void* VectorBlockPool::add(void* element){
+void* LinkedBlockPool::add(void* element){
   void* result = BlockPool::add(element);
   
   if((result == nullptr) && (this->hasNextLinked()))
@@ -138,7 +138,7 @@ void* VectorBlockPool::add(void* element){
 /**
  * 
  */
-void* VectorBlockPool::alloc(void){
+void* LinkedBlockPool::alloc(void){
   void* result = BlockPool::alloc();
   
   if((result == nullptr) && (this->hasNextLinked()))
@@ -150,7 +150,7 @@ void* VectorBlockPool::alloc(void){
 /**
  * 
  */
-Memory VectorBlockPool::allocMemory(void){
+Memory LinkedBlockPool::allocMemory(void){
   Memory result = BlockPool::allocMemory();
   
   if(result.isEmpty() && (this->hasNextLinked()))
@@ -162,7 +162,7 @@ Memory VectorBlockPool::allocMemory(void){
 /**
  * 
  */
-uint32_t VectorBlockPool::capacity(void){
+uint32_t LinkedBlockPool::capacity(void){
   uint32_t result = BlockPool::mCapacity;
   
   if(this->hasNextLinked())
@@ -174,7 +174,7 @@ uint32_t VectorBlockPool::capacity(void){
 /**
  * 
  */
-void VectorBlockPool::clear(void){
+void LinkedBlockPool::clear(void){
   BlockPool::clear();
   if(this->hasNextLinked())
     this->getNextLinked()->clear();
@@ -185,7 +185,7 @@ void VectorBlockPool::clear(void){
 /**
  * 
  */
-void VectorBlockPool::forEach(Consumer<Memory&>& consumer){
+void LinkedBlockPool::forEach(Consumer<Memory&>& consumer){
   BlockPool::forEach(consumer);
   
   if(this->hasNextLinked())
@@ -197,7 +197,7 @@ void VectorBlockPool::forEach(Consumer<Memory&>& consumer){
 /**
  * 
  */
-bool VectorBlockPool::isEmpty(void){
+bool LinkedBlockPool::isEmpty(void){
   bool result = BlockPool::isEmpty();
   
   if(this->hasNextLinked())
@@ -209,7 +209,7 @@ bool VectorBlockPool::isEmpty(void){
 /**
  * 
  */
-bool VectorBlockPool::isFull(void){
+bool LinkedBlockPool::isFull(void){
   bool result = BlockPool::isFull();
   
   if(this->hasNextLinked())
@@ -221,7 +221,7 @@ bool VectorBlockPool::isFull(void){
 /**
  * 
  */
-uint32_t VectorBlockPool::size(void){
+uint32_t LinkedBlockPool::size(void){
   uint32_t result = BlockPool::mSize;
   
   if(this->hasNextLinked())
@@ -233,7 +233,7 @@ uint32_t VectorBlockPool::size(void){
 /**
  * 
  */
-bool VectorBlockPool::remove(void* element){
+bool LinkedBlockPool::remove(void* element){
   bool result = BlockPool::remove(element);
   
   if((result == false) && (this->hasNextLinked()))

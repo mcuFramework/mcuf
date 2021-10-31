@@ -23,15 +23,15 @@
  */  
 namespace mcuf{
   namespace util{
-    class VectorBlockPool;
+    class LinkedBlockPool;
   }
 }
 
 /* ****************************************************************************************
- * Class VectorBlockPool
+ * Class LinkedBlockPool
  */  
-class mcuf::util::VectorBlockPool extends mcuf::util::BlockPool
-      implements mcuf::lang::Linked<VectorBlockPool>{
+class mcuf::util::LinkedBlockPool extends mcuf::util::BlockPool
+      implements mcuf::lang::Linked<LinkedBlockPool>{
 
   /* **************************************************************************************
    * Subclass
@@ -63,19 +63,19 @@ class mcuf::util::VectorBlockPool extends mcuf::util::BlockPool
    */
 
   /**
-   * 
+   *  
    */
-  protected: VectorBlockPool(void* flag, void* pointer, uint32_t elementSize, uint32_t capacity);
+  public: LinkedBlockPool(uint32_t pageSize, uint32_t elementSize);
 
   /**
-   * 
+   * Construct.
    */
-  public: VectorBlockPool(mcuf::lang::Memory flags, mcuf::lang::Memory memory, uint32_t elementSize);
-  
+  public: LinkedBlockPool(mcuf::lang::Memory& page, uint32_t elementSize, mcuf::lang::Memory& flag);
+
   /**
-   * 
+   * Construct.
    */
-  public: VectorBlockPool(mcuf::lang::Memory memory, uint32_t elementSize);
+  public: LinkedBlockPool(mcuf::lang::Memory& page, uint32_t elementSize);
 
   /* **************************************************************************************
    * Operator Method
@@ -86,23 +86,23 @@ class mcuf::util::VectorBlockPool extends mcuf::util::BlockPool
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::lang::Linked<VectorBlockPool>
+   * Public Method <Override> - mcuf::lang::Linked<LinkedBlockPool>
    */
 
   /**
    * 
    */
-  public: virtual void addLinked(VectorBlockPool* e) override;
+  public: virtual void addLinked(LinkedBlockPool* e) override;
 
   /**
    * 
    */
-  public: virtual void insertLinked(VectorBlockPool* e) override;
+  public: virtual void insertLinked(LinkedBlockPool* e) override;
 
   /**
    *
    */
-  public: virtual VectorBlockPool* getNextLinked(void) override;
+  public: virtual LinkedBlockPool* getNextLinked(void) override;
 
   /**
    * 
@@ -112,12 +112,12 @@ class mcuf::util::VectorBlockPool extends mcuf::util::BlockPool
   /**
    * 
    */
-  public: virtual VectorBlockPool* removeLinked(void) override;
+  public: virtual LinkedBlockPool* removeLinked(void) override;
 
   /**
    * 
    */
-  public: virtual VectorBlockPool* removeAllLinked(void) override;
+  public: virtual LinkedBlockPool* removeAllLinked(void) override;
 
   /* **************************************************************************************
    * Public Method <Override> - mcuf::util::BlockPool

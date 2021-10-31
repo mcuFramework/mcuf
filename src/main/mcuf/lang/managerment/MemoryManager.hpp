@@ -17,7 +17,7 @@
 #include "mcuf_config.h"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/lang/Memory.hpp"
-#include "mcuf/util/VectorBlockPool.hpp"
+#include "mcuf/util/LinkedBlockPool.hpp"
 
 
 /* ****************************************************************************************
@@ -47,8 +47,8 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::lang::Object{
    * Struct handleMemory
    */
   private: struct{
-    uint8_t entity[sizeof(mcuf::util::VectorBlockPool)];
-    uint8_t m[sizeof(mcuf::util::VectorBlockPool) * 16];
+    uint8_t entity[sizeof(mcuf::util::LinkedBlockPool)];
+    uint8_t m[sizeof(mcuf::util::LinkedBlockPool) * 16];
     uint8_t f[2];
   }handleMemory;
 
@@ -70,8 +70,8 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-  public: mcuf::util::VectorBlockPool* entityPool;
-  public: mcuf::util::VectorBlockPool* blocks[MCUF_MEMORY_MANAGERMENT_BLOCk_TYPE_QUANTITY];
+  public: mcuf::util::LinkedBlockPool* entityPool;
+  public: mcuf::util::LinkedBlockPool* blocks[MCUF_MEMORY_MANAGERMENT_BLOCk_TYPE_QUANTITY];
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -195,7 +195,7 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::lang::Object{
   /**
    * 
    */
-  private: mcuf::util::VectorBlockPool* constructVectorBlockPool(mcuf::lang::Memory& memory, uint16_t blockShift);
+  private: mcuf::util::LinkedBlockPool* constructLinkedBlockPool(mcuf::lang::Memory& memory, uint16_t blockShift);
 
   /**
    * 

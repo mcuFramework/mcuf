@@ -31,7 +31,7 @@
 #define MCUF_DEFINE_EXECUTOR_STACK_SIZE 1024
 #endif
 
-//   <o>Task number [byte] <16-65536>
+//   <o>Task number <16-65536>
 #ifndef MCUF_DEFINE_EXECUTOR_TASK_NUMBER
 #define MCUF_DEFINE_EXECUTOR_TASK_NUMBER 64
 #endif
@@ -39,7 +39,7 @@
 
 //   <h>Timer
 
-//   <o>Task number [byte] <16-65536>
+//   <o>Task number  <16-65536>
 #ifndef MCUF_DEFINE_TIMER_TASK_NUMBER
 #define MCUF_DEFINE_TIMER_TASK_NUMBER 64
 #endif
@@ -56,7 +56,7 @@
 //   <o>Page size [byte]
 //   <512=> 512 byte <1024=> 1 kbyte <2048=> 2 kbyte <4096=> 4 kbyte <8192=> 8 kbyte <16384=> 16 kbyte <32768=> 32 kbyte
 #ifndef MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE
-#define MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE 16384
+#define MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE 1024
 #endif
 
 

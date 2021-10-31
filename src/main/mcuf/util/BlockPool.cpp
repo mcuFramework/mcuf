@@ -28,41 +28,23 @@ using mcuf::function::Consumer;
  *
  */
 BlockPool::BlockPool(uint32_t pageSize, uint32_t elementSize) construct Memory(pageSize), mMemoryFlag(){
-  this->mElementSize = elementSize;
-  uint32_t capacity = this->mLength / elementSize;
-  uint32_t flagRequestSize = Math::ceil(capacity, 8U);
-  uint32_t remainSize = (this->mLength % elementSize);
-  
-  
-  this->mMemoryFlag.~Memory();
-  
-}
-
-/**
- * 
- */
-BlockPool::BlockPool(Memory& flag, Memory& page, uint32_t elementSize) construct Memory(page), mMemoryFlag(flag){    
-  uint32_t capacity = (page.length() / elementSize);
-  if(capacity >= (this->mMemoryFlag.length() << 3))
-    this->mCapacity = (this->mMemoryFlag.length() << 3);
-    
-  this->init(this->mMemoryFlag.pointer(), this->pointer(), elementSize, capacity);
+  this->init(elementSize);
   return;
 }
 
 /**
  * 
  */
-BlockPool::BlockPool(Memory& memory, uint32_t elementSize){
-  uint32_t capacity = (memory.length() / elementSize);
-  uint32_t flags = (capacity >> 5);
+BlockPool::BlockPool(Memory& page, uint32_t elementSize, Memory& flag) construct Memory(page), mMemoryFlag(flag){    
+  this->init(elementSize);
+  return;
+}
 
-  if(capacity & 0x0000001F) 
-    ++flags;
-
-  capacity = ((memory.length() - flags*4) / elementSize);
-    
-  this->init(memory.pointer(), &((uint8_t*)memory.pointer())[flags*4], elementSize, capacity);
+/**
+ * 
+ */
+BlockPool::BlockPool(Memory& memory, uint32_t elementSize) construct Memory(memory), mMemoryFlag(){
+  this->init(elementSize);
   return;
 }
 
@@ -121,7 +103,8 @@ uint32_t BlockPool::capacity(void){
  * 
  */
 void BlockPool::clear(void){
-  this->flagFormat();
+  this->mMemoryFlag.clear();
+  this->mSize = 0;
 }
 
 /**
@@ -205,51 +188,34 @@ bool BlockPool::isFull(void){
 /**
  * 
  */
-void BlockPool::init(void* flag, void* pointer, uint32_t elementSize, uint32_t capacity){
-  this->mLastFlag = 0xFFFFFFFF;
+void BlockPool::init(uint32_t elementSize){
   this->mElementSize = elementSize;
-  this->mFlags = (uint8_t*)flag;
-  this->mPointer = (uint8_t*)pointer;
-  this->mCapacity = capacity;
+  this->mCapacity = this->mLength / this->mElementSize;
+  
+  
+  if(this->mMemoryFlag.isEmpty()){    
+    uint32_t requirmentFlagSize = Math::ceil(this->mCapacity, 8U);
+    uint32_t remainingSize = this->mLength - (this->mElementSize * this->mCapacity);
+    
+    if((requirmentFlagSize*3) < this->mElementSize){
+      this->mMemoryFlag.~Memory();
+      this->mMemoryFlag = Memory(requirmentFlagSize);
+    }
+    
+    if(this->mMemoryFlag.isEmpty()){
+      uint32_t requirmentBlockQuantity = Math::ceil((requirmentFlagSize - remainingSize), this->mElementSize);
+      this->mCapacity -= requirmentBlockQuantity;
+      this->mMemoryFlag = this->subMemory((this->mElementSize * this->mCapacity));   
+    }
+  }
+   
+  this->mFlags = static_cast<uint8_t*>(this->mMemoryFlag.pointer());
+  this->mMemoryFlag.clear();
+  this->mLastFlag = 0xFFFFFFFF;
   this->mSize = 0;
-  this->flagFormat();
+  return;
 }
 
-/**
- *
- */
-Memory BlockPool::initFlagMemory(void){
-
-}
-
-/**
- *
- */
-void BlockPool::flagFormat(void){
-  uint32_t size = (this->mCapacity >> 3);
-  if(this->mCapacity & 0x00000007)
-    ++size;
-  memset(this->mFlags, 0x00, size);
-}
-
-/**
- * 
- */
-uint32_t BlockPool::getFixedSize(uint32_t capacity, uint32_t elementSize){
-  uint32_t bytes;
-  uint32_t result;
-  
-  bytes = (capacity/8);
-  
-  if(capacity%8)
-    ++bytes;
-  
-  result = bytes/elementSize;
-  if(bytes%elementSize)
-    ++result;
-  
-  return result;
-}
 
 /**
  *
@@ -275,14 +241,13 @@ void* BlockPool::getBlock(uint32_t shift){
     return nullptr;
   
   uint32_t bytes = shift * this->mElementSize;
-  return &this->mPointer[bytes];
+  return &static_cast<uint8_t*>(this->mPointer)[bytes];
 }
 
 /**
  * 
  */
- uint32_t BlockPool::foundAndSetFlag(void){
-  
+uint32_t BlockPool::foundAndSetFlag(void){
   if(this->mLastFlag < this->mCapacity){
     uint32_t result = this->mLastFlag;
     this->mLastFlag = 0xFFFFFFFF;
@@ -312,6 +277,7 @@ void* BlockPool::getBlock(uint32_t shift){
  *
  */
 bool BlockPool::getFlag(uint32_t shift){
+  
   uint32_t bytes = (shift >> 3);
   uint8_t mask = (1 << (shift & 0x00000007));
   
