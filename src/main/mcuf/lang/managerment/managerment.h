@@ -18,7 +18,6 @@
  * Include
  */
 
-#include "GlobalStack.hpp"
 #include "MemoryManager.hpp"
 #include "ExecutorManager.hpp"
 #include "TimerManager.hpp"

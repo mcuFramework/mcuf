@@ -77,6 +77,13 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   public: Array(E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, length, sizeof(E)){
     return;
   }
+  
+  /**
+   * Construct.
+   */
+  public: Array(const E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, length, sizeof(E)){
+    return;
+  }  
 
   /**
    * Destruct.
@@ -91,14 +98,14 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
    * Operator array.
    */
   public: inline E& operator[](int index){
-    return ((E*)this->mPointer)[index];
+    return static_cast<E*>(this->mPointer)[index];
   }
 
   /**
    * Operator array.
    */
   public: inline E& operator[](int index) const{
-    return ((E*)this->mPointer)[index];
+    return static_cast<E*>(this->mPointer)[index];
   }
   
   /* **************************************************************************************
@@ -124,7 +131,7 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   /**
    * 
    */
-  public: int indexOf(const E e){
+  public: int indexOf(const E e) const{
     int result = -1;
     int length = this->length();
 
@@ -142,7 +149,7 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   /**
    * 
    */
-  public: bool contains(const E e){
+  public: bool contains(const E e) const{
     return (this->indexOf(e) != -1);
   }
   

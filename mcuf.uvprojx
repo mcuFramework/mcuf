@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>ARMCM0</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -185,6 +185,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -351,7 +352,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -871,16 +872,6 @@
           <GroupName>main\mcuf\lang\managerment</GroupName>
           <Files>
             <File>
-              <FileName>GlobalStack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>GlobalStack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
@@ -981,16 +972,6 @@
           <GroupName>main\mcuf\util</GroupName>
           <Files>
             <File>
-              <FileName>AlignedStack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\AlignedStack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>AlignedStack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\AlignedStack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>BlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.cpp</FilePath>
@@ -1056,16 +1037,6 @@
               <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
             </File>
             <File>
-              <FileName>Stack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\Stack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Stack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Stack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Timer.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
@@ -1104,6 +1075,16 @@
               <FileName>LinkedBlockPool.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\LinkedBlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stacker.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stacker.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1200,7 +1181,7 @@
         <TargetCommonOption>
           <Device>ARMCM0P</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0+") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -1369,6 +1350,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -1535,7 +1517,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -2055,16 +2037,6 @@
           <GroupName>main\mcuf\lang\managerment</GroupName>
           <Files>
             <File>
-              <FileName>GlobalStack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>GlobalStack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
@@ -2165,16 +2137,6 @@
           <GroupName>main\mcuf\util</GroupName>
           <Files>
             <File>
-              <FileName>AlignedStack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\AlignedStack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>AlignedStack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\AlignedStack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>BlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.cpp</FilePath>
@@ -2240,16 +2202,6 @@
               <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
             </File>
             <File>
-              <FileName>Stack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\Stack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Stack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Stack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Timer.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
@@ -2288,6 +2240,16 @@
               <FileName>LinkedBlockPool.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\LinkedBlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stacker.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stacker.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -2384,7 +2346,7 @@
         <TargetCommonOption>
           <Device>ARMCM3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M3") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -2553,6 +2515,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -2719,7 +2682,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -3239,16 +3202,6 @@
           <GroupName>main\mcuf\lang\managerment</GroupName>
           <Files>
             <File>
-              <FileName>GlobalStack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>GlobalStack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
@@ -3349,16 +3302,6 @@
           <GroupName>main\mcuf\util</GroupName>
           <Files>
             <File>
-              <FileName>AlignedStack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\AlignedStack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>AlignedStack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\AlignedStack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>BlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.cpp</FilePath>
@@ -3424,16 +3367,6 @@
               <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
             </File>
             <File>
-              <FileName>Stack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\Stack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Stack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Stack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Timer.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
@@ -3472,6 +3405,16 @@
               <FileName>LinkedBlockPool.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\LinkedBlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stacker.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stacker.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3568,7 +3511,7 @@
         <TargetCommonOption>
           <Device>ARMCM4</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -3737,6 +3680,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -3903,7 +3847,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -4423,16 +4367,6 @@
           <GroupName>main\mcuf\lang\managerment</GroupName>
           <Files>
             <File>
-              <FileName>GlobalStack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>GlobalStack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
@@ -4533,16 +4467,6 @@
           <GroupName>main\mcuf\util</GroupName>
           <Files>
             <File>
-              <FileName>AlignedStack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\AlignedStack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>AlignedStack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\AlignedStack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>BlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.cpp</FilePath>
@@ -4608,16 +4532,6 @@
               <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
             </File>
             <File>
-              <FileName>Stack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\Stack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Stack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Stack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Timer.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
@@ -4656,6 +4570,16 @@
               <FileName>LinkedBlockPool.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\LinkedBlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stacker.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stacker.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -4701,7 +4625,7 @@
         <TargetCommonOption>
           <Device>ARMCM4_FP</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -4870,6 +4794,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>2</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -5036,7 +4961,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -5556,16 +5481,6 @@
           <GroupName>main\mcuf\lang\managerment</GroupName>
           <Files>
             <File>
-              <FileName>GlobalStack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>GlobalStack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
@@ -5666,16 +5581,6 @@
           <GroupName>main\mcuf\util</GroupName>
           <Files>
             <File>
-              <FileName>AlignedStack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\AlignedStack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>AlignedStack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\AlignedStack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>BlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.cpp</FilePath>
@@ -5741,16 +5646,6 @@
               <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
             </File>
             <File>
-              <FileName>Stack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\Stack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Stack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Stack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Timer.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
@@ -5789,6 +5684,16 @@
               <FileName>LinkedBlockPool.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\LinkedBlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stacker.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stacker.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -5885,7 +5790,7 @@
         <TargetCommonOption>
           <Device>ARMCM7</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M7") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -6054,6 +5959,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -6220,7 +6126,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -6740,16 +6646,6 @@
           <GroupName>main\mcuf\lang\managerment</GroupName>
           <Files>
             <File>
-              <FileName>GlobalStack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>GlobalStack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\GlobalStack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
@@ -6850,16 +6746,6 @@
           <GroupName>main\mcuf\util</GroupName>
           <Files>
             <File>
-              <FileName>AlignedStack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\AlignedStack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>AlignedStack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\AlignedStack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>BlockPool.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.cpp</FilePath>
@@ -6925,16 +6811,6 @@
               <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
             </File>
             <File>
-              <FileName>Stack.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\Stack.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Stack.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Stack.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Timer.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
@@ -6973,6 +6849,16 @@
               <FileName>LinkedBlockPool.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\LinkedBlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stacker.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Stacker.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -7052,7 +6938,7 @@
                 <NoWarn>2</NoWarn>
                 <uSurpInc>2</uSurpInc>
                 <useXO>2</useXO>
-                <uClangAs>2</uClangAs>
+                <ClangAsOpt>0</ClangAsOpt>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>

@@ -24,14 +24,6 @@ using mcuf::lang::managerment::MemoryManager;
 /* ****************************************************************************************
  * Variable <Public>
  */
-const uint16_t MemoryManager::BLOCK_SIZE[MCUF_MEMORY_MANAGERMENT_BLOCk_TYPE_QUANTITY] 
-      = {MCUF_MEMORY_MANAGERMENT_BLOCk_TYPE, MCUF_MEMORY_MANAGERMENT_BASE_BLOCK_SIZE};
-
-const uint16_t MemoryManager::NUMBER_OF_BLOCK_QUANTITY 
-      = MCUF_MEMORY_MANAGERMENT_BLOCk_TYPE_QUANTITY;
-
-const uint16_t MemoryManager::BASE_BLOCK_SIZE 
-      = MCUF_MEMORY_MANAGERMENT_BASE_BLOCK_SIZE;
 
 /* ****************************************************************************************
  * Construct Method
@@ -40,9 +32,12 @@ const uint16_t MemoryManager::BASE_BLOCK_SIZE
 /**
  * 
  */
-MemoryManager::MemoryManager(mcuf::lang::Memory& memory){
-  this->initEntityPool();
-  this->initBlocks(memory);
+MemoryManager::MemoryManager(Parameter& param) 
+  construct LinkedBlockPool(*param.pageMemory, param.pageSize, *param.flagMemory), 
+            stacker(*param.handlerMemory){
+    
+  //this->initEntityPool();
+  //this->initBlocks(memory);
 
   return;
 }
@@ -67,7 +62,7 @@ MemoryManager::MemoryManager(mcuf::lang::Memory& memory){
  * 
  */
 void* MemoryManager::alloc(size_t size){
-  if(size > this->BASE_BLOCK_SIZE)
+  if(size > this->mElementSize)
     return nullptr;
 
   return this->allocAuto(size).pointer();
@@ -77,7 +72,7 @@ void* MemoryManager::alloc(size_t size){
  * 
  */
 Memory MemoryManager::allocMemory(size_t size){
-  if(size > this->BASE_BLOCK_SIZE)
+  if(size > this->mElementSize)
     return Memory::nullMemory();
 
   return this->allocAuto(size);
@@ -349,9 +344,11 @@ void MemoryManager::initBlocks(Memory& baseMemory){
  * 
  */
 void MemoryManager::initEntityPool(void){
+  /*
   Memory entityMemory = Memory(this->handleMemory.m, sizeof(this->handleMemory.m));
   Memory entityFlag = Memory(this->handleMemory.f, sizeof(this->handleMemory.f));
   this->entityPool = new(this->handleMemory.entity) LinkedBlockPool(entityMemory, sizeof(LinkedBlockPool), entityFlag);
+  */
 }
 
 /* ****************************************************************************************

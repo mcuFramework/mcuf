@@ -5,34 +5,32 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_E457C780_A15D_4B2E_B4E4_47BC5CA8194D
-#define MCUF_E457C780_A15D_4B2E_B4E4_47BC5CA8194D
+#ifndef MCUF_C045F3C4_B727_4170_9124_44EFD0DADB46
+#define MCUF_C045F3C4_B727_4170_9124_44EFD0DADB46
 
 /* ****************************************************************************************
  * Include
- */  
+ */ 
 
-
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
-#include "mcuf/util/Stack.hpp"
-
-
+#include "mcuf/util/Collection.hpp"
+#include "mcuf/lang/Memory.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace util{
-    class AlignedStack;
+    class Stacker;
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class AlignedStack
+ * Class Stacker
  */  
-class mcuf::util::AlignedStack extends mcuf::util::Stack{
+class mcuf::util::Stacker extends mcuf::lang::Memory
+      implements mcuf::util::Collection<mcuf::lang::Memory&>{
   
   /* **************************************************************************************
    * Subclass
@@ -45,6 +43,7 @@ class mcuf::util::AlignedStack extends mcuf::util::Stack{
   /* **************************************************************************************
    * Variable <Protected>
    */
+  protected: uint32_t stackPointer;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -65,17 +64,17 @@ class mcuf::util::AlignedStack extends mcuf::util::Stack{
   /**
    * Construct.
    */
-  public: AlignedStack(void* buffer, uint32_t size);
+  public: Stacker(void* buffer, uint32_t size);
 
   /**
    * Construct.
    */
-  public: AlignedStack(mcuf::lang::Memory& memory);
+  public: Stacker(mcuf::lang::Memory& memory);
 
   /**
    * Destruct.
    */
-  public: virtual ~AlignedStack() = default;
+  public: virtual ~Stacker() = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -90,18 +89,58 @@ class mcuf::util::AlignedStack extends mcuf::util::Stack{
    */
 
   /**
-   * 
+   * Removes all of the elements from this collection. The collection will be empty after 
+   * this method returns.
    */
-  public: virtual void* alloc(uint32_t size);
+  public: virtual void clear(void) override;
 
   /**
-   * 
+   * Performs the given action for each element of the Iterable until all elements have 
+   * been processed or the action throws an exception. Unless otherwise specified by the 
+   * implementing class, actions are performed in the order of iteration (if an iteration 
+   * order is specified). 
+   *
+   * @param Consumer<Memory&>-action The action to be performed for each element.
    */
-  public: virtual mcuf::lang::Memory allocMemory(uint32_t size);
+  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory&>& action) override;
+
+  /**
+   * Returns true if this collection contains no elements.
+   * 
+   * @return true if this collection contains no elements.
+   */
+  public: virtual bool isEmpty(void) override;
+
+  /**
+   * Returns the number of elements in this collection.
+   * 
+   * @return the number of elements in this collection.
+   */
+  public: virtual uint32_t size(void) override;
 
   /* **************************************************************************************
    * Public Method
    */
+
+  /**
+   * 
+   */
+  public: uint32_t getFree(void);
+
+  /**
+   * 
+   */
+  public: uint32_t length(void);
+
+  /**
+   * 
+   */
+  public: void* alloc(uint32_t size);
+
+  /**
+   * 
+   */
+  public: mcuf::lang::Memory allocMemory(uint32_t size);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -129,11 +168,8 @@ class mcuf::util::AlignedStack extends mcuf::util::Stack{
   
 };
  
-
-
 /* *****************************************************************************************
  * End of file
  */ 
 
-
-#endif/* MCUF_E457C780_A15D_4B2E_B4E4_47BC5CA8194D */
+#endif/* MCUF_C045F3C4_B727_4170_9124_44EFD0DADB46 */

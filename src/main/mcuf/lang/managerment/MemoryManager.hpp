@@ -15,9 +15,11 @@
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 #include "mcuf_config.h"
+#include "mcuf/lang/Array.hpp"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/lang/Memory.hpp"
 #include "mcuf/util/LinkedBlockPool.hpp"
+#include "mcuf/util/Stacker.hpp"
 
 
 /* ****************************************************************************************
@@ -38,10 +40,10 @@ namespace mcuf{
  */  
 class mcuf::lang::managerment::MemoryManager extends mcuf::util::LinkedBlockPool{
 
-  
   /* **************************************************************************************
    * Subclass
    */
+  public: class Parameter;
   
   /* **************************************************************************************
    * Struct handleMemory
@@ -62,7 +64,9 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::util::LinkedBlockPool
   /* **************************************************************************************
    * Variable <Private>
    */
-  public: mcuf::util::LinkedBlockPool** blocks;
+  private: mcuf::util::Stacker stacker;
+  //private: mcuf::util::LinkedBlockPool blockEntityPool;
+  private: mcuf::util::LinkedBlockPool** blocks;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -79,9 +83,7 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::util::LinkedBlockPool
   /**
    * Construct.
    */
-   public: MemoryManager(mcuf::lang::Memory& memory, 
-                         mcuf::lang::Memory& flag, 
-                         mcuf::lang::Memory& handle);
+  public: MemoryManager(Parameter& param);
 
   /**
    * Destruct.
@@ -212,6 +214,94 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::util::LinkedBlockPool
 
 };
 
+/* ****************************************************************************************
+ * Class MemoryManager::Parameter
+ */  
+class mcuf::lang::managerment::MemoryManager::Parameter extends mcuf::lang::Object{
+  /* **************************************************************************************
+   * Subclass
+   */
+
+  /* **************************************************************************************
+   * Variable <Public>
+   */
+  public: uint32_t pageSize; 
+  public: mcuf::lang::Memory* pageMemory;
+  public: mcuf::lang::Memory* flagMemory;
+  public: mcuf::lang::Memory* handlerMemory;
+  public: Array<const uint32_t>* blockSizeList;
+  
+
+  /* **************************************************************************************
+   * Variable <Protected>
+   */
+
+  /* **************************************************************************************
+   * Variable <Private>
+   */
+
+  /* **************************************************************************************
+   * Abstract method <Public>
+   */
+
+  /* **************************************************************************************
+   * Abstract method <Protected>
+   */
+
+  /* **************************************************************************************
+   * Construct Method
+   */
+
+  /**
+   * Construct.
+   */
+  public: Parameter(void) = default;
+
+  /**
+   * Destruct.
+   */
+  public: virtual ~Parameter(void) = default;
+
+  /* **************************************************************************************
+   * Operator Method
+   */
+
+  /* **************************************************************************************
+   * Public Method <Static>
+   */
+
+  /* **************************************************************************************
+   * Public Method <Override>
+   */
+
+  /* **************************************************************************************
+   * Public Method
+   */
+
+  /* **************************************************************************************
+   * Protected Method <Static>
+   */
+
+  /* **************************************************************************************
+   * Protected Method <Override>
+   */
+
+  /* **************************************************************************************
+   * Protected Method
+   */
+
+  /* **************************************************************************************
+   * Private Method <Static>
+   */
+
+  /* **************************************************************************************
+   * Private Method <Override>
+   */
+   
+  /* **************************************************************************************
+   * Private Method
+   */  
+};
 
 
 

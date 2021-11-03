@@ -18,7 +18,6 @@
 /* ****************************************************************************************
  * Include
  */
-#include "AlignedStack.hpp"
 #include "BlockPool.hpp"
 #include "Collection.hpp"
 #include "Executor.hpp"
@@ -29,7 +28,7 @@
 #include "Queue.hpp"
 #include "RingBuffer.hpp"
 #include "Scanner.hpp"
-#include "Stack.hpp"
+#include "Stacker.hpp"
 #include "Timer.hpp"
 #include "TimerScheduler.hpp"
 #include "TimerTask.hpp"

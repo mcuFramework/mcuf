@@ -16,7 +16,7 @@
  * Using
  */  
 using mcuf::lang::Memory;
-using mcuf::util::Stack;
+using mcuf::util::Stacker;
 
 /* ****************************************************************************************
  * Construct Method
@@ -25,22 +25,16 @@ using mcuf::util::Stack;
 /**
  * 
  */
-Stack::Stack(void* buffer, uint32_t size){
-  this->buffer = (uint8_t*)buffer;
-  this->bufferSize = size;
-  this->pointer = 0;
-
+Stacker::Stacker(void* buffer, uint32_t size) construct Memory(buffer, size){
+  this->clear();
   return;
 }
 
 /**
  * 
  */
-Stack::Stack(Memory& memory){
-  this->buffer = (uint8_t*)memory.pointer();
-  this->bufferSize = memory.length();
-  this->pointer = 0;
-
+Stacker::Stacker(Memory& memory) construct Memory(memory){
+  this->clear();
   return;
 }
 
@@ -60,8 +54,9 @@ Stack::Stack(Memory& memory){
  * Removes all of the elements from this collection. The collection will be empty after 
  * this method returns.
  */
-void Stack::clear(void){
-  this->pointer = 0;
+void Stacker::clear(void){
+  this->stackPointer = 0;
+  this->Memory::clear();
 }
 
 /**
@@ -72,7 +67,7 @@ void Stack::clear(void){
  *
  * @param Consumer<Memory&>-action The action to be performed for each element.
  */
-void Stack::forEach(mcuf::function::Consumer<mcuf::lang::Memory&>& action){
+void Stacker::forEach(mcuf::function::Consumer<mcuf::lang::Memory&>& action){
   return;
 }
 
@@ -81,13 +76,13 @@ void Stack::forEach(mcuf::function::Consumer<mcuf::lang::Memory&>& action){
  * 
  * @return true if this collection contains no elements.
  */
-bool Stack::isEmpty(void){
-  return !(this->pointer == 0);
+bool Stacker::isEmpty(void){
+  return !(this->stackPointer == 0);
 }
 
 
-uint32_t Stack::size(void){
-  return this->pointer;
+uint32_t Stacker::size(void){
+  return this->stackPointer;
 }
 
 /* ****************************************************************************************
@@ -97,26 +92,22 @@ uint32_t Stack::size(void){
 /**
  * 
  */
-uint32_t Stack::getFree(void){
-  return (this->bufferSize - this->pointer);
+uint32_t Stacker::getFree(void){
+  return (this->mLength - this->stackPointer);
 }
 
 /**
  * 
  */
-uint32_t Stack::length(void){
-  return this->bufferSize;
-}
-
-/**
- * 
- */
-void* Stack::alloc(uint32_t size){
+void* Stacker::alloc(uint32_t size){
+  if(size & 0x00000003)
+    size = (size & 0xFFFFFFFC) + 4;  
+  
   if(this->getFree() < size)
     return nullptr;
 
-  void* result = &this->buffer[this->pointer];
-  this->pointer += size;
+  void* result = &static_cast<uint8_t*>(this->mPointer)[this->stackPointer];
+  this->stackPointer += size;
 
   return result;
 }
@@ -124,8 +115,12 @@ void* Stack::alloc(uint32_t size){
 /**
  * 
  */
-Memory Stack::allocMemory(uint32_t size){
-  return Memory(this->alloc(size), size);
+Memory Stacker::allocMemory(uint32_t size){
+  void* result = this->alloc(size);
+  if(result == nullptr)
+    return Memory::nullMemory();
+  
+  return Memory(result, size);
 }
 
 /* ****************************************************************************************

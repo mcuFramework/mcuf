@@ -45,6 +45,7 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
    *  
    */
   protected: uint32_t mElementSize;
+  protected: uint32_t mElementLength;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -71,6 +72,13 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
    * Construct.
    */
   public: ArrayPrototype(void* pointer, uint32_t size, uint32_t elementSize);
+  
+  /**
+   * Construct.
+   */
+  public: ArrayPrototype(const void* pointer, uint32_t size, uint32_t elementSize);  
+  
+  
 
   /**
    * Destruct.
