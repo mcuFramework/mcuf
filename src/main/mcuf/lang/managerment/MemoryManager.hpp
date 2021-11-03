@@ -36,7 +36,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class MemoryManager
  */  
-class mcuf::lang::managerment::MemoryManager extends mcuf::lang::Object{
+class mcuf::lang::managerment::MemoryManager extends mcuf::util::LinkedBlockPool{
 
   
   /* **************************************************************************************
@@ -46,11 +46,6 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::lang::Object{
   /* **************************************************************************************
    * Struct handleMemory
    */
-  private: struct{
-    uint8_t entity[sizeof(mcuf::util::LinkedBlockPool)];
-    uint8_t m[sizeof(mcuf::util::LinkedBlockPool) * 16];
-    uint8_t f[2];
-  }handleMemory;
 
    /* **************************************************************************************
    * Variable <Constant>
@@ -59,9 +54,6 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Public>
    */
-  public: static const uint16_t BASE_BLOCK_SIZE;
-  public: static const uint16_t NUMBER_OF_BLOCK_QUANTITY;
-  public: static const uint16_t BLOCK_SIZE[MCUF_MEMORY_MANAGERMENT_BLOCk_TYPE_QUANTITY];
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -70,8 +62,7 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-  public: mcuf::util::LinkedBlockPool* entityPool;
-  public: mcuf::util::LinkedBlockPool* blocks[MCUF_MEMORY_MANAGERMENT_BLOCk_TYPE_QUANTITY];
+  public: mcuf::util::LinkedBlockPool** blocks;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -88,7 +79,9 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::lang::Object{
   /**
    * Construct.
    */
-  public: MemoryManager(mcuf::lang::Memory& memory);
+   public: MemoryManager(mcuf::lang::Memory& memory, 
+                         mcuf::lang::Memory& flag, 
+                         mcuf::lang::Memory& handle);
 
   /**
    * Destruct.
