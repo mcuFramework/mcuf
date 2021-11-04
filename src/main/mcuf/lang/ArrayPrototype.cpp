@@ -71,6 +71,25 @@ ArrayPrototype::ArrayPrototype(const void* pointer, uint32_t size, uint32_t elem
  */
 
 /**
+ *
+ */
+int ArrayPrototype::indexOf(const void* element) const{
+  int result = -1;
+
+  for(int i=0; i<this->mElementLength; i++){
+    const void* dst = &static_cast<uint8_t*>(this->mPointer)[i * this->mElementSize];
+    
+    if(memcmp(dst, element, this->mElementSize) != 0)
+      continue;
+
+    result = i;
+    break;
+  }
+
+  return result;
+}
+
+/**
  * 
  */
 void ArrayPrototype::set(const void* src, uint32_t shift){

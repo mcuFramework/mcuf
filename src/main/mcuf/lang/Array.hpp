@@ -83,7 +83,7 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
    */
   public: Array(const E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, length, sizeof(E)){
     return;
-  }  
+  }
 
   /**
    * Destruct.
@@ -93,18 +93,18 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   /* **************************************************************************************
    * Operator Method
    */
-
+  
   /**
    * Operator array.
    */
-  public: inline E& operator[](int index){
+  public: E operator[](int index) const{
     return static_cast<E*>(this->mPointer)[index];
   }
 
   /**
    * Operator array.
    */
-  public: inline E& operator[](int index) const{
+  public: E& operator[](int index){
     return static_cast<E*>(this->mPointer)[index];
   }
   
@@ -125,32 +125,21 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
    * Length
    */
   public: uint32_t length(void) const {
-    return this->mLength / sizeof(E);
+    return this->mElementLength;
   }
   
   /**
    * 
    */
-  public: int indexOf(const E e) const{
-    int result = -1;
-    int length = this->length();
-
-    for(int i=0; i<length; i++){
-      if(memcmp(&this[i], &e, sizeof(E)) != 0)
-        continue;
-
-      result = i;
-      break;
-    }
-
-    return result;
+  public: int indexOf(const E& e) const{
+    return this->ArrayPrototype::indexOf(&e);
   }
   
   /**
    * 
    */
-  public: bool contains(const E e) const{
-    return (this->indexOf(e) != -1);
+  public: bool contains(const E& e) const{
+    return (this->ArrayPrototype::indexOf(&e) != -1);
   }
   
   /* **************************************************************************************

@@ -302,7 +302,7 @@ void System::initMemoryManager(void){
     return;
   
   Memory memory = Memory(Resources::memoryManager.memory.point, Resources::memoryManager.memory.size);
-  System::mMemoryManager = new(Resources::memoryManager.handle.point) MemoryManager(memory);
+  //System::mMemoryManager = new(Resources::memoryManager.handle.point) MemoryManager(memory);
   return;  
 }
 

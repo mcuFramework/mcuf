@@ -64,9 +64,9 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::util::LinkedBlockPool
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: mcuf::util::Stacker stacker;
-  //private: mcuf::util::LinkedBlockPool blockEntityPool;
-  private: mcuf::util::LinkedBlockPool** blocks;
+  private: mcuf::util::Stacker mStacker;
+  private: mcuf::lang::Array<mcuf::util::LinkedBlockPool*>* mPools;
+  private: mcuf::util::LinkedBlockPool* mEntity;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -130,12 +130,6 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::util::LinkedBlockPool
    * 
    */
   public: bool freeMemory(mcuf::lang::Memory& memory);
-
-  /**
-   * 
-   */
-  public: bool expansion(mcuf::lang::Memory& memory);
-
 
 
   /* **************************************************************************************
@@ -225,11 +219,11 @@ class mcuf::lang::managerment::MemoryManager::Parameter extends mcuf::lang::Obje
   /* **************************************************************************************
    * Variable <Public>
    */
-  public: uint32_t pageSize; 
-  public: mcuf::lang::Memory* pageMemory;
-  public: mcuf::lang::Memory* flagMemory;
-  public: mcuf::lang::Memory* handlerMemory;
-  public: Array<const uint32_t>* blockSizeList;
+  public: uint32_t mPageSize; 
+  public: mcuf::lang::Memory* mPageMemory;
+  public: mcuf::lang::Memory* mFlagMemory;
+  public: mcuf::lang::Memory* mHandlerMemory;
+  public: Array<uint32_t>* mBlockSizeList;
   
 
   /* **************************************************************************************

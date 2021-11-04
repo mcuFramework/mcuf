@@ -33,11 +33,37 @@ using mcuf::lang::managerment::MemoryManager;
  * 
  */
 MemoryManager::MemoryManager(Parameter& param) 
-  construct LinkedBlockPool(*param.pageMemory, param.pageSize, *param.flagMemory), 
-            stacker(*param.handlerMemory){
+  construct LinkedBlockPool(*param.mPageMemory, param.mPageSize, *param.mFlagMemory), 
+            mStacker(*param.mHandlerMemory){
+  
+  /* constructure pools array */
+  if(true){
+    uint32_t numberOfPools = param.mBlockSizeList->length();
+    void* handleMemory = this->mStacker.alloc(sizeof(Array<LinkedBlockPool*>));
+    void* referenceMemory = this->mStacker.alloc(numberOfPools * sizeof(void*));
     
-  //this->initEntityPool();
-  //this->initBlocks(memory);
+    this->mPools = new (handleMemory) Array<LinkedBlockPool*>(static_cast<LinkedBlockPool**>(referenceMemory), numberOfPools);
+    this->mPools->clear();
+  }
+  
+  /* constructure BlockPoolEntity */
+  if(true){
+    void* handleMemory = this->mStacker.alloc(sizeof(LinkedBlockPool));
+    Memory memory = this->LinkedBlockPool::allocMemory();
+    this->mEntity = new (handleMemory) LinkedBlockPool(memory, sizeof(LinkedBlockPool));
+  }
+  
+  /* constructure base block */
+  if(true){
+    int count = param.mBlockSizeList->length();
+    
+    for(int i=0; i<count; i++){
+      void* handleMemory = this->mStacker.alloc(sizeof(LinkedBlockPool));
+      Memory pageMemory = this->LinkedBlockPool::allocMemory();
+      
+      (*this->mPools)[i] = new(handleMemory) LinkedBlockPool(pageMemory, (*param.mBlockSizeList)[i]);
+    }
+  }
 
   return;
 }
@@ -109,13 +135,6 @@ bool MemoryManager::free(void* pointer, size_t size){
  */
 bool MemoryManager::freeMemory(Memory& memory){
   return this->free(memory.pointer(), memory.length());
-}
-
-/**
- * 
- */
-bool MemoryManager::expansion(Memory& memory){
-  return false;
 }
 
 /* ****************************************************************************************

@@ -77,8 +77,6 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
    * Construct.
    */
   public: ArrayPrototype(const void* pointer, uint32_t size, uint32_t elementSize);  
-  
-  
 
   /**
    * Destruct.
@@ -100,6 +98,11 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Public Method
    */
+
+  /**
+   *
+   */
+  public: int indexOf(const void* element) const;
 
   /**
    *  

@@ -92,12 +92,12 @@ class mcuf::util::LinkedBlockPool extends mcuf::util::BlockPool
   /**
    * 
    */
-  public: virtual void addLinked(LinkedBlockPool* e) override;
+  public: virtual bool addLinked(LinkedBlockPool* e) override;
 
   /**
    * 
    */
-  public: virtual void insertLinked(LinkedBlockPool* e) override;
+  public: virtual bool insertLinked(LinkedBlockPool* e) override;
 
   /**
    *

@@ -53,12 +53,12 @@ interface mcuf::lang::Linked{
   /**
    * 
    */
-  virtual void addLinked(E* e) abstract;
+  virtual bool addLinked(E* e) abstract;
 
   /**
    * 
    */
-  virtual void insertLinked(E* e) abstract;
+  virtual bool insertLinked(E* e) abstract;
 
   /**
    *

@@ -70,17 +70,23 @@ LinkedBlockPool::LinkedBlockPool(Memory& page, uint32_t elementSize) construct
 /**
  * 
  */
-void LinkedBlockPool::addLinked(LinkedBlockPool* e){
+bool LinkedBlockPool::addLinked(LinkedBlockPool* e){
+  if(e->mElementSize != this->mElementSize)
+    return false;
+  
   this->mLinkedEntity.add(&e->mLinkedEntity);
-  return;
+  return true;
 }
 
 /**
  * 
  */
-void LinkedBlockPool::insertLinked(LinkedBlockPool* e){
+bool LinkedBlockPool::insertLinked(LinkedBlockPool* e){
+  if(e->mElementSize != this->mElementSize)
+    return false;  
+  
   this->mLinkedEntity.insert(&e->mLinkedEntity);
-  return;
+  return true;
 }
 
 /**
