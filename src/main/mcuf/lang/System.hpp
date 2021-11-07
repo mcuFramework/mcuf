@@ -18,7 +18,9 @@
 #include "mcuf/lang/Thread.hpp"
 #include "mcuf/lang/managerment/MemoryManager.hpp"
 #include "mcuf/lang/managerment/TimerManager.hpp"
+#include "mcuf/lang/managerment/StackerManager.hpp"
 #include "mcuf/lang/managerment/ExecutorManager.hpp"
+#include "mcuf/util/Stacker.hpp"
 
 
 /* ****************************************************************************************
@@ -53,10 +55,13 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
+  private: static mcuf::lang::managerment::StackerManager mStackerManager;
+  
   private: static mcuf::lang::managerment::MemoryManager* mMemoryManager;
   private: static mcuf::lang::managerment::ExecutorManager* mExecutorManager;
   private: static mcuf::lang::managerment::TimerManager* mTimerManager;
   private: static mcuf::lang::Thread* mThread;
+  
   
 
   /* **************************************************************************************

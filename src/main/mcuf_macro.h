@@ -22,6 +22,8 @@
   #define THROW_WARNING(message) mcuf::lang::System::throwSystemWarning(__PRETTY_FUNCTION__, message)
   #define ASSERT_THROW_ERROR(expr, message) if(!(expr)) THROW_ERROR(message)
   #define ASSERT_THROW_WARNING(expr, message) if(!(expr)) THROW_WARNING(message)
+  #define CRASH(message) ((void)0)
+  #define ASSERT_CRASH(expr, message) ((void)0)
 #else
   #ifdef MCUF_DEBUG_NMSG
     #define INFO(message) ((void)0)
@@ -29,12 +31,16 @@
     #define THROW_WARNING(message) ((void)0)
     #define ASSERT_THROW_ERROR(expr, message) if(!expr) THROW_ERROR(message)
     #define ASSERT_THROW_WARNING(expr, message) ((void)0)
+    #define CRASH(message) ((void)0)
+    #define ASSERT_CRASH(expr, message) ((void)0)
   #else
     #define INFO(message) ((void)0)
     #define THROW_ERROR(message) ((void)0)
     #define THROW_WARNING(message) ((void)0)
     #define ASSERT_THROW_ERROR(expr, message) ((void)0)
     #define ASSERT_THROW_WARNING(expr, message) ((void)0)
+    #define CRASH(message) ((void)0)
+    #define ASSERT_CRASH(expr, message) ((void)0)
   #endif
 #endif
 

@@ -20,6 +20,7 @@
 
 #include "MemoryManager.hpp"
 #include "ExecutorManager.hpp"
+#include "StackerManager.hpp"
 #include "TimerManager.hpp"
  
 

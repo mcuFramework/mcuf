@@ -29,10 +29,6 @@ class mcuf::Resources{
   /* **************************************************************************************
    * Substruct
    */
-  struct Buffer{
-    void* const point;
-    const uint32_t size;
-  };
   
   /* **************************************************************************************
    * Subclass
@@ -42,33 +38,25 @@ class mcuf::Resources{
    * Variable <Public>
    */
   
-  public: struct System{
-    Buffer stack;
-    Buffer string;
-  }static const system; 
+  public: static void* const CORE_MEMORY;
+  public: static const uint32_t CORE_MEMORY_SIZE;
   
-  public: struct Executor{
-    Buffer handle;
-    Buffer stack;
-    Buffer task;
-  }static const executor;
+  public: static void* const MEMORYMANAGER_MEMORY;
+  public: static const uint32_t MEMORYMANAGER_MEMORY_SIZE;
   
-  public: struct Timer{
-    Buffer handle;
-    Buffer task;
-  }static const timer;
+  public: static void* const STRING_FORMAT_MEMORY;
+  public: static const uint32_t STRING_FORMAT_MEMORY_SIZE;
   
-  public: struct MemoryManager{
-    Buffer handle;
-    Buffer memory;
-    struct{
-      const uint32_t pageSize;
-      const uint32_t* subPageList;
-      const uint32_t subPageListLength;
-    }config;
-
-  }static const memoryManager;
-
+  public: static const uint32_t SYSTEM_STACK_SIZE;
+  public: static const uint32_t EXECUTOR_STACK_SIZE;
+  public: static const uint32_t EXECUTOR_TASK_QUANTITY;
+  public: static const uint32_t TIMER_TASK_QUANTITY;
+  public: static const uint32_t MEMORYMANAGER_PAGE_SIZE;
+  public: static const uint32_t MEMORYMANAGER_PAGE_QUANTITY;  
+  public: static const uint32_t* MEMORYMANAGER_SUB_BLOCK;
+  public: static const uint32_t MEMORYMANAGER_SUB_BLOCK_QUANTITY;
+  
+  
   /* **************************************************************************************
    * Variable <Protected>
    */
@@ -106,19 +94,6 @@ class mcuf::Resources{
   /* **************************************************************************************
    * Public Method <Static>
    */
-   
-  /**
-   *
-   */
-  public: static bool inline checkMemory(const Buffer& buffer, uint32_t size){
-    if(buffer.point == nullptr)
-      return false;
-    
-    if(buffer.size < 0)
-      return false;
-    
-    return true;
-  }
 
   /* **************************************************************************************
    * Public Method <Override>

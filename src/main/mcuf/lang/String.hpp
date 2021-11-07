@@ -24,6 +24,7 @@
 namespace mcuf{
   namespace lang{
     class String;
+    class System;
   }
 }
 
@@ -31,7 +32,8 @@ namespace mcuf{
  * Class String
  */  
 class mcuf::lang::String extends mcuf::lang::Memory{
-
+  
+  friend mcuf::lang::System;
   /* **************************************************************************************
    * Subclass
    */
@@ -47,7 +49,8 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Variable <Private>
    */
-
+  private: static mcuf::lang::Memory mCache;
+  
   /* **************************************************************************************
    * Abstract method <Public>
    */

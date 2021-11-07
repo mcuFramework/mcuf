@@ -13,14 +13,19 @@
 // <h>System
 // =======================
 
-//   <o>System stack size [byte] <256-65536>
-#ifndef MCUF_DEFINE_SYSTEM_THREAD_STACK_SIZE
-#define MCUF_DEFINE_SYSTEM_THREAD_STACK_SIZE 1024
+//   <o>Core memory size [byte] <256-65536>
+#ifndef MCUF_DEFINE_CORE_MEMORY_SIZE
+#define MCUF_DEFINE_CORE_MEMORY_SIZE 4096
 #endif
 
-//   <o>String format cache [byte] <256-65536>
-#ifndef MCUF_DEFINE_SYSTEM_STRING_SIZE
-#define MCUF_DEFINE_SYSTEM_STRING_SIZE 1024
+//   <o>Main thread stack size [byte] <256-65536>
+#ifndef MCUF_DEFINE_MAIN_THREAD_STACK_SIZE
+#define MCUF_DEFINE_MAIN_THREAD_STACK_SIZE 2048
+#endif
+
+//   <o>String format size [byte] <256-65536>
+#ifndef MCUF_DEFINE_STRING_FORMAT_SIZE
+#define MCUF_DEFINE_STRING_FORMAT_SIZE 1024
 #endif
 
 //   <h>Executor
@@ -45,12 +50,6 @@
 #endif
 //   </h>
 
-
-// </h>
-
-// <h>Memory
-// =======================
-
 //   <h>MemoryManager
 
 //   <o>Page size [byte]
@@ -59,17 +58,16 @@
 #define MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE 1024
 #endif
 
-
-//   <o>Page quantity <16-65536>
+//   <o>Page number  <16-65536>
 #ifndef MCUF_DEFINE_MEMORYMANAGER_PAGE_QUANTITY
 #define MCUF_DEFINE_MEMORYMANAGER_PAGE_QUANTITY 16
 #endif
 
-
-
 //   </h>
 
+
 // </h>
+
 
 
 //------------- <<< end of configuration section >>> ---------------------------

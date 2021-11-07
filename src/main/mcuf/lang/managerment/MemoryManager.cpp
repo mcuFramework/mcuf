@@ -19,6 +19,7 @@ using mcuf::util::LinkedBlockPool;
 using mcuf::lang::Math;
 using mcuf::lang::Memory;
 using mcuf::lang::managerment::MemoryManager;
+using mcuf::lang::IllegalArgumentException;
 
 
 /* ****************************************************************************************
@@ -32,23 +33,30 @@ using mcuf::lang::managerment::MemoryManager;
 /**
  * 
  */
-MemoryManager::MemoryManager(Parameter& param) 
-  construct LinkedBlockPool(*param.mPageMemory, param.mPageSize, *param.mFlagMemory), 
-            mStacker(*param.mHandlerMemory){
+MemoryManager::MemoryManager(Parameter& param) throw(IllegalArgumentException)
+  construct LinkedBlockPool(*param.mPageMemory, param.mPageSize, *param.mFlagMemory){
   
-  /* constructure pools array */
+  /* check param */
   if(true){
-    uint32_t numberOfPools = param.mBlockSizeList->length();
-    void* handleMemory = this->mStacker.alloc(sizeof(Array<LinkedBlockPool*>));
-    void* referenceMemory = this->mStacker.alloc(numberOfPools * sizeof(void*));
+    for(int i=0; i<(*param.mBlockSizeList).length(); ++i){
+      if((*param.mBlockSizeList)[i] >= this->mElementSize)
+        throw IllegalArgumentException(__FUNCTION__, nullptr);
+    }
+  }
+              
+  /* constructure mPools */
+  if(true){
+    uint32_t numberOfPools = param.mBlockSizeList->length() + 1;
+    void* handleMemory = param.mStackManager->alloc(sizeof(Array<LinkedBlockPool*>));
+    void* referenceMemory = param.mStackManager->alloc(numberOfPools * sizeof(void*));
     
     this->mPools = new (handleMemory) Array<LinkedBlockPool*>(static_cast<LinkedBlockPool**>(referenceMemory), numberOfPools);
     this->mPools->clear();
   }
   
-  /* constructure BlockPoolEntity */
+  /* constructure mEntity */
   if(true){
-    void* handleMemory = this->mStacker.alloc(sizeof(LinkedBlockPool));
+    void* handleMemory = param.mStackManager->alloc(sizeof(LinkedBlockPool));
     Memory memory = this->LinkedBlockPool::allocMemory();
     this->mEntity = new (handleMemory) LinkedBlockPool(memory, sizeof(LinkedBlockPool));
   }
@@ -58,11 +66,13 @@ MemoryManager::MemoryManager(Parameter& param)
     int count = param.mBlockSizeList->length();
     
     for(int i=0; i<count; i++){
-      void* handleMemory = this->mStacker.alloc(sizeof(LinkedBlockPool));
+      void* handleMemory = param.mStackManager->alloc(sizeof(LinkedBlockPool));
       Memory pageMemory = this->LinkedBlockPool::allocMemory();
       
       (*this->mPools)[i] = new(handleMemory) LinkedBlockPool(pageMemory, (*param.mBlockSizeList)[i]);
     }
+    
+    (*this->mPools)[count] = this;
   }
 
   return;
@@ -115,15 +125,13 @@ bool MemoryManager::free(void* pointer){
  * 
  */
 bool MemoryManager::free(void* pointer, size_t size){ 
-  uint16_t blockShift = this->foundBlockShift(size);
-
-  for(int i=blockShift; i<this->NUMBER_OF_BLOCK_QUANTITY; ++i){
-    if(blocks[i]->remove(pointer))
-      return true;
-  }
-
-  for(int i=0; i<this->NUMBER_OF_BLOCK_QUANTITY; ++i){
-    if(blocks[i]->remove(pointer))
+  for(int i=0; i<this->mPools->length(); i++){
+    LinkedBlockPool* pool = (*this->mPools)[i];
+    
+    if(size > pool->elementSize())
+      continue;
+    
+    if(pool->remove(pointer))
       return true;
   }
 
@@ -160,31 +168,45 @@ Memory MemoryManager::allocAuto(size_t size){
   Memory result = this->allocDirect(size);
   if(!result.isEmpty())
     return result;
+  
+  if((this->mEntity->capacity() - this->mEntity->size()) <= 1)
+    this->expansionPool(*this->mEntity);
+  
+  this->expansionPool(*(*this->mPools)[this->getPoolShift(size)]);
+  
+  result = this->allocDirect(size);
+  
+  if(!result.isEmpty())
+    return result;
 
-  if(this->expansionBlock(this->foundBlockShift(size)))
-    return this->allocDirect(size);
-
-  else
-    return this->allocCeil(size);
+  return this->allocCeil(size);
 }
 
 /**
  * 
  */
-Memory MemoryManager::allocCeil(size_t size){
-  int shift = this->foundBlockShift(size);
-  if(shift == -1)
-    return Memory::nullMemory();
+Memory MemoryManager::allocCeil(uint32_t size){
+  int shift = this->getPoolShift(size);
   
-  for(int i=shift; i<this->NUMBER_OF_BLOCK_QUANTITY; ++i){
-    if(this->blocks[i] == nullptr)
+  if(shift < 0)
+    return Memory::nullMemory();  
+  
+  int count = this->mPools->length();
+  
+  for(int i=shift; i<count; ++i){
+    LinkedBlockPool* pool = (*this->mPools)[i];
+    
+    if(pool->elementSize() < size)
       continue;
     
-    if(this->blocks[i]->isFull())
+    if(pool->isFull())
       continue;
-
-    return this->blocks[i]->allocMemory();
+    
+    return pool->allocMemory();
   }
+  
+  if(size <= this->elementSize())
+    return this->LinkedBlockPool::allocMemory();
 
   return Memory::nullMemory();
 }
@@ -193,181 +215,74 @@ Memory MemoryManager::allocCeil(size_t size){
  * 
  */
 Memory MemoryManager::allocDirect(size_t size){
-  int shift = this->foundBlockShift(size);
-  if(shift == -1)
+  int shift = this->getPoolShift(size);
+  if(shift < 0)
     return Memory::nullMemory();
-    
-  if(this->blocks[shift] == nullptr)
-    return Memory::nullMemory();
-    
-  return this->blocks[shift]->allocMemory();
+  
+  return (*this->mPools)[shift]->allocMemory();
 }
 
 /**
  * 
  */
 Memory MemoryManager::allocFloor(size_t size){
-  int shift = this->foundBlockShift(size);
-  if(shift == -1)
+  int shift = this->getPoolShift(size);
+  
+  if(shift < 0)
     return Memory::nullMemory();
   
+  int count = this->mPools->length();
+  
   for(int i=shift; i>=0; --i){
-    if(this->blocks[i] == nullptr)
+    LinkedBlockPool* pool = (*this->mPools)[i];
+    
+    if(pool->elementSize() < size)
       continue;
     
-    if(this->blocks[i]->isFull())
+    if(pool->isFull())
       continue;
-
-    return this->blocks[i]->allocMemory();
+    
+    return pool->allocMemory();
   }
 
   return Memory::nullMemory();
 }
 
 /**
- * 
+ *
  */
-Memory MemoryManager::allocEntityBlockMemory(void){
-  Memory result = this->entityPool->allocMemory();
-
-  if(result.isEmpty())
-    return result;
-
-  if(!this->entityPool->isFull())
-    return result;
-
-  Memory memory = this->allocFloor(this->BASE_BLOCK_SIZE);
-  size_t size = sizeof(LinkedBlockPool);
-
-  if(memory.isEmpty())
-    return result;
-
-  if(size > memory.length()){
-    this->freeMemory(memory);
-    return result;
+bool MemoryManager::expansionPool(LinkedBlockPool& pool){
+  Memory handleMemory = this->mEntity->allocMemory();
+  if(handleMemory.isEmpty())
+    return false; 
+  
+  Memory pageMemory = this->allocCeil(this->elementSize());
+  if(pageMemory.isEmpty()){
+    this->mEntity->remove(handleMemory.pointer());
+    return false;
   }
   
-  /**
-   * 
-   */
-  uint32_t bytes = Math::ceil((uint32_t)(memory.length() / size), 8UL);
-
-  if(bytes & 0x00000003)
-    bytes = (bytes & ~0x00000003) + 4;
-
-  if(bytes > size){
-    this->entityPool->addLinked(new(result.pointer()) LinkedBlockPool(memory, size));
-  }else{
-    Memory flag = Memory::nullMemory();
-    if((this->BASE_BLOCK_SIZE % size) < bytes)
-      flag = this->allocCeil(bytes);
-
-
-    if(flag.isEmpty())
-      this->entityPool->addLinked(new(result.pointer()) LinkedBlockPool(memory, size));
-
-    else
-      this->entityPool->addLinked(new(result.pointer()) LinkedBlockPool(memory, size, flag));
-  }
-    
-  return this->entityPool->allocMemory();
-}
-
-/**
- * 
- */
-LinkedBlockPool* MemoryManager::constructLinkedBlockPool(Memory& memory, uint16_t blockShift){
-  if(memory.isEmpty())
-    return nullptr;
-
-  if(blockShift >= this->NUMBER_OF_BLOCK_QUANTITY)
-    return nullptr;
-
-  size_t size = BLOCK_SIZE[blockShift];
-  Memory base = this->allocEntityBlockMemory();
-
-  if(base.isEmpty())
-    return nullptr;
-
-  Memory flag = Memory::nullMemory();
-
-  uint32_t bytes = Math::ceil((uint32_t)(memory.length() / size), 8UL);
-
-  if(bytes & 0x00000003)
-    bytes = (bytes & ~0x00000003) + 4;
-
-  if(bytes > size)
-    return new(base.pointer()) LinkedBlockPool(memory, size);
-
-  if((this->BASE_BLOCK_SIZE % size) < bytes)
-    flag = this->allocCeil(bytes);
-
-  if(flag.isEmpty())
-    return new(base.pointer()) LinkedBlockPool(memory, size);
-
-  else
-    return new(base.pointer()) LinkedBlockPool(memory, size, flag);
-}
-
-/**
- * 
- */
-bool MemoryManager::expansionBlock(uint16_t blockShift){
-  Memory memory = this->allocFloor(this->BASE_BLOCK_SIZE);
-  if(memory.isEmpty())
-    return false;
-
-  if(this->BLOCK_SIZE[blockShift] >= memory.length()){
-    this->freeMemory(memory);
-    return false;
-  }
-
-  LinkedBlockPool* result = this->constructLinkedBlockPool(memory, blockShift);
-  if(result == nullptr){
-    this->freeMemory(memory);
-    return false;
-  }
-
-  this->blocks[blockShift]->addLinked(result);
+  LinkedBlockPool* result = new(handleMemory.pointer()) LinkedBlockPool(pageMemory, pool.elementSize());
+  pool.addLinked(result);
   return true;
 }
 
 /**
  * 
  */
-int MemoryManager::foundBlockShift(size_t size){
-  for(int i=0; i<this->NUMBER_OF_BLOCK_QUANTITY; i++){
-    if(this->BLOCK_SIZE[i] >= size)
-      return i;
-
+int MemoryManager::getPoolShift(uint32_t size){
+  int count = this->mPools->length();
+  
+  for(int i=0; i>count; ++i){
+    LinkedBlockPool* pool = (*this->mPools)[i];
+    
+    if(pool->elementSize() < size)
+      continue;
+    
+    return i;
   }
 
   return -1;
-}
-
-/**
- * 
- */
-void MemoryManager::initBlocks(Memory& baseMemory){
-  for(int i=0; i<this->NUMBER_OF_BLOCK_QUANTITY-1; i++){
-    Memory memory = baseMemory.subMemory((this->BASE_BLOCK_SIZE * i), this->BASE_BLOCK_SIZE);
-    this->blocks[i] = this->constructLinkedBlockPool(memory, i);
-  }
-
-  int i = NUMBER_OF_BLOCK_QUANTITY-1;
-  Memory memory = baseMemory.subMemory((this->BASE_BLOCK_SIZE * i));
-  this->blocks[i] = this->constructLinkedBlockPool(memory, i);
-}
-
-/**
- * 
- */
-void MemoryManager::initEntityPool(void){
-  /*
-  Memory entityMemory = Memory(this->handleMemory.m, sizeof(this->handleMemory.m));
-  Memory entityFlag = Memory(this->handleMemory.f, sizeof(this->handleMemory.f));
-  this->entityPool = new(this->handleMemory.entity) LinkedBlockPool(entityMemory, sizeof(LinkedBlockPool), entityFlag);
-  */
 }
 
 /* ****************************************************************************************

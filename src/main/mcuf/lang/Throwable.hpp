@@ -13,6 +13,7 @@
  */  
 #include "mcuf_base.h"
 #include "mcuf/lang/Object.hpp"
+#include "mcuf/lang/String.hpp"
 
 
 
@@ -43,8 +44,9 @@ class mcuf::lang::Throwable extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Protected>
    */
+  protected: const char* mPath;
   protected: const char* mType;
-  protected: const char* mMessage;
+  protected: String mMessage;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -65,12 +67,17 @@ class mcuf::lang::Throwable extends mcuf::lang::Object{
   /**
    * Construct.
    */
-  public: Throwable(void);
+  public: Throwable(const char* path, const char* message);
+
+  /**
+   * Construct
+   */
+  public: Throwable(const char* path, mcuf::lang::String& message);
   
   /**
-   * Construct.
+   * Construct
    */
-  public: Throwable(const char* message);
+  public: Throwable(const char* path, mcuf::lang::String&& message);  
 
   /**
    * Destruct.
@@ -93,12 +100,20 @@ class mcuf::lang::Throwable extends mcuf::lang::Object{
    * Public Method
    */
   
-  public: const char* getType(void);
+  /**
+   *
+   */
+  public: mcuf::lang::String getPath(void);
   
   /**
    *
    */
-  public: const char* getMessage(void);
+  public: mcuf::lang::String getMessage(void);
+  
+  /**
+   *
+   */
+  public: mcuf::lang::String getType(void);
   
 
   /* **************************************************************************************

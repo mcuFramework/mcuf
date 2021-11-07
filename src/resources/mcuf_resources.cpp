@@ -17,10 +17,9 @@
 /* ****************************************************************************************
  * Macro
  */  
-
 #define HOW_U32(x) (((x)+((4)-1))/(4))
 #define HOW_U64(x) (((x)+((8)-1))/(8))
-#define MEMORY(position) {static_cast<void*>(mcuf::resource::memory::position), sizeof(mcuf::resource::memory::position)}
+
 
 /* ****************************************************************************************
  * Namespace
@@ -46,29 +45,11 @@ namespace mcuf{
     }
     
     namespace memory{
-      struct{
-        uint64_t stack[HOW_U64(MCUF_DEFINE_SYSTEM_THREAD_STACK_SIZE)];
-        uint64_t string[HOW_U64(MCUF_DEFINE_SYSTEM_STRING_SIZE)];
-      }system;
-      
-      struct{
-        uint64_t handle[HOW_U64(sizeof(mcuf::lang::managerment::ExecutorManager))];
-        uint64_t stack[HOW_U64(MCUF_DEFINE_EXECUTOR_STACK_SIZE)];
-        uint64_t task[HOW_U64(MCUF_DEFINE_EXECUTOR_TASK_NUMBER*4)];
-      }executor;
-      
-      struct{
-        uint64_t handle[HOW_U64(sizeof(mcuf::lang::managerment::TimerManager))];
-        uint64_t task[HOW_U64(MCUF_DEFINE_TIMER_TASK_NUMBER*4)];
-      }timer;
-      
-      struct{
-        uint64_t handle[HOW_U64(sizeof(mcuf::lang::managerment::MemoryManager))];
-        uint64_t memory[HOW_U64(MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE * MCUF_DEFINE_MEMORYMANAGER_PAGE_QUANTITY)];
-      }memoryManager;
+      uint64_t coreMemory[HOW_U64(MCUF_DEFINE_CORE_MEMORY_SIZE)];
+      uint64_t memoryManager[HOW_U64(MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE * MCUF_DEFINE_MEMORYMANAGER_PAGE_QUANTITY)];
+      uint64_t stringFormat[HOW_U64(MCUF_DEFINE_STRING_FORMAT_SIZE)];
     }
   }
-  
   
 }
 
@@ -82,31 +63,28 @@ using mcuf::Resources;
  * Variable <Static>
  */
 
-const Resources::System Resources::system = {
-  MEMORY(system.stack),
-  MEMORY(system.string),
-};
+void* const Resources::CORE_MEMORY = mcuf::resource::memory::coreMemory;
+const uint32_t Resources::CORE_MEMORY_SIZE = sizeof(mcuf::resource::memory::coreMemory);
 
-const Resources::Executor Resources::executor = {
-  MEMORY(executor.handle),
-  MEMORY(executor.stack),
-  MEMORY(executor.task),
-};
+void* const Resources::STRING_FORMAT_MEMORY = mcuf::resource::memory::stringFormat;
+const uint32_t Resources::STRING_FORMAT_MEMORY_SIZE = sizeof(mcuf::resource::memory::stringFormat);
 
-const Resources::Timer Resources::timer = {
-  MEMORY(timer.handle),
-  MEMORY(timer.task),
-};
+void* const Resources::MEMORYMANAGER_MEMORY = mcuf::resource::memory::memoryManager;
+const uint32_t Resources::MEMORYMANAGER_MEMORY_SIZE = sizeof(mcuf::resource::memory::memoryManager);
 
-const Resources::MemoryManager Resources::memoryManager = {
-  MEMORY(memoryManager.handle),
-  MEMORY(memoryManager.memory),
-  {
-    MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE,
-    mcuf::resource::config::memoryManagerBlock,
-    (sizeof(mcuf::resource::config::memoryManagerBlock)/4)
-  }
-};
+
+
+
+const uint32_t Resources::SYSTEM_STACK_SIZE = MCUF_DEFINE_MAIN_THREAD_STACK_SIZE;
+const uint32_t Resources::EXECUTOR_STACK_SIZE = MCUF_DEFINE_EXECUTOR_STACK_SIZE;
+const uint32_t Resources::EXECUTOR_TASK_QUANTITY = MCUF_DEFINE_EXECUTOR_TASK_NUMBER;
+const uint32_t Resources::TIMER_TASK_QUANTITY = MCUF_DEFINE_TIMER_TASK_NUMBER;
+
+const uint32_t Resources::MEMORYMANAGER_PAGE_SIZE = MCUF_DEFINE_MEMORYMANAGER_PAGE_SIZE;
+const uint32_t Resources::MEMORYMANAGER_PAGE_QUANTITY = MCUF_DEFINE_MEMORYMANAGER_PAGE_QUANTITY;
+
+const uint32_t* Resources::MEMORYMANAGER_SUB_BLOCK = mcuf::resource::config::memoryManagerBlock;
+const uint32_t Resources::MEMORYMANAGER_SUB_BLOCK_QUANTITY = (sizeof(mcuf::resource::config::memoryManagerBlock) / sizeof(uint32_t));
 
 
 /* ****************************************************************************************

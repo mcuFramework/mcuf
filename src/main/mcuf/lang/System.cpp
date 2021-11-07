@@ -29,6 +29,7 @@ using mcuf::lang::System;
 using mcuf::lang::Thread;
 using mcuf::lang::managerment::MemoryManager;
 using mcuf::lang::managerment::ExecutorManager;
+using mcuf::lang::managerment::StackerManager;
 using mcuf::lang::managerment::TimerManager;
 using mcuf::util::Executor;
 using mcuf::util::Timer;
@@ -54,14 +55,14 @@ void * operator new[](size_t n){
 /**
  * 
  */
-void operator delete (void* ptr){
+void operator delete (void* ptr) noexcept{
   System::freePointer(ptr);
 }
 
 /**
  * 
  */
-void operator delete[] (void* ptr){
+void operator delete[] (void* ptr) noexcept{
   System::freePointer(ptr);
 }
 
@@ -83,6 +84,8 @@ void operator delete[] (void* ptr, size_t size){
  * Static Variable
  */  
 PrintStream System::out = PrintStream(nullptr);
+StackerManager System::mStackerManager = StackerManager(Resources::CORE_MEMORY, Resources::CORE_MEMORY_SIZE);
+
 MemoryManager* System::mMemoryManager = nullptr;
 ExecutorManager* System::mExecutorManager = nullptr;
 TimerManager* System::mTimerManager = nullptr;
@@ -295,14 +298,19 @@ void System::entryPoint(void* attachment){
  *
  */
 void System::initMemoryManager(void){
-  if(Resources::checkMemory(Resources::memoryManager.handle, sizeof(MemoryManager)))
-    return;
+  Memory pageMemory = Memory(Resources::MEMORYMANAGER_MEMORY, Resources::MEMORYMANAGER_MEMORY_SIZE);
+  Memory flagMemory = System::mStackerManager.allocMemoryAlignment32(Math::ceil(Resources::MEMORYMANAGER_PAGE_QUANTITY, 8U));
+  void* handleMemory = System::mStackerManager.allocAlignment32(sizeof(MemoryManager));
+  Array<uint32_t> blockSizeList = Array<uint32_t>(Resources::MEMORYMANAGER_SUB_BLOCK, Resources::MEMORYMANAGER_SUB_BLOCK_QUANTITY);  
   
-  if(Resources::checkMemory(Resources::memoryManager.memory, 16384))
-    return;
+  MemoryManager::Parameter param;
+  param.mPageMemory = &pageMemory;
+  param.mFlagMemory = &flagMemory;
+  param.mPageSize = Resources::MEMORYMANAGER_PAGE_SIZE;
+  param.mStackManager = &System::mStackerManager;
+  param.mBlockSizeList = &blockSizeList;
   
-  Memory memory = Memory(Resources::memoryManager.memory.point, Resources::memoryManager.memory.size);
-  //System::mMemoryManager = new(Resources::memoryManager.handle.point) MemoryManager(memory);
+  System::mMemoryManager = new(handleMemory) MemoryManager(param);
   return;  
 }
 
@@ -322,17 +330,12 @@ void System::initThread(Thread& thread){
   if(System::mThread != nullptr)
     return;
   
-  if(Resources::system.stack.point == nullptr)
-    return;
-  
-  if(Resources::system.stack.size < 256)
-    return;
   
 #ifndef MCUF_CMSISRTOS2_DISABLE  
   osKernelInitialize();
 #endif
   
-  Memory stackMemory = Memory(Resources::system.stack.point, Resources::system.stack.size);
+  Memory stackMemory = System::mStackerManager.allocMemoryAlignment64(Resources::SYSTEM_STACK_SIZE);
   
   if(!thread.start(stackMemory, Thread::PRIORITY_ABOVE_NORMAL, System::entryPoint)){
     THROW_ERROR("System thread start fail.");
@@ -347,14 +350,10 @@ void System::initThread(Thread& thread){
  *
  */
 void System::initTimer(void){
-  if(Resources::checkMemory(Resources::timer.handle, sizeof(TimerManager)))
-    return;  
+  Memory taskMemory = System::mStackerManager.allocMemoryAlignment64(Resources::TIMER_TASK_QUANTITY * sizeof(void*));
+  void* handleMemory = System::mStackerManager.allocAlignment32(sizeof(TimerManager));
   
-  if(Resources::checkMemory(Resources::timer.task, 64))
-    return;  
-  
-  Memory taskMemory = Memory(Resources::timer.task.point, Resources::timer.task.size);
-  System::mTimerManager = new(Resources::timer.handle.point) TimerManager(taskMemory);
+  System::mTimerManager = new(handleMemory) TimerManager(taskMemory);
   
   if(!mTimerManager->start(5))
     THROW_ERROR("System timer start fail.");
@@ -366,19 +365,11 @@ void System::initTimer(void){
  *
  */
 void System::initExecutor(void){
-  if(Resources::checkMemory(Resources::executor.handle, sizeof(ExecutorManager)))
-    return;
+  Memory stackMemory = System::mStackerManager.allocMemoryAlignment64(Resources::EXECUTOR_STACK_SIZE);
+  Memory taskMemory = System::mStackerManager.allocMemoryAlignment64(Resources::EXECUTOR_TASK_QUANTITY * sizeof(void*));
+  void* handleMemory = System::mStackerManager.allocAlignment32(sizeof(ExecutorManager));
   
-  if(Resources::checkMemory(Resources::executor.stack, 256))
-    return;
-  
-  if(Resources::checkMemory(Resources::executor.task, 64))
-    return;
-  
-  Memory stackMemory = Memory(Resources::executor.stack.point, Resources::executor.stack.size);
-  Memory taskMemory = Memory(Resources::executor.task.point, Resources::executor.task.size);
-  
-  System::mExecutorManager = new(Resources::executor.handle.point) ExecutorManager(taskMemory);
+  System::mExecutorManager = new(handleMemory) ExecutorManager(taskMemory);
   
   if(!System::mExecutorManager->mThreadEvent.start(stackMemory, Thread::PRIORITY_HIGH))
     THROW_ERROR("System executor start fail.");

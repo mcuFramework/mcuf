@@ -866,6 +866,46 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
+            <File>
+              <FileName>Exception.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Exception.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Exception.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Exception.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>IllegalArgumentException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>IllegalArgumentException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Error.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Error.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutOfMemoryError.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutOfMemoryError.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -895,6 +935,16 @@
               <FileName>ExecutorManager.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\ExecutorManager.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>StackerManager.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\StackerManager.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StackerManager.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\StackerManager.hpp</FilePath>
             </File>
             <File>
               <FileName>TimerManager.cpp</FileName>
@@ -2031,6 +2081,46 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
+            <File>
+              <FileName>Exception.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Exception.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Exception.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Exception.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>IllegalArgumentException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>IllegalArgumentException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Error.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Error.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutOfMemoryError.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutOfMemoryError.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2060,6 +2150,16 @@
               <FileName>ExecutorManager.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\ExecutorManager.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>StackerManager.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\StackerManager.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StackerManager.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\StackerManager.hpp</FilePath>
             </File>
             <File>
               <FileName>TimerManager.cpp</FileName>
@@ -3196,6 +3296,46 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
+            <File>
+              <FileName>Exception.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Exception.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Exception.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Exception.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>IllegalArgumentException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>IllegalArgumentException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Error.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Error.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutOfMemoryError.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutOfMemoryError.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3225,6 +3365,16 @@
               <FileName>ExecutorManager.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\ExecutorManager.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>StackerManager.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\StackerManager.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StackerManager.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\StackerManager.hpp</FilePath>
             </File>
             <File>
               <FileName>TimerManager.cpp</FileName>
@@ -3831,7 +3981,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls></MiscControls>
+              <MiscControls>-fexceptions</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main</IncludePath>
@@ -4361,6 +4511,46 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
+            <File>
+              <FileName>Exception.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Exception.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Exception.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Exception.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>IllegalArgumentException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>IllegalArgumentException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Error.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Error.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutOfMemoryError.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutOfMemoryError.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4390,6 +4580,16 @@
               <FileName>ExecutorManager.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\ExecutorManager.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>StackerManager.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\StackerManager.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StackerManager.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\StackerManager.hpp</FilePath>
             </File>
             <File>
               <FileName>TimerManager.cpp</FileName>
@@ -5475,6 +5675,46 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
+            <File>
+              <FileName>Exception.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Exception.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Exception.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Exception.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>IllegalArgumentException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>IllegalArgumentException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Error.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Error.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutOfMemoryError.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutOfMemoryError.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5504,6 +5744,16 @@
               <FileName>ExecutorManager.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\ExecutorManager.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>StackerManager.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\StackerManager.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StackerManager.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\StackerManager.hpp</FilePath>
             </File>
             <File>
               <FileName>TimerManager.cpp</FileName>
@@ -6640,6 +6890,46 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
+            <File>
+              <FileName>Exception.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Exception.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Exception.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Exception.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>IllegalArgumentException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>IllegalArgumentException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>Error.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Error.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutOfMemoryError.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutOfMemoryError.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -6669,6 +6959,16 @@
               <FileName>ExecutorManager.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\ExecutorManager.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>StackerManager.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\StackerManager.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StackerManager.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\StackerManager.hpp</FilePath>
             </File>
             <File>
               <FileName>TimerManager.cpp</FileName>

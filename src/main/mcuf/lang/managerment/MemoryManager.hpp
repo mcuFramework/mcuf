@@ -16,8 +16,10 @@
 #include "mcuf_base.h"
 #include "mcuf_config.h"
 #include "mcuf/lang/Array.hpp"
+#include "mcuf/lang/IllegalArgumentException.hpp"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/lang/Memory.hpp"
+#include "mcuf/lang/managerment/StackerManager.hpp"
 #include "mcuf/util/LinkedBlockPool.hpp"
 #include "mcuf/util/Stacker.hpp"
 
@@ -27,6 +29,7 @@
  */  
 namespace mcuf{
   namespace lang{
+    class System;
     namespace managerment{
       class MemoryManager;
     }
@@ -40,6 +43,7 @@ namespace mcuf{
  */  
 class mcuf::lang::managerment::MemoryManager extends mcuf::util::LinkedBlockPool{
 
+  friend mcuf::lang::System;
   /* **************************************************************************************
    * Subclass
    */
@@ -64,7 +68,6 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::util::LinkedBlockPool
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: mcuf::util::Stacker mStacker;
   private: mcuf::lang::Array<mcuf::util::LinkedBlockPool*>* mPools;
   private: mcuf::util::LinkedBlockPool* mEntity;
 
@@ -83,7 +86,7 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::util::LinkedBlockPool
   /**
    * Construct.
    */
-  public: MemoryManager(Parameter& param);
+  private: MemoryManager(Parameter& param) throw(mcuf::lang::IllegalArgumentException);
 
   /**
    * Destruct.
@@ -177,34 +180,14 @@ class mcuf::lang::managerment::MemoryManager extends mcuf::util::LinkedBlockPool
   private: mcuf::lang::Memory allocFloor(size_t size);
 
   /**
-   * 
+   *
    */
-  private: mcuf::lang::Memory allocEntityBlockMemory(void);
+  private: bool expansionPool(LinkedBlockPool& pool);
 
   /**
    * 
    */
-  private: mcuf::util::LinkedBlockPool* constructLinkedBlockPool(mcuf::lang::Memory& memory, uint16_t blockShift);
-
-  /**
-   * 
-   */
-  private: bool expansionBlock(uint16_t blockShift);
-
-  /**
-   * 
-   */
-  private: int foundBlockShift(size_t size);
-
-  /**
-   * 
-   */
-  private: void initEntityPool(void);
-
-  /**
-   * 
-   */
-  private: void initBlocks(mcuf::lang::Memory& memory);
+  private: int getPoolShift(uint32_t size);
 
 };
 
@@ -222,7 +205,7 @@ class mcuf::lang::managerment::MemoryManager::Parameter extends mcuf::lang::Obje
   public: uint32_t mPageSize; 
   public: mcuf::lang::Memory* mPageMemory;
   public: mcuf::lang::Memory* mFlagMemory;
-  public: mcuf::lang::Memory* mHandlerMemory;
+  public: mcuf::lang::managerment::StackerManager* mStackManager;
   public: Array<uint32_t>* mBlockSizeList;
   
 
