@@ -176,6 +176,29 @@ ByteBuffer& ByteBuffer::rewind(void){
 }
 
 /**
+ *
+ */
+ByteBuffer& ByteBuffer::put(char const* string){
+  return this->put(string, strlen(string));
+}
+
+/**
+ *
+ */
+ByteBuffer& ByteBuffer::put(const void* ptr, uint32_t size){
+  
+  return *this;
+}
+
+/**
+ *
+ */
+ByteBuffer& ByteBuffer::putArray(mcuf::lang::ArrayPrototype& arrayPrototype){
+  
+  return *this;
+}
+
+/**
  * 
  */
 ByteBuffer& ByteBuffer::putByte(char value){

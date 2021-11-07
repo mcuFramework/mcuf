@@ -130,11 +130,6 @@ class mcuf::util::Stacker extends mcuf::lang::Memory
   /**
    * 
    */
-  public: virtual uint32_t length(void);
-
-  /**
-   * 
-   */
   public: virtual void* alloc(uint32_t size);
   
   /**

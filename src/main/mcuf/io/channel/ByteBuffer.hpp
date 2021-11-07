@@ -165,7 +165,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   /**
    *
    */
-  public: virtual ByteBuffer& put(const void* ptr, size_t size);
+  public: virtual ByteBuffer& put(const void* ptr, uint32_t size);
   
   /**
    *
