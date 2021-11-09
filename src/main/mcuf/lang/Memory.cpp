@@ -43,10 +43,14 @@ Memory::Memory(void){
  */
 Memory::Memory(const Memory& memory){
   *this = memory;
-  if(!(this->mFlag & this->MEMORY_FLAG_HEAP_MEMORY))
-    return;
   
-  this->mReference->mReference = this;
+  if((this->mFlag & this->MEMORY_FLAG_HEAP_MEMORY)){
+    this->mReference->mReference = this;
+  }else{
+    this->mReference = this;
+  }
+  
+  return;
 }
 
 /**

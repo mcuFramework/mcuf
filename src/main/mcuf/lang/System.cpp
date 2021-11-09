@@ -84,8 +84,8 @@ void operator delete[] (void* ptr, size_t size){
  * Static Variable
  */  
 PrintStream System::out = PrintStream(nullptr);
-StackerManager System::mStackerManager = StackerManager(Resources::CORE_MEMORY, Resources::CORE_MEMORY_SIZE);
 
+StackerManager System::mStackerManager = StackerManager(Resources::CORE_MEMORY, Resources::CORE_MEMORY_SIZE);
 MemoryManager* System::mMemoryManager = nullptr;
 ExecutorManager* System::mExecutorManager = nullptr;
 TimerManager* System::mTimerManager = nullptr;
