@@ -20,7 +20,6 @@
 #include "mcuf/lang/managerment/TimerManager.hpp"
 #include "mcuf/lang/managerment/StackerManager.hpp"
 #include "mcuf/lang/managerment/ExecutorManager.hpp"
-#include "mcuf/util/Stacker.hpp"
 
 
 /* ****************************************************************************************
@@ -46,7 +45,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Public>
    */
-  public: static mcuf::io::PrintStream out;
+  
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -57,6 +56,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    */
   private: static mcuf::lang::managerment::StackerManager mStackerManager;
   
+  private: static mcuf::io::PrintStream* mPrintStream;
   private: static mcuf::lang::managerment::MemoryManager* mMemoryManager;
   private: static mcuf::lang::managerment::ExecutorManager* mExecutorManager;
   private: static mcuf::lang::managerment::TimerManager* mTimerManager;
@@ -138,6 +138,11 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    * 
    */
   public: static mcuf::lang::managerment::MemoryManager* memoryManager(void);
+  
+  /**
+   *
+   */
+  public: static mcuf::io::PrintStream& out(void);
   
   /**
    *

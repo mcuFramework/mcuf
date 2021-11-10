@@ -30,7 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Object
  */  
-class mcuf::util::RingBuffer extends mcuf::lang::Object{
+class mcuf::util::RingBuffer extends mcuf::lang::Memory{
 
   /* **************************************************************************************
    * Subclass
@@ -47,7 +47,6 @@ class mcuf::util::RingBuffer extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: void* mData;
   private: uint32_t mCount;
   private: uint32_t mHead;
   private: uint32_t mTail;
@@ -191,6 +190,11 @@ class mcuf::util::RingBuffer extends mcuf::lang::Object{
   /* **************************************************************************************
    * Private Method
    */  
+  
+  /**
+   *
+   */
+  private: void init(void);
 
 };
 

@@ -18,6 +18,10 @@
 #include "mcuf.h"
 
 /* ****************************************************************************************
+ * Namespace
+ */  
+
+/* ****************************************************************************************
  * Using
  */  
 using mcuf::Resources;
@@ -83,9 +87,10 @@ void operator delete[] (void* ptr, size_t size){
 /* ****************************************************************************************
  * Static Variable
  */  
-PrintStream System::out = PrintStream(nullptr);
 
 StackerManager System::mStackerManager = StackerManager(Resources::CORE_MEMORY, Resources::CORE_MEMORY_SIZE);
+
+PrintStream* System::mPrintStream = nullptr;
 MemoryManager* System::mMemoryManager = nullptr;
 ExecutorManager* System::mExecutorManager = nullptr;
 TimerManager* System::mTimerManager = nullptr;
@@ -221,7 +226,7 @@ void System::freePointer(void* pointer, size_t size){
  * 
  */
 void System::info(const char* path, const char* message){
-  System::out.format("INFO: %s - %s\n", path, message);
+  System::mPrintStream->format("INFO: %s - %s\n", path, message);
   return;
 }
 
@@ -249,7 +254,7 @@ MemoryManager* System::memoryManager(void){
  * 
  */
 void System::throwSystemError(const char* path, const char* message){
-  System::out.format("ERROR: %s - %s\n", path, message);
+  System::mPrintStream->format("ERROR: %s - %s\n", path, message);
   while(1);
 }
 
@@ -257,7 +262,7 @@ void System::throwSystemError(const char* path, const char* message){
  * 
  */
 void System::throwSystemWarning(const char* path, const char* message){
-  System::out.format("WARNING: %s - %s\n", path, message);
+  System::mPrintStream->format("WARNING: %s - %s\n", path, message);
   return;
 }
 
@@ -318,9 +323,8 @@ void System::initMemoryManager(void){
  *
  */
 void System::initPrintStream(OutputStream* outputStream){
-  if(outputStream != nullptr){
-    System::out = PrintStream(outputStream);
-  }
+  void* handleMemory = System::mStackerManager.allocAlignment32(sizeof(PrintStream));
+  System::mPrintStream = new(handleMemory) PrintStream(outputStream);
 }
 
 /**

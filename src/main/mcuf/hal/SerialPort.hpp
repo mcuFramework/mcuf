@@ -13,8 +13,6 @@
  */  
 #include "mcuf_base.h"
 #include "mcuf\hal\Base.hpp"
-#include "mcuf\hal\SerialPortEvent.hpp"
-#include "mcuf\function\Consumer.hpp"
 #include "mcuf\io\channel\ByteBuffer.hpp"
 
 
@@ -31,28 +29,17 @@ namespace mcuf{
 
 
 /* ****************************************************************************************
- * Class SerialPort
+ * Interface SerialPort
  */  
 interface mcuf::hal::SerialPort implement mcuf::hal::Base{
         
   /* **************************************************************************************
    * Subclass
    */
+  interface Event;
 
   /* **************************************************************************************
-   * Variable <Public>
-   */
-
-  /* **************************************************************************************
-   * Variable <Protected>
-   */
-
-  /* **************************************************************************************
-   * Variable <Private>
-   */
-
-  /* **************************************************************************************
-   * Abstract method <Public>
+   * Method
    */
 
   /**
@@ -89,63 +76,44 @@ interface mcuf::hal::SerialPort implement mcuf::hal::Base{
    * 
    */
   virtual bool read(mcuf::io::channel::ByteBuffer& byteBuffer, 
-                    mcuf::hal::SerialPortEvent* event) abstract;
+                    Event* event) abstract;
 
   /**
    * 
    */
   virtual bool write(mcuf::io::channel::ByteBuffer& byteBuffer, 
-                     mcuf::hal::SerialPortEvent* event) abstract;
+                     Event* event) abstract;
   
-  /* **************************************************************************************
-   * Abstract method <Protected>
-   */
-
-  /* **************************************************************************************
-   * Construct Method
-   */
-  
-  /* **************************************************************************************
-   * Operator Method
-   */  
-
-  /* **************************************************************************************
-   * Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Protected Method
-   */
-
-  /* **************************************************************************************
-   * Private Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Private Method <Override>
-   */
-   
-  /* **************************************************************************************
-   * Private Method
-   */   
 };
 
+/* ****************************************************************************************
+ * Interface SerialPort::Event
+ */  
+interface mcuf::hal::SerialPort::Event{
+
+  
+  /* **************************************************************************************
+   * Subclass
+   */
+  enum Status{
+    TXD_SUCCESSFUL,
+    TXD_ABORT,
+    TXD_FAIL,
+    RXD_SUCCESSFUL,
+    RXD_ABORT,
+    RXD_FAIL,
+  };
+  
+  /* **************************************************************************************
+   * Method
+   */
+
+  /**
+   * 
+   */
+  virtual void onSerialPortEvent(Status event, mcuf::io::channel::ByteBuffer& byteBuffer) abstract;
+  
+};
 
 
 /* *****************************************************************************************

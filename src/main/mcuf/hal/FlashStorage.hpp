@@ -12,9 +12,7 @@
  * Include
  */  
 #include "mcuf/hal/Base.hpp"
-#include "mcuf/function/Consumer.hpp"
-#include "mcuf/function/ConsumerEvent.hpp"
-#include "mcuf/lang/Memory.hpp"
+#include "mcuf/io/channel/ByteBuffer.hpp"
 #include "mcuf/lang/Pointer.hpp"
 
 
@@ -30,28 +28,17 @@ namespace mcuf{
 
 
 /* ****************************************************************************************
- * Class FlashStorage
+ * Interface FlashStorage
  */  
 interface mcuf::hal::FlashStorage implement mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass
    */
+  interface Event;
 
   /* **************************************************************************************
-   * Variable <Public>
-   */
-
-  /* **************************************************************************************
-   * Variable <Protected>
-   */
-
-  /* **************************************************************************************
-   * Variable <Private>
-   */
-
-  /* **************************************************************************************
-   * Abstract method <Public>
+   * Method
    */
 
   /**
@@ -74,80 +61,43 @@ interface mcuf::hal::FlashStorage implement mcuf::hal::Base{
    */
   virtual uint32_t minimumWriteSize(void) abstract;
 
+  /**
+   * 
+   */
+  virtual bool write(mcuf::io::channel::ByteBuffer* bytebuffer, Event* event) abstract;
 
   /**
    * 
    */
-  virtual bool write(mcuf::lang::Memory& memory,
-                     mcuf::function::Consumer<mcuf::lang::Memory&>* function) abstract;
+  virtual bool read(mcuf::io::channel::ByteBuffer* bytebuffer, Event* event) abstract;
 
-  /**
-   * 
-   */
-  virtual mcuf::lang::Pointer readDirect(uint32_t address) abstract;
-
-  /**
-   * 
-   */
-  virtual mcuf::lang::Memory readDirect(uint32_t address, uint32_t size) abstract;  
-
-  /**
-   * 
-   */
-  virtual bool read(mcuf::lang::Memory& memory,
-                    mcuf::function::Consumer<mcuf::lang::Memory&>* function) abstract;
-
-  
-  
-  /* **************************************************************************************
-   * Abstract method <Protected>
-   */
-
-  /* **************************************************************************************
-   * Construct Method
-   */
-  
-  /* **************************************************************************************
-   * Operator Method
-   */
-
-  /* **************************************************************************************
-   * Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Protected Method
-   */
-
-  /* **************************************************************************************
-   * Private Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Private Method <Override>
-   */
-   
-  /* **************************************************************************************
-   * Private Method
-   */
 };
 
+
+
+/* ****************************************************************************************
+ * Interface FlashStorage::Event
+ */  
+interface mcuf::hal::FlashStorage::Event{
+  /* **************************************************************************************
+   * Subclass
+   */
+  enum Status{
+    WRITE_SUCCESSFUL,
+    WRITE_FAIL,
+    READ_SUCCESSFUL,
+    READ_FAIL,
+  };
+
+  /* **************************************************************************************
+   * Method
+   */
+  
+  /**
+   *
+   */
+  virtual void onFlashStorageEvent(Status status, mcuf::io::channel::ByteBuffer* byteBuffer) abstract;
+};
 
 
 /* *****************************************************************************************

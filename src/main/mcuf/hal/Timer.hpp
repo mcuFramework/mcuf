@@ -28,28 +28,17 @@ namespace mcuf{
 
 
 /* ****************************************************************************************
- * Class Timer
+ * Interface Timer
  */  
 interface mcuf::hal::Timer implement mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass
    */
+  interface Event;
 
   /* **************************************************************************************
-   * Variable <Public>
-   */
-
-  /* **************************************************************************************
-   * Variable <Protected>
-   */
-
-  /* **************************************************************************************
-   * Variable <Private>
-   */
-
-  /* **************************************************************************************
-   * Abstract method <Public>
+   * Method
    */
   
   /**
@@ -80,9 +69,7 @@ interface mcuf::hal::Timer implement mcuf::hal::Base{
   /**
    * 
    */
-  virtual bool startAtTick(uint32_t tick,
-                                   void* attachment,  
-                                   mcuf::function::Consumer<void*>* execute) abstract;
+  virtual bool startAtTick(uint32_t tick, Event* event) abstract;
   
   /**
    * 
@@ -92,57 +79,33 @@ interface mcuf::hal::Timer implement mcuf::hal::Base{
   /**
    * 
    */
-  virtual bool startAtTime(uint32_t microSecond, 
-                                   void* attachment,  
-                                   mcuf::function::Consumer<void*>* execute) abstract;
+  virtual bool startAtTime(uint32_t microSecond, Event* event) abstract;
   
+};
+
+
+
+/* ****************************************************************************************
+ * Interface Timer:;Event
+ */  
+interface mcuf::hal::Timer::Event{
   /* **************************************************************************************
-   * Abstract method <Protected>
+   * Subclass
    */
+  enum Status{
+    TRIGGER,
+    CANCEL
+  };
 
   /* **************************************************************************************
-   * Construct Method
+   * Method
    */
   
-  /* **************************************************************************************
-   * Operator Method
+  /**
+   *
    */
-
-  /* **************************************************************************************
-   * Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Protected Method
-   */
-
-  /* **************************************************************************************
-   * Private Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Private Method <Override>
-   */
-   
-  /* **************************************************************************************
-   * Private Method
-   */
+  virtual void onTimerEvent(Status status) abstract;
+  
 };
 
 

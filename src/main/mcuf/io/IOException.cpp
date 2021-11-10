@@ -8,10 +8,12 @@
 /* ****************************************************************************************
  * Include
  */  
- 
+#include "mcuf/io/IOException.hpp"
+
 /* ****************************************************************************************
  * Using
  */  
+using mcuf::io::IOException;
 
 /* ****************************************************************************************
  * Macro
@@ -24,6 +26,30 @@
 /* ****************************************************************************************
  * Construct Method
  */
+
+/**
+ *
+ */
+IOException::IOException(const char* path, mcuf::lang::String& message) construct Exception(path, message){
+  this->mType = __FUNCTION__;
+  return;
+}
+
+/**
+ *
+ */
+IOException::IOException(const char* path, mcuf::lang::String&& message) construct Exception(path, message){
+  this->mType = __FUNCTION__;
+  return;
+}
+
+/**
+ *
+ */
+IOException::IOException(const char* path, const char* message) construct Exception(path, message){
+  this->mType = __FUNCTION__;
+  return;
+}
 
 /* ****************************************************************************************
  * Operator Method

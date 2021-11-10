@@ -30,53 +30,28 @@ namespace mcuf{
 
 
 /* ****************************************************************************************
- * Class InterIntegratedCircuit
+ * Interface InterIntegratedCircuit
  */  
 interface mcuf::hal::InterIntegratedCircuit implement mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass
    */
+  interface Event;
 
   /* **************************************************************************************
-   * Variable <Public>
+   * Method
    */
   
-  /* **************************************************************************************
-   * Variable <Protected>
+  /**
+   *
    */
-
-  /* **************************************************************************************
-   * Variable <Private>
+  virtual uint8_t address(void) abstract;
+  
+  /**
+   *
    */
-
-  /* **************************************************************************************
-   * Abstract method <Public>
-   */
-   
-  /* **************************************************************************************
-   * Abstract method <Protected>
-   */
-
-  /* **************************************************************************************
-   * Construct Method
-   */
-
-  /* **************************************************************************************
-   * Operator Method
-   */
-
-  /* **************************************************************************************
-   * Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
+  virtual bool address(uint8_t address) abstract;
   
   /**
    * 
@@ -91,45 +66,50 @@ interface mcuf::hal::InterIntegratedCircuit implement mcuf::hal::Base{
   /**
    * 
    */
-  virtual void read(uint8_t address, 
-                     mcuf::io::channel::ByteBuffer* bytebuffer,
-                     void* attachment,
-                     mcuf::io::channel::CompletionHandler<int, void*>* handler) abstract;
+  virtual void read(mcuf::io::channel::ByteBuffer* receiver, Event* event) abstract;
 
   /**
    * 
    */
-  virtual void write(uint8_t address, 
-                     mcuf::io::channel::ByteBuffer* bytebuffer,
-                     void* attachment,
-                     mcuf::io::channel::CompletionHandler<int, void*>* handler) abstract;
-
-  /* **************************************************************************************
-   * Protected Method <Static>
+  virtual void write(mcuf::io::channel::ByteBuffer* transfer, Event* event) abstract;
+  
+  /**
+   *
    */
-
-  /* **************************************************************************************
-   * Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Protected Method
-   */
-
-  /* **************************************************************************************
-   * Private Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Private Method <Override>
-   */
-   
-  /* **************************************************************************************
-   * Private Method
-   */    
+  virtual bool writeAfterRead(mcuf::io::channel::ByteBuffer* transfer, 
+                              mcuf::io::channel::ByteBuffer* receiver,
+                              Event* event) abstract;
 
 };
 
+
+
+/* ****************************************************************************************
+ * Interface InterIntegratedCircuit::Event
+ */  
+interface mcuf::hal::InterIntegratedCircuit::Event{
+  /* **************************************************************************************
+   * Subclass
+   */
+  enum Status{
+    WRITE_SUCCESSFUL,
+    WRITE_FAIL,
+    READ_SUCCESSFUL,
+    READ_FAIL,
+  };
+
+  /* **************************************************************************************
+   * Method
+   */
+  
+  /**
+   *
+   */
+  virtual void onInterIntegratedCircuitEvent(Status status,
+                                             mcuf::io::channel::ByteBuffer* transfer, 
+                                             mcuf::io::channel::ByteBuffer* receiver) abstract;
+  
+};
 
 
 /* *****************************************************************************************

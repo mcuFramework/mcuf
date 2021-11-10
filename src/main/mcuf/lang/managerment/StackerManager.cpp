@@ -115,6 +115,7 @@ mcuf::lang::Memory StackerManager::allocMemoryAlignment64(uint32_t size){
   if(result.isNull())
     throw OutOfMemoryError(__FUNCTION__, nullptr);
   
+  
   return result;
 }
     

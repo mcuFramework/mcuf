@@ -13,7 +13,7 @@
  */
 #include "mcuf_base.h"
 #include "mcuf/hal/Base.hpp"
-#include "mcuf/function/BiConsumer.hpp"
+#include "mcuf/io/channel/ByteBuffer.hpp"
 #include "mcuf/lang/Pointer.hpp"
 
 
@@ -30,19 +30,14 @@ namespace mcuf{
 
 
 /* ****************************************************************************************
- * Class SerialPeripheral
+ * Interface SerialPeripheral
  */  
 interface mcuf::hal::SerialPeripheral implement mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass
    */
-  struct Packet{
-    void* mTransferPointer;
-    void* mReceiverPointer;
-    uint16_t mLength;
-    uint16_t mDummy;
-  };
+  interface Event;
 
   /* **************************************************************************************
    * Enum Polarity
@@ -61,21 +56,14 @@ interface mcuf::hal::SerialPeripheral implement mcuf::hal::Base{
   };
 
   /* **************************************************************************************
-   * Variable <Public>
-   */
-
-  /* **************************************************************************************
-   * Variable <Protected>
-   */
-
-  /* **************************************************************************************
-   * Variable <Private>
-   */
-
-  /* **************************************************************************************
-   * Abstract method <Public>
+   * Method
    */
    
+  /**
+   *
+   */
+  virtual bool abort(void) abstract;
+  
   /**
    * 
    */
@@ -124,59 +112,34 @@ interface mcuf::hal::SerialPeripheral implement mcuf::hal::Base{
   /**
    * 
    */
-  virtual bool transfer(Packet* packet,
-                                void* attachment,
-                                mcuf::function::BiConsumer<Packet*, void*>* function) abstract;
+  virtual bool transfer(mcuf::io::channel::ByteBuffer* transfer,
+                        mcuf::io::channel::ByteBuffer* receiver,
+                        Event* event) abstract;
 
-  /* **************************************************************************************
-   * Abstract method <Protected>
-   */
-
-  /* **************************************************************************************
-   * Construct Method
-   */
-
-  /* **************************************************************************************
-   * Operator Method
-   */
-
-  /* **************************************************************************************
-   * Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Protected Method
-   */
-
-  /* **************************************************************************************
-   * Private Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Private Method <Override>
-   */
-   
-  /* **************************************************************************************
-   * Private Method
-   */
-    
 };
+
+/* ****************************************************************************************
+ * Interface SerialPeripheral::Event
+ */  
+interface mcuf::hal::SerialPeripheral::Event{
+  /* **************************************************************************************
+   * Subclass
+   */
+  enum Status{
+    SUCCESSFUL,
+    ABORT,
+    ERROR
+  };
+  
+  /* **************************************************************************************
+   * Method
+   */  
+  
+  virtual void onSerialPeripheralEvent(Status status, 
+                                       mcuf::io::channel::ByteBuffer* transfer,
+                                       mcuf::io::channel::ByteBuffer* receiver) abstract;
+};
+
 
 
 

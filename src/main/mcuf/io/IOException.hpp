@@ -12,7 +12,7 @@
  * Include
  */  
 #include "mcuf_base.h"
-#include "mcuf/lang/Throwable.hpp"
+#include "mcuf/lang/Exception.hpp"
 
 /* ****************************************************************************************
  * Namespace
@@ -26,7 +26,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Object
  */  
-class mcuf::io::IOException extends mcuf::lang::Throwable{
+class mcuf::io::IOException extends mcuf::lang::Exception{
 
   /* **************************************************************************************
    * Subclass
@@ -59,12 +59,17 @@ class mcuf::io::IOException extends mcuf::lang::Throwable{
   /**
    * Construct.
    */
-  public: IOException(void);
+  public: IOException(const char* path, const char* message);
+
+  /**
+   * Construct
+   */
+  public: IOException(const char* path, mcuf::lang::String& message);
   
   /**
-   *
+   * Construct
    */
-  public: IOException(const char* message);
+  public: IOException(const char* path, mcuf::lang::String&& message);  
 
   /**
    * Destruct.
