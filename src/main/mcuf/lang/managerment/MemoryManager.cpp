@@ -273,7 +273,7 @@ bool MemoryManager::expansionPool(LinkedBlockPool& pool){
 int MemoryManager::getPoolShift(uint32_t size){
   int count = this->mPools->length();
   
-  for(int i=0; i>count; ++i){
+  for(int i=0; i<count; ++i){
     LinkedBlockPool* pool = (*this->mPools)[i];
     
     if(pool->elementSize() < size)
