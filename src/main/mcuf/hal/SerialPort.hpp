@@ -75,14 +75,12 @@ interface mcuf::hal::SerialPort implement mcuf::hal::Base{
   /**
    * 
    */
-  virtual bool read(mcuf::io::channel::ByteBuffer& byteBuffer, 
-                    Event* event) abstract;
+  virtual bool read(mcuf::io::channel::ByteBuffer* byteBuffer, Event* event) abstract;
 
   /**
    * 
    */
-  virtual bool write(mcuf::io::channel::ByteBuffer& byteBuffer, 
-                     Event* event) abstract;
+  virtual bool write(mcuf::io::channel::ByteBuffer* byteBuffer, Event* event) abstract;
   
 };
 
@@ -96,12 +94,12 @@ interface mcuf::hal::SerialPort::Event{
    * Subclass
    */
   enum Status{
-    TXD_SUCCESSFUL,
-    TXD_ABORT,
-    TXD_FAIL,
-    RXD_SUCCESSFUL,
-    RXD_ABORT,
-    RXD_FAIL,
+    WRITE_SUCCESSFUL,
+    WRITE_FAIL,
+    WRITE_ABROT,
+    READ_SUCCESSFUL,
+    READ_FAIL,
+    READ_ABROT,    
   };
   
   /* **************************************************************************************
@@ -111,7 +109,7 @@ interface mcuf::hal::SerialPort::Event{
   /**
    * 
    */
-  virtual void onSerialPortEvent(Status event, mcuf::io::channel::ByteBuffer& byteBuffer) abstract;
+  virtual void onSerialPortEvent(Status status, mcuf::io::channel::ByteBuffer* byteBuffer) abstract;
   
 };
 

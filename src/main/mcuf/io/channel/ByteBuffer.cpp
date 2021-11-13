@@ -10,7 +10,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/io/channel/ByteBuffer.hpp"
 
 /* ****************************************************************************************
  * Using
@@ -18,6 +18,7 @@
 using mcuf::io::channel::ByteBuffer;
 using mcuf::lang::Memory;
 using mcuf::lang::System;
+using mcuf::lang::String;
 
 /* ****************************************************************************************
  * Construct Method
@@ -186,16 +187,31 @@ ByteBuffer& ByteBuffer::put(char const* string){
  *
  */
 ByteBuffer& ByteBuffer::put(const void* ptr, uint32_t size){
+  if(size == 0)
+    return *this;  
   
+  uint32_t rem = this->remaining();
+  if(size > rem)
+    size = rem;
+  
+  this->copy(ptr, size);
+  this->mPosition += size;
   return *this;
 }
 
 /**
  *
  */
+ByteBuffer& ByteBuffer::put(String& string){
+  return this->put(string.pointer(), string.length());
+}
+
+/**
+ *
+ */
 ByteBuffer& ByteBuffer::putArray(mcuf::lang::ArrayPrototype& arrayPrototype){
-  
-  return *this;
+  uint32_t size = arrayPrototype.getElementSize() * arrayPrototype.getElementLength();
+  return this->put(arrayPrototype.pointer(), size);
 }
 
 /**
@@ -204,8 +220,67 @@ ByteBuffer& ByteBuffer::putArray(mcuf::lang::ArrayPrototype& arrayPrototype){
 ByteBuffer& ByteBuffer::putByte(char value){
   if(this->mPosition >= this->mLimit)
     return *this;
+  
   static_cast<uint8_t*>(this->mPointer)[this->mPosition] = value;
   this->mPosition++;
+  return *this;
+}
+
+/**
+ * 
+ */
+ByteBuffer& ByteBuffer::putShort(short value){
+  if((this->mPosition + 1) >= this->mLimit)
+    return *this;
+  
+  uint8_t* ptr = static_cast<uint8_t*>(this->mPointer);
+  
+  ptr[this->mPosition++] = (uint8_t)(value >> 8);
+  ptr[this->mPosition++] = (uint8_t)(value);
+  
+  return *this;
+}
+
+/**
+ * 
+ */
+ByteBuffer& ByteBuffer::putShortLsb(short value){
+  if((this->mPosition + 1) >= this->mLimit)
+    return *this;
+  
+  *static_cast<short*>(this->pointer(this->mPosition)) = value;
+  this->mPosition+=2;
+  
+  return *this;
+}
+
+/**
+ * 
+ */
+ByteBuffer& ByteBuffer::putInt(int value){
+  if((this->mPosition + 3) >= this->mLimit)
+    return *this;
+  
+  uint8_t* ptr = static_cast<uint8_t*>(this->mPointer);
+  
+  ptr[this->mPosition++] = (uint8_t)(value >> 24);
+  ptr[this->mPosition++] = (uint8_t)(value >> 16);
+  ptr[this->mPosition++] = (uint8_t)(value >> 8);
+  ptr[this->mPosition++] = (uint8_t)(value);
+  
+  return *this;
+}
+
+/**
+ * 
+ */
+ByteBuffer& ByteBuffer::putIntLsb(int value){
+  if((this->mPosition + 3) >= this->mLimit)
+    return *this;
+  
+  *static_cast<int*>(this->pointer(this->mPosition)) = value;
+  this->mPosition+=4;
+  
   return *this;
 }
 
@@ -222,38 +297,30 @@ char ByteBuffer::getByte(void){
 /**
  * 
  */
-ByteBuffer& ByteBuffer::putShort(short value){
-  if((this->mPosition + 1) >= this->mLimit)
-    return *this;
-  static_cast<uint8_t*>(this->mPointer)[this->mPosition++] = (uint8_t)(value >> 8);
-  static_cast<uint8_t*>(this->mPointer)[this->mPosition++] = (uint8_t)(value);
-  return *this;
-}
-
-/**
- * 
- */
 short ByteBuffer::getShort(void){
   if((this->mPosition + 1) >= this->mLimit)
     return 0;
+  
+  uint8_t* ptr = static_cast<uint8_t*>(this->mPointer);
   short result = 0;
-  result |= (((short)static_cast<uint8_t*>(this->mPointer)[this->mPosition++]) << 8);
-  result |= (((short)static_cast<uint8_t*>(this->mPointer)[this->mPosition++]));
+  
+  result |= (((short)ptr[this->mPosition++]) << 8);
+  result |= (((short)ptr[this->mPosition++]));
+  
   return result;
 }
 
 /**
- * 
+ *
  */
-ByteBuffer& ByteBuffer::putInt(int value){
-  if((this->mPosition + 3) >= this->mLimit)
-    return *this;
+short ByteBuffer::getShortLsb(void){
+  if((this->mPosition + 1) >= this->mLimit)
+    return 0;
   
-  static_cast<uint8_t*>(this->mPointer)[this->mPosition++] = (uint8_t)(value >> 24);
-  static_cast<uint8_t*>(this->mPointer)[this->mPosition++] = (uint8_t)(value >> 16);
-  static_cast<uint8_t*>(this->mPointer)[this->mPosition++] = (uint8_t)(value >> 8);
-  static_cast<uint8_t*>(this->mPointer)[this->mPosition++] = (uint8_t)(value);
-  return *this;
+  void* ptr = &static_cast<uint8_t*>(this->mPointer)[this->mPosition];
+  this->mPosition+=2;
+
+  return *static_cast<short*>(ptr);
 }
 
 /**
@@ -263,12 +330,26 @@ int ByteBuffer::getInt(void){
   if((this->mPosition + 3) >= this->mLimit)
     return 0;
   
+  uint8_t* ptr = static_cast<uint8_t*>(this->mPointer);
   int result = 0;
-  result |= (((int)static_cast<uint8_t*>(this->mPointer)[this->mPosition++]) << 24);
-  result |= (((int)static_cast<uint8_t*>(this->mPointer)[this->mPosition++]) << 16);
-  result |= (((int)static_cast<uint8_t*>(this->mPointer)[this->mPosition++]) << 8);
-  result |= (((int)static_cast<uint8_t*>(this->mPointer)[this->mPosition++]));
+  result |= (((int)ptr[this->mPosition++]) << 24);
+  result |= (((int)ptr[this->mPosition++]) << 16);
+  result |= (((int)ptr[this->mPosition++]) << 8);
+  result |= (((int)ptr[this->mPosition++]));
   return result;
+}
+
+/**
+ *
+ */
+int ByteBuffer::getIntLsb(void){
+  if((this->mPosition + 3) >= this->mLimit)
+    return 0;
+  
+  void* ptr = &static_cast<uint8_t*>(this->mPointer)[this->mPosition];
+  this->mPosition+=4;
+
+  return *static_cast<int*>(ptr);
 }
 
 /* ****************************************************************************************

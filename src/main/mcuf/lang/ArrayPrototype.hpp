@@ -102,6 +102,16 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
   /**
    *
    */
+  public: uint32_t getElementLength(void);
+
+  /**
+   *
+   */
+  public: uint32_t getElementSize(void);
+
+  /**
+   *
+   */
   public: int indexOf(const void* element) const;
 
   /**

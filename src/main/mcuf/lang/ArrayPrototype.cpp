@@ -73,6 +73,20 @@ ArrayPrototype::ArrayPrototype(const void* pointer, uint32_t size, uint32_t elem
 /**
  *
  */
+uint32_t ArrayPrototype::getElementLength(void){
+  return this->mElementLength;
+}
+
+/**
+ *
+ */
+uint32_t ArrayPrototype::getElementSize(void){
+  return this->mElementSize;
+}
+
+/**
+ *
+ */
 int ArrayPrototype::indexOf(const void* element) const{
   int result = -1;
 

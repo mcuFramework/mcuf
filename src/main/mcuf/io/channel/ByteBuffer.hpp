@@ -17,6 +17,7 @@
 #include "mcuf/lang/ArrayPrototype.hpp"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/lang/Memory.hpp"
+#include "mcuf/lang/String.hpp"
 
 /* ****************************************************************************************
  * Namespace
@@ -170,6 +171,11 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   /**
    *
    */
+  public: virtual ByteBuffer& put(mcuf::lang::String& string);  
+  
+  /**
+   *
+   */
   public: virtual ByteBuffer& putArray(mcuf::lang::ArrayPrototype& arrayPrototype);
 
   /**
@@ -185,7 +191,17 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   /**
    * 
    */
+  public: virtual ByteBuffer& putShortLsb(const short value);
+
+  /**
+   * 
+   */
   public: virtual ByteBuffer& putInt(const int value);
+  
+  /**
+   * 
+   */
+  public: virtual ByteBuffer& putIntLsb(const int value);  
 
   /**
    * 
@@ -196,11 +212,21 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
    * 
    */
   public: short getShort(void);
+  
+  /**
+   * 
+   */
+  public: short getShortLsb(void);
 
   /**
    * 
    */
   public: int getInt(void);
+  
+  /**
+   * 
+   */
+  public: int getIntLsb(void);  
 
   /* **************************************************************************************
    *  Protected Method <Static>

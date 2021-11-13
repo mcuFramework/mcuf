@@ -127,8 +127,8 @@ interface mcuf::hal::SerialPeripheral::Event{
    */
   enum Status{
     SUCCESSFUL,
+    FAIL,
     ABORT,
-    ERROR
   };
   
   /* **************************************************************************************

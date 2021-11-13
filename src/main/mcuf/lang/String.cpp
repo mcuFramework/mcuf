@@ -17,6 +17,12 @@
 #include "mcuf/lang/String.hpp"
 
 /* ****************************************************************************************
+ * Macro
+ */  
+#define STRING_MEMORY (static_cast<char*>(mcuf::Resources::STRING_FORMAT_MEMORY))
+#define STRING_MEMORY_SIZE (mcuf::Resources::STRING_FORMAT_MEMORY_SIZE)
+
+/* ****************************************************************************************
  * Using
  */  
 using mcuf::lang::String;
@@ -26,9 +32,6 @@ using mcuf::lang::Memory;
 /* ****************************************************************************************
  * Variable
  */
-
-Memory String::mCache = Memory(mcuf::Resources::STRING_FORMAT_MEMORY, 
-                               mcuf::Resources::STRING_FORMAT_MEMORY_SIZE);
 
 /* ****************************************************************************************
  * Construct Method
@@ -74,9 +77,9 @@ String::String(Memory&& memory) construct Memory(memory){
  * 
  */
 String String::format(const char* format, va_list args){
-  int len = vsnprintf((char*)mCache.pointer(), mCache.length(), format, args);
+  int len = vsnprintf(STRING_MEMORY, STRING_MEMORY_SIZE, format, args);
   String result = String(len);
-  result.copy(mCache.pointer(), len);
+  result.copy(STRING_MEMORY, len);
   return result;
 }
 
@@ -94,6 +97,17 @@ String String::format(const char* format, ...){
 /* ****************************************************************************************
  * Public Method <Override>
  */
+
+/**
+ *
+ */
+uint32_t String::length(void){
+  uint32_t result = strlen(static_cast<const char*>(this->mPointer));
+  if(result >= this->Memory::mLength)
+    result = this->Memory::mLength;
+  
+  return result;
+}
 
 /* ****************************************************************************************
  * Public Method

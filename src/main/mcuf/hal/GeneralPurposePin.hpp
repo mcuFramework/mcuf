@@ -28,11 +28,11 @@ interface mcuf::hal::GeneralPurposePin{
    * Enum PinMode
    */
   enum PinMode{
-    PinMode_NotSupport,
-    PinMode_PushPull,
-    PinMode_Pullup,
-    PinMode_Pulldown,
-    PinMode_opendrain,
+    PINMODE_NOT_SUPPORT,
+    PINMODE_PUSH_PULL,
+    PINMODE_PULL_UP,
+    PINMODE_PULL_DOWN,
+    PINMODE_OPEN_DRAIN,
   };
    
   /* **************************************************************************************

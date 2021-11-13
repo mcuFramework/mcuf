@@ -95,7 +95,7 @@ interface mcuf::hal::InterIntegratedCircuit::Event{
     WRITE_SUCCESSFUL,
     WRITE_FAIL,
     READ_SUCCESSFUL,
-    READ_FAIL,
+    READ_FAIL, 
   };
 
   /* **************************************************************************************
@@ -105,9 +105,7 @@ interface mcuf::hal::InterIntegratedCircuit::Event{
   /**
    *
    */
-  virtual void onInterIntegratedCircuitEvent(Status status,
-                                             mcuf::io::channel::ByteBuffer* transfer, 
-                                             mcuf::io::channel::ByteBuffer* receiver) abstract;
+  virtual void onInterIntegratedCircuitEvent(Status status, mcuf::io::channel::ByteBuffer* byteBuffer) abstract;
   
 };
 

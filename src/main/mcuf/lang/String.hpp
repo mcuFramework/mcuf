@@ -49,7 +49,8 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: static mcuf::lang::Memory mCache;
+  private: uint32_t mStringLen;
+  
   
   /* **************************************************************************************
    * Abstract method <Public>
@@ -107,12 +108,13 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   public: static String format(const char* format, ...);
 
   /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
    * Public Method
    */
+  
+  /**
+   *
+   */
+  public: uint32_t length(void);  
   
   // /**
   //  * 
