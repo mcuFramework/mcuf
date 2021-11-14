@@ -12,7 +12,6 @@
  * Include
  */
 #include "mcuf_base.h"
-#include "mcuf/hal/Timer.hpp"
 #include "mcuf/io/PrintStream.hpp"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/lang/Thread.hpp"

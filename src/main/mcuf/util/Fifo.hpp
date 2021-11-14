@@ -86,14 +86,8 @@ class mcuf::util::Fifo extends mcuf::lang::Memory
    */
 
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> - mcuf::lang::Iterable<E>
    */
-
-  /**
-   * Removes all of the elements from this collection. The collection will be empty after 
-   * this method returns.
-   */
-  public: virtual void clear(void) override;
 
   /**
    * Performs the given action for each element of the Iterable until all elements have 
@@ -104,6 +98,16 @@ class mcuf::util::Fifo extends mcuf::lang::Memory
    * @action - The action to be performed for each element.
    */
   public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& action) override;
+
+  /* **************************************************************************************
+   * Public Method <Override> - mcuf::util::Collection<E>
+   */
+
+  /**
+   * Removes all of the elements from this collection. The collection will be empty after 
+   * this method returns.
+   */
+  public: virtual void clear(void) override;
 
   /**
    * Returns true if this collection contains no elements.
