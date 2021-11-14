@@ -10,7 +10,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/lang/managerment/ExecutorManager.hpp"
 
 /* ****************************************************************************************
  * Using
@@ -53,7 +53,7 @@ ExecutorManager::ExecutorManager(Memory& memory) construct Executor(memory),
  *
  */
 bool ExecutorManager::execute(Runnable& runnable){
-  bool result = Executor::execute(runnable);
+  bool result = Executor::execute(&runnable);
   this->mThreadEvent.notify();
   return result;
 }

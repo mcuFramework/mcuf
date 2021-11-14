@@ -15,7 +15,10 @@
 #ifndef MCUF_CMSISRTOS2_DISABLE
 #include "cmsis_rtos/rtx_os.h"
 #endif
-#include "mcuf.h"
+#include "mcuf_macro.h"
+#include "mcuf/lang/Math.hpp"
+#include "mcuf/lang/System.hpp"
+#include "mcuf/Resources.hpp"
 
 /* ****************************************************************************************
  * Namespace

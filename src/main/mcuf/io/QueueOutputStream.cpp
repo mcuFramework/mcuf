@@ -9,14 +9,13 @@
  * Include
  */  
 
-//-----------------------------------------------------------------------------------------
-#include "mcuf/lang/ThreadEvent.hpp"
+/* ****************************************************************************************
+ * Macro
+ */  
 
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::lang::ThreadEvent;
-using mcuf::function::Runnable;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -25,20 +24,6 @@ using mcuf::function::Runnable;
 /* ****************************************************************************************
  * Construct Method
  */
-
-/**
- * Construct.
- */
-ThreadEvent::ThreadEvent(Runnable& runnable){
-  this->mRunnable = &runnable;
-}
-
-/**
- * Construct.
- */
-ThreadEvent::ThreadEvent(Runnable& runnable ,const char* name) construct Thread(name){
-  this->mRunnable = &runnable;
-}
 
 /* ****************************************************************************************
  * Operator Method
@@ -49,15 +34,8 @@ ThreadEvent::ThreadEvent(Runnable& runnable ,const char* name) construct Thread(
  */
  
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::lang::Thread
+ * Public Method <Override>
  */
-
-/**
- *
- */
-void ThreadEvent::run(void){
-  this->mRunnable->run();
-}
 
 /* ****************************************************************************************
  * Public Method

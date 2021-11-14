@@ -30,7 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Pool
  */  
-interface mcuf::util::Pool implement mcuf::util::Collection<mcuf::lang::Memory&>{
+interface mcuf::util::Pool implement mcuf::util::Collection<mcuf::lang::Memory>{
   
   /* **************************************************************************************
    * Subclass

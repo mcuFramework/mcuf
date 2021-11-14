@@ -10,7 +10,8 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/lang/Math.hpp"
+#include "mcuf/util/BlockPool.hpp"
 
 /* ****************************************************************************************
  * Using
@@ -117,11 +118,11 @@ uint32_t BlockPool::elementSize(void){
 /**
  * 
  */
-void BlockPool::forEach(Consumer<Memory&>& consumer){
+void BlockPool::forEach(Consumer<Memory*>& consumer){
   for(int i = 0; i<this->mCapacity; i++){
     if(getFlag(i)){
       Memory memory = Memory(this->getBlock(i), this->elementSize());
-      consumer.accept(memory);
+      consumer.accept(&memory);
     }
   }
 }

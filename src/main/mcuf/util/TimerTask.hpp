@@ -146,8 +146,7 @@ class mcuf::util::TimerTask extends mcuf::lang::Object
 /* ****************************************************************************************
  * Class TimerTask::Viewer
  */  
-class mcuf::util::TimerTask::Viewer:
-      mcuf::lang::Object{
+class mcuf::util::TimerTask::Viewer extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Subclass

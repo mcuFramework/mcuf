@@ -5,33 +5,29 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_C045F3C4_B727_4170_9124_44EFD0DADB46
-#define MCUF_C045F3C4_B727_4170_9124_44EFD0DADB46
+#ifndef MCUF_D4937ADD_3905_457A_8668_A4FFE0CD1051
+#define MCUF_D4937ADD_3905_457A_8668_A4FFE0CD1051
 
 /* ****************************************************************************************
  * Include
- */ 
-
-//-----------------------------------------------------------------------------------------
+ */  
 #include "mcuf_base.h"
-#include "mcuf/util/Collection.hpp"
-#include "mcuf/lang/Memory.hpp"
+#include "mcuf/io/IOException.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  namespace util{
-    class Stacker;
+  namespace io{
+    class ReadPendingException;
   }
 }
 
 /* ****************************************************************************************
- * Class Stacker
+ * Class Object
  */  
-class mcuf::util::Stacker extends mcuf::lang::Memory
-      implements mcuf::util::Collection<mcuf::lang::Memory>{
-  
+class mcuf::io::ReadPendingException extends mcuf::io::IOException{
+
   /* **************************************************************************************
    * Subclass
    */
@@ -43,7 +39,6 @@ class mcuf::util::Stacker extends mcuf::lang::Memory
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: uint8_t* mStackPointer;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -60,21 +55,26 @@ class mcuf::util::Stacker extends mcuf::lang::Memory
   /* **************************************************************************************
    * Construct Method
    */
-  
-  /**
-   * Construct.
-   */
-  public: Stacker(void* buffer, uint32_t size);
 
   /**
    * Construct.
    */
-  public: Stacker(mcuf::lang::Memory& memory);
+  public: ReadPendingException(const char* path, const char* message);
+
+  /**
+   * Construct
+   */
+  public: ReadPendingException(const char* path, mcuf::lang::String& message);
+  
+  /**
+   * Construct
+   */
+  public: ReadPendingException(const char* path, mcuf::lang::String&& message);  
 
   /**
    * Destruct.
    */
-  public: virtual ~Stacker() = default;
+  public: virtual ~ReadPendingException(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -88,74 +88,9 @@ class mcuf::util::Stacker extends mcuf::lang::Memory
    * Public Method <Override>
    */
 
-  /**
-   * Removes all of the elements from this collection. The collection will be empty after 
-   * this method returns.
-   */
-  public: virtual void clear(void) override;
-
-  /**
-   * Performs the given action for each element of the Iterable until all elements have 
-   * been processed or the action throws an exception. Unless otherwise specified by the 
-   * implementing class, actions are performed in the order of iteration (if an iteration 
-   * order is specified). 
-   *
-   * @param Consumer<Memory&>-action The action to be performed for each element.
-   */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& action) override;
-
-  /**
-   * Returns true if this collection contains no elements.
-   * 
-   * @return true if this collection contains no elements.
-   */
-  public: virtual bool isEmpty(void) override;
-
-  /**
-   * Returns the number of elements in this collection.
-   * 
-   * @return the number of elements in this collection.
-   */
-  public: virtual uint32_t size(void) override;
-
   /* **************************************************************************************
    * Public Method
    */
-
-  /**
-   * 
-   */
-  public: virtual uint32_t getFree(void);
-
-  /**
-   * 
-   */
-  public: virtual void* alloc(uint32_t size);
-  
-  /**
-   *
-   */
-  public: virtual void* allocAlignment32(uint32_t size);
-  
-  /**
-   *
-   */
-  public: virtual void* allocAlignment64(uint32_t size);  
-
-  /**
-   * 
-   */
-  public: virtual mcuf::lang::Memory allocMemory(uint32_t size);
-  
-  /**
-   * 
-   */
-  public: virtual mcuf::lang::Memory allocMemoryAlignment32(uint32_t size);
-
-  /**
-   * 
-   */
-  public: virtual mcuf::lang::Memory allocMemoryAlignment64(uint32_t size);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -179,12 +114,12 @@ class mcuf::util::Stacker extends mcuf::lang::Memory
    
   /* **************************************************************************************
    * Private Method
-   */
-  
+   */  
+
 };
- 
+
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif/* MCUF_C045F3C4_B727_4170_9124_44EFD0DADB46 */
+#endif/* MCUF_D4937ADD_3905_457A_8668_A4FFE0CD1051 */

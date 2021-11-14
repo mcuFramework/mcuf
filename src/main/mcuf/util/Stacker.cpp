@@ -10,7 +10,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/util/Stacker.hpp"
  
 /* ****************************************************************************************
  * Using
@@ -67,7 +67,7 @@ void Stacker::clear(void){
  *
  * @param Consumer<Memory&>-action The action to be performed for each element.
  */
-void Stacker::forEach(mcuf::function::Consumer<mcuf::lang::Memory&>& action){
+void Stacker::forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& action){
   return;
 }
 

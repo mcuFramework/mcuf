@@ -10,7 +10,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/util/TimerScheduler.hpp"
 
 /* ****************************************************************************************
  * Using
@@ -28,7 +28,8 @@ using mcuf::lang::Memory;
 /**
  *
  */
-TimerScheduler::TimerScheduler(Memory& memory) construct BlockPool(memory, sizeof(void*)){
+TimerScheduler::TimerScheduler(Memory& memory) 
+  construct BlockPool(memory, sizeof(void*)), consumerClear(), consumerPurge(this), consumerTick(this){
   return;
 }
 
@@ -122,8 +123,8 @@ void TimerScheduler::tick(uint32_t milliSecont){
 /**
  * 
  */
-void TimerScheduler::ConsumerClear::accept(Memory& t){
-  TimerTask* timerTask = (TimerTask*)(*((uint32_t*)t.pointer()));
+void TimerScheduler::ConsumerClear::accept(Memory* t){
+  TimerTask* timerTask = (TimerTask*)(*((uint32_t*)t->pointer()));
   TimerTask::Viewer::setTimerTaskDelayPeriod(*timerTask, 0, 0);
 }
 
@@ -135,12 +136,12 @@ void TimerScheduler::ConsumerClear::accept(Memory& t){
 /**
  * 
  */
-void TimerScheduler::ConsumerPurge::accept(Memory& t){
-  TimerTask* timerTask = (TimerTask*)(*((uint32_t*)t.pointer()));
+void TimerScheduler::ConsumerPurge::accept(Memory* t){
+  TimerTask* timerTask = (TimerTask*)(*((uint32_t*)t->pointer()));
 
   if(!TimerTask::Viewer::isTimerTaskRunning(*timerTask)){
     this->purge++;
-    this->base->remove(t.pointer());
+    this->base->remove(t->pointer());
   }
 }
 
@@ -168,8 +169,8 @@ uint32_t TimerScheduler::ConsumerPurge::get(void){
 /**
  * 
  */
-void TimerScheduler::ConsumerTick::accept(Memory& t){
-  TimerTask* timerTask = (TimerTask*)(*((uint32_t*)t.pointer()));
+void TimerScheduler::ConsumerTick::accept(Memory* t){
+  TimerTask* timerTask = (TimerTask*)(*((uint32_t*)t->pointer()));
       
   if(TimerTask::Viewer::subTimerTaskDelay(*timerTask, this->tickMilliSecond)){
     timerTask->run();
@@ -178,7 +179,7 @@ void TimerScheduler::ConsumerTick::accept(Memory& t){
     if(period)
       TimerTask::Viewer::setTimerTaskDelay(*timerTask, period);
     else
-      this->base->remove(t.pointer());
+      this->base->remove(t->pointer());
   }
 }
 

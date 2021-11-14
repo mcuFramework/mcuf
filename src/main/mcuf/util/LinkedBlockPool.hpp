@@ -163,7 +163,7 @@ class mcuf::util::LinkedBlockPool extends mcuf::util::BlockPool
    *
    * @action - The action to be performed for each element.
    */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory&>& consumer) override;
+  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& consumer) override;
 
   /**
    * Returns true if this pool contains no elements.

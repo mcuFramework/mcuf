@@ -10,7 +10,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/lang/ArrayPrototype.hpp"
 
 /* ****************************************************************************************
  * Using
@@ -54,6 +54,15 @@ ArrayPrototype::ArrayPrototype(void* pointer, uint32_t size, uint32_t elementSiz
 ArrayPrototype::ArrayPrototype(const void* pointer, uint32_t size, uint32_t elementSize) construct Memory(pointer, size){
   this->mElementSize = elementSize;
   this->mElementLength = (this->mLength / this->mElementSize);
+  return;
+}
+
+/**
+ *
+ */
+ArrayPrototype::ArrayPrototype(uint32_t length, uint32_t elementSize) construct Memory(length * elementSize){
+  this->mElementSize = elementSize;
+  this->mElementLength = length;
   return;
 }
 

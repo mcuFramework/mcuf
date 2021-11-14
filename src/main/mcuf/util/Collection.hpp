@@ -31,7 +31,7 @@ namespace mcuf{
  * Class Collection
  */  
 template<typename T>
-interface mcuf::util::Collection implement mcuf::lang::Iterable<T>{
+interface mcuf::util::Collection extends mcuf::lang::Iterable<T>{
   
   /* **************************************************************************************
    * Subclass

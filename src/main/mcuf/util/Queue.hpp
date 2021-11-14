@@ -58,7 +58,7 @@ interface mcuf::util::Queue implement mcuf::util::Collection<E>{
    * @param e the element to add.
    * @return true if the element was added to this queue, else false.
    */
-  virtual bool offer(E e) abstract;
+  virtual bool offer(E* e) abstract;
 
   /**
    * Retrieves, but does not remove, the head of this queue, or returns null if this queue 
@@ -67,14 +67,14 @@ interface mcuf::util::Queue implement mcuf::util::Collection<E>{
    * @return Retrieves, but does not remove, the head of this queue, or returns null if 
    *         this queue is empty.
    */
-  virtual E poll(void) abstract;
+  virtual E* poll(void) abstract;
 
   /**
    * Retrieves and removes the head of this queue, or returns null if this queue is empty.
    * 
    * @return he head of this queue, or null if this queue is empty.
    */
-  virtual E peek(void) abstract;
+  virtual E* peek(void) abstract;
 
   /* **************************************************************************************
    * Abstract method <Protected>

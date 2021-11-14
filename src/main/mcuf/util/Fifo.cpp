@@ -10,7 +10,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/util/Fifo.hpp"
  
 /* ****************************************************************************************
  * Using
@@ -30,7 +30,7 @@ using mcuf::util::Fifo;
 Fifo::Fifo(uint32_t elementSize, uint32_t count) construct Memory(elementSize * count){
 
   this->mElementSize = elementSize;
-  this->mLength = count;
+  this->mElementLength = count;
   this->mHead = 0;
   this->mTail = 0;
   this->mEmpty = true;
@@ -42,7 +42,7 @@ Fifo::Fifo(uint32_t elementSize, uint32_t count) construct Memory(elementSize * 
  */
 Fifo::Fifo(Memory& memory, uint32_t elementSize) construct Memory(memory){
   this->mElementSize = elementSize;
-  this->mLength = (memory.length() / elementSize);
+  this->mElementLength = (memory.length() / elementSize);
   this->mHead = 0;
   this->mTail = 0;
   this->mEmpty = true;
@@ -74,16 +74,16 @@ void Fifo::clear(void){
 /**
  *
  */
-void Fifo::forEach(Consumer<Memory>& action){
+void Fifo::forEach(Consumer<Memory*>& action){
   if(this->isEmpty())
     return;
   
   for(int i=this->mTail; i!=this->mHead; i++){
-    if(i>=this->mLength)
+    if(i>=this->mElementLength)
       i=0;
 
     Memory memory = this->subMemory((this->mElementSize * i), this->mElementSize);
-    action.accept(memory);
+    action.accept(&memory);
   }
 }
 
@@ -102,13 +102,13 @@ uint32_t Fifo::size(void){
     return 0;
   
   if(this->isFull())
-    return this->mLength;
+    return this->mElementLength;
 
   if(this->mTail > this->mHead)
     return this->mTail - this->mHead;
 
   else
-    return (this->mLength - this->mHead) + this->mTail;
+    return (this->mElementLength - this->mHead) + this->mTail;
 }
 
 /* ****************************************************************************************
@@ -175,7 +175,7 @@ bool Fifo::insertHead(void* pointer){
   this->copy(pointer, (this->mElementSize * this->mHead), 0, this->mElementSize);
   
   ++this->mHead;
-  if(this->mHead >= this->mLength)
+  if(this->mHead >= this->mElementLength)
     this->mHead = 0;
 
   return true;
@@ -192,14 +192,14 @@ bool Fifo::isFull(void){
  * 
  */
 uint32_t Fifo::length(void){
-  return this->mLength;
+  return this->mElementLength;
 }
 
 /**
  * 
  */
 bool Fifo::popTail(Memory& memory){
-  return popTail(memory.pointer());
+  return this->popTail(memory.pointer());
 }
 
 /**
@@ -213,7 +213,7 @@ bool Fifo::popTail(void* pointer){
   p.copy(this->pointer(this->mElementSize * this->mTail), 0, 0, this->mElementSize);
 
   ++this->mTail;
-  if(this->mTail >= this->mLength)
+  if(this->mTail >= this->mElementLength)
     this->mTail = 0;
   
   if(this->mHead == this->mTail)

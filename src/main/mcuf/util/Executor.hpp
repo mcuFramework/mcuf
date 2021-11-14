@@ -14,7 +14,7 @@
 #include "mcuf_base.h"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/function/Runnable.hpp"
-#include "mcuf/util/Fifo.hpp"
+#include "mcuf/util/BlockingQueue.hpp"
 
 
 
@@ -32,7 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Executor
  */  
-class mcuf::util::Executor extends mcuf::util::Fifo{
+class mcuf::util::Executor extends mcuf::util::BlockingQueue<mcuf::function::Runnable>{
   
   /* **************************************************************************************
    * Subclass
@@ -93,7 +93,7 @@ class mcuf::util::Executor extends mcuf::util::Fifo{
    * 
    * @param command task.
    */
-  public: bool execute(mcuf::function::Runnable& runnable);
+  public: bool execute(mcuf::function::Runnable* runnable);
 
   /**
    * 

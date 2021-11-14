@@ -51,11 +51,11 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool
    * Class ConsumerClear
    */
   public: class ConsumerClear extends mcuf::lang::Object
-                implements mcuf::function::Consumer<mcuf::lang::Memory&>{
+                implements mcuf::function::Consumer<mcuf::lang::Memory*>{
 
     public: ConsumerClear(void) = default;
 
-    public: virtual void accept(mcuf::lang::Memory& t);
+    public: virtual void accept(mcuf::lang::Memory* t);
   };
 
 
@@ -63,7 +63,7 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool
    * Class ConsumerPurge
    */
   public: class ConsumerPurge extends mcuf::lang::Object
-                implements mcuf::function::Consumer<mcuf::lang::Memory&>{
+                implements mcuf::function::Consumer<mcuf::lang::Memory*>{
 
     private: TimerScheduler* base;
     private: uint32_t purge;
@@ -73,7 +73,7 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool
       this->purge = 0;
     }
 
-    public: virtual void accept(mcuf::lang::Memory& t);
+    public: virtual void accept(mcuf::lang::Memory* t);
 
     public: inline void clear(void);
 
@@ -84,14 +84,14 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool
    * Class ConsumerTick
    */
   public: class ConsumerTick extends mcuf::lang::Object
-                implements mcuf::function::Consumer<mcuf::lang::Memory&>{
+                implements mcuf::function::Consumer<mcuf::lang::Memory*>{
 
     private: TimerScheduler* base;
     private: uint32_t tickMilliSecond;
 
     public: ConsumerTick(TimerScheduler* base);
 
-    public: virtual void accept(mcuf::lang::Memory& t);
+    public: virtual void accept(mcuf::lang::Memory* t);
 
     public: void setTickMilliSecond(uint32_t milliSecond);
 
@@ -110,9 +110,9 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: ConsumerTick  consumerTick  = ConsumerTick(this);
-  private: ConsumerPurge consumerPurge = ConsumerPurge(this);
-  private: ConsumerClear consumerClear = ConsumerClear();
+  private: ConsumerTick  consumerTick;
+  private: ConsumerPurge consumerPurge;
+  private: ConsumerClear consumerClear;
 
   /* **************************************************************************************
    * Abstract method <Public>

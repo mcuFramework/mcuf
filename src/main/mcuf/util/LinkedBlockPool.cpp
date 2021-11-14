@@ -10,7 +10,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/util/LinkedBlockPool.hpp"
  
 /* ****************************************************************************************
  * Using
@@ -191,7 +191,7 @@ void LinkedBlockPool::clear(void){
 /**
  * 
  */
-void LinkedBlockPool::forEach(Consumer<Memory&>& consumer){
+void LinkedBlockPool::forEach(Consumer<Memory*>& consumer){
   BlockPool::forEach(consumer);
   
   if(this->hasNextLinked())

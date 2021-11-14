@@ -170,7 +170,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory
    *
    * @action - The action to be performed for each element.
    */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory&>& consumer) override;
+  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& consumer) override;
   
   /* **************************************************************************************
    * Public Method

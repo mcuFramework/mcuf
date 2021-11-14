@@ -45,7 +45,7 @@ class mcuf::util::Fifo extends mcuf::lang::Memory
    * Variable <Private>
    */
   private: uint16_t mElementSize;
-  private: uint16_t mLength;
+  private: uint16_t mElementLength;
   private: uint16_t mHead;
   private: uint16_t mTail;
   private: bool mEmpty;
@@ -103,7 +103,7 @@ class mcuf::util::Fifo extends mcuf::lang::Memory
    *
    * @action - The action to be performed for each element.
    */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory>& action) override;
+  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& action) override;
 
   /**
    * Returns true if this collection contains no elements.

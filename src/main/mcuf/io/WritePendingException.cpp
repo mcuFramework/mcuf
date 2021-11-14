@@ -8,15 +8,16 @@
 /* ****************************************************************************************
  * Include
  */  
+#include "mcuf/io/WritePendingException.hpp"
 
-//-----------------------------------------------------------------------------------------
-#include "mcuf/lang/ThreadEvent.hpp"
+/* ****************************************************************************************
+ * Macro
+ */  
 
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::lang::ThreadEvent;
-using mcuf::function::Runnable;
+using mcuf::io::WritePendingException;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -27,17 +28,27 @@ using mcuf::function::Runnable;
  */
 
 /**
- * Construct.
+ *
  */
-ThreadEvent::ThreadEvent(Runnable& runnable){
-  this->mRunnable = &runnable;
+WritePendingException::WritePendingException(const char* path, mcuf::lang::String& message) construct IOException(path, message){
+  this->mType = __FUNCTION__;
+  return;
 }
 
 /**
- * Construct.
+ *
  */
-ThreadEvent::ThreadEvent(Runnable& runnable ,const char* name) construct Thread(name){
-  this->mRunnable = &runnable;
+WritePendingException::WritePendingException(const char* path, mcuf::lang::String&& message) construct IOException(path, message){
+  this->mType = __FUNCTION__;
+  return;
+}
+
+/**
+ *
+ */
+WritePendingException::WritePendingException(const char* path, const char* message) construct IOException(path, message){
+  this->mType = __FUNCTION__;
+  return;
 }
 
 /* ****************************************************************************************
@@ -49,15 +60,8 @@ ThreadEvent::ThreadEvent(Runnable& runnable ,const char* name) construct Thread(
  */
  
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::lang::Thread
+ * Public Method <Override>
  */
-
-/**
- *
- */
-void ThreadEvent::run(void){
-  this->mRunnable->run();
-}
 
 /* ****************************************************************************************
  * Public Method

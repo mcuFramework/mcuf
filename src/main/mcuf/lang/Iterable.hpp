@@ -22,7 +22,7 @@
  */  
 namespace mcuf{
   namespace lang{
-    template<typename T> interface Iterable;
+    template<typename E> interface Iterable;
   }
 }
 
@@ -31,7 +31,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Iterable
  */  
-template<typename T>
+template<typename E>
 interface mcuf::lang::Iterable{
   
   /* **************************************************************************************
@@ -62,7 +62,7 @@ interface mcuf::lang::Iterable{
    *
    * @action - The action to be performed for each element.
    */
-  virtual void forEach(mcuf::function::Consumer<T>& action) abstract;
+  virtual void forEach(mcuf::function::Consumer<E*>& action) abstract;
 
   /* **************************************************************************************
    * Abstract method <Protected>

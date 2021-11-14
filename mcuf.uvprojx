@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>ARMCM0</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.7.0</PackID>
+          <PackID>ARM.CMSIS.5.8.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -696,6 +696,46 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\IOException.hpp</FilePath>
             </File>
+            <File>
+              <FileName>QueueInputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueInputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueInputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueInputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueOutputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueOutputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueOutputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueOutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadPendingException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadPendingException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadPendingException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadPendingException.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>WritePendingException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\WritePendingException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>WritePendingException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\WritePendingException.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1032,6 +1072,21 @@
               <FilePath>.\src\main\mcuf\util\BlockPool.hpp</FilePath>
             </File>
             <File>
+              <FileName>BlockingQueue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueue.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueuePrototype.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueuePrototype.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueuePrototype.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueuePrototype.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Collection.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
@@ -1231,7 +1286,7 @@
         <TargetCommonOption>
           <Device>ARMCM0P</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.7.0</PackID>
+          <PackID>ARM.CMSIS.5.8.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0+") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -1911,6 +1966,46 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\IOException.hpp</FilePath>
             </File>
+            <File>
+              <FileName>QueueInputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueInputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueInputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueInputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueOutputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueOutputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueOutputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueOutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadPendingException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadPendingException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadPendingException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadPendingException.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>WritePendingException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\WritePendingException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>WritePendingException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\WritePendingException.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2247,6 +2342,21 @@
               <FilePath>.\src\main\mcuf\util\BlockPool.hpp</FilePath>
             </File>
             <File>
+              <FileName>BlockingQueue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueue.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueuePrototype.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueuePrototype.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueuePrototype.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueuePrototype.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Collection.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
@@ -2446,7 +2556,7 @@
         <TargetCommonOption>
           <Device>ARMCM3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.7.0</PackID>
+          <PackID>ARM.CMSIS.5.8.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M3") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -3126,6 +3236,46 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\IOException.hpp</FilePath>
             </File>
+            <File>
+              <FileName>QueueInputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueInputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueInputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueInputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueOutputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueOutputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueOutputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueOutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadPendingException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadPendingException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadPendingException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadPendingException.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>WritePendingException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\WritePendingException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>WritePendingException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\WritePendingException.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3462,6 +3612,21 @@
               <FilePath>.\src\main\mcuf\util\BlockPool.hpp</FilePath>
             </File>
             <File>
+              <FileName>BlockingQueue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueue.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueuePrototype.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueuePrototype.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueuePrototype.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueuePrototype.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Collection.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
@@ -3655,13 +3820,13 @@
       <TargetName>mcuf_m4</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6150000::V6.15::ARMCLANG</pCCUsed>
+      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>ARMCM4</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.7.0</PackID>
+          <PackID>ARM.CMSIS.5.8.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -4341,6 +4506,46 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\IOException.hpp</FilePath>
             </File>
+            <File>
+              <FileName>QueueInputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueInputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueInputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueInputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueOutputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueOutputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueOutputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueOutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadPendingException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadPendingException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadPendingException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadPendingException.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>WritePendingException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\WritePendingException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>WritePendingException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\WritePendingException.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4677,6 +4882,21 @@
               <FilePath>.\src\main\mcuf\util\BlockPool.hpp</FilePath>
             </File>
             <File>
+              <FileName>BlockingQueue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueue.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueuePrototype.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueuePrototype.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueuePrototype.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueuePrototype.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Collection.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
@@ -4825,7 +5045,7 @@
         <TargetCommonOption>
           <Device>ARMCM4_FP</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.7.0</PackID>
+          <PackID>ARM.CMSIS.5.8.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -5505,6 +5725,46 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\IOException.hpp</FilePath>
             </File>
+            <File>
+              <FileName>QueueInputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueInputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueInputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueInputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueOutputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueOutputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueOutputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueOutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadPendingException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadPendingException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadPendingException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadPendingException.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>WritePendingException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\WritePendingException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>WritePendingException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\WritePendingException.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5841,6 +6101,21 @@
               <FilePath>.\src\main\mcuf\util\BlockPool.hpp</FilePath>
             </File>
             <File>
+              <FileName>BlockingQueue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueue.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueuePrototype.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueuePrototype.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueuePrototype.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueuePrototype.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Collection.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
@@ -6040,7 +6315,7 @@
         <TargetCommonOption>
           <Device>ARMCM7</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.7.0</PackID>
+          <PackID>ARM.CMSIS.5.8.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M7") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -6720,6 +6995,46 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\IOException.hpp</FilePath>
             </File>
+            <File>
+              <FileName>QueueInputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueInputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueInputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueInputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueOutputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueOutputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>QueueOutputStream.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\QueueOutputStream.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadPendingException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadPendingException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadPendingException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadPendingException.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>WritePendingException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\WritePendingException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>WritePendingException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\WritePendingException.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -7054,6 +7369,21 @@
               <FileName>BlockPool.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\BlockPool.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueue.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueue.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueuePrototype.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueuePrototype.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>BlockingQueuePrototype.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\BlockingQueuePrototype.hpp</FilePath>
             </File>
             <File>
               <FileName>Collection.hpp</FileName>

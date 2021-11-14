@@ -76,7 +76,12 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
   /**
    * Construct.
    */
-  public: ArrayPrototype(const void* pointer, uint32_t size, uint32_t elementSize);  
+  public: ArrayPrototype(const void* pointer, uint32_t size, uint32_t elementSize);
+  
+  /**
+   * Construct.
+   */
+  public: ArrayPrototype(uint32_t length, uint32_t elementSize);
 
   /**
    * Destruct.
@@ -109,21 +114,6 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
    */
   public: uint32_t getElementSize(void);
 
-  /**
-   *
-   */
-  public: int indexOf(const void* element) const;
-
-  /**
-   *  
-   */
-  public: void set(const void* src, uint32_t shift);
-
-  /**
-   * 
-   */
-  public: void* get(uint32_t shift);
-
   /* **************************************************************************************
    * Protected Method <Static>
    */
@@ -135,6 +125,22 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Protected Method
    */
+   
+  /**
+   *
+   */
+  protected: int indexOf(const void* element) const;
+
+  /**
+   *  
+   */
+  protected: void set(const void* src, uint32_t shift);
+
+  /**
+   * 
+   */
+  protected: void* get(uint32_t shift);
+
 
   /* **************************************************************************************
    * Private Method <Static>

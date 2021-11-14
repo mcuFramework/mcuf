@@ -84,6 +84,14 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   public: Array(const E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, length * sizeof(E), sizeof(E)){
     return;
   }
+  
+  /**
+   * Construct.
+   */
+  public: Array(uint32_t length) construct mcuf::lang::ArrayPrototype(length, sizeof(E)){
+    return;
+  }
+  
 
   /**
    * Destruct.
