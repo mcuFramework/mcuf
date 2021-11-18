@@ -60,6 +60,13 @@ BlockingQueuePrototype::BlockingQueuePrototype(uint32_t length) construct Array<
  */
 
 /**
+ *
+ */
+bool mcuf::util::BlockingQueuePrototype::isEmpty(){
+  return this->mEmpty;
+}
+
+/**
  * 
  */
 bool BlockingQueuePrototype::isFull(void){
