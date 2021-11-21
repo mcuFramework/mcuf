@@ -1191,6 +1191,26 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
             </File>
+            <File>
+              <FileName>MemoryChunk.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryChunk.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryChunk.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryChunk.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2460,6 +2480,26 @@
               <FileName>Stacker.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryChunk.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryChunk.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryChunk.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryChunk.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3731,6 +3771,26 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
             </File>
+            <File>
+              <FileName>MemoryChunk.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryChunk.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryChunk.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryChunk.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5001,6 +5061,26 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
             </File>
+            <File>
+              <FileName>MemoryChunk.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryChunk.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryChunk.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryChunk.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.hpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -6219,6 +6299,26 @@
               <FileName>Stacker.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryChunk.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryChunk.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryChunk.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryChunk.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -7489,6 +7589,26 @@
               <FileName>Stacker.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryChunk.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryChunk.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryChunk.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryChunk.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
