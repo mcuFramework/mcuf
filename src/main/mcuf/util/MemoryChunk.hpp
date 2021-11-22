@@ -32,13 +32,21 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Subclass
    */
+  
+  /**
+   * struct Node
+   */
   private: struct Node{
     uint16_t next;
     uint16_t prev;
     uint16_t size;
-    uint8_t config;
-    uint8_t checksum;
+    uint16_t checksum;
   };
+  
+  /**
+   *
+   */
+  
 
   /* **************************************************************************************
    * Variable <Public>
@@ -51,6 +59,7 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Variable <Private>
    */
+  
   private: uint16_t mChunkSize;
 
   /* **************************************************************************************
@@ -134,6 +143,51 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Private Method
    */  
+  
+  /**
+   *
+   */
+  private: uint32_t getNodeSize(Node* node);
+  
+  /**
+   *
+   */
+  private: uint32_t getPrevNodeSize(Node* node);  
+  
+  /** 
+   *
+   */
+  private: bool getNodeStatus(Node* node);
+  
+  /**
+   *
+   */
+  private: Node* getNextNode(Node* node);
+  
+  /**
+   *
+   */
+  private: Node* getPrevNode(Node* node);
+  
+  /**
+   *
+   */
+  private: bool setNodeUsing(Node* node);
+  
+  /**
+   *
+   */
+  private: bool setNodeUnused(Node* node);  
+
+  /**
+   *
+   */
+  private: bool splitNode(Node* node, uint16_t split);
+
+  /**
+   *
+   */
+  private: bool mergeNode(Node* node);
 
   /**
    *
@@ -143,12 +197,12 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   /**
    *
    */
-  private: Node configNode(uint16_t prev, uint16_t next, uint16_t size, uint8_t config);
+  private: Node configNode(uint16_t prev, uint16_t next);
   
   /**
    *
    */
-  private: uint8_t getNodeChecksum(Node* node);
+  private: uint16_t getNodeChecksum(Node* node);
 
 };
 
