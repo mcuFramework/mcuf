@@ -39,7 +39,7 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   private: struct Node{
     uint16_t next;
     uint16_t prev;
-    uint16_t size;
+    uint16_t fast;
     uint16_t checksum;
   };
   
@@ -60,7 +60,8 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
    * Variable <Private>
    */
   
-  private: uint16_t mChunkSize;
+  private: uint32_t mChunkSize;
+  private: uint16_t mFreeHead;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -77,12 +78,12 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   /**
    * Construct.
    */
-  public: MemoryChunk(mcuf::lang::Memory& memory, uint16_t chunkSize);
+  public: MemoryChunk(mcuf::lang::Memory& memory, uint32_t chunkSize);
   
   /**
    * Construct.
    */
-  public: MemoryChunk(mcuf::lang::Memory&& memory, uint16_t chunkSize);  
+  public: MemoryChunk(mcuf::lang::Memory&& memory, uint32_t chunkSize);  
 
   /**
    * Destruct.
@@ -147,6 +148,11 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   /**
    *
    */
+  private: Node* getNode(uint16_t chunk);
+  
+  /**
+   *
+   */
   private: uint32_t getNodeSize(Node* node);
   
   /**
@@ -168,6 +174,11 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
    *
    */
   private: Node* getPrevNode(Node* node);
+  
+  /**
+   *
+   */
+  private: Node* getFastNode(Node* node);
   
   /**
    *
@@ -197,7 +208,7 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   /**
    *
    */
-  private: Node configNode(uint16_t prev, uint16_t next);
+  private: Node configNode(uint16_t prev, uint16_t next, uint16_t fast);
   
   /**
    *

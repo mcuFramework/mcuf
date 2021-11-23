@@ -31,7 +31,7 @@ using mcuf::util::MemoryChunk;
 /**
  * Construct.
  */
-MemoryChunk::MemoryChunk(Memory& memory, uint16_t chunkSize) construct Memory(memory){
+MemoryChunk::MemoryChunk(Memory& memory, uint32_t chunkSize) construct Memory(memory){
   if(chunkSize<8)
     chunkSize = 8;
   
@@ -42,7 +42,7 @@ MemoryChunk::MemoryChunk(Memory& memory, uint16_t chunkSize) construct Memory(me
 /**
  * Construct.
  */
-MemoryChunk::MemoryChunk(Memory&& memory, uint16_t chunkSize) construct MemoryChunk(memory, chunkSize){
+MemoryChunk::MemoryChunk(Memory&& memory, uint32_t chunkSize) construct MemoryChunk(memory, chunkSize){
   return;
 }
 
@@ -66,9 +66,17 @@ MemoryChunk::MemoryChunk(Memory&& memory, uint16_t chunkSize) construct MemoryCh
  *
  */
 void MemoryChunk::reset(void){
-  uint32_t numberOfChunk = (this->length() / (this->mChunkSize + 8));
-  Node* head = reinterpret_cast<Node*>(this->pointer());
-  *head = this->configNode(0, numberOfChunk, this->mChunkSize);
+  uint32_t numberOfChunk = (this->length() / (this->mChunkSize + sizeof(Node)));
+  
+  if(numberOfChunk > 0x00007FFF)
+    numberOfChunk = 0x00007FFF;
+  
+  Node* head = this->getNode(0);
+  
+  *head = this->configNode(0, numberOfChunk, 0);
+  
+  this->mFreeHead = 0x0000;
+  
   return;
 }
 
@@ -91,11 +99,20 @@ void MemoryChunk::reset(void){
 /**
  *
  */
+MemoryChunk::Node* MemoryChunk::getNode(uint16_t chunk){
+  uint32_t shift = (this->mChunkSize + sizeof(Node)) * chunk;
+  return reinterpret_cast<Node*>(this->pointer(shift));
+}
+
+/**
+ *
+ */
 uint32_t MemoryChunk::getNodeSize(Node* node){
   uint16_t numberOfChunk = node->next & 0x7FFF;
   
-  uint32_t result = ((uint32_t)this->mChunkSize * (uint32_t)numberOfChunk);
-  result += (sizeof(Node) * (numberOfChunk-1));
+  uint32_t result = ((uint32_t)(this->mChunkSize + sizeof(Node)) * (uint32_t)numberOfChunk);
+  result -= sizeof(Node);
+
   return result;
 }
 
@@ -105,8 +122,8 @@ uint32_t MemoryChunk::getNodeSize(Node* node){
 uint32_t MemoryChunk::getPrevNodeSize(Node* node){
   uint16_t numberOfChunk = node->prev & 0x7FFF;
   
-  uint32_t result = ((uint32_t)this->mChunkSize * (uint32_t)numberOfChunk);
-  result += (sizeof(Node) * (numberOfChunk-1));
+  uint32_t result = ((uint32_t)(this->mChunkSize + sizeof(Node)) * (uint32_t)numberOfChunk);
+  result -= sizeof(Node);
   return result;
 }
 
@@ -138,6 +155,16 @@ MemoryChunk::Node* MemoryChunk::getPrevNode(Node* node){
 }
 
 /**
+ *
+ */
+MemoryChunk::Node* MemoryChunk::getFastNode(Node* node){
+  uint8_t* ptr = reinterpret_cast<uint8_t*>(node);
+  ptr += this->getNodeSize(node);
+  
+  return reinterpret_cast<Node*>(ptr);
+}
+
+/**
  * Split new node. 
  *
  * @param node - node pointer.
@@ -161,13 +188,13 @@ bool MemoryChunk::splitNode(Node* node, uint16_t split){
   uint16_t originNext = node->next;
   
   /* config node new next size */
-  *node = configNode(node->prev, split);
+  *node = configNode(node->prev, split, 0);
   
   /* get next node pointer */
   Node* next = this->getNextNode(node);
   
   /* config new node */
-  *next = this->configNode(node->next, originNext - split);
+  *next = this->configNode(node->next, originNext - split, 0);
   
   return true;
 }
@@ -183,20 +210,17 @@ bool MemoryChunk::mergeNode(Node* node){
  *
  */
 bool MemoryChunk::veriftNode(Node* node){
-  if(node->size != this->mChunkSize)
-    return false;
-  
   return (node->checksum == getNodeChecksum(node));
 }
 
 /**
  *
  */
-MemoryChunk::Node MemoryChunk::configNode(uint16_t prev, uint16_t next){
+MemoryChunk::Node MemoryChunk::configNode(uint16_t prev, uint16_t next, uint16_t fast){
   Node result;
   result.next = next;
   result.prev = prev;
-  result.size = this->mChunkSize;
+  result.fast = fast;
   result.checksum = this->getNodeChecksum(&result);
   return result;
 }
@@ -208,7 +232,7 @@ uint16_t MemoryChunk::getNodeChecksum(Node* node){
   uint16_t result = 0x0000;
   result ^= node->next;
   result ^= node->prev;
-  result ^= node->size;
+  result ^= node->fast;
   return result;
 }
 
