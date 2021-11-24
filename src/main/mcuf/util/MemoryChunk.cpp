@@ -101,7 +101,14 @@ void MemoryChunk::reset(void){
  */
 MemoryChunk::Node* MemoryChunk::getNode(uint16_t chunk){
   uint32_t shift = (this->mChunkSize + sizeof(Node)) * chunk;
-  return reinterpret_cast<Node*>(this->pointer(shift));
+  Node* node = reinterpret_cast<Node*>(this->pointer(shift));
+  
+  if(reinterpret_cast<uint32_t>(node) < reinterpret_cast<uint32_t>(this->mPointer))
+    return nullptr;
+  
+  
+  
+  return node;
 }
 
 /**

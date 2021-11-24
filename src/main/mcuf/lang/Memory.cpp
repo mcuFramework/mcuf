@@ -225,6 +225,20 @@ Memory& Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint3
 }
 
 /**
+ *
+ */
+bool Memory::inRange(void* address){
+  uint32_t start = reinterpret_cast<uint32_t>(this->mPointer);
+  uint32_t end = start + this->mLength;
+  uint32_t adr = reinterpret_cast<uint32_t>(address);
+  
+  if((adr < start) && (adr >= end))
+    return false;
+  
+  return true; 
+}
+
+/**
  * 
  */
 bool Memory::isEmpty(void){

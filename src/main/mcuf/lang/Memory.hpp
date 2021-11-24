@@ -173,6 +173,11 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /**
    *
    */
+  public: bool inRange(void* address);
+
+  /**
+   *
+   */
   public: bool isReadOnly(void);
 
   /**
