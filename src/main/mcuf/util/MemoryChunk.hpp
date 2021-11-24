@@ -89,16 +89,6 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Operator Method
    */
-   
-  /**
-   * Operator array.
-   */
-  public: Node* operator[](int index) const;
-  
-  /**
-   * Operator array.
-   */
-  public: Node& operator[](int index);
 
   /* **************************************************************************************
    * Public Method <Static>
