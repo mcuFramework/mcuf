@@ -36,17 +36,12 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   /**
    * struct Node
    */
-  private: struct Node{
+  public: struct Node{
     uint16_t next;
     uint16_t prev;
     uint16_t fast;
     uint16_t checksum;
   };
-  
-  /**
-   *
-   */
-  
 
   /* **************************************************************************************
    * Variable <Public>
@@ -61,6 +56,7 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
    */
   
   private: uint32_t mChunkSize;
+  private: uint16_t mChunkQuantity;
   private: uint16_t mFreeHead;
 
   /* **************************************************************************************
@@ -93,6 +89,16 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Operator Method
    */
+   
+  /**
+   * Operator array.
+   */
+  public: Node* operator[](int index) const;
+  
+  /**
+   * Operator array.
+   */
+  public: Node& operator[](int index);
 
   /* **************************************************************************************
    * Public Method <Static>
@@ -144,6 +150,11 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Private Method
    */  
+  
+  /**
+   *
+   */
+  private: Node* getNode(Node* node, int16_t shift);
   
   /**
    *

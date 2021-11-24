@@ -36,6 +36,7 @@ MemoryChunk::MemoryChunk(Memory& memory, uint32_t chunkSize) construct Memory(me
     chunkSize = 8;
   
   this->mChunkSize = (chunkSize+7)&0x07;
+  this->mChunkQuantity = (this->length() / (this->mChunkSize + sizeof(Node)));
   this->reset();
 }
   
@@ -99,16 +100,17 @@ void MemoryChunk::reset(void){
 /**
  *
  */
+MemoryChunk::Node* MemoryChunk::getNode(Node* node, int16_t shift){
+  int32_t offset = (this->mChunkSize + sizeof(Node)) * shift;
+  uint32_t addrSre = reinterpret_cast<uint32_t>(node) + offset;
+  return reinterpret_cast<Node*>(addrSre);
+}
+
+/**
+ *
+ */
 MemoryChunk::Node* MemoryChunk::getNode(uint16_t chunk){
-  uint32_t shift = (this->mChunkSize + sizeof(Node)) * chunk;
-  Node* node = reinterpret_cast<Node*>(this->pointer(shift));
-  
-  if(reinterpret_cast<uint32_t>(node) < reinterpret_cast<uint32_t>(this->mPointer))
-    return nullptr;
-  
-  
-  
-  return node;
+  return this->getNode(static_cast<Node*>(this->mPointer), chunk);
 }
 
 /**

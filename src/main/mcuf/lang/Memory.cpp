@@ -121,7 +121,7 @@ Memory Memory::nullMemory(void){
 }
 
 /* ****************************************************************************************
- * Public Method <Override>
+ * Public Method <Override> - mcuf::lang::Pointer
  */
 
 /**
@@ -236,6 +236,13 @@ bool Memory::inRange(void* address){
     return false;
   
   return true; 
+}
+
+/**
+ *
+ */
+bool Memory::isReadOnly(void){
+  return (this->mFlag & MEMORY_FLAG_CONST);
 }
 
 /**

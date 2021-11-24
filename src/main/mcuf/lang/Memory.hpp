@@ -119,7 +119,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   public: static mcuf::lang::Memory nullMemory(void);
   
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> - mcuf::lang::Pointer
    */
 
   /**
