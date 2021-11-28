@@ -56,8 +56,7 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
    */
   
   private: uint32_t mChunkSize;
-  private: uint16_t mChunkQuantity;
-  private: uint16_t mFreeHead;
+  private: uint32_t mChunkQuantity;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -144,40 +143,73 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
   /**
    *
    */
-  private: Node* getNode(Node* node, int16_t shift);
-  
-  /**
-   *
-   */
   private: Node* getNode(uint16_t chunk);
   
   /**
    *
    */
-  private: uint32_t getNodeSize(Node* node);
+  private: uint16_t getNodeSerialNumber(Node* node);
   
   /**
+   * get next node.
+   * 
+   * @oaram node
+   * @return node = unused node, nullptr = not found unused node.
+   */
+  private: Node* getNextNode(Node* node);  
+  
+  /**
+   * get next node.
+   * 
+   * @oaram node
+   * @param shift
+   * @return node = unused node, nullptr = not found unused node.
+   */
+  private: Node* getNextNode(Node* node, uint16_t shift);
+  
+  /**
+   * get next node size as byte.
+   * 
+   * @oaram node
+   * @return get node size as byte.
+   */
+  private: uint32_t getNextNodeSize(Node* node);  
+
+  /**
+   * get next previous node.
+   * 
+   * @oaram node
+   * @return node = unused node, nullptr = not found unused node.
+   */
+  private: Node* getPrevNode(Node* node);
+
+  /**
+   * get next previous node.
+   * 
+   * @oaram node
+   * @param shift
+   * @return node = unused node, nullptr = not found unused node.
+   */
+  private: Node* getPrevNode(Node* node, uint16_t shift);  
+  
+  /**
+   * get previous node size as byte.
    *
+   * @return get node size as byte.
    */
   private: uint32_t getPrevNodeSize(Node* node);  
   
   /** 
+   * Get node status.
    *
+   * @return true = using, false = unused
    */
   private: bool getNodeStatus(Node* node);
   
   /**
+   * Get next unused node.
    *
-   */
-  private: Node* getNextNode(Node* node);
-  
-  /**
-   *
-   */
-  private: Node* getPrevNode(Node* node);
-  
-  /**
-   *
+   * @return node = unused node, nullptr = not found unused node.
    */
   private: Node* getFastNode(Node* node);
   

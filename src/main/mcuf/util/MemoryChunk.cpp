@@ -37,6 +37,9 @@ MemoryChunk::MemoryChunk(Memory& memory, uint32_t chunkSize) construct Memory(me
   
   this->mChunkSize = (chunkSize+7)&0x07;
   this->mChunkQuantity = (this->length() / (this->mChunkSize + sizeof(Node)));
+  if(this->mChunkQuantity > 0x7FFF)
+    this->mChunkQuantity = 0x7FFF;
+  
   this->reset();
 }
   
@@ -67,14 +70,10 @@ MemoryChunk::MemoryChunk(Memory&& memory, uint32_t chunkSize) construct MemoryCh
  *
  */
 void MemoryChunk::reset(void){
-  uint32_t numberOfChunk = (this->length() / (this->mChunkSize + sizeof(Node)));
-  
-  if(numberOfChunk > 0x00007FFF)
-    numberOfChunk = 0x00007FFF;
   
   Node* head = this->getNode(0);
   
-  *head = this->configNode(0, numberOfChunk, 0);
+  *head = this->configNode(0, this->mChunkQuantity, 0);
   
   this->mFreeHead = 0x0000;
   
@@ -100,29 +99,77 @@ void MemoryChunk::reset(void){
 /**
  *
  */
-MemoryChunk::Node* MemoryChunk::getNode(Node* node, int16_t shift){
-  int32_t offset = (this->mChunkSize + sizeof(Node)) * shift;
-  uint32_t addrSre = reinterpret_cast<uint32_t>(node) + offset;
-  return reinterpret_cast<Node*>(addrSre);
-}
-
-/**
- *
- */
 MemoryChunk::Node* MemoryChunk::getNode(uint16_t chunk){
-  return this->getNode(static_cast<Node*>(this->mPointer), chunk);
+  return this->getNextNode(static_cast<Node*>(this->mPointer), chunk);
 }
 
 /**
  *
  */
-uint32_t MemoryChunk::getNodeSize(Node* node){
+uint16_t MemoryChunk::getNodeSerialNumber(Node* node){
+  if(!this->inRange(node))
+    return 0xFFFF;
+  
+  uint32_t shift = reinterpret_cast<uint32_t>(this->pointer());
+  shift -= reinterpret_cast<uint32_t>(node);
+  
+  uint32_t size = this->mChunkSize + sizeof(Node);
+  
+  return (shift / size);
+}
+
+/**
+ *
+ */
+MemoryChunk::Node* MemoryChunk::getNextNode(Node* node){
+  return this->getNextNode(node, node->next);
+}
+
+/**
+ *
+ */
+MemoryChunk::Node* MemoryChunk::getNextNode(Node* node, uint16_t shift){
+  uint32_t offset = (this->mChunkSize + sizeof(Node)) * shift;
+  uint32_t addrSre = reinterpret_cast<uint32_t>(node) + offset;
+  Node* result = reinterpret_cast<Node*>(addrSre);
+  
+  if(this->inRange(result))
+    return result;
+  
+  return nullptr;
+}
+
+/**
+ *
+ */
+uint32_t MemoryChunk::getNextNodeSize(Node* node){
   uint16_t numberOfChunk = node->next & 0x7FFF;
   
   uint32_t result = ((uint32_t)(this->mChunkSize + sizeof(Node)) * (uint32_t)numberOfChunk);
   result -= sizeof(Node);
 
   return result;
+}
+
+/**
+ *
+ */
+MemoryChunk::Node* MemoryChunk::getPrevNode(Node* node){
+  return this->getPrevNode(node, node->prev);
+}
+
+/**
+ *
+ */
+MemoryChunk::Node* MemoryChunk::getPrevNode(Node* node, uint16_t shift){
+  uint32_t offset = (this->mChunkSize + sizeof(Node)) * shift;
+  uint32_t addrSre = reinterpret_cast<uint32_t>(node) - offset;
+  Node* result = reinterpret_cast<Node*>(addrSre);
+  
+  if(this->inRange(result))
+    return result;
+  
+  return nullptr;
 }
 
 /**
@@ -146,31 +193,50 @@ bool MemoryChunk::getNodeStatus(Node* node){
 /**
  *
  */
-MemoryChunk::Node* MemoryChunk::getNextNode(Node* node){
-  uint8_t* ptr = reinterpret_cast<uint8_t*>(node);
-  ptr += this->getNodeSize(node);
-  
-  return reinterpret_cast<Node*>(ptr);
-}
-
-/**
- *
- */
-MemoryChunk::Node* MemoryChunk::getPrevNode(Node* node){
-  uint8_t* ptr = reinterpret_cast<uint8_t*>(node);
-  ptr -= this->getPrevNodeSize(node);
-  
-  return reinterpret_cast<Node*>(ptr);
-}
-
-/**
- *
- */
 MemoryChunk::Node* MemoryChunk::getFastNode(Node* node){
-  uint8_t* ptr = reinterpret_cast<uint8_t*>(node);
-  ptr += this->getNodeSize(node);
+  return this->getNextNode(node, node->fast);
+}
+
+/**
+ *
+ */
+bool MemoryChunk::setNodeUsing(Node* node){
+  if(node == nullptr)
+    return false;  
   
-  return reinterpret_cast<Node*>(ptr);
+  if(!this->veriftNode(node))
+    return false;
+  
+  if(this->getNodeStatus(node)) /* if node is using return false */
+    return false;
+  
+  Node* next = this->getNextNode(node);
+  Node* prev = this->getPrevNode(node);
+  
+  node->next |= 0x8000;
+  prev->prev = node->next;
+  
+  return true;
+    
+}
+
+/**
+ *
+ */
+bool MemoryChunk::setNodeUnused(Node* node){
+  if(node == nullptr)
+    return false;
+  
+  if(!this->veriftNode(node))
+    return false;
+  
+  if(!this->getNodeStatus(node)) /* if node is unused return false */
+    return false;  
+  
+  Node* next = this->getNextNode(node);
+  Node* prev = this->getPrevNode(node);
+  
+  return true;
 }
 
 /**
