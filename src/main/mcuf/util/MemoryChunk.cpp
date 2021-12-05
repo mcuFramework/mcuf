@@ -70,12 +70,15 @@ MemoryChunk::MemoryChunk(Memory&& memory, uint32_t chunkSize) construct MemoryCh
  *
  */
 void MemoryChunk::reset(void){
+  Node* node = this->getNode(0);
   
-  Node* head = this->getNode(0);
+  node->prev = 0;
+  node->next = this->mChunkQuantity;
+  node->nextLink = 0xFFFF;
+  node->prevLink = 0xFFFF;
   
-  *head = this->configNode(0, this->mChunkQuantity, 0);
-  
-  this->mFreeHead = 0x0000;
+  this->mAvailableNodeLink = node;
+  this->mUsingNodeLink = nullptr;
   
   return;
 }
@@ -100,7 +103,13 @@ void MemoryChunk::reset(void){
  *
  */
 MemoryChunk::Node* MemoryChunk::getNode(uint16_t chunk){
-  return this->getNextNode(static_cast<Node*>(this->mPointer), chunk);
+  if(chunk == 0xFFFF) 
+    return nullptr;
+  
+  chunk &= 0x7FFF;
+  uint32_t shift = this->getChunkWithNodeSize() * chunk;
+  Node* result = static_cast<Node*>(this->pointer(shift));
+  return result;
 }
 
 /**
@@ -110,77 +119,46 @@ uint16_t MemoryChunk::getNodeSerialNumber(Node* node){
   if(!this->inRange(node))
     return 0xFFFF;
   
-  uint32_t shift = reinterpret_cast<uint32_t>(this->pointer());
-  shift -= reinterpret_cast<uint32_t>(node);
+  uint32_t start = reinterpret_cast<uint32_t>(this->pointer());
+  uint32_t delta = start - reinterpret_cast<uint32_t>(node);
   
-  uint32_t size = this->mChunkSize + sizeof(Node);
-  
-  return (shift / size);
+  return (delta / this->getChunkWithNodeSize());
 }
 
 /**
  *
  */
 MemoryChunk::Node* MemoryChunk::getNextNode(Node* node){
-  return this->getNextNode(node, node->next);
+  uint16_t shift = (node->next & 0x7FFF);
+  uint32_t result = reinterpret_cast<uint32_t>(node);
+  result += (this->getChunkWithNodeSize() * shift);
+  
+  return reinterpret_cast<Node*>(result);
 }
 
 /**
  *
  */
-MemoryChunk::Node* MemoryChunk::getNextNode(Node* node, uint16_t shift){
-  uint32_t offset = (this->mChunkSize + sizeof(Node)) * shift;
-  uint32_t addrSre = reinterpret_cast<uint32_t>(node) + offset;
-  Node* result = reinterpret_cast<Node*>(addrSre);
-  
-  if(this->inRange(result))
-    return result;
-  
-  return nullptr;
-}
-
-/**
- *
- */
-uint32_t MemoryChunk::getNextNodeSize(Node* node){
-  uint16_t numberOfChunk = node->next & 0x7FFF;
-  
-  uint32_t result = ((uint32_t)(this->mChunkSize + sizeof(Node)) * (uint32_t)numberOfChunk);
-  result -= sizeof(Node);
-
-  return result;
+MemoryChunk::Node* MemoryChunk::getNextLinkNode(Node* node){
+  return this->getNode(node->nextLink);
 }
 
 /**
  *
  */
 MemoryChunk::Node* MemoryChunk::getPrevNode(Node* node){
-  return this->getPrevNode(node, node->prev);
+  uint16_t shift = (node->next & 0x7FFF);
+  uint32_t result = reinterpret_cast<uint32_t>(node);
+  result -= (this->getChunkWithNodeSize() * shift);
+  
+  return reinterpret_cast<Node*>(result);
 }
 
 /**
  *
  */
-MemoryChunk::Node* MemoryChunk::getPrevNode(Node* node, uint16_t shift){
-  uint32_t offset = (this->mChunkSize + sizeof(Node)) * shift;
-  uint32_t addrSre = reinterpret_cast<uint32_t>(node) - offset;
-  Node* result = reinterpret_cast<Node*>(addrSre);
-  
-  if(this->inRange(result))
-    return result;
-  
-  return nullptr;
-}
-
-/**
- *
- */
-uint32_t MemoryChunk::getPrevNodeSize(Node* node){
-  uint16_t numberOfChunk = node->prev & 0x7FFF;
-  
-  uint32_t result = ((uint32_t)(this->mChunkSize + sizeof(Node)) * (uint32_t)numberOfChunk);
-  result -= sizeof(Node);
-  return result;
+MemoryChunk::Node* MemoryChunk::getPrevLinkNode(Node* node){
+  return this->getNode(node->prevLink);
 }
 
 /** 
@@ -193,50 +171,30 @@ bool MemoryChunk::getNodeStatus(Node* node){
 /**
  *
  */
-MemoryChunk::Node* MemoryChunk::getFastNode(Node* node){
-  return this->getNextNode(node, node->fast);
-}
-
-/**
- *
- */
 bool MemoryChunk::setNodeUsing(Node* node){
-  if(node == nullptr)
-    return false;  
-  
-  if(!this->veriftNode(node))
+  if(this->getNodeStatus(node))
     return false;
-  
-  if(this->getNodeStatus(node)) /* if node is using return false */
-    return false;
-  
-  Node* next = this->getNextNode(node);
-  Node* prev = this->getPrevNode(node);
   
   node->next |= 0x8000;
-  prev->prev = node->next;
+  this->removeNodeLink(node);
   
-  return true;
-    
+  if(this->mUsingNodeLink == nullptr)
+    this->mUsingNodeLink = node;
+
+  return true;  
 }
 
 /**
  *
  */
-bool MemoryChunk::setNodeUnused(Node* node){
-  if(node == nullptr)
+bool MemoryChunk::setNodeAvailable(Node* node){
+  if(!this->getNodeStatus(node))
     return false;
   
-  if(!this->veriftNode(node))
-    return false;
+  node->next &= 0x7FFF;
+  this->removeNodeLink(node);
   
-  if(!this->getNodeStatus(node)) /* if node is unused return false */
-    return false;  
-  
-  Node* next = this->getNextNode(node);
-  Node* prev = this->getPrevNode(node);
-  
-  return true;
+  return true; 
 }
 
 /**
@@ -247,30 +205,6 @@ bool MemoryChunk::setNodeUnused(Node* node){
  * @return true successful, false fail.
  */
 bool MemoryChunk::splitNode(Node* node, uint16_t split){
-  if(split == 0)
-    return false;
-  
-  if(!this->veriftNode(node)) /* verify node checksum */
-    return false; /* verify fail */
-  
-  if(this->getNodeStatus(node)) /* check node is useing or not */
-    return false; /* node is using */
-  
-  if(split >= node->next) /* check spile size more than the node size */
-    return false; /* check fail */
-  
-  /* recode origin node size */
-  uint16_t originNext = node->next;
-  
-  /* config node new next size */
-  *node = configNode(node->prev, split, 0);
-  
-  /* get next node pointer */
-  Node* next = this->getNextNode(node);
-  
-  /* config new node */
-  *next = this->configNode(node->next, originNext - split, 0);
-  
   return true;
 }
 
@@ -285,30 +219,74 @@ bool MemoryChunk::mergeNode(Node* node){
  *
  */
 bool MemoryChunk::veriftNode(Node* node){
-  return (node->checksum == getNodeChecksum(node));
+  if(node->next){
+    Node* nextNode = this->getNextNode(node);
+    if(node->next != nextNode->prev)
+      return false;
+  }
+  
+  if(node->prev){
+    Node* prevNode = this->getPrevNode(node);
+    if(node->prev != prevNode->prev)
+      return false;
+  }
+  
+  return true;
 }
 
 /**
  *
  */
-MemoryChunk::Node MemoryChunk::configNode(uint16_t prev, uint16_t next, uint16_t fast){
-  Node result;
-  result.next = next;
-  result.prev = prev;
-  result.fast = fast;
-  result.checksum = this->getNodeChecksum(&result);
-  return result;
+uint32_t MemoryChunk::getChunkWithNodeSize(void){
+  return (sizeof(Node) + this->mChunkSize);
 }
 
 /**
  *
  */
-uint16_t MemoryChunk::getNodeChecksum(Node* node){
-  uint16_t result = 0x0000;
-  result ^= node->next;
-  result ^= node->prev;
-  result ^= node->fast;
-  return result;
+void MemoryChunk::removeNodeLink(Node* node){
+  if((node->nextLink == 0xFFFF) && (node->prevLink == 0xFFFF))
+    return;
+  
+  Node* prevNode = this->getPrevLinkNode(node);
+  Node* nextNode = this->getNextLinkNode(node);
+  
+  if(prevNode != nullptr)
+    prevNode->nextLink = node->nextLink;
+  
+  if(nextNode != nullptr)
+    nextNode->prevLink = node->prevLink;
+  
+  node->nextLink = 0xFFFF;
+  node->prevLink = 0xFFFF;
+  
+  LinkedList::removeLink(node);
+  return;
+}
+
+/**
+ *
+ */
+void MemoryChunk::nodeLinkInsert(Node* linkedNode, Node* node){
+  Node* nextNode = this->getNextLinkNode(linkedNode);
+  
+  /* config node nextLink link to linkedNode */
+  node->nextLink = linkedNode->nextLink;
+  
+  /* config node nextLink link to nextNode */
+  if(nextNode != nullptr)
+    node->prevLink = nextNode->prevLink;
+  else
+    node->prevLink = this->getNodeSerialNumber(linkedNode);
+  
+  /* config linkedNode nextLink link to node */
+  linkedNode->nextLink = this->getNodeSerialNumber(node);
+  
+  /* config nextNode nextLink link to node <if exist> */
+  if(nextNode != nullptr)
+    nextNode->prevLink = linkedNode->nextLink;
+  
+  return;
 }
 
 /* ****************************************************************************************
