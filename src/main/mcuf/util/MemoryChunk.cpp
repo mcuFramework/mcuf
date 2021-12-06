@@ -260,7 +260,7 @@ void MemoryChunk::removeNodeLink(Node* node){
   node->nextLink = 0xFFFF;
   node->prevLink = 0xFFFF;
   
-  LinkedList::removeLink(node);
+
   return;
 }
 
@@ -287,6 +287,30 @@ void MemoryChunk::nodeLinkInsert(Node* linkedNode, Node* node){
     nextNode->prevLink = linkedNode->nextLink;
   
   return;
+}
+
+/* ****************************************************************************************
+ * Private Method - LinkedList
+ */
+
+/**
+ *
+ */
+bool MemoryChunk::LinkedList::insert(Node** head, Node* node){
+  if(!LinkedList::isFree(node))
+    return false;
+  
+  if(node == nullptr)
+    return false;
+  
+  if(*head == nullptr){
+    *head = node;
+  }else{
+
+  
+  }
+  
+  return true;
 }
 
 /* ****************************************************************************************

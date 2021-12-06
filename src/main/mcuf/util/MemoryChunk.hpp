@@ -38,10 +38,12 @@ class mcuf::util::MemoryChunk extends mcuf::lang::Memory{
    * struct Node
    */
   public: struct Node{
+    Node* nextNode;
+    Node* prevNode;
     uint16_t next;
     uint16_t prev;
-    uint16_t nextLink;
-    uint16_t prevLink;
+    uint16_t serial;
+    uint16_t checksum;
   };
 
   /* **************************************************************************************
@@ -293,20 +295,22 @@ class mcuf::util::MemoryChunk::LinkedList extends mcuf::lang::Object{
    * Public Method <Static>
    */
   
-  /**
-   *
-   */
-  public: static Node* removeLink(Node* node);
+  public: static bool isFree(Node* node);
   
   /**
    *
    */
-  public: static Node* insert(Node** head, Node* node);
+  public: static bool insert(Node** head, Node* node);
   
   /**
    *
    */
-  public: static Node* remove(Node** head, Node* node);
+  public: static bool remove(Node** head, Node* node);
+
+  /**
+   *
+   */
+  public: static bool verify(Node* node);
 
   /* **************************************************************************************
    * Public Method <Override>
