@@ -8,12 +8,12 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "mcuf/lang/NotAlignmentException.hpp"
+#include "mcuf/lang/IllegalArgumentException.hpp"
 
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::lang::NotAlignmentException;
+using mcuf::lang::IllegalArgumentException;
 using mcuf::lang::String;
 
 
@@ -28,7 +28,7 @@ using mcuf::lang::String;
 /**
  *
  */
-NotAlignmentException::NotAlignmentException(const char* path, String& message) construct Exception(path, message){
+IllegalArgumentException::IllegalArgumentException(const char* path, String& message) construct Exception(path, message){
   this->mType = __FUNCTION__;
   return;
 }
@@ -36,7 +36,7 @@ NotAlignmentException::NotAlignmentException(const char* path, String& message) 
 /**
  *
  */
-NotAlignmentException::NotAlignmentException(const char* path, String&& message) construct Exception(path, message){
+IllegalArgumentException::IllegalArgumentException(const char* path, String&& message) construct Exception(path, message){
   this->mType = __FUNCTION__;
   return;
 }
@@ -44,7 +44,7 @@ NotAlignmentException::NotAlignmentException(const char* path, String&& message)
 /**
  *
  */
-NotAlignmentException::NotAlignmentException(const char* path, const char* message) construct Exception(path, message){
+IllegalArgumentException::IllegalArgumentException(const char* path, const char* message) construct Exception(path, message){
   this->mType = __FUNCTION__;
   return;
 }

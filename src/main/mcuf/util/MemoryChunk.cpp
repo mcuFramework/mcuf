@@ -32,6 +32,9 @@ using mcuf::util::MemoryChunk;
  * Construct.
  */
 MemoryChunk::MemoryChunk(Memory& memory, uint32_t chunkSize) construct Memory(memory){
+  if(reinterpret_cast<uint32_t>(this->mPointer) & 0x0000000F)
+    throw 
+  
   if(chunkSize<8)
     chunkSize = 8;
   

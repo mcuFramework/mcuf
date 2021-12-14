@@ -311,6 +311,11 @@ class mcuf::util::MemoryChunk::LinkedList extends mcuf::lang::Object{
    *
    */
   public: static bool verify(Node* node);
+  
+  /**
+   *
+   */
+  public: static void checksum(Node* node);  
 
   /* **************************************************************************************
    * Public Method <Override>

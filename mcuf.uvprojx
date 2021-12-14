@@ -826,6 +826,16 @@
               <FilePath>.\src\main\mcuf\lang\Memory.hpp</FilePath>
             </File>
             <File>
+              <FileName>NotAlignmentException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>NotAlignmentException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -2113,6 +2123,16 @@
               <FileName>Memory.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Memory.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>NotAlignmentException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>NotAlignmentException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.hpp</FilePath>
             </File>
             <File>
               <FileName>Object.cpp</FileName>
@@ -3404,6 +3424,16 @@
               <FilePath>.\src\main\mcuf\lang\Memory.hpp</FilePath>
             </File>
             <File>
+              <FileName>NotAlignmentException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>NotAlignmentException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -4693,6 +4723,16 @@
               <FilePath>.\src\main\mcuf\lang\Memory.hpp</FilePath>
             </File>
             <File>
+              <FileName>NotAlignmentException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>NotAlignmentException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -5929,6 +5969,16 @@
               <FileName>Memory.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Memory.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>NotAlignmentException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>NotAlignmentException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.hpp</FilePath>
             </File>
             <File>
               <FileName>Object.cpp</FileName>
@@ -7218,6 +7268,16 @@
               <FileName>Memory.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Memory.hpp</FilePath>
+            </File>
+            <File>
+              <FileName>NotAlignmentException.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>NotAlignmentException.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.hpp</FilePath>
             </File>
             <File>
               <FileName>Object.cpp</FileName>
