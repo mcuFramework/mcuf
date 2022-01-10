@@ -9,14 +9,12 @@
  * Include
  */  
 #include "mcuf_base.h"
-#include "mcuf/lang/OutOfMemoryError.hpp"
 #include "mcuf/lang/managerment/StackerManager.hpp"
 
 /* ****************************************************************************************
  * Using
  */  
 using mcuf::lang::managerment::StackerManager;
-using mcuf::lang::OutOfMemoryError;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -57,9 +55,6 @@ StackerManager::StackerManager(Memory& memory) construct Stacker(memory){
  */
 void* StackerManager::alloc(uint32_t size){
   void* result = this->Stacker::alloc(size);
-  if(result == nullptr)
-    throw OutOfMemoryError(__FUNCTION__, nullptr);
-  
   return result;
 }
   
@@ -68,9 +63,6 @@ void* StackerManager::alloc(uint32_t size){
  */
 void* StackerManager::allocAlignment32(uint32_t size){
   void* result = this->Stacker::allocAlignment32(size);
-  if(result == nullptr)
-    throw OutOfMemoryError(__FUNCTION__, nullptr);
-  
   return result;
 }
   
@@ -79,9 +71,6 @@ void* StackerManager::allocAlignment32(uint32_t size){
  */
 void* StackerManager::allocAlignment64(uint32_t size){
   void* result = this->Stacker::allocAlignment64(size);
-  if(result == nullptr)
-    throw OutOfMemoryError(__FUNCTION__, nullptr);
-  
   return result;
 }
 
@@ -90,9 +79,6 @@ void* StackerManager::allocAlignment64(uint32_t size){
  */
 mcuf::lang::Memory StackerManager::allocMemory(uint32_t size){
   Memory result = this->Stacker::allocMemory(size);
-  if(result.isNull())
-    throw OutOfMemoryError(__FUNCTION__, nullptr);
-  
   return result;
 }
 
@@ -101,9 +87,6 @@ mcuf::lang::Memory StackerManager::allocMemory(uint32_t size){
  */
 mcuf::lang::Memory StackerManager::allocMemoryAlignment32(uint32_t size){
   Memory result = this->Stacker::allocMemoryAlignment32(size);
-  if(result.isNull())
-    throw OutOfMemoryError(__FUNCTION__, nullptr);
-  
   return result;
 }
 
@@ -112,10 +95,6 @@ mcuf::lang::Memory StackerManager::allocMemoryAlignment32(uint32_t size){
  */
 mcuf::lang::Memory StackerManager::allocMemoryAlignment64(uint32_t size){
   Memory result = this->Stacker::allocMemoryAlignment64(size);
-  if(result.isNull())
-    throw OutOfMemoryError(__FUNCTION__, nullptr);
-  
-  
   return result;
 }
     

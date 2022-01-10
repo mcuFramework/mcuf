@@ -685,56 +685,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
-            <File>
-              <FileName>IOException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\IOException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>IOException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\IOException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueInputStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueInputStream.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueInputStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueInputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueOutputStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueOutputStream.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueOutputStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueOutputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ReadPendingException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\ReadPendingException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>ReadPendingException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\ReadPendingException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>WritePendingException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\WritePendingException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>WritePendingException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\WritePendingException.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -826,16 +776,6 @@
               <FilePath>.\src\main\mcuf\lang\Memory.hpp</FilePath>
             </File>
             <File>
-              <FileName>NotAlignmentException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>NotAlignmentException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -876,16 +816,6 @@
               <FilePath>.\src\main\mcuf\lang\System.hpp</FilePath>
             </File>
             <File>
-              <FileName>Throwable.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Throwable.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Throwable.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Throwable.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Thread.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Thread.cpp</FilePath>
@@ -915,46 +845,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
-            <File>
-              <FileName>Exception.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Exception.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Exception.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Exception.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>IllegalArgumentException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>IllegalArgumentException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>OutOfMemoryError.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>OutOfMemoryError.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -964,16 +854,6 @@
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryManager.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryManager.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.hpp</FilePath>
             </File>
             <File>
               <FileName>ExecutorManager.cpp</FileName>
@@ -1199,26 +1079,6 @@
               <FileName>Stacker.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryChunk.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryChunk.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryChunk.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryChunk.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1984,56 +1844,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
-            <File>
-              <FileName>IOException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\IOException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>IOException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\IOException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueInputStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueInputStream.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueInputStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueInputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueOutputStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueOutputStream.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueOutputStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueOutputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ReadPendingException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\ReadPendingException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>ReadPendingException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\ReadPendingException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>WritePendingException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\WritePendingException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>WritePendingException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\WritePendingException.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -2125,16 +1935,6 @@
               <FilePath>.\src\main\mcuf\lang\Memory.hpp</FilePath>
             </File>
             <File>
-              <FileName>NotAlignmentException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>NotAlignmentException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -2175,16 +1975,6 @@
               <FilePath>.\src\main\mcuf\lang\System.hpp</FilePath>
             </File>
             <File>
-              <FileName>Throwable.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Throwable.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Throwable.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Throwable.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Thread.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Thread.cpp</FilePath>
@@ -2214,46 +2004,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
-            <File>
-              <FileName>Exception.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Exception.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Exception.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Exception.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>IllegalArgumentException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>IllegalArgumentException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>OutOfMemoryError.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>OutOfMemoryError.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -2263,16 +2013,6 @@
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryManager.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryManager.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.hpp</FilePath>
             </File>
             <File>
               <FileName>ExecutorManager.cpp</FileName>
@@ -2498,26 +2238,6 @@
               <FileName>Stacker.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryChunk.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryChunk.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryChunk.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryChunk.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3283,56 +3003,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
-            <File>
-              <FileName>IOException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\IOException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>IOException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\IOException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueInputStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueInputStream.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueInputStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueInputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueOutputStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueOutputStream.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueOutputStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueOutputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ReadPendingException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\ReadPendingException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>ReadPendingException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\ReadPendingException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>WritePendingException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\WritePendingException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>WritePendingException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\WritePendingException.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -3424,16 +3094,6 @@
               <FilePath>.\src\main\mcuf\lang\Memory.hpp</FilePath>
             </File>
             <File>
-              <FileName>NotAlignmentException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>NotAlignmentException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -3474,16 +3134,6 @@
               <FilePath>.\src\main\mcuf\lang\System.hpp</FilePath>
             </File>
             <File>
-              <FileName>Throwable.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Throwable.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Throwable.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Throwable.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Thread.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Thread.cpp</FilePath>
@@ -3513,46 +3163,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
-            <File>
-              <FileName>Exception.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Exception.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Exception.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Exception.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>IllegalArgumentException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>IllegalArgumentException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>OutOfMemoryError.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>OutOfMemoryError.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -3562,16 +3172,6 @@
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryManager.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryManager.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.hpp</FilePath>
             </File>
             <File>
               <FileName>ExecutorManager.cpp</FileName>
@@ -3797,26 +3397,6 @@
               <FileName>Stacker.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryChunk.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryChunk.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryChunk.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryChunk.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -4085,7 +3665,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>1</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -4232,7 +3812,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions</MiscControls>
+              <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main</IncludePath>
@@ -4582,56 +4162,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
-            <File>
-              <FileName>IOException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\IOException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>IOException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\IOException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueInputStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueInputStream.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueInputStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueInputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueOutputStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueOutputStream.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueOutputStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueOutputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ReadPendingException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\ReadPendingException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>ReadPendingException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\ReadPendingException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>WritePendingException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\WritePendingException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>WritePendingException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\WritePendingException.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -4723,16 +4253,6 @@
               <FilePath>.\src\main\mcuf\lang\Memory.hpp</FilePath>
             </File>
             <File>
-              <FileName>NotAlignmentException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>NotAlignmentException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -4773,16 +4293,6 @@
               <FilePath>.\src\main\mcuf\lang\System.hpp</FilePath>
             </File>
             <File>
-              <FileName>Throwable.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Throwable.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Throwable.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Throwable.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Thread.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Thread.cpp</FilePath>
@@ -4812,46 +4322,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
-            <File>
-              <FileName>Exception.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Exception.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Exception.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Exception.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>IllegalArgumentException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>IllegalArgumentException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>OutOfMemoryError.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>OutOfMemoryError.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -4861,16 +4331,6 @@
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryManager.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryManager.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.hpp</FilePath>
             </File>
             <File>
               <FileName>ExecutorManager.cpp</FileName>
@@ -5096,26 +4556,6 @@
               <FileName>Stacker.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryChunk.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryChunk.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryChunk.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryChunk.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -5830,56 +5270,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
-            <File>
-              <FileName>IOException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\IOException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>IOException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\IOException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueInputStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueInputStream.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueInputStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueInputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueOutputStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueOutputStream.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueOutputStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueOutputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ReadPendingException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\ReadPendingException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>ReadPendingException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\ReadPendingException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>WritePendingException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\WritePendingException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>WritePendingException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\WritePendingException.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -5971,16 +5361,6 @@
               <FilePath>.\src\main\mcuf\lang\Memory.hpp</FilePath>
             </File>
             <File>
-              <FileName>NotAlignmentException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>NotAlignmentException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -6021,16 +5401,6 @@
               <FilePath>.\src\main\mcuf\lang\System.hpp</FilePath>
             </File>
             <File>
-              <FileName>Throwable.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Throwable.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Throwable.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Throwable.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Thread.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Thread.cpp</FilePath>
@@ -6060,46 +5430,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
-            <File>
-              <FileName>Exception.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Exception.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Exception.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Exception.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>IllegalArgumentException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>IllegalArgumentException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>OutOfMemoryError.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>OutOfMemoryError.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -6109,16 +5439,6 @@
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryManager.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryManager.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.hpp</FilePath>
             </File>
             <File>
               <FileName>ExecutorManager.cpp</FileName>
@@ -6344,26 +5664,6 @@
               <FileName>Stacker.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryChunk.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryChunk.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryChunk.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryChunk.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -7129,56 +6429,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
-            <File>
-              <FileName>IOException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\IOException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>IOException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\IOException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueInputStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueInputStream.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueInputStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueInputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueOutputStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueOutputStream.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>QueueOutputStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\QueueOutputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>ReadPendingException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\ReadPendingException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>ReadPendingException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\ReadPendingException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>WritePendingException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\WritePendingException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>WritePendingException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\WritePendingException.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -7270,16 +6520,6 @@
               <FilePath>.\src\main\mcuf\lang\Memory.hpp</FilePath>
             </File>
             <File>
-              <FileName>NotAlignmentException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>NotAlignmentException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\NotAlignmentException.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -7320,16 +6560,6 @@
               <FilePath>.\src\main\mcuf\lang\System.hpp</FilePath>
             </File>
             <File>
-              <FileName>Throwable.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Throwable.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Throwable.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Throwable.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Thread.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Thread.cpp</FilePath>
@@ -7359,46 +6589,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
-            <File>
-              <FileName>Exception.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Exception.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Exception.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Exception.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>IllegalArgumentException.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>IllegalArgumentException.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\IllegalArgumentException.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>OutOfMemoryError.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>OutOfMemoryError.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\OutOfMemoryError.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -7408,16 +6598,6 @@
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryManager.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryManager.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryManager.hpp</FilePath>
             </File>
             <File>
               <FileName>ExecutorManager.cpp</FileName>
@@ -7643,26 +6823,6 @@
               <FileName>Stacker.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryChunk.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryChunk.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryChunk.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryChunk.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.hpp</FilePath>
             </File>
           </Files>
         </Group>

@@ -15,7 +15,6 @@
 #include "mcuf/io/PrintStream.hpp"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/lang/Thread.hpp"
-#include "mcuf/lang/managerment/MemoryManager.hpp"
 #include "mcuf/lang/managerment/TimerManager.hpp"
 #include "mcuf/lang/managerment/StackerManager.hpp"
 #include "mcuf/lang/managerment/ExecutorManager.hpp"
@@ -56,7 +55,6 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   private: static mcuf::lang::managerment::StackerManager mStackerManager;
   
   private: static mcuf::io::PrintStream* mPrintStream;
-  private: static mcuf::lang::managerment::MemoryManager* mMemoryManager;
   private: static mcuf::lang::managerment::ExecutorManager* mExecutorManager;
   private: static mcuf::lang::managerment::TimerManager* mTimerManager;
   private: static mcuf::lang::Thread* mThread;
@@ -132,11 +130,6 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    * 
    */
   public: static void info(const char* path, const char* message);
-
-  /**
-   * 
-   */
-  public: static mcuf::lang::managerment::MemoryManager* memoryManager(void);
   
   /**
    *

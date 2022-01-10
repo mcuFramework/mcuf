@@ -13,7 +13,6 @@
  */
 #include "mcuf_base.h"
 #include "mcuf/lang/Object.hpp"
-#include "mcuf/lang/Throwable.hpp"
 
 
 
@@ -59,7 +58,7 @@ interface mcuf::io::channel::CompletionHandler{
   /**
    *
    */
-  virtual void failed(mcuf::lang::Throwable& exc, A attachment) abstract;
+  virtual void failed(mcuf::lang::Object& exc, A attachment) abstract;
 
   /* **************************************************************************************
    *  Abstract method <Protected>

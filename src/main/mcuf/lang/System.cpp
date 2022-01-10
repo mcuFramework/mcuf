@@ -34,7 +34,6 @@ using mcuf::io::PrintStream;
 using mcuf::lang::Memory;
 using mcuf::lang::System;
 using mcuf::lang::Thread;
-using mcuf::lang::managerment::MemoryManager;
 using mcuf::lang::managerment::ExecutorManager;
 using mcuf::lang::managerment::StackerManager;
 using mcuf::lang::managerment::TimerManager;
@@ -94,7 +93,6 @@ void operator delete[] (void* ptr, size_t size){
 StackerManager System::mStackerManager = StackerManager(Resources::CORE_MEMORY, Resources::CORE_MEMORY_SIZE);
 
 PrintStream* System::mPrintStream = nullptr;
-MemoryManager* System::mMemoryManager = nullptr;
 ExecutorManager* System::mExecutorManager = nullptr;
 TimerManager* System::mTimerManager = nullptr;
 Thread* System::mThread = nullptr;
@@ -116,18 +114,7 @@ Thread* System::mThread = nullptr;
  */
 Memory System::allocMemory(size_t size){
   void* result = nullptr;
-
-  if(System::mMemoryManager == nullptr){
-    THROW_WARNING("System MemoryManagerment is empty.");
-
-    result = malloc(size);
-
-    ASSERT_THROW_WARNING(result, "System heap memory is empty.");
-    
-    return Memory(result, size);
-  }
-  
-  return System::mMemoryManager->allocMemory(size);
+  return Memory::nullMemory();
 }
 
 /**
@@ -135,29 +122,6 @@ Memory System::allocMemory(size_t size){
  */
 void* System::allocPointer(size_t size){
   void* result = nullptr;
-
-  if(System::mMemoryManager == nullptr){
-    THROW_WARNING("System MemoryManagerment is empty.");
-
-    result = malloc(size);
-
-    ASSERT_THROW_WARNING(result, "System heap memory is empty.");
-    
-    return result;
-  }
-    
-
-  result = System::mMemoryManager->alloc(size);
-
-  if(result != nullptr)
-    return result;
-
-  THROW_WARNING("System MemoryManagerment is full.");
-  
-  result = malloc(size);
-
-  ASSERT_THROW_WARNING(result, "System heap memory is empty.");
-  
   return result;
 }
 
@@ -187,14 +151,6 @@ Timer& System::getTimer(void){
  */
 void System::freeMemory(mcuf::lang::Memory& memory){
   
-  if(System::mMemoryManager == nullptr){
-    free(memory.mPointer);
-    return;
-  }
-    
-  if(System::mMemoryManager->freeMemory(memory))
-    return;
-
   free(memory.mPointer);
   return;
 }
@@ -203,12 +159,7 @@ void System::freeMemory(mcuf::lang::Memory& memory){
  * 
  */
 void System::freePointer(void* pointer){
-  if(System::memoryManager() != nullptr){
-    if(System::memoryManager()->free(pointer))
-      return;
-  }
 
-  free(pointer);
   return;
 }
 
@@ -216,12 +167,7 @@ void System::freePointer(void* pointer){
  * 
  */
 void System::freePointer(void* pointer, size_t size){
-  if(System::memoryManager() != nullptr){
-    if(System::memoryManager()->free(pointer, size))
-      return;
-  }
 
-  free(pointer);
   return;
 }
 
@@ -244,13 +190,6 @@ bool System::start(Thread& thread, OutputStream* outputStream){
   osKernelStart();
 #endif
   return true;
-}
-
-/**
- * 
- */
-MemoryManager* System::memoryManager(void){
-  return System::mMemoryManager;
 }
 
 /**
@@ -306,19 +245,7 @@ void System::entryPoint(void* attachment){
  *
  */
 void System::initMemoryManager(void){
-  Memory pageMemory = Memory(Resources::MEMORYMANAGER_MEMORY, Resources::MEMORYMANAGER_MEMORY_SIZE);
-  Memory flagMemory = System::mStackerManager.allocMemoryAlignment32(Math::ceil(Resources::MEMORYMANAGER_PAGE_QUANTITY, 8U));
-  void* handleMemory = System::mStackerManager.allocAlignment32(sizeof(MemoryManager));
-  Array<uint32_t> blockSizeList = Array<uint32_t>(Resources::MEMORYMANAGER_SUB_BLOCK, Resources::MEMORYMANAGER_SUB_BLOCK_QUANTITY);  
-  
-  MemoryManager::Parameter param;
-  param.mPageMemory = &pageMemory;
-  param.mFlagMemory = &flagMemory;
-  param.mPageSize = Resources::MEMORYMANAGER_PAGE_SIZE;
-  param.mStackManager = &System::mStackerManager;
-  param.mBlockSizeList = &blockSizeList;
-  
-  System::mMemoryManager = new(handleMemory) MemoryManager(param);
+
   return;  
 }
 
