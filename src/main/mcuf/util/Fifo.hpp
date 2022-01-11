@@ -65,11 +65,6 @@ class mcuf::util::Fifo extends mcuf::lang::Memory
   /**
    * Construct.
    */
-  public: Fifo(uint32_t elementSize, uint32_t count);
-
-  /**
-   * Construct.
-   */
   public: Fifo(mcuf::lang::Memory& memory, uint32_t elementSize);
 
   /**

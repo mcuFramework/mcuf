@@ -32,9 +32,8 @@ using mcuf::lang::Pointer;
  *
  */
 Memory::Memory(void){
-  this->mFlag = 0x00000000;
-  this->mReference = this;
   this->mPointer = nullptr;
+  this->mLength = 0;
   return;
 }
 
@@ -42,14 +41,7 @@ Memory::Memory(void){
  *
  */
 Memory::Memory(const Memory& memory){
-  *this = memory;
-  
-  if((this->mFlag & this->MEMORY_FLAG_HEAP_MEMORY)){
-    this->mReference->mReference = this;
-  }else{
-    this->mReference = this;
-  }
-  
+  *this = memory;  
   return;
 }
 
@@ -57,9 +49,11 @@ Memory::Memory(const Memory& memory){
  * 
  */
 Memory::Memory(const void* pointer, uint32_t length) construct Memory(){
+  if(length & 0x80000000)
+    return;
+  
   this->mPointer = const_cast<void*>(pointer);
-  this->mLength = length;
-  this->mFlag |= this->MEMORY_FLAG_CONST;
+  this->mLength = length | 0x80000000;
   return;
 }
 
@@ -67,6 +61,9 @@ Memory::Memory(const void* pointer, uint32_t length) construct Memory(){
  * 
  */
 Memory::Memory(void* pointer, uint32_t length) construct Memory(){
+  if(length & 0x80000000)
+    return;
+  
   this->mPointer = pointer;
   this->mLength = length;
   return;
@@ -75,33 +72,7 @@ Memory::Memory(void* pointer, uint32_t length) construct Memory(){
 /**
  *
  */
-Memory::Memory(uint32_t size) construct Memory(System::allocMemory(size)){
-  this->mFlag |= this->MEMORY_FLAG_HEAP_MEMORY;
-  return;
-}
-
-/**
- *
- */
 Memory::~Memory(void){
-  if(!(this->mFlag & this->MEMORY_FLAG_HEAP_MEMORY))
-    return;
-  
-  if(this->mReference == this){
-    System::freeMemory(*this);
-    return;
-  }
-  
-  Memory* link = this;
-  
-  //remove this in reference link
-  while(true){
-    if(link->mReference == this){
-      link->mReference = this->mReference;
-      break;
-    }
-    link = link->mReference;
-  }
   return;
 }
 
@@ -127,9 +98,9 @@ Memory Memory::nullMemory(void){
 /**
  * 
  */
-Pointer& Memory::copy(const void* source, uint32_t length){
-  if(this->mFlag & this->MEMORY_FLAG_CONST)
-    return *this;
+int Memory::copy(const void* source, uint32_t length){
+  if(this->isReadOnly())
+    return 0;
   
   if(length > this->mLength)
     return Pointer::copy(source, this->mLength);
@@ -140,13 +111,13 @@ Pointer& Memory::copy(const void* source, uint32_t length){
 /**
  * 
  */
-Pointer& Memory::copy(const void* source, uint32_t shift, uint32_t length){
-  if(this->mFlag & this->MEMORY_FLAG_CONST)
-    return *this;  
+int Memory::copy(const void* source, uint32_t shift, uint32_t length){
+  if(this->isReadOnly())
+    return 0; 
   
   if((shift + length) > this->mLength){
     if(shift > this->mLength)
-      return *this;
+      return 0;
     
     length = this->mLength - shift;
   }
@@ -157,12 +128,12 @@ Pointer& Memory::copy(const void* source, uint32_t shift, uint32_t length){
 /**
  * 
  */
-Pointer& Memory::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
-  if(this->mFlag & this->MEMORY_FLAG_CONST)
-    return *this;  
+int Memory::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
+  if(this->isReadOnly())
+    return 0;
   
   if(shift > this->mLength)
-    return *this;
+    return 0;
   
   if(length > (this->mLength - shift))
     length = (this->mLength - shift);
@@ -178,7 +149,7 @@ Pointer& Memory::copy(const void* source, uint32_t shift, uint32_t start, uint32
  * 
  */
 Memory& Memory::clear(void){
-  if(!(this->mFlag & this->MEMORY_FLAG_CONST))
+  if(!this->isReadOnly())
     memset(this->mPointer, 0x00, this->mLength);
   
   return *this;
@@ -187,41 +158,42 @@ Memory& Memory::clear(void){
 /**
  * 
  */
-Memory& Memory::copyMemory(Memory& sourec){
-  if(!(this->mFlag & this->MEMORY_FLAG_CONST))
-    this->copy(sourec.mPointer, sourec.mLength);
+int Memory::copyMemory(Memory& sourec){
+  if(this->isReadOnly())
+    return 0;
   
-  return *this;
+  uint32_t length = Math::min(this->length(), sourec.length());
+  return this->copy(sourec.mPointer, length);
 }
 
 /**
  * 
  */
-Memory& Memory::copyMemory(Memory& sourec, uint32_t shift){
-  if(!(this->mFlag & this->MEMORY_FLAG_CONST))
-    this->copy(sourec.mPointer, shift, sourec.mLength);
+int Memory::copyMemory(Memory& sourec, uint32_t shift){
+  if(this->isReadOnly())
+    return 0;
   
-  return *this;
+  return this->copy(sourec.mPointer, shift, sourec.mLength);
 }
 
 /**
  * 
  */
-Memory& Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t length){
-  if(!(this->mFlag & this->MEMORY_FLAG_CONST))
-    this->copy(sourec.mPointer, shift, length);
+int Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t length){
+  if(this->isReadOnly())
+    return 0;
   
-  return *this;
+  return this->copy(sourec.mPointer, shift, length);
 }
 
 /**
  * 
  */
-Memory& Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length){
-  if(!(this->mFlag & this->MEMORY_FLAG_CONST))
-    this->copy(sourec.mPointer, shift, start, length);
+int Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length){
+  if(this->isReadOnly())
+    return 0;
   
-  return *this;
+  return this->copy(sourec.mPointer, shift, start, length);
 }
 
 /**
@@ -242,7 +214,7 @@ bool Memory::inRange(void* address){
  *
  */
 bool Memory::isReadOnly(void){
-  return (this->mFlag & MEMORY_FLAG_CONST);
+  return (this->mLength & 0x80000000);
 }
 
 /**
@@ -256,7 +228,7 @@ bool Memory::isEmpty(void){
  * 
  */
 uint32_t Memory::length(void){
-  return this->mLength;
+  return (this->mLength & 0x7FFFFFFF);
 }
 
 /**
@@ -280,10 +252,8 @@ Memory Memory::subMemory(uint32_t beginIndex, uint32_t length){
   if(length >= remainingLength)
     length = remainingLength;
   
-  Memory result = System::allocMemory(remainingLength);
-  
 
-  return result;
+  return Memory(this->pointer(beginIndex), this->mLength-beginIndex);
 }
 
 /* ****************************************************************************************

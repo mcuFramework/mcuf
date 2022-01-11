@@ -57,16 +57,6 @@ ArrayPrototype::ArrayPrototype(const void* pointer, uint32_t size, uint32_t elem
   return;
 }
 
-/**
- *
- */
-ArrayPrototype::ArrayPrototype(uint32_t length, uint32_t elementSize) construct Memory(length * elementSize){
-  this->mElementSize = elementSize;
-  this->mElementLength = length;
-  return;
-}
-
-
 /* ****************************************************************************************
  * Public Method <Static>
  */

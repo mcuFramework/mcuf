@@ -12,12 +12,8 @@
  * Include
  */
 #include "mcuf_base.h"
-#include "mcuf/io/PrintStream.hpp"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/lang/Thread.hpp"
-#include "mcuf/lang/managerment/TimerManager.hpp"
-#include "mcuf/lang/managerment/StackerManager.hpp"
-#include "mcuf/lang/managerment/ExecutorManager.hpp"
 
 
 /* ****************************************************************************************
@@ -52,11 +48,6 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: static mcuf::lang::managerment::StackerManager mStackerManager;
-  
-  private: static mcuf::io::PrintStream* mPrintStream;
-  private: static mcuf::lang::managerment::ExecutorManager* mExecutorManager;
-  private: static mcuf::lang::managerment::TimerManager* mTimerManager;
   private: static mcuf::lang::Thread* mThread;
   
   
@@ -92,64 +83,14 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    */
 
   /**
-   * 
-   */
-  public: static mcuf::lang::Memory allocMemory(size_t size);
-
-  /**
-   * 
-   */
-  public: static void* allocPointer(size_t size);
-
-  /**
    *
    */
-  public: static bool execute(mcuf::function::Runnable& runnable);
-
-  /**
-   * 
-   */
-  public: static void freeMemory(mcuf::lang::Memory& memory);
-
-  /**
-   * 
-   */
-  public: static void freePointer(void* pointer);
-
-  /**
-   * 
-   */
-  public: static void freePointer(void* pointer, size_t size);
-
-  /**
-   *
-   */
-  public: static mcuf::util::Timer& getTimer(void);
-
-  /**
-   * 
-   */
-  public: static void info(const char* path, const char* message);
-  
-  /**
-   *
-   */
-  public: static mcuf::io::PrintStream& out(void);
-  
-  /**
-   *
-   */
-  public: static bool start(mcuf::lang::Thread& thread, mcuf::io::OutputStream* outputStream);
+  public: static bool start(mcuf::lang::Thread& thread);
 
   /**
    * 
    */
   public: static void throwSystemError(const char* path, const char* message);
-
-  /**
-   * 
-   */
-  public: static void throwSystemWarning(const char* path, const char* message);
 
   /* **************************************************************************************
    * Public Method <Override>
@@ -191,27 +132,8 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /**
    *
    */
-  private: static void initMemoryManager(void);
-  
-  /**
-   *
-   */
-  private: static void initPrintStream(mcuf::io::OutputStream* outputStream);
-  
-  /**
-   *
-   */
   private: static void initThread(mcuf::lang::Thread& thread);
   
-  /**
-   *
-   */
-  private: static void initTimer(void);
-  
-  /**
-   *
-   */
-  private: static void initExecutor(void);   
 };
 
 

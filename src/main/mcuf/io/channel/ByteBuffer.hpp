@@ -71,12 +71,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
    * 
    */
   public: ByteBuffer(mcuf::lang::Memory&& memory);  
-  
-  /**
-   *
-   */
-  public: ByteBuffer(uint32_t size);
-  
+
   /**
    * 
    */

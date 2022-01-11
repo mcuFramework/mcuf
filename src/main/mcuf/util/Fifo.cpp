@@ -27,19 +27,6 @@ using mcuf::util::Fifo;
 /**
  * 
  */
-Fifo::Fifo(uint32_t elementSize, uint32_t count) construct Memory(elementSize * count){
-
-  this->mElementSize = elementSize;
-  this->mElementLength = count;
-  this->mHead = 0;
-  this->mTail = 0;
-  this->mEmpty = true;
-  return;
-}
-
-/**
- * 
- */
 Fifo::Fifo(Memory& memory, uint32_t elementSize) construct Memory(memory){
   this->mElementSize = elementSize;
   this->mElementLength = (memory.length() / elementSize);

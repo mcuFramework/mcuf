@@ -176,16 +176,6 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Object
   /**
    *
    */
-  public: bool start(uint32_t stackSize);
-  
-  /**
-   *
-   */
-  public: bool start(uint32_t stackSize, Priority priority);
-  
-  /**
-   *
-   */
   public: bool start(mcuf::lang::Memory& memory);
   
   /**

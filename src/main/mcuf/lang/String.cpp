@@ -13,14 +13,11 @@
 #include <stdio.h>
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Resources.hpp"
 #include "mcuf/lang/String.hpp"
 
 /* ****************************************************************************************
  * Macro
  */  
-#define STRING_MEMORY (static_cast<char*>(mcuf::Resources::STRING_FORMAT_MEMORY))
-#define STRING_MEMORY_SIZE (mcuf::Resources::STRING_FORMAT_MEMORY_SIZE)
 
 /* ****************************************************************************************
  * Using
@@ -40,7 +37,8 @@ using mcuf::lang::Memory;
 /**
  * Construct.
  */
-String::String(uint32_t size) construct Memory(size){
+String::String(void* pointer, uint32_t size) construct Memory(pointer, size){
+  this->mSize = 0;
   return;
 }
 
@@ -48,20 +46,16 @@ String::String(uint32_t size) construct Memory(size){
  * Construct.
  */
 String::String(const char* str) construct Memory(str, strlen(str)){
+  this->mSize = this->length();
   return;
 }
 
 /**
  * Construct.
  */
-String::String(Memory& memory) construct Memory(memory){
-  return;
-}
-
-/**
- * Construct.
- */
-String::String(Memory&& memory) construct Memory(memory){
+String::String(const Memory& memory) construct Memory(memory){
+  if(this->isReadOnly())
+    this->mSize = strlen(static_cast<const char*>(this->mPointer));
   return;
 }
 
@@ -76,22 +70,26 @@ String::String(Memory&& memory) construct Memory(memory){
 /**
  * 
  */
-String String::format(const char* format, va_list args){
-  int len = vsnprintf(STRING_MEMORY, STRING_MEMORY_SIZE, format, args);
-  String result = String(len);
-  result.copy(STRING_MEMORY, len);
-  return result;
+String& String::format(const char* format, va_list args){
+  if(this->isReadOnly())
+    return *this;  
+  
+  this->mSize = vsnprintf(static_cast<char*>(this->mPointer), this->mLength, format, args);
+  return *this;
 }
 
 /**
  * 
  */
-String String::format(const char* format, ...){
+String& String::format(const char* format, ...){
+  if(this->isReadOnly())
+    return *this;
+  
   va_list args;
   va_start(args, format);
-  String result = String::format(format, args);
+  this->mSize = vsnprintf(static_cast<char*>(this->mPointer), this->mLength, format, args);
   va_end(args);
-  return result;
+  return *this;
 }
  
 /* ****************************************************************************************
@@ -101,12 +99,8 @@ String String::format(const char* format, ...){
 /**
  *
  */
-uint32_t String::length(void){
-  uint32_t result = strlen(static_cast<const char*>(this->mPointer));
-  if(result >= this->Memory::mLength)
-    result = this->Memory::mLength;
-  
-  return result;
+uint32_t String::size(void){
+  return this->mSize;
 }
 
 /* ****************************************************************************************

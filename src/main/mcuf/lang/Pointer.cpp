@@ -87,25 +87,26 @@ Pointer Pointer::nullPointer(void){
 /**
  * 
  */
-Pointer& Pointer::copy(const void* source, uint32_t length){
-  memcpy(this->mPointer, source, length);
-  return *this;
+int Pointer::copy(const void* source, uint32_t length){
+  return this->copy(source, 0, 0, length);
 }
 
 /**
  * 
  */
-Pointer& Pointer::copy(const void* source, uint32_t shift, uint32_t length){
-  memcpy(this->pointer(shift), source, length);
-  return *this;
+int Pointer::copy(const void* source, uint32_t shift, uint32_t length){
+  return this->copy(source, shift, 0, length);
 }
 
 /**
  * 
  */
-Pointer& Pointer::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
+int Pointer::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
+  if((source == nullptr) || (this->mPointer == nullptr))
+    return 0;  
+  
   memcpy(this->pointer(shift), &((uint8_t*)source)[start], length);
-  return *this;
+  return length;
 }
 
 /**
@@ -139,7 +140,7 @@ Pointer Pointer::getPointer(uint32_t offset){
 /**
  * 
  */
-uint32_t Pointer::getPointerValue(void){
+uint32_t Pointer::getAddress(void){
   return reinterpret_cast<uint32_t>(this->mPointer);
 }
 
@@ -148,13 +149,6 @@ uint32_t Pointer::getPointerValue(void){
  */
 bool Pointer::isNull(void){
   return (this->mPointer == nullptr);
-}
-
-/**
- * 
- */
-void* Pointer::pointer(void){
-  return this->mPointer;
 }
 
 /**

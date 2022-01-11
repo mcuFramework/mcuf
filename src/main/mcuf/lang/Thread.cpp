@@ -111,21 +111,6 @@ Thread::State Thread::getState(void){
 /**
  *
  */
-bool Thread::start(uint32_t stackSize){
-  return this->start(stackSize, PRIORITY_NORMAL);
-}
-
-/**
- *
- */
-bool Thread::start(uint32_t stackSize, Priority priority){
-  Memory memory = System::allocMemory(stackSize);
-  return this->start(memory, priority, Thread::entryPoint);
-}
-
-/**
- *
- */
 bool Thread::start(Memory& memory){
   return this->start(memory, PRIORITY_NORMAL, Thread::entryPoint);
 }

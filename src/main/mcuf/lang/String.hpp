@@ -24,7 +24,6 @@
 namespace mcuf{
   namespace lang{
     class String;
-    class System;
   }
 }
 
@@ -33,7 +32,6 @@ namespace mcuf{
  */  
 class mcuf::lang::String extends mcuf::lang::Memory{
   
-  friend mcuf::lang::System;
   /* **************************************************************************************
    * Subclass
    */
@@ -49,8 +47,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: uint32_t mStringLen;
-  
+  private: uint32_t mSize;
   
   /* **************************************************************************************
    * Abstract method <Public>
@@ -67,7 +64,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /**
    *
    */
-  private: String(uint32_t size);
+  public: String(void* pointer, uint32_t size);
 
   /**
    * Construct.
@@ -77,12 +74,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /**
    * Construct
    */
-  public: String(mcuf::lang::Memory& memory);
-  
-  /**
-   * Construct
-   */
-  public: String(mcuf::lang::Memory&& memory);
+  public: String(const mcuf::lang::Memory& memory);
 
   /**
    * Destruct.
@@ -97,45 +89,24 @@ class mcuf::lang::String extends mcuf::lang::Memory{
    * Public Method <Static>
    */
 
-  /**
-   * 
-   */
-  public: static String format(const char* format, va_list arg);
-
-  /**
-   * 
-   */
-  public: static String format(const char* format, ...);
-
   /* **************************************************************************************
    * Public Method
    */
   
   /**
-   *
+   * 
    */
-  public: uint32_t length(void);  
+  public: String& format(const char* format, va_list arg);
+
+  /**
+   * 
+   */
+  public: String& format(const char* format, ...);  
   
-  // /**
-  //  * 
-  //  */
-  // public: char charAt(int index);
-
-  // /**
-  //  * 
-  //  */
-  // public: int compairTo(String& anotherString);
-
-  // /**
-  //  * 
-  //  */
-  // public: int compareToIgnoreCase(String str);
-
-  // /**
-  //  * 
-  //  */
-  // public: String& concat(String str); 
-
+  /**
+   *  get string length.
+   */
+  public: uint32_t size(void);  
 
   /* **************************************************************************************
    * Protected Method <Static>

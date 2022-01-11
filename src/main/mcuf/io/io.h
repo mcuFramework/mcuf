@@ -19,10 +19,6 @@
  * Include
  */
 
-#include "IOException.hpp"
-#include "OutputStream.hpp"
-#include "PrintStream.hpp"
-
 
 
 /* *****************************************************************************************

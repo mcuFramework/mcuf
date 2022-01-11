@@ -115,17 +115,17 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
   /**
    * 
    */
-  public: virtual Pointer& copy(const void* source, uint32_t length);
+  public: virtual int copy(const void* source, uint32_t length);
 
   /**
    * 
    */
-  public: virtual Pointer& copy(const void* source, uint32_t shift, uint32_t length);
+  public: virtual int copy(const void* source, uint32_t shift, uint32_t length);
 
   /**
    * 
    */
-  public: virtual Pointer& copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);
+  public: virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);
 
   /**
    * 
@@ -145,17 +145,12 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
   /**
    * 
    */
-  public: Pointer getPointer(void);
-
-  /**
-   * 
-   */
   public: Pointer getPointer(uint32_t offset);
 
   /**
    * 
    */
-  public: uint32_t getPointerValue(void);
+  public: uint32_t getAddress(void);
 
   /**
    * 

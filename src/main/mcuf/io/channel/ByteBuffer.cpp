@@ -44,16 +44,6 @@ ByteBuffer::ByteBuffer(Memory& memory) construct Memory(memory){
   return;
 }
 
-/**
- *
- */
-ByteBuffer::ByteBuffer(uint32_t size) construct Memory(size){
-  this->mLimit = this->mLength;
-  this->mPosition = 0;
-  this->mMark = 0;  
-  return;
-}
-
 /* ****************************************************************************************
  * Operator Method
  */

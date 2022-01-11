@@ -18,9 +18,6 @@
  * Include
  */
 
-#include "ExecutorManager.hpp"
-#include "StackerManager.hpp"
-#include "TimerManager.hpp"
 
 /* *****************************************************************************************
  * End of file

@@ -35,17 +35,9 @@ namespace mcuf{
  */  
 class mcuf::lang::Memory extends mcuf::lang::Pointer{
 
-  friend String;
-  friend System;
-
   /* **************************************************************************************
    * Enum Flag
    */
-  protected: enum MemoryFlag{
-    MEMORY_FLAG_HEAP_MEMORY = (0x1<<0U),
-    MEMORY_FLAG_CONST       = (0x1<<1U),
-    MEMORY_FLAG_RESERVED    = 0xFFFFFFFF  ///< Prevents enum down-size compiler optimization.
-  };
   
   /* **************************************************************************************
    * Subclass
@@ -58,9 +50,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: uint32_t mFlag;
   protected: uint32_t mLength;
-  protected: Memory* mReference;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -78,7 +68,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * Construct Method
    */
 
-  public: Memory(void);
+  private: Memory(void);
 
   /**
    * 
@@ -93,12 +83,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /**
    * 
    */  
-  public: Memory(void* pointer, size_t length);
-  
-  /**
-   *
-   */
-  public: Memory(uint32_t size);
+  public: Memory(void* pointer, uint32_t length);
   
   /**
    * 
@@ -125,17 +110,17 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /**
    * 
    */
-  public: virtual Pointer& copy(const void* source, uint32_t length);
+  public: virtual int copy(const void* source, uint32_t length);
 
   /**
    * 
    */
-  public: virtual Pointer& copy(const void* source, uint32_t shift, uint32_t length);
+  public: virtual int copy(const void* source, uint32_t shift, uint32_t length);
 
   /**
    * 
    */
-  public: virtual Pointer& copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);
+  public: virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);
 
   /* **************************************************************************************
    * Public Method
@@ -150,25 +135,25 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * 
    * @return copy of number.
    */
-  public: Memory& copyMemory(Memory& sourec);
+  public: int copyMemory(Memory& sourec);
 
   /**
    * 
    * @return copy of number.
    */
-  public: Memory& copyMemory(Memory& sourec, uint32_t shift);
+  public: int copyMemory(Memory& sourec, uint32_t shift);
 
   /**
    * 
    * @return copy of number.
    */
-  public: Memory& copyMemory(Memory& sourec, uint32_t shift, uint32_t length);
+  public: int copyMemory(Memory& sourec, uint32_t shift, uint32_t length);
 
   /**
    * 
    * @return copy of number.
    */
-  public: Memory& copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length);
+  public: int copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length);
 
   /**
    *
