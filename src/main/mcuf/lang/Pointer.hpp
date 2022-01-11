@@ -39,11 +39,11 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: void* mPointer;
 
   /* **************************************************************************************
    * Variable <Private>
    */
+  private: void* mPointer;  
   
   /* **************************************************************************************
    * Abstract method <Public>
@@ -127,45 +127,65 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
    */
   public: virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);
 
-  /**
-   * 
+  /* **************************************************************************************
+   * Public Method <inline>
    */
-  public: char getByte(uint32_t shift);
 
   /**
    * 
    */
-  public: int getInteger(uint32_t shift);
+  public: inline char getByte(uint32_t shift) const{
+    return *(char*)this->pointer(shift);
+  }
 
   /**
    * 
    */
-  public: short getShort(uint32_t shift);
+  public: inline int getInteger(uint32_t shift) const{
+    return *(int*)this->pointer(shift);
+  }
 
   /**
    * 
    */
-  public: Pointer getPointer(uint32_t offset);
+  public: inline short getShort(uint32_t shift) const{
+    return *(short*)this->pointer(shift);
+  }
 
   /**
    * 
    */
-  public: uint32_t getAddress(void);
+  public: inline Pointer getPointer(uint32_t offset) const{
+    return Pointer(&((uint8_t*)this->mPointer)[offset]);
+  }
 
   /**
    * 
    */
-  public: bool isNull(void);
+  public: inline uint32_t getAddress(void) const{
+    return reinterpret_cast<uint32_t>(this->mPointer);
+  }
 
   /**
    * 
    */
-  public: void* pointer(void);
+  public: inline bool isNull(void) const{
+    return (this->mPointer == nullptr);
+  }
 
   /**
    * 
    */
-  public: void* pointer(uint32_t offset);
+  public: inline void* pointer(void) const{
+    return this->mPointer;
+  }
+
+  /**
+   * 
+   */
+  public: inline void* pointer(uint32_t offset) const{
+    return &((uint8_t*)this->mPointer)[offset];
+  }
 
   /* **************************************************************************************
    * Protected Method <Static>

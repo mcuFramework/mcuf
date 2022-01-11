@@ -72,7 +72,7 @@ RingBuffer::RingBuffer(Memory& memory) construct Memory(memory){
  * 
  */
 bool RingBuffer::insert(const void* data){
-  uint8_t *ptr = (uint8_t*)this->mPointer;
+  uint8_t *ptr = (uint8_t*)this->pointer();
 
   /* We cannot insert when queue is full */
   if (this->isFull())
@@ -89,7 +89,7 @@ bool RingBuffer::insert(const void* data){
  * 
  */
 int RingBuffer::insertMult(const void *data, int num){
-  uint8_t *ptr = (uint8_t*)this->mPointer;
+  uint8_t *ptr = (uint8_t*)this->pointer();
   int cnt1, cnt2;
 
   /* We cannot insert when queue is full */
@@ -114,7 +114,7 @@ int RingBuffer::insertMult(const void *data, int num){
   this->mHead += cnt1;
 
   /* Write segment 2 */
-  ptr = (uint8_t *) this->mPointer + INDH();
+  ptr = (uint8_t *) this->pointer() + INDH();
   data = (const uint8_t *) data + cnt1;
   memcpy(ptr, data, cnt2);
   this->mHead += cnt2;
@@ -126,7 +126,7 @@ int RingBuffer::insertMult(const void *data, int num){
  * 
  */
 bool RingBuffer::pop(void* data){
-  uint8_t *ptr = (uint8_t*)this->mPointer;
+  uint8_t *ptr = (uint8_t*)this->pointer();
 
   /* We cannot pop when queue is empty */
   if (this->isEmpty())
@@ -143,7 +143,7 @@ bool RingBuffer::pop(void* data){
  * 
  */
 int RingBuffer::popMult(void* data, int num){
-  uint8_t *ptr = (uint8_t*)this->mPointer;
+  uint8_t *ptr = (uint8_t*)this->pointer();
   int cnt1, cnt2;
 
   /* We cannot insert when queue is empty */
@@ -168,7 +168,7 @@ int RingBuffer::popMult(void* data, int num){
   this->mTail += cnt1;
 
   /* Write segment 2 */
-  ptr = (uint8_t *) this->mPointer + INDT();
+  ptr = (uint8_t *) this->pointer() + INDT();
   data = (uint8_t *) data + cnt1;
   memcpy(data, ptr, cnt2);
   this->mTail += cnt2;

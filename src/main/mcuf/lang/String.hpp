@@ -14,7 +14,6 @@
 #include <stdarg.h>
 
 #include "mcuf_base.h"
-#include "mcuf_config.h"
 #include "mcuf/lang/Memory.hpp"
 #include "mcuf/lang/Object.hpp"
 
@@ -103,10 +102,16 @@ class mcuf::lang::String extends mcuf::lang::Memory{
    */
   public: String& format(const char* format, ...);  
   
+  /* **************************************************************************************
+   * Public Method <Inline>
+   */  
+  
   /**
    *  get string length.
    */
-  public: uint32_t size(void);  
+  public: inline uint32_t size(void) const{
+    return this->mSize;
+  }
 
   /* **************************************************************************************
    * Protected Method <Static>

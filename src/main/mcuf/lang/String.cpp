@@ -55,7 +55,7 @@ String::String(const char* str) construct Memory(str, strlen(str)){
  */
 String::String(const Memory& memory) construct Memory(memory){
   if(this->isReadOnly())
-    this->mSize = strlen(static_cast<const char*>(this->mPointer));
+    this->mSize = strlen(static_cast<const char*>(this->pointer()));
   return;
 }
 
@@ -74,7 +74,7 @@ String& String::format(const char* format, va_list args){
   if(this->isReadOnly())
     return *this;  
   
-  this->mSize = vsnprintf(static_cast<char*>(this->mPointer), this->mLength, format, args);
+  this->mSize = vsnprintf(static_cast<char*>(this->pointer()), this->length(), format, args);
   return *this;
 }
 
@@ -87,7 +87,7 @@ String& String::format(const char* format, ...){
   
   va_list args;
   va_start(args, format);
-  this->mSize = vsnprintf(static_cast<char*>(this->mPointer), this->mLength, format, args);
+  this->mSize = vsnprintf(static_cast<char*>(this->pointer()), this->length(), format, args);
   va_end(args);
   return *this;
 }
@@ -95,13 +95,6 @@ String& String::format(const char* format, ...){
 /* ****************************************************************************************
  * Public Method <Override>
  */
-
-/**
- *
- */
-uint32_t String::size(void){
-  return this->mSize;
-}
 
 /* ****************************************************************************************
  * Public Method

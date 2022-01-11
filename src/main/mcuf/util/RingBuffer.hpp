@@ -14,7 +14,6 @@
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
-#include "mcuf_macro.h" 
 #include "mcuf/lang/Memory.hpp"
 #include "mcuf/lang/Object.hpp"
 

@@ -5,13 +5,13 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_CD0A76D9_22FA_45EB_AFF3_DF16721AA2B8
-#define MCUF_CD0A76D9_22FA_45EB_AFF3_DF16721AA2B8
+#ifndef MCUF_D9A3210A_778E_466F_BA3E_7A53ACD9064E
+#define MCUF_D9A3210A_778E_466F_BA3E_7A53ACD9064E
 
 /* ****************************************************************************************
  * Macro
  */
-
+ 
 #define abstract =0
 #define abstracts 
 #define construct :
@@ -20,12 +20,14 @@
 #define implement :public  
 #define interface struct
 
+#ifndef VACCESS
+#define VACCESS(type, target) (*(volatile type *) &(target))
+#endif
 
 /* ****************************************************************************************
  * Include
  */
 #include <stdint.h>
-
 
 /* ****************************************************************************************
  * Include folder
@@ -35,4 +37,5 @@
  * End of file
  */ 
 
-#endif/* MCUF_CD0A76D9_22FA_45EB_AFF3_DF16721AA2B8 */
+
+#endif /* MCUF_AT32F415_D9A3210A_778E_466F_BA3E_7A53ACD9064E */

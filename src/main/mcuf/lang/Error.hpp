@@ -5,43 +5,44 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_CB84E3C8_577B_4001_B8C4_98C52A3E8EE7
-#define MCUF_CB84E3C8_577B_4001_B8C4_98C52A3E8EE7
+#ifndef MCUF_EE4E0BE6_E1E0_43B2_B9D2_2CE26334D212
+#define MCUF_EE4E0BE6_E1E0_43B2_B9D2_2CE26334D212
 
 /* ****************************************************************************************
  * Include
  */  
-
-//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
-#include "mcuf\lang\Object.hpp"
+#include "mcuf/lang/Object.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace lang{
-    class Message;
+    class Error;
   }
 }
 
 /* ****************************************************************************************
  * Class Object
  */  
-class mcuf::lang::Message extends mcuf::lang::Object{
+class mcuf::lang::Error final extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Subclass
    */
+  public: enum Code{
+    NONE                   = 0,
+    OUT_OF_MEMORY          = 1,
+    NULL_POINTER           = 2,
+    ILLEGAL_ARGUMENT       = 3,
+    RESERVED               = 0x7FFFFFFF
+  };
+  
 
   /* **************************************************************************************
    * Variable <Public>
    */
-  public: static const char* NULL_;
-  public: static const char* NULL_POINTER;
-  public: static const char* OUT_OF_ENUM;
-  public: static const char* OUT_OF_MEMORY;
-  public: static const char* OUT_OF_RANGE;
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -66,12 +67,12 @@ class mcuf::lang::Message extends mcuf::lang::Object{
   /**
    * Construct.
    */
-  private: Message(void) = default;
+  private: Error(void) = default;
 
   /**
    * Destruct.
    */
-  public: virtual ~Message(void) = default;
+  private: virtual ~Error(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -115,10 +116,8 @@ class mcuf::lang::Message extends mcuf::lang::Object{
 
 };
 
-
-
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif/* MCUF_CB84E3C8_577B_4001_B8C4_98C52A3E8EE7 */
+#endif/* MCUF_EE4E0BE6_E1E0_43B2_B9D2_2CE26334D212 */

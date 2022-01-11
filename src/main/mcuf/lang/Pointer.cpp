@@ -109,55 +109,6 @@ int Pointer::copy(const void* source, uint32_t shift, uint32_t start, uint32_t l
   return length;
 }
 
-/**
- * 
- */
-char Pointer::getByte(uint32_t shift){
-  return *(char*)this->pointer(shift);
-}
-
-/**
- * 
- */
-int Pointer::getInteger(uint32_t shift){
-  return *(int*)this->pointer(shift);
-}
-
-/**
- * 
- */
-short Pointer::getShort(uint32_t shift){
-  return *(short*)this->pointer(shift);
-}
-
-/**
- * 
- */
-Pointer Pointer::getPointer(uint32_t offset){
-  return Pointer(&((uint8_t*)this->mPointer)[offset]);
-}
-
-/**
- * 
- */
-uint32_t Pointer::getAddress(void){
-  return reinterpret_cast<uint32_t>(this->mPointer);
-}
-
-/**
- * 
- */
-bool Pointer::isNull(void){
-  return (this->mPointer == nullptr);
-}
-
-/**
- * 
- */
-void* Pointer::pointer(uint32_t offset){
-  return &((uint8_t*)this->mPointer)[offset];
-}
-
 /* ****************************************************************************************
  * Protected Method <Static>
  */

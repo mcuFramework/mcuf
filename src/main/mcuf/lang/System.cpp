@@ -15,7 +15,6 @@
 #ifndef MCUF_CMSISRTOS2_DISABLE
 #include "cmsis_rtos/rtx_os.h"
 #endif
-#include "mcuf_macro.h"
 #include "mcuf/lang/Math.hpp"
 #include "mcuf/lang/System.hpp"
 #include "mcuf/Resources.hpp"
@@ -59,7 +58,7 @@ Thread* System::mThread = nullptr;
 /**
  * 
  */
-bool System::start(Thread& thread){
+bool System::start(mcuf::lang::Thread& thread, mcuf::lang::Memory& stackMemory){
 #ifndef MCUF_CMSISRTOS2_DISABLE
   System::initThread(thread);
   osKernelStart();
@@ -70,7 +69,7 @@ bool System::start(Thread& thread){
 /**
  * 
  */
-void System::throwSystemError(const char* path, const char* message){
+void System::error(Error::Code code){
   while(1);
 }
 

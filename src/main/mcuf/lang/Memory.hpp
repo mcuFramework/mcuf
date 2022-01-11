@@ -50,11 +50,11 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: uint32_t mLength;
 
   /* **************************************************************************************
    * Variable <Private>
    */
+  private: uint32_t mLength;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -67,8 +67,6 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /* **************************************************************************************
    * Construct Method
    */
-
-  private: Memory(void);
 
   /**
    * 
@@ -110,17 +108,17 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /**
    * 
    */
-  public: virtual int copy(const void* source, uint32_t length);
+  public: virtual int copy(const void* source, uint32_t length) override;
 
   /**
    * 
    */
-  public: virtual int copy(const void* source, uint32_t shift, uint32_t length);
+  public: virtual int copy(const void* source, uint32_t shift, uint32_t length) override;
 
   /**
    * 
    */
-  public: virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);
+  public: virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length) override;
 
   /* **************************************************************************************
    * Public Method
@@ -130,6 +128,11 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * 
    */
   public: Memory& clear(void);
+  
+  /**
+   * 
+   */
+  public: Memory& clear(uint8_t value);  
 
   /**
    * 
@@ -158,32 +161,42 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /**
    *
    */
-  public: bool inRange(void* address);
+  public: bool inRange(void* address) const;
+
+  /**
+   * 
+   */
+  public: mcuf::lang::Memory subMemory(uint32_t beginIndex) const;
+
+  /**
+   * 
+   */
+  public: mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length) const;
+
+  /* **************************************************************************************
+   * Public Method <Inline>
+   */
 
   /**
    *
    */
-  public: bool isReadOnly(void);
+  public: inline bool isReadOnly(void) const{
+    return ((this->mLength & 0x80000000) == 0x80000000);
+  }
 
   /**
    * 
    */
-  public: bool isEmpty(void);
+  public: inline bool isEmpty(void) const{
+    return (this->isNull()) | (this->length() == 0);
+  }
 
   /**
    * 
    */
-  public: uint32_t length(void);
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Memory subMemory(uint32_t beginIndex);
-
-  /**
-   * 
-   */
-  public: mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length);
+  public: inline uint32_t length(void) const{
+    return (this->mLength & 0x7FFFFFFF);
+  }
 
   /* **************************************************************************************
    * Protected Method <Static>

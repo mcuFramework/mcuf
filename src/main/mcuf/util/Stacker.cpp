@@ -96,7 +96,7 @@ uint32_t Stacker::size(void){
  * 
  */
 uint32_t Stacker::getFree(void){
-  return (this->mLength - this->size());
+  return (this->length() - this->size());
 }
 
 /**

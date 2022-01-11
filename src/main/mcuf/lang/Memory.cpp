@@ -31,15 +31,6 @@ using mcuf::lang::Pointer;
 /**
  *
  */
-Memory::Memory(void){
-  this->mPointer = nullptr;
-  this->mLength = 0;
-  return;
-}
-
-/**
- *
- */
 Memory::Memory(const Memory& memory){
   *this = memory;  
   return;
@@ -48,23 +39,21 @@ Memory::Memory(const Memory& memory){
 /**
  * 
  */
-Memory::Memory(const void* pointer, uint32_t length) construct Memory(){
+Memory::Memory(const void* pointer, uint32_t length) construct Pointer(const_cast<void*>(pointer)){
   if(length & 0x80000000)
-    return;
+    length = 0;
   
-  this->mPointer = const_cast<void*>(pointer);
-  this->mLength = length | 0x80000000;
+  this->mLength = (length | 0x80000000);
   return;
 }
 
 /**
  * 
  */
-Memory::Memory(void* pointer, uint32_t length) construct Memory(){
+Memory::Memory(void* pointer, uint32_t length) construct Pointer(const_cast<void*>(pointer)){
   if(length & 0x80000000)
-    return;
+    length = 0;
   
-  this->mPointer = pointer;
   this->mLength = length;
   return;
 }
@@ -149,9 +138,21 @@ int Memory::copy(const void* source, uint32_t shift, uint32_t start, uint32_t le
  * 
  */
 Memory& Memory::clear(void){
-  if(!this->isReadOnly())
-    memset(this->mPointer, 0x00, this->mLength);
+  if(this->isReadOnly())
+    return *this;
   
+  memset(this->pointer(), 0x00, this->length());
+  return *this;
+}
+
+/**
+ * 
+ */
+Memory& Memory::clear(uint8_t value){
+  if(this->isReadOnly())
+    return *this;
+  
+  memset(this->pointer(), 0x00, this->length());
   return *this;
 }
 
@@ -163,7 +164,7 @@ int Memory::copyMemory(Memory& sourec){
     return 0;
   
   uint32_t length = Math::min(this->length(), sourec.length());
-  return this->copy(sourec.mPointer, length);
+  return this->copy(sourec.pointer(), length);
 }
 
 /**
@@ -173,7 +174,7 @@ int Memory::copyMemory(Memory& sourec, uint32_t shift){
   if(this->isReadOnly())
     return 0;
   
-  return this->copy(sourec.mPointer, shift, sourec.mLength);
+  return this->copy(sourec.pointer(), shift, sourec.length());
 }
 
 /**
@@ -183,7 +184,7 @@ int Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t length){
   if(this->isReadOnly())
     return 0;
   
-  return this->copy(sourec.mPointer, shift, length);
+  return this->copy(sourec.pointer(), shift, length);
 }
 
 /**
@@ -193,15 +194,15 @@ int Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t 
   if(this->isReadOnly())
     return 0;
   
-  return this->copy(sourec.mPointer, shift, start, length);
+  return this->copy(sourec.pointer(), shift, start, length);
 }
 
 /**
  *
  */
-bool Memory::inRange(void* address){
-  uint32_t start = reinterpret_cast<uint32_t>(this->mPointer);
-  uint32_t end = start + this->mLength;
+bool Memory::inRange(void* address) const{
+  uint32_t start = reinterpret_cast<uint32_t>(this->pointer());
+  uint32_t end = start + this->length();
   uint32_t adr = reinterpret_cast<uint32_t>(address);
   
   if((adr < start) && (adr >= end))
@@ -211,49 +212,30 @@ bool Memory::inRange(void* address){
 }
 
 /**
- *
+ * 
  */
-bool Memory::isReadOnly(void){
-  return (this->mLength & 0x80000000);
+Memory Memory::subMemory(uint32_t beginIndex) const{
+  if(beginIndex >= this->length())
+    return Memory::nullMemory();
+  
+  uint32_t length = this->length() - beginIndex;
+
+  return Memory(this->pointer(beginIndex), length);
 }
 
 /**
  * 
  */
-bool Memory::isEmpty(void){
-  return (this->mPointer == nullptr) | (this->mLength == 0);
-}
-
-/**
- * 
- */
-uint32_t Memory::length(void){
-  return (this->mLength & 0x7FFFFFFF);
-}
-
-/**
- * 
- */
-Memory Memory::subMemory(uint32_t beginIndex){
-  if(beginIndex >= this->mLength)
+Memory Memory::subMemory(uint32_t beginIndex, uint32_t length) const{
+  if(beginIndex >= this->length())
     return Memory::nullMemory();
 
-  return Memory(this->pointer(beginIndex), this->mLength-beginIndex);
-}
-
-/**
- * 
- */
-Memory Memory::subMemory(uint32_t beginIndex, uint32_t length){
-  if(beginIndex >= this->mLength)
-    return Memory::nullMemory();
-
-  uint32_t remainingLength = (this->mLength - beginIndex);
+  uint32_t remainingLength = (this->length() - beginIndex);
   if(length >= remainingLength)
     length = remainingLength;
   
 
-  return Memory(this->pointer(beginIndex), this->mLength-beginIndex);
+  return Memory(this->pointer(beginIndex), length);
 }
 
 /* ****************************************************************************************

@@ -185,6 +185,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -351,7 +352,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -391,16 +392,6 @@
               <FileName>mcuf_base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf_base.h</FilePath>
-            </File>
-            <File>
-              <FileName>mcuf_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>mcuf_macro.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf_macro.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -726,6 +717,11 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
             </File>
             <File>
+              <FileName>Error.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Iterable.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Iterable.hpp</FilePath>
@@ -829,16 +825,6 @@
               <FileName>ThreadEvent.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Message.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Message.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Message.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1178,6 +1164,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -1344,7 +1331,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -1384,16 +1371,6 @@
               <FileName>mcuf_base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf_base.h</FilePath>
-            </File>
-            <File>
-              <FileName>mcuf_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>mcuf_macro.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf_macro.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1719,6 +1696,11 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
             </File>
             <File>
+              <FileName>Error.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Iterable.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Iterable.hpp</FilePath>
@@ -1822,16 +1804,6 @@
               <FileName>ThreadEvent.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Message.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Message.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Message.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -2171,6 +2143,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -2337,7 +2310,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -2377,16 +2350,6 @@
               <FileName>mcuf_base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf_base.h</FilePath>
-            </File>
-            <File>
-              <FileName>mcuf_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>mcuf_macro.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf_macro.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2712,6 +2675,11 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
             </File>
             <File>
+              <FileName>Error.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Iterable.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Iterable.hpp</FilePath>
@@ -2815,16 +2783,6 @@
               <FileName>ThreadEvent.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Message.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Message.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Message.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3164,6 +3122,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -3330,7 +3289,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -3370,16 +3329,6 @@
               <FileName>mcuf_base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf_base.h</FilePath>
-            </File>
-            <File>
-              <FileName>mcuf_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>mcuf_macro.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf_macro.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3705,6 +3654,11 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
             </File>
             <File>
+              <FileName>Error.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Iterable.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Iterable.hpp</FilePath>
@@ -3808,16 +3762,6 @@
               <FileName>ThreadEvent.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Message.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Message.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Message.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -4157,6 +4101,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>2</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -4323,7 +4268,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -4363,16 +4308,6 @@
               <FileName>mcuf_base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf_base.h</FilePath>
-            </File>
-            <File>
-              <FileName>mcuf_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>mcuf_macro.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf_macro.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4698,6 +4633,11 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
             </File>
             <File>
+              <FileName>Error.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Iterable.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Iterable.hpp</FilePath>
@@ -4801,16 +4741,6 @@
               <FileName>ThreadEvent.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Message.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Message.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Message.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -5150,6 +5080,7 @@
             <uocXRam>0</uocXRam>
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
+            <RvdsCdeCp>0</RvdsCdeCp>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -5316,7 +5247,7 @@
             <NoWarn>0</NoWarn>
             <uSurpInc>0</uSurpInc>
             <useXO>0</useXO>
-            <uClangAs>0</uClangAs>
+            <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -5356,16 +5287,6 @@
               <FileName>mcuf_base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf_base.h</FilePath>
-            </File>
-            <File>
-              <FileName>mcuf_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>mcuf_macro.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf_macro.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5691,6 +5612,11 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.hpp</FilePath>
             </File>
             <File>
+              <FileName>Error.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Error.hpp</FilePath>
+            </File>
+            <File>
               <FileName>Iterable.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Iterable.hpp</FilePath>
@@ -5794,16 +5720,6 @@
               <FileName>ThreadEvent.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Message.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Message.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Message.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Message.hpp</FilePath>
             </File>
           </Files>
         </Group>

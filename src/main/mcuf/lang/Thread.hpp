@@ -88,7 +88,7 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Object
     PRIORITY_REALTIME6      = 48+6,       ///< PRIORITY_: realtime + 6
     PRIORITY_REALTIME7      = 48+7,       ///< PRIORITY_: realtime + 7
     PRIORITY_ERROR          = -1,         ///< System cannot determine priority or illegal priority.    
-    PRIORITY_Reserved       = 0x7FFFFFFF  ///< Prevents enum down-size compiler optimization.
+    PRIORITY_RESERVED       = 0x7FFFFFFF  ///< Prevents enum down-size compiler optimization.
   };
   
   public: enum State{
@@ -161,7 +161,7 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Object
   /**
    *
    */
-  public: const char* getName(void);  
+  public: const char* getName(void) const;
   
   /**
    *

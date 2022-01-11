@@ -21,22 +21,17 @@
 #include "Array.hpp"
 #include "ArrayPrototype.hpp"
 #include "Error.hpp"
-#include "Exception.hpp"
-#include "IllegalArgumentException.hpp"
 #include "Iterable.hpp"
 #include "Linked.hpp"
 #include "LinkedEntity.hpp"
 #include "Math.hpp"
 #include "Memory.hpp"
-#include "Message.hpp"
-#include "OutOfMemoryError.hpp"
 #include "Pointer.hpp"
 #include "String.hpp"
 #include "System.hpp"
 #include "Object.hpp"
 #include "Thread.hpp"
 #include "ThreadEvent.hpp"
-#include "Throwable.hpp"
 
 
 

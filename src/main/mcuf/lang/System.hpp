@@ -12,6 +12,7 @@
  * Include
  */
 #include "mcuf_base.h"
+#include "mcuf/lang/Error.hpp"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/lang/Thread.hpp"
 
@@ -36,11 +37,11 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    * Subclass
    */
 
+
   /* **************************************************************************************
    * Variable <Public>
    */
   
-
   /* **************************************************************************************
    * Variable <Protected>
    */
@@ -82,15 +83,17 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    * Public Method <Static>
    */
 
+  public: static void reboot(void);
+
   /**
    *
    */
-  public: static bool start(mcuf::lang::Thread& thread);
+  public: static bool start(mcuf::lang::Thread& thread, mcuf::lang::Memory& stackMemory);
 
   /**
    * 
    */
-  public: static void throwSystemError(const char* path, const char* message);
+  public: static void error(Error::Code code);
 
   /* **************************************************************************************
    * Public Method <Override>

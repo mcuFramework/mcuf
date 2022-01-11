@@ -16,7 +16,6 @@
 #endif
 
 #include "mcuf_base.h"
-#include "mcuf_macro.h"
 #include "mcuf/lang/System.hpp"
 #include "mcuf/lang/Thread.hpp"
 
@@ -66,9 +65,9 @@ Thread::Thread(const char* name){
  *
  */
 Thread::~Thread(void){
-  if(this->mThreadID){
-    THROW_ERROR("System try to destruct runnable thread.");
-  }
+  if(this->mThreadID)
+    System::error(Error::NULL_POINTER);
+  
 }
 
 /* ****************************************************************************************
@@ -86,7 +85,7 @@ Thread::~Thread(void){
 /** 
  *
  */
-const char* Thread::getName(void){
+const char* Thread::getName(void) const{
 #ifndef MCUF_CMSISRTOS2_DISABLE
   return GET_MEMORY()->name;
 #else
@@ -160,10 +159,9 @@ bool Thread::setPriority(Priority priority){
  *
  */
 void Thread::entryPoint(void* attachment){
-  if(attachment == nullptr){
-    THROW_WARNING("Thread entryPoint attachment is nullptr.");
-    return;
-  }
+  if(attachment == nullptr)
+    System::error(Error::NULL_POINTER);
+  
   
   Thread* thread = static_cast<Thread*>(attachment);
   thread->run();
