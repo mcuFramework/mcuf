@@ -51,20 +51,6 @@ Pointer::Pointer(uint32_t pointer){
  * Operator Method
  */
 
-/**
- * 
- */
-bool Pointer::operator==(const void* pointer){
-  return (this->mPointer == pointer);
-}
-  
-/**
- * 
- */
-bool Pointer::operator==(const Pointer& pointer){
-  return (this->mPointer == pointer.mPointer);
-}
-
 /* ****************************************************************************************
  * Public Method <Static>
  */

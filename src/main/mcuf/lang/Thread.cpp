@@ -22,7 +22,10 @@
 /* ****************************************************************************************
  * Macro
  */  
-#define GET_MEMORY() ((osRtxThread_t*)(&this->mThreadMemory[0]))
+#define getRtxMemory()         (static_cast<osRtxThread_t*>(this->pointer()))
+#define getRtxMemorySize()     (osRtxThreadCbSize)
+#define getStackMemory()       (this->pointer(osRtxThreadCbSize))
+#define getStackMemorySize()   (this->length() - osRtxThreadCbSize)
 
 /* ****************************************************************************************
  * Using
@@ -45,20 +48,24 @@ using mcuf::lang::Thread;
 /**
  *
  */
-Thread::Thread(void){
-  memset(this->mThreadMemory, 0x00, sizeof(this->mThreadMemory));
+Thread::Thread(Memory& memory) construct Memory(memory){
+  if(this->length() < (getRtxMemorySize() + 128))
+    System::error(Error::INSUFFICIENT_MEMORY);
+  
+  if(this->isReadOnly())
+    System::error(Error::WRITE_TO_READONLY_MEMORY);
+  
+  memset(this->pointer(), 0x00, osRtxThreadCbSize);
   this->mThreadID = nullptr;
+  return;
 }
 
 /**
  *
  */
-Thread::Thread(const char* name){
-  memset(this->mThreadMemory, 0x00, sizeof(this->mThreadMemory));
-  this->mThreadID = nullptr;
-  #ifndef MCUF_CMSISRTOS2_DISABLE
-  GET_MEMORY()->name = name;
-  #endif
+Thread::Thread(Memory& memory, const char* name) construct Thread(memory){
+  getRtxMemory()->name = name;
+  return;
 }
 
 /**
@@ -68,6 +75,7 @@ Thread::~Thread(void){
   if(this->mThreadID)
     System::error(Error::NULL_POINTER);
   
+  return;
 }
 
 /* ****************************************************************************************
@@ -86,11 +94,7 @@ Thread::~Thread(void){
  *
  */
 const char* Thread::getName(void) const{
-#ifndef MCUF_CMSISRTOS2_DISABLE
-  return GET_MEMORY()->name;
-#else
-  return nullptr;
-#endif
+  return getRtxMemory()->name;
 }
 
 /**
@@ -110,15 +114,36 @@ Thread::State Thread::getState(void){
 /**
  *
  */
-bool Thread::start(Memory& memory){
-  return this->start(memory, PRIORITY_NORMAL, Thread::entryPoint);
+bool Thread::start(void){
+  return this->start(PRIORITY_NORMAL);
 }
 
 /**
  *
  */
-bool Thread::start(Memory& memory, Priority priority){
-  return this->start(memory, priority, Thread::entryPoint);
+bool Thread::start(Priority priority){
+  if(this->mThreadID)
+    return false;
+  
+  if(getStackMemorySize() < 128)
+    return false;
+  
+  osThreadAttr_t attr;
+  
+  attr.stack_mem = getStackMemory();
+  attr.stack_size = getStackMemorySize();
+  
+  attr.cb_mem = getRtxMemory();
+  attr.cb_size = getRtxMemorySize();
+  
+  attr.name = getRtxMemory()->name;
+  attr.attr_bits = osThreadDetached;
+  attr.priority = static_cast<osPriority_t>(priority);
+  attr.reserved = 0;
+  
+  this->mThreadID = osThreadNew(entryPoint, this, &attr);
+  
+  return this->mThreadID;
 }
 
 /**
@@ -173,35 +198,6 @@ void Thread::entryPoint(void* attachment){
 /* ****************************************************************************************
  * Private Method
  */
-
-/** 
- *
- */
-bool Thread::start(mcuf::lang::Memory& memory, Priority priority, void(*entryPoint)(void* attachment)){
-  if(this->mThreadID)
-    return false;
-  
-  if(memory.length() < 128)
-    return false;
-  
-  osThreadAttr_t attr;
-  attr.stack_mem = memory.pointer();
-  attr.stack_size = memory.length();
-  
-  if(attr.stack_mem == nullptr)
-    return false;
-  
-  attr.cb_mem = &this->mThreadMemory[0];
-  attr.cb_size = sizeof(this->mThreadMemory);
-  attr.name = GET_MEMORY()->name;
-  attr.attr_bits = osThreadDetached;
-  attr.priority = static_cast<osPriority_t>(priority);
-  attr.reserved = 0;
-  
-  this->mThreadID = osThreadNew(entryPoint, this, &attr);
-  
-  return this->mThreadID;
-}
 
 /* ****************************************************************************************
  * End of file

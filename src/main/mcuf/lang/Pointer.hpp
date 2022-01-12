@@ -86,14 +86,25 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
    */
 
   /**
+   * 
+   */
+  public: inline operator void*(void){
+    return this->mPointer;
+  }
+
+  /**
    * Operator equal
    */
-  public: bool operator==(const void* pointer);
+  public: inline bool operator==(const void* pointer){
+    return (this->mPointer == pointer);
+  }
   
   /**
    * Operator equal
    */
-  public: bool operator==(const Pointer& pointer);  
+  public: inline bool operator==(const Pointer& pointer){
+    return (this->mPointer == pointer.mPointer);
+  }
 
   /* **************************************************************************************
    * Public Method <Static>
@@ -166,6 +177,26 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
     return reinterpret_cast<uint32_t>(this->mPointer);
   }
 
+  /**
+   *
+   */
+  public: inline bool isAlignment32Bit(void){
+    if((this->getAddress() & 0x00000003) != 0)
+      return false;
+    
+    return true;
+  }
+  
+  /**
+   *
+   */
+  public: inline bool isAlignment64Bit(void){
+    if((this->getAddress() & 0x00000007) != 0)
+      return false;
+    
+    return true;
+  }
+  
   /**
    * 
    */

@@ -29,14 +29,14 @@ using mcuf::function::Runnable;
 /**
  * Construct.
  */
-ThreadEvent::ThreadEvent(Runnable& runnable){
+ThreadEvent::ThreadEvent(Memory& memory, Runnable& runnable) construct Thread(memory){
   this->mRunnable = &runnable;
 }
 
 /**
  * Construct.
  */
-ThreadEvent::ThreadEvent(Runnable& runnable ,const char* name) construct Thread(name){
+ThreadEvent::ThreadEvent(Memory& memory, const char* name, Runnable& runnable) construct Thread(memory, name){
   this->mRunnable = &runnable;
 }
 

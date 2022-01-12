@@ -34,7 +34,7 @@ namespace mcuf{
  * Class Integer
  */  
 class mcuf::lang::Memory extends mcuf::lang::Pointer{
-
+  
   /* **************************************************************************************
    * Enum Flag
    */

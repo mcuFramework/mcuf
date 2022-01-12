@@ -36,7 +36,10 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Subclass
    */
-
+  public: struct Attachment{
+    mcuf::function::Runnable* coreThread;
+    mcuf::lang::Memory* coreThreadMemory;
+  };
 
   /* **************************************************************************************
    * Variable <Public>
@@ -49,9 +52,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: static mcuf::lang::Thread* mThread;
-  
-  
+  private: static mcuf::lang::Thread* mCoreThread;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -88,7 +89,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /**
    *
    */
-  public: static bool start(mcuf::lang::Thread& thread, mcuf::lang::Memory& stackMemory);
+  public: static bool start(Attachment& attachment);
 
   /**
    * 
@@ -118,7 +119,12 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Private Method <Static>
    */
-
+  
+  /**
+   *
+   */
+  private: static bool initCore(Attachment& attachment);  
+  
   /* **************************************************************************************
    * Private Method <Override>
    */
@@ -126,16 +132,6 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Private Method
    */  
-  
-  /**
-   *
-   */
-  private: static void entryPoint(void* attachment);  
-  
-  /**
-   *
-   */
-  private: static void initThread(mcuf::lang::Thread& thread);
   
 };
 

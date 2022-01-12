@@ -32,11 +32,14 @@ class mcuf::lang::Error final extends mcuf::lang::Object{
    * Subclass
    */
   public: enum Code{
-    NONE                   = 0,
-    OUT_OF_MEMORY          = 1,
-    NULL_POINTER           = 2,
-    ILLEGAL_ARGUMENT       = 3,
-    RESERVED               = 0x7FFFFFFF
+    NONE                       = 0,
+    HARD_FAULT                 = 1,
+    OUT_OF_MEMORY              = 2,
+    NULL_POINTER               = 3,
+    ILLEGAL_ARGUMENT           = 4,
+    INSUFFICIENT_MEMORY        = 5,
+    WRITE_TO_READONLY_MEMORY   = 6,
+    RESERVED                   = 0x7FFFFFFF
   };
   
 

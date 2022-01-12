@@ -12,12 +12,12 @@
 #include <stdlib.h>
 
 //-----------------------------------------------------------------------------------------
-#ifndef MCUF_CMSISRTOS2_DISABLE
+
 #include "cmsis_rtos/rtx_os.h"
-#endif
+
 #include "mcuf/lang/Math.hpp"
 #include "mcuf/lang/System.hpp"
-#include "mcuf/Resources.hpp"
+#include "mcuf/lang/ThreadEvent.hpp"
 
 /* ****************************************************************************************
  * Namespace
@@ -26,11 +26,12 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::Resources;
+
 using mcuf::function::Runnable;
 using mcuf::lang::Memory;
 using mcuf::lang::System;
 using mcuf::lang::Thread;
+using mcuf::lang::ThreadEvent;
 
 
 /* ****************************************************************************************
@@ -41,7 +42,7 @@ using mcuf::lang::Thread;
  * Static Variable
  */  
 
-Thread* System::mThread = nullptr;
+Thread* System::mCoreThread = nullptr;
 
 /* ****************************************************************************************
  * Construct Method
@@ -58,11 +59,17 @@ Thread* System::mThread = nullptr;
 /**
  * 
  */
-bool System::start(mcuf::lang::Thread& thread, mcuf::lang::Memory& stackMemory){
-#ifndef MCUF_CMSISRTOS2_DISABLE
-  System::initThread(thread);
+bool System::start(System::Attachment& attachment){
+  if(!System::initCore(attachment))
+    return false;
+
+  osKernelInitialize();
+
+  System::mCoreThread->start(Thread::PRIORITY_NORMAL);
+  
   osKernelStart();
-#endif
+  
+  System::mCoreThread = nullptr;
   return true;
 }
 
@@ -96,24 +103,37 @@ void System::error(Error::Code code){
 /* ****************************************************************************************
  * Private Method
  */
-
+ 
 /**
  *
  */
-void System::entryPoint(void* attachment){
-  Thread::entryPoint(attachment);
-}
-
-/**
- *
- */
-void System::initThread(Thread& thread){
-  if(System::mThread != nullptr)
-    return;
+bool System::initCore(System::Attachment& attachment){
+  if(System::mCoreThread != nullptr)
+    return false;
   
-  osKernelInitialize();
-
-  return;
+  if(attachment.coreThread == nullptr)
+    return false;
+  
+  if(attachment.coreThreadMemory == nullptr)
+    return false;
+  
+  if(!attachment.coreThreadMemory->isAlignment64Bit())
+    return false;
+  
+  int threadSize = sizeof(ThreadEvent);
+  if(threadSize & 0x00000007){
+    threadSize &= 0xFFFFFFF8;
+    threadSize += 8;
+  }
+    
+  
+  
+  Memory coreThreadMemory = attachment.coreThreadMemory->subMemory(0, threadSize);
+  Memory coreThreadStackMemory = attachment.coreThreadMemory->subMemory(threadSize);
+  
+  System::mCoreThread = new(coreThreadMemory) ThreadEvent(coreThreadStackMemory, "CoreThread", *attachment.coreThread);
+  
+  return true;
 }
  
 /* ****************************************************************************************

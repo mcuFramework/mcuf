@@ -31,7 +31,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Object
  */  
-abstracts class mcuf::lang::Thread extends mcuf::lang::Object
+abstracts class mcuf::lang::Thread extends mcuf::lang::Memory
   implements mcuf::function::Runnable{
 
   friend System;
@@ -92,13 +92,13 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Object
   };
   
   public: enum State{
-    STATE_INACTIVE        =  0,         ///< Inactive.
-    STATE_READY           =  1,         ///< Ready.
-    STATE_RUNNING         =  2,         ///< Running.
-    STATE_BLOCKED         =  3,         ///< Blocked.
-    STATE_TERMINATED      =  4,         ///< Terminated.
-    STATE_ERROR           = -1,         ///< Error.
-    STATE_RESERVED        = 0x7FFFFFFF  ///< Prevents enum down-size compiler optimization.
+    STATE_INACTIVE        =  0,           ///< Inactive.
+    STATE_READY           =  1,           ///< Ready.
+    STATE_RUNNING         =  2,           ///< Running.
+    STATE_BLOCKED         =  3,           ///< Blocked.
+    STATE_TERMINATED      =  4,           ///< Terminated.
+    STATE_ERROR           = -1,           ///< Error.
+    STATE_RESERVED        = 0x7FFFFFFF    ///< Prevents enum down-size compiler optimization.
   };
 
   /* **************************************************************************************
@@ -112,7 +112,6 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Object
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: uint64_t mThreadMemory[10];
   private: void* mThreadID = nullptr;
 
   /* **************************************************************************************
@@ -130,12 +129,12 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Object
   /**
    * Construct.
    */
-  public: Thread(void);
+  public: Thread(Memory& memory);
 
   /**
    * Construct.
    */
-  public: Thread(const char* name);
+  public: Thread(Memory& memory, const char* name);
 
   /**
    * Destruct.
@@ -176,12 +175,17 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Object
   /**
    *
    */
-  public: bool start(mcuf::lang::Memory& memory);
+  public: int getStackSize(void) const;
   
   /**
    *
    */
-  public: bool start(mcuf::lang::Memory& memory, Priority priority);
+  public: bool start(void);
+  
+  /**
+   *
+   */
+  public: bool start(Priority priority);
   
   /**
    *
@@ -221,11 +225,6 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Object
   /* **************************************************************************************
    * Private Method
    */  
-  
-  /**
-   *
-   */
-  private: bool start(mcuf::lang::Memory& memory, Priority priority, void(*entryPoint)(void* attachment));
 
 };
 

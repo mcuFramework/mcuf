@@ -63,12 +63,12 @@ class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
   /**
    * Construct.
    */
-  public: ThreadEvent(mcuf::function::Runnable& runnable);
+   public: ThreadEvent(mcuf::lang::Memory& memory, mcuf::function::Runnable& runnable);
 
   /**
    * Construct.
    */
-  public: ThreadEvent(mcuf::function::Runnable& runnable ,const char* name);
+  public: ThreadEvent(mcuf::lang::Memory& memory ,const char* name, mcuf::function::Runnable& runnable);
 
   /**
    * Destruct.
