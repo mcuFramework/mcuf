@@ -64,9 +64,12 @@ bool System::start(System::Attachment& attachment){
     return false;
 
   osKernelInitialize();
-
-  System::mCoreThread->start(Thread::PRIORITY_NORMAL);
   
+  if(!System::mCoreThread->start(Thread::PRIORITY_ABOVE_NORMAL)){
+    System::mCoreThread = nullptr;
+    return false;
+  }
+    
   osKernelStart();
   
   System::mCoreThread = nullptr;

@@ -23,9 +23,9 @@
  * Macro
  */  
 #define getRtxMemory()         (static_cast<osRtxThread_t*>(this->pointer()))
-#define getRtxMemorySize()     (osRtxThreadCbSize)
-#define getStackMemory()       (this->pointer(osRtxThreadCbSize))
-#define getStackMemorySize()   (this->length() - osRtxThreadCbSize)
+#define getRtxMemorySize()     (0x50)
+#define getStackMemory()       (this->pointer(getRtxMemorySize()))
+#define getStackMemorySize()   (this->length() - getRtxMemorySize())
 
 /* ****************************************************************************************
  * Using
@@ -55,7 +55,7 @@ Thread::Thread(Memory& memory) construct Memory(memory){
   if(this->isReadOnly())
     System::error(Error::WRITE_TO_READONLY_MEMORY);
   
-  memset(this->pointer(), 0x00, osRtxThreadCbSize);
+  memset(this->pointer(), 0x00, getRtxMemorySize());
   this->mThreadID = nullptr;
   return;
 }
@@ -141,7 +141,7 @@ bool Thread::start(Priority priority){
   attr.priority = static_cast<osPriority_t>(priority);
   attr.reserved = 0;
   
-  this->mThreadID = osThreadNew(entryPoint, this, &attr);
+  this->mThreadID = osThreadNew(Thread::entryPoint, this, &attr);
   
   return this->mThreadID;
 }
