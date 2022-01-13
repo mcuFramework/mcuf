@@ -510,11 +510,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\mcuf.h</FilePath>
             </File>
-            <File>
-              <FileName>Resources.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\Resources.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -664,11 +659,6 @@
               <FileName>OutputStream.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>PrintStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -1488,11 +1478,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\mcuf.h</FilePath>
             </File>
-            <File>
-              <FileName>Resources.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\Resources.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -1642,11 +1627,6 @@
               <FileName>OutputStream.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>PrintStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -2466,11 +2446,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\mcuf.h</FilePath>
             </File>
-            <File>
-              <FileName>Resources.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\Resources.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -2620,11 +2595,6 @@
               <FileName>OutputStream.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>PrintStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -3444,11 +3414,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\mcuf.h</FilePath>
             </File>
-            <File>
-              <FileName>Resources.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\Resources.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -3598,11 +3563,6 @@
               <FileName>OutputStream.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>PrintStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -4422,11 +4382,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\mcuf.h</FilePath>
             </File>
-            <File>
-              <FileName>Resources.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\Resources.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -4576,11 +4531,6 @@
               <FileName>OutputStream.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>PrintStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -5400,11 +5350,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\mcuf.h</FilePath>
             </File>
-            <File>
-              <FileName>Resources.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\Resources.hpp</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -5554,11 +5499,6 @@
               <FileName>OutputStream.hpp</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>PrintStream.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\PrintStream.hpp</FilePath>
             </File>
           </Files>
         </Group>

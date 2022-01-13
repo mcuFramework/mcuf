@@ -95,6 +95,17 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    * 
    */
   public: static void error(Error::Code code);
+  
+  /* **************************************************************************************
+   * Public Method <Inline Static>
+   */
+   
+  /**
+   *
+   */
+  public: inline static mcuf::lang::Thread* getSystemThread(void){
+    return System::mCoreThread;
+  }
 
   /* **************************************************************************************
    * Public Method <Override>

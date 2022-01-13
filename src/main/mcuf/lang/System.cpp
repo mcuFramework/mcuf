@@ -127,7 +127,6 @@ bool System::initCore(System::Attachment& attachment){
   }
     
   
-  
   Memory coreThreadMemory = attachment.coreThreadMemory->subMemory(0, threadSize);
   Memory coreThreadStackMemory = attachment.coreThreadMemory->subMemory(threadSize);
   
