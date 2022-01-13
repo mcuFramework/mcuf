@@ -76,45 +76,6 @@ class mcuf::lang::Math extends mcuf::lang::Object{
    */ 
 
   /**
-   * Returns the absolute value of an int value. If the argument is not negative, the 
-   * argument is returned. If the argument is negative, the negation of the argument is 
-   * returned.
-   * 
-   * Note that if the argument is equal to the value of Integer.MIN_VALUE, the most 
-   * negative representable int value, the result is that same value, which is negative.
-   * 
-   * @param a the argument whose absolute value is to be determined
-   * @return the absolute value of the argument.
-   */
-  public: static int abs(int a);
-
-  /**
-   * Returns the absolute value of a long value. If the argument is not negative, the 
-   * argument is returned. If the argument is negative, the negation of the argument is 
-   * returned.
-   * 
-   * Note that if the argument is equal to the value of Long.MIN_VALUE, the most 
-   * negative representable long value, the result is that same value, which is negative.
-   * 
-   * @param a the argument whose absolute value is to be determined
-   * @return the absolute value of the argument.
-   */
-  public: static long abs(long a);
-
-  /**
-   * Returns the absolute value of a float value. If the argument is not negative, the 
-   * argument is returned. If the argument is negative, the negation of the argument is 
-   * returned.
-   * 
-   * Note that if the argument is equal to the value of Float.MIN_VALUE, the most 
-   * negative representable float value, the result is that same value, which is negative.
-   * 
-   * @param a the argument whose absolute value is to be determined
-   * @return the absolute value of the argument.
-   */
-  public: static float abs(float a); 
-
-  /**
    * 
    */
   public: static int ceil(int dividend, int divisor);
@@ -133,6 +94,84 @@ class mcuf::lang::Math extends mcuf::lang::Object{
    * 
    */
   public: static uint32_t max(uint32_t a, uint32_t b);
+  
+  /* **************************************************************************************
+   * Public Method <Inline Static>
+   */   
+  
+  /**
+   * Returns the absolute value of an int value. If the argument is not negative, the 
+   * argument is returned. If the argument is negative, the negation of the argument is 
+   * returned.
+   * 
+   * Note that if the argument is equal to the value of Integer.MIN_VALUE, the most 
+   * negative representable int value, the result is that same value, which is negative.
+   * 
+   * @param a the argument whose absolute value is to be determined
+   * @return the absolute value of the argument.
+   */
+  public: inline static int abs(int a){
+    if(a)
+      return ~a;
+    
+    return a;
+  }
+
+  /**
+   * Returns the absolute value of a long value. If the argument is not negative, the 
+   * argument is returned. If the argument is negative, the negation of the argument is 
+   * returned.
+   * 
+   * Note that if the argument is equal to the value of Long.MIN_VALUE, the most 
+   * negative representable long value, the result is that same value, which is negative.
+   * 
+   * @param a the argument whose absolute value is to be determined
+   * @return the absolute value of the argument.
+   */
+  public: inline static long abs(long a){
+    if(a<0)
+      return (a * (-1));
+    
+    return a;
+  }
+
+  /**
+   * Returns the absolute value of a float value. If the argument is not negative, the 
+   * argument is returned. If the argument is negative, the negation of the argument is 
+   * returned.
+   * 
+   * Note that if the argument is equal to the value of Float.MIN_VALUE, the most 
+   * negative representable float value, the result is that same value, which is negative.
+   * 
+   * @param a the argument whose absolute value is to be determined
+   * @return the absolute value of the argument.
+   */
+  public: inline static float abs(float a){
+    if(a<0)
+      return (a * (-1));
+    
+    return a;
+  }  
+  
+  /**
+   *
+   */
+  public: static inline uint32_t align32bit(uint32_t value){
+    if(value & 0x00000003)
+      return  (value & 0xFFFFFFF4) + 4;
+    
+    return value;
+  }
+  
+  /**
+   *
+   */
+  public: static inline uint32_t align64bit(uint32_t value){
+    if(value & 0x00000007)
+      return  (value & 0xFFFFFFF8) + 8;
+    
+    return value;
+  }  
 
   /* **************************************************************************************
    * Public Method <Override>

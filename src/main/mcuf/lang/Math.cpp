@@ -40,36 +40,6 @@ using mcuf::lang::Math;
 /**
  * 
  */
-int Math::abs(int a){
-  if(a<0)
-    return (a * (-1));
-  
-  return a;
-}
-
-/**
- * 
- */
-long Math::abs(long a){
-  if(a<0)
-    return (a * (-1));
-  
-  return a;
-}
-
-/**
- * 
- */
-float Math::abs(float a){
-  if(a<0)
-    return (a * (-1));
-  
-  return a;
-}
-
-/**
- * 
- */
 int Math::ceil(int dividend, int divisor){
   int result = dividend/divisor;
   if(dividend%divisor)

@@ -94,7 +94,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /**
    * 
    */
-  public: static void error(Error::Code code);
+  public: static void error(const void* address, Error::Code code);
   
   /* **************************************************************************************
    * Public Method <Inline Static>

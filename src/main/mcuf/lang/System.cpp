@@ -79,7 +79,7 @@ bool System::start(System::Attachment& attachment){
 /**
  * 
  */
-void System::error(Error::Code code){
+void System::error(const void* address, Error::Code code){
   while(1);
 }
 

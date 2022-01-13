@@ -39,6 +39,8 @@ class mcuf::lang::Error final extends mcuf::lang::Object{
     ILLEGAL_ARGUMENT           = 4,
     INSUFFICIENT_MEMORY        = 5,
     WRITE_TO_READONLY_MEMORY   = 6,
+    MEMORY_NOT_ALIGNMENT_32BIT = 5,
+    MEMORY_NOT_ALIGNMENT_64BIT = 8,
     RESERVED                   = 0x7FFFFFFF
   };
   

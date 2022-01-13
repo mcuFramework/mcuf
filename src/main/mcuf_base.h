@@ -24,6 +24,14 @@
 #define VACCESS(type, target) (*(volatile type *) &(target))
 #endif
 
+#ifndef ALIGN32BIT
+#define ALIGN32BIT(source) if(source&0x3){source = (source & 0xFFFFFFF8) + 4;}
+#endif
+
+#ifndef ALIGN64BIT
+#define ALIGN64BIT(source) if(source&0x7){source = (source & 0xFFFFFFF8) + 8;}
+#endif
+
 /* ****************************************************************************************
  * Include
  */

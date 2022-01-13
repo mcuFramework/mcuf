@@ -15,7 +15,10 @@
 #include "cmsis_rtos/rtx_os.h"
 #endif
 
+#include <typeinfo>
+
 #include "mcuf_base.h"
+#include "mcuf/lang/Math.hpp"
 #include "mcuf/lang/System.hpp"
 #include "mcuf/lang/Thread.hpp"
 
@@ -23,7 +26,7 @@
  * Macro
  */  
 #define getRtxMemory()         (static_cast<osRtxThread_t*>(this->pointer()))
-#define getRtxMemorySize()     (0x50)
+#define getRtxMemorySize()     (mcuf::lang::Math::align64bit(osRtxThreadCbSize))
 #define getStackMemory()       (this->pointer(getRtxMemorySize()))
 #define getStackMemorySize()   (this->length() - getRtxMemorySize())
 
@@ -49,11 +52,14 @@ using mcuf::lang::Thread;
  *
  */
 Thread::Thread(Memory& memory) construct Memory(memory){
+  if(!this->isAlignment64Bit())
+    System::error(this, Error::MEMORY_NOT_ALIGNMENT_64BIT);
+  
   if(this->length() < (getRtxMemorySize() + 128))
-    System::error(Error::INSUFFICIENT_MEMORY);
+    System::error(this, Error::INSUFFICIENT_MEMORY);
   
   if(this->isReadOnly())
-    System::error(Error::WRITE_TO_READONLY_MEMORY);
+    System::error(this, Error::WRITE_TO_READONLY_MEMORY);
   
   memset(this->pointer(), 0x00, getRtxMemorySize());
   this->mThreadID = nullptr;
@@ -73,7 +79,7 @@ Thread::Thread(Memory& memory, const char* name) construct Thread(memory){
  */
 Thread::~Thread(void){
   if(this->mThreadID)
-    System::error(Error::NULL_POINTER);
+    System::error(this, Error::NULL_POINTER);
   
   return;
 }
@@ -185,7 +191,7 @@ bool Thread::setPriority(Priority priority){
  */
 void Thread::entryPoint(void* attachment){
   if(attachment == nullptr)
-    System::error(Error::NULL_POINTER);
+    System::error(reinterpret_cast<void*>(Thread::entryPoint), Error::NULL_POINTER);
   
   
   Thread* thread = static_cast<Thread*>(attachment);
