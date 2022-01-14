@@ -20,6 +20,7 @@
  */
 #include "Collection.hpp"
 #include "Fifo.hpp"
+#include "LinkedPool.hpp"
 #include "Map.hpp"
 #include "Pool.hpp"
 #include "Queue.hpp"

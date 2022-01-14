@@ -891,29 +891,9 @@
           <GroupName>main\mcuf\util</GroupName>
           <Files>
             <File>
-              <FileName>Collection.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Fifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Fifo.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Map.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Pool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
             </File>
             <File>
               <FileName>RingBuffer.cpp</FileName>
@@ -921,39 +901,19 @@
               <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>RingBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Queue.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Scanner.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>util.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
-            </File>
-            <File>
               <FileName>Stacker.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
             </File>
             <File>
-              <FileName>Stacker.hpp</FileName>
+              <FileName>LinkedPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\LinkedPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
+              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1859,29 +1819,9 @@
           <GroupName>main\mcuf\util</GroupName>
           <Files>
             <File>
-              <FileName>Collection.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Fifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Fifo.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Map.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Pool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
             </File>
             <File>
               <FileName>RingBuffer.cpp</FileName>
@@ -1889,39 +1829,19 @@
               <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>RingBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Queue.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Scanner.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>util.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
-            </File>
-            <File>
               <FileName>Stacker.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
             </File>
             <File>
-              <FileName>Stacker.hpp</FileName>
+              <FileName>LinkedPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\LinkedPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
+              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2827,29 +2747,9 @@
           <GroupName>main\mcuf\util</GroupName>
           <Files>
             <File>
-              <FileName>Collection.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Fifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Fifo.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Map.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Pool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
             </File>
             <File>
               <FileName>RingBuffer.cpp</FileName>
@@ -2857,39 +2757,19 @@
               <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>RingBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Queue.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Scanner.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>util.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
-            </File>
-            <File>
               <FileName>Stacker.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
             </File>
             <File>
-              <FileName>Stacker.hpp</FileName>
+              <FileName>LinkedPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\LinkedPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
+              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3795,29 +3675,9 @@
           <GroupName>main\mcuf\util</GroupName>
           <Files>
             <File>
-              <FileName>Collection.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Fifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Fifo.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Map.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Pool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
             </File>
             <File>
               <FileName>RingBuffer.cpp</FileName>
@@ -3825,39 +3685,19 @@
               <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>RingBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Queue.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Scanner.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>util.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
-            </File>
-            <File>
               <FileName>Stacker.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
             </File>
             <File>
-              <FileName>Stacker.hpp</FileName>
+              <FileName>LinkedPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\LinkedPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
+              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4763,29 +4603,9 @@
           <GroupName>main\mcuf\util</GroupName>
           <Files>
             <File>
-              <FileName>Collection.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Fifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Fifo.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Map.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Pool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
             </File>
             <File>
               <FileName>RingBuffer.cpp</FileName>
@@ -4793,39 +4613,19 @@
               <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>RingBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Queue.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Scanner.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>util.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
-            </File>
-            <File>
               <FileName>Stacker.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
             </File>
             <File>
-              <FileName>Stacker.hpp</FileName>
+              <FileName>LinkedPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\LinkedPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
+              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5731,29 +5531,9 @@
           <GroupName>main\mcuf\util</GroupName>
           <Files>
             <File>
-              <FileName>Collection.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Collection.hpp</FilePath>
-            </File>
-            <File>
               <FileName>Fifo.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Fifo.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Fifo.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Fifo.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Map.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Map.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Pool.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Pool.hpp</FilePath>
             </File>
             <File>
               <FileName>RingBuffer.cpp</FileName>
@@ -5761,39 +5541,19 @@
               <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
             </File>
             <File>
-              <FileName>RingBuffer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Queue.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Queue.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Scanner.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Scanner.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Timer.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>util.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
-            </File>
-            <File>
               <FileName>Stacker.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
             </File>
             <File>
-              <FileName>Stacker.hpp</FileName>
+              <FileName>LinkedPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\LinkedPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>util.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Stacker.hpp</FilePath>
+              <FilePath>.\src\main\mcuf\util\util.h</FilePath>
             </File>
           </Files>
         </Group>

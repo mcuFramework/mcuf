@@ -86,7 +86,7 @@ class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Thread
    */
-  public: void run(void) override;
+  public: virtual void run(void) override;
 
   /* **************************************************************************************
    * Public Method
