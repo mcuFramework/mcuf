@@ -5,36 +5,34 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_FCCC3E6F_E524_4464_BA6F_FF9492970DA8
-#define MCUF_FCCC3E6F_E524_4464_BA6F_FF9492970DA8
+#ifndef MCUF_BB9B7C70_E040_4995_A1F3_1855850093BD
+#define MCUF_BB9B7C70_E040_4995_A1F3_1855850093BD
 
 /* ****************************************************************************************
  * Include
- */
+ */  
 
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
-#include "mcuf\lang\ArrayPrototype.hpp"
-#include "mcuf\lang\Memory.hpp"
-#include "mcuf\lang\Pointer.hpp"
-
-
+#include "mcuf/lang/Memory.hpp"
+#include "mcuf/lang/ThreadEvent.hpp"
+#include "mcuf/util/Executor.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace lang{
-    template<typename E> class Array;
+    namespace managerment{
+      class ExecutorThread;
+    }
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class Array
+ * Class Object
  */  
-template<typename E>
-class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
+class mcuf::lang::managerment::ExecutorThread extends mcuf::lang::Thread{
 
   /* **************************************************************************************
    * Subclass
@@ -51,11 +49,13 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   /* **************************************************************************************
    * Variable <Private>
    */
+  private: mcuf::util::Executor mExecutor;
+  private: bool mStart;
 
   /* **************************************************************************************
    * Abstract method <Public>
    */
-   
+
   /* **************************************************************************************
    * Abstract method <Protected>
    */
@@ -65,49 +65,19 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
    */
 
   /**
-   *
-   */
-  public: Array(mcuf::lang::Memory& memory) construct mcuf::lang::ArrayPrototype(memory, sizeof(E)){
-    return;
-  }
-
-  /**
    * Construct.
    */
-  public: Array(E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, (length * sizeof(E)), sizeof(E)){
-    return;
-  }
-  
-  /**
-   * Construct.
-   */
-  public: Array(const E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, (length * sizeof(E)), sizeof(E)){
-    return;
-  }
+  public: ExecutorThread(mcuf::lang::Memory& memory, mcuf::lang::Memory& queueMemory);
 
   /**
    * Destruct.
    */
-  public: virtual ~Array() = default;
-  
+  public: virtual ~ExecutorThread(void) = default;
+
   /* **************************************************************************************
    * Operator Method
    */
-  
-  /**
-   * Operator array.
-   */
-  public: E operator[](int index) const{
-    return static_cast<E*>(this->pointer())[index];
-  }
 
-  /**
-   * Operator array.
-   */
-  public: E& operator[](int index){
-    return static_cast<E*>(this->pointer())[index];
-  }
-  
   /* **************************************************************************************
    * Public Method <Static>
    */
@@ -115,36 +85,30 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   /* **************************************************************************************
    * Public Method <Override>
    */
-
-    /* **************************************************************************************
-   * Public Method
-   */
   
   /* **************************************************************************************
-   * Public Method <Inline>
+   * Public Method <Override> - mcuf::function::Runnable
    */
+   
+  /**
+   *
+   */
+  public: void run(void) override;
+
+  /* **************************************************************************************
+   * Public Method
+   */
+   
+  /**
+   *
+   */
+  public: bool execute(mcuf::function::Runnable& runnable);
 
   /**
-   * Length
+   *
    */
-  public: inline uint32_t length(void) const {
-    return this->mElementLength;
-  }
-  
-  /**
-   * 
-   */
-  public: inline int indexOf(const E& e) const{
-    return this->ArrayPrototype::indexOf(&e);
-  }
-  
-  /**
-   * 
-   */
-  public: inline bool contains(const E& e) const{
-    return (this->ArrayPrototype::indexOf(&e) != -1);
-  }
-  
+  public: void stop(void);
+
   /* **************************************************************************************
    * Protected Method <Static>
    */
@@ -167,13 +131,12 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
    
   /* **************************************************************************************
    * Private Method
-   */
-    
+   */  
+
 };
- 
-/* ****************************************************************************************
+
+/* *****************************************************************************************
  * End of file
  */ 
 
-
-#endif/* MCUF_FCCC3E6F_E524_4464_BA6F_FF9492970DA8 */
+#endif/* MCUF_BB9B7C70_E040_4995_A1F3_1855850093BD */

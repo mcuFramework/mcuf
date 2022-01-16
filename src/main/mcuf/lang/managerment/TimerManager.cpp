@@ -8,22 +8,22 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "mcuf/util/LinkedPool.hpp"
- 
+#include <string.h>
+
+//-----------------------------------------------------------------------------------------
+#include "cmsis_rtos/rtx_os.h"
+#include "mcuf/lang/managerment/TimerManager.hpp"
+
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::function::Consumer;
-using mcuf::util::LinkedPool;
+using mcuf::lang::managerment::TimerManager;
 using mcuf::lang::Memory;
-
+using mcuf::util::Pool;
+using mcuf::util::TimerScheduler;
 
 /* ****************************************************************************************
- * Macro
- */
- 
-/* ****************************************************************************************
- * Variable
+ * Variable <Static>
  */
 
 /* ****************************************************************************************
@@ -37,17 +37,10 @@ using mcuf::lang::Memory;
 /**
  *
  */
-LinkedPool::LinkedPool(Memory& memory, uint32_t elementSize) construct Memory(memory){
-  this->mElementSize = elementSize;
-  this->clear();
-  return;
-}
-
-/**
- *
- */
-LinkedPool::~LinkedPool(void){
-  return;
+TimerManager::TimerManager(Memory& memory) construct TimerScheduler(memory){
+  memset(this->mTimerMemory, 0x00, sizeof(this->mTimerMemory));
+  this->mTimerID = nullptr;
+  this->mTick = 0;
 }
 
 /* ****************************************************************************************
@@ -55,50 +48,58 @@ LinkedPool::~LinkedPool(void){
  */
  
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::util::Iterable
- */
-
-/**
- *
- */
-void LinkedPool::forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& action){
-}
-
-/* ****************************************************************************************
- * Public Method <Override> - mcuf::util::Collection
- */
-
-/**
- *
- */
-void LinkedPool::clear(void){
-  
-}
-
-/**
- *
- */
-bool LinkedPool::isEmpty(void){
-  if(this->mUsedBlock == 0)
-    return true;
-  
-  return false;
-}
-
-/**
- *
- */
-uint32_t LinkedPool::size(void){
-  return (this->length() / (this->mElementSize + 4));
-}
-
-/* ****************************************************************************************
- * Public Method <Override> - mcuf::util::Pool
+ * Public Method <Override>
  */
 
 /* ****************************************************************************************
  * Public Method
  */
+
+/**
+ *
+ */
+bool TimerManager::start(uint32_t tick){
+  if(this->mTimerID != nullptr)
+    return false;
+  
+  if(tick == 0)
+    return false;
+  
+  this->mTick = tick;
+  
+  osTimerAttr_t attr;
+  attr.attr_bits = 0;
+  attr.name = "TimerManager";
+  attr.cb_mem = this->mTimerMemory;
+  attr.cb_size = sizeof(this->mTimerMemory);
+  
+  this->mTimerID = osTimerNew(TimerManager::entryPoint, osTimerPeriodic, this, &attr);
+  
+  if(this->mTimerID == nullptr)
+    return false;
+  
+  if(osTimerStart(this->mTimerID, tick) != osOK){
+    this->stop();
+    return false;
+  }
+
+  return true;
+}
+  
+/**
+ *
+ */
+bool TimerManager::stop(void){
+  if(this->mTimerID == nullptr)
+    return false;
+  
+  osTimerStop(this->mTimerID);
+  osTimerDelete(this->mTimerID);
+  this->mTimerID = nullptr;
+  this->mTick = 0;
+  
+  return true;
+}
 
 /* ****************************************************************************************
  * Protected Method <Static>
@@ -111,11 +112,19 @@ uint32_t LinkedPool::size(void){
 /* ****************************************************************************************
  * Protected Method
  */
- 
+
 /* ****************************************************************************************
- * Private Method <Static>
+ * Private Method  <Static>
  */
- 
+
+/**
+ *
+ */
+void TimerManager::entryPoint(void* attacmnent){
+  TimerManager* timerManager = static_cast<TimerManager*>(attacmnent);
+  timerManager->tick(timerManager->mTick);
+}
+
 /* ****************************************************************************************
  * Private Method
  */

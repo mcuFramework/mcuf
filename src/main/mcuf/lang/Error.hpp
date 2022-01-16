@@ -34,13 +34,14 @@ class mcuf::lang::Error final extends mcuf::lang::Object{
   public: enum Code{
     NONE                       = 0,
     HARD_FAULT                 = 1,
-    OUT_OF_MEMORY              = 2,
-    NULL_POINTER               = 3,
-    ILLEGAL_ARGUMENT           = 4,
-    INSUFFICIENT_MEMORY        = 5,
-    WRITE_TO_READONLY_MEMORY   = 6,
-    MEMORY_NOT_ALIGNMENT_32BIT = 5,
-    MEMORY_NOT_ALIGNMENT_64BIT = 8,
+    SYSTEM_ERROR               = 2,
+    OUT_OF_MEMORY              = 3,
+    NULL_POINTER               = 4,
+    ILLEGAL_ARGUMENT           = 5,
+    INSUFFICIENT_MEMORY        = 6,
+    WRITE_TO_READONLY_MEMORY   = 7,
+    MEMORY_NOT_ALIGNMENT_32BIT = 8,
+    MEMORY_NOT_ALIGNMENT_64BIT = 9,
     RESERVED                   = 0x7FFFFFFF
   };
   

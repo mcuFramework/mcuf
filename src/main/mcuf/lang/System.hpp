@@ -15,6 +15,8 @@
 #include "mcuf/lang/Error.hpp"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/lang/Thread.hpp"
+#include "mcuf/lang/managerment/ExecutorThread.hpp"
+#include "mcuf/lang/managerment/TimerManager.hpp"
 
 
 /* ****************************************************************************************
@@ -39,6 +41,10 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   public: struct Attachment{
     mcuf::function::Runnable* coreThread;
     mcuf::lang::Memory* coreThreadMemory;
+    mcuf::lang::Memory* executorMemory;
+    mcuf::lang::Memory* timerMemory;
+    uint32_t executorTaskQuantity;
+    uint32_t timerTaskQuantity;
   };
 
   /* **************************************************************************************
@@ -52,7 +58,11 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
+  private: static void (*mErrorHandler)(const void* address, Error::Code code);
+  
   private: static mcuf::lang::Thread* mCoreThread;
+  private: static mcuf::lang::managerment::ExecutorThread* mExecutorThread;
+  private: static mcuf::lang::managerment::TimerManager* mTimerManager;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -89,12 +99,17 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /**
    *
    */
-  public: static bool start(Attachment& attachment);
+  public: static void start(Attachment& attachment);
 
   /**
    * 
    */
   public: static void error(const void* address, Error::Code code);
+  
+  /**
+   *
+   */
+  public: static void registorErrorHandler(void (*handler)(const void* address, Error::Code code));
   
   /* **************************************************************************************
    * Public Method <Inline Static>
@@ -131,10 +146,21 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    * Private Method <Static>
    */
   
+  /** 
+   *
+   */
+  private: static void initCore(Attachment& attachment);
+  
+  /** 
+   *
+   */
+  private: static void initExecutor(Memory* memory, uint32_t quantity);
+  
   /**
    *
    */
-  private: static bool initCore(Attachment& attachment);  
+  private: static void initTimer(Memory* memory, uint32_t quantity);
+  
   
   /* **************************************************************************************
    * Private Method <Override>

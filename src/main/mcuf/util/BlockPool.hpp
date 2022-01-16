@@ -5,31 +5,35 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_DE6DDA25_542E_4780_B9F6_CE3B65F761EC
-#define MCUF_DE6DDA25_542E_4780_B9F6_CE3B65F761EC
+#ifndef MCUF_E650C2D3_441C_41FE_9189_E4BDDEA0CC31
+#define MCUF_E650C2D3_441C_41FE_9189_E4BDDEA0CC31
 
 /* ****************************************************************************************
  * Include
  */  
 #include "mcuf_base.h"
-#include "mcuf/lang/Memory.hpp"
 #include "mcuf/util/Pool.hpp"
+#include "mcuf/lang/Memory.hpp"
+
+
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace util{
-    class LinkedPool;
+    class BlockPool;
   }
 }
 
-/* ****************************************************************************************
- * Class Object
- */  
-class mcuf::util::LinkedPool extends mcuf::lang::Memory
-      implements mcuf::util::Pool{
 
+
+/* ****************************************************************************************
+ * Class BlockPool
+ */  
+class mcuf::util::BlockPool extends mcuf::lang::Memory
+      implements mcuf::util::Pool{
+  
   /* **************************************************************************************
    * Subclass
    */
@@ -41,14 +45,17 @@ class mcuf::util::LinkedPool extends mcuf::lang::Memory
   /* **************************************************************************************
    * Variable <Protected>
    */
+  protected: uint32_t mCapacity;
+  protected: uint32_t mElementSize;
+  protected: uint32_t mSize;
+  protected: uint32_t mLastFlag;
+  protected: uint8_t* mFlags;
+  protected: uint32_t mFlagSize;
 
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: uint32_t mElementSize;
-  private: uint32_t mEmptyBlock;
-  private: uint32_t mUsedBlock;
-
+  
   /* **************************************************************************************
    * Abstract method <Public>
    */
@@ -64,13 +71,13 @@ class mcuf::util::LinkedPool extends mcuf::lang::Memory
   /**
    * Construct.
    */
-  public: LinkedPool(Memory& memory, uint32_t elementSize);
-
+  public: BlockPool(mcuf::lang::Memory& memory, uint32_t elementSize);
+  
   /**
-   * Disconstruct.
+   * Destruct.
    */
-  public: virtual ~LinkedPool(void);
-
+  public: virtual ~BlockPool(void) = default;
+  
   /* **************************************************************************************
    * Operator Method
    */
@@ -78,48 +85,10 @@ class mcuf::util::LinkedPool extends mcuf::lang::Memory
   /* **************************************************************************************
    * Public Method <Static>
    */
-
-  /* **************************************************************************************
-   * Public Method <Public> - mcuf::util::Iterable
-   */
-   
-  /**
-   * Performs the given action for each element of the Iterable until all elements have 
-   * been processed or the action throws an exception. Unless otherwise specified by the 
-   * implementing class, actions are performed in the order of iteration (if an iteration 
-   * order is specified). 
-   *
-   * @action - The action to be performed for each element.
-   */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& action) override;
-   
-  /* **************************************************************************************
-   * Public Method <Public> - mcuf::util::Collection
-   */
-
-  /**
-   * Removes all of the elements from this collection. The collection will be empty after 
-   * this method returns.
-   */
-  public: virtual void clear(void) override;
-
-  /**
-   * Returns true if this collection contains no elements.
-   * 
-   * @return true if this collection contains no elements.
-   */
-  public: virtual bool isEmpty(void) override;
-
-  /**
-   * Returns the number of elements in this collection.
-   * 
-   * @return the number of elements in this collection.
-   */
-  public: virtual uint32_t size(void) override;
   
   /* **************************************************************************************
-   * Public Method <Public> - mcuf::util::Pool
-   */  
+   * Public Method <Override>
+   */
   
   /**
    * Returns this pool element size of byte
@@ -134,6 +103,25 @@ class mcuf::util::LinkedPool extends mcuf::lang::Memory
    * @return The capacity of this pool.
    */
   public: virtual uint32_t capacity(void) override;
+  
+  /**
+   * Returns the number of elements in this pool.
+   *
+   * @return the number of elements in this pool.
+   */
+  public: virtual uint32_t size(void) override;
+  
+  /**
+   * Removes all of the elements from this pool (optional operation). The pool will be empty after this method returns.
+   */
+  public: virtual void clear(void) override;
+  
+  /**
+   * Returns true if this pool contains no elements.
+   *
+   * @return true if this pool contains no elements.
+   */
+  public: virtual bool isEmpty(void) override;
   
   /**
    * Alloc memory from pool.
@@ -153,7 +141,7 @@ class mcuf::util::LinkedPool extends mcuf::lang::Memory
    * @element Element pointer.
    * @return element pointer if pool not full, otherwise null pointer.
    */
-  public: virtual void* add(void* elenemt) override;
+  public: virtual void* add(void* element) override;
   
   /**
    * Free this element memory.  
@@ -161,27 +149,42 @@ class mcuf::util::LinkedPool extends mcuf::lang::Memory
    * @element Element pointer.
    * @return true if this poll found element and remove.
    */
-  public: virtual bool remove(void* element) override;  
+  public: virtual bool remove(void* element) override;
+
+  /**
+   * Performs the given action for each element of the Iterable until all elements have 
+   * been processed or the action throws an exception. Unless otherwise specified by the 
+   * implementing class, actions are performed in the order of iteration (if an iteration 
+   * order is specified). 
+   *
+   * @action - The action to be performed for each element.
+   */
+  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& consumer) override;
   
   /* **************************************************************************************
    * Public Method
    */
 
+  /**
+   * 
+   */
+  public: bool isFull(void);
+
   /* **************************************************************************************
    * Protected Method <Static>
    */
-
+  
   /* **************************************************************************************
    * Protected Method <Override>
    */
-
+  
   /* **************************************************************************************
    * Protected Method
    */
 
   /* **************************************************************************************
    * Private Method <Static>
-   */
+   */  
 
   /* **************************************************************************************
    * Private Method <Override>
@@ -189,14 +192,50 @@ class mcuf::util::LinkedPool extends mcuf::lang::Memory
    
   /* **************************************************************************************
    * Private Method
-   */  
+   */
 
+  /**
+   * 
+   */
+  private: void init(uint32_t elementSize);
+  
+  /**
+   *
+   */
+  private: void setFlag(uint32_t shift, bool enable);
+  
+  /**
+   *
+   */
+  private: void* getBlock(uint32_t shift);
+
+  /**
+   *
+   */
+  private: bool getFlag(uint32_t shift);
+
+  /**
+   *
+   */
+  private: void* blockClear(uint32_t shift);
+  
+  /**
+   *
+   */
+  private: void* blockCopy(uint32_t shift, void* element);
+  
+  /**
+   *
+   */
+  private: uint32_t getBlockShift(void* block);
+  
 };
-
+ 
 
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif/* MCUF_DE6DDA25_542E_4780_B9F6_CE3B65F761EC */
+
+#endif/* MCUF_E650C2D3_441C_41FE_9189_E4BDDEA0CC31 */

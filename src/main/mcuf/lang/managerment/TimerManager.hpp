@@ -5,36 +5,32 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_FCCC3E6F_E524_4464_BA6F_FF9492970DA8
-#define MCUF_FCCC3E6F_E524_4464_BA6F_FF9492970DA8
+#ifndef MCUF_DAABF10E_A6DD_48CC_9079_D339B3588669
+#define MCUF_DAABF10E_A6DD_48CC_9079_D339B3588669
 
 /* ****************************************************************************************
  * Include
- */
+ */  
 
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
-#include "mcuf\lang\ArrayPrototype.hpp"
-#include "mcuf\lang\Memory.hpp"
-#include "mcuf\lang\Pointer.hpp"
-
-
+#include "mcuf/util/TimerScheduler.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace lang{
-    template<typename E> class Array;
+    namespace managerment{
+      class TimerManager;
+    }
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class Array
+ * Class Object
  */  
-template<typename E>
-class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
+class mcuf::lang::managerment::TimerManager extends mcuf::util::TimerScheduler{
 
   /* **************************************************************************************
    * Subclass
@@ -51,11 +47,14 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   /* **************************************************************************************
    * Variable <Private>
    */
+  private: uint64_t mTimerMemory[4];
+  private: void* mTimerID;
+  private: uint32_t mTick;
 
   /* **************************************************************************************
    * Abstract method <Public>
    */
-   
+
   /* **************************************************************************************
    * Abstract method <Protected>
    */
@@ -65,49 +64,19 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
    */
 
   /**
-   *
-   */
-  public: Array(mcuf::lang::Memory& memory) construct mcuf::lang::ArrayPrototype(memory, sizeof(E)){
-    return;
-  }
-
-  /**
    * Construct.
    */
-  public: Array(E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, (length * sizeof(E)), sizeof(E)){
-    return;
-  }
-  
-  /**
-   * Construct.
-   */
-  public: Array(const E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, (length * sizeof(E)), sizeof(E)){
-    return;
-  }
+  public: TimerManager(mcuf::lang::Memory& memory);
 
   /**
    * Destruct.
    */
-  public: virtual ~Array() = default;
-  
+  public: virtual ~TimerManager(void) = default;
+
   /* **************************************************************************************
    * Operator Method
    */
-  
-  /**
-   * Operator array.
-   */
-  public: E operator[](int index) const{
-    return static_cast<E*>(this->pointer())[index];
-  }
 
-  /**
-   * Operator array.
-   */
-  public: E& operator[](int index){
-    return static_cast<E*>(this->pointer())[index];
-  }
-  
   /* **************************************************************************************
    * Public Method <Static>
    */
@@ -116,35 +85,20 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
    * Public Method <Override>
    */
 
-    /* **************************************************************************************
+  /* **************************************************************************************
    * Public Method
    */
-  
-  /* **************************************************************************************
-   * Public Method <Inline>
+   
+  /**
+   *
    */
+  public: bool start(uint32_t tick);
+  
+  /**
+   *
+   */
+  public: bool stop(void);
 
-  /**
-   * Length
-   */
-  public: inline uint32_t length(void) const {
-    return this->mElementLength;
-  }
-  
-  /**
-   * 
-   */
-  public: inline int indexOf(const E& e) const{
-    return this->ArrayPrototype::indexOf(&e);
-  }
-  
-  /**
-   * 
-   */
-  public: inline bool contains(const E& e) const{
-    return (this->ArrayPrototype::indexOf(&e) != -1);
-  }
-  
   /* **************************************************************************************
    * Protected Method <Static>
    */
@@ -160,6 +114,11 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   /* **************************************************************************************
    * Private Method <Static>
    */
+  
+  /**
+   *
+   */
+  private: static void entryPoint(void* attachment);
 
   /* **************************************************************************************
    * Private Method <Override>
@@ -167,13 +126,12 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
    
   /* **************************************************************************************
    * Private Method
-   */
-    
+   */  
+
 };
- 
-/* ****************************************************************************************
+
+/* *****************************************************************************************
  * End of file
  */ 
 
-
-#endif/* MCUF_FCCC3E6F_E524_4464_BA6F_FF9492970DA8 */
+#endif/* MCUF_DAABF10E_A6DD_48CC_9079_D339B3588669 */
