@@ -16,7 +16,7 @@
  * Include
  */
 
-#include "ExecutorThread.hpp"
+#include "CoreThread.hpp"
 #include "TimerManager.hpp"
 
 /* *****************************************************************************************

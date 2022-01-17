@@ -75,7 +75,7 @@ void System::start(System::Attachment& attachment){
   System::initTimer(attachment.timerMemory, attachment.timerTaskQuantity);
   
   if(!System::mCoreThread->start(Thread::PRIORITY_ABOVE_NORMAL))
-    System::error(__FUNCTION__, Error::SYSTEM_ERROR);
+    System::error(__PRETTY_FUNCTION__, Error::SYSTEM_ERROR);
     
   osKernelStart();
   
@@ -129,16 +129,16 @@ void System::registorErrorHandler(void (*handler)(const void* address, Error::Co
  */
 void System::initCore(System::Attachment& attachment){
   if(System::mCoreThread != nullptr)
-    System::error(__FUNCTION__, Error::NULL_POINTER);
+    System::error(__PRETTY_FUNCTION__, Error::NULL_POINTER);
   
   if(attachment.coreThread == nullptr)
-    System::error(__FUNCTION__, Error::NULL_POINTER);
+    System::error(__PRETTY_FUNCTION__, Error::NULL_POINTER);
   
   if(attachment.coreThreadMemory == nullptr)
-    System::error(__FUNCTION__, Error::NULL_POINTER);
+    System::error(__PRETTY_FUNCTION__, Error::NULL_POINTER);
   
   if(!attachment.coreThreadMemory->isAlignment64Bit())
-    System::error(__FUNCTION__, Error::MEMORY_NOT_ALIGNMENT_64BIT);
+    System::error(__PRETTY_FUNCTION__, Error::MEMORY_NOT_ALIGNMENT_64BIT);
   
   int threadSize = Math::align64bit(sizeof(ThreadEvent));
     
@@ -156,16 +156,16 @@ void System::initCore(System::Attachment& attachment){
  */
 void System::initExecutor(Memory* memory, uint32_t quantity){
   if(memory == nullptr)
-    System::error(__FUNCTION__, Error::NULL_POINTER);
+    System::error(__PRETTY_FUNCTION__, Error::NULL_POINTER);
   
   if(memory->isReadOnly())
-    System::error(__FUNCTION__, Error::WRITE_TO_READONLY_MEMORY);
+    System::error(__PRETTY_FUNCTION__, Error::WRITE_TO_READONLY_MEMORY);
   
   if(!memory->isAlignment64Bit())
-    System::error(__FUNCTION__, Error::MEMORY_NOT_ALIGNMENT_64BIT);
+    System::error(__PRETTY_FUNCTION__, Error::MEMORY_NOT_ALIGNMENT_64BIT);
   
   if(quantity == 0)
-    System::error(__FUNCTION__, Error::ILLEGAL_ARGUMENT);
+    System::error(__PRETTY_FUNCTION__, Error::ILLEGAL_ARGUMENT);
   
   
   
@@ -174,18 +174,18 @@ void System::initExecutor(Memory* memory, uint32_t quantity){
   void* classMemory = stacker.allocMemoryAlignment64(sizeof(ExecutorThread));
   
   if(classMemory == nullptr)
-    System::error(__FUNCTION__, Error::ILLEGAL_ARGUMENT);
+    System::error(__PRETTY_FUNCTION__, Error::ILLEGAL_ARGUMENT);
   
   Memory taskMemroy = stacker.allocMemoryAlignment64(sizeof(void*) * quantity);
   if(taskMemroy.isEmpty())
-    System::error(__FUNCTION__, Error::OUT_OF_MEMORY);
+    System::error(__PRETTY_FUNCTION__, Error::OUT_OF_MEMORY);
     
   Memory stackMemory = stacker.allocMemory(stacker.getFree());
   if(stackMemory.isEmpty())
-    System::error(__FUNCTION__, Error::OUT_OF_MEMORY);
+    System::error(__PRETTY_FUNCTION__, Error::OUT_OF_MEMORY);
   
   if(stackMemory.length() < 128)
-    System::error(__FUNCTION__, Error::OUT_OF_MEMORY);
+    System::error(__PRETTY_FUNCTION__, Error::OUT_OF_MEMORY);
   
   System::mExecutorThread = new(classMemory) ExecutorThread(stackMemory, taskMemroy);
   
@@ -197,26 +197,26 @@ void System::initExecutor(Memory* memory, uint32_t quantity){
  */
 void System::initTimer(Memory* memory, uint32_t quantity){
   if(memory == nullptr)
-    System::error(__FUNCTION__, Error::NULL_POINTER);
+    System::error(__PRETTY_FUNCTION__, Error::NULL_POINTER);
   
   if(memory->isReadOnly())
-    System::error(__FUNCTION__, Error::WRITE_TO_READONLY_MEMORY);
+    System::error(__PRETTY_FUNCTION__, Error::WRITE_TO_READONLY_MEMORY);
   
   if(!memory->isAlignment64Bit())
-    System::error(__FUNCTION__, Error::MEMORY_NOT_ALIGNMENT_64BIT);
+    System::error(__PRETTY_FUNCTION__, Error::MEMORY_NOT_ALIGNMENT_64BIT);
   
   if(quantity == 0)
-    System::error(__FUNCTION__, Error::ILLEGAL_ARGUMENT);
+    System::error(__PRETTY_FUNCTION__, Error::ILLEGAL_ARGUMENT);
   
   Stacker stacker = Stacker(*memory);
   void* classMemory = stacker.allocMemoryAlignment64(sizeof(TimerManager));
   
   if(classMemory == nullptr)
-    System::error(__FUNCTION__, Error::ILLEGAL_ARGUMENT);
+    System::error(__PRETTY_FUNCTION__, Error::ILLEGAL_ARGUMENT);
   
   Memory taskMemroy = stacker.allocMemoryAlignment64(sizeof(void*) * quantity);
   if(taskMemroy.isEmpty())
-    System::error(__FUNCTION__, Error::OUT_OF_MEMORY);  
+    System::error(__PRETTY_FUNCTION__, Error::OUT_OF_MEMORY);  
 }
 
 /* ****************************************************************************************

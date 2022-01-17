@@ -154,9 +154,20 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory
    */
 
   /* **************************************************************************************
-   * Public Method
+   * Public Method <Inline>
    */
   
+  /**
+   *
+   */
+  public: inline int getStackSize(void) const{
+    return this->length();
+  }
+
+  /* **************************************************************************************
+   * Public Method
+   */
+
   /**
    *
    */
@@ -171,11 +182,6 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory
    *
    */
   public: State getState(void);
-  
-  /**
-   *
-   */
-  public: int getStackSize(void) const;
   
   /**
    *

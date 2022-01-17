@@ -202,7 +202,7 @@
 //   <i> May be set to 0 when timers are not used.
 //   <i> Default: 512
 #ifndef OS_TIMER_THREAD_STACK_SIZE
-#define OS_TIMER_THREAD_STACK_SIZE  512
+#define OS_TIMER_THREAD_STACK_SIZE  128
 #endif
  
 //   <o>Timer Thread TrustZone Module Identifier

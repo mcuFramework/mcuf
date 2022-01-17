@@ -10,14 +10,14 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/managerment/ExecutorThread.hpp"
+#include "mcuf/lang/managerment/CoreThread.hpp"
 
 /* ****************************************************************************************
  * Using
  */  
 using mcuf::lang::Memory;
 using mcuf::lang::Thread;
-using mcuf::lang::managerment::ExecutorThread;
+using mcuf::lang::managerment::CoreThread;
 using mcuf::util::Executor;
 
 /* ****************************************************************************************
@@ -31,8 +31,7 @@ using mcuf::util::Executor;
 /**
  *
  */
-ExecutorThread::ExecutorThread(Memory& memory, Memory& queueMemory) construct Thread(memory), 
-  mExecutor(queueMemory){
+CoreThread::CoreThread(Memory& memory, Memory& queueMemory) construct Thread(memory){
   
   this->mStart = false;
 }
@@ -45,6 +44,7 @@ ExecutorThread::ExecutorThread(Memory& memory, Memory& queueMemory) construct Th
  * Public Method <Static>
  */
 
+
 /* ****************************************************************************************
  * Public Method <Override>
  */
@@ -52,8 +52,8 @@ ExecutorThread::ExecutorThread(Memory& memory, Memory& queueMemory) construct Th
 /**
  *
  */
-bool ExecutorThread::execute(Runnable& runnable){
-  bool result = this->mExecutor.execute(&runnable);
+bool CoreThread::execute(Runnable& runnable){
+  bool result = this->mExecutor->execute(&runnable);
   this->notify();
   return result;
 }
@@ -65,13 +65,13 @@ bool ExecutorThread::execute(Runnable& runnable){
 /**
  *
  */
-void ExecutorThread::run(void){
+void CoreThread::run(void){
   this->mStart = true;
   
   while(this->mStart){
-    this->mExecutor.actionAll();
+    this->mExecutor->actionAll();
     
-    if(this->mExecutor.isEmpty())
+    if(this->mExecutor->isEmpty())
       this->wait();
   }
 }

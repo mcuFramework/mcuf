@@ -24,7 +24,7 @@
 namespace mcuf{
   namespace lang{
     namespace managerment{
-      class ExecutorThread;
+      class CoreThread;
     }
   }
 }
@@ -32,11 +32,16 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Object
  */  
-class mcuf::lang::managerment::ExecutorThread extends mcuf::lang::Thread{
+class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
 
   /* **************************************************************************************
    * Subclass
    */
+  private: struct Attachment{
+    mcuf::lang::Memory* stackMemory;
+    mcuf::lang::Memory* taskMemory;
+    mcuf::lang::Memory* timerTaskMemory;
+  };
 
   /* **************************************************************************************
    * Variable <Public>
@@ -49,7 +54,7 @@ class mcuf::lang::managerment::ExecutorThread extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: mcuf::util::Executor mExecutor;
+  private: mcuf::util::Executor* mExecutor;
   private: bool mStart;
 
   /* **************************************************************************************
@@ -67,12 +72,12 @@ class mcuf::lang::managerment::ExecutorThread extends mcuf::lang::Thread{
   /**
    * Construct.
    */
-  public: ExecutorThread(mcuf::lang::Memory& memory, mcuf::lang::Memory& queueMemory);
+  private: CoreThread(Attachment& attachment);
 
   /**
    * Destruct.
    */
-  public: virtual ~ExecutorThread(void) = default;
+  public: virtual ~CoreThread(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -81,6 +86,11 @@ class mcuf::lang::managerment::ExecutorThread extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Public Method <Static>
    */
+
+  /**
+   *
+   */
+  public: static CoreThread create(mcuf::lang::Memory& memory, uint32_t executeTask, uint32_t timerTask);
 
   /* **************************************************************************************
    * Public Method <Override>
