@@ -15,8 +15,7 @@
 #include "mcuf/lang/Error.hpp"
 #include "mcuf/lang/Object.hpp"
 #include "mcuf/lang/Thread.hpp"
-#include "mcuf/lang/managerment/ExecutorThread.hpp"
-#include "mcuf/lang/managerment/TimerManager.hpp"
+#include "mcuf/lang/managerment/CoreThread.hpp"
 
 
 /* ****************************************************************************************
@@ -38,14 +37,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Subclass
    */
-  public: struct Attachment{
-    mcuf::function::Runnable* coreThread;
-    mcuf::lang::Memory* coreThreadMemory;
-    mcuf::lang::Memory* executorMemory;
-    mcuf::lang::Memory* timerMemory;
-    uint32_t executorTaskQuantity;
-    uint32_t timerTaskQuantity;
-  };
+
 
   /* **************************************************************************************
    * Variable <Public>
@@ -59,10 +51,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    * Variable <Private>
    */
   private: static void (*mErrorHandler)(const void* address, Error::Code code);
-  
-  private: static mcuf::lang::Thread* mCoreThread;
-  private: static mcuf::lang::managerment::ExecutorThread* mExecutorThread;
-  private: static mcuf::lang::managerment::TimerManager* mTimerManager;
+  private: static mcuf::lang::managerment::CoreThread* mCoreThread;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -99,7 +88,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /**
    *
    */
-  public: static void start(Attachment& attachment);
+  public: static void start(mcuf::lang::Thread* userThread);
 
   /**
    * 
@@ -118,8 +107,30 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /**
    *
    */
-  public: inline static mcuf::lang::Thread* getSystemThread(void){
-    return System::mCoreThread;
+  public: inline static bool execute(mcuf::function::Runnable& runnable){
+    return System::mCoreThread->mExecutor.execute(&runnable);
+  }
+
+  /**
+   * Schedules the specified task for execution after the specified delay.
+   *
+   * @task task to be scheduled.
+   * @delay delay in milliseconds before task is to be executed.
+   * @return true successful, false if task was already scheduled or cancelled.
+   */
+  public: inline static bool schedule(mcuf::util::TimerTask& task, uint32_t delay){
+    return System::mCoreThread->mTimerScheduler.schedule(task, delay);
+  }
+  
+  /**
+   *
+   * @task
+   * @delay
+   * @period
+   * @return true successful
+   */
+  public: inline static bool scheduleAtFixedRate(mcuf::util::TimerTask& task, uint32_t delay, uint32_t period){
+    return System::mCoreThread->mTimerScheduler.scheduleAtFixedRate(task, delay, period);
   }
 
   /* **************************************************************************************
@@ -145,22 +156,6 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Private Method <Static>
    */
-  
-  /** 
-   *
-   */
-  private: static void initCore(Attachment& attachment);
-  
-  /** 
-   *
-   */
-  private: static void initExecutor(Memory* memory, uint32_t quantity);
-  
-  /**
-   *
-   */
-  private: static void initTimer(Memory* memory, uint32_t quantity);
-  
   
   /* **************************************************************************************
    * Private Method <Override>

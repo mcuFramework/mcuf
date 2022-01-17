@@ -50,14 +50,9 @@ using mcuf::lang::Thread;
  *
  */
 Thread::Thread(Memory& memory) construct Memory(memory){
-  if(!this->isAlignment64Bit())
-    System::error(__PRETTY_FUNCTION__, Error::MEMORY_NOT_ALIGNMENT_64BIT);
-  
-  if(this->length() < (getRtxMemorySize() + 128))
-    System::error(__PRETTY_FUNCTION__, Error::INSUFFICIENT_MEMORY);
-  
-  if(this->isReadOnly())
-    System::error(__PRETTY_FUNCTION__, Error::WRITE_TO_READONLY_MEMORY);
+  ASSERT(this->isAlignment64Bit(), __CLASSPATH__, Error::MEMORY_NOT_ALIGNMENT_64BIT);
+  ASSERT(!(this->length() < (getRtxMemorySize() + 128)), __CLASSPATH__, Error::INSUFFICIENT_MEMORY);
+  ASSERT(!this->isReadOnly(), __CLASSPATH__, Error::WRITE_TO_READONLY_MEMORY);
   
   memset(this->pointer(), 0x00, getRtxMemorySize());
   this->mThreadID = nullptr;
@@ -77,7 +72,7 @@ Thread::Thread(Memory& memory, const char* name) construct Thread(memory){
  */
 Thread::~Thread(void){
   if(this->mThreadID)
-    System::error(__PRETTY_FUNCTION__, Error::NULL_POINTER);
+    System::error(__CLASSPATH__, Error::NULL_POINTER);
   
   return;
 }
@@ -188,9 +183,7 @@ bool Thread::setPriority(Priority priority){
  *
  */
 void Thread::entryPoint(void* attachment){
-  if(attachment == nullptr)
-    System::error(__PRETTY_FUNCTION__, Error::NULL_POINTER);
-  
+  ASSERT(attachment, __CLASSPATH__, Error::NULL_POINTER);
   
   Thread* thread = static_cast<Thread*>(attachment);
   thread->run();

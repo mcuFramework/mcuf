@@ -17,12 +17,14 @@
 #include "mcuf/lang/Memory.hpp"
 #include "mcuf/lang/ThreadEvent.hpp"
 #include "mcuf/util/Executor.hpp"
+#include "mcuf/util/TimerScheduler.hpp"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace lang{
+    class System;
     namespace managerment{
       class CoreThread;
     }
@@ -33,14 +35,17 @@ namespace mcuf{
  * Class Object
  */  
 class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
-
+  friend mcuf::lang::System;
+  
   /* **************************************************************************************
    * Subclass
    */
   private: struct Attachment{
-    mcuf::lang::Memory* stackMemory;
-    mcuf::lang::Memory* taskMemory;
-    mcuf::lang::Memory* timerTaskMemory;
+    mcuf::lang::Memory* stack;
+    mcuf::lang::Memory* executor;
+    mcuf::lang::Memory* timer;
+    mcuf::lang::Thread* userThread;
+    uint32_t timerTick;
   };
 
   /* **************************************************************************************
@@ -54,7 +59,8 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: mcuf::util::Executor* mExecutor;
+  private: mcuf::util::Executor mExecutor;
+  private: mcuf::util::TimerScheduler mTimerScheduler;
   private: bool mStart;
 
   /* **************************************************************************************
@@ -86,11 +92,6 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Public Method <Static>
    */
-
-  /**
-   *
-   */
-  public: static CoreThread create(mcuf::lang::Memory& memory, uint32_t executeTask, uint32_t timerTask);
 
   /* **************************************************************************************
    * Public Method <Override>

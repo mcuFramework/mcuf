@@ -32,17 +32,24 @@ class mcuf::lang::Error final extends mcuf::lang::Object{
    * Subclass
    */
   public: enum Code{
-    NONE                       =  0,
-    HARD_FAULT                 =  1,
-    SYSTEM_ERROR               =  2,
-    OUT_OF_MEMORY              =  3,
-    OUT_OF_THREAD_STACK_MEMORY =  4,
-    NULL_POINTER               =  5,
-    ILLEGAL_ARGUMENT           =  6,
-    INSUFFICIENT_MEMORY        =  7,
-    WRITE_TO_READONLY_MEMORY   =  8,
-    MEMORY_NOT_ALIGNMENT_32BIT =  9,
-    MEMORY_NOT_ALIGNMENT_64BIT = 10,
+    NONE                       = 0x00000000 + 0,
+    HARD_FAULT                 = 0x00000000 + 1,
+    SYSTEM_ERROR               = 0x00000000 + 2,
+    OUT_OF_MEMORY              = 0x00000000 + 3,
+    OUT_OF_THREAD_STACK_MEMORY = 0x00000000 + 4,
+    NULL_POINTER               = 0x00000000 + 5,
+    ILLEGAL_ARGUMENT           = 0x00000000 + 6,
+    INSUFFICIENT_MEMORY        = 0x00000000 + 7,
+    WRITE_TO_READONLY_MEMORY   = 0x00000000 + 8,
+    MEMORY_NOT_ALIGNMENT_32BIT = 0x00000000 + 9,
+    MEMORY_NOT_ALIGNMENT_64BIT = 0x00000000 + 10,
+    
+    RTX_STACK_UNDERFLOW        = 0x10000000 + 0,
+    RTX_ISR_QUEUE_OVERFLOW     = 0x10000000 + 1,
+    RTX_TIMER_QUEUE_OVERFLOW   = 0x10000000 + 2,
+    RTX_CLIB_SPACE             = 0x10000000 + 3,
+    RTX_CLIB_MUTEX             = 0x10000000 + 4,
+    
     RESERVED                   = 0x7FFFFFFF
   };
   

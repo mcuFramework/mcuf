@@ -36,7 +36,7 @@ void* Object::operator new(size_t n){
 /**
  * 
  */
-void* Object::operator new(size_t n, void* p){
+void* Object::operator new(size_t n, void* const p){
   return p;
 }
 

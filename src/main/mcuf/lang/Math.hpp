@@ -74,26 +74,6 @@ class mcuf::lang::Math extends mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method <Static>
    */ 
-
-  /**
-   * 
-   */
-  public: static int ceil(int dividend, int divisor);
-
-  /**
-   * 
-   */
-  public: static uint32_t ceil(uint32_t dividend, uint32_t divisor);  
-
-  /**
-   * 
-   */
-  public: static uint32_t min(uint32_t a, uint32_t b);
-
-  /**
-   * 
-   */
-  public: static uint32_t max(uint32_t a, uint32_t b);
   
   /* **************************************************************************************
    * Public Method <Inline Static>
@@ -171,6 +151,34 @@ class mcuf::lang::Math extends mcuf::lang::Object{
       return  (value & 0xFFFFFFF8) + 8;
     
     return value;
+  }  
+  
+  /**
+   * 
+   */
+  public: inline static int ceil(int dividend, int divisor){
+    return (dividend + (divisor-1)) / divisor;
+  }
+
+  /**
+   * 
+   */
+  public: inline static uint32_t ceil(uint32_t dividend, uint32_t divisor){
+    return (dividend + (divisor-1)) / divisor;
+  }  
+  
+  /**
+   * 
+   */
+  public: inline static uint32_t min(uint32_t a, uint32_t b){
+    return ((a)<(b)?(a):(b));
+  }
+
+  /**
+   * 
+   */
+  public: inline static uint32_t max(uint32_t a, uint32_t b){
+    return ((a)>(b)?(a):(b));
   }  
 
   /* **************************************************************************************

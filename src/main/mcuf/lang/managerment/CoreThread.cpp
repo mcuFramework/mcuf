@@ -31,7 +31,8 @@ using mcuf::util::Executor;
 /**
  *
  */
-CoreThread::CoreThread(Memory& memory, Memory& queueMemory) construct Thread(memory){
+CoreThread::CoreThread(CoreThread::Attachment& attachment) construct Thread(*attachment.stack)
+  ,mExecutor(*attachment.executor), mTimerScheduler(*attachment.timer){
   
   this->mStart = false;
 }
@@ -53,7 +54,7 @@ CoreThread::CoreThread(Memory& memory, Memory& queueMemory) construct Thread(mem
  *
  */
 bool CoreThread::execute(Runnable& runnable){
-  bool result = this->mExecutor->execute(&runnable);
+  bool result = this->mExecutor.execute(&runnable);
   this->notify();
   return result;
 }
@@ -69,9 +70,9 @@ void CoreThread::run(void){
   this->mStart = true;
   
   while(this->mStart){
-    this->mExecutor->actionAll();
+    this->mExecutor.actionAll();
     
-    if(this->mExecutor->isEmpty())
+    if(this->mExecutor.isEmpty())
       this->wait();
   }
 }

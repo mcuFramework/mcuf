@@ -27,36 +27,55 @@
  
 #include "cmsis_compiler.h"
 #include "rtx_os.h"
- 
+#include "mcuf.h"
+
+using mcuf::lang::Error;
+using mcuf::lang::System;
+
+uint32_t osRtxIdleThreadCount = 0;
+
 // OS Idle Thread
-__WEAK __NO_RETURN void osRtxIdleThread (void *argument) {
+extern "C" __WEAK __NO_RETURN void osRtxIdleThread (void *argument) {
   (void)argument;
 
-  for (;;) {}
+  for (;;) {
+    ++osRtxIdleThreadCount;
+  }
 }
  
 // OS Error Callback function
-__WEAK uint32_t osRtxErrorNotify (uint32_t code, void *object_id) {
+extern "C" __WEAK uint32_t osRtxErrorNotify (uint32_t code, void *object_id) {
   (void)object_id;
 
   switch (code) {
     case osRtxErrorStackUnderflow:
+      System::error(object_id, Error::RTX_STACK_UNDERFLOW);
       // Stack overflow detected for thread (thread_id=object_id)
       break;
+    
     case osRtxErrorISRQueueOverflow:
+      System::error(object_id, Error::RTX_ISR_QUEUE_OVERFLOW);
       // ISR Queue overflow detected when inserting object (object_id)
       break;
+    
     case osRtxErrorTimerQueueOverflow:
+      System::error(object_id, Error::RTX_TIMER_QUEUE_OVERFLOW);
       // User Timer Callback Queue overflow detected for timer (timer_id=object_id)
       break;
+    
     case osRtxErrorClibSpace:
+      System::error(object_id, Error::RTX_CLIB_SPACE);
       // Standard C/C++ library libspace not available: increase OS_THREAD_LIBSPACE_NUM
       break;
+    
     case osRtxErrorClibMutex:
+      System::error(object_id, Error::RTX_CLIB_MUTEX);
       // Standard C/C++ library mutex initialization failed
       break;
+    
     default:
       // Reserved
+      System::error(object_id, Error::HARD_FAULT);
       break;
   }
   for (;;) {}

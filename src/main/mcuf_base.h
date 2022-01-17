@@ -32,6 +32,24 @@
 #define ALIGN64BIT(source) if(source&0x7){source = (source & 0xFFFFFFF8) + 8;}
 #endif
 
+#if DEBUG
+  #ifndef __CLASSPATH__
+  #define __CLASSPATH__ __PRETTY_FUNCTION__
+  #endif
+
+  #ifndef ASSERT
+  #define ASSERT(expr, m, e) if(!expr) mcuf::lang::System::error(m, e)
+  #endif
+#else  
+  #ifndef __CLASSPATH__
+  #define __CLASSPATH__ nullptr
+  #endif
+
+  #ifndef ASSERT
+  #define ASSERT(expr, m, e) ((void)0)
+  #endif
+#endif
+
 /* ****************************************************************************************
  * Include
  */
