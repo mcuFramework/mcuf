@@ -31,13 +31,13 @@
 extern void* const mcufCoreThreadMemory;
 extern const uint32_t mcufCoreThreadMemorySize;
 
-extern const void* mcufCoreStackMemory;
+extern void* const mcufCoreStackMemory;
 extern const uint32_t mcufCoreStackMemorySize;
 
-extern const void* mcufCoreEcecutorMemory;
+extern void* const mcufCoreEcecutorMemory;
 extern const uint32_t mcufCoreEcecutorMemorySize;
 
-extern const void* mcufTimerTaskMemory;
+extern void* const mcufTimerTaskMemory;
 extern const uint32_t mcufTimerTaskMemorySize;
 extern const uint32_t mcufTimerTick;
 
