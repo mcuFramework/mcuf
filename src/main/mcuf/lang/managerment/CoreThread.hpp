@@ -59,8 +59,12 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Variable <Private>
    */
+  private: mcuf::lang::Thread* mUserThread;
   private: mcuf::util::Executor mExecutor;
   private: mcuf::util::TimerScheduler mTimerScheduler;
+  private: uint64_t mTimerMemory[4];
+  private: uint32_t mTimerTick;
+  private: void* mTimerID;
   private: bool mStart;
 
   /* **************************************************************************************
@@ -135,6 +139,11 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Private Method <Static>
    */
+  
+  /**
+   *
+   */
+   private: static void entryPoint(void* attachment);
 
   /* **************************************************************************************
    * Private Method <Override>
