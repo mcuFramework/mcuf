@@ -129,7 +129,7 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool
   /**
    * Construct.
    */
-  public: TimerScheduler(mcuf::lang::Memory& memory);
+  public: TimerScheduler(const mcuf::lang::Memory& memory);
   
   
   /**

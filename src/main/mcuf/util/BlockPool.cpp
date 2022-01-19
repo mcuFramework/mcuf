@@ -28,7 +28,7 @@ using mcuf::function::Consumer;
 /**
  * 
  */
-BlockPool::BlockPool(Memory& memory, uint32_t elementSize) construct Memory(memory){
+BlockPool::BlockPool(const Memory& memory, uint32_t elementSize) construct Memory(memory){
   this->mElementSize = elementSize;
   this->mCapacity = this->length() / this->mElementSize;
   this->mFlagSize = Math::ceil(this->mCapacity, 8U);
@@ -57,7 +57,7 @@ BlockPool::BlockPool(Memory& memory, uint32_t elementSize) construct Memory(memo
 /**
  * 
  */
-void* BlockPool::add(void* element){
+void* BlockPool::add(const void* element){
   void* block = this->alloc();
   if(block == nullptr)
     return nullptr;

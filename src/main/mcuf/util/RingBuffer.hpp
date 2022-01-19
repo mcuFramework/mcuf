@@ -71,7 +71,7 @@ class mcuf::util::RingBuffer extends mcuf::lang::Memory{
   /**
    * Construct.
    */
-  public: RingBuffer(mcuf::lang::Memory& memory);  
+  public: RingBuffer(const mcuf::lang::Memory& memory);  
 
   /**
    * Destruct.

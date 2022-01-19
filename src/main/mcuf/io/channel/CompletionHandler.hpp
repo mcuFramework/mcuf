@@ -58,7 +58,7 @@ interface mcuf::io::channel::CompletionHandler{
   /**
    *
    */
-  virtual void failed(mcuf::lang::Object& exc, A attachment) abstract;
+  virtual void failed(void* exc, A attachment) abstract;
 
   /* **************************************************************************************
    *  Abstract method <Protected>

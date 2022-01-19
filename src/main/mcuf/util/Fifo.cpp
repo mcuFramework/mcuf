@@ -27,7 +27,7 @@ using mcuf::util::Fifo;
 /**
  * 
  */
-Fifo::Fifo(Memory& memory, uint32_t elementSize) construct Memory(memory){
+Fifo::Fifo(const Memory& memory, uint32_t elementSize) construct Memory(memory){
   this->mElementSize = elementSize;
   this->mElementLength = (memory.length() / elementSize);
   this->mHead = 0;
@@ -147,7 +147,7 @@ void* Fifo::getTailPointer(void){
 /**
  * 
  */
-bool Fifo::insertHead(Memory& memory){
+bool Fifo::insertHead(const Memory& memory){
   return this->insertHead(memory.pointer());
 }
 

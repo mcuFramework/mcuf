@@ -63,16 +63,9 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype
   /**
    * Construct.
    */
-  public: ArrayQueue(Memory& memory) construct mcuf::util::ArrayQueuePrototype(memory){
+  public: ArrayQueue(const Memory& memory) construct mcuf::util::ArrayQueuePrototype(memory){
     return;
   }
-  
-  /**
-   * Construct.
-   */
-  public: ArrayQueue(Memory&& memory) construct mcuf::util::ArrayQueuePrototype(memory){
-    return;
-  }  
 
   /**
    * Destruct.

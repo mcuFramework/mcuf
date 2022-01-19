@@ -99,6 +99,8 @@ void System::start(mcuf::lang::Thread* userThread){
     System::mCoreThread = new(mcufCoreThreadMemory) CoreThread(attachment);
   }
   
+  
+  
   System::mCoreThread->start();
   osKernelStart();
   

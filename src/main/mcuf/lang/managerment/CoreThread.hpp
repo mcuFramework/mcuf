@@ -82,7 +82,7 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   /**
    * Construct.
    */
-  private: CoreThread(Attachment& attachment);
+  private: CoreThread(const Attachment& attachment);
 
   /**
    * Destruct.

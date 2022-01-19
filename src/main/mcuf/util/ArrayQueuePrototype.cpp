@@ -32,7 +32,7 @@ using mcuf::lang::Memory;
 /**
  * Construct.
  */
-ArrayQueuePrototype::ArrayQueuePrototype(Memory& memory) construct Array<void*>(memory){
+ArrayQueuePrototype::ArrayQueuePrototype(const Memory& memory) construct Array<void*>(memory){
   return;
 }
 
@@ -84,7 +84,7 @@ bool ArrayQueuePrototype::offerPointer(void* pointer){
   this->mEmpty = false;
   
   void** p = static_cast<void**>(this->Pointer::pointer());
-  p[this->mHead] = pointer;;  
+  p[this->mHead] = pointer;  
   
   ++this->mHead;
   if(this->mHead >= this->mElementLength)

@@ -28,7 +28,7 @@ using mcuf::lang::Memory;
 /**
  *
  */
-TimerScheduler::TimerScheduler(Memory& memory) 
+TimerScheduler::TimerScheduler(const Memory& memory) 
   construct BlockPool(memory, sizeof(void*)), consumerClear(), consumerPurge(this), consumerTick(this){
   return;
 }

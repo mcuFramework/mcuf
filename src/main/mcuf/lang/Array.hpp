@@ -67,7 +67,7 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   /**
    *
    */
-  public: Array(mcuf::lang::Memory& memory) construct mcuf::lang::ArrayPrototype(memory, sizeof(E)){
+  public: Array(const mcuf::lang::Memory& memory) construct mcuf::lang::ArrayPrototype(memory, sizeof(E)){
     return;
   }
 

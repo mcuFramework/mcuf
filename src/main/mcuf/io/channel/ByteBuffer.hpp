@@ -65,12 +65,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   /**
    * 
    */
-  public: ByteBuffer(mcuf::lang::Memory& memory);
-  
-  /**
-   * 
-   */
-  public: ByteBuffer(mcuf::lang::Memory&& memory);  
+  public: ByteBuffer(const mcuf::lang::Memory& memory);
 
   /**
    * 
@@ -86,142 +81,145 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
    */
 
   /* **************************************************************************************
+   *  Public Method <Inline>
+   */
+
+  /**
+   * 
+   */
+  public: inline uint32_t limit(void){
+    return this->mLimit;
+  }
+
+  /**
+   * 
+   */
+  public: inline uint32_t capacity(void){
+    return this->length();
+  }
+  
+  /**
+   * 
+   */
+  public: inline uint32_t position(void){
+    return this->mPosition;
+  }  
+  
+  /**
+   * 
+   */
+  public: inline void reset(void){
+    this->mPosition = 0;
+    this->mLimit = this->length();
+    return;
+  }  
+  
+  /**
+   * 
+   */
+  public: inline uint32_t remaining(void){
+    return this->mLimit - this->mPosition;
+  }  
+  
+  /**
+   * 
+   */
+  public: inline bool hasRemaining(void){
+    return (this->mLimit > this->mPosition);
+  }  
+  
+  /**
+   * 
+   */
+  public: inline void rewind(void){
+    this->mPosition = 0;
+    this->mMark = 0;
+    return;
+  }  
+  
+  /* **************************************************************************************
    *  Public Method
    */
 
   /**
    * 
    */
-  public: uint8_t* lowerArray(void);
+  public: bool limit(uint32_t newLimit);
 
   /**
    * 
    */
-  public: uint8_t* lowerArray(uint32_t offset);  
+  public: bool position(uint32_t newPosition);
 
   /**
    * 
    */
-  public: uint32_t limit(void);
-
-  /**
-   * 
-   */
-  public: ByteBuffer& limit(uint32_t newLimit);
-
-  /**
-   * 
-   */
-  public: uint32_t capacity(void);
-
-  /**
-   * 
-   */
-  public: uint32_t position(void);
-  /**
-   * 
-   */
-  public: ByteBuffer& position(uint32_t newPosition);
-
-  /**
-   * 
-   */
-  public: ByteBuffer& reset(void);
-
-  /**
-   * 
-   */
-  public: ByteBuffer& flip(void);
-
-  /**
-   * 
-   */
-  public: uint32_t remaining(void);
-
-  /**
-   * 
-   */
-  public: virtual bool readOnly(void);
-
-  /**
-   * 
-   */
-  public: bool hasRemaining(void);
-
-  /**
-   * 
-   */
-  public: ByteBuffer& rewind(void);
+  public: void flip(void);
   
   /**
    *
    */
-  public: virtual ByteBuffer& put(const char* string);
+  public: bool put(const char* string);
   
   /**
    *
    */
-  public: virtual ByteBuffer& put(const void* ptr, uint32_t size);
+  public: bool put(const void* ptr, uint32_t size);
   
   /**
    *
    */
-  public: virtual ByteBuffer& put(mcuf::lang::String& string);  
-  
-  /**
-   *
-   */
-  public: virtual ByteBuffer& putArray(mcuf::lang::ArrayPrototype& arrayPrototype);
+  public: bool put(const mcuf::lang::String& string);  
 
   /**
    * 
    */
-  public: virtual ByteBuffer& putByte(const char value);
+  public: bool putByte(const char value);
 
   /**
    * 
    */
-  public: virtual ByteBuffer& putShort(const short value);
+  public: bool putShort(const short value);
 
   /**
    * 
    */
-  public: virtual ByteBuffer& putShortLsb(const short value);
+  public: bool putShortLsb(const short value);
 
   /**
    * 
    */
-  public: virtual ByteBuffer& putInt(const int value);
+  public: bool putInt(const int value);
   
   /**
    * 
    */
-  public: virtual ByteBuffer& putIntLsb(const int value);  
+  public: bool putIntLsb(const int value);  
 
   /**
    * 
    */
-  public: char getByte(void);
+  public: bool getByte(char& result);
 
   /**
    * 
    */
-  public: short getShort(void);
+  public: bool getShort(short& result);
   
   /**
    * 
    */
-  public: short getShortLsb(void);
+  public: bool getShortLsb(short& result);
 
   /**
    * 
    */
-  public: int getInt(void);
+  public: bool getInt(int& result);
   
   /**
    * 
    */
-  public: int getIntLsb(void);  
+  public: bool getIntLsb(int& result);  
 
   /* **************************************************************************************
    *  Protected Method <Static>

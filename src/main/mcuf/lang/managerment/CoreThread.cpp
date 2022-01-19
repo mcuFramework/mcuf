@@ -34,7 +34,7 @@ using mcuf::util::Executor;
 /**
  *
  */
-CoreThread::CoreThread(CoreThread::Attachment& attachment) construct Thread(*attachment.stack)
+CoreThread::CoreThread(const CoreThread::Attachment& attachment) construct Thread(*attachment.stack)
   ,mExecutor(*attachment.executor), mTimerScheduler(*attachment.timer){
   
   this->mTimerID = nullptr;

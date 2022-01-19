@@ -50,21 +50,32 @@ interface mcuf::io::InputStream{
    */
     
   /**
-   *
+   * @brief 
+   * 
+   * @return int how many data in buffer at byte.
    */
   virtual int available(void) abstract;
   
   /**
-   *  read async
+   * @brief 
+   * 
+   * @return true is busy.
+   * @return false isn't busy.
    */
-  virtual void read(mcuf::io::channel::ByteBuffer* byteBuffer, 
-                            void* attachment,
-                            mcuf::io::channel::CompletionHandler<int, void*>* handler) abstract;
-    
+  virtual bool isReadBusy(void) abstract;
+  
   /**
-   *  
+   * @brief 
+   * 
+   * @param byteBuffer 
+   * @param attachment 
+   * @param handler 
+   * @return true successful.
+   * @return false fail.
    */
-  virtual int skip(int skip) abstract;
+  virtual bool read(mcuf::io::channel::ByteBuffer* byteBuffer, 
+                    void* attachment,
+                    mcuf::io::channel::CompletionHandler<int, void*>* handler) abstract;
 
   /* **************************************************************************************
    *  Abstract method <Protected>

@@ -129,12 +129,12 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory
   /**
    * Construct.
    */
-  public: Thread(Memory& memory);
+  public: Thread(const Memory& memory);
 
   /**
    * Construct.
    */
-  public: Thread(Memory& memory, const char* name);
+  public: Thread(const Memory& memory, const char* name);
 
   /**
    * Destruct.

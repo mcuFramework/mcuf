@@ -63,7 +63,7 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
   /**
    * Construct.
    */
-  protected: ArrayQueuePrototype(mcuf::lang::Memory& memory);
+  protected: ArrayQueuePrototype(const mcuf::lang::Memory& memory);
 
   /**
    * Destruct.

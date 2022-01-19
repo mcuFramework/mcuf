@@ -48,13 +48,17 @@ interface mcuf::io::Closeable{
    * Abstract method <Public>
    */
 
-  /** 
+  /**
+   * @brief 
    * 
    */
   virtual void close(void) abstract;
 
   /**
+   * @brief 
    * 
+   * @return true 
+   * @return false 
    */
   virtual bool isOpen(void) abstract;  
 

@@ -33,7 +33,7 @@ Stacker::Stacker(void* buffer, uint32_t size) construct Memory(buffer, size){
 /**
  * 
  */
-Stacker::Stacker(Memory& memory) construct Memory(memory){
+Stacker::Stacker(const Memory& memory) construct Memory(memory){
   this->clear();
   return;
 }

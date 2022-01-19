@@ -621,11 +621,6 @@
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.cpp</FilePath>
             </File>
             <File>
-              <FileName>TimerManager.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\TimerManager.cpp</FilePath>
-            </File>
-            <File>
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
@@ -1367,11 +1362,6 @@
               <FileName>CoreThread.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>TimerManager.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\TimerManager.cpp</FilePath>
             </File>
             <File>
               <FileName>managerment.h</FileName>
@@ -2117,11 +2107,6 @@
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.cpp</FilePath>
             </File>
             <File>
-              <FileName>TimerManager.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\TimerManager.cpp</FilePath>
-            </File>
-            <File>
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
@@ -2863,11 +2848,6 @@
               <FileName>CoreThread.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>TimerManager.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\TimerManager.cpp</FilePath>
             </File>
             <File>
               <FileName>managerment.h</FileName>
@@ -3682,11 +3662,6 @@
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.cpp</FilePath>
             </File>
             <File>
-              <FileName>TimerManager.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\TimerManager.cpp</FilePath>
-            </File>
-            <File>
               <FileName>managerment.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\managerment.h</FilePath>
@@ -4428,11 +4403,6 @@
               <FileName>CoreThread.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>TimerManager.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\TimerManager.cpp</FilePath>
             </File>
             <File>
               <FileName>managerment.h</FileName>

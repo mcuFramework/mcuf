@@ -49,7 +49,7 @@ using mcuf::lang::Thread;
 /**
  *
  */
-Thread::Thread(Memory& memory) construct Memory(memory){
+Thread::Thread(const Memory& memory) construct Memory(memory){
   ASSERT(this->isAlignment64Bit(), __CLASSPATH__, Error::MEMORY_NOT_ALIGNMENT_64BIT);
   ASSERT(!(this->length() < (getRtxMemorySize() + 128)), __CLASSPATH__, Error::INSUFFICIENT_MEMORY);
   ASSERT(!this->isReadOnly(), __CLASSPATH__, Error::WRITE_TO_READONLY_MEMORY);
@@ -62,7 +62,7 @@ Thread::Thread(Memory& memory) construct Memory(memory){
 /**
  *
  */
-Thread::Thread(Memory& memory, const char* name) construct Thread(memory){
+Thread::Thread(const Memory& memory, const char* name) construct Thread(memory){
   getRtxMemory()->name = name;
   return;
 }

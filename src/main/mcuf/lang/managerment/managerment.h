@@ -17,7 +17,6 @@
  */
 
 #include "CoreThread.hpp"
-#include "TimerManager.hpp"
 
 /* *****************************************************************************************
  * End of file

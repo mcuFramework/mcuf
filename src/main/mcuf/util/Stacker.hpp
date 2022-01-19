@@ -69,7 +69,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory
   /**
    * Construct.
    */
-  public: Stacker(mcuf::lang::Memory& memory);
+  public: Stacker(const mcuf::lang::Memory& memory);
 
   /**
    * Destruct.

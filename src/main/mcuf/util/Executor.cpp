@@ -27,7 +27,7 @@ using mcuf::util::ArrayQueue;
 /**
  * 
  */
-Executor::Executor(Memory& memory) construct ArrayQueue<Runnable>(memory){
+Executor::Executor(const Memory& memory) construct ArrayQueue<Runnable>(memory){
   return;
 }
 

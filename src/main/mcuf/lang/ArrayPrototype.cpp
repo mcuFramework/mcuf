@@ -33,7 +33,7 @@ using mcuf::lang::Memory;
 /** 
  * 
  */
-ArrayPrototype::ArrayPrototype(Memory& memory, uint32_t elementSize) construct Memory(memory){
+ArrayPrototype::ArrayPrototype(const Memory& memory, uint32_t elementSize) construct Memory(memory){
   this->mElementSize = elementSize;
   this->mElementLength = (this->length() / this->mElementSize); 
   return;

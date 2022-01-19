@@ -84,7 +84,7 @@ interface mcuf::util::Pool implement mcuf::util::Collection<mcuf::lang::Memory>{
    * @element Element pointer.
    * @return element pointer if pool not full, otherwise null pointer.
    */
-  virtual void* add(void* elenemt) abstract;
+  virtual void* add(const void* elenemt) abstract;
   
   /**
    * Free this element memory.  

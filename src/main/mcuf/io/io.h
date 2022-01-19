@@ -13,13 +13,12 @@
  */
 #include "channel\channel.h"
 
-
-
 /* ****************************************************************************************
  * Include
  */
-
-
+#include "Closeable.hpp"
+#include "InputStream.hpp"
+#include "OutputStream.hpp"
 
 /* *****************************************************************************************
  *    End of file

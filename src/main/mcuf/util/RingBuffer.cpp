@@ -45,7 +45,7 @@ RingBuffer::RingBuffer(void* buffer, uint32_t bufferSize) construct Memory(buffe
 /**
  * Construct.
  */
-RingBuffer::RingBuffer(Memory& memory) construct Memory(memory){
+RingBuffer::RingBuffer(const Memory& memory) construct Memory(memory){
   this->init();
   return;
 }

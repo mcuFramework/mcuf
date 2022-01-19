@@ -49,17 +49,32 @@ interface mcuf::io::OutputStream{
    */
   
   /**
-   *
+   * @brief 
+   * 
    */
   virtual void flush(void) abstract;
-  
+
   /**
-   *  write nonBlocking
+   * @brief 
+   * 
+   * @return true is busy.
+   * @return false isn't busy.
    */
-  virtual void write(mcuf::io::channel::ByteBuffer* byteBuffer, 
-                             void* attachment,
-                             mcuf::io::channel::CompletionHandler<int, void*>* handler) abstract;
-  
+  virtual bool isWriteBusy(void) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @param byteBuffer 
+   * @param attachment 
+   * @param handler 
+   * @return true successful.
+   * @return false fail.`
+   */
+  virtual bool write(mcuf::io::channel::ByteBuffer* byteBuffer, 
+                     void* attachment,
+                     mcuf::io::channel::CompletionHandler<int, void*>* handler) abstract;
+
   /* **************************************************************************************
    *  Abstract method <Protected>
    */

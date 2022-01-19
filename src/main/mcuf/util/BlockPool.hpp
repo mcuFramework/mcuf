@@ -71,7 +71,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory
   /**
    * Construct.
    */
-  public: BlockPool(mcuf::lang::Memory& memory, uint32_t elementSize);
+  public: BlockPool(const mcuf::lang::Memory& memory, uint32_t elementSize);
   
   /**
    * Destruct.
@@ -141,7 +141,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory
    * @element Element pointer.
    * @return element pointer if pool not full, otherwise null pointer.
    */
-  public: virtual void* add(void* element) override;
+  public: virtual void* add(const void* element) override;
   
   /**
    * Free this element memory.  
