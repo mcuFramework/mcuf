@@ -132,6 +132,19 @@ bool ByteBuffer::putShort(short value){
   if((this->mPosition + 1) >= this->mLimit)
     return false;
   
+  *static_cast<short*>(this->pointer(this->mPosition)) = value;
+  this->mPosition+=2;
+  
+  return true;
+}
+
+/**
+ * 
+ */
+bool ByteBuffer::putShortMsb(short value){
+  if((this->mPosition + 1) >= this->mLimit)
+    return false;
+  
   uint8_t* ptr = static_cast<uint8_t*>(this->pointer());
   
   ptr[this->mPosition++] = (uint8_t)(value >> 8);
@@ -143,12 +156,12 @@ bool ByteBuffer::putShort(short value){
 /**
  * 
  */
-bool ByteBuffer::putShortLsb(short value){
-  if((this->mPosition + 1) >= this->mLimit)
+bool ByteBuffer::putInt(int value){
+  if((this->mPosition + 3) >= this->mLimit)
     return false;
   
-  *static_cast<short*>(this->pointer(this->mPosition)) = value;
-  this->mPosition+=2;
+  *static_cast<int*>(this->pointer(this->mPosition)) = value;
+  this->mPosition+=4;
   
   return true;
 }
@@ -156,7 +169,7 @@ bool ByteBuffer::putShortLsb(short value){
 /**
  * 
  */
-bool ByteBuffer::putInt(int value){
+bool ByteBuffer::putIntMsb(int value){
   if((this->mPosition + 3) >= this->mLimit)
     return false;
   
@@ -173,19 +186,6 @@ bool ByteBuffer::putInt(int value){
 /**
  * 
  */
-bool ByteBuffer::putIntLsb(int value){
-  if((this->mPosition + 3) >= this->mLimit)
-    return false;
-  
-  *static_cast<int*>(this->pointer(this->mPosition)) = value;
-  this->mPosition+=4;
-  
-  return true;
-}
-
-/**
- * 
- */
 bool ByteBuffer::getByte(char& result){
   if(this->mPosition >= this->mLimit)
     return false;
@@ -195,9 +195,22 @@ bool ByteBuffer::getByte(char& result){
 }
 
 /**
- * 
+ *
  */
 bool ByteBuffer::getShort(short& result){
+  if((this->mPosition + 1) >= this->mLimit)
+    return false;
+  
+  result = *static_cast<short*>(this->pointer(this->mPosition));
+  this->mPosition+=2;
+  
+  return true;
+}
+
+/**
+ * 
+ */
+bool ByteBuffer::getShortMsb(short& result){
   if((this->mPosition + 1) >= this->mLimit)
     return false;
   
@@ -213,20 +226,20 @@ bool ByteBuffer::getShort(short& result){
 /**
  *
  */
-bool ByteBuffer::getShortLsb(short& result){
-  if((this->mPosition + 1) >= this->mLimit)
+bool ByteBuffer::getInt(int& result){
+  if((this->mPosition + 3) >= this->mLimit)
     return false;
   
-  result = *static_cast<short*>(this->pointer(this->mPosition));
-  this->mPosition+=2;
-  
+  result = *static_cast<int*>(this->pointer(this->mPosition));
+  this->mPosition+=4;
+
   return true;
 }
 
 /**
  * 
  */
-bool ByteBuffer::getInt(int& result){
+bool ByteBuffer::getIntMsb(int& result){
   if((this->mPosition + 3) >= this->mLimit)
     return false;
   
@@ -238,19 +251,6 @@ bool ByteBuffer::getInt(int& result){
   result |= (((int)ptr[this->mPosition++]) << 8);
   result |= (((int)ptr[this->mPosition++]));
   
-  return true;
-}
-
-/**
- *
- */
-bool ByteBuffer::getIntLsb(int& result){
-  if((this->mPosition + 3) >= this->mLimit)
-    return false;
-  
-  result = *static_cast<int*>(this->pointer(this->mPosition));
-  this->mPosition+=4;
-
   return true;
 }
 

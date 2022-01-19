@@ -63,11 +63,13 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
    */
 
   /**
+   * @brief 
    * 
    */
   public: ByteBuffer(const mcuf::lang::Memory& memory);
 
   /**
+   * @brief 
    * 
    */
   public: virtual ~ByteBuffer(void) = default;
@@ -85,6 +87,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
    */
 
   /**
+   * @brief 
    * 
    */
   public: inline uint32_t limit(void){
@@ -92,6 +95,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   }
 
   /**
+   * @brief 
    * 
    */
   public: inline uint32_t capacity(void){
@@ -99,6 +103,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   }
   
   /**
+   * @brief 
    * 
    */
   public: inline uint32_t position(void){
@@ -106,6 +111,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   }  
   
   /**
+   * @brief 
    * 
    */
   public: inline void reset(void){
@@ -115,6 +121,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   }  
   
   /**
+   * @brief 
    * 
    */
   public: inline uint32_t remaining(void){
@@ -122,6 +129,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   }  
   
   /**
+   * @brief 
    * 
    */
   public: inline bool hasRemaining(void){
@@ -129,6 +137,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   }  
   
   /**
+   * @brief 
    * 
    */
   public: inline void rewind(void){
@@ -141,9 +150,9 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
    *  Public Method
    */
 
-  /**
-   * 
-   */
+    /**
+     * 
+     */
   public: bool limit(uint32_t newLimit);
 
   /**
@@ -184,7 +193,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   /**
    * 
    */
-  public: bool putShortLsb(const short value);
+  public: bool putShortMsb(const short value);
 
   /**
    * 
@@ -194,7 +203,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   /**
    * 
    */
-  public: bool putIntLsb(const int value);  
+  public: bool putIntMsb(const int value);  
 
   /**
    * 
@@ -209,7 +218,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   /**
    * 
    */
-  public: bool getShortLsb(short& result);
+  public: bool getShortMsb(short& result);
 
   /**
    * 
@@ -219,7 +228,7 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
   /**
    * 
    */
-  public: bool getIntLsb(int& result);  
+  public: bool getIntMsb(int& result);  
 
   /* **************************************************************************************
    *  Protected Method <Static>

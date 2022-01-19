@@ -51,8 +51,10 @@ interface mcuf::io::OutputStream{
   /**
    * @brief 
    * 
+   * @return true 
+   * @return false 
    */
-  virtual void flush(void) abstract;
+  virtual bool abortWrite(void) abstract;
 
   /**
    * @brief 

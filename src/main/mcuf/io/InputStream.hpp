@@ -48,7 +48,15 @@ interface mcuf::io::InputStream{
   /* **************************************************************************************
    *  Abstract method <Public>
    */
-    
+
+  /**
+   * @brief 
+   * 
+   * @return true 
+   * @return false 
+   */
+  virtual bool abortRead(void) abstract;
+
   /**
    * @brief 
    * 

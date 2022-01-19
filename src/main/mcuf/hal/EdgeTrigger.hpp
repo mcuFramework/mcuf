@@ -22,15 +22,15 @@
  */  
 namespace mcuf{
   namespace hal{
-    interface PinEdgeTrigger;
+    interface EdgeTrigger;
   }
 }
 
 
 /* ****************************************************************************************
- * Interface PinEdgeTrigger
+ * Interface EdgeTrigger
  */  
-interface mcuf::hal::PinEdgeTrigger implement mcuf::hal::Base{
+interface mcuf::hal::EdgeTrigger implement mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass
@@ -71,9 +71,9 @@ interface mcuf::hal::PinEdgeTrigger implement mcuf::hal::Base{
 
 
 /* ****************************************************************************************
- * Interface PinEdgeTrigger
+ * Interface EdgeTrigger
  */  
-interface mcuf::hal::PinEdgeTrigger::Event{
+interface mcuf::hal::EdgeTrigger::Event{
 
   /* **************************************************************************************
    * Subclass
@@ -90,7 +90,7 @@ interface mcuf::hal::PinEdgeTrigger::Event{
   /**
    *
    */
-  virtual void onPinEdgeTriggerEvent(Status status) abstract;
+  virtual void onEdgeTriggerEvent(Status status) abstract;
   
 };
 
