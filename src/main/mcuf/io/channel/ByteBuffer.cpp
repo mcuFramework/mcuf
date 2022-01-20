@@ -9,6 +9,7 @@
  * Include
  */  
 
+#include <stdio.h>
 //-----------------------------------------------------------------------------------------
 #include "mcuf/io/channel/ByteBuffer.hpp"
 
@@ -123,6 +124,24 @@ bool ByteBuffer::putByte(char value){
   static_cast<uint8_t*>(this->pointer())[this->mPosition] = value;
   this->mPosition++;
   return true;
+}
+
+/**
+ *
+ */
+int ByteBuffer::putFormat(const char* format, ...){
+  if(this->isReadOnly())
+    return 0;
+  
+  va_list args;
+  va_start(args, format);
+  
+  char* buffer = static_cast<char*>(this->pointer(this->mPosition));
+  int result = vsnprintf(buffer, this->hasRemaining(), format, args);
+  this->mPosition += result;
+  
+  va_end(args);
+  return result;
 }
 
 /**

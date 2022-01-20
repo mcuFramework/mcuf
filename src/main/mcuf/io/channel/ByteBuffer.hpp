@@ -184,6 +184,11 @@ class mcuf::io::channel::ByteBuffer extends mcuf::lang::Memory{
    * 
    */
   public: bool putByte(const char value);
+  
+  /**
+   *
+   */
+  public: int putFormat(const char* format, ...);
 
   /**
    * 
