@@ -70,26 +70,26 @@ String::String(const Memory& memory) construct Memory(memory){
 /**
  * 
  */
-String& String::format(const char* format, va_list args){
+int String::format(const char* format, va_list args){
   if(this->isReadOnly())
-    return *this;  
+    return 0;  
   
   this->mSize = vsnprintf(static_cast<char*>(this->pointer()), this->length(), format, args);
-  return *this;
+  return this->mSize;
 }
 
 /**
  * 
  */
-String& String::format(const char* format, ...){
+int String::format(const char* format, ...){
   if(this->isReadOnly())
-    return *this;
+    return 0;
   
   va_list args;
   va_start(args, format);
   this->mSize = vsnprintf(static_cast<char*>(this->pointer()), this->length(), format, args);
   va_end(args);
-  return *this;
+  return this->mSize;
 }
  
 /* ****************************************************************************************

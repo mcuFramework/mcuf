@@ -95,12 +95,12 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /**
    * 
    */
-  public: String& format(const char* format, va_list arg);
+  public: int format(const char* format, va_list arg);
 
   /**
    * 
    */
-  public: String& format(const char* format, ...);  
+  public: int format(const char* format, ...);  
   
   /* **************************************************************************************
    * Public Method <Inline>
