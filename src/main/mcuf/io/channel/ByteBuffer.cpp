@@ -102,7 +102,7 @@ bool ByteBuffer::put(const void* ptr, uint32_t size){
   if(size > rem)
     size = rem;
   
-  this->copy(ptr, size);
+  this->copy(ptr, this->mPosition, size);
   this->mPosition += size;
   return true;
 }
@@ -111,7 +111,7 @@ bool ByteBuffer::put(const void* ptr, uint32_t size){
  *
  */
 bool ByteBuffer::put(const String& string){
-  return this->put(string.pointer(), string.length());
+  return this->put(string.pointer(), string.size());
 }
 
 /**
