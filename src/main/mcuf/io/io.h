@@ -11,11 +11,12 @@
 /* ****************************************************************************************
  * Include folder
  */
-#include "channel\channel.h"
 
 /* ****************************************************************************************
  * Include
  */
+#include "ByteBuffer.hpp"
+#include "CompletionHandler.hpp"
 #include "Closeable.hpp"
 #include "InputStream.hpp"
 #include "OutputStream.hpp"

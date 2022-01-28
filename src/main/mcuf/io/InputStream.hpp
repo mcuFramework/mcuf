@@ -12,8 +12,8 @@
  * Include
  */
 #include "mcuf_base.h"
-#include "mcuf/io/channel/ByteBuffer.hpp"
-#include "mcuf/io/channel/CompletionHandler.hpp"
+#include "mcuf/io/ByteBuffer.hpp"
+#include "mcuf/io/CompletionHandler.hpp"
 #include "mcuf/lang/Object.hpp"
 
 
@@ -81,9 +81,9 @@ interface mcuf::io::InputStream{
    * @return true successful.
    * @return false fail.
    */
-  virtual bool read(mcuf::io::channel::ByteBuffer* byteBuffer, 
+  virtual bool read(mcuf::io::ByteBuffer* byteBuffer, 
                     void* attachment,
-                    mcuf::io::channel::CompletionHandler<int, void*>* handler) abstract;
+                    mcuf::io::CompletionHandler<int, void*>* handler) abstract;
 
   /* **************************************************************************************
    *  Abstract method <Protected>

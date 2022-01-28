@@ -527,24 +527,14 @@
           <GroupName>main\mcuf\io</GroupName>
           <Files>
             <File>
+              <FileName>ByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ByteBuffer.cpp</FilePath>
+            </File>
+            <File>
               <FileName>io.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\io.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\io\channel</GroupName>
-          <Files>
-            <File>
-              <FileName>ByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>channel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1271,24 +1261,14 @@
           <GroupName>main\mcuf\io</GroupName>
           <Files>
             <File>
+              <FileName>ByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ByteBuffer.cpp</FilePath>
+            </File>
+            <File>
               <FileName>io.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\io.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\io\channel</GroupName>
-          <Files>
-            <File>
-              <FileName>ByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>channel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2015,24 +1995,14 @@
           <GroupName>main\mcuf\io</GroupName>
           <Files>
             <File>
+              <FileName>ByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ByteBuffer.cpp</FilePath>
+            </File>
+            <File>
               <FileName>io.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\io.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\io\channel</GroupName>
-          <Files>
-            <File>
-              <FileName>ByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>channel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2759,24 +2729,14 @@
           <GroupName>main\mcuf\io</GroupName>
           <Files>
             <File>
+              <FileName>ByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ByteBuffer.cpp</FilePath>
+            </File>
+            <File>
               <FileName>io.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\io.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\io\channel</GroupName>
-          <Files>
-            <File>
-              <FileName>ByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>channel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3572,24 +3532,14 @@
           <GroupName>main\mcuf\io</GroupName>
           <Files>
             <File>
+              <FileName>ByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ByteBuffer.cpp</FilePath>
+            </File>
+            <File>
               <FileName>io.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\io.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\io\channel</GroupName>
-          <Files>
-            <File>
-              <FileName>ByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>channel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4316,24 +4266,14 @@
           <GroupName>main\mcuf\io</GroupName>
           <Files>
             <File>
+              <FileName>ByteBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ByteBuffer.cpp</FilePath>
+            </File>
+            <File>
               <FileName>io.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\io.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\io\channel</GroupName>
-          <Files>
-            <File>
-              <FileName>ByteBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\ByteBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>channel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\channel\channel.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_EFF1A157_A291_4313_A742_99FB124D0B71
-#define MCUF_EFF1A157_A291_4313_A742_99FB124D0B71
+#ifndef MCUF_BA8DBAF0_DCE9_4F33_B776_7C5470172961
+#define MCUF_BA8DBAF0_DCE9_4F33_B776_7C5470172961
 
 /* ****************************************************************************************
  * Include
@@ -14,58 +14,43 @@
 #include "mcuf_base.h"
 #include "mcuf/hal/Base.hpp"
 
-
-
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace hal{
-    interface EdgeTrigger;
     interface EdgeTriggerEvent;
   }
 }
 
-
 /* ****************************************************************************************
  * Interface EdgeTrigger
  */  
-interface mcuf::hal::EdgeTrigger implement mcuf::hal::Base{
+interface mcuf::hal::EdgeTriggerEvent{
 
+  /* **************************************************************************************
+   * Subclass
+   */
+  enum EdgeTriggerStatus{
+    HAL_EDGETRIGGER_RISE,
+    HAL_EDGETRIGGER_FALL
+  };
+  
   /* **************************************************************************************
    * Method
    */
-
+  
   /**
-   * 
+   *
    */
-  virtual void disableAll(void) abstract;
-
-  /**
-   * 
-   */
-  virtual void disableFall(void) abstract;
-
-  /**
-   * 
-   */
-  virtual void disableRise(void) abstract;
-
-  /**
-   * 
-   */
-  virtual bool enableFall(EdgeTriggerEvent* event) abstract;
-
-  /**
-   * 
-   */
-  virtual bool enableRise(EdgeTriggerEvent* event) abstract;
-
+  virtual void onEdgeTriggerEvent(EdgeTriggerStatus status) abstract;
+  
 };
+
+
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-
-#endif/* MCUF_EFF1A157_A291_4313_A742_99FB124D0B71 */
+#endif/* MCUF_BA8DBAF0_DCE9_4F33_B776_7C5470172961 */

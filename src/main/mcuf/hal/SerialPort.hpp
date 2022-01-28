@@ -13,7 +13,7 @@
  */  
 #include "mcuf_base.h"
 #include "mcuf\hal\Base.hpp"
-#include "mcuf\io\channel\ByteBuffer.hpp"
+#include "mcuf\io\ByteBuffer.hpp"
 
 
 
@@ -23,6 +23,7 @@
 namespace mcuf{
   namespace hal{
     interface SerialPort;
+    interface SerialPortEvent;
   }
 }
 
@@ -32,11 +33,6 @@ namespace mcuf{
  * Interface SerialPort
  */  
 interface mcuf::hal::SerialPort implement mcuf::hal::Base{
-        
-  /* **************************************************************************************
-   * Subclass
-   */
-  interface Event;
 
   /* **************************************************************************************
    * Method
@@ -75,44 +71,14 @@ interface mcuf::hal::SerialPort implement mcuf::hal::Base{
   /**
    * 
    */
-  virtual bool read(mcuf::io::channel::ByteBuffer* byteBuffer, Event* event) abstract;
+  virtual bool read(mcuf::io::ByteBuffer* byteBuffer, SerialPortEvent* event) abstract;
 
   /**
    * 
    */
-  virtual bool write(mcuf::io::channel::ByteBuffer* byteBuffer, Event* event) abstract;
+  virtual bool write(mcuf::io::ByteBuffer* byteBuffer, SerialPortEvent* event) abstract;
   
 };
-
-/* ****************************************************************************************
- * Interface SerialPort::Event
- */  
-interface mcuf::hal::SerialPort::Event{
-
-  
-  /* **************************************************************************************
-   * Subclass
-   */
-  enum Status{
-    WRITE_SUCCESSFUL,
-    WRITE_FAIL,
-    WRITE_ABROT,
-    READ_SUCCESSFUL,
-    READ_FAIL,
-    READ_ABROT,    
-  };
-  
-  /* **************************************************************************************
-   * Method
-   */
-
-  /**
-   * 
-   */
-  virtual void onSerialPortEvent(Status status, mcuf::io::channel::ByteBuffer* byteBuffer) abstract;
-  
-};
-
 
 /* *****************************************************************************************
  * End of file

@@ -12,7 +12,7 @@
  * Include
  */  
 #include "mcuf/hal/Base.hpp"
-#include "mcuf/io/channel/ByteBuffer.hpp"
+#include "mcuf/io/ByteBuffer.hpp"
 #include "mcuf/lang/Pointer.hpp"
 
 
@@ -64,12 +64,12 @@ interface mcuf::hal::FlashStorage implement mcuf::hal::Base{
   /**
    * 
    */
-  virtual bool write(mcuf::io::channel::ByteBuffer* bytebuffer, Event* event) abstract;
+  virtual bool write(mcuf::io::ByteBuffer* bytebuffer, Event* event) abstract;
 
   /**
    * 
    */
-  virtual bool read(mcuf::io::channel::ByteBuffer* bytebuffer, Event* event) abstract;
+  virtual bool read(mcuf::io::ByteBuffer* bytebuffer, Event* event) abstract;
 
 };
 
@@ -96,7 +96,7 @@ interface mcuf::hal::FlashStorage::Event{
   /**
    *
    */
-  virtual void onFlashStorageEvent(Status status, mcuf::io::channel::ByteBuffer* byteBuffer) abstract;
+  virtual void onFlashStorageEvent(Status status, mcuf::io::ByteBuffer* byteBuffer) abstract;
 };
 
 

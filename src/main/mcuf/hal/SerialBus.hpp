@@ -13,7 +13,7 @@
  */  
 #include "mcuf_base.h"
 #include "mcuf\hal\Base.hpp"
-#include "mcuf\io\channel\ByteBuffer.hpp"
+#include "mcuf\io\ByteBuffer.hpp"
 
 /* ****************************************************************************************
  * Namespace
@@ -21,6 +21,7 @@
 namespace mcuf{
   namespace hal{
     interface SerialBus;
+    interface SerialBusEvent;
   }
 }
 
@@ -63,49 +64,21 @@ interface mcuf::hal::SerialBus implement mcuf::hal::Base{
   /**
    * 
    */
-  virtual void read(mcuf::io::channel::ByteBuffer* receiver, Event* event) abstract;
+  virtual void read(mcuf::io::ByteBuffer* receiver, Event* event) abstract;
 
   /**
    * 
    */
-  virtual void write(mcuf::io::channel::ByteBuffer* transfer, Event* event) abstract;
+  virtual void write(mcuf::io::ByteBuffer* transfer, Event* event) abstract;
   
   /**
    *
    */
-  virtual bool writeAfterRead(mcuf::io::channel::ByteBuffer* transfer, 
-                              mcuf::io::channel::ByteBuffer* receiver,
-                              Event* event) abstract;
+  virtual bool writeAfterRead(mcuf::io::ByteBuffer* transfer, 
+                              mcuf::io::ByteBuffer* receiver,
+                              SerialBusEvent* event) abstract;
 
 };
-
-
-
-/* ****************************************************************************************
- * Interface SerialBus::Event
- */  
-interface mcuf::hal::SerialBus::Event{
-  /* **************************************************************************************
-   * Subclass
-   */
-  enum SerialBusStatus{
-    WRITE_SUCCESSFUL,
-    WRITE_FAIL,
-    READ_SUCCESSFUL,
-    READ_FAIL, 
-  };
-
-  /* **************************************************************************************
-   * Method
-   */
-  
-  /**
-   *
-   */
-  virtual void onSerialBusEvent(SerialBusStatus status, mcuf::io::channel::ByteBuffer* byteBuffer) abstract;
-  
-};
-
 
 /* *****************************************************************************************
  * End of file

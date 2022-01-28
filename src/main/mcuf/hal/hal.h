@@ -21,13 +21,18 @@
 #include "AnalogDigitalConverterChannel.hpp"
 #include "Base.hpp"
 #include "EdgeTrigger.hpp"
+#include "EdgeTriggerEvent.hpp"
 #include "FlashStorage.hpp"
 #include "GeneralPurposeIO.hpp"
 #include "GeneralPurposePin.hpp"
 #include "SerialBus.hpp" 
-#include "SerialPeripheral.hpp"
+#include "SerialBusEvent.hpp"
+#include "SerialPeriph.hpp"
+#include "SerialPeriphEvent.hpp"
 #include "SerialPort.hpp"
+#include "SerialPortEvent.hpp"
 #include "Timer.hpp"
+#include "TimerEvent.hpp"
 
 
 

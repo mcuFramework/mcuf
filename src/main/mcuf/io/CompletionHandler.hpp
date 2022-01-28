@@ -5,16 +5,15 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_CE4E94B8_1588_4FED_8DB8_1C22B3E8CDB4
-#define MCUF_CE4E94B8_1588_4FED_8DB8_1C22B3E8CDB4
+#ifndef MCUF_F628179A_5A6B_4572_99A4_3338D77AED7B
+#define MCUF_F628179A_5A6B_4572_99A4_3338D77AED7B
 
 /* ****************************************************************************************
  * Include
  */
 #include "mcuf_base.h"
-#include "mcuf/io/ByteBuffer.hpp"
-#include "mcuf/io/CompletionHandler.hpp"
 #include "mcuf/lang/Object.hpp"
+
 
 
 /* ****************************************************************************************
@@ -22,7 +21,7 @@
  */  
 namespace mcuf{
   namespace io{
-    interface OutputStream;
+    template<typename V, typename A> interface CompletionHandler;
   }
 }
 
@@ -31,7 +30,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Map
  */
-interface mcuf::io::OutputStream{
+template<typename V, typename A>
+interface mcuf::io::CompletionHandler{
   /* **************************************************************************************
    *  Variable <Public>
    */
@@ -47,35 +47,16 @@ interface mcuf::io::OutputStream{
   /* **************************************************************************************
    *  Abstract method <Public>
    */
+    
+  /**
+   *
+   */
+  virtual void completed(V result, A attachment) abstract;
   
   /**
-   * @brief 
-   * 
-   * @return true 
-   * @return false 
+   *
    */
-  virtual bool abortWrite(void) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @return true is busy.
-   * @return false isn't busy.
-   */
-  virtual bool isWriteBusy(void) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param byteBuffer 
-   * @param attachment 
-   * @param handler 
-   * @return true successful.
-   * @return false fail.`
-   */
-  virtual bool write(mcuf::io::ByteBuffer* byteBuffer, 
-                     void* attachment,
-                     mcuf::io::CompletionHandler<int, void*>* handler) abstract;
+  virtual void failed(void* exc, A attachment) abstract;
 
   /* **************************************************************************************
    *  Abstract method <Protected>
@@ -96,7 +77,7 @@ interface mcuf::io::OutputStream{
   /* **************************************************************************************
    *  Public Method
    */
-
+  
   /* **************************************************************************************
    *  Protected Method <Static>
    */
@@ -120,7 +101,6 @@ interface mcuf::io::OutputStream{
   /* **************************************************************************************
    *  Private Method
    */
-    
 };
 
 
@@ -130,4 +110,4 @@ interface mcuf::io::OutputStream{
  */ 
 
 
-#endif/* MCUF_CE4E94B8_1588_4FED_8DB8_1C22B3E8CDB4 */
+#endif/* MCUF_F628179A_5A6B_4572_99A4_3338D77AED7B */
