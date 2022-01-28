@@ -24,7 +24,7 @@
 #include "FlashStorage.hpp"
 #include "GeneralPurposeIO.hpp"
 #include "GeneralPurposePin.hpp"
-#include "InterIntegratedCircuit.hpp" 
+#include "SerialBus.hpp" 
 #include "SerialPeripheral.hpp"
 #include "SerialPort.hpp"
 #include "Timer.hpp"

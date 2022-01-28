@@ -14,25 +14,22 @@
 #include "mcuf_base.h"
 #include "mcuf\hal\Base.hpp"
 #include "mcuf\io\channel\ByteBuffer.hpp"
-#include "mcuf\io\channel\CompletionHandler.hpp"
-
-
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace hal{
-    interface InterIntegratedCircuit;
+    interface SerialBus;
   }
 }
 
 
 
 /* ****************************************************************************************
- * Interface InterIntegratedCircuit
+ * Interface SerialBus
  */  
-interface mcuf::hal::InterIntegratedCircuit implement mcuf::hal::Base{
+interface mcuf::hal::SerialBus implement mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass
@@ -85,13 +82,13 @@ interface mcuf::hal::InterIntegratedCircuit implement mcuf::hal::Base{
 
 
 /* ****************************************************************************************
- * Interface InterIntegratedCircuit::Event
+ * Interface SerialBus::Event
  */  
-interface mcuf::hal::InterIntegratedCircuit::Event{
+interface mcuf::hal::SerialBus::Event{
   /* **************************************************************************************
    * Subclass
    */
-  enum Status{
+  enum SerialBusStatus{
     WRITE_SUCCESSFUL,
     WRITE_FAIL,
     READ_SUCCESSFUL,
@@ -105,7 +102,7 @@ interface mcuf::hal::InterIntegratedCircuit::Event{
   /**
    *
    */
-  virtual void onInterIntegratedCircuitEvent(Status status, mcuf::io::channel::ByteBuffer* byteBuffer) abstract;
+  virtual void onSerialBusEvent(SerialBusStatus status, mcuf::io::channel::ByteBuffer* byteBuffer) abstract;
   
 };
 

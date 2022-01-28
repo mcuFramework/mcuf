@@ -78,7 +78,7 @@ interface mcuf::hal::EdgeTrigger::Event{
   /* **************************************************************************************
    * Subclass
    */
-  enum Status{
+  enum EdgeTriggerStatus{
     RISE,
     FALL
   };
@@ -90,7 +90,7 @@ interface mcuf::hal::EdgeTrigger::Event{
   /**
    *
    */
-  virtual void onEdgeTriggerEvent(Status status) abstract;
+  virtual void onEdgeTriggerEvent(EdgeTriggerStatus status) abstract;
   
 };
 
