@@ -10,7 +10,7 @@
       <TargetName>mcuf_m0</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6150000::V6.15::ARMCLANG</pCCUsed>
+      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -850,6 +850,11 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>C:\Workspace\mcuf\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryAllocator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>C:\Workspace\mcuf\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1925,6 +1930,11 @@
               <FileType>5</FileType>
               <FilePath>C:\Workspace\mcuf\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
             </File>
+            <File>
+              <FileName>MemoryAllocator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>C:\Workspace\mcuf\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2999,6 +3009,11 @@
               <FileType>5</FileType>
               <FilePath>C:\Workspace\mcuf\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
             </File>
+            <File>
+              <FileName>MemoryAllocator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>C:\Workspace\mcuf\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4072,6 +4087,11 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>C:\Workspace\mcuf\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryAllocator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>C:\Workspace\mcuf\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5216,6 +5236,11 @@
               <FileType>5</FileType>
               <FilePath>C:\Workspace\mcuf\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
             </File>
+            <File>
+              <FileName>MemoryAllocator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>C:\Workspace\mcuf\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -6289,6 +6314,11 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>C:\Workspace\mcuf\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryAllocator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>C:\Workspace\mcuf\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
             </File>
           </Files>
         </Group>

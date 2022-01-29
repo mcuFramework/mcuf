@@ -47,7 +47,7 @@ Stacker::Stacker(const Memory& memory) construct Memory(memory){
  */
  
 /* ****************************************************************************************
- * Public Method <Override>
+ * Public Method <Override> mcuf::util::Collection<mcuf::lang::Memory>
  */
 
 /**
@@ -89,15 +89,8 @@ uint32_t Stacker::size(void){
 }
 
 /* ****************************************************************************************
- * Public Method
+ * Public Method <Override> mcuf::lang::managerment::MemoryAllocator
  */
-
-/**
- * 
- */
-uint32_t Stacker::getFree(void){
-  return (this->length() - this->size());
-}
 
 /**
  * 
@@ -110,6 +103,31 @@ void* Stacker::alloc(uint32_t size){
   this->mStackPointer += size;
 
   return result;
+}
+
+/**
+ *
+ */
+bool Stacker::free(void* ptr){
+  return false;
+}
+
+/**
+ *
+ */
+bool Stacker::free(void* ptr, uint32_t size){
+  return false;
+}
+
+/* ****************************************************************************************
+ * Public Method
+ */
+
+/**
+ * 
+ */
+uint32_t Stacker::getFree(void){
+  return (this->length() - this->size());
 }
 
 /**

@@ -17,6 +17,7 @@
  * Using
  */  
 using mcuf::lang::Object;
+using mcuf::lang::managerment::MemoryAllocator;
  
 /* ****************************************************************************************
  * Construct Method
@@ -38,6 +39,13 @@ void* Object::operator new(size_t n){
  */
 void* Object::operator new(size_t n, void* const p){
   return p;
+}
+
+/**
+ *
+ */
+void* Object::operator new(size_t n, MemoryAllocator& allocator){
+  return allocator.alloc(n);
 }
 
 /* ****************************************************************************************

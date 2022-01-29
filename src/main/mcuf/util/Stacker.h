@@ -16,6 +16,7 @@
 #include "mcuf_base.h"
 #include "mcuf/util/Collection.h"
 #include "mcuf/lang/Memory.h"
+#include "mcuf/lang/managerment/MemoryAllocator.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -29,8 +30,9 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Stacker
  */  
-class mcuf::util::Stacker extends mcuf::lang::Memory
-      implements mcuf::util::Collection<mcuf::lang::Memory>{
+class mcuf::util::Stacker extends mcuf::lang::Memory implements 
+  mcuf::util::Collection<mcuf::lang::Memory>, 
+  mcuf::lang::managerment::MemoryAllocator{
   
   /* **************************************************************************************
    * Subclass
@@ -85,7 +87,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory
    */
 
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> mcuf::util::Collection<mcuf::lang::Memory>
    */
 
   /**
@@ -119,18 +121,43 @@ class mcuf::util::Stacker extends mcuf::lang::Memory
   public: virtual uint32_t size(void) override;
 
   /* **************************************************************************************
-   * Public Method
+   * Public Method <Override> mcuf::lang::managerment::MemoryAllocator
+   */
+
+  /**
+   * @brief 
+   * 
+   * @param size 
+   */
+  public: virtual void* alloc(uint32_t size) override;
+
+  /**
+   * @brief 
+   * 
+   * @param ptr pointer
+   * @return true successful
+   * @return false fail
+   */
+  public: virtual bool free(void* ptr) override;
+
+  /**
+   * @brief 
+   * 
+   * @param ptr pointer
+   * @param size pointer size
+   * @return true successful
+   * @return false fail
+   */
+  public: virtual bool free(void* ptr, uint32_t size) override;
+  
+  /* **************************************************************************************
+   * Public Method 
    */
 
   /**
    * 
    */
   public: virtual uint32_t getFree(void);
-
-  /**
-   * 
-   */
-  public: virtual void* alloc(uint32_t size);
   
   /**
    *
