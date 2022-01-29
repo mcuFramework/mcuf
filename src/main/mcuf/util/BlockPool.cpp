@@ -10,8 +10,8 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Math.hpp"
-#include "mcuf/util/BlockPool.hpp"
+#include "mcuf/lang/Math.h"
+#include "mcuf/util/BlockPool.h"
 
 /* ****************************************************************************************
  * Using

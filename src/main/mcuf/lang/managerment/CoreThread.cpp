@@ -11,8 +11,8 @@
 
 //-----------------------------------------------------------------------------------------
 #include "cmsis_rtos/rtx_os.h"
-#include "mcuf/lang/managerment/CoreThread.hpp"
-#include "mcuf/lang/Error.hpp"
+#include "mcuf/lang/managerment/CoreThread.h"
+#include "mcuf/lang/Error.h"
 
 /* ****************************************************************************************
  * Using

@@ -12,10 +12,10 @@
 #include <string.h>
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Math.hpp"
-#include "mcuf/lang/Memory.hpp"
-#include "mcuf/lang/Pointer.hpp"
-#include "mcuf/lang/System.hpp"
+#include "mcuf/lang/Math.h"
+#include "mcuf/lang/Memory.h"
+#include "mcuf/lang/Pointer.h"
+#include "mcuf/lang/System.h"
 
 /* ****************************************************************************************
  * Using

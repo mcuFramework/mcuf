@@ -16,9 +16,9 @@
 #endif
 
 #include "mcuf_base.h"
-#include "mcuf/lang/Math.hpp"
-#include "mcuf/lang/System.hpp"
-#include "mcuf/lang/Thread.hpp"
+#include "mcuf/lang/Math.h"
+#include "mcuf/lang/System.h"
+#include "mcuf/lang/Thread.h"
 
 /* ****************************************************************************************
  * Macro

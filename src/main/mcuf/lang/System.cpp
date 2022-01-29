@@ -15,11 +15,11 @@
 
 #include "cmsis_rtos/rtx_os.h"
 
-#include "mcuf/lang/Math.hpp"
-#include "mcuf/lang/System.hpp"
-#include "mcuf/lang/ThreadEvent.hpp"
-#include "mcuf/lang/managerment/CoreThread.hpp"
-#include "mcuf/util/Stacker.hpp"
+#include "mcuf/lang/Math.h"
+#include "mcuf/lang/System.h"
+#include "mcuf/lang/ThreadEvent.h"
+#include "mcuf/lang/managerment/CoreThread.h"
+#include "mcuf/util/Stacker.h"
 
 /* ****************************************************************************************
  * Namespace
