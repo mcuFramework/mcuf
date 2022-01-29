@@ -115,6 +115,24 @@ bool ByteBuffer::put(const String& string){
 }
 
 /**
+ *
+ */
+bool ByteBuffer::put(ByteBuffer& byteBuffer){
+  int rem = byteBuffer.remaining();
+  if(rem == 0)
+    return true;
+  
+  void* start = byteBuffer.pointer(byteBuffer.position());
+  bool result = this->put(start, rem);
+  
+  if(result)
+    byteBuffer.position(byteBuffer.position() + rem);
+  
+  return result;
+  
+}
+
+/**
  * 
  */
 bool ByteBuffer::putByte(char value){

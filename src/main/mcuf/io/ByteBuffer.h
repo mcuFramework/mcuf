@@ -148,9 +148,9 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
    *  Public Method
    */
 
-    /**
-     * 
-     */
+  /**
+   * 
+   */
   public: bool limit(uint32_t newLimit);
 
   /**
@@ -176,7 +176,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
   /**
    *
    */
-  public: bool put(const mcuf::lang::String& string);  
+  public: bool put(const mcuf::lang::String& string);
 
   /**
    * 
