@@ -177,6 +177,11 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
    *
    */
   public: bool put(const mcuf::lang::String& string);
+  
+  /**
+   *
+   */
+  public: bool put(mcuf::io::ByteBuffer& byteBuffer);
 
   /**
    * 

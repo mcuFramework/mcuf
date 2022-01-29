@@ -30,9 +30,9 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Stacker
  */  
-class mcuf::util::Stacker extends mcuf::lang::Memory implements 
-  mcuf::util::Collection<mcuf::lang::Memory>, 
-  mcuf::lang::managerment::MemoryAllocator{
+class mcuf::util::Stacker extends mcuf::lang::Memory 
+  implements mcuf::util::Collection<mcuf::lang::Memory>
+  implements mcuf::lang::managerment::MemoryAllocator{
   
   /* **************************************************************************************
    * Subclass
