@@ -32,13 +32,13 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Object
+ * Class/Interface/Struct
  */  
 class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   friend mcuf::lang::System;
   
   /* **************************************************************************************
-   * Subclass
+   * Struct Attachment
    */
   private: struct Attachment{
     mcuf::lang::Memory* stack;
@@ -59,13 +59,14 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: mcuf::lang::Thread* mUserThread;
-  private: mcuf::util::Executor mExecutor;
-  private: mcuf::util::TimerScheduler mTimerScheduler;
-  private: uint64_t mTimerMemory[4];
-  private: uint32_t mTimerTick;
-  private: void* mTimerID;
-  private: bool mStart;
+  private: 
+    mcuf::lang::Thread* mUserThread;
+    mcuf::util::Executor mExecutor;
+    mcuf::util::TimerScheduler mTimerScheduler;
+    uint64_t mTimerMemory[4];
+    uint32_t mTimerTick;
+    void* mTimerID;
+    bool mStart;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -78,16 +79,22 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Construct Method
    */
+  private: 
 
-  /**
-   * Construct.
-   */
-  private: CoreThread(const Attachment& attachment);
+    /**
+     * @brief Construct a new Core Thread object
+     * 
+     * @param attachment 
+     */
+    CoreThread(const Attachment& attachment);
 
-  /**
-   * Destruct.
-   */
-  public: virtual ~CoreThread(void) = default;
+  public: 
+
+    /**
+     * @brief Destroy the Core Thread object
+     * 
+     */
+    virtual ~CoreThread(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -104,25 +111,33 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Public Method <Override> - mcuf::function::Runnable
    */
-   
-  /**
-   *
-   */
-  public: void run(void) override;
+  public: 
+  
+    /**
+     * @brief 
+     * 
+     */
+    void run(void) override;
 
   /* **************************************************************************************
    * Public Method
    */
-   
-  /**
-   *
-   */
-  public: bool execute(mcuf::function::Runnable& runnable);
+  public: 
+  
+    /**
+     * @brief 
+     * 
+     * @param runnable 
+     * @return true 
+     * @return false 
+     */
+    bool execute(mcuf::function::Runnable& runnable);
 
-  /**
-   *
-   */
-  public: void stop(void);
+    /**
+     * @brief 
+     * 
+     */
+    void stop(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -139,11 +154,14 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Private Method <Static>
    */
-  
-  /**
-   *
-   */
-   private: static void entryPoint(void* attachment);
+   private: 
+   
+    /**
+      * @brief 
+      * 
+      * @param attachment 
+      */
+    static void entryPoint(void* attachment);
 
   /* **************************************************************************************
    * Private Method <Override>

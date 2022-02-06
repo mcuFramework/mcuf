@@ -37,6 +37,7 @@ using mcuf::lang::Thread;
 /* ****************************************************************************************
  * Variable <Static>
  */
+Thread* Thread::threadNodeHead = nullptr;
 
 /* ****************************************************************************************
  * Construct Method
@@ -56,6 +57,10 @@ Thread::Thread(const Memory& memory) construct Memory(memory){
   
   memset(this->pointer(), 0x00, getRtxMemorySize());
   this->mThreadID = nullptr;
+  this->mNextNode = nullptr;
+  
+  Thread::nodeAdd(this);
+  
   return;
 }
 
@@ -74,13 +79,38 @@ Thread::~Thread(void){
   if(this->mThreadID)
     System::error(__CLASSPATH__, Error::NULL_POINTER);
   
+  Thread::nodeRemove(this);
   return;
 }
 
 /* ****************************************************************************************
  * Public Method <Static>
  */
- 
+
+/**
+ *
+ */
+Thread* Thread::getThread(uint32_t threadID){
+  if(threadID == 0)
+    return nullptr;
+  
+  Thread* next = Thread::threadNodeHead;
+  if(next == nullptr){
+    return nullptr;
+  }
+  
+  while(true){
+    if(reinterpret_cast<uint32_t>(next->mThreadID) == threadID)
+      return next;
+    
+    next = next->mNextNode;
+    if(next == nullptr)
+      break;
+  }
+  
+  return nullptr;
+}
+
 /* ****************************************************************************************
  * Public Method <Override>
  */
@@ -88,6 +118,13 @@ Thread::~Thread(void){
 /* ****************************************************************************************
  * Public Method
  */
+
+/**
+ *
+ */
+uint32_t Thread::getID(void) const{
+  return reinterpret_cast<uint32_t>(this->mThreadID);
+}
 
 /** 
  *
@@ -108,6 +145,20 @@ Thread::Priority Thread::getPriority(void){
  */
 Thread::State Thread::getState(void){
   return static_cast<State>(osThreadGetState(this->mThreadID));
+}
+
+/**
+ *
+ */
+uint32_t Thread::getStackSize(void){
+  return osThreadGetStackSize(this->mThreadID);
+}
+
+/**
+ *
+ */
+void Thread::notify(void){
+  osThreadFlagsSet(this->mThreadID, 0x00000001U);
 }
 
 /**
@@ -148,13 +199,6 @@ bool Thread::start(Priority priority){
 /**
  *
  */
-void Thread::notify(void){
-  osThreadFlagsSet(this->mThreadID, 0x00000001U);
-}
-  
-/**
- *
- */
 bool Thread::setPriority(Priority priority){
   if(osThreadSetPriority(this->mThreadID, static_cast<osPriority_t>(priority)) == osOK)
     return true;
@@ -190,6 +234,62 @@ void Thread::entryPoint(void* attachment){
   thread->mThreadID = nullptr;
   osThreadExit();
   return;
+}
+
+/**
+ *
+ */
+bool Thread::nodeAdd(Thread* thread){
+  if(thread == nullptr)
+    return false;
+  
+  if(Thread::threadNodeHead == nullptr){
+    Thread::threadNodeHead = thread;
+    return true;
+  }
+  
+  Thread* next = Thread::threadNodeHead;
+  
+  while(true){
+    if(next == thread)
+      return false;
+    
+    if(next->mNextNode == nullptr){
+      next->mNextNode = thread;
+      break;
+    }
+    
+    next = next->mNextNode;
+  }
+    
+  return true;
+}
+
+/**
+ *
+ */
+bool Thread::nodeRemove(Thread* thread){
+  if(thread == nullptr)
+    return false;
+  
+  if(Thread::threadNodeHead == nullptr)
+    return false;
+  
+  Thread* next = Thread::threadNodeHead;
+  
+  while(true){
+    if(next == nullptr)
+      return false;
+    
+    if(next->mNextNode == thread){
+      next->mNextNode = next->mNextNode->mNextNode;
+      break;
+    }
+    
+    next = next->mNextNode;
+  }
+  
+  return true;
 }
 
 /* ****************************************************************************************

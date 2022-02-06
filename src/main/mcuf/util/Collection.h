@@ -14,8 +14,6 @@
 #include "mcuf_base.h"
 #include "mcuf/lang/Iterable.h"
 
-
-
 /* ****************************************************************************************
  * Namespace
  */  
@@ -25,17 +23,11 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class Collection
+ * Class/Interface/Struct
  */  
 template<typename T>
 interface mcuf::util::Collection extends mcuf::lang::Iterable<T>{
-  
-  /* **************************************************************************************
-   * Subclass
-   */
   
   /* **************************************************************************************
    * Variable <Public>
@@ -54,22 +46,24 @@ interface mcuf::util::Collection extends mcuf::lang::Iterable<T>{
    */
 
   /**
-   * Removes all of the elements from this collection. The collection will be empty after 
-   * this method returns.
+   * @brief Removes all of the elements from this collection. The collection will be empty 
+   *        after this method returns.
+   * 
    */
   virtual void clear(void) abstract;
 
   /**
-   * Returns true if this collection contains no elements.
+   * @brief Returns true if this collection contains no elements.
    * 
    * @return true if this collection contains no elements.
+   * @return false 
    */
   virtual bool isEmpty(void) abstract;
 
   /**
-   * Returns the number of elements in this collection.
+   * @brief Returns the number of elements in this collection.
    * 
-   * @return the number of elements in this collection.
+   * @return uint32_t the number of elements in this collection.
    */
   virtual uint32_t size(void) abstract;
 

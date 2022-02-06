@@ -27,13 +27,9 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Object
+ * Class/Interface/Struct
  */  
 class mcuf::util::RingBuffer extends mcuf::lang::Memory{
-
-  /* **************************************************************************************
-   * Subclass
-   */
 
   /* **************************************************************************************
    * Variable <Public>
@@ -46,10 +42,10 @@ class mcuf::util::RingBuffer extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: uint32_t mCount;
-  private: uint32_t mHead;
-  private: uint32_t mTail;
-
+  private: 
+    uint32_t mCount;
+    uint32_t mHead;
+    uint32_t mTail;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -62,21 +58,28 @@ class mcuf::util::RingBuffer extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Construct Method
    */
+  public:
 
-  /**
-   * Construct.
-   */
-  public: RingBuffer(void* buffer, uint32_t bufferSize);
-  
-  /**
-   * Construct.
-   */
-  public: RingBuffer(const mcuf::lang::Memory& memory);  
+    /**
+     * @brief Construct a new Ring Buffer object
+     * 
+     * @param buffer 
+     * @param bufferSize 
+     */
+    RingBuffer(void* buffer, uint32_t bufferSize);
+      
+    /**
+     * @brief Construct a new Ring Buffer object
+     * 
+     * @param memory 
+     */
+    RingBuffer(const mcuf::lang::Memory& memory);  
 
-  /**
-   * Destruct.
-   */
-  public: virtual ~RingBuffer(void) = default;
+    /**
+     * @brief Destroy the Ring Buffer object
+     * 
+     */
+    virtual ~RingBuffer(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -91,80 +94,105 @@ class mcuf::util::RingBuffer extends mcuf::lang::Memory{
    */
 
   /* **************************************************************************************
+   * Public Method <Inline>
+   */
+  public: 
+  
+    /**
+     * @brief 
+     * 
+     */
+    inline void flush(void){
+      this->mHead = this->mTail = 0;
+    }
+
+    /**
+     * @brief Return size the ring buffer.
+     * 
+     * @return uint32_t Size of the ring buffer in bytes.
+     */
+    inline uint32_t getSize(void){
+      return this->mCount;
+    }
+
+    /**
+     * @brief Return number of items in the ring buffer
+     * 
+     * @return uint32_t Number of items in the ring buffer.
+     */
+    inline uint32_t getCount(void){
+      return VACCESS(uint32_t, this->mHead) - VACCESS(uint32_t, this->mTail);
+    }
+
+    /**
+     * @brief Return number of free items in the ring buffer.
+     * 
+     * @return uint32_t Number of free items in the ring buffer.
+     */
+    inline uint32_t getFree(void){
+      return this->mCount = this->getCount();
+    }
+
+    /**
+     * @brief Return empty status of ring buffer.
+     * 
+     * @return true is full.
+     * @return false not full.
+     */
+    inline bool isFull(void){
+      return (this->getCount() >= this->mCount);
+    }
+
+    /**
+     * @brief Return empty status of ring buffer.
+     * 
+     * @return true is empty.
+     * @return false not empty.
+     */
+    inline bool isEmpty(void){
+      return (VACCESS(uint32_t, this->mHead) == VACCESS(uint32_t, this->mTail));
+    }
+
+  /* **************************************************************************************
    * Public Method
    */
+  public:
 
-  /**
-   *
-   */
-  public: inline void flush(void){
-    this->mHead = this->mTail = 0;
-  }
+    /**
+     * @brief 
+     * 
+     * @param data 
+     * @return true 
+     * @return false 
+     */
+    bool insert(const void* data);
+    
+    /**
+     * @brief 
+     * 
+     * @param data 
+     * @param num 
+     * @return int 
+     */
+    int insertMult(const void *data, int num);
 
-  /**
-   * Return size the ring buffer.
-   *
-   * @return	Size of the ring buffer in bytes.
-   */
-  public: inline uint32_t getSize(void){
-    return this->mCount;
-  }
+    /**
+     * @brief 
+     * 
+     * @param data 
+     * @return true 
+     * @return false 
+     */
+    bool pop(void* data);
 
-  /**
-   * Return number of items in the ring buffer
-   *
-   * @return	Number of items in the ring buffer.
-   */
-  public: inline uint32_t getCount(void){
-    return VACCESS(uint32_t, this->mHead) - VACCESS(uint32_t, this->mTail);
-  }
-
-  /**
-   * Return number of free items in the ring buffer.
-   *
-   * @return	Number of free items in the ring buffer.
-   */
-  public: inline uint32_t getFree(void){
-    return this->mCount = this->getCount();
-  }
-
-  /**
-   * Return empty status of ring buffer.
-   *
-   * @return	1 if the ring buffer is full, otherwise 0.
-   */
-  public: inline bool isFull(void){
-    return (this->getCount() >= this->mCount);
-  }
-
-  /**
-   * Return empty status of ring buffer.
-   *
-   * @return	1 if the ring buffer is empty, otherwise 0.
-   */
-  public: inline bool isEmpty(void){
-    return (VACCESS(uint32_t, this->mHead) == VACCESS(uint32_t, this->mTail));
-  }
-
-  /**
-   * 
-   */
-  public: bool insert(const void* data);
-
-  /**
-   * 
-   */
-  public: int insertMult(const void *data, int num);
-
-  /**
-   * 
-   */
-  public: bool pop(void* data);
-
-  /**
-   * 
-   */
-  public: int popMult(void* data, int num);
+    /**
+     * @brief 
+     * 
+     * @param data 
+     * @param num 
+     * @return int 
+     */
+    int popMult(void* data, int num);
 
   /* **************************************************************************************
    * Protected Method <Static>

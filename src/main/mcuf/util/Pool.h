@@ -28,119 +28,58 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Pool
+ * Class/Interface/Struct
  */  
-interface mcuf::util::Pool implement mcuf::util::Collection<mcuf::lang::Memory>{
-  
-  /* **************************************************************************************
-   * Subclass
-   */
-  
-  /* **************************************************************************************
-   * Variable <Public>
-   */
+interface mcuf::util::Pool extends mcuf::util::Collection<mcuf::lang::Memory>{
 
   /* **************************************************************************************
-   * Variable <Protected>
+   * Method 
    */
 
-  /* **************************************************************************************
-   * Variable <Private>
-   */
-
-  /* **************************************************************************************
-   * Abstract method <Public>
-   */
-  
   /**
-   * Returns this pool element size of byte
-   *
-   * @return element size of byte.
+   * @brief Returns this pool element size of byte
+   * 
+   * @return uint32_t element size of byte.
    */
   virtual uint32_t elementSize(void) abstract;
   
   /**
-   * Returns this pool's capacity.
-   *
-   * @return The capacity of this pool.
+   * @brief Returns this pool's capacity.
+   * 
+   * @return uint32_t The capacity of this pool.
    */
   virtual uint32_t capacity(void) abstract;
   
   /**
-   * Alloc memory from pool.
-   *
-   * @return element pointer if pool not full, otherwise null pointer.
+   * @brief Alloc memory from pool.
+   * 
+   * @return void* element pointer if pool not full, otherwise null pointer.
    */
   virtual void* alloc(void) abstract;
 
   /**
+   * @brief 
    * 
+   * @return mcuf::lang::Memory 
    */
   virtual mcuf::lang::Memory allocMemory(void) abstract;
-  
+
   /**
-   * Alloc memory from pool and copy element.
-   *
-   * @element Element pointer.
-   * @return element pointer if pool not full, otherwise null pointer.
+   * @brief Alloc memory from pool and copy element.
+   * 
+   * @param elenemt Element pointer.
+   * @return void* element pointer if pool not full, otherwise null pointer.
    */
   virtual void* add(const void* elenemt) abstract;
-  
+
   /**
-   * Free this element memory.  
-   *
-   * @element Element pointer.
-   * @return true if this poll found element and remove.
+   * @brief Free this element memory.  
+   * 
+   * @param element Element pointer.
+   * @return true this poll found element and remove.
+   * @return false element not found in this pool.
    */
   virtual bool remove(void* element) abstract;
-
-  /* **************************************************************************************
-   * Abstract method <Protected>
-   */
-
-  /* **************************************************************************************
-   * Construct Method
-   */
-
-  /* **************************************************************************************
-   * Operator Method
-   */
-
-  /* **************************************************************************************
-   * Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Protected Method
-   */
-
-  /* **************************************************************************************
-   * Private Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Private Method <Override>
-   */
-   
-  /* **************************************************************************************
-   * Private Method
-   */
   
 };
 

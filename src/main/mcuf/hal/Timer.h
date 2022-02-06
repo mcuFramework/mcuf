@@ -25,12 +25,10 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
- * Interface Timer
+ * Class/Interface/Struct
  */  
-interface mcuf::hal::Timer implement mcuf::hal::Base{
+interface mcuf::hal::Timer extends mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass
@@ -54,11 +52,11 @@ interface mcuf::hal::Timer implement mcuf::hal::Base{
    * 
    */
   virtual bool isDone(void) abstract;
-
+  
   /**
    * 
    */
-  virtual uint32_t getTickBaseMilliSecond(void) abstract;
+  virtual uint32_t getTimerClock(void) abstract;  
 
   /**
    * 
@@ -79,6 +77,11 @@ interface mcuf::hal::Timer implement mcuf::hal::Base{
    * 
    */
   virtual bool startAtTime(uint32_t microSecond, TimerEvent* event) abstract;
+  
+  /**
+   *
+   */
+  virtual void resetTick(uint32_t tick);
   
 };
 

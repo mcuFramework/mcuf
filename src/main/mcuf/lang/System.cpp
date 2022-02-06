@@ -28,6 +28,8 @@
 /* ****************************************************************************************
  * Extern
  */  
+extern unsigned int SystemCoreClockHz;
+ 
 extern void* const mcufCoreThreadMemory;
 extern const uint32_t mcufCoreThreadMemorySize;
 
@@ -63,6 +65,7 @@ using mcuf::util::Stacker;
 
 CoreThread* System::mCoreThread = nullptr;
 void (*System::mErrorHandler)(const void* address, Error::Code code);
+const uint32_t System::mSystemTimerClock = (1000/mcufTimerTick);
 
 /* ****************************************************************************************
  * Construct Method
@@ -99,8 +102,6 @@ void System::start(mcuf::lang::Thread* userThread){
     System::mCoreThread = new(mcufCoreThreadMemory) CoreThread(attachment);
   }
   
-  
-  
   System::mCoreThread->start();
   osKernelStart();
   
@@ -123,6 +124,20 @@ void System::error(const void* address, Error::Code code){
  */
 void System::registorErrorHandler(void (*handler)(const void* address, Error::Code code)){
   System::mErrorHandler = handler;
+}
+
+/**
+ *
+ */
+uint32_t System::getSystemTimerClock(void){
+  return System::mSystemTimerClock;
+}
+
+/**
+ *
+ */
+uint32_t System::getCoreClock(void){
+  return SystemCoreClockHz;
 }
 
 /* ****************************************************************************************

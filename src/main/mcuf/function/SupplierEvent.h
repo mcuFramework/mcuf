@@ -15,7 +15,6 @@
 #include "mcuf/function/Supplier.h"
 #include "mcuf/lang//Object.h"
 
-
 /* ****************************************************************************************
  * Namespace
  */  
@@ -25,18 +24,12 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class SupplierEvent
+ * Class/Interface/Struct
  */  
 template<typename T>
-class mcuf::function::SupplierEvent extends mcuf::lang::Object
-      implements mcuf::function::Supplier<T>{
-
-  /* **************************************************************************************
-   * Subclass
-   */
+class mcuf::function::SupplierEvent extends mcuf::lang::Object implements 
+  public mcuf::function::Supplier<T>{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -49,7 +42,8 @@ class mcuf::function::SupplierEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: T (*event)(void);
+  private: 
+    T (*event)(void);
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -62,20 +56,24 @@ class mcuf::function::SupplierEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Construct Method
    */
+  public:
 
-  /**
-   * 
-   */
-  public: SupplierEvent(T (*event)(void)){
+    /**
+     * @brief Construct a new Supplier Event object
+     * 
+     * @param event 
+     */
+    SupplierEvent(T (*event)(void)){
 
-    this->event = event;
-    return;
-  }
-  
-  /**
-   * 
-   */
-  public: virtual ~SupplierEvent() = default;
+      this->event = event;
+      return;
+    }
+    
+    /**
+     * @brief Destroy the Supplier Event object
+     * 
+     */
+    virtual ~SupplierEvent() = default;
 
   /* **************************************************************************************
    * Public Method <Static>
@@ -84,13 +82,16 @@ class mcuf::function::SupplierEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Public Method <Override>
    */
+  public:
 
-  /**
-   * 
-   */
-  public: virtual T get(void){
-    return this->event();
-  }
+    /**
+     * @brief 
+     * 
+     * @return T 
+     */
+    virtual T get(void){
+      return this->event();
+    }
 
   /* **************************************************************************************
    * Public Method
@@ -122,11 +123,8 @@ class mcuf::function::SupplierEvent extends mcuf::lang::Object
    
 };
 
-
-
 /* *****************************************************************************************
  * End of file
  */ 
-
 
 #endif/* MCUF_ECCE32BB_1A96_496A_95AD_A35907FC3343 */

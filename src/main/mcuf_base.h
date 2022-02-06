@@ -16,8 +16,7 @@
 #define abstracts 
 #define construct :
 #define extends :public
-#define implements ,public
-#define implement :public  
+#define implements ,
 #define interface struct
 
 #ifndef VACCESS

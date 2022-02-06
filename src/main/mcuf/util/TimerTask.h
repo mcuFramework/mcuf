@@ -23,29 +23,21 @@
  */  
 namespace mcuf{
   namespace util{
-    class Timer;
+    class TimerScheduler;
     class TimerTask;
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class TimerTask
+ * Class/Interface/Struct
  */  
-class mcuf::util::TimerTask extends mcuf::lang::Object
-      implements mcuf::function::Runnable{
-  
-  /* **************************************************************************************
-   * Subclass
-   */
-  public: class Viewer;
+class mcuf::util::TimerTask extends mcuf::lang::Object implements 
+  public mcuf::function::Runnable{
 
   /* **************************************************************************************
    * Variable <Public>
    */
-  public: friend class Timer;
-  public: friend class Viewer;
+  public: friend class TimerScheduler;
 
   /* **************************************************************************************
    * Variable <Protected>
@@ -54,8 +46,9 @@ class mcuf::util::TimerTask extends mcuf::lang::Object
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: uint32_t delay;
-  private: uint32_t period;
+  private: 
+    uint32_t mDelay;
+    uint32_t mPeriod;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -68,16 +61,19 @@ class mcuf::util::TimerTask extends mcuf::lang::Object
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   * Construct.
-   */
-  public: TimerTask(void) = default;
+  public:
+  
+    /**
+     * @brief Construct a new Timer Task object
+     * 
+     */
+    TimerTask(void) = default;
     
-  /**
-   * Destruct.
-   */
-  public: virtual ~TimerTask(void) = default;
+    /**
+     * @brief Destroy the Timer Task object
+     * 
+     */
+    virtual ~TimerTask(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -88,37 +84,68 @@ class mcuf::util::TimerTask extends mcuf::lang::Object
    */
 
   /* **************************************************************************************
+   * Public Method <Inline>
+   */
+  public: 
+  
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    inline bool isRunning(void){
+      if((this->mDelay == 0) & (this->mPeriod == 0))
+        return false;
+        
+      else
+        return true;    
+    }
+  
+  /* **************************************************************************************
    * Public Method <Override>
    */
 
   /* **************************************************************************************
    * Public Method
    */
-  
-  /**
-   * Cancels this timer task. If the task has been scheduled for one-time execution and has 
-   * not yet run, or has not yet been scheduled, it will never run. If the task has been 
-   * scheduled for repeated execution, it will never run again. (If the task is running 
-   * when this call occurs, the task will run to completion, but will never run again.)
-   *
-   * Note that calling this method from within the run method of a repeating timer task
-   *  absolutely guarantees that the timer task will not run again.
-   *
-   * This method may be called repeatedly; the second and subsequent calls have no effect.
-   *
-   * @return true if this task is scheduled for one-time execution and has not yet run, 
-   *         or this task is scheduled for repeated execution. Returns false if the task 
-   *         was scheduled for one-time execution and has already run, or if the task was 
-   *         never scheduled, or if the task was already cancelled. (Loosely speaking, this 
-   *         method returns true if it prevents one or more scheduled executions from taking 
-   *         place.)
-   */
-  public: bool cancel(void);
+  public:
 
+  /**
+   * @brief Cancels this timer task. If the task has been scheduled for one-time execution 
+   *        and has not yet run, or has not yet been scheduled, it will never run. If the 
+   *        task has been scheduled for repeated execution, it will never run again. (If 
+   *        the task is running when this call occurs, the task will run to completion, 
+   *        but will never run again.)
+   *        
+   *        Note that calling this method from within the run method of a repeating timer 
+   *        task absolutely guarantees that the timer task will not run again.
+   * 
+   *        This method may be called repeatedly; the second and subsequent calls have no 
+   *        effect.
+   * 
+   * @return true 
+   * @return false 
+   */
+  bool cancel(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
    */
+
+  /* **************************************************************************************
+   * Protected Method <Inline>
+   */
+  protected: 
+
+    /**
+     * @brief Set the Period object
+     * 
+     * @param period 
+     */
+    inline void setPeriod(uint32_t period){
+      this->mPeriod = period;
+    }
 
   /* **************************************************************************************
    * Protected Method <Override>
@@ -133,125 +160,26 @@ class mcuf::util::TimerTask extends mcuf::lang::Object
    */
 
   /* **************************************************************************************
-   * Private Method <Override>
+   * Private Method <Inline>
    */
-   
-  /* **************************************************************************************
-   * Private Method
-   */
-};
-
-
-
-/* ****************************************************************************************
- * Class TimerTask::Viewer
- */  
-class mcuf::util::TimerTask::Viewer extends mcuf::lang::Object{
-
-  /* **************************************************************************************
-   * Subclass
-   */
-
-  /* **************************************************************************************
-   * Variable <Public>
-   */
-
-  /* **************************************************************************************
-   * Variable <Protected>
-   */
-
-  /* **************************************************************************************
-   * Variable <Private>
-   */
-
-  /* **************************************************************************************
-   * Abstract method <Public>
-   */
-
-  /* **************************************************************************************
-   * Abstract method <Protected>
-   */
-
-  /* **************************************************************************************
-   * Construct Method
-   */
-
-  /**
-   * 
-   */
-  private: Viewer(void) = default;
+  private: 
   
-  /**
-   * 
-   */
-  public: virtual ~Viewer(void) = default;
-  
-  /* **************************************************************************************
-   * Operator Method
-   */
-
-  /* **************************************************************************************
-   * Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-
-  /**
-   * 
-   */
-  public: static bool isTimerTaskRunning(TimerTask& timerTask);
-
-  /**
-   * 
-   */
-  public: static bool subTimerTaskDelay(TimerTask& timerTask, uint32_t milliSecond);
-
-  /**
-   * 
-   */
-  public: static uint32_t getTimerTaskDelay(TimerTask& timerTask);
-  
-  /**
-   * 
-   */
-  public: static uint32_t getTimerTaskPeriod(TimerTask& timerTask);
-  /**
-   * 
-   */  
-  public: static void setTimerTaskDelay(TimerTask& timerTask, uint32_t delay);
-    
-  /**
-   * 
-   */
-  public: static void setTimerTaskPeriod(TimerTask& timerTask, uint32_t period);
-  
-  /**
-   * 
-   */
-  public: static void setTimerTaskDelayPeriod(TimerTask& timerTask, uint32_t delay, uint32_t period);
-
-
-  /* **************************************************************************************
-   * Protected Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Protected Method
-   */
-  
-  /* **************************************************************************************
-   * Private Method <Static>
-   */
+    /**
+     * @brief 
+     * 
+     * @param milliSecond 
+     * @return true 
+     * @return false 
+     */
+    inline bool subDelay(uint32_t milliSecond){
+      if(this->mDelay <= milliSecond){
+        this->mDelay = 0;
+        return true;
+      }else{
+        this->mDelay -= milliSecond;
+        return false;
+      }
+    }
 
   /* **************************************************************************************
    * Private Method <Override>
@@ -261,7 +189,6 @@ class mcuf::util::TimerTask::Viewer extends mcuf::lang::Object{
    * Private Method
    */
 };
- 
 
 /* *****************************************************************************************
  * End of file

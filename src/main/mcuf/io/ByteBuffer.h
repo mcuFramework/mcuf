@@ -29,7 +29,7 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Map
+ * Class/Interface/Struct
  */
 class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
 
@@ -44,9 +44,10 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
   /* **************************************************************************************
    *  Variable <Private>
    */
-  private: uint16_t mMark;
-  private: uint16_t mLimit;
-  private: uint16_t mPosition;
+  private: 
+    uint16_t mMark;
+    uint16_t mLimit;
+    uint16_t mPosition;
 
   /* **************************************************************************************
    *  Abstract method <Public>
@@ -59,18 +60,20 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
   /* **************************************************************************************
    *  Construct Method
    */
+  public: 
 
-  /**
-   * @brief 
-   * 
-   */
-  public: ByteBuffer(const mcuf::lang::Memory& memory);
+    /**
+     * @brief Construct a new Byte Buffer object
+     * 
+     * @param memory 
+     */
+    ByteBuffer(const mcuf::lang::Memory& memory);
 
-  /**
-   * @brief 
-   * 
-   */
-  public: virtual ~ByteBuffer(void) = default;
+    /**
+     * @brief Destroy the Byte Buffer object
+     * 
+     */
+    virtual ~ByteBuffer(void) = default;
 
   /* **************************************************************************************
    *  Public Method <Static>
@@ -83,160 +86,238 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
   /* **************************************************************************************
    *  Public Method <Inline>
    */
+  public:
 
-  /**
-   * @brief 
-   * 
-   */
-  public: inline uint32_t limit(void){
-    return this->mLimit;
-  }
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    inline uint32_t limit(void){
+      return this->mLimit;
+    }
 
-  /**
-   * @brief 
-   * 
-   */
-  public: inline uint32_t capacity(void){
-    return this->length();
-  }
-  
-  /**
-   * @brief 
-   * 
-   */
-  public: inline uint32_t position(void){
-    return this->mPosition;
-  }  
-  
-  /**
-   * @brief 
-   * 
-   */
-  public: inline void reset(void){
-    this->mPosition = 0;
-    this->mLimit = this->length();
-    return;
-  }  
-  
-  /**
-   * @brief 
-   * 
-   */
-  public: inline uint32_t remaining(void){
-    return this->mLimit - this->mPosition;
-  }  
-  
-  /**
-   * @brief 
-   * 
-   */
-  public: inline bool hasRemaining(void){
-    return (this->mLimit > this->mPosition);
-  }  
-  
-  /**
-   * @brief 
-   * 
-   */
-  public: inline void rewind(void){
-    this->mPosition = 0;
-    this->mMark = 0;
-    return;
-  }  
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    inline uint32_t capacity(void){
+      return this->length();
+    }
+    
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    inline uint32_t position(void){
+      return this->mPosition;
+    }  
+    
+    /**
+     * @brief 
+     * 
+     */
+    inline void reset(void){
+      this->mPosition = 0;
+      this->mLimit = this->length();
+      return;
+    }  
+    
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    inline uint32_t remaining(void){
+      return this->mLimit - this->mPosition;
+    }  
+    
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    inline bool hasRemaining(void){
+      return (this->mLimit > this->mPosition);
+    }  
+    
+    /**
+     * @brief 
+     * 
+     */
+    inline void rewind(void){
+      this->mPosition = 0;
+      this->mMark = 0;
+      return;
+    }  
   
   /* **************************************************************************************
    *  Public Method
    */
+  public:
 
-  /**
-   * 
-   */
-  public: bool limit(uint32_t newLimit);
+    /**
+     * @brief 
+     * 
+     * @param newLimit 
+     * @return true 
+     * @return false 
+     */
+    bool limit(uint32_t newLimit);
 
-  /**
-   * 
-   */
-  public: bool position(uint32_t newPosition);
+    /**
+     * @brief 
+     * 
+     * @param newPosition 
+     * @return true 
+     * @return false 
+     */
+    bool position(uint32_t newPosition);
 
-  /**
-   * 
-   */
-  public: void flip(void);
-  
-  /**
-   *
-   */
-  public: bool put(const char* string);
-  
-  /**
-   *
-   */
-  public: bool put(const void* ptr, uint32_t size);
-  
-  /**
-   *
-   */
-  public: bool put(const mcuf::lang::String& string);
-  
-  /**
-   *
-   */
-  public: bool put(mcuf::io::ByteBuffer& byteBuffer);
+    /**
+     * @brief 
+     * 
+     */
+    void flip(void);
+    
+    /**
+     * @brief 
+     * 
+     * @param string 
+     * @return true 
+     * @return false 
+     */
+    bool put(const char* string);
+    
+    /**
+     * @brief 
+     * 
+     * @param ptr 
+     * @param size 
+     * @return true 
+     * @return false 
+     */
+    bool put(const void* ptr, uint32_t size);
+    
+    /**
+     * @brief 
+     * 
+     * @param string 
+     * @return true 
+     * @return false 
+     */
+    bool put(const mcuf::lang::String& string);
+    
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return true 
+     * @return false 
+     */
+    bool put(mcuf::io::ByteBuffer& byteBuffer);
 
-  /**
-   * 
-   */
-  public: bool putByte(const char value);
-  
-  /**
-   *
-   */
-  public: int putFormat(const char* format, ...);
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return true 
+     * @return false 
+     */
+    bool putByte(const char value);
+    
+    /**
+     * @brief 
+     * 
+     * @param format 
+     * @param ... 
+     * @return int 
+     */
+    int putFormat(const char* format, ...);
 
-  /**
-   * 
-   */
-  public: bool putShort(const short value);
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return true 
+     * @return false 
+     */
+    bool putShort(const short value);
 
-  /**
-   * 
-   */
-  public: bool putShortMsb(const short value);
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return true 
+     * @return false 
+     */
+    bool putShortMsb(const short value);
 
-  /**
-   * 
-   */
-  public: bool putInt(const int value);
-  
-  /**
-   * 
-   */
-  public: bool putIntMsb(const int value);  
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return true 
+     * @return false 
+     */
+    bool putInt(const int value);
+    
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return true 
+     * @return false 
+     */
+    bool putIntMsb(const int value);  
 
-  /**
-   * 
-   */
-  public: bool getByte(char& result);
+    /**
+     * @brief Get the Byte object
+     * 
+     * @param result 
+     * @return true 
+     * @return false 
+     */
+    bool getByte(char& result);
 
-  /**
-   * 
-   */
-  public: bool getShort(short& result);
-  
-  /**
-   * 
-   */
-  public: bool getShortMsb(short& result);
+    /**
+     * @brief Get the Short object
+     * 
+     * @param result 
+     * @return true 
+     * @return false 
+     */
+    bool getShort(short& result);
+    
+    /**
+     * @brief Get the Short Msb object
+     * 
+     * @param result 
+     * @return true 
+     * @return false 
+     */
+    bool getShortMsb(short& result);
 
-  /**
-   * 
-   */
-  public: bool getInt(int& result);
-  
-  /**
-   * 
-   */
-  public: bool getIntMsb(int& result);  
+    /**
+     * @brief Get the Int object
+     * 
+     * @param result 
+     * @return true 
+     * @return false 
+     */
+    bool getInt(int& result);
+    
+    /**
+     * @brief Get the Int Msb object
+     * 
+     * @param result 
+     * @return true 
+     * @return false 
+     */
+    bool getIntMsb(int& result);  
 
   /* **************************************************************************************
    *  Protected Method <Static>

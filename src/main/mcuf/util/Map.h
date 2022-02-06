@@ -26,128 +26,95 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Map
+ * Class/Interface/Struct
  */  
 template<typename K, typename V>
 interface mcuf::util::Map{
   
   /* **************************************************************************************
-   * Subclass
-   */
-
-  /* **************************************************************************************
-   * Variable <Public>
+   * Method
    */
 
   /**
+   * @brief 
    * 
+   * @param key 
+   * @return true 
+   * @return false 
    */
   virtual bool containsKey(K key) abstract;
 
   /**
+   * @brief 
    * 
+   * @param value 
+   * @return true 
+   * @return false 
    */
   virtual bool containsValue(V value) abstract;
 
   /**
-   *
+   * @brief 
+   * 
+   * @param key 
+   * @return V 
    */
   virtual V get(K key) abstract;
 
   /**
+   * @brief 
    * 
+   * @param key 
+   * @param value 
+   * @return V 
    */
   virtual V put(K key, V value) abstract;
 
   /**
+   * @brief 
    * 
+   * @param key 
+   * @return V 
    */
   virtual V remove(K key) abstract;
 
   /**
+   * @brief 
    * 
+   * @param key 
+   * @param value 
+   * @return V 
    */
   virtual V replace(K key, V value) abstract;
 
   /**
+   * @brief 
    * 
    */
   virtual void clear(void) abstract;
 
   /**
+   * @brief 
    * 
+   * @return true 
+   * @return false 
    */
   virtual bool isEmpty(void) abstract;
 
-  /** 
+  /**
+   * @brief 
    * 
+   * @return uint32_t 
    */
   virtual uint32_t size(void) abstract;
 
   /**
+   * @brief 
    * 
+   * @param function 
    */
   virtual void forEach(mcuf::function::BiConsumer<K, V>& function) abstract;
 
-  /* **************************************************************************************
-   * Variable <Protected>
-   */
-
-  /* **************************************************************************************
-   * Variable <Private>
-   */
-
-  /* **************************************************************************************
-   * Abstract method <Public>
-   */
-
-  /* **************************************************************************************
-   * Abstract method <Protected>
-   */
-
-  /* **************************************************************************************
-   * Construct Method
-   */
-
-  /* **************************************************************************************
-   * Operator Method
-   */
-
-  /* **************************************************************************************
-   * Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Protected Method
-   */
-
-  /* **************************************************************************************
-   * Private Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Private Method <Override>
-   */
-   
-  /* **************************************************************************************
-   * Private Method
-   */
 };
 
 

@@ -4,7 +4,6 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
 #ifndef MCUF_D2D64DF4_37AF_4608_A7A7_C551E3231977
 #define MCUF_D2D64DF4_37AF_4608_A7A7_C551E3231977
 
@@ -13,7 +12,6 @@
  */  
 #include "mcuf/function/Consumer.h"
 #include "mcuf/lang/Object.h"
-
 
 /* ****************************************************************************************
  * Namespace
@@ -24,18 +22,12 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class ConsumerEvent
+ * Class/Interface/Struct
  */  
 template<typename T>
-class mcuf::function::ConsumerEvent extends mcuf::lang::Object 
-      implements mcuf::function::Consumer<T>{
-
-  /* **************************************************************************************
-   * Subclass
-   */
+class mcuf::function::ConsumerEvent extends mcuf::lang::Object implements 
+  public mcuf::function::Consumer<T>{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -48,7 +40,8 @@ class mcuf::function::ConsumerEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: void (*event)(T);
+  private: 
+    void (*event)(T);
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -61,20 +54,24 @@ class mcuf::function::ConsumerEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Construct Method
    */
+  public: 
 
-  /**
-   * Construct.
-   */
-  public: ConsumerEvent(void (*event)(T)){
-    
-    this->event = event;
-    return;
-  }
+    /**
+     * @brief Construct a new Consumer Event object
+     * 
+     * @param event 
+     */
+    ConsumerEvent(void (*event)(T)){
+      
+      this->event = event;
+      return;
+    }
   
-  /**
-   * Destruct.
-   */
-  public: virtual ~ConsumerEvent() = default;
+    /**
+     * @brief Destroy the Consumer Event object
+     * 
+     */
+    virtual ~ConsumerEvent() = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -99,13 +96,16 @@ class mcuf::function::ConsumerEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Protected Method <Override>
    */
+  public:
 
-  /**
-   * 
-   */
-  public: virtual void accept(T t){
-    this->event(t);
-  }
+    /**
+     * @brief 
+     * 
+     * @param t 
+     */
+    virtual void accept(T t){
+      this->event(t);
+    }
 
   /* **************************************************************************************
    * Protected Method
@@ -125,11 +125,8 @@ class mcuf::function::ConsumerEvent extends mcuf::lang::Object
    
 };
 
-
-
 /* *****************************************************************************************
  * End of file
  */ 
-
 
 #endif/* MCUF_D2D64DF4_37AF_4608_A7A7_C551E3231977 */

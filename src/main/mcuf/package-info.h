@@ -17,6 +17,7 @@
  */
 #include "function\package-info.h"
 #include "hal\package-info.h"
+#include "hw\package-info.h"
 #include "io\package-info.h"
 #include "lang\package-info.h"
 #include "util\package-info.h"

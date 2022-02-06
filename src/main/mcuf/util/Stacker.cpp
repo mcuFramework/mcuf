@@ -15,6 +15,7 @@
 /* ****************************************************************************************
  * Using
  */  
+using mcuf::function::BiConsumer;
 using mcuf::lang::Memory;
 using mcuf::util::Stacker;
 
@@ -45,7 +46,7 @@ Stacker::Stacker(const Memory& memory) construct Memory(memory){
 /* ****************************************************************************************
  * Public Method <Static>
  */
- 
+
 /* ****************************************************************************************
  * Public Method <Override> mcuf::util::Collection<mcuf::lang::Memory>
  */
@@ -67,7 +68,7 @@ void Stacker::clear(void){
  *
  * @param Consumer<Memory&>-action The action to be performed for each element.
  */
-void Stacker::forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& action){
+void Stacker::forEach(void* attachment, BiConsumer<mcuf::lang::Memory*, void*>& action){
   return;
 }
 

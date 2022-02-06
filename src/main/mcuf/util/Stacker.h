@@ -28,15 +28,11 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Stacker
+ * Class/Interface/Struct
  */  
-class mcuf::util::Stacker extends mcuf::lang::Memory 
-  implements mcuf::util::Collection<mcuf::lang::Memory>
-  implements mcuf::lang::managerment::MemoryAllocator{
-  
-  /* **************************************************************************************
-   * Subclass
-   */
+class mcuf::util::Stacker extends mcuf::lang::Memory implements 
+  public mcuf::util::Collection<mcuf::lang::Memory>,
+  public mcuf::lang::managerment::MemoryAllocator{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -45,7 +41,8 @@ class mcuf::util::Stacker extends mcuf::lang::Memory
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: uint8_t* mStackPointer;
+  protected: 
+    uint8_t* mStackPointer;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -62,21 +59,28 @@ class mcuf::util::Stacker extends mcuf::lang::Memory
   /* **************************************************************************************
    * Construct Method
    */
-  
-  /**
-   * Construct.
-   */
-  public: Stacker(void* buffer, uint32_t size);
+  public:
+    
+    /**
+     * @brief Construct a new Stacker object
+     * 
+     * @param buffer 
+     * @param size 
+     */
+    Stacker(void* buffer, uint32_t size);
 
-  /**
-   * Construct.
-   */
-  public: Stacker(const mcuf::lang::Memory& memory);
+    /**
+     * @brief Construct a new Stacker object
+     * 
+     * @param memory 
+     */
+    Stacker(const mcuf::lang::Memory& memory);
 
-  /**
-   * Destruct.
-   */
-  public: virtual ~Stacker() = default;
+    /**
+     * @brief Destroy the Stacker object
+     * 
+     */
+    virtual ~Stacker() = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -89,100 +93,130 @@ class mcuf::util::Stacker extends mcuf::lang::Memory
   /* **************************************************************************************
    * Public Method <Override> mcuf::util::Collection<mcuf::lang::Memory>
    */
+  public: 
+  
+    /**
+     * @brief Removes all of the elements from this collection. The collection will be 
+     *        empty after this method returns.
+     * 
+     */
+    virtual void clear(void) override;
 
-  /**
-   * Removes all of the elements from this collection. The collection will be empty after 
-   * this method returns.
-   */
-  public: virtual void clear(void) override;
+    /**
+     * @brief Returns true if this collection contains no elements.
+     * 
+     * @return true 
+     * @return false 
+     */
+    virtual bool isEmpty(void) override;
 
-  /**
-   * Performs the given action for each element of the Iterable until all elements have 
-   * been processed or the action throws an exception. Unless otherwise specified by the 
-   * implementing class, actions are performed in the order of iteration (if an iteration 
-   * order is specified). 
-   *
-   * @param Consumer<Memory&>-action The action to be performed for each element.
+    /**
+     * @brief Returns the number of elements in this collection.
+     * 
+     * @return uint32_t the number of elements in this collection.
+     */
+    virtual uint32_t size(void) override;
+  
+  /* **************************************************************************************
+   * Public Method <Override> - mcuf::lang::Iterable<E>
    */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& action) override;
+  public:
 
-  /**
-   * Returns true if this collection contains no elements.
-   * 
-   * @return true if this collection contains no elements.
-   */
-  public: virtual bool isEmpty(void) override;
+    /**
+     * @brief Performs the given action for each element of the Iterable until all elements
+     *        have been processed or the action throws an exception. Unless otherwise 
+     *        specified by the implementing class, actions are performed in the order of 
+     *        iteration (if an iteration order is specified). 
+     * 
+     * @param attachment 
+     * @param action 
+     */
+    virtual void forEach(void* attachment, 
+                         mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>& action) override;
 
-  /**
-   * Returns the number of elements in this collection.
-   * 
-   * @return the number of elements in this collection.
-   */
-  public: virtual uint32_t size(void) override;
 
   /* **************************************************************************************
    * Public Method <Override> mcuf::lang::managerment::MemoryAllocator
    */
+  public: 
 
-  /**
-   * @brief 
-   * 
-   * @param size 
-   */
-  public: virtual void* alloc(uint32_t size) override;
+    /**
+     * @brief 
+     * 
+     * @param size 
+     */
+    virtual void* alloc(uint32_t size) override;
 
-  /**
-   * @brief 
-   * 
-   * @param ptr pointer
-   * @return true successful
-   * @return false fail
-   */
-  public: virtual bool free(void* ptr) override;
+    /**
+     * @brief 
+     * 
+     * @param ptr pointer
+     * @return true successful
+     * @return false fail
+     */
+    virtual bool free(void* ptr) override;
 
-  /**
-   * @brief 
-   * 
-   * @param ptr pointer
-   * @param size pointer size
-   * @return true successful
-   * @return false fail
-   */
-  public: virtual bool free(void* ptr, uint32_t size) override;
+    /**
+     * @brief 
+     * 
+     * @param ptr pointer
+     * @param size pointer size
+     * @return true successful
+     * @return false fail
+     */
+    virtual bool free(void* ptr, uint32_t size) override;
   
   /* **************************************************************************************
    * Public Method 
    */
+  public: 
 
-  /**
-   * 
-   */
-  public: virtual uint32_t getFree(void);
-  
-  /**
-   *
-   */
-  public: virtual void* allocAlignment32(uint32_t size);
-  
-  /**
-   *
-   */
-  public: virtual void* allocAlignment64(uint32_t size);  
+    /**
+     * @brief Get the Free object
+     * 
+     * @return uint32_t 
+     */
+    virtual uint32_t getFree(void);
 
-  /**
-   * 
-   */
-  public: virtual mcuf::lang::Memory allocMemory(uint32_t size);
-  
-  /**
-   * 
-   */
-  public: virtual mcuf::lang::Memory allocMemoryAlignment32(uint32_t size);
+    /**
+     * @brief 
+     * 
+     * @param size 
+     * @return void* 
+     */
+    virtual void* allocAlignment32(uint32_t size);
+      
+    /**
+     * @brief 
+     * 
+     * @param size 
+     * @return void* 
+     */
+    virtual void* allocAlignment64(uint32_t size);  
 
-  /**
-   * 
-   */
-  public: virtual mcuf::lang::Memory allocMemoryAlignment64(uint32_t size);
+    /**
+     * @brief 
+     * 
+     * @param size 
+     * @return mcuf::lang::Memory 
+     */
+    virtual mcuf::lang::Memory allocMemory(uint32_t size);
+      
+    /**
+     * @brief 
+     * 
+     * @param size 
+     * @return mcuf::lang::Memory 
+     */
+    virtual mcuf::lang::Memory allocMemoryAlignment32(uint32_t size);
+
+    /**
+     * @brief 
+     * 
+     * @param size 
+     * @return mcuf::lang::Memory 
+     */
+    virtual mcuf::lang::Memory allocMemoryAlignment64(uint32_t size);
 
   /* **************************************************************************************
    * Protected Method <Static>

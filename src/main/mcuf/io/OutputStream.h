@@ -16,7 +16,6 @@
 #include "mcuf/io/CompletionHandler.h"
 #include "mcuf/lang/Object.h"
 
-
 /* ****************************************************************************************
  * Namespace
  */  
@@ -29,40 +28,26 @@ namespace mcuf{
 
 
 /* ****************************************************************************************
- * Class Map
+ * Class/Interface/Struct
  */
 interface mcuf::io::OutputStream{
-  /* **************************************************************************************
-   *  Variable <Public>
-   */
 
   /* **************************************************************************************
-   *  Variable <Protected>
-   */
-
-  /* **************************************************************************************
-   *  Variable <Private>
-   */
-
-  /* **************************************************************************************
-   *  Abstract method <Public>
+   *  Method <Public>
    */
   
   /**
-   * @brief 
    * 
-   * @return true 
-   * @return false 
    */
   virtual bool abortWrite(void) abstract;
-
+  
   /**
    * @brief 
    * 
    * @return true is busy.
    * @return false isn't busy.
    */
-  virtual bool isWriteBusy(void) abstract;
+  virtual bool writeBusy(void) abstract;
 
   /**
    * @brief 
@@ -71,56 +56,12 @@ interface mcuf::io::OutputStream{
    * @param attachment 
    * @param handler 
    * @return true successful.
-   * @return false fail.`
+   * @return false fail.
    */
   virtual bool write(mcuf::io::ByteBuffer* byteBuffer, 
                      void* attachment,
                      mcuf::io::CompletionHandler<int, void*>* handler) abstract;
 
-  /* **************************************************************************************
-   *  Abstract method <Protected>
-   */
-
-  /* **************************************************************************************
-   *  Construct Method
-   */
-
-  /* **************************************************************************************
-   *  Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   *  Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   *  Public Method
-   */
-
-  /* **************************************************************************************
-   *  Protected Method <Static>
-   */
-
-  /* **************************************************************************************
-   *  Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   *  Protected Method
-   */
-
-  /* **************************************************************************************
-   *  Private Method <Static>
-   */
-
-  /* **************************************************************************************
-   *  Private Method <Override>
-   */
-   
-  /* **************************************************************************************
-   *  Private Method
-   */
-    
 };
 
 

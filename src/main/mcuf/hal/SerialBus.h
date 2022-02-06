@@ -28,9 +28,9 @@ namespace mcuf{
 
 
 /* ****************************************************************************************
- * Interface SerialBus
+ * Interface/Class
  */  
-interface mcuf::hal::SerialBus implement mcuf::hal::Base{
+interface mcuf::hal::SerialBus extends mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass

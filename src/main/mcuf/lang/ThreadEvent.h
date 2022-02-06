@@ -27,13 +27,9 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Object
- */  
+ * Class/Interface/Struct
+ */    
 class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
-
-  /* **************************************************************************************
-   * Subclass
-   */
 
   /* **************************************************************************************
    * Variable <Public>
@@ -46,7 +42,8 @@ class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: mcuf::function::Runnable* mRunnable;
+  private:
+    mcuf::function::Runnable* mRunnable;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -59,21 +56,30 @@ class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Construct Method
    */
+  public: 
+  
+    /**
+     * @brief Construct a new Thread Event object
+     * 
+     * @param memory 
+     * @param runnable 
+     */
+    ThreadEvent(const mcuf::lang::Memory& memory, mcuf::function::Runnable& runnable);
 
-  /**
-   * Construct.
-   */
-   public: ThreadEvent(const mcuf::lang::Memory& memory, mcuf::function::Runnable& runnable);
+    /**
+     * @brief Construct a new Thread Event object
+     * 
+     * @param memory 
+     * @param name 
+     * @param runnable 
+     */
+    ThreadEvent(const mcuf::lang::Memory& memory ,const char* name, mcuf::function::Runnable& runnable);
 
-  /**
-   * Construct.
-   */
-  public: ThreadEvent(const mcuf::lang::Memory& memory ,const char* name, mcuf::function::Runnable& runnable);
-
-  /**
-   * Destruct.
-   */
-  public: virtual ~ThreadEvent(void) = default;
+    /**
+     * @brief Destroy the Thread Event object
+     * 
+     */
+    virtual ~ThreadEvent(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -86,7 +92,13 @@ class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Thread
    */
-  public: virtual void run(void) override;
+  public: 
+
+    /**
+     * @brief 
+     * 
+     */
+    virtual void run(void) override;
 
   /* **************************************************************************************
    * Public Method

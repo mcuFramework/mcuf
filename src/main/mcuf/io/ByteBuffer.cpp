@@ -26,6 +26,7 @@ using mcuf::lang::String;
  */
 
 /**
+ * @brief 
  * 
  */
 ByteBuffer::ByteBuffer(const Memory& memory) construct Memory(memory){
@@ -52,7 +53,11 @@ ByteBuffer::ByteBuffer(const Memory& memory) construct Memory(memory){
  */
 
 /**
+ * @brief 
  * 
+ * @param newLimit 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::limit(uint32_t newLimit){
   if(newLimit > this->length())
@@ -63,7 +68,11 @@ bool ByteBuffer::limit(uint32_t newLimit){
 }
 
 /**
+ * @brief 
  * 
+ * @param newPosition 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::position(uint32_t newPosition){
   this->mPosition = newPosition;
@@ -76,6 +85,7 @@ bool ByteBuffer::position(uint32_t newPosition){
 }
 
 /**
+ * @brief 
  * 
  */
 void ByteBuffer::flip(void){
@@ -85,14 +95,23 @@ void ByteBuffer::flip(void){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param string 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::put(char const* string){
   return this->put(string, strlen(string));
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param ptr 
+ * @param size 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::put(const void* ptr, uint32_t size){
   if(size == 0)
@@ -108,14 +127,22 @@ bool ByteBuffer::put(const void* ptr, uint32_t size){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param string 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::put(const String& string){
   return this->put(string.pointer(), string.size());
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::put(ByteBuffer& byteBuffer){
   int rem = byteBuffer.remaining();
@@ -133,7 +160,11 @@ bool ByteBuffer::put(ByteBuffer& byteBuffer){
 }
 
 /**
+ * @brief 
  * 
+ * @param value 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::putByte(char value){
   if(this->mPosition >= this->mLimit)
@@ -144,7 +175,11 @@ bool ByteBuffer::putByte(char value){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param format 
+ * @param ... 
+ * @return int 
  */
 int ByteBuffer::putFormat(const char* format, ...){
   if(this->isReadOnly())
@@ -162,7 +197,11 @@ int ByteBuffer::putFormat(const char* format, ...){
 }
 
 /**
+ * @brief 
  * 
+ * @param value 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::putShort(short value){
   if((this->mPosition + 1) >= this->mLimit)
@@ -173,9 +212,12 @@ bool ByteBuffer::putShort(short value){
   
   return true;
 }
-
 /**
+ * @brief 
  * 
+ * @param value 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::putShortMsb(short value){
   if((this->mPosition + 1) >= this->mLimit)
@@ -190,7 +232,11 @@ bool ByteBuffer::putShortMsb(short value){
 }
 
 /**
+ * @brief 
  * 
+ * @param value 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::putInt(int value){
   if((this->mPosition + 3) >= this->mLimit)
@@ -203,7 +249,11 @@ bool ByteBuffer::putInt(int value){
 }
 
 /**
+ * @brief 
  * 
+ * @param value 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::putIntMsb(int value){
   if((this->mPosition + 3) >= this->mLimit)
@@ -220,7 +270,11 @@ bool ByteBuffer::putIntMsb(int value){
 }
 
 /**
+ * @brief 
  * 
+ * @param result 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::getByte(char& result){
   if(this->mPosition >= this->mLimit)
@@ -232,7 +286,11 @@ bool ByteBuffer::getByte(char& result){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param result 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::getShort(short& result){
   if((this->mPosition + 1) >= this->mLimit)
@@ -245,7 +303,11 @@ bool ByteBuffer::getShort(short& result){
 }
 
 /**
+ * @brief 
  * 
+ * @param result 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::getShortMsb(short& result){
   if((this->mPosition + 1) >= this->mLimit)
@@ -261,7 +323,11 @@ bool ByteBuffer::getShortMsb(short& result){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param result 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::getInt(int& result){
   if((this->mPosition + 3) >= this->mLimit)
@@ -274,7 +340,11 @@ bool ByteBuffer::getInt(int& result){
 }
 
 /**
+ * @brief 
  * 
+ * @param result 
+ * @return true 
+ * @return false 
  */
 bool ByteBuffer::getIntMsb(int& result){
   if((this->mPosition + 3) >= this->mLimit)

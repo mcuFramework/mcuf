@@ -16,8 +16,6 @@
 #include "mcuf/io/ByteBuffer.h"
 #include "mcuf/lang/Pointer.h"
 
-
-
 /* ****************************************************************************************
  * Namespace
  */  
@@ -28,12 +26,10 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
- * Interface SerialPeriph
+ * Class/Interface/Struct
  */  
-interface mcuf::hal::SerialPeriph implement mcuf::hal::Base{
+interface mcuf::hal::SerialPeriph extends mcuf::hal::Base{
 
   /* **************************************************************************************
    * Subclass
@@ -43,16 +39,16 @@ interface mcuf::hal::SerialPeriph implement mcuf::hal::Base{
    * Enum Polarity
    */
   enum Polarity{
-    ACTIVE_HIGH = 0x0U,
-    ACTIVE_LOW = 0x1U
+    HAL_SERIALPERIPH_POLARITY_ACTIVE_HIGH = 0x0U,
+    HAL_SERIALPERIPH_POLARITY_ACTIVE_LOW = 0x1U
   };
 
   /* **************************************************************************************
    * Enum Phase
    */
   enum Phase{
-    FIRST_EDGE = 0x0U,
-    SECOND_EDGE = 0x1U
+    HAL_SERIALPERIPH_PHASE_FIRST_EDGE = 0x0U,
+    HAL_SERIALPERIPH_PHASE_SECOND_EDGE = 0x1U
   };
 
   /* **************************************************************************************
@@ -117,6 +113,7 @@ interface mcuf::hal::SerialPeriph implement mcuf::hal::Base{
                         SerialPeriphEvent* event) abstract;
 
 };
+  
 
 /* *****************************************************************************************
  * End of file

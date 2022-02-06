@@ -4,7 +4,6 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
 #ifndef MCUF_C0CBB109_D7C7_4D02_9E97_1BE3A534DFAE
 #define MCUF_C0CBB109_D7C7_4D02_9E97_1BE3A534DFAE
 
@@ -15,8 +14,6 @@
 #include "mcuf/function/Runnable.h"
 #include "mcuf/lang/Object.h"
 
-
-
 /* ****************************************************************************************
  * Namespace
  */  
@@ -26,17 +23,11 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class Boolean
+ * Class/Interface/Struct
  */  
-class mcuf::function::RunnableEvent extends mcuf::lang::Object
-      implements mcuf::function::Runnable{
-
-  /* **************************************************************************************
-   * Subclass
-   */
+class mcuf::function::RunnableEvent extends mcuf::lang::Object implements 
+  public mcuf::function::Runnable{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -49,7 +40,8 @@ class mcuf::function::RunnableEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: void (*event)(void);
+  private: 
+    void (*event)(void);
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -62,22 +54,26 @@ class mcuf::function::RunnableEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Construct Method
    */
+  public:
 
-  /**
-   * 
-   */
-  public: RunnableEvent(void (*event)(void)){
+    /**
+     * @brief Construct a new Runnable Event object
+     * 
+     * @param event 
+     */
+    RunnableEvent(void (*event)(void)){
 
-    this->event = event;
-    return;
-  }
+      this->event = event;
+      return;
+    }
   
-  /**
-   * 
-   */
-  public: ~RunnableEvent(){
-    return;
-  }
+    /**
+     * @brief Destroy the Runnable Event object
+     * 
+     */
+    ~RunnableEvent(void){
+      return;
+    }
 
   /* **************************************************************************************
    * Operator Method
@@ -90,13 +86,15 @@ class mcuf::function::RunnableEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Public Method <Override>
    */
+  public:
   
-  /**
-   * 
-   */
-  public: virtual void run(void){
-    this->event();
-  }
+    /**
+     * @brief 
+     * 
+     */
+    virtual void run(void){
+      this->event();
+    }
 
   /* **************************************************************************************
    * Public Method
@@ -128,11 +126,8 @@ class mcuf::function::RunnableEvent extends mcuf::lang::Object
    
 };
 
-
-
 /* *****************************************************************************************
  * End of file
  */ 
-
 
 #endif/* MCUF_C0CBB109_D7C7_4D02_9E97_1BE3A534DFAE */

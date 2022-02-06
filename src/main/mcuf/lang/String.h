@@ -27,13 +27,9 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class String
+ * Class/Interface/Struct
  */  
 class mcuf::lang::String extends mcuf::lang::Memory{
-  
-  /* **************************************************************************************
-   * Subclass
-   */
 
   /* **************************************************************************************
    * Variable <Public>
@@ -46,7 +42,8 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: uint32_t mSize;
+  private: 
+    uint32_t mSize;
   
   /* **************************************************************************************
    * Abstract method <Public>
@@ -59,26 +56,35 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Construct Method
    */
-
-  /**
-   *
-   */
-  public: String(void* pointer, uint32_t size);
-
-  /**
-   * Construct.
-   */
-  public: String(const char* str);
+  public: 
   
-  /**
-   * Construct
-   */
-  public: String(const mcuf::lang::Memory& memory);
+    /**
+     * @brief Construct a new String object
+     * 
+     * @param pointer 
+     * @param size 
+     */
+    String(void* pointer, uint32_t size);
 
-  /**
-   * Destruct.
-   */
-  public: virtual ~String(void) = default;
+    /**
+     * @brief Construct a new String object
+     * 
+     * @param str 
+     */
+    String(const char* str);
+    
+    /**
+     * @brief Construct a new String object
+     * 
+     * @param memory 
+     */
+    String(const mcuf::lang::Memory& memory);
+
+    /**
+     * @brief Destroy the String object
+     * 
+     */
+    virtual ~String(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -91,27 +97,39 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Public Method
    */
-  
-  /**
-   * 
-   */
-  public: int format(const char* format, va_list arg);
+  public:
 
-  /**
-   * 
-   */
-  public: int format(const char* format, ...);  
+    /**
+     * @brief 
+     * 
+     * @param format 
+     * @param arg 
+     * @return int 
+     */
+    int format(const char* format, va_list arg);
+
+    /**
+     * @brief 
+     * 
+     * @param format 
+     * @param ... 
+     * @return int 
+     */
+    int format(const char* format, ...);  
   
   /* **************************************************************************************
    * Public Method <Inline>
    */  
-  
-  /**
-   *  get string length.
-   */
-  public: inline uint32_t size(void) const{
-    return this->mSize;
-  }
+  public:
+
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    inline uint32_t size(void) const{
+      return this->mSize;
+    }
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -139,11 +157,8 @@ class mcuf::lang::String extends mcuf::lang::Memory{
 
 };
 
-
-
 /* *****************************************************************************************
  * End of file
  */ 
  
-
 #endif/* MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055 */

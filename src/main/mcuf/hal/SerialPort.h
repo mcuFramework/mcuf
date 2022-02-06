@@ -4,7 +4,6 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
 #ifndef MCUF_A805502A_41D9_45B8_A89A_B11ED86A2F19
 #define MCUF_A805502A_41D9_45B8_A89A_B11ED86A2F19
 
@@ -14,8 +13,6 @@
 #include "mcuf_base.h"
 #include "mcuf\hal\Base.h"
 #include "mcuf\io\ByteBuffer.h"
-
-
 
 /* ****************************************************************************************
  * Namespace
@@ -27,12 +24,10 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
- * Interface SerialPort
+ * Class/Interface/Struct
  */  
-interface mcuf::hal::SerialPort implement mcuf::hal::Base{
+interface mcuf::hal::SerialPort extends mcuf::hal::Base{
 
   /* **************************************************************************************
    * Method

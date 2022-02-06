@@ -4,7 +4,6 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
 #ifndef MCUF_F730676C_6AFB_43FF_A269_0F8D00511C5D
 #define MCUF_F730676C_6AFB_43FF_A269_0F8D00511C5D
 
@@ -15,7 +14,6 @@
 #include "mcuf/function/Function.h"
 #include "mcuf/lang/Object.h"
 
-
 /* ****************************************************************************************
  * Namespace
  */  
@@ -25,18 +23,12 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class FunctionEvent
+ * Class/Interface/Struct
  */  
 template<typename T, typename R>
-class mcuf::function::FunctionEvent extends mcuf::lang::Object
-      implements mcuf::function::Function<T, R>{
-
-  /* **************************************************************************************
-   * Subclass
-   */
+class mcuf::function::FunctionEvent extends mcuf::lang::Object implements 
+  public mcuf::function::Function<T, R>{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -49,7 +41,8 @@ class mcuf::function::FunctionEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: R (*event)(T);
+  private:
+    R (*event)(T);
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -62,20 +55,23 @@ class mcuf::function::FunctionEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Construct Method
    */
-  
-  /**
-   * 
-   */
-  public: FunctionEvent(R (*event)(T)){
+  public:
 
-    this->event = event;
-    return;
-  }
+    /**
+     * @brief Construct a new Function Event object
+     * 
+     * @param event 
+     */
+    FunctionEvent(R (*event)(T)){
+      this->event = event;
+      return;
+    }
   
-  /**
-   * 
-   */
-  public: virtual ~FunctionEvent() = default;
+    /**
+     * @brief Destroy the Function Event object
+     * 
+     */
+    virtual ~FunctionEvent() = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -88,13 +84,17 @@ class mcuf::function::FunctionEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Public Method <Override>
    */
+  public:
 
-  /**
-   * 
-   */
-  public: virtual R apply(T t){
-    return this->event(t);
-  }
+    /**
+     * @brief 
+     * 
+     * @param t 
+     * @return R 
+     */
+    virtual R apply(T t){
+      return this->event(t);
+    }
 
   /* **************************************************************************************
    * Public Method
@@ -126,11 +126,8 @@ class mcuf::function::FunctionEvent extends mcuf::lang::Object
    
 };
 
-
-
 /* *****************************************************************************************
  * End of file
  */ 
-
 
 #endif/* MCUF_F730676C_6AFB_43FF_A269_0F8D00511C5D */

@@ -25,13 +25,9 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Object
+ * Class/Interface/Struct
  */  
 class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
-
-  /* **************************************************************************************
-   * Subclass
-   */
 
   /* **************************************************************************************
    * Variable <Public>
@@ -40,12 +36,9 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Variable <Protected>
    */
-
-  /**
-   *  
-   */
-  protected: uint32_t mElementSize;
-  protected: uint32_t mElementLength;
+  protected: 
+    uint32_t mElementSize;
+    uint32_t mElementLength;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -62,31 +55,47 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Construct Method
    */
+  public:
 
-  /**
-   * Construct.
-   */
-  public: ArrayPrototype(const mcuf::lang::Memory& memory, uint32_t elementSize);
-  
-  /**
-   * Construct.
-   */
-  public: ArrayPrototype(void* pointer, uint32_t size, uint32_t elementSize);
-  
-  /**
-   * Construct.
-   */
-  public: ArrayPrototype(const void* pointer, uint32_t size, uint32_t elementSize);
-  
-  /**
-   * Construct.
-   */
-  public: ArrayPrototype(uint32_t length, uint32_t elementSize);
+    /**
+     * @brief Construct a new Array Prototype object
+     * 
+     * @param memory 
+     * @param elementSize 
+     */
+    ArrayPrototype(const mcuf::lang::Memory& memory, uint32_t elementSize);
+    
+    /**
+     * @brief Construct a new Array Prototype object
+     * 
+     * @param pointer 
+     * @param size 
+     * @param elementSize 
+     */
+    ArrayPrototype(void* pointer, uint32_t size, uint32_t elementSize);
+    
+    /**
+     * @brief Construct a new Array Prototype object
+     * 
+     * @param pointer 
+     * @param size 
+     * @param elementSize 
+     */
+    ArrayPrototype(const void* pointer, uint32_t size, uint32_t elementSize);
+    
+    /**
+     * @brief Construct a new Array Prototype object
+     * 
+     * @param length 
+     * @param elementSize 
+     */
+    ArrayPrototype(uint32_t length, uint32_t elementSize);
 
-  /**
-   * Destruct.
-   */
-  public: virtual ~ArrayPrototype(void) = default;
+    /**
+     * @brief Destroy the Array Prototype object
+     * 
+     */
+    virtual ~ArrayPrototype(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -103,16 +112,21 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Public Method
    */
+  public:
 
-  /**
-   *
-   */
-  public: uint32_t getElementLength(void);
+    /**
+     * @brief Get the Element Length object
+     * 
+     * @return uint32_t 
+     */
+    uint32_t getElementLength(void);
 
-  /**
-   *
-   */
-  public: uint32_t getElementSize(void);
+    /**
+     * @brief Get the Element Size object
+     * 
+     * @return uint32_t 
+     */
+    uint32_t getElementSize(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -125,22 +139,31 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Protected Method
    */
-   
-  /**
-   *
-   */
-  protected: int indexOf(const void* element) const;
+  protected:
 
-  /**
-   *  
-   */
-  protected: void set(const void* src, uint32_t shift);
+    /**
+     * @brief 
+     * 
+     * @param element 
+     * @return int 
+     */
+    int indexOf(const void* element) const;
 
-  /**
-   * 
-   */
-  protected: void* get(uint32_t shift);
+    /**
+     * @brief 
+     * 
+     * @param src 
+     * @param shift 
+     */
+    void set(const void* src, uint32_t shift);
 
+    /**
+     * @brief 
+     * 
+     * @param shift 
+     * @return void* 
+     */
+    void* get(uint32_t shift);
 
   /* **************************************************************************************
    * Private Method <Static>

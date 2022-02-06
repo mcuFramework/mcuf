@@ -24,12 +24,12 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Interface EdgeTrigger
+ * Class/Interface/Struct
  */  
 interface mcuf::hal::EdgeTriggerEvent{
 
   /* **************************************************************************************
-   * Subclass
+   * Enum EdgeTriggerStatus
    */
   enum EdgeTriggerStatus{
     HAL_EDGETRIGGER_RISE,
@@ -41,7 +41,9 @@ interface mcuf::hal::EdgeTriggerEvent{
    */
   
   /**
-   *
+   * @brief 
+   * 
+   * @param status 
    */
   virtual void onEdgeTriggerEvent(EdgeTriggerStatus status) abstract;
   

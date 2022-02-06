@@ -26,15 +26,11 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Object
+ * Class/Interface/Struct
  */  
 template<typename E>
-class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype
-  implements mcuf::util::Queue<E>{
-
-  /* **************************************************************************************
-   * Subclass
-   */
+class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements 
+  public mcuf::util::Queue<E>{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -60,17 +56,22 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype
    * Construct Method
    */
 
-  /**
-   * Construct.
-   */
-  public: ArrayQueue(const Memory& memory) construct mcuf::util::ArrayQueuePrototype(memory){
-    return;
-  }
+  public: 
+  
+    /**
+     * @brief Construct a new Array Queue object
+     * 
+     * @param memory 
+     */
+    ArrayQueue(const Memory& memory) construct mcuf::util::ArrayQueuePrototype(memory){
+      return;
+    }
 
-  /**
-   * Destruct.
-   */
-  public: virtual ~ArrayQueue(void) = default;
+    /**
+     * @brief Destroy the Array Queue object
+     * 
+     */
+    virtual ~ArrayQueue(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -83,83 +84,91 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype
   /* **************************************************************************************
    * Public Method <Override> - mcuf::util::Queue<E>
    */
-  
-  /**
-   * Inserts the specified element into this queue if it is possible to do so immediately 
-   * without violating capacity restrictions.
-   * 
-   * @param e the element to add.
-   * @return true if the element was added to this queue, else false.
-   */
-  public: virtual bool offer(E* e) override{
-    return this->ArrayQueuePrototype::offerPointer(e);
-  }
+  public: 
 
-  /**
-   * Retrieves, but does not remove, the head of this queue, or returns null if this queue 
-   * is empty.
-   * 
-   * @return Retrieves, but does not remove, the head of this queue, or returns null if 
-   *         this queue is empty.
-   */
-  public: virtual E* poll(void) override{
-    return static_cast<E*>(this->ArrayQueuePrototype::pollPointer());
-  }
+    /**
+     * @brief Inserts the specified element into this queue if it is possible to do so 
+     *        immediately without violating capacity restrictions.
+     * 
+     * @param e 
+     * @return true add successful
+     * @return false add fail
+     */
+    virtual bool offer(E* e) override{
+      return this->ArrayQueuePrototype::offerPointer(e);
+    }
 
-  /**
-   * Retrieves and removes the head of this queue, or returns null if this queue is empty.
-   * 
-   * @return he head of this queue, or null if this queue is empty.
-   */
-  public: virtual E* peek(void) override{
-    return static_cast<E*>(this->ArrayQueuePrototype::peekPointer());
-  }
+    /**
+     * @brief  Retrieves, but does not remove, the head of this queue, or returns null if 
+     *         this queue is empty.
+     * 
+     * @return E* Retrieves, but does not remove, the head of this queue, or returns null if
+     *            this queue is empty.
+     */
+    virtual E* poll(void) override{
+      return static_cast<E*>(this->ArrayQueuePrototype::pollPointer());
+    }
+
+    /**
+     * @brief Retrieves and removes the head of this queue, or returns null if this queue 
+     *        is empty.
+     * 
+     * @return E* the head of this queue, or null if this queue is empty.
+     */
+    virtual E* peek(void) override{
+      return static_cast<E*>(this->ArrayQueuePrototype::peekPointer());
+    }
   
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Iterable<E>
-   */  
-  
-  /**
-   * Performs the given action for each element of the Iterable until all elements have 
-   * been processed or the action throws an exception. Unless otherwise specified by the 
-   * implementing class, actions are performed in the order of iteration (if an iteration 
-   * order is specified). 
-   *
-   * @action - The action to be performed for each element.
    */
-  virtual void forEach(mcuf::function::Consumer<E*>& action) override{
-  
-  }  
+  public:
+
+    /**
+     * @brief Performs the given action for each element of the Iterable until all 
+     *        elements have been processed or the action throws an exception. Unless 
+     *        otherwise specified by the implementing class, actions are performed in the 
+     *        order of iteration (if an iteration order is specified). 
+     * 
+     * @param attachment user data.
+     * @param action action The action to be performed for each element.
+     */
+    virtual void forEach(void* attachment, mcuf::function::BiConsumer<E*, void*>& action) override{
+      return;
+    }
   
   /* **************************************************************************************
    * Public Method <Override> - mcuf::util::Collection<E>
    */  
+  public:
 
-  /**
-   * Removes all of the elements from this collection. The collection will be empty after 
-   * this method returns.
-   */
-  public: virtual void clear(void) override{
-    return this->ArrayQueuePrototype::clear();
-  }
+    /**
+     * @brief Removes all of the elements from this collection. The collection will be 
+     *        empty after this method returns.
+     * 
+     */
+    virtual void clear(void) override{
+      return this->ArrayQueuePrototype::clear();
+    }
 
-  /**
-   * Returns true if this collection contains no elements.
-   * 
-   * @return true if this collection contains no elements.
-   */
-  public: virtual bool isEmpty(void) override{
-    return this->ArrayQueuePrototype::isEmpty();
-  }
-
-  /**
-   * Returns the number of elements in this collection.
-   * 
-   * @return the number of elements in this collection.
-   */
-  public: virtual uint32_t size(void) override{
-    return this->ArrayQueuePrototype::size();
-  }
+    /**
+     * @brief Returns true if this collection contains no elements.
+     * 
+     * @return true if this collection contains no elements
+     * @return false 
+     */
+    virtual bool isEmpty(void) override{
+      return this->ArrayQueuePrototype::isEmpty();
+    }
+    
+    /**
+     * @brief Returns the number of elements in this collection.
+     * 
+     * @return uint32_t the number of elements in this collection.
+     */
+    virtual uint32_t size(void) override{
+      return this->ArrayQueuePrototype::size();
+    }
 
   /* **************************************************************************************
    * Public Method

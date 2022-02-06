@@ -19,7 +19,7 @@
 using mcuf::lang::Math;
 using mcuf::util::BlockPool;
 using mcuf::lang::Memory;
-using mcuf::function::Consumer;
+using mcuf::function::BiConsumer;
 
 /* ****************************************************************************************
  * Construct Method
@@ -135,11 +135,11 @@ uint32_t BlockPool::elementSize(void){
 /**
  * 
  */
-void BlockPool::forEach(Consumer<Memory*>& consumer){
+void BlockPool::forEach(void* attachment, BiConsumer<Memory*, void*>& action){
   for(int i = 0; i<this->mCapacity; i++){
     if(getFlag(i)){
       Memory memory = Memory(this->getBlock(i), this->elementSize());
-      consumer.accept(&memory);
+      action.accept(&memory, attachment);
     }
   }
 }

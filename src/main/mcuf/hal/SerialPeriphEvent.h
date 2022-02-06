@@ -4,7 +4,6 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
 #ifndef MCUF_B4701C5A_F9C9_4C60_AF27_09CD2013EE9A
 #define MCUF_B4701C5A_F9C9_4C60_AF27_09CD2013EE9A
 
@@ -13,6 +12,7 @@
  */
 #include "mcuf_base.h"
 #include "mcuf/io/ByteBuffer.h"
+#include "mcuf/hal/SerialPeriphStatus.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -24,23 +24,18 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Interface SerialPeriph::Event
+ * Class/Interface/Struct
  */  
 interface mcuf::hal::SerialPeriphEvent{
   /* **************************************************************************************
    * Subclass
    */
-  enum SerialPeriphStatus{
-    HAL_SERIALPERIPH_SUCCESSFUL,
-    HAL_SERIALPERIPH_FAIL,
-    HAL_SERIALPERIPH_ABORT,
-  };
   
   /* **************************************************************************************
    * Method
    */  
   
-  virtual void onSerialPeriphEvent(SerialPeriphStatus status, 
+  virtual void onSerialPeriphEvent(mcuf::hal::SerialPeriphStatus status, 
                                    mcuf::io::ByteBuffer* transfer,
                                    mcuf::io::ByteBuffer* receiver) abstract;
 };

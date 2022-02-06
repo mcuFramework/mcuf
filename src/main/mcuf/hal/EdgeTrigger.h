@@ -28,36 +28,47 @@ namespace mcuf{
 
 
 /* ****************************************************************************************
- * Interface EdgeTrigger
+ * Class/Interface/Struct
  */  
-interface mcuf::hal::EdgeTrigger implement mcuf::hal::Base{
+interface mcuf::hal::EdgeTrigger extends mcuf::hal::Base{
 
   /* **************************************************************************************
    * Method
    */
 
   /**
+   * @brief 
    * 
    */
   virtual void disableAll(void) abstract;
 
   /**
+   * @brief 
    * 
    */
   virtual void disableFall(void) abstract;
 
   /**
+   * @brief 
    * 
    */
   virtual void disableRise(void) abstract;
 
   /**
+   * @brief 
    * 
+   * @param event 
+   * @return true 
+   * @return false 
    */
   virtual bool enableFall(EdgeTriggerEvent* event) abstract;
 
   /**
+   * @brief 
    * 
+   * @param event 
+   * @return true 
+   * @return false 
    */
   virtual bool enableRise(EdgeTriggerEvent* event) abstract;
 

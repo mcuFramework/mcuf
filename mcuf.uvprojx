@@ -572,14 +572,9 @@
               <FilePath>.\src\main\mcuf\hal\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogDigitalConverter.h</FileName>
+              <FileName>AnalogInputPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverter.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogDigitalConverterChannel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverterChannel.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\AnalogInputPin.h</FilePath>
             </File>
             <File>
               <FileName>Base.h</FileName>
@@ -602,14 +597,49 @@
               <FilePath>.\src\main\mcuf\hal\FlashStorage.h</FilePath>
             </File>
             <File>
-              <FileName>GeneralPurposeIO.h</FileName>
+              <FileName>FlashStorageEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\FlashStorageEvent.h</FilePath>
             </File>
             <File>
-              <FileName>GeneralPurposePin.h</FileName>
+              <FileName>GeneralPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\GeneralPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPinConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPinControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPortControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidth.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidthConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidthControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
@@ -627,14 +657,19 @@
               <FilePath>.\src\main\mcuf\hal\SerialPeriph.h</FilePath>
             </File>
             <File>
-              <FileName>SerialPeripheral.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.h</FilePath>
-            </File>
-            <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\SerialPeriphEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPacket.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeriphPacket.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeriphStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
@@ -655,6 +690,26 @@
               <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\TimerEvent.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hw</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hw\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>SimulatePulseWidth.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SimulatePulseWidth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -695,6 +750,16 @@
               <FileName>OutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerailPortStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerailPortStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialPortStream.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -831,6 +896,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.h</FilePath>
             </File>
+            <File>
+              <FileName>Threads.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Threads.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -855,66 +930,6 @@
               <FileName>MemoryAllocator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\lang\number</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>Boolean.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Boolean.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Boolean.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Boolean.h</FilePath>
-            </File>
-            <File>
-              <FileName>Byte.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Byte.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Byte.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Byte.h</FilePath>
-            </File>
-            <File>
-              <FileName>Integer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Integer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Integer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Integer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Number.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Number.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Number.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Number.h</FilePath>
-            </File>
-            <File>
-              <FileName>Short.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Short.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Short.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Short.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1015,11 +1030,6 @@
               <FileName>Stacker.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Timer.h</FilePath>
             </File>
             <File>
               <FileName>TimerScheduler.cpp</FileName>
@@ -1651,14 +1661,9 @@
               <FilePath>.\src\main\mcuf\hal\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogDigitalConverter.h</FileName>
+              <FileName>AnalogInputPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverter.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogDigitalConverterChannel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverterChannel.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\AnalogInputPin.h</FilePath>
             </File>
             <File>
               <FileName>Base.h</FileName>
@@ -1681,14 +1686,49 @@
               <FilePath>.\src\main\mcuf\hal\FlashStorage.h</FilePath>
             </File>
             <File>
-              <FileName>GeneralPurposeIO.h</FileName>
+              <FileName>FlashStorageEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\FlashStorageEvent.h</FilePath>
             </File>
             <File>
-              <FileName>GeneralPurposePin.h</FileName>
+              <FileName>GeneralPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\GeneralPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPinConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPinControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPortControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidth.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidthConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidthControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
@@ -1706,14 +1746,19 @@
               <FilePath>.\src\main\mcuf\hal\SerialPeriph.h</FilePath>
             </File>
             <File>
-              <FileName>SerialPeripheral.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.h</FilePath>
-            </File>
-            <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\SerialPeriphEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPacket.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeriphPacket.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeriphStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
@@ -1734,6 +1779,26 @@
               <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\TimerEvent.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hw</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hw\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>SimulatePulseWidth.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SimulatePulseWidth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1774,6 +1839,16 @@
               <FileName>OutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerailPortStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerailPortStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialPortStream.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1910,6 +1985,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.h</FilePath>
             </File>
+            <File>
+              <FileName>Threads.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Threads.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1934,66 +2019,6 @@
               <FileName>MemoryAllocator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\lang\number</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>Boolean.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Boolean.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Boolean.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Boolean.h</FilePath>
-            </File>
-            <File>
-              <FileName>Byte.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Byte.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Byte.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Byte.h</FilePath>
-            </File>
-            <File>
-              <FileName>Integer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Integer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Integer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Integer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Number.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Number.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Number.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Number.h</FilePath>
-            </File>
-            <File>
-              <FileName>Short.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Short.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Short.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Short.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2094,11 +2119,6 @@
               <FileName>Stacker.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Timer.h</FilePath>
             </File>
             <File>
               <FileName>TimerScheduler.cpp</FileName>
@@ -2730,14 +2750,9 @@
               <FilePath>.\src\main\mcuf\hal\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogDigitalConverter.h</FileName>
+              <FileName>AnalogInputPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverter.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogDigitalConverterChannel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverterChannel.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\AnalogInputPin.h</FilePath>
             </File>
             <File>
               <FileName>Base.h</FileName>
@@ -2760,14 +2775,49 @@
               <FilePath>.\src\main\mcuf\hal\FlashStorage.h</FilePath>
             </File>
             <File>
-              <FileName>GeneralPurposeIO.h</FileName>
+              <FileName>FlashStorageEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\FlashStorageEvent.h</FilePath>
             </File>
             <File>
-              <FileName>GeneralPurposePin.h</FileName>
+              <FileName>GeneralPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\GeneralPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPinConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPinControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPortControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidth.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidthConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidthControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
@@ -2785,14 +2835,19 @@
               <FilePath>.\src\main\mcuf\hal\SerialPeriph.h</FilePath>
             </File>
             <File>
-              <FileName>SerialPeripheral.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.h</FilePath>
-            </File>
-            <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\SerialPeriphEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPacket.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeriphPacket.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeriphStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
@@ -2813,6 +2868,26 @@
               <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\TimerEvent.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hw</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hw\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>SimulatePulseWidth.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SimulatePulseWidth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2853,6 +2928,16 @@
               <FileName>OutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerailPortStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerailPortStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialPortStream.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2989,6 +3074,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.h</FilePath>
             </File>
+            <File>
+              <FileName>Threads.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Threads.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3013,66 +3108,6 @@
               <FileName>MemoryAllocator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\lang\number</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>Boolean.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Boolean.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Boolean.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Boolean.h</FilePath>
-            </File>
-            <File>
-              <FileName>Byte.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Byte.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Byte.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Byte.h</FilePath>
-            </File>
-            <File>
-              <FileName>Integer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Integer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Integer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Integer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Number.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Number.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Number.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Number.h</FilePath>
-            </File>
-            <File>
-              <FileName>Short.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Short.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Short.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Short.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3173,11 +3208,6 @@
               <FileName>Stacker.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Timer.h</FilePath>
             </File>
             <File>
               <FileName>TimerScheduler.cpp</FileName>
@@ -3809,14 +3839,9 @@
               <FilePath>.\src\main\mcuf\hal\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogDigitalConverter.h</FileName>
+              <FileName>AnalogInputPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverter.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogDigitalConverterChannel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverterChannel.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\AnalogInputPin.h</FilePath>
             </File>
             <File>
               <FileName>Base.h</FileName>
@@ -3839,14 +3864,49 @@
               <FilePath>.\src\main\mcuf\hal\FlashStorage.h</FilePath>
             </File>
             <File>
-              <FileName>GeneralPurposeIO.h</FileName>
+              <FileName>FlashStorageEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\FlashStorageEvent.h</FilePath>
             </File>
             <File>
-              <FileName>GeneralPurposePin.h</FileName>
+              <FileName>GeneralPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\GeneralPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPinConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPinControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPortControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidth.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidthConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidthControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
@@ -3864,14 +3924,19 @@
               <FilePath>.\src\main\mcuf\hal\SerialPeriph.h</FilePath>
             </File>
             <File>
-              <FileName>SerialPeripheral.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.h</FilePath>
-            </File>
-            <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\SerialPeriphEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPacket.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeriphPacket.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeriphStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
@@ -3892,6 +3957,26 @@
               <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\TimerEvent.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hw</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hw\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>SimulatePulseWidth.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SimulatePulseWidth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3932,6 +4017,16 @@
               <FileName>OutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerailPortStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerailPortStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialPortStream.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4068,6 +4163,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.h</FilePath>
             </File>
+            <File>
+              <FileName>Threads.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Threads.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4092,66 +4197,6 @@
               <FileName>MemoryAllocator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\lang\number</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>Boolean.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Boolean.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Boolean.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Boolean.h</FilePath>
-            </File>
-            <File>
-              <FileName>Byte.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Byte.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Byte.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Byte.h</FilePath>
-            </File>
-            <File>
-              <FileName>Integer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Integer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Integer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Integer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Number.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Number.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Number.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Number.h</FilePath>
-            </File>
-            <File>
-              <FileName>Short.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Short.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Short.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Short.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4254,11 +4299,6 @@
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
             </File>
             <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Timer.h</FilePath>
-            </File>
-            <File>
               <FileName>TimerScheduler.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\TimerScheduler.cpp</FilePath>
@@ -4304,7 +4344,7 @@
               <RVCTZI>0</RVCTZI>
               <RVCTOtherData>0</RVCTOtherData>
               <ModuleSelection>0</ModuleSelection>
-              <IncludeInBuild>1</IncludeInBuild>
+              <IncludeInBuild>0</IncludeInBuild>
               <AlwaysBuild>2</AlwaysBuild>
               <GenerateAssemblyFile>2</GenerateAssemblyFile>
               <AssembleAssemblyFile>2</AssembleAssemblyFile>
@@ -4395,7 +4435,7 @@
       <TargetName>mcuf_m4f</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6150000::V6.15::ARMCLANG</pCCUsed>
+      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -4957,14 +4997,9 @@
               <FilePath>.\src\main\mcuf\hal\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogDigitalConverter.h</FileName>
+              <FileName>AnalogInputPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverter.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogDigitalConverterChannel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverterChannel.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\AnalogInputPin.h</FilePath>
             </File>
             <File>
               <FileName>Base.h</FileName>
@@ -4987,14 +5022,49 @@
               <FilePath>.\src\main\mcuf\hal\FlashStorage.h</FilePath>
             </File>
             <File>
-              <FileName>GeneralPurposeIO.h</FileName>
+              <FileName>FlashStorageEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\FlashStorageEvent.h</FilePath>
             </File>
             <File>
-              <FileName>GeneralPurposePin.h</FileName>
+              <FileName>GeneralPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\GeneralPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPinConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPinControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPortControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidth.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidthConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidthControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
@@ -5012,14 +5082,19 @@
               <FilePath>.\src\main\mcuf\hal\SerialPeriph.h</FilePath>
             </File>
             <File>
-              <FileName>SerialPeripheral.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.h</FilePath>
-            </File>
-            <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\SerialPeriphEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPacket.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeriphPacket.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeriphStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
@@ -5040,6 +5115,26 @@
               <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\TimerEvent.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hw</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hw\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>SimulatePulseWidth.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SimulatePulseWidth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5080,6 +5175,16 @@
               <FileName>OutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerailPortStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerailPortStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialPortStream.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5216,6 +5321,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.h</FilePath>
             </File>
+            <File>
+              <FileName>Threads.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Threads.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5240,66 +5355,6 @@
               <FileName>MemoryAllocator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\lang\number</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>Boolean.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Boolean.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Boolean.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Boolean.h</FilePath>
-            </File>
-            <File>
-              <FileName>Byte.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Byte.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Byte.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Byte.h</FilePath>
-            </File>
-            <File>
-              <FileName>Integer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Integer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Integer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Integer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Number.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Number.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Number.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Number.h</FilePath>
-            </File>
-            <File>
-              <FileName>Short.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Short.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Short.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Short.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5402,11 +5457,6 @@
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
             </File>
             <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Timer.h</FilePath>
-            </File>
-            <File>
               <FileName>TimerScheduler.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\TimerScheduler.cpp</FilePath>
@@ -5445,6 +5495,75 @@
         </Group>
         <Group>
           <GroupName>resources</GroupName>
+          <GroupOption>
+            <CommonProperty>
+              <UseCPPCompiler>0</UseCPPCompiler>
+              <RVCTCodeConst>0</RVCTCodeConst>
+              <RVCTZI>0</RVCTZI>
+              <RVCTOtherData>0</RVCTOtherData>
+              <ModuleSelection>0</ModuleSelection>
+              <IncludeInBuild>0</IncludeInBuild>
+              <AlwaysBuild>2</AlwaysBuild>
+              <GenerateAssemblyFile>2</GenerateAssemblyFile>
+              <AssembleAssemblyFile>2</AssembleAssemblyFile>
+              <PublicsOnly>2</PublicsOnly>
+              <StopOnExitCode>11</StopOnExitCode>
+              <CustomArgument></CustomArgument>
+              <IncludeLibraryModules></IncludeLibraryModules>
+              <ComprImg>1</ComprImg>
+            </CommonProperty>
+            <GroupArmAds>
+              <Cads>
+                <interw>2</interw>
+                <Optim>0</Optim>
+                <oTime>2</oTime>
+                <SplitLS>2</SplitLS>
+                <OneElfS>2</OneElfS>
+                <Strict>2</Strict>
+                <EnumInt>2</EnumInt>
+                <PlainCh>2</PlainCh>
+                <Ropi>2</Ropi>
+                <Rwpi>2</Rwpi>
+                <wLevel>0</wLevel>
+                <uThumb>2</uThumb>
+                <uSurpInc>2</uSurpInc>
+                <uC99>2</uC99>
+                <uGnu>2</uGnu>
+                <useXO>2</useXO>
+                <v6Lang>0</v6Lang>
+                <v6LangP>0</v6LangP>
+                <vShortEn>2</vShortEn>
+                <vShortWch>2</vShortWch>
+                <v6Lto>2</v6Lto>
+                <v6WtE>2</v6WtE>
+                <v6Rtti>2</v6Rtti>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath></IncludePath>
+                </VariousControls>
+              </Cads>
+              <Aads>
+                <interw>2</interw>
+                <Ropi>2</Ropi>
+                <Rwpi>2</Rwpi>
+                <thumb>2</thumb>
+                <SplitLS>2</SplitLS>
+                <SwStkChk>2</SwStkChk>
+                <NoWarn>2</NoWarn>
+                <uSurpInc>2</uSurpInc>
+                <useXO>2</useXO>
+                <ClangAsOpt>0</ClangAsOpt>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath></IncludePath>
+                </VariousControls>
+              </Aads>
+            </GroupArmAds>
+          </GroupOption>
           <Files>
             <File>
               <FileName>rtx_config.h</FileName>
@@ -6036,14 +6155,9 @@
               <FilePath>.\src\main\mcuf\hal\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogDigitalConverter.h</FileName>
+              <FileName>AnalogInputPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverter.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogDigitalConverterChannel.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogDigitalConverterChannel.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\AnalogInputPin.h</FilePath>
             </File>
             <File>
               <FileName>Base.h</FileName>
@@ -6066,14 +6180,49 @@
               <FilePath>.\src\main\mcuf\hal\FlashStorage.h</FilePath>
             </File>
             <File>
-              <FileName>GeneralPurposeIO.h</FileName>
+              <FileName>FlashStorageEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPurposeIO.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\FlashStorageEvent.h</FilePath>
             </File>
             <File>
-              <FileName>GeneralPurposePin.h</FileName>
+              <FileName>GeneralPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPurposePin.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\GeneralPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPinConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPinControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\GeneralPortControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidth.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidthConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\PulseWidthControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
@@ -6091,14 +6240,19 @@
               <FilePath>.\src\main\mcuf\hal\SerialPeriph.h</FilePath>
             </File>
             <File>
-              <FileName>SerialPeripheral.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeripheral.h</FilePath>
-            </File>
-            <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\SerialPeriphEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPacket.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeriphPacket.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\SerialPeriphStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
@@ -6119,6 +6273,26 @@
               <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\TimerEvent.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hw</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hw\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>SimulatePulseWidth.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SimulatePulseWidth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6159,6 +6333,16 @@
               <FileName>OutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerailPortStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerailPortStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialPortStream.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6295,6 +6479,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.h</FilePath>
             </File>
+            <File>
+              <FileName>Threads.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Threads.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -6319,66 +6513,6 @@
               <FileName>MemoryAllocator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>main\mcuf\lang\number</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>Boolean.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Boolean.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Boolean.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Boolean.h</FilePath>
-            </File>
-            <File>
-              <FileName>Byte.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Byte.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Byte.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Byte.h</FilePath>
-            </File>
-            <File>
-              <FileName>Integer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Integer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Integer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Integer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Number.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Number.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Number.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Number.h</FilePath>
-            </File>
-            <File>
-              <FileName>Short.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Short.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Short.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\number\Short.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6479,11 +6613,6 @@
               <FileName>Stacker.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Timer.h</FilePath>
             </File>
             <File>
               <FileName>TimerScheduler.cpp</FileName>

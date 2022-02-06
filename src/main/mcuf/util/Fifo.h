@@ -24,14 +24,10 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Object
+ * Class/Interface/Struct
  */  
-class mcuf::util::Fifo extends mcuf::lang::Memory 
-      implements mcuf::util::Collection<mcuf::lang::Memory>{
-
-  /* **************************************************************************************
-   * Subclass
-   */
+class mcuf::util::Fifo extends mcuf::lang::Memory implements 
+  public mcuf::util::Collection<mcuf::lang::Memory>{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -44,11 +40,12 @@ class mcuf::util::Fifo extends mcuf::lang::Memory
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: uint16_t mElementSize;
-  private: uint16_t mElementLength;
-  private: uint16_t mHead;
-  private: uint16_t mTail;
-  private: bool mEmpty;
+  private: 
+    uint16_t mElementSize;
+    uint16_t mElementLength;
+    uint16_t mHead;
+    uint16_t mTail;
+    bool mEmpty;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -61,16 +58,21 @@ class mcuf::util::Fifo extends mcuf::lang::Memory
   /* **************************************************************************************
    * Construct Method
    */
+  public: 
 
-  /**
-   * Construct.
-   */
-  public: Fifo(const mcuf::lang::Memory& memory, uint32_t elementSize);
+    /**
+     * @brief Construct a new Fifo object
+     * 
+     * @param memory 
+     * @param elementSize 
+     */
+    Fifo(const mcuf::lang::Memory& memory, uint32_t elementSize);
 
-  /**
-   * Destruct.
-   */
-  public: virtual ~Fifo(void) = default;
+    /**
+     * @brief Destroy the Fifo object
+     * 
+     */
+    virtual ~Fifo(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -83,94 +85,129 @@ class mcuf::util::Fifo extends mcuf::lang::Memory
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Iterable<E>
    */
-
-  /**
-   * Performs the given action for each element of the Iterable until all elements have 
-   * been processed or the action throws an exception. Unless otherwise specified by the 
-   * implementing class, actions are performed in the order of iteration (if an iteration 
-   * order is specified). 
-   *
-   * @action - The action to be performed for each element.
-   */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& action) override;
+  public:
+    /**
+     * @brief Performs the given action for each element of the Iterable until all 
+     *        elements have been processed or the action throws an exception. Unless 
+     *        otherwise specified by the implementing class, actions are performed in the 
+     *        order of iteration (if an iteration order is specified). 
+     * 
+     * @param attachment 
+     * @param action 
+     */
+    virtual void forEach(void* attachment, 
+                        mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>& action) override;
 
   /* **************************************************************************************
    * Public Method <Override> - mcuf::util::Collection<E>
    */
+  public: 
+  
+    /**
+     * @brief Removes all of the elements from this collection. The collection will be 
+     *        empty after this method returns.
+     * 
+     */
+    virtual void clear(void) override;
+    
+    /**
+     * @brief Returns true if this collection contains no elements.
+     * 
+     * @return true if this collection contains no elements.
+     * @return false 
+     */
+    virtual bool isEmpty(void) override;
 
-  /**
-   * Removes all of the elements from this collection. The collection will be empty after 
-   * this method returns.
-   */
-  public: virtual void clear(void) override;
-
-  /**
-   * Returns true if this collection contains no elements.
-   * 
-   * @return true if this collection contains no elements.
-   */
-  public: virtual bool isEmpty(void) override;
-
-  /**
-   * Returns the number of elements in this collection.
-   * 
-   * @return the number of elements in this collection.
-   */
-  public: virtual uint32_t size(void) override;
+    /**
+     * @brief Returns the number of elements in this collection.
+     * 
+     * @return uint32_t the number of elements in this collection.
+     */
+    virtual uint32_t size(void) override;
 
   /* **************************************************************************************
    * Public Method
    */
+  public:
 
-  /**
-   * 
-   */
-  public: mcuf::lang::Memory getHead(void);
+    /**
+     * @brief Get the Head object
+     * 
+     * @return mcuf::lang::Memory 
+     */
+    mcuf::lang::Memory getHead(void);
 
-  /**
-   * 
-   */
-  public: void* getHeadPointer(void);
+    /**
+     * @brief Get the Head Pointer object
+     * 
+     * @return void* 
+     */
+    void* getHeadPointer(void);
 
-  /**
-   * 
-   */
-  public: mcuf::lang::Memory getTail(void);
+    /**
+     * @brief Get the Tail object
+     * 
+     * @return mcuf::lang::Memory 
+     */
+    mcuf::lang::Memory getTail(void);
 
-  /**
-   * 
-   */
-  public: void* getTailPointer(void);  
+    /**
+     * @brief Get the Tail Pointer object
+     * 
+     * @return void* 
+     */
+    void* getTailPointer(void);  
 
-  /**
-   * 
-   */
-  public: bool insertHead(const mcuf::lang::Memory& memory);
+    /**
+     * @brief 
+     * 
+     * @param memory 
+     * @return true 
+     * @return false 
+     */
+    bool insertHead(const mcuf::lang::Memory& memory);
 
-  /**
-   * 
-   */
-  public: bool insertHead(void* pointer);
+    /**
+     * @brief 
+     * 
+     * @param pointer 
+     * @return true 
+     * @return false 
+     */
+    bool insertHead(void* pointer);
 
-  /**
-   * 
-   */
-  public: bool isFull(void);
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool isFull(void);
 
-  /**
-   * 
-   */
-  public: uint32_t length(void);
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    uint32_t length(void);
 
-  /**
-   * 
-   */
-  public: bool popTail(mcuf::lang::Memory& memory);
+    /**
+     * @brief 
+     * 
+     * @param memory 
+     * @return true 
+     * @return false 
+     */
+    bool popTail(mcuf::lang::Memory& memory);
 
-  /**
-   * 
-   */
-  public: bool popTail(void* pointer);  
+    /**
+     * @brief 
+     * 
+     * @param pointer 
+     * @return true 
+     * @return false 
+     */
+    bool popTail(void* pointer);  
 
   /* **************************************************************************************
    * Protected Method <Static>

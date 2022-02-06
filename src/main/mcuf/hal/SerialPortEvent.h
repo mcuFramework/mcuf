@@ -14,7 +14,6 @@
 #include "mcuf_base.h"
 #include "mcuf/io/ByteBuffer.h"
 
-
 /* ****************************************************************************************
  * Namespace
  */  
@@ -25,11 +24,10 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Interface SerialPort::Event
+ * Class/Interface/Struct
  */  
 interface mcuf::hal::SerialPortEvent{
 
-  
   /* **************************************************************************************
    * Subclass
    */

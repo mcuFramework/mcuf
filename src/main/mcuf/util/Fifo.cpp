@@ -15,7 +15,7 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::function::Consumer;
+using mcuf::function::BiConsumer;
 using mcuf::lang::Memory;
 using mcuf::lang::Pointer;
 using mcuf::util::Fifo;
@@ -61,7 +61,7 @@ void Fifo::clear(void){
 /**
  *
  */
-void Fifo::forEach(Consumer<Memory*>& action){
+void Fifo::forEach(void* attachment, BiConsumer<Memory*, void*>& action){
   if(this->isEmpty())
     return;
   
@@ -70,7 +70,7 @@ void Fifo::forEach(Consumer<Memory*>& action){
       i=0;
 
     Memory memory = this->subMemory((this->mElementSize * i), this->mElementSize);
-    action.accept(&memory);
+    action.accept(&memory, attachment);
   }
 }
 

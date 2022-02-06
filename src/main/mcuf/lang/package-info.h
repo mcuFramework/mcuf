@@ -12,8 +12,6 @@
  * Include folder
  */
 #include "managerment/package-info.h"
-#include "number/package-info.h"
-
 
 /* ****************************************************************************************
  * Include
@@ -32,8 +30,7 @@
 #include "Object.h"
 #include "Thread.h"
 #include "ThreadEvent.h"
-
-
+#include "Threads.h"
 
 /* *****************************************************************************************
  * End of file

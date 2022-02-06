@@ -29,17 +29,9 @@ namespace mcuf{
 
 
 /* ****************************************************************************************
- * Class Object
+ * Class/Interface/Struct
  */  
 class mcuf::lang::Object{
-
-  /* **************************************************************************************
-   * Struct ObjectFlag
-   */
-
-  /* **************************************************************************************
-   * Subclass
-   */
 
   /* **************************************************************************************
    * Variable <Public>
@@ -64,35 +56,50 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Construct Method
    */
+  public:
 
-  /**
-   * Construct.
-   */
-  public: Object(void) = default;
+    /**
+     * @brief Construct a new Object object
+     * 
+     */
+    Object(void) = default;
 
-  /**
-   * Destruct.
-   */
-  public: virtual ~Object(void) = default;
+    /**
+     * @brief Destroy the Object object
+     * 
+     */
+    virtual ~Object(void) = default;
 
   /* **************************************************************************************
    * Operator Method
    */
+  public:
 
-  /**
-   * 
-   */
-  public: void* operator new(size_t n);
+    /**
+     * @brief 
+     * 
+     * @param n 
+     * @return void* 
+     */
+    void* operator new(size_t n);
 
-  /**
-   * 
-   */
-  public: void* operator new(size_t n, void* p);
-  
-  /**
-   * 
-   */
-  public: void* operator new(size_t n, mcuf::lang::managerment::MemoryAllocator& allocator);  
+    /**
+     * @brief 
+     * 
+     * @param n 
+     * @param p 
+     * @return void* 
+     */
+    void* operator new(size_t n, void* p);
+    
+    /**
+     * @brief 
+     * 
+     * @param n 
+     * @param allocator 
+     * @return void* 
+     */
+    void* operator new(size_t n, mcuf::lang::managerment::MemoryAllocator& allocator);  
 
   /* **************************************************************************************
    * Public Method <Static>
@@ -106,37 +113,61 @@ class mcuf::lang::Object{
    * Public Method
    */
 
-  public: void delay(uint32_t milliseconds);
-
-  /**
-   * 
-   */
-  public: bool equal(Object* object);
-
-  /**
-   * 
-   */
-  public: bool equal(Object& object);
-
-  /**
-   * 
-   */
-  public: void finalize(void);
+  public: 
   
-  /**
-   *
-   */
-  public: void wait(void);
-  
-  /**
-   * 
-   */
-  public: bool wait(uint32_t timeout);
-  
-  /**
-   *
-   */
-  public: bool yield(void);
+    /**
+     * @brief 
+     * 
+     * @param milliseconds 
+     */
+    void delay(uint32_t milliseconds);
+
+    /**
+     * @brief 
+     * 
+     * @param object 
+     * @return true 
+     * @return false 
+     */
+    bool equal(Object* object);
+
+    /**
+     * @brief 
+     * 
+     * @param object 
+     * @return true 
+     * @return false 
+     */
+    bool equal(Object& object);
+
+    /**
+     * @brief 
+     * 
+     */
+    void finalize(void);
+
+    /**
+     * @brief 
+     * 
+     */
+    void wait(void);
+    
+    /**
+     * @brief 
+     * 
+     * @param timeout 
+     * @return true 
+     * @return false 
+     */
+    bool wait(uint32_t timeout);
+    
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool yield(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -164,11 +195,8 @@ class mcuf::lang::Object{
 
 };
 
-
-
 /* *****************************************************************************************
  * End of file
  */ 
-
 
 #endif/* MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE */

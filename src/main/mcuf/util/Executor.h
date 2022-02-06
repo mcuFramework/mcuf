@@ -26,16 +26,10 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class Executor
+ * Class/Interface/Struct
  */  
 class mcuf::util::Executor extends mcuf::util::ArrayQueue<mcuf::function::Runnable>{
-  
-  /* **************************************************************************************
-   * Subclass
-   */
   
   /* **************************************************************************************
    * Variable <Public>
@@ -60,16 +54,21 @@ class mcuf::util::Executor extends mcuf::util::ArrayQueue<mcuf::function::Runnab
   /* **************************************************************************************
    * Construct Method
    */
-  
-  /**
-   * Construct.
-   */
-  public: Executor(const mcuf::lang::Memory& memory);
 
-  /**
-   * Destruct.
-   */
-  public: virtual ~Executor() = default;
+  public: 
+
+    /**
+     * @brief Construct a new Executor object
+     * 
+     * @param memory 
+     */
+    Executor(const mcuf::lang::Memory& memory);
+
+    /**
+     * @brief Destroy the Executor object
+     * 
+     */
+    virtual ~Executor() = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -86,23 +85,30 @@ class mcuf::util::Executor extends mcuf::util::ArrayQueue<mcuf::function::Runnab
   /* **************************************************************************************
    * Public Method
    */
-
-  /**
-   * Add a new task in to executor.
-   * 
-   * @param command task.
-   */
-  public: bool execute(mcuf::function::Runnable* runnable);
-
-  /**
-   * 
-   */
-  public: bool actionSingle(void);
+  public: 
   
-  /**
-   * 
-   */
-  public: void actionAll(void);  
+    /**
+     * @brief Add a new task in to executor.
+     * 
+     * @param runnable task
+     * @return true 
+     * @return false 
+     */
+    bool execute(mcuf::function::Runnable* runnable);
+
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool actionSingle(void);
+    
+    /**
+     * @brief 
+     * 
+     */
+    void actionAll(void);  
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -128,12 +134,10 @@ class mcuf::util::Executor extends mcuf::util::ArrayQueue<mcuf::function::Runnab
    * Private Method
    */
   
-  
 };
  
 /* *****************************************************************************************
  * End of file
  */ 
-
 
 #endif/* MCUF_B33994C2_08DF_4AFD_A659_6CE8721463F1 */

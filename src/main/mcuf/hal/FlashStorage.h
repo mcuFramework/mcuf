@@ -13,8 +13,6 @@
  */  
 #include "mcuf/hal/Base.h"
 #include "mcuf/io/ByteBuffer.h"
-#include "mcuf/lang/Pointer.h"
-
 
 /* ****************************************************************************************
  * Namespace
@@ -22,87 +20,71 @@
 namespace mcuf{
   namespace hal{  
     interface FlashStorage;
+    interface FlashStorageEvent;
   }
 }
 
-
-
 /* ****************************************************************************************
- * Interface FlashStorage
+ * Class/Interface/Struct
  */  
-interface mcuf::hal::FlashStorage implement mcuf::hal::Base{
-
-  /* **************************************************************************************
-   * Subclass
-   */
-  interface Event;
+interface mcuf::hal::FlashStorage extends mcuf::hal::Base{
 
   /* **************************************************************************************
    * Method
    */
 
   /**
+   * @brief 
    * 
+   * @return uint32_t 
    */
   virtual uint32_t flashSize(void) abstract;
 
   /**
+   * @brief 
    * 
+   * @return uint32_t 
    */
   virtual uint32_t pageSize(void) abstract;
 
   /**
+   * @brief 
    * 
+   * @return uint32_t 
    */
   virtual uint32_t sectorSize(void) abstract;
 
   /**
+   * @brief 
    * 
+   * @return uint32_t 
    */
   virtual uint32_t minimumWriteSize(void) abstract;
 
   /**
+   * @brief 
    * 
+   * @param bytebuffer 
+   * @param event 
+   * @return true 
+   * @return false 
    */
-  virtual bool write(mcuf::io::ByteBuffer* bytebuffer, Event* event) abstract;
+  virtual bool write(mcuf::io::ByteBuffer* bytebuffer, FlashStorageEvent* event) abstract;
 
   /**
+   * @brief 
    * 
+   * @param bytebuffer 
+   * @param event 
+   * @return true 
+   * @return false 
    */
-  virtual bool read(mcuf::io::ByteBuffer* bytebuffer, Event* event) abstract;
+  virtual bool read(mcuf::io::ByteBuffer* bytebuffer, FlashStorageEvent* event) abstract;
 
 };
-
-
-
-/* ****************************************************************************************
- * Interface FlashStorage::Event
- */  
-interface mcuf::hal::FlashStorage::Event{
-  /* **************************************************************************************
-   * Subclass
-   */
-  enum Status{
-    WRITE_SUCCESSFUL,
-    WRITE_FAIL,
-    READ_SUCCESSFUL,
-    READ_FAIL,
-  };
-
-  /* **************************************************************************************
-   * Method
-   */
-  
-  /**
-   *
-   */
-  virtual void onFlashStorageEvent(Status status, mcuf::io::ByteBuffer* byteBuffer) abstract;
-};
-
 
 /* *****************************************************************************************
  * End of file
  */ 
-
 
 #endif/* MCUF_DE1F2BD6_EFF1_4410_A5B2_5A1C14D00695 */

@@ -25,7 +25,7 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Interface MemoryAllocator
+ * Class/Interface/Struct
  */  
 interface mcuf::lang::managerment::MemoryAllocator{
   /* **************************************************************************************

@@ -29,7 +29,7 @@ namespace mcuf{
 class mcuf::lang::Error final extends mcuf::lang::Object{
 
   /* **************************************************************************************
-   * Subclass
+   * enum Code
    */
   public: enum Code{
     NONE                       = 0x00000000 + 0,
@@ -77,16 +77,19 @@ class mcuf::lang::Error final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Construct Method
    */
+  private:
+  
+    /**
+     * @brief Construct a new Error object
+     * 
+     */
+    Error(void) = default;
 
-  /**
-   * Construct.
-   */
-  private: Error(void) = default;
-
-  /**
-   * Destruct.
-   */
-  private: virtual ~Error(void) = default;
+    /**
+     * @brief Destroy the Error object
+     * 
+     */
+    virtual ~Error(void) = default;
 
   /* **************************************************************************************
    * Operator Method

@@ -15,8 +15,6 @@
 #include "mcuf\lang\Object.h"
 #include "mcuf\lang\Pointer.h"
 
-
-
 /* ****************************************************************************************
  * Namespace
  */  
@@ -28,21 +26,11 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class Integer
+ * Class/Interface/Struct
  */  
 class mcuf::lang::Memory extends mcuf::lang::Pointer{
-  
-  /* **************************************************************************************
-   * Enum Flag
-   */
-  
-  /* **************************************************************************************
-   * Subclass
-   */
-  
+
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -54,7 +42,8 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: uint32_t mLength;
+  private: 
+    uint32_t mLength;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -67,26 +56,36 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /* **************************************************************************************
    * Construct Method
    */
+  public:
 
-  /**
-   * 
-   */
-  public: Memory(const Memory& memory);
+    /**
+     * @brief Construct a new Memory object
+     * 
+     * @param memory 
+     */
+    Memory(const Memory& memory);
 
-  /**
-   *
-   */
-  public: Memory(const void* pointer, uint32_t length);
+    /**
+     * @brief Construct a new Memory object
+     * 
+     * @param pointer 
+     * @param length 
+     */
+    Memory(const void* pointer, uint32_t length);
 
-  /**
-   * 
-   */  
-  public: Memory(void* pointer, uint32_t length);
-  
-  /**
-   * 
-   */  
-  public: ~Memory(void);
+    /**
+     * @brief Construct a new Memory object
+     * 
+     * @param pointer 
+     * @param length 
+     */
+    Memory(void* pointer, uint32_t length);
+    
+    /**
+     * @brief Destroy the Memory object
+     * 
+     */
+    ~Memory(void);
 
   /* **************************************************************************************
    * Operator Method
@@ -95,108 +94,143 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /* **************************************************************************************
    * Public Method <Static>
    */
+  public:
   
-  /**
-   * 
-   */
-  public: static mcuf::lang::Memory nullMemory(void);
+    /**
+     * @brief 
+     * 
+     * @return mcuf::lang::Memory 
+     */
+    static mcuf::lang::Memory nullMemory(void);
   
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Pointer
    */
+  public:
+  
+  virtual int copy(const void* source, uint32_t length) override;
 
-  /**
-   * 
-   */
-  public: virtual int copy(const void* source, uint32_t length) override;
+  virtual int copy(const void* source, uint32_t shift, uint32_t length) override;
 
-  /**
-   * 
-   */
-  public: virtual int copy(const void* source, uint32_t shift, uint32_t length) override;
-
-  /**
-   * 
-   */
-  public: virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length) override;
+  virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length) override;
 
   /* **************************************************************************************
    * Public Method
    */
-
-  /**
-   * 
-   */
-  public: Memory& clear(void);
+  public: 
   
-  /**
-   * 
-   */
-  public: Memory& clear(uint8_t value);  
+    /**
+     * @brief 
+     * 
+     * @return Memory& 
+     */
+    Memory& clear(void);
+    
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return Memory& 
+     */
+    Memory& clear(uint8_t value);  
 
-  /**
-   * 
-   * @return copy of number.
-   */
-  public: int copyMemory(Memory& sourec);
+    /**
+     * @brief 
+     * 
+     * @param sourec 
+     * @return int copy of number.
+     */
+    int copyMemory(Memory& sourec);
 
-  /**
-   * 
-   * @return copy of number.
-   */
-  public: int copyMemory(Memory& sourec, uint32_t shift);
+    /**
+     * @brief 
+     * 
+     * @param sourec 
+     * @param shift 
+     * @return int int copy of number.
+     */
+    int copyMemory(Memory& sourec, uint32_t shift);
 
-  /**
-   * 
-   * @return copy of number.
-   */
-  public: int copyMemory(Memory& sourec, uint32_t shift, uint32_t length);
+    /**
+     * @brief 
+     * 
+     * @param sourec 
+     * @param shift 
+     * @param length 
+     * @return int copy of number. 
+     */
+    int copyMemory(Memory& sourec, uint32_t shift, uint32_t length);
 
-  /**
-   * 
-   * @return copy of number.
-   */
-  public: int copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length);
+    /**
+     * @brief 
+     * 
+     * @param sourec 
+     * @param shift 
+     * @param start 
+     * @param length 
+     * @return int copy of number. 
+     */
+    int copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length);
 
-  /**
-   *
-   */
-  public: bool inRange(void* address) const;
+    /**
+     * @brief 
+     * 
+     * @param address 
+     * @return true in range.
+     * @return false isn't range.
+     */
+    bool inRange(void* address) const;
 
-  /**
-   * 
-   */
-  public: mcuf::lang::Memory subMemory(uint32_t beginIndex) const;
+    /**
+     * @brief 
+     * 
+     * @param beginIndex 
+     * @return mcuf::lang::Memory 
+     */
+    mcuf::lang::Memory subMemory(uint32_t beginIndex) const;
 
-  /**
-   * 
-   */
-  public: mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length) const;
+    /**
+     * @brief 
+     * 
+     * @param beginIndex 
+     * @param length 
+     * @return mcuf::lang::Memory 
+     */
+    mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length) const;
 
   /* **************************************************************************************
    * Public Method <Inline>
    */
+  public: 
 
-  /**
-   *
-   */
-  public: inline bool isReadOnly(void) const{
-    return ((this->mLength & 0x80000000) == 0x80000000);
-  }
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    inline bool isReadOnly(void) const{
+      return ((this->mLength & 0x80000000) == 0x80000000);
+    }
 
-  /**
-   * 
-   */
-  public: inline bool isEmpty(void) const{
-    return (this->isNull()) | (this->length() == 0);
-  }
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    inline bool isEmpty(void) const{
+      return (this->isNull()) | (this->length() == 0);
+    }
 
-  /**
-   * 
-   */
-  public: inline uint32_t length(void) const{
-    return (this->mLength & 0x7FFFFFFF);
-  }
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    inline uint32_t length(void) const{
+      return (this->mLength & 0x7FFFFFFF);
+    }
 
   /* **************************************************************************************
    * Protected Method <Static>

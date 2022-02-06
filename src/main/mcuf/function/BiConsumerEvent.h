@@ -4,7 +4,6 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
 #ifndef MCUF_FC6FA4E2_E818_4894_866D_38F6B2541263
 #define MCUF_FC6FA4E2_E818_4894_866D_38F6B2541263
 
@@ -24,18 +23,12 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class BiConsumerEvent
+ * Class/Interface/Struct
  */  
 template<class T, class U>
-class mcuf::function::BiConsumerEvent extends mcuf::lang::Object
-      implements mcuf::function::BiConsumer<T, U> {
-
-  /* **************************************************************************************
-   * Subclass
-   */
+class mcuf::function::BiConsumerEvent extends mcuf::lang::Object implements 
+  public mcuf::function::BiConsumer<T, U> {
 
   /* **************************************************************************************
    * Variable <Public>
@@ -48,8 +41,8 @@ class mcuf::function::BiConsumerEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: void (*mEvent)(T, U);
-
+  private: 
+    void (*mEvent)(T, U);
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -62,20 +55,24 @@ class mcuf::function::BiConsumerEvent extends mcuf::lang::Object
   /* **************************************************************************************
    * Construct Method
    */
+  public:
 
-  /**
-   * Construct.
-   */
-  public: BiConsumerEvent(void (*event)(T, U)){
+    /**
+     * @brief Construct a new Bi Consumer Event object
+     * 
+     * @param event 
+     */
+    BiConsumerEvent(void (*event)(T, U)){
 
-    this->mEvent = event;
-    return;
-  }
+      this->mEvent = event;
+      return;
+    }
   
-  /**
-   * Destructor.
-   */
-  public: ~BiConsumerEvent() = default;
+    /**
+     * @brief Destroy the Bi Consumer Event object
+     * 
+     */
+    ~BiConsumerEvent() = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -86,15 +83,19 @@ class mcuf::function::BiConsumerEvent extends mcuf::lang::Object
    */
 
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> - mcuf::function::BiConsumer<T, U>
    */
+  public:
 
-  /**
-   * 
-   */
-  public: virtual void accept(T t, U u){
-    this->mEvent(t, u);
-  }
+    /**
+     * @brief 
+     * 
+     * @param t 
+     * @param u 
+     */
+    virtual void accept(T t, U u){
+      this->mEvent(t, u);
+    }
 
   /* **************************************************************************************
    * Public Method
@@ -126,11 +127,8 @@ class mcuf::function::BiConsumerEvent extends mcuf::lang::Object
    
 };
 
-
-
 /* *****************************************************************************************
  * End of file
  */ 
-
 
 #endif/* MCUF_FC6FA4E2_E818_4894_866D_38F6B2541263 */

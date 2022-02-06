@@ -25,11 +25,12 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Interface SerialBus::Event
+ * Class/Interface/Struct
  */  
 interface mcuf::hal::SerialBusEvent{
+  
   /* **************************************************************************************
-   * Subclass
+   * Enum SerialBusStatus
    */
   enum SerialBusStatus{
     HAL_SERIALBUS_WRITE_SUCCESSFUL,

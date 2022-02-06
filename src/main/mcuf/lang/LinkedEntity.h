@@ -26,13 +26,9 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Object
+ * Class/Interface/Struct
  */  
 class mcuf::lang::LinkedEntity extends mcuf::lang::Object{
-
-  /* **************************************************************************************
-   * Subclass
-   */
 
   /* **************************************************************************************
    * Variable <Public>
@@ -41,8 +37,9 @@ class mcuf::lang::LinkedEntity extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: void* mBase;
-  protected: LinkedEntity* mNext;
+  protected: 
+    void* mBase;
+    LinkedEntity* mNext;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -59,16 +56,20 @@ class mcuf::lang::LinkedEntity extends mcuf::lang::Object{
   /* **************************************************************************************
    * Construct Method
    */
+  public:
 
-  /**
-   * Construct.
-   */
-  public: LinkedEntity(void* base);
+    /**
+     * @brief Construct a new Linked Entity object
+     * 
+     * @param base 
+     */
+    LinkedEntity(void* base);
 
-  /**
-   * Destruct.
-   */
-  public: virtual ~LinkedEntity(void) = default;
+    /**
+     * @brief Destroy the Linked Entity object
+     * 
+     */
+    virtual ~LinkedEntity(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -85,41 +86,57 @@ class mcuf::lang::LinkedEntity extends mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method
    */
+  public:
 
-  /**
-   * 
-   */
-  public: void* get(void);
+    /**
+     * @brief 
+     * 
+     * @return void* 
+     */
+    void* get(void);
 
-  /**
-   * 
-   */
-  public: void add(LinkedEntity* LinkedEntity);
+    /**
+     * @brief 
+     * 
+     * @param LinkedEntity 
+     */
+    void add(LinkedEntity* LinkedEntity);
 
-  /**
-   * 
-   */
-  public: void insert(LinkedEntity* LinkedEntity);
+    /**
+     * @brief 
+     * 
+     * @param LinkedEntity 
+     */
+    void insert(LinkedEntity* LinkedEntity);
 
-  /**
-   * 
-   */
-  public: LinkedEntity* next(void);
+    /**
+     * @brief 
+     * 
+     * @return LinkedEntity* 
+     */
+    LinkedEntity* next(void);
 
-  /**
-   * 
-   */
-  public: bool hasNext(void);
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool hasNext(void);
 
-  /**
-   * 
-   */
-  public: LinkedEntity* remove(void);
-
-  /**
-   * 
-   */
-  public: LinkedEntity* removeAll(void);  
+    /**
+     * @brief 
+     * 
+     * @return LinkedEntity* 
+     */
+    LinkedEntity* remove(void);
+    
+    /**
+     * @brief 
+     * 
+     * @return LinkedEntity* 
+     */
+    LinkedEntity* removeAll(void);  
 
   /* **************************************************************************************
    * Protected Method <Static>

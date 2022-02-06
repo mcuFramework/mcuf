@@ -14,7 +14,7 @@
 #include "mcuf_base.h"
 #include "mcuf/lang/Object.h"
 #include "mcuf/function/Consumer.h"
-
+#include "mcuf/function/BiConsumer.h"
 
 
 /* ****************************************************************************************
@@ -29,89 +29,27 @@ namespace mcuf{
 
 
 /* ****************************************************************************************
- * Class Iterable
+ * Class/Interface/Struct
  */  
 template<typename E>
 interface mcuf::lang::Iterable{
   
   /* **************************************************************************************
-   * Subclass
-   */
-  
-  /* **************************************************************************************
-   * Variable <Public>
+   * Method
    */
 
-  /* **************************************************************************************
-   * Variable <Protected>
-   */
-
-  /* **************************************************************************************
-   * Variable <Private>
-   */
-
-  /* **************************************************************************************
-   * Abstract method <Public>
-   */
-  
   /**
-   * Performs the given action for each element of the Iterable until all elements have 
-   * been processed or the action throws an exception. Unless otherwise specified by the 
-   * implementing class, actions are performed in the order of iteration (if an iteration 
-   * order is specified). 
-   *
-   * @action - The action to be performed for each element.
+   * @brief Performs the given action for each element of the Iterable until all elements 
+   *        have been processed or the action throws an exception. Unless otherwise 
+   *        specified by the implementing class, actions are performed in the order of 
+   *        iteration (if an iteration order is specified).
+   * 
+   * @param attachment User data.
+   * @param action The action to be performed for each element.
    */
-  virtual void forEach(mcuf::function::Consumer<E*>& action) abstract;
+  virtual void forEach(void* attachment, 
+                       mcuf::function::BiConsumer<E*, void*>& action) abstract;
 
-  /* **************************************************************************************
-   * Abstract method <Protected>
-   */
-
-  /* **************************************************************************************
-   * Construct Method
-   */
-
-  /* **************************************************************************************
-   * Operator Method
-   */
-
-  /* **************************************************************************************
-   * Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Protected Method
-   */
-
-  /* **************************************************************************************
-   * Private Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Private Method <Override>
-   */
-   
-  /* **************************************************************************************
-   * Private Method
-   */
-  
 };
  
 

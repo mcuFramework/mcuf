@@ -15,8 +15,6 @@
 #include "mcuf/util/Pool.h"
 #include "mcuf/lang/Memory.h"
 
-
-
 /* ****************************************************************************************
  * Namespace
  */  
@@ -26,17 +24,11 @@ namespace mcuf{
   }
 }
 
-
-
 /* ****************************************************************************************
- * Class BlockPool
+ * Class/Interface/Struct
  */  
-class mcuf::util::BlockPool extends mcuf::lang::Memory
-      implements mcuf::util::Pool{
-  
-  /* **************************************************************************************
-   * Subclass
-   */
+class mcuf::util::BlockPool extends mcuf::lang::Memory implements 
+  public mcuf::util::Pool{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -45,12 +37,13 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: uint32_t mCapacity;
-  protected: uint32_t mElementSize;
-  protected: uint32_t mSize;
-  protected: uint32_t mLastFlag;
-  protected: uint8_t* mFlags;
-  protected: uint32_t mFlagSize;
+  protected: 
+    uint32_t mCapacity;
+    uint32_t mElementSize;
+    uint32_t mSize;
+    uint32_t mLastFlag;
+    uint8_t* mFlags;
+    uint32_t mFlagSize;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -67,17 +60,22 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory
   /* **************************************************************************************
    * Construct Method
    */
+  public: 
 
-  /**
-   * Construct.
-   */
-  public: BlockPool(const mcuf::lang::Memory& memory, uint32_t elementSize);
-  
-  /**
-   * Destruct.
-   */
-  public: virtual ~BlockPool(void) = default;
-  
+    /**
+     * @brief Construct a new Block Pool object
+     * 
+     * @param memory 
+     * @param elementSize 
+     */
+    BlockPool(const mcuf::lang::Memory& memory, uint32_t elementSize);
+    
+    /**
+     * @brief Destroy the Block Pool object
+     * 
+     */
+    virtual ~BlockPool(void) = default;
+    
   /* **************************************************************************************
    * Operator Method
    */
@@ -89,86 +87,104 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory
   /* **************************************************************************************
    * Public Method <Override>
    */
-  
-  /**
-   * Returns this pool element size of byte
-   *
-   * @return element size of byte.
-   */
-  public: virtual uint32_t elementSize(void) override;
-  
-  /**
-   * Returns this pool's capacity.
-   *
-   * @return The capacity of this pool.
-   */
-  public: virtual uint32_t capacity(void) override;
-  
-  /**
-   * Returns the number of elements in this pool.
-   *
-   * @return the number of elements in this pool.
-   */
-  public: virtual uint32_t size(void) override;
-  
-  /**
-   * Removes all of the elements from this pool (optional operation). The pool will be empty after this method returns.
-   */
-  public: virtual void clear(void) override;
-  
-  /**
-   * Returns true if this pool contains no elements.
-   *
-   * @return true if this pool contains no elements.
-   */
-  public: virtual bool isEmpty(void) override;
-  
-  /**
-   * Alloc memory from pool.
-   *
-   * @return element pointer if pool not full, otherwise null pointer.
-   */
-  public: virtual void* alloc(void) override;
+  public:
 
-  /**
-   * 
-   */
-  public: virtual mcuf::lang::Memory allocMemory(void) override;
-  
-  /**
-   * Alloc memory from pool and copy element.
-   *
-   * @element Element pointer.
-   * @return element pointer if pool not full, otherwise null pointer.
-   */
-  public: virtual void* add(const void* element) override;
-  
-  /**
-   * Free this element memory.  
-   *
-   * @element Element pointer.
-   * @return true if this poll found element and remove.
-   */
-  public: virtual bool remove(void* element) override;
+    /**
+     * @brief Returns this pool element size of byte.
+     * 
+     * @return uint32_t element size of byte.
+     */
+    virtual uint32_t elementSize(void) override;
 
-  /**
-   * Performs the given action for each element of the Iterable until all elements have 
-   * been processed or the action throws an exception. Unless otherwise specified by the 
-   * implementing class, actions are performed in the order of iteration (if an iteration 
-   * order is specified). 
-   *
-   * @action - The action to be performed for each element.
+    /**
+     * @brief Returns this pool's capacity.
+     * 
+     * @return uint32_t The capacity of this pool.
+     */
+    virtual uint32_t capacity(void) override;
+
+    /**
+     * @brief Returns the number of elements in this pool.
+     * 
+     * @return uint32_t the number of elements in this pool.
+     */
+    virtual uint32_t size(void) override;
+    
+    /**
+     * @brief Removes all of the elements from this pool (optional operation). The pool 
+     *        will be empty after this method returns.
+     * 
+     */
+    virtual void clear(void) override;
+    
+    /**
+     * @brief  Returns true if this pool contains no elements.
+     * 
+     * @return true pool contains no elements.
+     * @return false 
+     */
+    virtual bool isEmpty(void) override;
+
+    /**
+     * @brief Alloc memory from pool.
+     * 
+     * @return void* element pointer if pool not full, otherwise null pointer.
+     */
+    virtual void* alloc(void) override;
+
+    /**
+     * @brief 
+     * 
+     * @return mcuf::lang::Memory 
+     */
+    virtual mcuf::lang::Memory allocMemory(void) override;
+
+    /**
+     * @brief Alloc memory from pool and copy element.
+     * 
+     * @param element Element pointer.
+     * @return void* element pointer if pool not full, otherwise null pointer.
+     */
+    virtual void* add(const void* element) override;
+
+    /**
+     * @brief Free this element memory. 
+     * 
+     * @param element Element pointer.
+     * @return true if this poll found element and remove.
+     * @return false 
+     */
+    virtual bool remove(void* element) override;
+
+  /* **************************************************************************************
+   * Public Method <Override> mcuf::lang::Iterable
    */
-  public: virtual void forEach(mcuf::function::Consumer<mcuf::lang::Memory*>& consumer) override;
+  public: 
+
+    /**
+     * @brief Performs the given action for each element of the Iterable until all elements 
+     *        have been processed or the action throws an exception. Unless otherwise 
+     *        specified by the implementing class, actions are performed in the order of 
+     *        iteration (if an iteration order is specified). 
+     * 
+     * @param attachment 
+     * @param action 
+     */
+    virtual void forEach(void* attachment, 
+                         mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>& action) override;
   
   /* **************************************************************************************
    * Public Method
    */
-
-  /**
-   * 
-   */
-  public: bool isFull(void);
+  public: 
+ 
+    /**
+     * @brief 
+     * 
+     * @return true is full.
+     * @return false isn't full
+     */
+    bool isFull(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -193,41 +209,64 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory
   /* **************************************************************************************
    * Private Method
    */
+  private:
 
-  /**
-   * 
-   */
-  private: void init(uint32_t elementSize);
-  
-  /**
-   *
-   */
-  private: void setFlag(uint32_t shift, bool enable);
-  
-  /**
-   *
-   */
-  private: void* getBlock(uint32_t shift);
+    /**
+     * @brief 
+     * 
+     * @param elementSize 
+     */
+    void init(uint32_t elementSize);
+    
+    /**
+     * @brief Set the Flag object
+     * 
+     * @param shift 
+     * @param enable 
+     */
+    void setFlag(uint32_t shift, bool enable);
+      
+    /**
+     * @brief Get the Block object
+     * 
+     * @param shift 
+     * @return void* 
+     */
+    void* getBlock(uint32_t shift);
 
-  /**
-   *
-   */
-  private: bool getFlag(uint32_t shift);
-
-  /**
-   *
-   */
-  private: void* blockClear(uint32_t shift);
-  
-  /**
-   *
-   */
-  private: void* blockCopy(uint32_t shift, void* element);
-  
-  /**
-   *
-   */
-  private: uint32_t getBlockShift(void* block);
+    /**
+     * @brief Get the Flag object
+     * 
+     * @param shift 
+     * @return true 
+     * @return false 
+     */
+    bool getFlag(uint32_t shift);
+    
+    /**
+     * @brief 
+     * 
+     * @param shift 
+     * @return void* 
+     */
+    void* blockClear(uint32_t shift);
+    
+    /**
+     * @brief 
+     * 
+     * @param shift 
+     * @param element 
+     * @return void* 
+     */
+    void* blockCopy(uint32_t shift, void* element);
+    
+    /**
+     * @brief Get the Block Shift object
+     * 
+     * @param block 
+     * @return uint32_t 
+     */
+    uint32_t getBlockShift(void* block);
   
 };
  

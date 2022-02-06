@@ -31,14 +31,10 @@ namespace mcuf{
 
 
 /* ****************************************************************************************
- * Class Array
+ * Class/Interface/Struct
  */  
 template<typename E>
 class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
-
-  /* **************************************************************************************
-   * Subclass
-   */
 
   /* **************************************************************************************
    * Variable <Public>
@@ -63,50 +59,62 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   /* **************************************************************************************
    * Construct Method
    */
+  public:
 
-  /**
-   *
-   */
-  public: Array(const mcuf::lang::Memory& memory) construct mcuf::lang::ArrayPrototype(memory, sizeof(E)){
-    return;
-  }
+    /**
+     * @brief 
+     * 
+     */
+    Array(const mcuf::lang::Memory& memory) construct mcuf::lang::ArrayPrototype(memory, sizeof(E)){
+      return;
+    }
 
-  /**
-   * Construct.
-   */
-  public: Array(E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, (length * sizeof(E)), sizeof(E)){
-    return;
-  }
-  
-  /**
-   * Construct.
-   */
-  public: Array(const E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, (length * sizeof(E)), sizeof(E)){
-    return;
-  }
+    /**
+     * @brief 
+     * 
+     */
+    Array(E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, (length * sizeof(E)), sizeof(E)){
+      return;
+    }
+    
+    /**
+     * @brief 
+     * 
+     */
+    Array(const E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, (length * sizeof(E)), sizeof(E)){
+      return;
+    }
 
-  /**
-   * Destruct.
-   */
-  public: virtual ~Array() = default;
+    /**
+     * @brief Destroy the Array object
+     * 
+     */
+    virtual ~Array() = default;
   
   /* **************************************************************************************
    * Operator Method
    */
-  
-  /**
-   * Operator array.
-   */
-  public: E operator[](int index) const{
-    return static_cast<E*>(this->pointer())[index];
-  }
+  public:
 
-  /**
-   * Operator array.
-   */
-  public: E& operator[](int index){
-    return static_cast<E*>(this->pointer())[index];
-  }
+    /**
+     * @brief 
+     * 
+     * @param index 
+     * @return E 
+     */
+    E operator[](int index) const{
+      return static_cast<E*>(this->pointer())[index];
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param index 
+     * @return E& 
+     */
+    E& operator[](int index){
+      return static_cast<E*>(this->pointer())[index];
+    }
   
   /* **************************************************************************************
    * Public Method <Static>
@@ -123,27 +131,37 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   /* **************************************************************************************
    * Public Method <Inline>
    */
+  public:
 
-  /**
-   * Length
-   */
-  public: inline uint32_t length(void) const {
-    return this->mElementLength;
-  }
-  
-  /**
-   * 
-   */
-  public: inline int indexOf(const E& e) const{
-    return this->ArrayPrototype::indexOf(&e);
-  }
-  
-  /**
-   * 
-   */
-  public: inline bool contains(const E& e) const{
-    return (this->ArrayPrototype::indexOf(&e) != -1);
-  }
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    inline uint32_t length(void) const {
+      return this->mElementLength;
+    }
+    
+    /**
+     * @brief 
+     * 
+     * @param e 
+     * @return int 
+     */
+    inline int indexOf(const E& e) const{
+      return this->ArrayPrototype::indexOf(&e);
+    }
+    
+    /**
+     * @brief 
+     * 
+     * @param e 
+     * @return true 
+     * @return false 
+     */
+    inline bool contains(const E& e) const{
+      return (this->ArrayPrototype::indexOf(&e) != -1);
+    }
   
   /* **************************************************************************************
    * Protected Method <Static>

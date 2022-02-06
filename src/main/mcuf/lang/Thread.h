@@ -29,14 +29,15 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Object
+ * Class/Interface/Struct
  */  
-abstracts class mcuf::lang::Thread extends mcuf::lang::Memory
-  implements mcuf::function::Runnable{
+abstracts class mcuf::lang::Thread extends mcuf::lang::Memory implements 
+  public mcuf::function::Runnable{
 
   friend System;
+
   /* **************************************************************************************
-   * Subclass
+   * Enum Priority
    */
   public: enum Priority{
     PRIORITY_LOW            =  8,         ///< PRIORITY_: low
@@ -91,6 +92,9 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory
     PRIORITY_RESERVED       = 0x7FFFFFFF  ///< Prevents enum down-size compiler optimization.
   };
   
+  /* **************************************************************************************
+   * Enum State
+   */
   public: enum State{
     STATE_INACTIVE        =  0,           ///< Inactive.
     STATE_READY           =  1,           ///< Ready.
@@ -112,7 +116,15 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: void* mThreadID = nullptr;
+  private: 
+    void* mThreadID = nullptr;
+    Thread* mNextNode;
+  
+  /* **************************************************************************************
+   * Variable <Static Private>
+   */  
+  private: 
+    static Thread* threadNodeHead;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -125,21 +137,28 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory
   /* **************************************************************************************
    * Construct Method
    */
+  public:
 
-  /**
-   * Construct.
-   */
-  public: Thread(const Memory& memory);
+    /**
+     * @brief Construct a new Thread object
+     * 
+     * @param memory 
+     */
+    Thread(const Memory& memory);
 
-  /**
-   * Construct.
-   */
-  public: Thread(const Memory& memory, const char* name);
+    /**
+     * @brief Construct a new Thread object
+     * 
+     * @param memory 
+     * @param name 
+     */
+    Thread(const Memory& memory, const char* name);
 
-  /**
-   * Destruct.
-   */
-  public: virtual ~Thread(void);
+    /**
+     * @brief Destroy the Thread object
+     * 
+     */
+    virtual ~Thread(void);
 
   /* **************************************************************************************
    * Operator Method
@@ -148,6 +167,15 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory
   /* **************************************************************************************
    * Public Method <Static>
    */
+  public:
+  
+    /**
+     * @brief Get the Thread object
+     * 
+     * @param threadID 
+     * @return Thread* 
+     */
+    static Thread* getThread(uint32_t threadID);   
 
   /* **************************************************************************************
    * Public Method <Override>
@@ -156,52 +184,78 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory
   /* **************************************************************************************
    * Public Method <Inline>
    */
-  
-  /**
-   *
-   */
-  public: inline int getStackSize(void) const{
-    return this->length();
-  }
 
   /* **************************************************************************************
    * Public Method
    */
+  public: 
+  
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    uint32_t getID(void) const;
+    
+    /**
+     * @brief Get the Name object
+     * 
+     * @return const char* 
+     */
+    const char* getName(void) const;
+    
+    /**
+     * @brief Get the Priority object
+     * 
+     * @return Priority 
+     */
+    Priority getPriority(void);
 
-  /**
-   *
-   */
-  public: const char* getName(void) const;
-  
-  /**
-   *
-   */
-  public: Priority getPriority(void);
-
-  /**
-   *
-   */
-  public: State getState(void);
-  
-  /**
-   *
-   */
-  public: bool start(void);
-  
-  /**
-   *
-   */
-  public: bool start(Priority priority);
-  
-  /**
-   *
-   */
-  public: void notify(void);
-  
-  /**
-   *
-   */
-  public: bool setPriority(Priority priority);  
+    /**
+     * @brief Get the State object
+     * 
+     * @return State 
+     */
+    State getState(void);
+    
+    /**
+     * @brief Get the Stack Size object
+     * 
+     * @return uint32_t 
+     */
+    uint32_t getStackSize(void);  
+    
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool start(void);
+    
+    /**
+     * @brief 
+     * 
+     * @param priority 
+     * @return true 
+     * @return false 
+     */
+    bool start(Priority priority);
+    
+    /**
+     * @brief 
+     * 
+     */
+    void notify(void);
+    
+    /**
+     * @brief Set the Priority object
+     * 
+     * @param priority 
+     * @return true 
+     * @return false 
+     */
+    bool setPriority(Priority priority);  
   
   /* **************************************************************************************
    * Protected Method <Static>
@@ -218,12 +272,33 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory
   /* **************************************************************************************
    * Private Method <Static>
    */
+  private:
+
+    /**
+     * @brief 
+     * 
+     * @param attachment 
+     */
+    static void entryPoint(void* attachment);
+    
+    /**
+     * @brief 
+     * 
+     * @param thread 
+     * @return true 
+     * @return false 
+     */
+    static bool nodeAdd(Thread* thread);
+    
+    /**
+     * @brief 
+     * 
+     * @param thread 
+     * @return true 
+     * @return false 
+     */
+    static bool nodeRemove(Thread* thread);
    
-  /**
-   *
-   */
-  private: static void entryPoint(void* attachment);
-  
   /* **************************************************************************************
    * Private Method <Override>
    */
@@ -233,8 +308,6 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory
    */  
 
 };
-
-
 
 /* *****************************************************************************************
  * End of file

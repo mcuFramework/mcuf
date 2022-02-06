@@ -26,103 +26,40 @@ namespace mcuf{
 }
 
 /* ****************************************************************************************
- * Class Queue
+ * Class/Interface/Struct
  */  
 template<typename E>
-interface mcuf::util::Queue implement mcuf::util::Collection<E>{
-  
-  /* **************************************************************************************
-   * Subclass
-   */
-  
-  /* **************************************************************************************
-   * Variable <Public>
-   */
+interface mcuf::util::Queue extends mcuf::util::Collection<E>{
 
   /* **************************************************************************************
-   * Variable <Protected>
-   */
-
-  /* **************************************************************************************
-   * Variable <Private>
-   */
-
-  /* **************************************************************************************
-   * Abstract method <Public>
+   * Method
    */
 
   /**
-   * Inserts the specified element into this queue if it is possible to do so immediately 
-   * without violating capacity restrictions.
+   * @brief Inserts the specified element into this queue if it is possible to do so 
+   *        immediately without violating capacity restrictions.
    * 
    * @param e the element to add.
-   * @return true if the element was added to this queue, else false.
+   * @return true the element was added to this queue
+   * @return false 
    */
   virtual bool offer(E* e) abstract;
 
   /**
-   * Retrieves, but does not remove, the head of this queue, or returns null if this queue 
-   * is empty.
+   * @brief Retrieves, but does not remove, the head of this queue, or returns null if 
+   *        this queue is empty.
    * 
-   * @return Retrieves, but does not remove, the head of this queue, or returns null if 
-   *         this queue is empty.
+   * @return E* 
    */
   virtual E* poll(void) abstract;
 
   /**
-   * Retrieves and removes the head of this queue, or returns null if this queue is empty.
+   * @brief Retrieves and removes the head of this queue, or returns null if this queue 
+   *        is empty.
    * 
-   * @return he head of this queue, or null if this queue is empty.
+   * @return E* the head of this queue, or null if this queue is empty.
    */
   virtual E* peek(void) abstract;
-
-  /* **************************************************************************************
-   * Abstract method <Protected>
-   */
-
-  /* **************************************************************************************
-   * Construct Method
-   */
-
-  /* **************************************************************************************
-   * Operator Method
-   */
-
-  /* **************************************************************************************
-   * Public Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Protected Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Protected Method
-   */
-
-  /* **************************************************************************************
-   * Private Method <Static>
-   */
-
-  /* **************************************************************************************
-   * Private Method <Override>
-   */
-   
-  /* **************************************************************************************
-   * Private Method
-   */
   
 };
 
