@@ -10,7 +10,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/util/Executor.h"
 
 /* ****************************************************************************************
  * Using
@@ -18,7 +18,7 @@
 using mcuf::function::Runnable;
 using mcuf::lang::Memory;
 using mcuf::util::Executor;
-using mcuf::util::Fifo;
+using mcuf::util::ArrayQueue;
 
 /* ****************************************************************************************
  * Construct Method
@@ -27,7 +27,7 @@ using mcuf::util::Fifo;
 /**
  * 
  */
-Executor::Executor(Memory& memory) construct Fifo(memory, 4){
+Executor::Executor(const Memory& memory) construct ArrayQueue<Runnable>(memory){
   return;
 }
 
@@ -43,8 +43,6 @@ Executor::Executor(Memory& memory) construct Fifo(memory, 4){
  * Public Method <Override> - mcuf::function::Runnable
  */
 
-
-
 /* ****************************************************************************************
  * Public Method
  */
@@ -52,19 +50,17 @@ Executor::Executor(Memory& memory) construct Fifo(memory, 4){
 /**
  * 
  */
-bool Executor::execute(Runnable& runnable){
-  uint32_t addr = reinterpret_cast<uint32_t>(&runnable);
-  return this->insertHead(&addr);
+bool Executor::execute(Runnable* runnable){
+  return this->offer(runnable);
 }
 
 /**
  * 
  */
 void Executor::actionAll(void){
-  uint32_t addr;
   while(!this->isEmpty()){
-    this->popTail(&addr);
-    Runnable* command = reinterpret_cast<Runnable*>(addr);
+    
+    Runnable* command = this->poll();
     if(command != nullptr)
       command->run();
   }
@@ -77,9 +73,7 @@ bool Executor::actionSingle(void){
   if(this->isEmpty())
     return false;
   
-  uint32_t addr;
-  this->popTail(&addr);
-  Runnable* command = reinterpret_cast<Runnable*>(addr);
+  Runnable* command = this->poll();
   
   if(command != nullptr){
     command->run();

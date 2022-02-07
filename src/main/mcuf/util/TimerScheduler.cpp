@@ -10,7 +10,14 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/util/TimerScheduler.h"
+
+/* ****************************************************************************************
+ * Macro
+ */  
+#define TIMER_SCHEDULER_EVENT_TICK   ((uint32_t)0x00000000)
+#define TIMER_SCHEDULER_EVENT_PURGE  ((uint32_t)0x00000001)
+#define TIMER_SCHEDULER_EVENT_CANCEL ((uint32_t)0x00000002)
 
 /* ****************************************************************************************
  * Using
@@ -28,7 +35,7 @@ using mcuf::lang::Memory;
 /**
  *
  */
-TimerScheduler::TimerScheduler(Memory& memory) construct BlockPool(memory, sizeof(void*)){
+TimerScheduler::TimerScheduler(const Memory& memory) construct BlockPool(memory, sizeof(void*)){
   return;
 }
 
@@ -40,13 +47,6 @@ TimerScheduler::~TimerScheduler(){
   return;
 }
 
-/**
- *
- */
-TimerScheduler::ConsumerTick::ConsumerTick(TimerScheduler* base){
-  this->base = base;
-}
-
 /* ****************************************************************************************
  * Operator Method
  */
@@ -56,27 +56,64 @@ TimerScheduler::ConsumerTick::ConsumerTick(TimerScheduler* base){
  */
  
 /* ****************************************************************************************
- * Public Method <Override>
+ * Public Method <Override> - mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>
+ */
+
+/**
+ *
+ */
+void TimerScheduler::accept(mcuf::lang::Memory* value, void* attachment){
+  TimerTask* timerTask = (TimerTask*)(*((uint32_t*)value->pointer()));
+  
+  switch(reinterpret_cast<uint32_t>(attachment)){
+    case TIMER_SCHEDULER_EVENT_TICK:
+      if(timerTask->subDelay(this->mTickMilliSecond)){
+        timerTask->run();
+        
+        if(timerTask->mPeriod)
+          timerTask->mDelay = timerTask->mPeriod;
+        else
+          this->remove(value->pointer());
+      }
+      
+      break;
+    
+    case TIMER_SCHEDULER_EVENT_CANCEL:
+      timerTask->mDelay = 0;
+      timerTask->mPeriod = 0;
+    
+      break;
+    
+    case TIMER_SCHEDULER_EVENT_PURGE:
+      if(!timerTask->isRunning())
+        this->remove(value->pointer());
+      
+      break;
+      
+    default:
+      break;
+  }
+}
+
+/* ****************************************************************************************
+ * Public Method
  */
 
 /**
  * cancel
  */
 void TimerScheduler::cancel(void){
-  this->forEach(this->consumerClear);
+  this->forEach(reinterpret_cast<void*>(TIMER_SCHEDULER_EVENT_CANCEL), *this);
+  this->clear();
   return;
 }
 
-
 /**
- * purge
+ *
  */
-uint32_t TimerScheduler::purge(void){
-  this->consumerPurge.clear();
-  this->forEach(this->consumerPurge);
-  return this->consumerPurge.get();
+void TimerScheduler::purge(void){
+  this->forEach(reinterpret_cast<void*>(TIMER_SCHEDULER_EVENT_PURGE), *this);
 }
-
 
 /**
  * schedule
@@ -90,114 +127,33 @@ bool TimerScheduler::schedule(TimerTask& task, uint32_t delay){
  * scheduleAtFixedRate
  */
 bool TimerScheduler::scheduleAtFixedRate(TimerTask& task, uint32_t delay, uint32_t period){
-  if(TimerTask::Viewer::isTimerTaskRunning(task))
+  if(task.isRunning())
     return false;
     
+  this->purge();
+  
   void* pTask = &task;
 
   void* result = this->add(&pTask);
   if(result == 0x00000000)
     return false;
     
-  TimerTask::Viewer::setTimerTaskDelayPeriod(task, delay, period);
+  task.mDelay = delay;
+  task.mPeriod = period;
   return true;
 }
-
-/* ****************************************************************************************
- * Public Method
- */
 
 /**
  * 
  */
 void TimerScheduler::tick(uint32_t milliSecont){
-  this->consumerTick.setTickMilliSecond(milliSecont);
-  this->forEach(this->consumerTick);
+  if(this->mTickMilliSecond != 0)
+    return;
+  
+  this->mTickMilliSecond = milliSecont;
+  this->forEach(reinterpret_cast<void*>(TIMER_SCHEDULER_EVENT_TICK), *this);
+  this->mTickMilliSecond = 0;
 }
-
-/* ****************************************************************************************
- * Public Method - Class ConsumerClear
- */
-
-/**
- * 
- */
-void TimerScheduler::ConsumerClear::accept(Memory& t){
-  TimerTask* timerTask = (TimerTask*)(*((uint32_t*)t.pointer()));
-  TimerTask::Viewer::setTimerTaskDelayPeriod(*timerTask, 0, 0);
-}
-
-
-/* ****************************************************************************************
- * Public Method - Class ConsumerPurge
- */
-
-/**
- * 
- */
-void TimerScheduler::ConsumerPurge::accept(Memory& t){
-  TimerTask* timerTask = (TimerTask*)(*((uint32_t*)t.pointer()));
-
-  if(!TimerTask::Viewer::isTimerTaskRunning(*timerTask)){
-    this->purge++;
-    this->base->remove(t.pointer());
-  }
-}
-
-
-/**
- * 
- */
-void TimerScheduler::ConsumerPurge::clear(void){
-  this->purge = 0;
-}
-
-
-/**
- * 
- */
-uint32_t TimerScheduler::ConsumerPurge::get(void){
-  return this->purge;
-}
-
-
-/* ****************************************************************************************
- * Public Method - Class ConsumerTick
- */
-
-/**
- * 
- */
-void TimerScheduler::ConsumerTick::accept(Memory& t){
-  TimerTask* timerTask = (TimerTask*)(*((uint32_t*)t.pointer()));
-      
-  if(TimerTask::Viewer::subTimerTaskDelay(*timerTask, this->tickMilliSecond)){
-    timerTask->run();
-    uint32_t period = TimerTask::Viewer::getTimerTaskPeriod(*timerTask);
-
-    if(period)
-      TimerTask::Viewer::setTimerTaskDelay(*timerTask, period);
-    else
-      this->base->remove(t.pointer());
-  }
-}
-
-
-/**
- * 
- */
-uint32_t TimerScheduler::ConsumerTick::getTickMilliSecond(void){
-  return this->tickMilliSecond;
-}
-
-
-/**
- * 
- */
-void TimerScheduler::ConsumerTick::setTickMilliSecond(uint32_t milliSecond){
-  this->tickMilliSecond = milliSecond;
-}
-
 
 /* ****************************************************************************************
  * Protected Method <Static>

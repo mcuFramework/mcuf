@@ -10,7 +10,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/lang/ThreadEvent.h"
 
 /* ****************************************************************************************
  * Using
@@ -29,14 +29,14 @@ using mcuf::function::Runnable;
 /**
  * Construct.
  */
-ThreadEvent::ThreadEvent(Runnable& runnable){
+ThreadEvent::ThreadEvent(const Memory& memory, Runnable& runnable) construct Thread(memory){
   this->mRunnable = &runnable;
 }
 
 /**
  * Construct.
  */
-ThreadEvent::ThreadEvent(Runnable& runnable ,const char* name) construct Thread(name){
+ThreadEvent::ThreadEvent(const Memory& memory, const char* name, Runnable& runnable) construct Thread(memory, name){
   this->mRunnable = &runnable;
 }
 

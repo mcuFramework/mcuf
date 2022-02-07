@@ -13,19 +13,22 @@
 #include <stdio.h>
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/lang/String.h"
+
+/* ****************************************************************************************
+ * Macro
+ */  
 
 /* ****************************************************************************************
  * Using
  */  
 using mcuf::lang::String;
 using mcuf::lang::System;
-using mcuf::Resources;
+using mcuf::lang::Memory;
 
 /* ****************************************************************************************
  * Variable
  */
-char String::emptyString = 0x00;
 
 /* ****************************************************************************************
  * Construct Method
@@ -34,17 +37,7 @@ char String::emptyString = 0x00;
 /**
  * Construct.
  */
-String::String(char* str, uint32_t size){
-  this->mPointer = str;
-  this->mSize = size;
-  return;
-}
-
-/**
- * Construct.
- */
-String::String(const char* original){
-  this->mPointer = (char*) original;
+String::String(void* pointer, uint32_t size) construct Memory(pointer, size){
   this->mSize = 0;
   return;
 }
@@ -52,22 +45,19 @@ String::String(const char* original){
 /**
  * Construct.
  */
-String::String(void){
-  this->mPointer = nullptr;
-  this->mSize = 0;
+String::String(const char* str) construct Memory(str, strlen(str)){
+  this->mSize = this->length();
   return;
 }
 
 /**
- * Destruct.
+ * Construct.
  */
-String::~String(void){
-  if(this->mSize != 0)
-    System::freePointer(this->mPointer, this->mSize);
-  
+String::String(const Memory& memory) construct Memory(memory){
+  if(this->isReadOnly())
+    this->mSize = strlen(static_cast<const char*>(this->pointer()));
   return;
 }
-
 
 /* ****************************************************************************************
  * Operator Method
@@ -80,47 +70,26 @@ String::~String(void){
 /**
  * 
  */
-String String::format(const char* format, va_list args){
-  int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
-  Memory memory = System::allocMemory(len);
-  memory.copy((char*)Resources::stringMemroy, len);
-  return String((char*)memory.mPointer, memory.mLength);
+int String::format(const char* format, va_list args){
+  if(this->isReadOnly())
+    return 0;  
+  
+  this->mSize = vsnprintf(static_cast<char*>(this->pointer()), this->length(), format, args);
+  return this->mSize;
 }
 
 /**
  * 
  */
-String String::format(const char* format, ...){
+int String::format(const char* format, ...){
+  if(this->isReadOnly())
+    return 0;
+  
   va_list args;
-  va_start (args, format);
-  int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
-  va_end (args);
-  Memory memory = System::allocMemory(len);
-  memory.copy((char*)Resources::stringMemroy, len);
-  return String((char*)memory.mPointer, memory.mLength);
-}
-
-/**
- * 
- */
-char* String::formatChar(const char* format, va_list args){
-  int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
-  Memory memory = System::allocMemory(len);
-  memory.copy((char*)Resources::stringMemroy, len);
-  return (char*)memory.pointer();
-}
-
-/**
- * 
- */
-char* String::formatChar(const char* format, ...){
-  va_list args;
-  va_start (args, format);
-  int len = vsnprintf((char*)Resources::stringMemroy, Resources::stringMemroySize, format, args);
-  va_end (args);
-  Memory memory = System::allocMemory(len);
-  memory.copy((char*)Resources::stringMemroy, len);
-  return (char*)memory.pointer();
+  va_start(args, format);
+  this->mSize = vsnprintf(static_cast<char*>(this->pointer()), this->length(), format, args);
+  va_end(args);
+  return this->mSize;
 }
  
 /* ****************************************************************************************
@@ -130,44 +99,6 @@ char* String::formatChar(const char* format, ...){
 /* ****************************************************************************************
  * Public Method
  */
-
-/**
- *
- */
-bool String::isConst(void){
-  if(this->mSize != 0)
-    return false;
-
-  if(this->mPointer == nullptr)
-    return false;
-  
-  return true;
-}
-
-/**
- * 
- */
-uint32_t String::length(void){
-  if(this->mSize == 0){
-    if(this->mPointer == nullptr)
-      return 0;
-    else
-      return strlen(this->mPointer);
-  }
-
-  return strlen(this->mPointer);
-}
-
-/**
- * 
- */
-const char* String::toPointer(void){
-  if(this->mPointer == nullptr)
-    return &String::emptyString;
-
-  return this->mPointer;
-}
-
 
 /* ****************************************************************************************
  * Protected Method <Static>

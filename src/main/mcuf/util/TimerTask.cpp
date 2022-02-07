@@ -10,7 +10,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/util/TimerTask.h"
 
 /* ****************************************************************************************
  * Using
@@ -28,66 +28,6 @@ using mcuf::util::TimerTask;
 /* ****************************************************************************************
  * Public Method <Static>
  */
-
-/**
- * 
- */
-bool TimerTask::Viewer::isTimerTaskRunning(TimerTask& timerTask){
-  if((timerTask.delay == 0) & (timerTask.period == 0))
-    return false;
-     
-  else
-    return true;
-}
-
-/**
- * 
- */
-bool TimerTask::Viewer::subTimerTaskDelay(TimerTask& timerTask, uint32_t milliSecond){
-  if(timerTask.delay <= milliSecond){
-    timerTask.delay = 0;
-    return true;
-  }else{
-    timerTask.delay -= milliSecond;
-    return false;
-  }
-}
-
-/**
- * 
- */
-uint32_t TimerTask::Viewer::getTimerTaskDelay(TimerTask& timerTask){
-  return timerTask.delay;
-}
-  
-/**
- * 
- */
-uint32_t TimerTask::Viewer::getTimerTaskPeriod(TimerTask& timerTask){
-  return timerTask.period;
-}
-
-/**
- * 
- */  
-void TimerTask::Viewer::setTimerTaskDelay(TimerTask& timerTask, uint32_t delay){
-  timerTask.delay = delay;
-}
-    
-/**
- * 
- */
-void TimerTask::Viewer::setTimerTaskPeriod(TimerTask& timerTask, uint32_t period){
-  timerTask.period = period;
-}
-  
-/**
- * 
- */
-void TimerTask::Viewer::setTimerTaskDelayPeriod(TimerTask& timerTask, uint32_t delay, uint32_t period){
-  timerTask.delay = delay;
-  timerTask.period = period;
-}
 
 /* ****************************************************************************************
  * Public Method <Override>
@@ -116,14 +56,15 @@ void TimerTask::Viewer::setTimerTaskDelayPeriod(TimerTask& timerTask, uint32_t d
  *         place.)
  */
 bool TimerTask::cancel(void){
-  if((this->delay == 0) & (this->period == 0))
+  if((this->mDelay == 0) & (this->mPeriod == 0))
     return false;
     
-  this->delay = 0;
-  this->period = 0;
+  this->mDelay = 0;
+  this->mPeriod = 0;
     
   return true;
 }
+
 
 /* ****************************************************************************************
  * Protected Method <Static>

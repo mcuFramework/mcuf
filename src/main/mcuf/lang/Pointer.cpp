@@ -12,7 +12,7 @@
 #include <string.h>
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf.h"
+#include "mcuf/lang/Pointer.h"
 
 /* ****************************************************************************************
  * Using
@@ -51,15 +51,6 @@ Pointer::Pointer(uint32_t pointer){
  * Operator Method
  */
 
-/**
- * Operator equal
- */
-void* Pointer::operator=(void* pointer){
-  this->mPointer = (uint8_t*)pointer;
-
-  return this->mPointer;
-}
-
 /* ****************************************************************************************
  * Public Method <Static>
  */
@@ -82,81 +73,26 @@ Pointer Pointer::nullPointer(void){
 /**
  * 
  */
-Pointer& Pointer::copy(const void* source, uint32_t length){
-  memcpy(this->mPointer, source, length);
-  return *this;
+int Pointer::copy(const void* source, uint32_t length){
+  return this->copy(source, 0, 0, length);
 }
 
 /**
  * 
  */
-Pointer& Pointer::copy(const void* source, uint32_t shift, uint32_t length){
-  memcpy(this->pointer(shift), source, length);
-  return *this;
+int Pointer::copy(const void* source, uint32_t shift, uint32_t length){
+  return this->copy(source, shift, 0, length);
 }
 
 /**
  * 
  */
-Pointer& Pointer::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
+int Pointer::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
+  if((source == nullptr) || (this->mPointer == nullptr))
+    return 0;  
+  
   memcpy(this->pointer(shift), &((uint8_t*)source)[start], length);
-  return *this;
-}
-
-/**
- * 
- */
-char Pointer::getByte(uint32_t shift){
-  return *(char*)this->pointer(shift);
-}
-
-/**
- * 
- */
-int Pointer::getInteger(uint32_t shift){
-  return *(int*)this->pointer(shift);
-}
-
-/**
- * 
- */
-short Pointer::getShort(uint32_t shift){
-  return *(short*)this->pointer(shift);
-}
-
-/**
- * 
- */
-Pointer Pointer::getPointer(uint32_t offset){
-  return Pointer(&((uint8_t*)this->mPointer)[offset]);
-}
-
-/**
- * 
- */
-uint32_t Pointer::getPointerValue(void){
-  return reinterpret_cast<uint32_t>(this->mPointer);
-}
-
-/**
- * 
- */
-bool Pointer::isNull(void){
-  return (this->mPointer == nullptr);
-}
-
-/**
- * 
- */
-void* Pointer::pointer(void){
-  return this->mPointer;
-}
-
-/**
- * 
- */
-void* Pointer::pointer(uint32_t offset){
-  return &((uint8_t*)this->mPointer)[offset];
+  return length;
 }
 
 /* ****************************************************************************************
