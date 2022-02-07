@@ -12,12 +12,12 @@
 //-----------------------------------------------------------------------------------------
 #include "cmsis_rtos/rtx_os.h"
 #include "mcuf/lang/managerment/CoreThread.h"
-#include "mcuf/lang/Error.h"
+#include "mcuf/lang/ErrorCode.h"
 
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::lang::Error;
+using mcuf::lang::ErrorCode;
 using mcuf::lang::Memory;
 using mcuf::lang::Thread;
 using mcuf::lang::managerment::CoreThread;

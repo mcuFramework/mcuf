@@ -21,6 +21,7 @@ using mcuf::lang::Memory;
 using mcuf::io::ByteBuffer;
 using mcuf::io::CompletionHandler;
 using mcuf::io::SerialPortStream;
+using mcuf::hal::serial::port::SerialPortStatus;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -37,7 +38,7 @@ using mcuf::io::SerialPortStream;
 /**
  *
  */
-SerialPortStream::SerialPortStream(mcuf::hal::SerialPort* serialPort){
+SerialPortStream::SerialPortStream(mcuf::hal::serial::port::SerialPort* serialPort){
   this->mSerialPort = serialPort;
 }
 
@@ -52,7 +53,7 @@ SerialPortStream::~SerialPortStream(void){
  */
  
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::hal::SerialPortEvent
+ * Public Method <Override> - mcuf::hal::serial::port::SerialPortEvent
  */
 
 /**
@@ -63,32 +64,32 @@ void SerialPortStream::onSerialPortEvent(SerialPortStatus status, ByteBuffer* by
   void* attachment;
   
   switch(status){
-    case HAL_SERIALPORT_WRITE_SUCCESSFUL:
-    case HAL_SERIALPORT_WRITE_ABROT:
-    case HAL_SERIALPORT_WRITE_FAIL:
+    case SerialPortStatus::WRITE_SUCCESSFUL:
+    case SerialPortStatus::WRITE_ABROT:
+    case SerialPortStatus::WRITE_FAIL:
       handler = this->mWriteHandler;
       attachment = this->mWriteAttachment;
       break;
 
-    case HAL_SERIALPORT_READ_SUCCESSFUL:
-    case HAL_SERIALPORT_READ_ABROT:
-    case HAL_SERIALPORT_READ_FAIL:
+    case SerialPortStatus::READ_SUCCESSFUL:
+    case SerialPortStatus::READ_ABROT:
+    case SerialPortStatus::READ_FAIL:
       handler = this->mReadHandler;
       attachment = this->mReadAttachment;
       break;
   }
   
   switch(status){
-    case HAL_SERIALPORT_WRITE_SUCCESSFUL:
-    case HAL_SERIALPORT_WRITE_ABROT:
-    case HAL_SERIALPORT_READ_SUCCESSFUL:
-    case HAL_SERIALPORT_READ_ABROT:  
+    case SerialPortStatus::WRITE_SUCCESSFUL:
+    case SerialPortStatus::WRITE_ABROT:
+    case SerialPortStatus::READ_SUCCESSFUL:
+    case SerialPortStatus::READ_ABROT:  
       if(handler)
         handler->completed(byteBuffer->remaining(), attachment);
       break;
       
-    case HAL_SERIALPORT_WRITE_FAIL:
-    case HAL_SERIALPORT_READ_FAIL:
+    case SerialPortStatus::WRITE_FAIL:
+    case SerialPortStatus::READ_FAIL:
       if(handler)
         handler->failed(&status, attachment);
       break;

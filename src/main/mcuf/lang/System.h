@@ -12,7 +12,7 @@
  * Include
  */
 #include "mcuf_base.h"
-#include "mcuf/lang/Error.h"
+#include "mcuf/lang/ErrorCode.h"
 #include "mcuf/lang/Object.h"
 #include "mcuf/lang/Thread.h"
 #include "mcuf/lang/managerment/CoreThread.h"
@@ -43,7 +43,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    * Variable <Private>
    */
   private: 
-    static void (*mErrorHandler)(const void* address, Error::Code code);
+    static void (*mErrorCodeHandler)(const void* address, ErrorCode code);
     static mcuf::lang::managerment::CoreThread* mCoreThread;
     static const uint32_t mSystemTimerClock;
 
@@ -100,14 +100,14 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * @param address 
      * @param code 
      */
-    static void error(const void* address, Error::Code code);
+    static void error(const void* address, ErrorCode code);
     
     /**
      * @brief 
      * 
      * @param handler 
      */
-    static void registorErrorHandler(void (*handler)(const void* address, Error::Code code));
+    static void registorErrorCodeHandler(void (*handler)(const void* address, ErrorCode code));
     
     /**
      * @brief Get the System Timer Clock object

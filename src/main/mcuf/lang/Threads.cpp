@@ -23,6 +23,8 @@
  */  
 using mcuf::lang::Thread;
 using mcuf::lang::Threads;
+using mcuf::lang::ThreadPriority;
+using mcuf::lang::ThreadState;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -58,9 +60,9 @@ const char* Threads::getName(uint32_t threadID){
 /**
  *
  */
-Thread::State Threads::getState(uint32_t threadID){
+ThreadState Threads::getState(uint32_t threadID){
   void* id = reinterpret_cast<void*>(threadID);
-  return static_cast<Thread::State>(osThreadGetState(id));
+  return static_cast<ThreadState>(osThreadGetState(id));
 }
 
 /**
@@ -73,9 +75,9 @@ uint32_t Threads::getCount(void){
 /**
  *
  */
-Thread::Priority Threads::getPriority(uint32_t threadID){
+ThreadPriority Threads::getPriority(uint32_t threadID){
   void* id = reinterpret_cast<void*>(threadID);
-  return static_cast<Thread::Priority>(osThreadGetPriority(id));
+  return static_cast<ThreadPriority>(osThreadGetPriority(id));
 }
   
 /**
@@ -89,7 +91,7 @@ void Threads::notify(uint32_t threadID){
 /**
  *
  */
-bool Threads::setPriority(uint32_t threadID, Thread::Priority priority){
+bool Threads::setPriority(uint32_t threadID, ThreadPriority priority){
   void* id = reinterpret_cast<void*>(threadID);
   if(osThreadSetPriority(id, static_cast<osPriority_t>(priority)) == osOK)
     return true;

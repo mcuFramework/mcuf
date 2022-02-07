@@ -572,124 +572,394 @@
               <FilePath>.\src\main\mcuf\hal\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogInputPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogInputPin.h</FilePath>
-            </File>
-            <File>
               <FileName>Base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\Base.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog</GroupName>
+          <Files>
             <File>
-              <FileName>EdgeTrigger.h</FileName>
+              <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\EdgeTrigger.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog\input</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\input\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileName>AnalogInputPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\EdgeTriggerEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPin.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorage.h</FileName>
+              <FileName>AnalogInputPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\FlashStorage.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPort.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageEvent.h</FileName>
+              <FileName>AnalogInputPortConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\FlashStorageEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortConfig.h</FilePath>
             </File>
+            <File>
+              <FileName>AnalogInputPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog\output</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\output\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\pin</GroupName>
+          <Files>
             <File>
               <FileName>GeneralPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPin.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPin.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPinConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPinConfig.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinConfig.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPinControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPinControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinControl.h</FilePath>
             </File>
+            <File>
+              <FileName>GeneralPinMode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinMode.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pin\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\port</GroupName>
+          <Files>
             <File>
               <FileName>GeneralPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPort.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\port\GeneralPort.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPortControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPortControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\port\GeneralPortControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\port\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\pulse</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\package-info.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidth.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidth.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidth.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidthConfig.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthConfig.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidthControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\trigger</GroupName>
+          <Files>
+            <File>
+              <FileName>EdgeTrigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTrigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\bus</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialBus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialBusEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusSlot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusSlot.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\periph</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriph.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriph.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriph.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPacket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphPacket.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPacket.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPhase.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPhase.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPolarity.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPolarity.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphSignificantBit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphSignificantBit.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphSlot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphSlot.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphStatus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\port</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPort.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPortEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage\eeprom</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\eeprom\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage\flash</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorage.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageStatus.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\timer</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\package-info.h</FilePath>
             </File>
             <File>
               <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\Timer.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\timer\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerControl.h</FilePath>
             </File>
             <File>
               <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\TimerEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -787,14 +1057,9 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.h</FilePath>
             </File>
             <File>
-              <FileName>Error.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.h</FileName>
+              <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.h</FilePath>
+              <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
             </File>
             <File>
               <FileName>Iterable.h</FileName>
@@ -897,6 +1162,11 @@
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.h</FilePath>
             </File>
             <File>
+              <FileName>ThreadPriority.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ThreadPriority.h</FilePath>
+            </File>
+            <File>
               <FileName>Threads.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
@@ -905,6 +1175,11 @@
               <FileName>Threads.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
+            </File>
+            <File>
+              <FileName>ThreadState.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ThreadState.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1661,124 +1936,394 @@
               <FilePath>.\src\main\mcuf\hal\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogInputPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogInputPin.h</FilePath>
-            </File>
-            <File>
               <FileName>Base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\Base.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog</GroupName>
+          <Files>
             <File>
-              <FileName>EdgeTrigger.h</FileName>
+              <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\EdgeTrigger.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog\input</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\input\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileName>AnalogInputPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\EdgeTriggerEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPin.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorage.h</FileName>
+              <FileName>AnalogInputPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\FlashStorage.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPort.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageEvent.h</FileName>
+              <FileName>AnalogInputPortConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\FlashStorageEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortConfig.h</FilePath>
             </File>
+            <File>
+              <FileName>AnalogInputPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog\output</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\output\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\pin</GroupName>
+          <Files>
             <File>
               <FileName>GeneralPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPin.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPin.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPinConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPinConfig.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinConfig.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPinControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPinControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinControl.h</FilePath>
             </File>
+            <File>
+              <FileName>GeneralPinMode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinMode.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pin\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\port</GroupName>
+          <Files>
             <File>
               <FileName>GeneralPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPort.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\port\GeneralPort.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPortControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPortControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\port\GeneralPortControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\port\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\pulse</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\package-info.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidth.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidth.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidth.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidthConfig.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthConfig.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidthControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\trigger</GroupName>
+          <Files>
+            <File>
+              <FileName>EdgeTrigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTrigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\bus</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialBus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialBusEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusSlot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusSlot.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\periph</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriph.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriph.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriph.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPacket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphPacket.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPacket.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPhase.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPhase.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPolarity.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPolarity.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphSignificantBit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphSignificantBit.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphSlot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphSlot.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphStatus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\port</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPort.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPortEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage\eeprom</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\eeprom\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage\flash</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorage.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageStatus.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\timer</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\package-info.h</FilePath>
             </File>
             <File>
               <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\Timer.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\timer\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerControl.h</FilePath>
             </File>
             <File>
               <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\TimerEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1876,14 +2421,9 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.h</FilePath>
             </File>
             <File>
-              <FileName>Error.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.h</FileName>
+              <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.h</FilePath>
+              <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
             </File>
             <File>
               <FileName>Iterable.h</FileName>
@@ -1986,6 +2526,11 @@
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.h</FilePath>
             </File>
             <File>
+              <FileName>ThreadPriority.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ThreadPriority.h</FilePath>
+            </File>
+            <File>
               <FileName>Threads.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
@@ -1994,6 +2539,11 @@
               <FileName>Threads.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
+            </File>
+            <File>
+              <FileName>ThreadState.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ThreadState.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2750,124 +3300,394 @@
               <FilePath>.\src\main\mcuf\hal\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogInputPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogInputPin.h</FilePath>
-            </File>
-            <File>
               <FileName>Base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\Base.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog</GroupName>
+          <Files>
             <File>
-              <FileName>EdgeTrigger.h</FileName>
+              <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\EdgeTrigger.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog\input</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\input\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileName>AnalogInputPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\EdgeTriggerEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPin.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorage.h</FileName>
+              <FileName>AnalogInputPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\FlashStorage.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPort.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageEvent.h</FileName>
+              <FileName>AnalogInputPortConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\FlashStorageEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortConfig.h</FilePath>
             </File>
+            <File>
+              <FileName>AnalogInputPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog\output</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\output\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\pin</GroupName>
+          <Files>
             <File>
               <FileName>GeneralPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPin.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPin.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPinConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPinConfig.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinConfig.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPinControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPinControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinControl.h</FilePath>
             </File>
+            <File>
+              <FileName>GeneralPinMode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinMode.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pin\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\port</GroupName>
+          <Files>
             <File>
               <FileName>GeneralPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPort.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\port\GeneralPort.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPortControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPortControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\port\GeneralPortControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\port\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\pulse</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\package-info.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidth.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidth.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidth.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidthConfig.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthConfig.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidthControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\trigger</GroupName>
+          <Files>
+            <File>
+              <FileName>EdgeTrigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTrigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\bus</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialBus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialBusEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusSlot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusSlot.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\periph</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriph.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriph.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriph.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPacket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphPacket.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPacket.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPhase.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPhase.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPolarity.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPolarity.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphSignificantBit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphSignificantBit.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphSlot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphSlot.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphStatus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\port</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPort.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPortEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage\eeprom</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\eeprom\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage\flash</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorage.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageStatus.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\timer</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\package-info.h</FilePath>
             </File>
             <File>
               <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\Timer.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\timer\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerControl.h</FilePath>
             </File>
             <File>
               <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\TimerEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2965,14 +3785,9 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.h</FilePath>
             </File>
             <File>
-              <FileName>Error.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.h</FileName>
+              <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.h</FilePath>
+              <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
             </File>
             <File>
               <FileName>Iterable.h</FileName>
@@ -3075,6 +3890,11 @@
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.h</FilePath>
             </File>
             <File>
+              <FileName>ThreadPriority.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ThreadPriority.h</FilePath>
+            </File>
+            <File>
               <FileName>Threads.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
@@ -3083,6 +3903,11 @@
               <FileName>Threads.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
+            </File>
+            <File>
+              <FileName>ThreadState.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ThreadState.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3839,124 +4664,394 @@
               <FilePath>.\src\main\mcuf\hal\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogInputPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogInputPin.h</FilePath>
-            </File>
-            <File>
               <FileName>Base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\Base.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog</GroupName>
+          <Files>
             <File>
-              <FileName>EdgeTrigger.h</FileName>
+              <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\EdgeTrigger.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog\input</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\input\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileName>AnalogInputPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\EdgeTriggerEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPin.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorage.h</FileName>
+              <FileName>AnalogInputPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\FlashStorage.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPort.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageEvent.h</FileName>
+              <FileName>AnalogInputPortConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\FlashStorageEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortConfig.h</FilePath>
             </File>
+            <File>
+              <FileName>AnalogInputPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog\output</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\output\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\pin</GroupName>
+          <Files>
             <File>
               <FileName>GeneralPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPin.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPin.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPinConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPinConfig.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinConfig.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPinControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPinControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinControl.h</FilePath>
             </File>
+            <File>
+              <FileName>GeneralPinMode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinMode.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pin\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\port</GroupName>
+          <Files>
             <File>
               <FileName>GeneralPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPort.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\port\GeneralPort.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPortControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPortControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\port\GeneralPortControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\port\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\pulse</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\package-info.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidth.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidth.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidth.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidthConfig.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthConfig.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidthControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\trigger</GroupName>
+          <Files>
+            <File>
+              <FileName>EdgeTrigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTrigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\bus</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialBus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialBusEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusSlot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusSlot.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\periph</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriph.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriph.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriph.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPacket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphPacket.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPacket.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPhase.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPhase.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPolarity.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPolarity.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphSignificantBit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphSignificantBit.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphSlot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphSlot.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphStatus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\port</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPort.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPortEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage\eeprom</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\eeprom\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage\flash</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorage.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageStatus.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\timer</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\package-info.h</FilePath>
             </File>
             <File>
               <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\Timer.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\timer\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerControl.h</FilePath>
             </File>
             <File>
               <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\TimerEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4054,14 +5149,9 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.h</FilePath>
             </File>
             <File>
-              <FileName>Error.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.h</FileName>
+              <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.h</FilePath>
+              <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
             </File>
             <File>
               <FileName>Iterable.h</FileName>
@@ -4164,6 +5254,11 @@
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.h</FilePath>
             </File>
             <File>
+              <FileName>ThreadPriority.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ThreadPriority.h</FilePath>
+            </File>
+            <File>
               <FileName>Threads.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
@@ -4172,6 +5267,11 @@
               <FileName>Threads.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
+            </File>
+            <File>
+              <FileName>ThreadState.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ThreadState.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4997,124 +6097,394 @@
               <FilePath>.\src\main\mcuf\hal\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogInputPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogInputPin.h</FilePath>
-            </File>
-            <File>
               <FileName>Base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\Base.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog</GroupName>
+          <Files>
             <File>
-              <FileName>EdgeTrigger.h</FileName>
+              <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\EdgeTrigger.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog\input</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\input\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileName>AnalogInputPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\EdgeTriggerEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPin.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorage.h</FileName>
+              <FileName>AnalogInputPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\FlashStorage.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPort.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageEvent.h</FileName>
+              <FileName>AnalogInputPortConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\FlashStorageEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortConfig.h</FilePath>
             </File>
+            <File>
+              <FileName>AnalogInputPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog\output</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\output\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\pin</GroupName>
+          <Files>
             <File>
               <FileName>GeneralPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPin.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPin.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPinConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPinConfig.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinConfig.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPinControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPinControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinControl.h</FilePath>
             </File>
+            <File>
+              <FileName>GeneralPinMode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinMode.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pin\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\port</GroupName>
+          <Files>
             <File>
               <FileName>GeneralPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPort.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\port\GeneralPort.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPortControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPortControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\port\GeneralPortControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\port\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\pulse</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\package-info.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidth.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidth.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidth.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidthConfig.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthConfig.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidthControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\trigger</GroupName>
+          <Files>
+            <File>
+              <FileName>EdgeTrigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTrigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\bus</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialBus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialBusEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusSlot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusSlot.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\periph</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriph.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriph.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriph.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPacket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphPacket.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPacket.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPhase.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPhase.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPolarity.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPolarity.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphSignificantBit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphSignificantBit.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphSlot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphSlot.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphStatus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\port</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPort.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPortEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage\eeprom</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\eeprom\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage\flash</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorage.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageStatus.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\timer</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\package-info.h</FilePath>
             </File>
             <File>
               <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\Timer.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\timer\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerControl.h</FilePath>
             </File>
             <File>
               <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\TimerEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5212,14 +6582,9 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.h</FilePath>
             </File>
             <File>
-              <FileName>Error.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.h</FileName>
+              <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.h</FilePath>
+              <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
             </File>
             <File>
               <FileName>Iterable.h</FileName>
@@ -5322,6 +6687,11 @@
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.h</FilePath>
             </File>
             <File>
+              <FileName>ThreadPriority.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ThreadPriority.h</FilePath>
+            </File>
+            <File>
               <FileName>Threads.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
@@ -5330,6 +6700,11 @@
               <FileName>Threads.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
+            </File>
+            <File>
+              <FileName>ThreadState.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ThreadState.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6155,124 +7530,394 @@
               <FilePath>.\src\main\mcuf\hal\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogInputPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\AnalogInputPin.h</FilePath>
-            </File>
-            <File>
               <FileName>Base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\Base.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog</GroupName>
+          <Files>
             <File>
-              <FileName>EdgeTrigger.h</FileName>
+              <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\EdgeTrigger.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog\input</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\input\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileName>AnalogInputPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\EdgeTriggerEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPin.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorage.h</FileName>
+              <FileName>AnalogInputPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\FlashStorage.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPort.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageEvent.h</FileName>
+              <FileName>AnalogInputPortConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\FlashStorageEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortConfig.h</FilePath>
             </File>
+            <File>
+              <FileName>AnalogInputPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\analog\output</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\analog\output\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\pin</GroupName>
+          <Files>
             <File>
               <FileName>GeneralPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPin.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPin.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPinConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPinConfig.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinConfig.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPinControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPinControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinControl.h</FilePath>
             </File>
+            <File>
+              <FileName>GeneralPinMode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pin\GeneralPinMode.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pin\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\port</GroupName>
+          <Files>
             <File>
               <FileName>GeneralPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPort.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\port\GeneralPort.h</FilePath>
             </File>
             <File>
               <FileName>GeneralPortControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\GeneralPortControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\port\GeneralPortControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\port\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\pulse</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\package-info.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidth.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidth.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidth.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidthConfig.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthConfig.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\PulseWidthControl.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\general\trigger</GroupName>
+          <Files>
+            <File>
+              <FileName>EdgeTrigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTrigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\EdgeTriggerStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\general\trigger\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\bus</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialBus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialBusEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusSlot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusSlot.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\bus\SerialBusTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\periph</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriph.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriph.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriph.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPacket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphPacket.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPacket.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPhase.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPhase.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphPolarity.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphPolarity.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphSignificantBit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphSignificantBit.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphSlot.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphSlot.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPeriphStatus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPeriphTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\periph\SerialPeriphTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\serial\port</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\package-info.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPort.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\SerialPortEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortTransfer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\serial\port\SerialPortTransfer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage\eeprom</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\eeprom\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\storage\flash</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorage.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\storage\flash\FlashStorageStatus.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\timer</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\package-info.h</FilePath>
             </File>
             <File>
               <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\Timer.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\timer\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerControl.h</FilePath>
             </File>
             <File>
               <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\TimerEvent.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\timer\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6370,14 +8015,9 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.h</FilePath>
             </File>
             <File>
-              <FileName>Error.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Error.h</FileName>
+              <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Error.h</FilePath>
+              <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
             </File>
             <File>
               <FileName>Iterable.h</FileName>
@@ -6480,6 +8120,11 @@
               <FilePath>.\src\main\mcuf\lang\ThreadEvent.h</FilePath>
             </File>
             <File>
+              <FileName>ThreadPriority.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ThreadPriority.h</FilePath>
+            </File>
+            <File>
               <FileName>Threads.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
@@ -6488,6 +8133,11 @@
               <FileName>Threads.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
+            </File>
+            <File>
+              <FileName>ThreadState.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\ThreadState.h</FilePath>
             </File>
           </Files>
         </Group>

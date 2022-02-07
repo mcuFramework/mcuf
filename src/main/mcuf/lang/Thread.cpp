@@ -33,6 +33,8 @@
  */  
 using mcuf::lang::Memory;
 using mcuf::lang::Thread;
+using mcuf::lang::ThreadPriority;
+using mcuf::lang::ThreadState;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -51,9 +53,9 @@ Thread* Thread::threadNodeHead = nullptr;
  *
  */
 Thread::Thread(const Memory& memory) construct Memory(memory){
-  ASSERT(this->isAlignment64Bit(), __CLASSPATH__, Error::MEMORY_NOT_ALIGNMENT_64BIT);
-  ASSERT(!(this->length() < (getRtxMemorySize() + 128)), __CLASSPATH__, Error::INSUFFICIENT_MEMORY);
-  ASSERT(!this->isReadOnly(), __CLASSPATH__, Error::WRITE_TO_READONLY_MEMORY);
+  ASSERT(this->isAlignment64Bit(), __CLASSPATH__, ErrorCode::MEMORY_NOT_ALIGNMENT_64BIT);
+  ASSERT(!(this->length() < (getRtxMemorySize() + 128)), __CLASSPATH__, ErrorCode::INSUFFICIENT_MEMORY);
+  ASSERT(!this->isReadOnly(), __CLASSPATH__, ErrorCode::WRITE_TO_READONLY_MEMORY);
   
   memset(this->pointer(), 0x00, getRtxMemorySize());
   this->mThreadID = nullptr;
@@ -77,7 +79,7 @@ Thread::Thread(const Memory& memory, const char* name) construct Thread(memory){
  */
 Thread::~Thread(void){
   if(this->mThreadID)
-    System::error(__CLASSPATH__, Error::NULL_POINTER);
+    System::error(__CLASSPATH__, ErrorCode::NULL_POINTER);
   
   Thread::nodeRemove(this);
   return;
@@ -136,15 +138,15 @@ const char* Thread::getName(void) const{
 /**
  *
  */
-Thread::Priority Thread::getPriority(void){
-  return static_cast<Priority>(osThreadGetPriority(this->mThreadID));
+ThreadPriority Thread::getPriority(void){
+  return static_cast<ThreadPriority>(osThreadGetPriority(this->mThreadID));
 }
 
 /**
  *
  */
-Thread::State Thread::getState(void){
-  return static_cast<State>(osThreadGetState(this->mThreadID));
+ThreadState Thread::getState(void){
+  return static_cast<ThreadState>(osThreadGetState(this->mThreadID));
 }
 
 /**
@@ -165,13 +167,13 @@ void Thread::notify(void){
  *
  */
 bool Thread::start(void){
-  return this->start(PRIORITY_NORMAL);
+  return this->start(ThreadPriority::NORMAL);
 }
 
 /**
  *
  */
-bool Thread::start(Priority priority){
+bool Thread::start(ThreadPriority priority){
   if(this->mThreadID)
     return false;
   
@@ -199,7 +201,7 @@ bool Thread::start(Priority priority){
 /**
  *
  */
-bool Thread::setPriority(Priority priority){
+bool Thread::setPriority(ThreadPriority priority){
   if(osThreadSetPriority(this->mThreadID, static_cast<osPriority_t>(priority)) == osOK)
     return true;
   
@@ -227,7 +229,7 @@ bool Thread::setPriority(Priority priority){
  *
  */
 void Thread::entryPoint(void* attachment){
-  ASSERT(attachment, __CLASSPATH__, Error::NULL_POINTER);
+  ASSERT(attachment, __CLASSPATH__, ErrorCode::NULL_POINTER);
   
   Thread* thread = static_cast<Thread*>(attachment);
   thread->run();

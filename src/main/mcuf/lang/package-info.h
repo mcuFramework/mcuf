@@ -4,9 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
-#ifndef MCUF_C4B84C75_6C34_417D_8929_2122FB4BA7E9
-#define MCUF_C4B84C75_6C34_417D_8929_2122FB4BA7E9
+#ifndef MCUF_8EF8FDC7_B4A7_409A_8768_F9FDE0D6E3BE
+#define MCUF_8EF8FDC7_B4A7_409A_8768_F9FDE0D6E3BE
 
 /* ****************************************************************************************
  * Include folder
@@ -18,22 +17,24 @@
  */
 #include "Array.h"
 #include "ArrayPrototype.h"
-#include "Error.h"
+#include "ErrorCode.h"
 #include "Iterable.h"
 #include "Linked.h"
 #include "LinkedEntity.h"
 #include "Math.h"
 #include "Memory.h"
+#include "Object.h"
 #include "Pointer.h"
 #include "String.h"
 #include "System.h"
-#include "Object.h"
 #include "Thread.h"
 #include "ThreadEvent.h"
+#include "ThreadPriority.h"
 #include "Threads.h"
+#include "ThreadState.h"
 
-/* *****************************************************************************************
+/* ****************************************************************************************
  * End of file
- */ 
+ */
 
-#endif/* MCUF_C4B84C75_6C34_417D_8929_2122FB4BA7E9 */
+#endif /* MCUF_8EF8FDC7_B4A7_409A_8768_F9FDE0D6E3BE */

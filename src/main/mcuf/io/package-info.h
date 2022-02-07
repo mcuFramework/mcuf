@@ -4,9 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
-#ifndef MCUF_DDC08B0C_A59B_48F7_BE33_610FD73F0207
-#define MCUF_DDC08B0C_A59B_48F7_BE33_610FD73F0207
+#ifndef MCUF_1E4BDFFB_6991_436C_9890_AFC103A4C7E4
+#define MCUF_1E4BDFFB_6991_436C_9890_AFC103A4C7E4
 
 /* ****************************************************************************************
  * Include folder
@@ -16,14 +15,14 @@
  * Include
  */
 #include "ByteBuffer.h"
-#include "CompletionHandler.h"
 #include "Closeable.h"
+#include "CompletionHandler.h"
 #include "InputStream.h"
 #include "OutputStream.h"
 #include "SerialPortStream.h"
 
-/* *****************************************************************************************
- *    End of file
- */ 
+/* ****************************************************************************************
+ * End of file
+ */
 
-#endif/* MCUF_DDC08B0C_A59B_48F7_BE33_610FD73F0207 */
+#endif /* MCUF_1E4BDFFB_6991_436C_9890_AFC103A4C7E4 */

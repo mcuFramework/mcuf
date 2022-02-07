@@ -13,9 +13,9 @@
  */
 
 #include "mcuf_base.h"
-#include "mcuf\lang\ArrayPrototype.h"
-#include "mcuf\lang\Memory.h"
-#include "mcuf\lang\Pointer.h"
+#include "mcuf/lang/ArrayPrototype.h"
+#include "mcuf/lang/Memory.h"
+#include "mcuf/lang/Pointer.h"
 
 
 

@@ -13,7 +13,7 @@
  */  
 #include "mcuf_base.h"
 #include "mcuf/function/Supplier.h"
-#include "mcuf/lang//Object.h"
+#include "mcuf/lang/Object.h"
 
 /* ****************************************************************************************
  * Namespace

@@ -12,8 +12,8 @@
  * Include
  */  
 #include "mcuf_base.h"
-#include "mcuf\lang\Object.h"
-#include "mcuf\lang\Pointer.h"
+#include "mcuf/lang/Object.h"
+#include "mcuf/lang/Pointer.h"
 
 /* ****************************************************************************************
  * Namespace

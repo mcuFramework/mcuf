@@ -102,7 +102,7 @@ class mcuf::lang::Threads extends mcuf::lang::Object{
      * @param threadID 
      * @return mcuf::lang::Thread::State 
      */
-    static mcuf::lang::Thread::State getState(uint32_t threadID);
+    static mcuf::lang::ThreadState getState(uint32_t threadID);
     
     /**
      * @brief Get the Priority object
@@ -110,7 +110,7 @@ class mcuf::lang::Threads extends mcuf::lang::Object{
      * @param threadID 
      * @return mcuf::lang::Thread::Priority 
      */
-    static mcuf::lang::Thread::Priority getPriority(uint32_t threadID);
+    static mcuf::lang::ThreadPriority getPriority(uint32_t threadID);
     
     /**
      * @brief 
@@ -127,7 +127,7 @@ class mcuf::lang::Threads extends mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    static bool setPriority(uint32_t threadID, mcuf::lang::Thread::Priority priority);  
+    static bool setPriority(uint32_t threadID, mcuf::lang::ThreadPriority priority);  
   
   /* **************************************************************************************
    * Public Method <Inline Static>

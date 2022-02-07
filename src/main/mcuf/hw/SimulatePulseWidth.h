@@ -14,8 +14,8 @@
 #include "mcuf_base.h"
 #include "mcuf/lang/Object.h"
 #include "mcuf/util/TimerTask.h"
-#include "mcuf/hal/GeneralPinControl.h"
-#include "mcuf/hal/PulseWidth.h"
+#include "mcuf/hal/general/pin/GeneralPinControl.h"
+#include "mcuf/hal/general/pulse/PulseWidth.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -30,8 +30,8 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 class mcuf::hw::SimulatePulseWidth extends mcuf::util::TimerTask implements 
-  public mcuf::hal::PulseWidthConfig,
-  public mcuf::hal::PulseWidthControl{
+  public mcuf::hal::general::pulse::PulseWidthConfig,
+  public mcuf::hal::general::pulse::PulseWidthControl{
 
   /* **************************************************************************************
    * Subclass
@@ -49,7 +49,7 @@ class mcuf::hw::SimulatePulseWidth extends mcuf::util::TimerTask implements
    * Variable <Private>
    */
   private: 
-    mcuf::hal::GeneralPinControl* mPin;
+    mcuf::hal::general::pin::GeneralPinControl* mPin;
     uint32_t mMinnisecondBase;
     uint32_t mMinnisecondChange;
     bool mStats;
@@ -72,7 +72,7 @@ class mcuf::hw::SimulatePulseWidth extends mcuf::util::TimerTask implements
      * 
      * @param pin 
      */
-    SimulatePulseWidth(mcuf::hal::GeneralPinControl* pin);
+    SimulatePulseWidth(mcuf::hal::general::pin::GeneralPinControl* pin);
 
   public:
 
@@ -102,7 +102,7 @@ class mcuf::hw::SimulatePulseWidth extends mcuf::util::TimerTask implements
     virtual void run(void) override;
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::hal::PulseWidthConfig
+   * Public Method <Override> - mcuf::hal::general::pulse::PulseWidthConfig
    */
   public: 
 
@@ -125,7 +125,7 @@ class mcuf::hw::SimulatePulseWidth extends mcuf::util::TimerTask implements
     virtual bool setBaseSecond(float second) override;
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::hal::PulseWidthControl
+   * Public Method <Override> - mcuf::hal::general::pulse::PulseWidthControl
    */
   public:   
     /**

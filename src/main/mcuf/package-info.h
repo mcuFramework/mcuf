@@ -4,30 +4,25 @@
  * 
  * SPDX-License-Identifier: MIT
  */
+#ifndef MCUF_85CD2DE8_5B27_48B3_BD15_FD63D8B59873
+#define MCUF_85CD2DE8_5B27_48B3_BD15_FD63D8B59873
 
-#ifndef MCUF_A9C2864A_7C46_448C_ABCE_9095FB85EC00
-#define MCUF_A9C2864A_7C46_448C_ABCE_9095FB85EC00
+/* ****************************************************************************************
+ * Include folder
+ */
+#include "function/package-info.h"
+#include "hal/package-info.h"
+#include "hw/package-info.h"
+#include "io/package-info.h"
+#include "lang/package-info.h"
+#include "util/package-info.h"
 
 /* ****************************************************************************************
  * Include
  */
 
 /* ****************************************************************************************
- * Include folder
- */
-#include "function\package-info.h"
-#include "hal\package-info.h"
-#include "hw\package-info.h"
-#include "io\package-info.h"
-#include "lang\package-info.h"
-#include "util\package-info.h"
-
-//-----------------------------------------------------------------------------------------
-
-
-/* ****************************************************************************************
  * End of file
- */ 
+ */
 
-
-#endif/* MCUF_A9C2864A_7C46_448C_ABCE_9095FB85EC00 */
+#endif /* MCUF_85CD2DE8_5B27_48B3_BD15_FD63D8B59873 */

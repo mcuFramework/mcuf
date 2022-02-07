@@ -19,7 +19,7 @@
  */  
 using mcuf::lang::System;
 using mcuf::hw::SimulatePulseWidth;
-using mcuf::hal::GeneralPinControl;
+using mcuf::hal::general::pin::GeneralPinControl;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -76,7 +76,7 @@ void SimulatePulseWidth::run(void){
 }
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::hal::PulseWidthControl
+ * Public Method <Override> - mcuf::hal::general::pulse::PulseWidthControl
  */
 
 /**
@@ -111,7 +111,7 @@ bool SimulatePulseWidth::setBaseSecond(float second){
 }
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::hal::PulseWidthConfig
+ * Public Method <Override> - mcuf::hal::general::pulse::PulseWidthConfig
  */
 
 /**

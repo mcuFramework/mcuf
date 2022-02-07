@@ -4,46 +4,25 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
-#ifndef MCUF_ABCC6A5F_20C2_4D5D_A04C_02F109D3C8BE
-#define MCUF_ABCC6A5F_20C2_4D5D_A04C_02F109D3C8BE
+#ifndef MCUF_6867E959_5CD1_4C09_95D6_FB121720FA45
+#define MCUF_6867E959_5CD1_4C09_95D6_FB121720FA45
 
 /* ****************************************************************************************
  * Include folder
  */
-
-
+#include "analog/package-info.h"
+#include "general/package-info.h"
+#include "serial/package-info.h"
+#include "storage/package-info.h"
+#include "timer/package-info.h"
 
 /* ****************************************************************************************
  * Include
- */  
-#include "AnalogInputPin.h"
+ */
 #include "Base.h"
-#include "EdgeTrigger.h"
-#include "EdgeTriggerEvent.h"
-#include "FlashStorage.h"
-#include "FlashStorageEvent.h"
-#include "GeneralPin.h"
-#include "GeneralPinConfig.h"
-#include "GeneralPinControl.h"
-#include "GeneralPort.h"
-#include "GeneralPortControl.h"
-#include "PulseWidth.h"
-#include "SerialBus.h"
-#include "SerialBusEvent.h"
-#include "SerialPeriph.h"
-#include "SerialPeriphPacket.h"
-#include "SerialPeriphEvent.h"
-#include "SerialPort.h"
-#include "SerialPortEvent.h"
-#include "Timer.h"
-#include "TimerEvent.h"
 
-
-
-/* *****************************************************************************************
+/* ****************************************************************************************
  * End of file
- */ 
+ */
 
-
-#endif/* MCUF_ABCC6A5F_20C2_4D5D_A04C_02F109D3C8BE */
+#endif /* MCUF_6867E959_5CD1_4C09_95D6_FB121720FA45 */

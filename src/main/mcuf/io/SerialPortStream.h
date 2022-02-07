@@ -11,9 +11,14 @@
 /* ****************************************************************************************
  * Include
  */  
+ 
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
-#include "mcuf/hal/SerialPort.h"
-#include "mcuf/hal/SerialPortEvent.h"
+
+//-----------------------------------------------------------------------------------------
+#include "mcuf/hal/serial/port/SerialPort.h"
+#include "mcuf/hal/serial/port/SerialPortEvent.h"
+#include "mcuf/hal/serial/port/SerialPortStatus.h"
 #include "mcuf/io/InputStream.h"
 #include "mcuf/io/OutputStream.h"
 #include "mcuf/io/CompletionHandler.h"
@@ -33,7 +38,7 @@ namespace mcuf{
 class mcuf::io::SerialPortStream extends mcuf::lang::Object implements 
   public mcuf::io::OutputStream,
   public mcuf::io::InputStream,
-  public mcuf::hal::SerialPortEvent{
+  public mcuf::hal::serial::port::SerialPortEvent{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -47,7 +52,7 @@ class mcuf::io::SerialPortStream extends mcuf::lang::Object implements
    * Variable <Private>
    */
   private: 
-    mcuf::hal::SerialPort* mSerialPort;
+    mcuf::hal::serial::port::SerialPort* mSerialPort;
     mcuf::io::CompletionHandler<int, void*>* mWriteHandler;
     void* mWriteAttachment;
     mcuf::io::CompletionHandler<int, void*>* mReadHandler;
@@ -71,7 +76,7 @@ class mcuf::io::SerialPortStream extends mcuf::lang::Object implements
      * 
      * @param serialPort 
      */
-    SerialPortStream(mcuf::hal::SerialPort* serialPort);
+    SerialPortStream(mcuf::hal::serial::port::SerialPort* serialPort);
 
     /**
      * @brief Destroy the Serial Port Stream object
@@ -88,7 +93,7 @@ class mcuf::io::SerialPortStream extends mcuf::lang::Object implements
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::hal::SerialPortEvent
+   * Public Method <Override> - mcuf::hal::serial::port::SerialPortEvent
    */  
   public:
 
@@ -98,7 +103,7 @@ class mcuf::io::SerialPortStream extends mcuf::lang::Object implements
      * @param status 
      * @param byteBuffer 
      */
-    virtual void onSerialPortEvent(SerialPortStatus status, 
+    virtual void onSerialPortEvent(mcuf::hal::serial::port::SerialPortStatus status, 
                                    mcuf::io::ByteBuffer* byteBuffer) override;
 
   /* **************************************************************************************

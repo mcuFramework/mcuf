@@ -64,7 +64,7 @@ using mcuf::util::Stacker;
  */  
 
 CoreThread* System::mCoreThread = nullptr;
-void (*System::mErrorHandler)(const void* address, Error::Code code);
+void (*System::mErrorCodeHandler)(const void* address, ErrorCode code);
 const uint32_t System::mSystemTimerClock = (1000/mcufTimerTick);
 
 /* ****************************************************************************************
@@ -86,7 +86,7 @@ void System::start(mcuf::lang::Thread* userThread){
   osKernelInitialize();  
   
   if(1){
-    ASSERT(mcufCoreThreadMemory, __CLASSPATH__, Error::NULL_POINTER);
+    ASSERT(mcufCoreThreadMemory, __CLASSPATH__, ErrorCode::NULL_POINTER);
     
     Memory stack = Memory(mcufCoreStackMemory, mcufCoreStackMemorySize);
     Memory executor = Memory(mcufCoreEcecutorMemory, mcufCoreEcecutorMemorySize);
@@ -112,9 +112,9 @@ void System::start(mcuf::lang::Thread* userThread){
 /**
  * 
  */
-void System::error(const void* address, Error::Code code){
-  if(System::mErrorHandler != nullptr)
-    System::mErrorHandler(address, code);
+void System::error(const void* address, ErrorCode code){
+  if(System::mErrorCodeHandler != nullptr)
+    System::mErrorCodeHandler(address, code);
   
   while(1);
 }
@@ -122,8 +122,8 @@ void System::error(const void* address, Error::Code code){
 /**
  *
  */
-void System::registorErrorHandler(void (*handler)(const void* address, Error::Code code)){
-  System::mErrorHandler = handler;
+void System::registorErrorCodeHandler(void (*handler)(const void* address, ErrorCode code)){
+  System::mErrorCodeHandler = handler;
 }
 
 /**

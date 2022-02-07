@@ -356,7 +356,7 @@
  
 //     <h>Global Event Filter Setup
 //     <i> Initial recording level applied to all components.
-//       <o.0>Error events
+//       <o.0>ErrorCode events
 //       <o.1>API function call events
 //       <o.2>Operation events
 //       <o.3>Detailed operation events
@@ -371,7 +371,7 @@
  
 //       <h>Memory Management
 //       <i> Recording level for Memory Management events.
-//         <o.0>Error events
+//         <o.0>ErrorCode events
 //         <o.1>API function call events
 //         <o.2>Operation events
 //         <o.3>Detailed operation events
@@ -382,7 +382,7 @@
  
 //       <h>Kernel
 //       <i> Recording level for Kernel events.
-//         <o.0>Error events
+//         <o.0>ErrorCode events
 //         <o.1>API function call events
 //         <o.2>Operation events
 //         <o.3>Detailed operation events
@@ -393,7 +393,7 @@
  
 //       <h>Thread
 //       <i> Recording level for Thread events.
-//         <o.0>Error events
+//         <o.0>ErrorCode events
 //         <o.1>API function call events
 //         <o.2>Operation events
 //         <o.3>Detailed operation events
@@ -404,7 +404,7 @@
  
 //       <h>Generic Wait
 //       <i> Recording level for Generic Wait events.
-//         <o.0>Error events
+//         <o.0>ErrorCode events
 //         <o.1>API function call events
 //         <o.2>Operation events
 //         <o.3>Detailed operation events
@@ -415,7 +415,7 @@
  
 //       <h>Thread Flags
 //       <i> Recording level for Thread Flags events.
-//         <o.0>Error events
+//         <o.0>ErrorCode events
 //         <o.1>API function call events
 //         <o.2>Operation events
 //         <o.3>Detailed operation events
@@ -426,7 +426,7 @@
  
 //       <h>Event Flags
 //       <i> Recording level for Event Flags events.
-//         <o.0>Error events
+//         <o.0>ErrorCode events
 //         <o.1>API function call events
 //         <o.2>Operation events
 //         <o.3>Detailed operation events
@@ -437,7 +437,7 @@
  
 //       <h>Timer
 //       <i> Recording level for Timer events.
-//         <o.0>Error events
+//         <o.0>ErrorCode events
 //         <o.1>API function call events
 //         <o.2>Operation events
 //         <o.3>Detailed operation events
@@ -448,7 +448,7 @@
  
 //       <h>Mutex
 //       <i> Recording level for Mutex events.
-//         <o.0>Error events
+//         <o.0>ErrorCode events
 //         <o.1>API function call events
 //         <o.2>Operation events
 //         <o.3>Detailed operation events
@@ -459,7 +459,7 @@
  
 //       <h>Semaphore
 //       <i> Recording level for Semaphore events.
-//         <o.0>Error events
+//         <o.0>ErrorCode events
 //         <o.1>API function call events
 //         <o.2>Operation events
 //         <o.3>Detailed operation events
@@ -470,7 +470,7 @@
  
 //       <h>Memory Pool
 //       <i> Recording level for Memory Pool events.
-//         <o.0>Error events
+//         <o.0>ErrorCode events
 //         <o.1>API function call events
 //         <o.2>Operation events
 //         <o.3>Detailed operation events
@@ -481,7 +481,7 @@
  
 //       <h>Message Queue
 //       <i> Recording level for Message Queue events.
-//         <o.0>Error events
+//         <o.0>ErrorCode events
 //         <o.1>API function call events
 //         <o.2>Operation events
 //         <o.3>Detailed operation events
