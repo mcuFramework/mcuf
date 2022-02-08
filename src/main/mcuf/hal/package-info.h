@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_6867E959_5CD1_4C09_95D6_FB121720FA45
-#define MCUF_6867E959_5CD1_4C09_95D6_FB121720FA45
+#ifndef MCUF_72F4E1FB_918C_4775_9DBE_8996483471FD
+#define MCUF_72F4E1FB_918C_4775_9DBE_8996483471FD
 
 /* ****************************************************************************************
  * Include folder
@@ -20,9 +20,10 @@
  * Include
  */
 #include "Base.h"
+#include "InterruptEvent.h"
 
 /* ****************************************************************************************
  * End of file
  */
 
-#endif /* MCUF_6867E959_5CD1_4C09_95D6_FB121720FA45 */
+#endif /* MCUF_72F4E1FB_918C_4775_9DBE_8996483471FD */

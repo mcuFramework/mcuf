@@ -576,6 +576,11 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\Base.h</FilePath>
             </File>
+            <File>
+              <FileName>InterruptEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\InterruptEvent.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1290,11 +1295,6 @@
               <FileName>RingBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\RingBuffer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Scanner.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Scanner.h</FilePath>
             </File>
             <File>
               <FileName>Stacker.cpp</FileName>
@@ -1940,6 +1940,11 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\Base.h</FilePath>
             </File>
+            <File>
+              <FileName>InterruptEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\InterruptEvent.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2654,11 +2659,6 @@
               <FileName>RingBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\RingBuffer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Scanner.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Scanner.h</FilePath>
             </File>
             <File>
               <FileName>Stacker.cpp</FileName>
@@ -3304,6 +3304,11 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\Base.h</FilePath>
             </File>
+            <File>
+              <FileName>InterruptEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\InterruptEvent.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4018,11 +4023,6 @@
               <FileName>RingBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\RingBuffer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Scanner.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Scanner.h</FilePath>
             </File>
             <File>
               <FileName>Stacker.cpp</FileName>
@@ -4668,6 +4668,11 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\Base.h</FilePath>
             </File>
+            <File>
+              <FileName>InterruptEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\InterruptEvent.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5382,11 +5387,6 @@
               <FileName>RingBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\RingBuffer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Scanner.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Scanner.h</FilePath>
             </File>
             <File>
               <FileName>Stacker.cpp</FileName>
@@ -6101,6 +6101,11 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\Base.h</FilePath>
             </File>
+            <File>
+              <FileName>InterruptEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\InterruptEvent.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -6815,11 +6820,6 @@
               <FileName>RingBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\RingBuffer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Scanner.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Scanner.h</FilePath>
             </File>
             <File>
               <FileName>Stacker.cpp</FileName>
@@ -7534,6 +7534,11 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\Base.h</FilePath>
             </File>
+            <File>
+              <FileName>InterruptEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\InterruptEvent.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -8248,11 +8253,6 @@
               <FileName>RingBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\RingBuffer.h</FilePath>
-            </File>
-            <File>
-              <FileName>Scanner.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\Scanner.h</FilePath>
             </File>
             <File>
               <FileName>Stacker.cpp</FileName>

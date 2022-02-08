@@ -64,8 +64,8 @@ interface mcuf::hal::serial::periph::SerialPeriphTransfer{
    * @return false 
    */
   virtual bool transfer(uint32_t chipSelect, 
-                        SerialPeriphPacket* packet,
-                        SerialPeriphEvent* event) abstract;
+                        mcuf::hal::serial::periph::SerialPeriphPacket* packet,
+                        mcuf::hal::serial::periph::SerialPeriphEvent* event) abstract;
 
 };
 
