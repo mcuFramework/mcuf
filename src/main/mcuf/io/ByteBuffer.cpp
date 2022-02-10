@@ -187,13 +187,25 @@ int ByteBuffer::putFormat(const char* format, ...){
   
   va_list args;
   va_start(args, format);
-  
-  int result = vsnprintf(static_cast<char*>(this->pointer(this->mPosition)), this->remaining(), format, args);
+  int result = String::format(this->pointer(this->mPosition), this->remaining(), format, args);
   
   va_end(args);
   
   this->mPosition += result;
   return result;
+}
+
+/**
+ * @brief 
+ * 
+ * @param format 
+ * @param args 
+ * @return int 
+ */
+int ByteBuffer::putFormat(const char* format, va_list args){
+  int result = String::format(this->pointer(this->mPosition), this->remaining(), format, args);
+  this->mPosition += result;
+  return result; 
 }
 
 /**

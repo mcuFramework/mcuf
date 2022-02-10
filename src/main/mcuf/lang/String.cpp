@@ -68,7 +68,83 @@ String::String(const Memory& memory) construct Memory(memory){
  */
 
 /**
+ * @brief 
  * 
+ * @param buffer 
+ * @param bufferSize 
+ * @param format 
+ * @param arg 
+ * @return int 
+ */
+int String::format(void* buffer, uint32_t bufferSize, const char* format, va_list args){
+  return vsnprintf(static_cast<char*>(buffer), bufferSize, format, args);
+}
+
+/**
+ * @brief 
+ * 
+ * @param memory 
+ * @param format 
+ * @param arg 
+ * @return int 
+ */
+int format(const mcuf::lang::Memory& memory, const char* format, va_list args){
+  if(memory.isReadOnly())
+    return 0;
+
+  return vsnprintf(static_cast<char*>(memory.pointer()), memory.length(), format, args);
+}
+
+/**
+ * @brief 
+ * 
+ * @param buffer 
+ * @param bufferSize 
+ * @param format 
+ * @param ... 
+ * @return int 
+ */
+int String::format(void* buffer, uint32_t bufferSize, const char* format, ...){
+  va_list args;
+  va_start(args, format);
+  int result = vsnprintf(static_cast<char*>(buffer), bufferSize, format, args);
+  va_end(args);
+  return result;
+}
+
+/**
+ * @brief 
+ * 
+ * @param memory 
+ * @param format 
+ * @param ... 
+ * @return int 
+ */
+int String::format(const mcuf::lang::Memory& memory, const char* format, ...){
+  if(memory.isReadOnly())
+    return 0;
+  
+  va_list args;
+  va_start(args, format);
+  int result = vsnprintf(static_cast<char*>(memory.pointer()), memory.length(), format, args);
+  va_end(args);
+  return result;
+}
+
+/* ****************************************************************************************
+ * Public Method <Override>
+ */
+
+/* ****************************************************************************************
+ * Public Method
+ */
+
+/**
+ * @brief 
+ * 
+ * @param format 
+ * @param args 
+ * @return int 
  */
 int String::format(const char* format, va_list args){
   if(this->isReadOnly())
@@ -79,7 +155,11 @@ int String::format(const char* format, va_list args){
 }
 
 /**
+ * @brief 
  * 
+ * @param format 
+ * @param ... 
+ * @return int 
  */
 int String::format(const char* format, ...){
   if(this->isReadOnly())
@@ -91,19 +171,11 @@ int String::format(const char* format, ...){
   va_end(args);
   return this->mSize;
 }
- 
-/* ****************************************************************************************
- * Public Method <Override>
- */
-
-/* ****************************************************************************************
- * Public Method
- */
 
 /* ****************************************************************************************
  * Protected Method <Static>
  */
- 
+
 /* ****************************************************************************************
  * Protected Method <Override>
  */ 

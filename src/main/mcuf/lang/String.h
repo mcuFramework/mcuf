@@ -89,10 +89,63 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Operator Method
    */
+  public:
+
+    /**
+     * @brief 
+     * 
+     * @return operator const* 
+     */
+    inline operator const char*(void) const{
+      return static_cast<const char*>(this->pointer());
+    }
 
   /* **************************************************************************************
    * Public Method <Static>
    */
+  public:
+
+    /**
+     * @brief 
+     * 
+     * @param buffer 
+     * @param bufferSize 
+     * @param format 
+     * @param arg 
+     * @return int 
+     */
+    static int format(void* buffer, uint32_t bufferSize, const char* format, va_list args);
+
+    /**
+     * @brief 
+     * 
+     * @param memory 
+     * @param format 
+     * @param arg 
+     * @return int 
+     */
+    static int format(const mcuf::lang::Memory& memory, const char* format, va_list args);
+
+    /**
+     * @brief 
+     * 
+     * @param buffer 
+     * @param bufferSize 
+     * @param format 
+     * @param ... 
+     * @return int 
+     */
+    static int format(void* buffer, uint32_t bufferSize, const char* format, ...);
+
+    /**
+     * @brief 
+     * 
+     * @param memory 
+     * @param format 
+     * @param ... 
+     * @return int 
+     */
+    static int format(const mcuf::lang::Memory& memory, const char* format, ...);
 
   /* **************************************************************************************
    * Public Method

@@ -123,7 +123,12 @@ bool SerialPortStream::write(ByteBuffer* byteBuffer, void* attachment, Completio
   
   this->mWriteHandler = handler;
   this->mWriteAttachment = attachment;
-  return this->mSerialPort->write(byteBuffer, this);
+  
+  if(handler == nullptr)
+    return this->mSerialPort->write(byteBuffer, nullptr);
+
+  else
+    return this->mSerialPort->write(byteBuffer, this);
 }
 
 /* ****************************************************************************************
@@ -153,7 +158,12 @@ bool SerialPortStream::read(ByteBuffer* byteBuffer, void* attachment, Completion
   
   this->mReadHandler = handler;
   this->mReadAttachment = attachment;
-  return this->mSerialPort->read(byteBuffer, this);
+
+  if(handler == nullptr)
+    return this->mSerialPort->read(byteBuffer, nullptr);
+
+  else
+    return this->mSerialPort->read(byteBuffer, this);
 }
 
 /* ****************************************************************************************

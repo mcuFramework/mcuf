@@ -1027,6 +1027,16 @@
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
               <FileName>SerailPortStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\SerailPortStream.cpp</FilePath>
@@ -2389,6 +2399,16 @@
               <FileName>OutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
             </File>
             <File>
               <FileName>SerailPortStream.cpp</FileName>
@@ -3755,6 +3775,16 @@
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
               <FileName>SerailPortStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\SerailPortStream.cpp</FilePath>
@@ -5117,6 +5147,16 @@
               <FileName>OutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
             </File>
             <File>
               <FileName>SerailPortStream.cpp</FileName>
@@ -6552,6 +6592,16 @@
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
               <FileName>SerailPortStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\SerailPortStream.cpp</FilePath>
@@ -7985,6 +8035,16 @@
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
               <FileName>SerailPortStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\SerailPortStream.cpp</FilePath>
@@ -8335,14 +8395,5 @@
     <components/>
     <files/>
   </RTE>
-
-  <LayerInfo>
-    <Layers>
-      <Layer>
-        <LayName>mcuf</LayName>
-        <LayPrjMark>1</LayPrjMark>
-      </Layer>
-    </Layers>
-  </LayerInfo>
 
 </Project>

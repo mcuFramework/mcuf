@@ -241,6 +241,15 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     /**
      * @brief 
      * 
+     * @param format 
+     * @param args 
+     * @return int 
+     */
+    int putFormat(const char* format, va_list args);
+
+    /**
+     * @brief 
+     * 
      * @param value 
      * @return true 
      * @return false 
