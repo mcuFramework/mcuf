@@ -1027,6 +1027,16 @@
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>OutputStreamBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputStreamBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutputStreamBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputStreamBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>PrintStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
@@ -1035,6 +1045,16 @@
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBuffer.h</FilePath>
             </File>
             <File>
               <FileName>SerailPortStream.cpp</FileName>
@@ -1295,16 +1315,6 @@
               <FileName>Queue.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Queue.h</FilePath>
-            </File>
-            <File>
-              <FileName>RingBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>RingBuffer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.h</FilePath>
             </File>
             <File>
               <FileName>Stacker.cpp</FileName>
@@ -2401,6 +2411,16 @@
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>OutputStreamBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputStreamBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutputStreamBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputStreamBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>PrintStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
@@ -2409,6 +2429,16 @@
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBuffer.h</FilePath>
             </File>
             <File>
               <FileName>SerailPortStream.cpp</FileName>
@@ -2669,16 +2699,6 @@
               <FileName>Queue.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Queue.h</FilePath>
-            </File>
-            <File>
-              <FileName>RingBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>RingBuffer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.h</FilePath>
             </File>
             <File>
               <FileName>Stacker.cpp</FileName>
@@ -3775,6 +3795,16 @@
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>OutputStreamBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputStreamBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutputStreamBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputStreamBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>PrintStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
@@ -3783,6 +3813,16 @@
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBuffer.h</FilePath>
             </File>
             <File>
               <FileName>SerailPortStream.cpp</FileName>
@@ -4043,16 +4083,6 @@
               <FileName>Queue.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Queue.h</FilePath>
-            </File>
-            <File>
-              <FileName>RingBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>RingBuffer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.h</FilePath>
             </File>
             <File>
               <FileName>Stacker.cpp</FileName>
@@ -5149,6 +5179,16 @@
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>OutputStreamBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputStreamBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutputStreamBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputStreamBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>PrintStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
@@ -5157,6 +5197,16 @@
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBuffer.h</FilePath>
             </File>
             <File>
               <FileName>SerailPortStream.cpp</FileName>
@@ -5417,16 +5467,6 @@
               <FileName>Queue.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Queue.h</FilePath>
-            </File>
-            <File>
-              <FileName>RingBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>RingBuffer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.h</FilePath>
             </File>
             <File>
               <FileName>Stacker.cpp</FileName>
@@ -6592,6 +6632,16 @@
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>OutputStreamBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputStreamBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutputStreamBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputStreamBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>PrintStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
@@ -6600,6 +6650,16 @@
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBuffer.h</FilePath>
             </File>
             <File>
               <FileName>SerailPortStream.cpp</FileName>
@@ -6860,16 +6920,6 @@
               <FileName>Queue.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Queue.h</FilePath>
-            </File>
-            <File>
-              <FileName>RingBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>RingBuffer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.h</FilePath>
             </File>
             <File>
               <FileName>Stacker.cpp</FileName>
@@ -8035,6 +8085,16 @@
               <FilePath>.\src\main\mcuf\io\OutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>OutputStreamBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputStreamBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OutputStreamBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputStreamBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>PrintStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
@@ -8043,6 +8103,16 @@
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBuffer.h</FilePath>
             </File>
             <File>
               <FileName>SerailPortStream.cpp</FileName>
@@ -8305,16 +8375,6 @@
               <FilePath>.\src\main\mcuf\util\Queue.h</FilePath>
             </File>
             <File>
-              <FileName>RingBuffer.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>RingBuffer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\RingBuffer.h</FilePath>
-            </File>
-            <File>
               <FileName>Stacker.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.cpp</FilePath>
@@ -8395,5 +8455,14 @@
     <components/>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>mcuf</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

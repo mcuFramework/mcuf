@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_3C75A425_A032_4BB1_93BF_40BFF4C5DC12
-#define MCUF_3C75A425_A032_4BB1_93BF_40BFF4C5DC12
+#ifndef MCUF_4E3CAABB_6303_4FC8_A747_4810E19C55E9
+#define MCUF_4E3CAABB_6303_4FC8_A747_4810E19C55E9
 
 /* ****************************************************************************************
  * Include folder
@@ -19,10 +19,13 @@
 #include "CompletionHandler.h"
 #include "InputStream.h"
 #include "OutputStream.h"
+#include "OutputStreamBuffer.h"
+#include "PrintStream.h"
+#include "RingBuffer.h"
 #include "SerialPortStream.h"
 
 /* ****************************************************************************************
  * End of file
  */
 
-#endif /* MCUF_3C75A425_A032_4BB1_93BF_40BFF4C5DC12 */
+#endif /* MCUF_4E3CAABB_6303_4FC8_A747_4810E19C55E9 */

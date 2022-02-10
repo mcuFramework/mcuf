@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_E1ACC65E_C430_4C6E_961C_48B5E6075A2C
-#define MCUF_E1ACC65E_C430_4C6E_961C_48B5E6075A2C
+#ifndef MCUF_45BB3436_281F_454E_8475_8A638D1B383D
+#define MCUF_45BB3436_281F_454E_8475_8A638D1B383D
 
 /* ****************************************************************************************
  * Include folder
@@ -24,7 +24,6 @@
 #include "Map.h"
 #include "Pool.h"
 #include "Queue.h"
-#include "RingBuffer.h"
 #include "Stacker.h"
 #include "TimerScheduler.h"
 #include "TimerTask.h"
@@ -33,4 +32,4 @@
  * End of file
  */
 
-#endif /* MCUF_E1ACC65E_C430_4C6E_961C_48B5E6075A2C */
+#endif /* MCUF_45BB3436_281F_454E_8475_8A638D1B383D */

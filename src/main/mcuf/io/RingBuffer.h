@@ -21,7 +21,7 @@
  * Namespace
  */  
 namespace mcuf{
-  namespace util{
+  namespace io{
     class RingBuffer;
   }
 }
@@ -29,7 +29,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::util::RingBuffer extends mcuf::lang::Memory{
+class mcuf::io::RingBuffer extends mcuf::lang::Memory{
 
   /* **************************************************************************************
    * Variable <Public>
