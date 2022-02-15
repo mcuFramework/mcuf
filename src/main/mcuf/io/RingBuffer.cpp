@@ -89,6 +89,16 @@ bool RingBuffer::insert(const void* data){
  * 
  */
 int RingBuffer::insertMult(const void *data, int num){
+  if(data == nullptr){
+    int max = this->getFree();
+
+    if(num > max)
+      num = max;
+
+    this->mHead += num;
+    return num;
+  }
+
   uint8_t *ptr = (uint8_t*)this->pointer();
   int cnt1, cnt2;
 
@@ -143,6 +153,16 @@ bool RingBuffer::pop(void* data){
  * 
  */
 int RingBuffer::popMult(void* data, int num){
+  if(data == nullptr){
+    int max = this->getCount();
+
+    if(num > max)
+      num = max;
+
+    this->mHead += num;
+    return num;
+  }
+
   uint8_t *ptr = (uint8_t*)this->pointer();
   int cnt1, cnt2;
 

@@ -153,6 +153,24 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
       return (VACCESS(uint32_t, this->mHead) == VACCESS(uint32_t, this->mTail));
     }
 
+    /**
+     * @brief Get the Head Position object
+     * 
+     * @return int 
+     */
+    inline int getHeadPosition(void){
+      return (this->mHead & (this->mCount -1));
+    }
+
+    /**
+     * @brief Get the Tail Position object
+     * 
+     * @return int 
+     */
+    inline int getTailPosition(void){
+      return (this->mTail & (this->mCount - 1));
+    }
+
   /* **************************************************************************************
    * Public Method
    */
