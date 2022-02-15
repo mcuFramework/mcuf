@@ -49,6 +49,7 @@ class mcuf::io::OutputStreamBuffer extends mcuf::io::RingBuffer implements
    */
   private:
     mcuf::io::OutputStream& mOutputStream;
+    mcuf::io::ByteBuffer mByteBuffer;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -68,7 +69,7 @@ class mcuf::io::OutputStreamBuffer extends mcuf::io::RingBuffer implements
      * 
      * @param memory 
      */
-    OutputStreamBuffer(mcuf::io::OutputStream& outputStream ,mcuf::lang::Memory& memory);
+    OutputStreamBuffer(mcuf::io::OutputStream& outputStream ,const mcuf::lang::Memory& memory);
 
     /**
      * @brief Destroy the Output Stream Buffer object
