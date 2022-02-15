@@ -23,6 +23,20 @@ using mcuf::lang::managerment::MemoryAllocator;
  * Construct Method
  */
 
+/**
+ *
+ */
+Object::Object(void){
+  this->objectRecodeBase = this;
+}
+
+/**
+ *
+ */
+Object::~Object(void){
+  this->objectRecodeBase = nullptr;
+}
+
 /* ****************************************************************************************
  * Operator Method
  */

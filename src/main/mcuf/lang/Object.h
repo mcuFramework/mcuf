@@ -44,6 +44,8 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
+  private:
+    Object* objectRecodeBase;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -62,13 +64,13 @@ class mcuf::lang::Object{
      * @brief Construct a new Object object
      * 
      */
-    Object(void) = default;
+    Object(void);
 
     /**
      * @brief Destroy the Object object
      * 
      */
-    virtual ~Object(void) = default;
+    virtual ~Object(void);
 
   /* **************************************************************************************
    * Operator Method
@@ -108,11 +110,19 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method <Override>
    */
+   
+  /* **************************************************************************************
+   * Public Method <Inline>
+   */
+  public:
+    bool classAvariable(void){
+      return (this == this->objectRecodeBase);
+    }
+
 
   /* **************************************************************************************
    * Public Method
    */
-
   public: 
   
     /**
