@@ -130,7 +130,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @return uint32_t Number of free items in the ring buffer.
      */
     inline uint32_t getFree(void){
-      return this->mCount = this->getCount();
+      return this->mCount - this->getCount();
     }
 
     /**

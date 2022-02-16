@@ -109,6 +109,17 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     /**
      * @brief 
      * 
+     */
+    inline void clear(void){
+      this->mPosition = 0;
+      this->mMark = 0;
+      this->mLimit = this->length();
+      return;
+    }
+    
+    /**
+     * @brief 
+     * 
      * @return uint32_t 
      */
     inline uint32_t position(void){
@@ -120,8 +131,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * 
      */
     inline void reset(void){
-      this->mPosition = 0;
-      this->mLimit = this->length();
+      this->position(this->mMark);
       return;
     }  
     
@@ -142,7 +152,16 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      */
     inline bool hasRemaining(void){
       return (this->mLimit > this->mPosition);
-    }  
+    }
+    
+    /**
+     * @brief 
+     * 
+     */
+    inline void mark(void){
+      this->mMark = mPosition;
+      return;
+    }
     
     /**
      * @brief 

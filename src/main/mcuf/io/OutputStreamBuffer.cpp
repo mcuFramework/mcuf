@@ -46,11 +46,11 @@ using mcuf::lang::ErrorCode;
  * 
  * @param memory 
  */
-OutputStreamBuffer::OutputStreamBuffer(OutputStream& outputStream ,const Memory& memory) construct 
+OutputStreamBuffer::OutputStreamBuffer(OutputStream* outputStream ,const Memory& memory) construct 
   RingBuffer(memory),
-  mByteBuffer(memory),
-  mOutputStream(outputStream){
+  mByteBuffer(memory){
   
+  this->mOutputStream = outputStream;
 }
 
 /**
@@ -58,7 +58,7 @@ OutputStreamBuffer::OutputStreamBuffer(OutputStream& outputStream ,const Memory&
  * 
  */
 OutputStreamBuffer::~OutputStreamBuffer(void){
-  this->mOutputStream.abortWrite();
+  this->mOutputStream->abortWrite();
 }
 
 /* ****************************************************************************************
@@ -122,7 +122,7 @@ bool OutputStreamBuffer::write(ByteBuffer* byteBuffer,
     byteBuffer->position(byteBuffer->position() + len);
   }
   
-  if(!this->mOutputStream.writeBusy()){
+  if(!this->mOutputStream->writeBusy()){
     this->writePacket();
   }
   
@@ -144,7 +144,11 @@ bool OutputStreamBuffer::write(ByteBuffer* byteBuffer,
  * @param attachment 
  */
 void OutputStreamBuffer::completed(int result, void* attachment){
-  this->popMult(nullptr, result);
+  uint32_t shift = this->mByteBuffer.position();
+  this->mByteBuffer.reset();
+  shift -= this->mByteBuffer.position();
+  
+  this->popMult(nullptr, shift);
   if(!this->isEmpty()){
     this->writePacket();
   }
@@ -184,22 +188,23 @@ void OutputStreamBuffer::failed(void* exc, void* attachment){
  *
  */
 void OutputStreamBuffer::writePacket(void){
-  if(this->mOutputStream.writeBusy())
+  if(this->mOutputStream->writeBusy())
     return;
   
   if(this->isEmpty())
     return;
   
-  this->mByteBuffer.reset();
+  this->mByteBuffer.clear();
   
   if(this->getTailPosition() >= this->getHeadPosition()){
     this->mByteBuffer.position(this->getTailPosition());
   }else{
-    this->mByteBuffer.position(this->getHeadPosition());
-    this->mByteBuffer.limit(this->getTailPosition());
+    this->mByteBuffer.position(this->getTailPosition());
+    this->mByteBuffer.limit(this->getHeadPosition());
   }
   
-  this->mOutputStream.write(&this->mByteBuffer, this, this);
+  this->mByteBuffer.mark();
+  this->mOutputStream->write(&this->mByteBuffer, this, this);
   return;
 }
 

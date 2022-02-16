@@ -41,10 +41,10 @@ using mcuf::io::OutputStream;
  * @brief Construct a new Print Stream object
  * 
  */
-PrintStream::PrintStream(OutputStream& outputStream, Memory& memory) construct Memory(memory),
-  mOutputStream(outputStream),
+PrintStream::PrintStream(OutputStream* outputStream, const Memory& memory) construct Memory(memory),
   mByteBuffer(memory){
-
+  
+  this->mOutputStream = outputStream;
 }
 
 /**
@@ -80,7 +80,7 @@ PrintStream::~PrintStream(void){
  * @return false 
  */
 bool PrintStream::print(bool b, bool newLine){
-  if(this->mOutputStream.writeBusy())
+  if(this->mOutputStream->writeBusy())
     return false;
 
   this->mByteBuffer.reset();
@@ -94,7 +94,8 @@ bool PrintStream::print(bool b, bool newLine){
   if(newLine)
     this->mByteBuffer.put("\n");
 
-  return this->mOutputStream.write(&this->mByteBuffer, nullptr, nullptr);
+  this->mByteBuffer.flip();
+  return this->mOutputStream->write(&this->mByteBuffer, nullptr, nullptr);
 }
 
 /**
@@ -106,7 +107,7 @@ bool PrintStream::print(bool b, bool newLine){
  * @return false 
  */
 bool PrintStream::print(char c, bool newLine){
-  if(this->mOutputStream.writeBusy())
+  if(this->mOutputStream->writeBusy())
     return false;
 
   this->mByteBuffer.reset();
@@ -115,7 +116,8 @@ bool PrintStream::print(char c, bool newLine){
   if(newLine)
     this->mByteBuffer.put("\n");
 
-  return this->mOutputStream.write(&this->mByteBuffer, nullptr, nullptr);
+  this->mByteBuffer.flip();
+  return this->mOutputStream->write(&this->mByteBuffer, nullptr, nullptr);
 }
 
 /**
@@ -127,7 +129,7 @@ bool PrintStream::print(char c, bool newLine){
  * @return false 
  */
 bool PrintStream::print(double d, bool newLine){
-  if(this->mOutputStream.writeBusy())
+  if(this->mOutputStream->writeBusy())
     return false;
 
   this->mByteBuffer.reset();
@@ -136,7 +138,8 @@ bool PrintStream::print(double d, bool newLine){
   if(newLine)
     this->mByteBuffer.put("\n");
 
-  return this->mOutputStream.write(&this->mByteBuffer, nullptr, nullptr);
+  this->mByteBuffer.flip();
+  return this->mOutputStream->write(&this->mByteBuffer, nullptr, nullptr);
 }
 
 /**
@@ -148,7 +151,7 @@ bool PrintStream::print(double d, bool newLine){
  * @return false 
  */
 bool PrintStream::print(float f, bool newLine){
-  if(this->mOutputStream.writeBusy())
+  if(this->mOutputStream->writeBusy())
     return false;
 
   this->mByteBuffer.reset();
@@ -157,7 +160,8 @@ bool PrintStream::print(float f, bool newLine){
   if(newLine)
     this->mByteBuffer.put("\n");
 
-  return this->mOutputStream.write(&this->mByteBuffer, nullptr, nullptr);
+  this->mByteBuffer.flip();
+  return this->mOutputStream->write(&this->mByteBuffer, nullptr, nullptr);
 }
 
 /**
@@ -169,7 +173,7 @@ bool PrintStream::print(float f, bool newLine){
  * @return false 
  */
 bool PrintStream::print(int i, bool newLine){
-  if(this->mOutputStream.writeBusy())
+  if(this->mOutputStream->writeBusy())
     return false;
 
   this->mByteBuffer.reset();
@@ -178,7 +182,8 @@ bool PrintStream::print(int i, bool newLine){
   if(newLine)
     this->mByteBuffer.put("\n");
 
-  return this->mOutputStream.write(&this->mByteBuffer, nullptr, nullptr);
+  this->mByteBuffer.flip();
+  return this->mOutputStream->write(&this->mByteBuffer, nullptr, nullptr);
 }
 
 /**
@@ -190,7 +195,7 @@ bool PrintStream::print(int i, bool newLine){
  * @return false 
  */
 bool PrintStream::print(const mcuf::lang::String& string, bool newLine){
-  if(this->mOutputStream.writeBusy())
+  if(this->mOutputStream->writeBusy())
     return false;
 
   this->mByteBuffer.reset();
@@ -199,7 +204,8 @@ bool PrintStream::print(const mcuf::lang::String& string, bool newLine){
   if(newLine)
     this->mByteBuffer.put("\n");
 
-  return this->mOutputStream.write(&this->mByteBuffer, nullptr, nullptr);
+  this->mByteBuffer.flip();
+  return this->mOutputStream->write(&this->mByteBuffer, nullptr, nullptr);
 }
 
 /**
@@ -211,7 +217,7 @@ bool PrintStream::print(const mcuf::lang::String& string, bool newLine){
  * @return false 
  */
 bool PrintStream::print(const char* string, bool newLine){
-  if(this->mOutputStream.writeBusy())
+  if(this->mOutputStream->writeBusy())
     return false;
 
   this->mByteBuffer.reset();
@@ -220,7 +226,8 @@ bool PrintStream::print(const char* string, bool newLine){
   if(newLine)
     this->mByteBuffer.put("\n");
 
-  return this->mOutputStream.write(&this->mByteBuffer, nullptr, nullptr);
+  this->mByteBuffer.flip();
+  return this->mOutputStream->write(&this->mByteBuffer, nullptr, nullptr);
 }
 
 /**
@@ -386,7 +393,7 @@ bool PrintStream::println(const char* string){
  * @return false 
  */
 bool PrintStream::format(const char* format, ...){
-  if(this->mOutputStream.writeBusy())
+  if(this->mOutputStream->writeBusy())
     return false;
 
   this->mByteBuffer.reset();
@@ -394,7 +401,7 @@ bool PrintStream::format(const char* format, ...){
   va_start(args, format);
   this->mByteBuffer.putFormat(format, args);
   va_end(args);
-  return this->mOutputStream.write(&this->mByteBuffer, nullptr, nullptr);
+  return this->mOutputStream->write(&this->mByteBuffer, nullptr, nullptr);
 }
 
 /* ****************************************************************************************

@@ -46,7 +46,7 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
    * Variable <Private>
    */
   private:
-    mcuf::io::OutputStream& mOutputStream;
+    mcuf::io::OutputStream* mOutputStream;
     mcuf::io::ByteBuffer mByteBuffer;
 
   /* **************************************************************************************
@@ -66,7 +66,7 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
      * @brief Construct a new Print Stream object
      * 
      */
-    PrintStream(mcuf::io::OutputStream& outputStream, mcuf::lang::Memory& memory);
+    PrintStream(mcuf::io::OutputStream* outputStream, const mcuf::lang::Memory& memory);
 
     /**
      * @brief Destroy the Print Stream object

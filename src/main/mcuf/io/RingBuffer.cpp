@@ -159,7 +159,7 @@ int RingBuffer::popMult(void* data, int num){
     if(num > max)
       num = max;
 
-    this->mHead += num;
+    this->mTail += num;
     return num;
   }
 
