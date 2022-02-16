@@ -123,7 +123,7 @@ class mcuf::util::Fifo extends mcuf::lang::Memory implements
      * 
      * @return uint32_t the number of elements in this collection.
      */
-    virtual uint32_t size(void) override;
+    virtual int size(void) override;
 
   /* **************************************************************************************
    * Public Method

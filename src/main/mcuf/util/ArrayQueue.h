@@ -166,7 +166,7 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
      * 
      * @return uint32_t the number of elements in this collection.
      */
-    virtual uint32_t size(void) override{
+    virtual int size(void) override{
       return this->ArrayQueuePrototype::size();
     }
 

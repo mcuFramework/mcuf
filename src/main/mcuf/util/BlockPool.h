@@ -108,7 +108,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory implements
      * 
      * @return uint32_t the number of elements in this pool.
      */
-    virtual uint32_t size(void) override;
+    virtual int size(void) override;
     
     /**
      * @brief Removes all of the elements from this pool (optional operation). The pool 

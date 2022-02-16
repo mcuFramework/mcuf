@@ -106,7 +106,7 @@ interface mcuf::util::Map{
    * 
    * @return uint32_t 
    */
-  virtual uint32_t size(void) abstract;
+  virtual int size(void) abstract;
 
   /**
    * @brief 

@@ -84,7 +84,7 @@ bool Stacker::isEmpty(void){
 /**
  *
  */
-uint32_t Stacker::size(void){
+int Stacker::size(void){
   return (reinterpret_cast<uint32_t>(this->mStackPointer) - 
     reinterpret_cast<uint32_t>(this->Memory::pointer()));
 }
@@ -127,7 +127,7 @@ bool Stacker::free(void* ptr, uint32_t size){
 /**
  * 
  */
-uint32_t Stacker::getFree(void){
+int Stacker::getFree(void){
   return (this->length() - this->size());
 }
 

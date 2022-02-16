@@ -310,6 +310,22 @@ bool PrintStream::print(const char* string){
 /**
  * @brief 
  * 
+ * @return true 
+ * @return false 
+ */
+bool PrintStream::println(void){
+  if(this->mOutputStream->writeBusy())
+    return false;
+
+  this->mByteBuffer.clear();
+  this->mByteBuffer.put("\n");
+  this->mByteBuffer.flip();
+  return this->mOutputStream->write(&this->mByteBuffer, nullptr, nullptr);
+}
+
+/**
+ * @brief 
+ * 
  * @param b 
  * @return true 
  * @return false 

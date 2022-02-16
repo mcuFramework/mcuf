@@ -227,6 +227,14 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
     /**
      * @brief 
      * 
+     * @return true 
+     * @return false 
+     */
+    bool println(void);
+
+    /**
+     * @brief 
+     * 
      * @param b 
      * @return true 
      * @return false 

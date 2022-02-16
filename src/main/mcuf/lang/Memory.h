@@ -43,7 +43,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * Variable <Private>
    */
   private: 
-    uint32_t mLength;
+    int mLength;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -114,6 +114,40 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
 
   virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length) override;
 
+  /* **************************************************************************************
+   * Public Method <Inline>
+   */
+  public: 
+
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    inline bool isReadOnly(void) const{
+      return (this->mLength <= 0);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    inline bool isEmpty(void) const{
+      return (this->isNull()) | (this->length() == 0);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    inline int length(void) const{
+      return ((this->mLength <= 0) ? ((~this->mLength) + 1) : this->mLength);
+    }  
+  
   /* **************************************************************************************
    * Public Method
    */
@@ -197,40 +231,6 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @return mcuf::lang::Memory 
      */
     mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length) const;
-
-  /* **************************************************************************************
-   * Public Method <Inline>
-   */
-  public: 
-
-    /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
-     */
-    inline bool isReadOnly(void) const{
-      return ((this->mLength & 0x80000000) == 0x80000000);
-    }
-
-    /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
-     */
-    inline bool isEmpty(void) const{
-      return (this->isNull()) | (this->length() == 0);
-    }
-
-    /**
-     * @brief 
-     * 
-     * @return uint32_t 
-     */
-    inline uint32_t length(void) const{
-      return (this->mLength & 0x7FFFFFFF);
-    }
 
   /* **************************************************************************************
    * Protected Method <Static>

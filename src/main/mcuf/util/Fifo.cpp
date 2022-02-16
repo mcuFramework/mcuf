@@ -84,7 +84,7 @@ bool Fifo::isEmpty(void){
 /**
  *
  */
-uint32_t Fifo::size(void){
+int Fifo::size(void){
   if(this->mEmpty)
     return 0;
   

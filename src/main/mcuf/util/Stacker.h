@@ -115,7 +115,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
      * 
      * @return uint32_t the number of elements in this collection.
      */
-    virtual uint32_t size(void) override;
+    virtual int size(void) override;
   
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Iterable<E>
@@ -176,7 +176,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
      * 
      * @return uint32_t 
      */
-    virtual uint32_t getFree(void);
+    virtual int getFree(void);
 
     /**
      * @brief 

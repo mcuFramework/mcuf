@@ -172,7 +172,7 @@ bool BlockPool::remove(void* element){
 /**
  * 
  */
-uint32_t BlockPool::size(void){
+int BlockPool::size(void){
   return this->mSize;
 }
 
