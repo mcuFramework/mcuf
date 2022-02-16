@@ -401,6 +401,7 @@ bool PrintStream::format(const char* format, ...){
   va_start(args, format);
   this->mByteBuffer.putFormat(format, args);
   va_end(args);
+  this->mByteBuffer.flip();
   return this->mOutputStream->write(&this->mByteBuffer, nullptr, nullptr);
 }
 
