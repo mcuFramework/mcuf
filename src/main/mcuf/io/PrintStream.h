@@ -160,6 +160,16 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
      * @return false 
      */
     bool print(const char* string, bool newLine);
+    
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @param newLine 
+     * @return true 
+     * @return false 
+     */
+    bool print(mcuf::io::ByteBuffer& byteBuffer, bool newLine);
 
     /**
      * @brief 
@@ -223,6 +233,15 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
      * @return false 
      */
     bool print(const char* string);
+    
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return true 
+     * @return false 
+     */
+    bool print(mcuf::io::ByteBuffer& byteBuffer);
 
     /**
      * @brief 
@@ -295,6 +314,15 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
      */
     bool println(const char* string);
     
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return true 
+     * @return false 
+     */
+    bool println(mcuf::io::ByteBuffer& byteBuffer);
+
     /**
      * @brief 
      * 

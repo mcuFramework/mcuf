@@ -233,6 +233,25 @@ bool PrintStream::print(const char* string, bool newLine){
 /**
  * @brief 
  * 
+ * @param byteBuffer 
+ * @param newLine 
+ * @return true 
+ * @return false 
+ */
+bool PrintStream::print(mcuf::io::ByteBuffer& byteBuffer, bool newLine){
+  this->mByteBuffer.clear();
+  this->mByteBuffer.put(byteBuffer);
+
+  if(newLine)
+    this->mByteBuffer.put("\n");
+
+  this->mByteBuffer.flip();
+  return this->mOutputStream->write(&this->mByteBuffer, nullptr, nullptr);
+}
+
+/**
+ * @brief 
+ * 
  * @param b 
  * @return true 
  * @return false 
@@ -305,6 +324,17 @@ bool PrintStream::print(const mcuf::lang::String& string){
  */
 bool PrintStream::print(const char* string){
   return this->print(string, false);
+}
+
+/**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @return true 
+ * @return false 
+ */
+bool PrintStream::print(mcuf::io::ByteBuffer& byteBuffer){
+  return this->print(byteBuffer, false);
 }
 
 /**
@@ -398,6 +428,17 @@ bool PrintStream::println(mcuf::lang::String& string){
  */
 bool PrintStream::println(const char* string){
   return this->print(string, true);
+}
+
+/**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @return true 
+ * @return false 
+ */
+bool PrintStream::println(mcuf::io::ByteBuffer& byteBuffer){
+  return this->print(byteBuffer, true);
 }
 
 /**
