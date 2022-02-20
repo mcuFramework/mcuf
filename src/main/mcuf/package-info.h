@@ -4,15 +4,14 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_A3782750_5C66_4C50_BEB7_B2B19D15CED5
-#define MCUF_A3782750_5C66_4C50_BEB7_B2B19D15CED5
+#ifndef MCUF_B1255230_9FC4_4BD9_A679_81688C34FA74
+#define MCUF_B1255230_9FC4_4BD9_A679_81688C34FA74
 
 /* ****************************************************************************************
  * Include folder
  */
 #include "function/package-info.h"
 #include "hal/package-info.h"
-#include "hw/package-info.h"
 #include "io/package-info.h"
 #include "lang/package-info.h"
 #include "util/package-info.h"
@@ -25,4 +24,4 @@
  * End of file
  */
 
-#endif /* MCUF_A3782750_5C66_4C50_BEB7_B2B19D15CED5 */
+#endif /* MCUF_B1255230_9FC4_4BD9_A679_81688C34FA74 */

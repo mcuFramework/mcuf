@@ -17,8 +17,10 @@
  */  
 namespace mcuf{
   namespace hal{
-    namespace timer{
-      enum struct TimerStatus : char;
+    namespace counter{
+      namespace timer{
+        enum struct TimerStatus : char;
+      }
     }
   }
 }
@@ -26,7 +28,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct mcuf::hal::timer::TimerStatus : char{
+enum struct mcuf::hal::counter::timer::TimerStatus : char{
   TRIGGER,
   CANCEL
 };

@@ -18,9 +18,9 @@
  */  
 namespace mcuf{
   namespace hal{
-    namespace general{
+    namespace counter{
       namespace pulse{
-        interface PulseWidthControl;
+        interface PulseWidthPortControl;
       }
     }
   }
@@ -29,37 +29,88 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::hal::general::pulse::PulseWidthControl{
+interface mcuf::hal::counter::pulse::PulseWidthPortControl{
 
   /* **************************************************************************************
    * Method
    */
 
   /**
+   * @brief Set the Frequence object
+   * 
+   * @param hz 
+   * @return true 
+   * @return false 
+   */
+  virtual bool setFrequence(float hz) abstract;
+
+  /**
+   * @brief Get the Frequence object
+   * 
+   * @return float 
+   */
+  virtual float getFrequence(void) abstract;
+
+  /**
+   * @brief Get the Period object
+   * 
+   * @return int 
+   */
+  virtual int getPeriod(void) abstract;
+  
+  /**
+   * @brief Get the Duty object
+   * 
+   * @param pin 
+   * @return float 
+   */
+  virtual float getDuty(int pin) abstract;
+
+  /**
+   * @brief Get the Duty Tick object
+   * 
+   * @param pin 
+   * @return int 
+   */
+  virtual int getDutyTick(int pin) abstract;
+  
+  /**
    * @brief Set the Duty object
    * 
+   * @param pin 
    * @param percent 
    * @return true 
    * @return false 
    */
-  virtual bool setDuty(float percent) abstract;
-   
+  virtual bool setDuty(int pin, float percent) abstract;
+  
   /**
-   * @brief Set the Duty8 Bit object
+   * @brief Set the Duty Tick object
    * 
+   * @param pin 
    * @param duty 
    * @return true 
    * @return false 
    */
-  virtual bool setDuty8Bit(uint8_t duty) abstract;
+  virtual bool setDutyTick(int pin, int duty) abstract;
 
   /**
    * @brief 
    * 
+   * @param pin 
    * @return true 
    * @return false 
    */
-  virtual bool stop(void) abstract;
+  virtual bool enable(int pin) abstract;
+  
+  /**
+   * @brief 
+   * 
+   * @param pin 
+   * @return true 
+   * @return false 
+   */
+  virtual bool disable(int pin) abstract;  
 };
 
 /* *****************************************************************************************

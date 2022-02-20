@@ -694,31 +694,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hal\general\pulse</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidth.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidth.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidthConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthConfig.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidthControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthControl.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>main\mcuf\hal\general\trigger</GroupName>
           <Files>
             <File>
@@ -939,52 +914,67 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hal\timer</GroupName>
+          <GroupName>main\mcuf\hal\counter</GroupName>
           <Files>
             <File>
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerStatus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\package-info.h</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hw</GroupName>
+          <GroupName>main\mcuf\hal\counter\pulse</GroupName>
           <Files>
             <File>
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hw\package-info.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>SimulatePulseWidth.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>SimulatePulseWidth.h</FileName>
+              <FileName>PulseWidthPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPortControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\counter\timer</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2088,31 +2078,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hal\general\pulse</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidth.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidth.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidthConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthConfig.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidthControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthControl.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>main\mcuf\hal\general\trigger</GroupName>
           <Files>
             <File>
@@ -2333,52 +2298,67 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hal\timer</GroupName>
+          <GroupName>main\mcuf\hal\counter</GroupName>
           <Files>
             <File>
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerStatus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\package-info.h</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hw</GroupName>
+          <GroupName>main\mcuf\hal\counter\pulse</GroupName>
           <Files>
             <File>
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hw\package-info.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>SimulatePulseWidth.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>SimulatePulseWidth.h</FileName>
+              <FileName>PulseWidthPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPortControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\counter\timer</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3482,31 +3462,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hal\general\pulse</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidth.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidth.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidthConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthConfig.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidthControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthControl.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>main\mcuf\hal\general\trigger</GroupName>
           <Files>
             <File>
@@ -3727,52 +3682,67 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hal\timer</GroupName>
+          <GroupName>main\mcuf\hal\counter</GroupName>
           <Files>
             <File>
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerStatus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\package-info.h</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hw</GroupName>
+          <GroupName>main\mcuf\hal\counter\pulse</GroupName>
           <Files>
             <File>
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hw\package-info.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>SimulatePulseWidth.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>SimulatePulseWidth.h</FileName>
+              <FileName>PulseWidthPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPortControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\counter\timer</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4876,31 +4846,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hal\general\pulse</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidth.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidth.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidthConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthConfig.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidthControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthControl.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>main\mcuf\hal\general\trigger</GroupName>
           <Files>
             <File>
@@ -5121,52 +5066,67 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hal\timer</GroupName>
+          <GroupName>main\mcuf\hal\counter</GroupName>
           <Files>
             <File>
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerStatus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\package-info.h</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hw</GroupName>
+          <GroupName>main\mcuf\hal\counter\pulse</GroupName>
           <Files>
             <File>
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hw\package-info.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>SimulatePulseWidth.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>SimulatePulseWidth.h</FileName>
+              <FileName>PulseWidthPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPortControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\counter\timer</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6339,31 +6299,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hal\general\pulse</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidth.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidth.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidthConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthConfig.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidthControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthControl.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>main\mcuf\hal\general\trigger</GroupName>
           <Files>
             <File>
@@ -6584,52 +6519,67 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hal\timer</GroupName>
+          <GroupName>main\mcuf\hal\counter</GroupName>
           <Files>
             <File>
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerStatus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\package-info.h</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hw</GroupName>
+          <GroupName>main\mcuf\hal\counter\pulse</GroupName>
           <Files>
             <File>
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hw\package-info.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>SimulatePulseWidth.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>SimulatePulseWidth.h</FileName>
+              <FileName>PulseWidthPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPortControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\counter\timer</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -7802,31 +7752,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hal\general\pulse</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidth.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidth.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidthConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthConfig.h</FilePath>
-            </File>
-            <File>
-              <FileName>PulseWidthControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\general\pulse\PulseWidthControl.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>main\mcuf\hal\general\trigger</GroupName>
           <Files>
             <File>
@@ -8047,52 +7972,67 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hal\timer</GroupName>
+          <GroupName>main\mcuf\hal\counter</GroupName>
           <Files>
             <File>
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\package-info.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\timer\TimerStatus.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\package-info.h</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>main\mcuf\hw</GroupName>
+          <GroupName>main\mcuf\hal\counter\pulse</GroupName>
           <Files>
             <File>
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hw\package-info.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\package-info.h</FilePath>
             </File>
             <File>
-              <FileName>SimulatePulseWidth.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>SimulatePulseWidth.h</FileName>
+              <FileName>PulseWidthPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hw\SimulatePulseWidth.h</FilePath>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>PulseWidthPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\pulse\PulseWidthPortControl.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\hal\counter\timer</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>TimerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\hal\counter\timer\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -8515,5 +8455,14 @@
     <components/>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>mcuf</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

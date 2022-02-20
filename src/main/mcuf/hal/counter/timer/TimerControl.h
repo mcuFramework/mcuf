@@ -11,15 +11,17 @@
  * Include
  */  
 #include "mcuf_base.h"
-#include "mcuf/hal/timer/TimerEvent.h"
+#include "mcuf/hal/counter/timer/TimerEvent.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace hal{  
-    namespace timer{
-      interface TimerControl;
+    namespace counter{
+      namespace timer{
+        interface TimerControl;
+      }
     }
   }
 }
@@ -27,7 +29,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::hal::timer::TimerControl{
+interface mcuf::hal::counter::timer::TimerControl{
 
   /* **************************************************************************************
    * Method
@@ -79,7 +81,7 @@ interface mcuf::hal::timer::TimerControl{
    * @return true 
    * @return false 
    */
-  virtual bool startAtTick(uint32_t tick, TimerEvent* event) abstract;
+  virtual bool startAtTick(uint32_t tick, mcuf::hal::counter::timer::TimerEvent* event) abstract;
   
   /**
    * @brief 
@@ -98,7 +100,7 @@ interface mcuf::hal::timer::TimerControl{
    * @return true 
    * @return false 
    */
-  virtual bool startAtTime(uint32_t microSecond, TimerEvent* event) abstract;
+  virtual bool startAtTime(uint32_t microSecond, mcuf::hal::counter::timer::TimerEvent* event) abstract;
   
   /**
    * @brief 

@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_5266ED1A_196C_4295_A47C_A3052E41D353
-#define MCUF_5266ED1A_196C_4295_A47C_A3052E41D353
+#ifndef MCUF_F7F482D2_32B0_4FA9_8E3B_EA1E46F5D178
+#define MCUF_F7F482D2_32B0_4FA9_8E3B_EA1E46F5D178
 
 /* ****************************************************************************************
  * Include folder
@@ -14,12 +14,13 @@
 /* ****************************************************************************************
  * Include
  */
-#include "PulseWidth.h"
-#include "PulseWidthConfig.h"
-#include "PulseWidthControl.h"
+#include "Timer.h"
+#include "TimerControl.h"
+#include "TimerEvent.h"
+#include "TimerStatus.h"
 
 /* ****************************************************************************************
  * End of file
  */
 
-#endif /* MCUF_5266ED1A_196C_4295_A47C_A3052E41D353 */
+#endif /* MCUF_F7F482D2_32B0_4FA9_8E3B_EA1E46F5D178 */

@@ -4,15 +4,14 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_891676E2_8449_4691_9E80_FA2D84B32D6D
-#define MCUF_891676E2_8449_4691_9E80_FA2D84B32D6D
+#ifndef MCUF_FE116A79_69D3_4BD6_B53C_125D02E2CC5E
+#define MCUF_FE116A79_69D3_4BD6_B53C_125D02E2CC5E
 
 /* ****************************************************************************************
  * Include folder
  */
 #include "pin/package-info.h"
 #include "port/package-info.h"
-#include "pulse/package-info.h"
 #include "trigger/package-info.h"
 
 /* ****************************************************************************************
@@ -23,4 +22,4 @@
  * End of file
  */
 
-#endif /* MCUF_891676E2_8449_4691_9E80_FA2D84B32D6D */
+#endif /* MCUF_FE116A79_69D3_4BD6_B53C_125D02E2CC5E */

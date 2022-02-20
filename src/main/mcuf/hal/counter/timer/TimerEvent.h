@@ -12,15 +12,17 @@
  * Include
  */  
 #include "mcuf_base.h"
-#include "mcuf/hal/timer/TimerStatus.h"
+#include "mcuf/hal/counter/timer/TimerStatus.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace hal{  
-    namespace timer{
-      interface TimerEvent;
+    namespace counter{
+      namespace timer{
+        interface TimerEvent;
+      }
     }
   }
 }
@@ -28,7 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::hal::timer::TimerEvent{
+interface mcuf::hal::counter::timer::TimerEvent{
 
   /* **************************************************************************************
    * Method
@@ -39,7 +41,7 @@ interface mcuf::hal::timer::TimerEvent{
    * 
    * @param status 
    */
-  virtual void onTimerEvent(mcuf::hal::timer::TimerStatus status) abstract;
+  virtual void onTimerEvent(mcuf::hal::counter::timer::TimerStatus status) abstract;
 };
 
 #endif/* MCUF_DF0EC699_78D6_4243_A75D_F321C92D88BB */

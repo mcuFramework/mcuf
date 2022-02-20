@@ -4,26 +4,25 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_BBCC216D_3F3B_4465_9579_6960281585E8
-#define MCUF_BBCC216D_3F3B_4465_9579_6960281585E8
+#ifndef MCUF_AD0B942D_EE2D_4080_BDAD_3E9AACE341DA
+#define MCUF_AD0B942D_EE2D_4080_BDAD_3E9AACE341DA
 
 /* ****************************************************************************************
  * Include
  */  
 #include "mcuf_base.h"
 #include "mcuf/hal/Base.h"
-#include "mcuf/hal/general/pulse/PulseWidthConfig.h"
-#include "mcuf/hal/general/pulse/PulseWidthControl.h"
+#include "mcuf/hal/counter/timer/TimerControl.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace hal{
-    namespace general{
-      namespace pulse{
-        interface PulseWidth;
-      }
+    namespace counter{
+      namespace timer{
+        interface Timer;
+      } 
     }
   }
 }
@@ -31,18 +30,17 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::hal::general::pulse::PulseWidth extends mcuf::hal::Base,
-  mcuf::hal::general::pulse::PulseWidthConfig,
-  mcuf::hal::general::pulse::PulseWidthControl{
+interface mcuf::hal::counter::timer::Timer extends mcuf::hal::Base,
+  mcuf::hal::counter::timer::TimerControl{
 
   /* **************************************************************************************
    * Method
    */
-   
+
 };
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif/* MCUF_BBCC216D_3F3B_4465_9579_6960281585E8 */
+#endif/* MCUF_AD0B942D_EE2D_4080_BDAD_3E9AACE341DA */
