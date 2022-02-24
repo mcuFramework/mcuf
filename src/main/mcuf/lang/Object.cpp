@@ -132,6 +132,28 @@ bool Object::yield(void){
   return false;
 }
 
+/**
+ *
+ */
+bool Object::systemLock(void){
+  if(osKernelLock() > 0)
+    return true;
+  
+  else
+    return false;
+}
+
+/**
+ *
+ */
+bool Object::systemUnlock(void){
+  if(osKernelUnlock() == 0)
+    return true;
+  
+  else
+    return false;
+}
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */
