@@ -152,6 +152,7 @@ bool SerialPortOutputStream::write(ByteBuffer* byteBuffer, Feture& feture){
   
   return this->write(byteBuffer, nullptr, &feture);
 }
+
 /* ****************************************************************************************
  * Public Method
  */

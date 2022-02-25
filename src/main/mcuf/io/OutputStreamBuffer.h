@@ -118,6 +118,16 @@ class mcuf::io::OutputStreamBuffer extends mcuf::io::RingBuffer implements
     virtual bool write(mcuf::io::ByteBuffer* byteBuffer, 
                        void* attachment,
                        mcuf::io::CompletionHandler<int, void*>* handler) override;
+                       
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @param feture 
+     * @return true 
+     * @return false 
+     */
+    virtual bool write(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Feture& feture) override;
 
   /* **************************************************************************************
    * Public Method <Override> - mcuf::io::CompletionHandler<int ,void*>

@@ -132,6 +132,24 @@ bool OutputStreamBuffer::write(ByteBuffer* byteBuffer,
   
   return true;
 }
+                               
+/**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @param feture 
+ * @return true 
+ * @return false 
+ */
+bool OutputStreamBuffer::write(ByteBuffer* byteBuffer, Feture& feture){
+  if(!feture.classAvariable())
+    return false;
+  
+  if(!feture.isIdle())
+    return false;
+  
+  return this->write(byteBuffer, nullptr, &feture);
+}
 
 /* ****************************************************************************************
  * Public Method <Override> - mcuf::io::CompletionHandler<int ,void*>
