@@ -16,7 +16,6 @@
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf/hal/Base.h"
-#include "mcuf/hal/analog/input/AnalogInputPortConfig.h"
 #include "mcuf/hal/analog/input/AnalogInputPortControl.h"
 
 /* ****************************************************************************************
@@ -36,7 +35,6 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 interface mcuf::hal::analog::input::AnalogInputPort extends mcuf::hal::Base,
-  mcuf::hal::analog::input::AnalogInputPortConfig,
   mcuf::hal::analog::input::AnalogInputPortControl{
 
   /* **************************************************************************************

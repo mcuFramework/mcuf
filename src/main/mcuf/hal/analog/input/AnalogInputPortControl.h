@@ -37,14 +37,14 @@ interface mcuf::hal::analog::input::AnalogInputPortControl{
   /* **************************************************************************************
    * Method
    */
-  
+
   /**
    * @brief 
    * 
    * @param pin 
    * @return uint32_t 
    */
-  virtual uint32_t convert(uint32_t pin) abstract;
+  virtual uint32_t read(int channel) abstract;
 
   /**
    * @brief Get the adc convert bit.

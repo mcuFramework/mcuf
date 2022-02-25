@@ -16,7 +16,6 @@
  */
 #include "AnalogInputPin.h"
 #include "AnalogInputPort.h"
-#include "AnalogInputPortConfig.h"
 #include "AnalogInputPortControl.h"
 
 /* ****************************************************************************************

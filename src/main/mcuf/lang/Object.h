@@ -178,6 +178,17 @@ class mcuf::lang::Object{
      * @return false 
      */
     bool yield(void);
+    
+    /**
+     *
+     */
+    bool systemLock(void);
+    
+    /**
+     *
+     */
+    bool systemUnlock(void);
+    
 
   /* **************************************************************************************
    * Protected Method <Static>
