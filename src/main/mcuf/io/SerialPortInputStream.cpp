@@ -14,6 +14,7 @@
 //-----------------------------------------------------------------------------------------
 #include "mcuf/io/SerialPortInputStream.h"
 #include "mcuf/lang/System.h"
+#include "mcuf/lang/Threads.h"
 
 /* ****************************************************************************************
  * Macro
@@ -29,9 +30,11 @@
 using mcuf::lang::Memory;
 using mcuf::lang::System;
 using mcuf::lang::ErrorCode;
+using mcuf::lang::Threads;
 using mcuf::io::ByteBuffer;
 using mcuf::io::CompletionHandler;
 using mcuf::io::SerialPortInputStream;
+using mcuf::io::Feture;
 using mcuf::hal::serial::port::SerialPortStatus;
 
 
@@ -139,6 +142,19 @@ bool SerialPortInputStream::read(ByteBuffer* byteBuffer, void* attachment, Compl
 
   else
     return this->mSerialPort->read(byteBuffer, this);
+}
+
+/**
+ *
+ */
+bool SerialPortInputStream::read(ByteBuffer* byteBuffer, Feture& feture){
+  if(!feture.classAvariable())
+    return false;
+  
+  if(!feture.isIdle())
+    return false;
+  
+  return this->read(byteBuffer, nullptr, &feture);
 }
 
 /* ****************************************************************************************

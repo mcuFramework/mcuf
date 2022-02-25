@@ -17,6 +17,7 @@
 #include "ByteBuffer.h"
 #include "Closeable.h"
 #include "CompletionHandler.h"
+#include "Feture.h"
 #include "InputStream.h"
 #include "OutputStream.h"
 #include "OutputStreamBuffer.h"

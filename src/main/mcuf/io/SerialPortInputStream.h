@@ -21,6 +21,7 @@
 #include "mcuf/io/InputStream.h"
 #include "mcuf/io/OutputStream.h"
 #include "mcuf/io/CompletionHandler.h"
+#include "mcuf/io/Feture.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -55,7 +56,7 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
     mcuf::hal::serial::port::SerialPort* mSerialPort;
     mcuf::io::CompletionHandler<int, void*>* mReadHandler;
     void* mReadAttachment;
-
+  
   /* **************************************************************************************
    * Abstract method <Public>
    */
@@ -137,6 +138,14 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
                       void* attachment,
                       mcuf::io::CompletionHandler<int, void*>* handler) override;
 
+    /**
+     * @brief blocking, cannot call in interrupt
+     * 
+     * @param byteBuffer 
+     * @return int 
+     */
+    virtual bool read(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Feture& feture) override;
+                      
   /* **************************************************************************************
    * Public Method
    */

@@ -140,6 +140,18 @@ bool SerialPortOutputStream::write(ByteBuffer* byteBuffer, void* attachment, Com
     return this->mSerialPort->write(byteBuffer, this);
 }
 
+/**
+ *
+ */
+bool SerialPortOutputStream::write(ByteBuffer* byteBuffer, Feture& feture){
+  if(!feture.classAvariable())
+    return false;
+  
+  if(!feture.isIdle())
+    return false;
+  
+  return this->write(byteBuffer, nullptr, &feture);
+}
 /* ****************************************************************************************
  * Public Method
  */
