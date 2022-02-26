@@ -14,6 +14,7 @@
 #include "mcuf_base.h"
 #include "mcuf/io/ByteBuffer.h"
 #include "mcuf/io/CompletionHandler.h"
+#include "mcuf/io/Feture.h"
 #include "mcuf/lang/Object.h"
 
 /* ****************************************************************************************
@@ -48,7 +49,7 @@ interface mcuf::io::InputStream{
   virtual bool readBusy(void) abstract;
   
   /**
-   * @brief 
+   * @brief nonblocking
    * 
    * @param byteBuffer 
    * @param attachment 
@@ -59,6 +60,16 @@ interface mcuf::io::InputStream{
   virtual bool read(mcuf::io::ByteBuffer* byteBuffer, 
                     void* attachment,
                     mcuf::io::CompletionHandler<int, void*>* handler) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @param byteBuffer 
+   * @param feture 
+   * @return true 
+   * @return false 
+   */
+  virtual bool read(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Feture& feture) abstract;
 
 };
 

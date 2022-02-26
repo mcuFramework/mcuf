@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_056EB5AC_CAA5_4283_A960_832982C15294
-#define MCUF_056EB5AC_CAA5_4283_A960_832982C15294
+#ifndef MCUF_858D7963_BBA9_4496_8D4B_B2D77E1330CC
+#define MCUF_858D7963_BBA9_4496_8D4B_B2D77E1330CC
 
 /* ****************************************************************************************
  * Include
@@ -15,11 +15,6 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/hal/serial/port/SerialPort.h"
-#include "mcuf/hal/serial/port/SerialPortEvent.h"
-#include "mcuf/hal/serial/port/SerialPortStatus.h"
-#include "mcuf/io/InputStream.h"
-#include "mcuf/io/OutputStream.h"
 #include "mcuf/io/CompletionHandler.h"
 
 /* ****************************************************************************************
@@ -27,7 +22,7 @@
  */  
 namespace mcuf{
   namespace io{
-    class SerialPortOutputStream;
+    class Feture;
   }
 }
 
@@ -35,10 +30,19 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements 
-  public mcuf::io::OutputStream,
-  public mcuf::hal::serial::port::SerialPortEvent
+class mcuf::io::Feture extends mcuf::lang::Object implements 
+  public CompletionHandler<int, void*>
 {
+
+  /* **************************************************************************************
+   * Enum
+   */
+  public:
+    enum struct Status : uint32_t{
+      IDLE,
+      WAIT,
+      DONE
+    };
 
   /* **************************************************************************************
    * Variable <Public>
@@ -52,11 +56,9 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
    * Variable <Private>
    */
   private:
-    mcuf::hal::serial::port::SerialPort* mSerialPort;
-    mcuf::io::CompletionHandler<int, void*>* mWriteHandler;
-    void* mWriteAttachment;
-    uint32_t mBlockingResult;
-    bool mBlockingStatus;
+    Status mStatus;
+    uint32_t mThreadID;
+    uint32_t mResult;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -69,20 +71,19 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
   /* **************************************************************************************
    * Construct Method
    */
-  public:
+  public: 
 
     /**
-     * @brief Construct a new Serial Port Output Stream object 
+     * @brief Construct a new Feture object
      * 
-     * @param serialPort 
      */
-    SerialPortOutputStream(mcuf::hal::serial::port::SerialPort* serialPort);
+    Feture(void);
 
     /**
-     * @brief Destroy the Serial Port Output Stream object
+     * @brief Destroy the Feture object
      * 
      */
-    virtual ~SerialPortOutputStream(void);
+    virtual ~Feture(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -93,65 +94,75 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::hal::serial::port::SerialPortEvent
-   */  
+   * Public Method <Override> - mcuf::io::CompletionHandler<int ,void*>
+   */
   public:
-
+  
     /**
      * @brief 
      * 
-     * @param status 
-     * @param byteBuffer 
+     * @param result 
+     * @param attachment 
      */
-    virtual void onSerialPortEvent(mcuf::hal::serial::port::SerialPortStatus status, 
-                                   mcuf::io::ByteBuffer* byteBuffer) override;
-
+    virtual void completed(int result, void* attachment) override;
+    
+    /**
+     * @brief 
+     * 
+     * @param exc 
+     * @param attachment 
+     */
+    virtual void failed(void* exc, void* attachment) override;
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::io::OutputStream
+   * Public Method
    */
   public:
-
+    
     /**
      * @brief 
      * 
      * @return true 
      * @return false 
      */
-    virtual bool abortWrite(void) override;
+    bool setWait(void);
+  
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    int get(void);
+  
+    /**
+     * @brief 
+     * 
+     * @param timeout 
+     * @return int 
+     */
+    int get(uint32_t timeout);
+  
+    /**
+     * @brief 
+     * 
+     */
+    void reset(void);
+  
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool isDone(void);
     
     /**
      * @brief 
      * 
-     * @return true is busy.
-     * @return false isn't busy.
+     * @return true 
+     * @return false 
      */
-    virtual bool writeBusy(void) override;
-
-    /**
-     * @brief 
-     * 
-     * @param byteBuffer 
-     * @param attachment 
-     * @param handler 
-     * @return true successful.
-     * @return false fail.
-     */
-    virtual bool write(mcuf::io::ByteBuffer* byteBuffer, 
-                      void* attachment,
-                      mcuf::io::CompletionHandler<int, void*>* handler) override;
-
-    /**
-     * @brief blocking, cannot call in interrupt
-     * 
-     * @param byteBuffer 
-     * @return int 
-     */
-    virtual bool write(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Feture& feture) override;
-                      
-  /* **************************************************************************************
-   * Public Method
-   */
+    bool isIdle(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -183,4 +194,4 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
  * End of file
  */ 
 
-#endif /* MCUF_056EB5AC_CAA5_4283_A960_832982C15294 */
+#endif /* MCUF_858D7963_BBA9_4496_8D4B_B2D77E1330CC */

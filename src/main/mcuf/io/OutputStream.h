@@ -14,6 +14,7 @@
 #include "mcuf_base.h"
 #include "mcuf/io/ByteBuffer.h"
 #include "mcuf/io/CompletionHandler.h"
+#include "mcuf/io/Feture.h"
 #include "mcuf/lang/Object.h"
 
 /* ****************************************************************************************
@@ -62,12 +63,22 @@ interface mcuf::io::OutputStream{
                      void* attachment,
                      mcuf::io::CompletionHandler<int, void*>* handler) abstract;
 
+  /**
+   * @brief 
+   * 
+   * @param byteBuffer 
+   * @param feture 
+   * @return true 
+   * @return false 
+   */
+  virtual bool write(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Feture& feture) abstract;
+
 };
 
 
 
 /* *****************************************************************************************
- *    End of file
+ * End of file
  */ 
 
 
