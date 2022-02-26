@@ -154,7 +154,13 @@ bool SerialPortInputStream::read(ByteBuffer* byteBuffer, Feture& feture){
   if(!feture.isIdle())
     return false;
   
-  return this->read(byteBuffer, nullptr, &feture);
+  feture.setWait();
+  bool result = this->read(byteBuffer, nullptr, &feture);
+  
+  if(!result)
+    feture.reset();
+  
+  return result; 
 }
 
 /* ****************************************************************************************

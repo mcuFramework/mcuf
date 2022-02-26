@@ -36,6 +36,9 @@ using mcuf::lang::Threads;
 /* ****************************************************************************************
  * Construct Method
  */
+Feture::Feture(void){
+  this->reset();
+}
 
 /* ****************************************************************************************
  * Operator Method
@@ -94,15 +97,32 @@ void Feture::failed(void* exc, void* attachment){
 /**
  * @brief 
  * 
+ * @return true 
+ * @return false 
+ */
+bool Feture::setWait(void){
+  if(this->mStatus == Status::IDLE){
+    this->mStatus = Status::WAIT;
+    return true;
+    
+  }else{
+    return false;
+    
+  }
+}
+
+/**
+ * @brief 
+ * 
  * @return int 
  */
 int Feture::get(void){
-  if(this->mStatus == Status::IDLE){
+  if(this->mStatus == Status::WAIT){
     this->mThreadID = Threads::getThreadID();
     if(this->mThreadID != 0){
       while(true){
-        this->wait();
-        if(this->mStatus == Status::DONE)
+        this->wait(1000);
+        if(this->mStatus != Status::WAIT)
           break;
       
       }
@@ -118,7 +138,7 @@ int Feture::get(void){
  * @return int 
  */
 int Feture::get(uint32_t timeout){
-  if(this->mStatus == Status::IDLE){
+  if(this->mStatus == Status::WAIT){
     this->mThreadID = Threads::getThreadID();
     
     if(this->mThreadID != 0){

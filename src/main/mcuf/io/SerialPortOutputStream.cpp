@@ -150,7 +150,13 @@ bool SerialPortOutputStream::write(ByteBuffer* byteBuffer, Feture& feture){
   if(!feture.isIdle())
     return false;
   
-  return this->write(byteBuffer, nullptr, &feture);
+  feture.setWait();
+  bool result = this->write(byteBuffer, nullptr, &feture);
+  
+  if(!result)
+    feture.reset();
+  
+  return result; 
 }
 
 /* ****************************************************************************************

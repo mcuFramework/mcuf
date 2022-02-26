@@ -118,7 +118,15 @@ class mcuf::io::Feture extends mcuf::lang::Object implements
    * Public Method
    */
   public:
-
+    
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool setWait(void);
+  
     /**
      * @brief 
      * 

@@ -612,11 +612,6 @@
               <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPort.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogInputPortConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortConfig.h</FilePath>
-            </File>
-            <File>
               <FileName>AnalogInputPortControl.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortControl.h</FilePath>
@@ -2073,11 +2068,6 @@
               <FileName>AnalogInputPort.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPortConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>AnalogInputPortControl.h</FileName>
@@ -3538,11 +3528,6 @@
               <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPort.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogInputPortConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortConfig.h</FilePath>
-            </File>
-            <File>
               <FileName>AnalogInputPortControl.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortControl.h</FilePath>
@@ -4999,11 +4984,6 @@
               <FileName>AnalogInputPort.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPortConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>AnalogInputPortControl.h</FileName>
@@ -6464,11 +6444,6 @@
               <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPort.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogInputPortConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortConfig.h</FilePath>
-            </File>
-            <File>
               <FileName>AnalogInputPortControl.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortControl.h</FilePath>
@@ -7927,11 +7902,6 @@
               <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPort.h</FilePath>
             </File>
             <File>
-              <FileName>AnalogInputPortConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortConfig.h</FilePath>
-            </File>
-            <File>
               <FileName>AnalogInputPortControl.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\hal\analog\input\AnalogInputPortControl.h</FilePath>
@@ -8791,5 +8761,14 @@
     <components/>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>mcuf</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>
