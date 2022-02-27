@@ -141,7 +141,7 @@ bool OutputStreamBuffer::write(ByteBuffer* byteBuffer,
  * @return true 
  * @return false 
  */
-bool OutputStreamBuffer::write(ByteBuffer* byteBuffer, Feture& feture){
+bool OutputStreamBuffer::write(ByteBuffer* byteBuffer, Future& feture){
   if(!feture.classAvariable())
     return false;
   

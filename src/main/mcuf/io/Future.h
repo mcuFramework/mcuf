@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_8FE9223C_FFFD_4DB6_ACA0_1BE151D350EF
-#define MCUF_8FE9223C_FFFD_4DB6_ACA0_1BE151D350EF
+#ifndef MCUF_858D7963_BBA9_4496_8D4B_B2D77E1330CC
+#define MCUF_858D7963_BBA9_4496_8D4B_B2D77E1330CC
 
 /* ****************************************************************************************
  * Include
@@ -15,20 +15,14 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/hal/serial/port/SerialPort.h"
-#include "mcuf/hal/serial/port/SerialPortEvent.h"
-#include "mcuf/hal/serial/port/SerialPortStatus.h"
-#include "mcuf/io/InputStream.h"
-#include "mcuf/io/OutputStream.h"
 #include "mcuf/io/CompletionHandler.h"
-#include "mcuf/io/Future.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace io{
-    class SerialPortInputStream;
+    class Future;
   }
 }
 
@@ -36,10 +30,19 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements 
-  public mcuf::io::InputStream,
-  public mcuf::hal::serial::port::SerialPortEvent
+class mcuf::io::Future extends mcuf::lang::Object implements 
+  public CompletionHandler<int, void*>
 {
+
+  /* **************************************************************************************
+   * Enum
+   */
+  public:
+    enum struct Status : uint32_t{
+      IDLE,
+      WAIT,
+      DONE
+    };
 
   /* **************************************************************************************
    * Variable <Public>
@@ -53,10 +56,10 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
    * Variable <Private>
    */
   private:
-    mcuf::hal::serial::port::SerialPort* mSerialPort;
-    mcuf::io::CompletionHandler<int, void*>* mReadHandler;
-    void* mReadAttachment;
-  
+    Status mStatus;
+    uint32_t mThreadID;
+    uint32_t mResult;
+
   /* **************************************************************************************
    * Abstract method <Public>
    */
@@ -68,19 +71,19 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
   /* **************************************************************************************
    * Construct Method
    */
-  public:
-    /**
-     * @brief Construct a new Serial Port Input Stream object
-     * 
-     * @param serialPort 
-     */
-    SerialPortInputStream(mcuf::hal::serial::port::SerialPort* serialPort);
+  public: 
 
     /**
-     * @brief Destroy the Serial Port Input Stream object
+     * @brief Construct a new Future object
      * 
      */
-    virtual ~SerialPortInputStream(void);
+    Future(void);
+
+    /**
+     * @brief Destroy the Future object
+     * 
+     */
+    virtual ~Future(void) = default;
 
   /* **************************************************************************************
    * Operator Method
@@ -91,64 +94,75 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::hal::serial::port::SerialPortEvent
-   */  
+   * Public Method <Override> - mcuf::io::CompletionHandler<int ,void*>
+   */
   public:
-
+  
     /**
      * @brief 
      * 
-     * @param status 
-     * @param byteBuffer 
+     * @param result 
+     * @param attachment 
      */
-    virtual void onSerialPortEvent(mcuf::hal::serial::port::SerialPortStatus status, 
-                                   mcuf::io::ByteBuffer* byteBuffer) override;
-
-  /* **************************************************************************************
-   * Public Method <Override> - mcuf::io::InputStream
-   */                      
-  public:
-
-    /**
-     * @brief 
-     * 
-     * @return true abrot successful.
-     * @return false abrot fail.
-     */
-    virtual bool abortRead(void) override;
-                              
-    /**
-     * @brief 
-     * 
-     * @return true is busy.
-     * @return false isn't busy.
-     */
-    virtual bool readBusy(void) override;
+    virtual void completed(int result, void* attachment) override;
     
     /**
      * @brief 
      * 
-     * @param byteBuffer 
+     * @param exc 
      * @param attachment 
-     * @param handler 
-     * @return true successful.
-     * @return false fail.
      */
-    virtual bool read(mcuf::io::ByteBuffer* byteBuffer, 
-                      void* attachment,
-                      mcuf::io::CompletionHandler<int, void*>* handler) override;
+    virtual void failed(void* exc, void* attachment) override;
 
-    /**
-     * @brief blocking, cannot call in interrupt
-     * 
-     * @param byteBuffer 
-     * @return int 
-     */
-    virtual bool read(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Future& feture) override;
-                      
   /* **************************************************************************************
    * Public Method
    */
+  public:
+    
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool setWait(void);
+  
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    int get(void);
+  
+    /**
+     * @brief 
+     * 
+     * @param timeout 
+     * @return int 
+     */
+    int get(uint32_t timeout);
+  
+    /**
+     * @brief 
+     * 
+     */
+    void reset(void);
+  
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool isDone(void);
+    
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool isIdle(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -180,4 +194,4 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
  * End of file
  */ 
 
-#endif /* MCUF_8FE9223C_FFFD_4DB6_ACA0_1BE151D350EF */
+#endif /* MCUF_858D7963_BBA9_4496_8D4B_B2D77E1330CC */

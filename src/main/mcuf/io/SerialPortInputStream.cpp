@@ -34,7 +34,7 @@ using mcuf::lang::Threads;
 using mcuf::io::ByteBuffer;
 using mcuf::io::CompletionHandler;
 using mcuf::io::SerialPortInputStream;
-using mcuf::io::Feture;
+using mcuf::io::Future;
 using mcuf::hal::serial::port::SerialPortStatus;
 
 
@@ -147,7 +147,7 @@ bool SerialPortInputStream::read(ByteBuffer* byteBuffer, void* attachment, Compl
 /**
  *
  */
-bool SerialPortInputStream::read(ByteBuffer* byteBuffer, Feture& feture){
+bool SerialPortInputStream::read(ByteBuffer* byteBuffer, Future& feture){
   if(!feture.classAvariable())
     return false;
   

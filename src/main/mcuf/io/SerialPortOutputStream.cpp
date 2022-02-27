@@ -143,7 +143,7 @@ bool SerialPortOutputStream::write(ByteBuffer* byteBuffer, void* attachment, Com
 /**
  *
  */
-bool SerialPortOutputStream::write(ByteBuffer* byteBuffer, Feture& feture){
+bool SerialPortOutputStream::write(ByteBuffer* byteBuffer, Future& feture){
   if(!feture.classAvariable())
     return false;
   
