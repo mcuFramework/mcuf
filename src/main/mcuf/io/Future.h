@@ -22,7 +22,7 @@
  */  
 namespace mcuf{
   namespace io{
-    class Feture;
+    class Future;
   }
 }
 
@@ -30,7 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::io::Feture extends mcuf::lang::Object implements 
+class mcuf::io::Future extends mcuf::lang::Object implements 
   public CompletionHandler<int, void*>
 {
 
@@ -74,16 +74,16 @@ class mcuf::io::Feture extends mcuf::lang::Object implements
   public: 
 
     /**
-     * @brief Construct a new Feture object
+     * @brief Construct a new Future object
      * 
      */
-    Feture(void);
+    Future(void);
 
     /**
-     * @brief Destroy the Feture object
+     * @brief Destroy the Future object
      * 
      */
-    virtual ~Feture(void) = default;
+    virtual ~Future(void) = default;
 
   /* **************************************************************************************
    * Operator Method

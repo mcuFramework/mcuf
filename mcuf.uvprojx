@@ -1002,14 +1002,14 @@
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
             </File>
             <File>
-              <FileName>Feture.cpp</FileName>
+              <FileName>Future.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\Feture.cpp</FilePath>
+              <FilePath>.\src\main\mcuf\io\Future.cpp</FilePath>
             </File>
             <File>
-              <FileName>Feture.h</FileName>
+              <FileName>Future.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\Feture.h</FilePath>
+              <FilePath>.\src\main\mcuf\io\Future.h</FilePath>
             </File>
             <File>
               <FileName>InputStream.h</FileName>
@@ -2460,14 +2460,14 @@
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
             </File>
             <File>
-              <FileName>Feture.cpp</FileName>
+              <FileName>Future.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\Feture.cpp</FilePath>
+              <FilePath>.\src\main\mcuf\io\Future.cpp</FilePath>
             </File>
             <File>
-              <FileName>Feture.h</FileName>
+              <FileName>Future.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\Feture.h</FilePath>
+              <FilePath>.\src\main\mcuf\io\Future.h</FilePath>
             </File>
             <File>
               <FileName>InputStream.h</FileName>
@@ -3918,14 +3918,14 @@
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
             </File>
             <File>
-              <FileName>Feture.cpp</FileName>
+              <FileName>Future.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\Feture.cpp</FilePath>
+              <FilePath>.\src\main\mcuf\io\Future.cpp</FilePath>
             </File>
             <File>
-              <FileName>Feture.h</FileName>
+              <FileName>Future.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\Feture.h</FilePath>
+              <FilePath>.\src\main\mcuf\io\Future.h</FilePath>
             </File>
             <File>
               <FileName>InputStream.h</FileName>
@@ -5376,14 +5376,14 @@
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
             </File>
             <File>
-              <FileName>Feture.cpp</FileName>
+              <FileName>Future.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\Feture.cpp</FilePath>
+              <FilePath>.\src\main\mcuf\io\Future.cpp</FilePath>
             </File>
             <File>
-              <FileName>Feture.h</FileName>
+              <FileName>Future.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\Feture.h</FilePath>
+              <FilePath>.\src\main\mcuf\io\Future.h</FilePath>
             </File>
             <File>
               <FileName>InputStream.h</FileName>
@@ -6834,14 +6834,14 @@
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
             </File>
             <File>
-              <FileName>Feture.cpp</FileName>
+              <FileName>Future.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\Feture.cpp</FilePath>
+              <FilePath>.\src\main\mcuf\io\Future.cpp</FilePath>
             </File>
             <File>
-              <FileName>Feture.h</FileName>
+              <FileName>Future.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\Feture.h</FilePath>
+              <FilePath>.\src\main\mcuf\io\Future.h</FilePath>
             </File>
             <File>
               <FileName>InputStream.h</FileName>
@@ -8292,14 +8292,14 @@
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
             </File>
             <File>
-              <FileName>Feture.cpp</FileName>
+              <FileName>Future.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\Feture.cpp</FilePath>
+              <FilePath>.\src\main\mcuf\io\Future.cpp</FilePath>
             </File>
             <File>
-              <FileName>Feture.h</FileName>
+              <FileName>Future.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\io\Feture.h</FilePath>
+              <FilePath>.\src\main\mcuf\io\Future.h</FilePath>
             </File>
             <File>
               <FileName>InputStream.h</FileName>

@@ -21,7 +21,7 @@
 #include "mcuf/io/InputStream.h"
 #include "mcuf/io/OutputStream.h"
 #include "mcuf/io/CompletionHandler.h"
-#include "mcuf/io/Feture.h"
+#include "mcuf/io/Future.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -144,7 +144,7 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
      * @param byteBuffer 
      * @return int 
      */
-    virtual bool read(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Feture& feture) override;
+    virtual bool read(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Future& feture) override;
                       
   /* **************************************************************************************
    * Public Method

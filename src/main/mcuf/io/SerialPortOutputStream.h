@@ -147,7 +147,7 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
      * @param byteBuffer 
      * @return int 
      */
-    virtual bool write(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Feture& feture) override;
+    virtual bool write(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Future& feture) override;
                       
   /* **************************************************************************************
    * Public Method

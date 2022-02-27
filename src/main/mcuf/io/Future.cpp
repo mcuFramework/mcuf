@@ -12,7 +12,7 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/io/Feture.h"
+#include "mcuf/io/Future.h"
 #include "mcuf/lang/Threads.h"
 
 /* ****************************************************************************************
@@ -26,7 +26,7 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-using mcuf::io::Feture;
+using mcuf::io::Future;
 using mcuf::lang::Threads;
 
 /* ****************************************************************************************
@@ -36,7 +36,7 @@ using mcuf::lang::Threads;
 /* ****************************************************************************************
  * Construct Method
  */
-Feture::Feture(void){
+Future::Future(void){
   this->reset();
 }
 
@@ -58,7 +58,7 @@ Feture::Feture(void){
  * @param result 
  * @param attachment 
  */
-void Feture::completed(int result, void* attachment){
+void Future::completed(int result, void* attachment){
   if(!this->classAvariable())
     return;
   
@@ -77,7 +77,7 @@ void Feture::completed(int result, void* attachment){
  * @param exc 
  * @param attachment 
  */
-void Feture::failed(void* exc, void* attachment){
+void Future::failed(void* exc, void* attachment){
   if(!this->classAvariable())
     return;
   
@@ -100,7 +100,7 @@ void Feture::failed(void* exc, void* attachment){
  * @return true 
  * @return false 
  */
-bool Feture::setWait(void){
+bool Future::setWait(void){
   if(this->mStatus == Status::IDLE){
     this->mStatus = Status::WAIT;
     return true;
@@ -116,7 +116,7 @@ bool Feture::setWait(void){
  * 
  * @return int 
  */
-int Feture::get(void){
+int Future::get(void){
   if(this->mStatus == Status::WAIT){
     this->mThreadID = Threads::getThreadID();
     if(this->mThreadID != 0){
@@ -137,7 +137,7 @@ int Feture::get(void){
  * @param timeout 
  * @return int 
  */
-int Feture::get(uint32_t timeout){
+int Future::get(uint32_t timeout){
   if(this->mStatus == Status::WAIT){
     this->mThreadID = Threads::getThreadID();
     
@@ -156,7 +156,7 @@ int Feture::get(uint32_t timeout){
  * @brief 
  * 
  */
-void Feture::reset(void){
+void Future::reset(void){
   this->mStatus = Status::IDLE;
   this->mThreadID = 0;
   this->mResult = 0;
@@ -169,7 +169,7 @@ void Feture::reset(void){
  * @return true 
  * @return false 
  */
-bool Feture::isDone(void){
+bool Future::isDone(void){
   return (this->mStatus == Status::DONE);
 }
     
@@ -179,7 +179,7 @@ bool Feture::isDone(void){
  * @return true 
  * @return false 
  */
-bool Feture::isIdle(void){
+bool Future::isIdle(void){
    return (this->mStatus == Status::IDLE);
 }
 
