@@ -78,21 +78,8 @@ SerialPortInputStream::~SerialPortInputStream(void){
  *
  */
 void SerialPortInputStream::onSerialPortEvent(SerialPortStatus status, int result, void* attachment){
-  CompletionHandler<int, void*>* userHandler;
+  CompletionHandler<int, void*>* userHandler = this->mReadHandler;
   ByteBuffer* byteBuffer = static_cast<ByteBuffer*>(attachment);
-  
-  switch(status){
-    case SerialPortStatus::READ_SUCCESSFUL:
-    case SerialPortStatus::READ_ABROT:
-    case SerialPortStatus::READ_FAIL:
-      userHandler = this->mReadHandler;
-
-      break;
-    
-    default:
-      System::error(this, ErrorCode::ILLEGAL_ARGUMENT);
-      break;
-  }
   
   switch(status){
     case SerialPortStatus::READ_SUCCESSFUL:
@@ -137,13 +124,14 @@ bool SerialPortInputStream::read(ByteBuffer& byteBuffer, void* attachment, Compl
   if(this->mSerialPort.readBusy())
     return false;
   
-  if(handler == nullptr){
-    this->mReadHandler = handler;
+  this->mReadHandler = handler;
+  
+  if(handler == nullptr)
     return this->mSerialPort.read(byteBuffer, attachment, nullptr);
-  }
-
+  
   else
     return this->mSerialPort.read(byteBuffer, attachment, this);
+  
 }
 
 /**
