@@ -74,7 +74,156 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * 
      */
     virtual ~ByteBuffer(void) = default;
+  
+  /* **************************************************************************************
+   * Operator Method
+   */
+  public:
 
+    /**
+     *
+     */
+    inline ByteBuffer& operator<<(char c){
+      this->putByte(c);
+      return *this;
+    }  
+  
+    /**
+     *
+     */
+    inline ByteBuffer& operator<<(short s){
+      this->putShort(s);
+      return *this;
+    }  
+  
+    /**
+     *
+     */
+    inline ByteBuffer& operator<<(int v){
+      this->putInt(v);
+      return *this;
+    }  
+  
+    /**
+     *
+     */
+    inline ByteBuffer& operator<<(const char* string){
+      this->put(string);
+      return *this;
+    }
+    
+    /**
+     *
+     */
+    inline ByteBuffer& operator<<(mcuf::lang::String& string){
+      this->put(string);
+      return *this;
+    }        
+    
+    /**
+     *
+     */
+    inline ByteBuffer& operator>>(char& c){
+      this->getByte(c);
+      return *this;
+    }
+    
+    /**
+     *
+     */
+    inline ByteBuffer& operator>>(uint8_t& c){
+      this->getByte(c);
+      return *this;
+    }    
+  
+    /**
+     *
+     */
+    inline ByteBuffer& operator>>(short& s){
+      this->getShort(s);
+      return *this;
+    }
+    
+    /**
+     *
+     */
+    inline ByteBuffer& operator>>(uint16_t& s){
+      this->getShort(s);
+      return *this;
+    }  
+  
+    /**
+     *
+     */
+    inline ByteBuffer& operator>>(int& v){
+      this->getInt(v);
+      return *this;
+    }
+    
+    /**
+     *
+     */
+    inline ByteBuffer& operator>>(uint32_t& v){
+      this->getInt(v);
+      return *this;
+    }
+    
+    /**
+     *
+     */
+    inline int operator=(int v){
+      this->position(v);
+      return this->position();
+    }
+    
+    /**
+     *
+     */
+    inline void operator+=(int shift){
+      this->position(this->position() + shift);
+    }
+    
+    /**
+     *
+     */
+    inline void operator-=(int shift){
+      this->position(this->position() - shift);
+    }
+    
+    /**
+     *
+     */
+    inline int operator++(void){
+      this->position(this->position() + 1);
+      return this->position();
+    }
+    
+    /**
+     *
+     */
+    inline int operator--(void){
+      this->position(this->position() - 1);
+      return this->position();
+    }
+
+        /**
+     *
+     */
+    inline int operator++(int){
+      int result = this->position();
+      this->position(this->position() + 1);
+      return result;
+    }
+    
+    /**
+     *
+     */
+    inline int operator--(int){
+      int result = this->position();
+      this->position(this->position() - 1);
+      return result;
+    }
+    
   /* **************************************************************************************
    *  Public Method <Static>
    */
@@ -172,6 +321,61 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
       this->mMark = 0;
       return;
     }  
+    
+    /**
+     * @brief Get the Byte object
+     * 
+     * @param result 
+     * @return true 
+     * @return false 
+     */
+    inline bool getByte(uint8_t& result){
+      return this->getByte(reinterpret_cast<char&>(result));
+    }
+
+    /**
+     * @brief Get the Short object
+     * 
+     * @param result 
+     * @return true 
+     * @return false 
+     */
+    inline bool getShort(uint16_t& result){
+      return this->getShort(reinterpret_cast<short&>(result));
+    }
+    
+    /**
+     * @brief Get the Short Msb object
+     * 
+     * @param result 
+     * @return true 
+     * @return false 
+     */
+    inline bool getShortMsb(uint16_t& result){
+      return this->getShortMsb(reinterpret_cast<short&>(result));
+    }
+
+    /**
+     * @brief Get the Int object
+     * 
+     * @param result 
+     * @return true 
+     * @return false 
+     */
+    inline bool getInt(uint32_t& result){
+      return this->getInt(reinterpret_cast<int&>(result));
+    }
+    
+    /**
+     * @brief Get the Int Msb object
+     * 
+     * @param result 
+     * @return true 
+     * @return false 
+     */
+    inline bool getIntMsb(uint32_t& result){
+      return this->getIntMsb(reinterpret_cast<int&>(result));
+    }
   
   /* **************************************************************************************
    *  Public Method

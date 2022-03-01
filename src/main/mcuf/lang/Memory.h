@@ -90,7 +90,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /* **************************************************************************************
    * Operator Method
    */
-
+    
   /* **************************************************************************************
    * Public Method <Static>
    */
@@ -108,11 +108,11 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    */
   public:
   
-  virtual int copy(const void* source, uint32_t length) override;
+    virtual int copy(const void* source, uint32_t length) override;
 
-  virtual int copy(const void* source, uint32_t shift, uint32_t length) override;
+    virtual int copy(const void* source, uint32_t shift, uint32_t length) override;
 
-  virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length) override;
+    virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length) override;
 
   /* **************************************************************************************
    * Public Method <Inline>

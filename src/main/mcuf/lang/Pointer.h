@@ -119,6 +119,26 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
     inline bool operator==(const Pointer& pointer){
       return (this->mPointer == pointer.mPointer);
     }
+    
+    /**
+     * @brief 
+     * 
+     * @param index 
+     * @return char
+     */
+    char operator[](int index) const{
+      return static_cast<char*>(this->mPointer)[index];
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param index 
+     * @return char&
+     */
+    char& operator[](int index){
+      return static_cast<char*>(this->mPointer)[index];
+    }    
 
   /* **************************************************************************************
    * Public Method <Static>
