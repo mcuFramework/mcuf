@@ -37,7 +37,7 @@ using mcuf::lang::Threads;
  * Construct Method
  */
 Future::Future(void){
-  this->reset();
+  this->clear();
 }
 
 /* ****************************************************************************************
@@ -156,7 +156,7 @@ int Future::get(uint32_t timeout){
  * @brief 
  * 
  */
-void Future::reset(void){
+void Future::clear(void){
   this->mStatus = Status::IDLE;
   this->mThreadID = 0;
   this->mResult = 0;

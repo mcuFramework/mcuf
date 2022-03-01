@@ -39,11 +39,13 @@ interface mcuf::hal::serial::port::SerialPortEvent{
   /**
    * @brief 
    * 
-   * @param status 
-   * @param byteBuffer 
+   * @param status handle status
+   * @param result 0 = successful, other = remaining byte count.
+   * @param attachment user data
    */
   virtual void onSerialPortEvent(mcuf::hal::serial::port::SerialPortStatus status, 
-                                 mcuf::io::ByteBuffer* byteBuffer) abstract;
+                                 int result,
+                                 void* attachment) abstract;
   
 };
 

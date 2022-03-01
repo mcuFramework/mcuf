@@ -46,7 +46,7 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
    * Variable <Private>
    */
   private:
-    mcuf::io::OutputStream* mOutputStream;
+    mcuf::io::OutputStream& mOutputStream;
     mcuf::io::ByteBuffer mByteBuffer;
 
   /* **************************************************************************************
@@ -66,7 +66,7 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
      * @brief Construct a new Print Stream object
      * 
      */
-    PrintStream(mcuf::io::OutputStream* outputStream, const mcuf::lang::Memory& memory);
+    PrintStream(mcuf::io::OutputStream& outputStream, const mcuf::lang::Memory& memory);
 
     /**
      * @brief Destroy the Print Stream object
@@ -86,6 +86,187 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
    * Public Method <Override>
    */
 
+  /* **************************************************************************************
+   * Public Method <Inline>
+   */
+  public:
+
+    /**
+     * @brief 
+     * 
+     * @param b 
+     * @return true 
+     * @return false 
+     */
+    inline bool print(bool b){
+      return this->print(b, false);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param c 
+     * @return true 
+     * @return false 
+     */
+    inline bool print(char c){
+      return this->print(c, false);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param d 
+     * @return true 
+     * @return false 
+     */
+    inline bool print(double d){
+      return this->print(d, false);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param f 
+     * @return true 
+     * @return false 
+     */
+    inline bool print(float f){
+      return this->print(f, false);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param i 
+     * @return true 
+     * @return false 
+     */
+    inline bool print(int i){
+      return this->print(i, false);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param string 
+     * @return true 
+     * @return false 
+     */
+    inline bool print(const mcuf::lang::String& string){
+      return this->print(string, false);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param string 
+     * @return true 
+     * @return false 
+     */
+    inline bool print(const char* string){
+      return this->print(string, false);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return true 
+     * @return false 
+     */
+    inline bool print(mcuf::io::ByteBuffer& byteBuffer){
+      return this->print(byteBuffer, false);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param b 
+     * @return true 
+     * @return false 
+     */
+    inline bool println(bool b){
+      return this->print(b, true);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param c 
+     * @return true 
+     * @return false 
+     */
+    inline bool println(char c){
+      return this->print(c, true);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param d 
+     * @return true 
+     * @return false 
+     */
+    inline bool println(double d){
+      return this->print(d, true);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param f 
+     * @return true 
+     * @return false 
+     */
+    inline bool println(float f){
+      return this->print(f, true);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param i 
+     * @return true 
+     * @return false 
+     */
+    inline bool println(int i){
+      return this->print(i, true);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param string 
+     * @return true 
+     * @return false 
+     */
+    inline bool println(mcuf::lang::String& string){
+      return this->print(string, true);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param string 
+     * @return true 
+     * @return false 
+     */
+    inline bool println(const char* string){
+      return this->print(string, true);
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return true 
+     * @return false 
+     */
+    inline bool println(mcuf::io::ByteBuffer& byteBuffer){
+      return this->print(byteBuffer, true);
+    }
+    
   /* **************************************************************************************
    * Public Method
    */
@@ -174,154 +355,10 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
     /**
      * @brief 
      * 
-     * @param b 
-     * @return true 
-     * @return false 
-     */
-    bool print(bool b);
-
-    /**
-     * @brief 
-     * 
-     * @param c 
-     * @return true 
-     * @return false 
-     */
-    bool print(char c);
-
-    /**
-     * @brief 
-     * 
-     * @param d 
-     * @return true 
-     * @return false 
-     */
-    bool print(double d);
-
-    /**
-     * @brief 
-     * 
-     * @param f 
-     * @return true 
-     * @return false 
-     */
-    bool print(float f);
-
-    /**
-     * @brief 
-     * 
-     * @param i 
-     * @return true 
-     * @return false 
-     */
-    bool print(int i);
-
-    /**
-     * @brief 
-     * 
-     * @param string 
-     * @return true 
-     * @return false 
-     */
-    bool print(const mcuf::lang::String& string);
-
-    /**
-     * @brief 
-     * 
-     * @param string 
-     * @return true 
-     * @return false 
-     */
-    bool print(const char* string);
-    
-    /**
-     * @brief 
-     * 
-     * @param byteBuffer 
-     * @return true 
-     * @return false 
-     */
-    bool print(mcuf::io::ByteBuffer& byteBuffer);
-
-    /**
-     * @brief 
-     * 
      * @return true 
      * @return false 
      */
     bool println(void);
-
-    /**
-     * @brief 
-     * 
-     * @param b 
-     * @return true 
-     * @return false 
-     */
-    bool println(bool b);
-
-    /**
-     * @brief 
-     * 
-     * @param c 
-     * @return true 
-     * @return false 
-     */
-    bool println(char c);
-
-    /**
-     * @brief 
-     * 
-     * @param d 
-     * @return true 
-     * @return false 
-     */
-    bool println(double d);
-
-    /**
-     * @brief 
-     * 
-     * @param f 
-     * @return true 
-     * @return false 
-     */
-    bool println(float f);
-
-    /**
-     * @brief 
-     * 
-     * @param i 
-     * @return true 
-     * @return false 
-     */
-    bool println(int i);
-
-    /**
-     * @brief 
-     * 
-     * @param string 
-     * @return true 
-     * @return false 
-     */
-    bool println(mcuf::lang::String& string);
-
-    /**
-     * @brief 
-     * 
-     * @param string 
-     * @return true 
-     * @return false 
-     */
-    bool println(const char* string);
-    
-    /**
-     * @brief 
-     * 
-     * @param byteBuffer 
-     * @return true 
-     * @return false 
-     */
-    bool println(mcuf::io::ByteBuffer& byteBuffer);
 
     /**
      * @brief 

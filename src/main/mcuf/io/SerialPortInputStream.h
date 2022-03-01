@@ -53,9 +53,8 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
    * Variable <Private>
    */
   private:
-    mcuf::hal::serial::port::SerialPort* mSerialPort;
+    mcuf::hal::serial::port::SerialPort& mSerialPort;
     mcuf::io::CompletionHandler<int, void*>* mReadHandler;
-    void* mReadAttachment;
   
   /* **************************************************************************************
    * Abstract method <Public>
@@ -74,7 +73,7 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
      * 
      * @param serialPort 
      */
-    SerialPortInputStream(mcuf::hal::serial::port::SerialPort* serialPort);
+    SerialPortInputStream(mcuf::hal::serial::port::SerialPort& serialPort);
 
     /**
      * @brief Destroy the Serial Port Input Stream object
@@ -98,11 +97,13 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
     /**
      * @brief 
      * 
-     * @param status 
-     * @param byteBuffer 
+     * @param status handle status
+     * @param result 0 = successful, other = remaining byte count.
+     * @param attachment user data
      */
     virtual void onSerialPortEvent(mcuf::hal::serial::port::SerialPortStatus status, 
-                                   mcuf::io::ByteBuffer* byteBuffer) override;
+                                   int result,
+                                   void* attachment) override;
 
   /* **************************************************************************************
    * Public Method <Override> - mcuf::io::InputStream
@@ -134,7 +135,7 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
      * @return true successful.
      * @return false fail.
      */
-    virtual bool read(mcuf::io::ByteBuffer* byteBuffer, 
+    virtual bool read(mcuf::io::ByteBuffer& byteBuffer, 
                       void* attachment,
                       mcuf::io::CompletionHandler<int, void*>* handler) override;
 
@@ -144,7 +145,31 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
      * @param byteBuffer 
      * @return int 
      */
-    virtual bool read(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Future& feture) override;
+    virtual bool read(mcuf::io::ByteBuffer& byteBuffer, 
+                      mcuf::io::Future& feture) override;
+                  
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @param attachment 
+     * @param handler 
+     * @return true 
+     * @return false 
+     */
+    virtual bool skip(int value, 
+                      void* attachment,
+                      mcuf::io::CompletionHandler<int, void*>* handler) override;
+
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @param future 
+     * @return true 
+     * @return false 
+     */
+    virtual bool skip(int value, mcuf::io::Future& future) override;
                       
   /* **************************************************************************************
    * Public Method

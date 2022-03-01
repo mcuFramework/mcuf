@@ -57,7 +57,7 @@ interface mcuf::io::InputStream{
    * @return true successful.
    * @return false fail.
    */
-  virtual bool read(mcuf::io::ByteBuffer* byteBuffer, 
+  virtual bool read(mcuf::io::ByteBuffer& byteBuffer, 
                     void* attachment,
                     mcuf::io::CompletionHandler<int, void*>* handler) abstract;
 
@@ -69,7 +69,30 @@ interface mcuf::io::InputStream{
    * @return true 
    * @return false 
    */
-  virtual bool read(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Future& feture) abstract;
+  virtual bool read(mcuf::io::ByteBuffer& byteBuffer, mcuf::io::Future& feture) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @param value 
+   * @param attachment 
+   * @param handler 
+   * @return true 
+   * @return false 
+   */
+  virtual bool skip(int value, 
+                    void* attachment,
+                    mcuf::io::CompletionHandler<int, void*>* handler) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @param value 
+   * @param future 
+   * @return true 
+   * @return false 
+   */
+  virtual bool skip(int value, mcuf::io::Future& future) abstract;
 
 };
 

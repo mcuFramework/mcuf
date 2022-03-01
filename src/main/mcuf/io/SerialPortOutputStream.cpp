@@ -32,6 +32,7 @@ using mcuf::lang::ErrorCode;
 using mcuf::io::ByteBuffer;
 using mcuf::io::CompletionHandler;
 using mcuf::io::SerialPortOutputStream;
+using mcuf::hal::serial::port::SerialPort;
 using mcuf::hal::serial::port::SerialPortStatus;
 
 /* ****************************************************************************************
@@ -45,14 +46,17 @@ using mcuf::hal::serial::port::SerialPortStatus;
 /**
  *
  */
-SerialPortOutputStream::SerialPortOutputStream(mcuf::hal::serial::port::SerialPort* serialPort){
-  this->mSerialPort = serialPort;
+SerialPortOutputStream::SerialPortOutputStream(SerialPort& serialPort) construct
+  mSerialPort(serialPort){
+
+  return;
 }
 
 /**
  *
  */
 SerialPortOutputStream::~SerialPortOutputStream(void){
+  return;
 }
 
 /* ****************************************************************************************
@@ -70,28 +74,14 @@ SerialPortOutputStream::~SerialPortOutputStream(void){
 /**
  *
  */
-void SerialPortOutputStream::onSerialPortEvent(SerialPortStatus status, ByteBuffer* byteBuffer){
-  CompletionHandler<int, void*>* handler;
-  void* attachment;
-  
-  switch(status){
-    case SerialPortStatus::WRITE_SUCCESSFUL:
-    case SerialPortStatus::WRITE_ABROT:
-    case SerialPortStatus::WRITE_FAIL:
-      handler = this->mWriteHandler;
-      attachment = this->mWriteAttachment;
-      break;
-    
-    default:
-      System::error(this, ErrorCode::ILLEGAL_ARGUMENT);
-      break;
-  }
+void SerialPortOutputStream::onSerialPortEvent(SerialPortStatus status, int result, void* attachment){
+  CompletionHandler<int, void*>* handler = this->mWriteHandler;
   
   switch(status){
     case SerialPortStatus::WRITE_SUCCESSFUL:
     case SerialPortStatus::WRITE_ABROT:
       if(handler)
-        handler->completed(byteBuffer->remaining(), attachment);
+        handler->completed(result, attachment);
       break;
       
     case SerialPortStatus::WRITE_FAIL:
@@ -113,48 +103,45 @@ void SerialPortOutputStream::onSerialPortEvent(SerialPortStatus status, ByteBuff
  *
  */
 bool SerialPortOutputStream::abortWrite(void){
-  return this->mSerialPort->abortWrite();
+  return this->mSerialPort.abortWrite();
 }
 
 /**
  *
  */
 bool SerialPortOutputStream::writeBusy(void){
-  return this->mSerialPort->writeBusy();
+  return this->mSerialPort.writeBusy();
 }  
 
 /**
  *
  */
-bool SerialPortOutputStream::write(ByteBuffer* byteBuffer, void* attachment, CompletionHandler<int, void*>* handler){
-  if(this->mSerialPort->writeBusy())
+bool SerialPortOutputStream::write(ByteBuffer& byteBuffer, void* attachment, CompletionHandler<int, void*>* handler){
+  if(this->mSerialPort.writeBusy())
     return false;
   
-  this->mWriteHandler = handler;
-  this->mWriteAttachment = attachment;
   
   if(handler == nullptr)
-    return this->mSerialPort->write(byteBuffer, nullptr);
+    return this->mSerialPort.write(byteBuffer, attachment, nullptr);
 
-  else
-    return this->mSerialPort->write(byteBuffer, this);
+  else{
+    this->mWriteHandler = handler;
+    return this->mSerialPort.write(byteBuffer, attachment, this);
+  }
 }
 
 /**
  *
  */
-bool SerialPortOutputStream::write(ByteBuffer* byteBuffer, Future& feture){
-  if(!feture.classAvariable())
+bool SerialPortOutputStream::write(ByteBuffer& byteBuffer, Future& future){
+  if(!future.isIdle())
     return false;
   
-  if(!feture.isIdle())
-    return false;
-  
-  feture.setWait();
-  bool result = this->write(byteBuffer, nullptr, &feture);
+  future.setWait();
+  bool result = this->write(byteBuffer, nullptr, &future);
   
   if(!result)
-    feture.reset();
+    future.clear();
   
   return result; 
 }

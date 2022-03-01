@@ -146,7 +146,7 @@ class mcuf::io::Future extends mcuf::lang::Object implements
      * @brief 
      * 
      */
-    void reset(void);
+    void clear(void);
   
     /**
      * @brief 

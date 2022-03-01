@@ -29,12 +29,13 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 enum struct mcuf::hal::serial::port::SerialPortStatus : char{
-  WRITE_SUCCESSFUL,
-  WRITE_FAIL,
-  WRITE_ABROT,
   READ_SUCCESSFUL,
   READ_FAIL,
   READ_ABROT,
+  WRITE_SUCCESSFUL,
+  WRITE_FAIL,
+  WRITE_ABROT,
+
 };
 
 /* *****************************************************************************************

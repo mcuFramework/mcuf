@@ -35,6 +35,7 @@ using mcuf::io::ByteBuffer;
 using mcuf::io::CompletionHandler;
 using mcuf::io::SerialPortInputStream;
 using mcuf::io::Future;
+using mcuf::hal::serial::port::SerialPort;
 using mcuf::hal::serial::port::SerialPortStatus;
 
 
@@ -49,8 +50,10 @@ using mcuf::hal::serial::port::SerialPortStatus;
 /**
  *
  */
-SerialPortInputStream::SerialPortInputStream(mcuf::hal::serial::port::SerialPort* serialPort){
-  this->mSerialPort = serialPort;
+SerialPortInputStream::SerialPortInputStream(SerialPort& serialPort) construct
+  mSerialPort(serialPort){
+
+  return;
 }
 
 /**
@@ -74,16 +77,16 @@ SerialPortInputStream::~SerialPortInputStream(void){
 /**
  *
  */
-void SerialPortInputStream::onSerialPortEvent(SerialPortStatus status, ByteBuffer* byteBuffer){
-  CompletionHandler<int, void*>* handler;
-  void* attachment;
+void SerialPortInputStream::onSerialPortEvent(SerialPortStatus status, int result, void* attachment){
+  CompletionHandler<int, void*>* userHandler;
+  ByteBuffer* byteBuffer = static_cast<ByteBuffer*>(attachment);
   
   switch(status){
     case SerialPortStatus::READ_SUCCESSFUL:
     case SerialPortStatus::READ_ABROT:
     case SerialPortStatus::READ_FAIL:
-      handler = this->mReadHandler;
-      attachment = this->mReadAttachment;
+      userHandler = this->mReadHandler;
+
       break;
     
     default:
@@ -94,13 +97,13 @@ void SerialPortInputStream::onSerialPortEvent(SerialPortStatus status, ByteBuffe
   switch(status){
     case SerialPortStatus::READ_SUCCESSFUL:
     case SerialPortStatus::READ_ABROT:  
-      if(handler)
-        handler->completed(byteBuffer->remaining(), attachment);
+      if(userHandler)
+        userHandler->completed(result, attachment);
       break;
       
     case SerialPortStatus::READ_FAIL:
-      if(handler)
-        handler->failed(&status, attachment);
+      if(userHandler)
+        userHandler->failed(&status, attachment);
       break;
       
     default:
@@ -117,48 +120,86 @@ void SerialPortInputStream::onSerialPortEvent(SerialPortStatus status, ByteBuffe
  *
  */
 bool SerialPortInputStream::abortRead(void){
-  return this->mSerialPort->abortRead();
+  return this->mSerialPort.abortRead();
 }
 
 /**
  *
  */
 bool SerialPortInputStream::readBusy(void){
-  return this->mSerialPort->readBusy();
+  return this->mSerialPort.readBusy();
 }
 
 /**
  *
  */
-bool SerialPortInputStream::read(ByteBuffer* byteBuffer, void* attachment, CompletionHandler<int, void*>* handler){
-  if(this->mSerialPort->readBusy())
+bool SerialPortInputStream::read(ByteBuffer& byteBuffer, void* attachment, CompletionHandler<int, void*>* handler){
+  if(this->mSerialPort.readBusy())
     return false;
   
-  this->mReadHandler = handler;
-  this->mReadAttachment = attachment;
-
-  if(handler == nullptr)
-    return this->mSerialPort->read(byteBuffer, nullptr);
+  if(handler == nullptr){
+    this->mReadHandler = handler;
+    return this->mSerialPort.read(byteBuffer, attachment, nullptr);
+  }
 
   else
-    return this->mSerialPort->read(byteBuffer, this);
+    return this->mSerialPort.read(byteBuffer, attachment, this);
 }
 
 /**
  *
  */
-bool SerialPortInputStream::read(ByteBuffer* byteBuffer, Future& feture){
-  if(!feture.classAvariable())
+bool SerialPortInputStream::read(ByteBuffer& byteBuffer, Future& future){
+  if(!future.isIdle())
     return false;
   
-  if(!feture.isIdle())
-    return false;
-  
-  feture.setWait();
-  bool result = this->read(byteBuffer, nullptr, &feture);
+  future.setWait();
+  bool result = this->read(byteBuffer, nullptr, &future);
   
   if(!result)
-    feture.reset();
+    future.clear();
+  
+  return result; 
+}
+
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @param attachment 
+ * @param handler 
+ * @return true 
+ * @return false 
+ */
+bool SerialPortInputStream::skip(int value, void* attachment, CompletionHandler<int, void*>* handler){
+  if(this->mSerialPort.readBusy())
+    return false;
+  
+  if(handler == nullptr)
+    return this->mSerialPort.skip(value, attachment, nullptr);
+  
+  else{
+    this->mReadHandler = handler;
+    return this->mSerialPort.skip(value, attachment, this);
+  }
+}
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @param future 
+ * @return true 
+ * @return false 
+ */
+bool SerialPortInputStream::skip(int value, mcuf::io::Future& future){
+  if(!future.isIdle())
+    return false;
+  
+  future.setWait();
+  bool result = this->skip(value, nullptr, &future);
+  
+  if(!result)
+    future.clear();
   
   return result; 
 }

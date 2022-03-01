@@ -46,8 +46,9 @@ using mcuf::lang::ErrorCode;
  * 
  * @param memory 
  */
-OutputStreamBuffer::OutputStreamBuffer(OutputStream* outputStream ,const Memory& memory) construct 
+OutputStreamBuffer::OutputStreamBuffer(OutputStream& outputStream ,const Memory& memory) construct 
   RingBuffer(memory),
+  mOutputStream(outputStream),
   mByteBuffer(memory){
   
   this->mOutputStream = outputStream;
@@ -58,7 +59,7 @@ OutputStreamBuffer::OutputStreamBuffer(OutputStream* outputStream ,const Memory&
  * 
  */
 OutputStreamBuffer::~OutputStreamBuffer(void){
-  this->mOutputStream->abortWrite();
+  this->mOutputStream.abortWrite();
 }
 
 /* ****************************************************************************************
@@ -102,7 +103,7 @@ bool OutputStreamBuffer::writeBusy(void){
  * @return true successful.
  * @return false fail.
  */
-bool OutputStreamBuffer::write(ByteBuffer* byteBuffer, 
+bool OutputStreamBuffer::write(ByteBuffer& byteBuffer, 
                                void* attachment, 
                                CompletionHandler<int, void*>* handler){
   
@@ -114,15 +115,15 @@ bool OutputStreamBuffer::write(ByteBuffer* byteBuffer,
     return false;
   }
   
-  void* insert = byteBuffer->pointer(byteBuffer->position());
-  uint32_t len = byteBuffer->remaining();
+  void* insert = byteBuffer.pointer(byteBuffer.position());
+  uint32_t len = byteBuffer.remaining();
   
   if(len != 0){
     len = this->insertMult(insert, len);
-    byteBuffer->position(byteBuffer->position() + len);
+    byteBuffer.position(byteBuffer.position() + len);
   }
   
-  if(!this->mOutputStream->writeBusy()){
+  if(!this->mOutputStream.writeBusy()){
     this->writePacket();
   }
   
@@ -141,7 +142,7 @@ bool OutputStreamBuffer::write(ByteBuffer* byteBuffer,
  * @return true 
  * @return false 
  */
-bool OutputStreamBuffer::write(ByteBuffer* byteBuffer, Future& feture){
+bool OutputStreamBuffer::write(ByteBuffer& byteBuffer, Future& feture){
   if(!feture.classAvariable())
     return false;
   
@@ -206,7 +207,7 @@ void OutputStreamBuffer::failed(void* exc, void* attachment){
  *
  */
 void OutputStreamBuffer::writePacket(void){
-  if(this->mOutputStream->writeBusy())
+  if(this->mOutputStream.writeBusy())
     return;
   
   if(this->isEmpty())
@@ -222,7 +223,7 @@ void OutputStreamBuffer::writePacket(void){
   }
   
   this->mByteBuffer.mark();
-  this->mOutputStream->write(&this->mByteBuffer, this, this);
+  this->mOutputStream.write(this->mByteBuffer, this, this);
   return;
 }
 

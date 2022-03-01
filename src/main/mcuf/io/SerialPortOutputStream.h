@@ -52,11 +52,8 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
    * Variable <Private>
    */
   private:
-    mcuf::hal::serial::port::SerialPort* mSerialPort;
+    mcuf::hal::serial::port::SerialPort& mSerialPort;
     mcuf::io::CompletionHandler<int, void*>* mWriteHandler;
-    void* mWriteAttachment;
-    uint32_t mBlockingResult;
-    bool mBlockingStatus;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -76,7 +73,7 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
      * 
      * @param serialPort 
      */
-    SerialPortOutputStream(mcuf::hal::serial::port::SerialPort* serialPort);
+    SerialPortOutputStream(mcuf::hal::serial::port::SerialPort& serialPort);
 
     /**
      * @brief Destroy the Serial Port Output Stream object
@@ -104,7 +101,8 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
      * @param byteBuffer 
      */
     virtual void onSerialPortEvent(mcuf::hal::serial::port::SerialPortStatus status, 
-                                   mcuf::io::ByteBuffer* byteBuffer) override;
+                                   int resutl,
+                                   void* attachment) override;
 
 
   /* **************************************************************************************
@@ -137,7 +135,7 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
      * @return true successful.
      * @return false fail.
      */
-    virtual bool write(mcuf::io::ByteBuffer* byteBuffer, 
+    virtual bool write(mcuf::io::ByteBuffer& byteBuffer, 
                       void* attachment,
                       mcuf::io::CompletionHandler<int, void*>* handler) override;
 
@@ -147,7 +145,7 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
      * @param byteBuffer 
      * @return int 
      */
-    virtual bool write(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Future& feture) override;
+    virtual bool write(mcuf::io::ByteBuffer& byteBuffer, mcuf::io::Future& feture) override;
                       
   /* **************************************************************************************
    * Public Method
