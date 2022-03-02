@@ -58,6 +58,14 @@ interface mcuf::hal::serial::port::SerialPortTransfer{
    * @return true 
    * @return false 
    */
+  virtual bool clear(void) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @return true 
+   * @return false 
+   */
   virtual bool readBusy(void) abstract;
 
   /**
@@ -93,7 +101,7 @@ interface mcuf::hal::serial::port::SerialPortTransfer{
   virtual bool skip(int value,
                     void* attachment, 
                     mcuf::hal::serial::port::SerialPortEvent* event) abstract;
-
+                    
   /**
    * @brief 
    * 
