@@ -1082,6 +1082,11 @@
               <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Allocator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Allocator.h</FilePath>
+            </File>
+            <File>
               <FileName>Array.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.h</FilePath>
@@ -1240,11 +1245,6 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryAllocator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2540,6 +2540,11 @@
               <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Allocator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Allocator.h</FilePath>
+            </File>
+            <File>
               <FileName>Array.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.h</FilePath>
@@ -2698,11 +2703,6 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryAllocator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3998,6 +3998,11 @@
               <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Allocator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Allocator.h</FilePath>
+            </File>
+            <File>
               <FileName>Array.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.h</FilePath>
@@ -4156,11 +4161,6 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryAllocator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5456,6 +5456,11 @@
               <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Allocator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Allocator.h</FilePath>
+            </File>
+            <File>
               <FileName>Array.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.h</FilePath>
@@ -5614,11 +5619,6 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryAllocator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6914,6 +6914,11 @@
               <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Allocator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Allocator.h</FilePath>
+            </File>
+            <File>
               <FileName>Array.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.h</FilePath>
@@ -7072,11 +7077,6 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryAllocator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -8372,6 +8372,11 @@
               <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Allocator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Allocator.h</FilePath>
+            </File>
+            <File>
               <FileName>Array.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Array.h</FilePath>
@@ -8530,11 +8535,6 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryAllocator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\managerment\MemoryAllocator.h</FilePath>
             </File>
           </Files>
         </Group>
