@@ -54,4 +54,4 @@ interface mcuf::hal::general::trigger::EdgeTriggerEvent{
  * End of file
  */ 
 
-#endif/* MCUF_BA8DBAF0_DCE9_4F33_B776_7C5470172961 */
+#endif /* MCUF_BA8DBAF0_DCE9_4F33_B776_7C5470172961 */

@@ -39,4 +39,4 @@ enum struct mcuf::hal::serial::bus::SerialBusStatus : char{
  * End of file
  */ 
 
-#endif/* MCUF_B5F2B33F_CF53_4949_8CAE_65784F1DA1C6 */
+#endif /* MCUF_B5F2B33F_CF53_4949_8CAE_65784F1DA1C6 */

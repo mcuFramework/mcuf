@@ -127,4 +127,4 @@ class mcuf::function::SupplierEvent extends mcuf::lang::Object implements
  * End of file
  */ 
 
-#endif/* MCUF_ECCE32BB_1A96_496A_95AD_A35907FC3343 */
+#endif /* MCUF_ECCE32BB_1A96_496A_95AD_A35907FC3343 */

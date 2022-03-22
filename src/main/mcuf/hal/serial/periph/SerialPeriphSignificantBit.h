@@ -37,4 +37,4 @@ enum struct mcuf::hal::serial::periph::SerialPeriphSignificantBit : char{
  * End of file
  */ 
 
-#endif/* MCUF_C8AC42CA_904A_4527_85EE_B491AEEBF6D9 */
+#endif /* MCUF_C8AC42CA_904A_4527_85EE_B491AEEBF6D9 */

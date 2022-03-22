@@ -64,4 +64,4 @@ interface mcuf::lang::managerment::MemoryAllocator{
  * End of file
  */ 
 
-#endif/* MCUF_A640D444_DED9_463A_8F4A_E407A682DBAC */
+#endif /* MCUF_A640D444_DED9_463A_8F4A_E407A682DBAC */

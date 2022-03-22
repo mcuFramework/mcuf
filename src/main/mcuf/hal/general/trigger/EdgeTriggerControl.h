@@ -77,4 +77,4 @@ interface mcuf::hal::EdgeTriggerControl{
  * End of file
  */ 
 
-#endif/* MCUF_DEF49AD1_F66A_45EA_BC7D_16E860F3A655 */
+#endif /* MCUF_DEF49AD1_F66A_45EA_BC7D_16E860F3A655 */

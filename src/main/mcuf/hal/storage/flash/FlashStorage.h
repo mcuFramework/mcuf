@@ -45,4 +45,4 @@ interface mcuf::hal::storage::flash::FlashStorage extends mcuf::hal::Base,
  * End of file
  */ 
 
-#endif/* MCUF_DE1F2BD6_EFF1_4410_A5B2_5A1C14D00695 */
+#endif /* MCUF_DE1F2BD6_EFF1_4410_A5B2_5A1C14D00695 */

@@ -49,4 +49,4 @@ interface mcuf::hal::serial::port::SerialPortEvent{
   
 };
 
-#endif/* MCUF_D2C77331_580F_474B_BC99_EABAF6FEF1A9 */
+#endif /* MCUF_D2C77331_580F_474B_BC99_EABAF6FEF1A9 */

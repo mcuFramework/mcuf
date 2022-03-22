@@ -44,4 +44,4 @@ interface mcuf::hal::serial::periph::SerialPeriph extends mcuf::hal::Base,
  * End of file
  */ 
 
-#endif/* MCUF_E0DBA665_1EF1_4ECC_BF90_B467759500E6 */
+#endif /* MCUF_E0DBA665_1EF1_4ECC_BF90_B467759500E6 */

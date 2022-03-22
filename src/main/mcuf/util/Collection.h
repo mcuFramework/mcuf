@@ -125,4 +125,4 @@ interface mcuf::util::Collection extends mcuf::lang::Iterable<T>{
  */ 
 
 
-#endif/* MCUF_B4E61D80_F9A1_469D_84FD_FBB3D8FC11E4 */
+#endif /* MCUF_B4E61D80_F9A1_469D_84FD_FBB3D8FC11E4 */

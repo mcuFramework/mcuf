@@ -51,4 +51,4 @@ interface mcuf::hal::storage::flash::FlashStorageEvent{
 
 };
 
-#endif/* MCUF_D9F1072A_3AF8_4A2E_9CFA_09471F1D5AA0 */
+#endif /* MCUF_D9F1072A_3AF8_4A2E_9CFA_09471F1D5AA0 */

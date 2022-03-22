@@ -247,4 +247,4 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
  * End of file
  */ 
 
-#endif/* MCUF_BA359EBF_505B_445E_8A31_2AB82A22FEB8 */
+#endif /* MCUF_BA359EBF_505B_445E_8A31_2AB82A22FEB8 */

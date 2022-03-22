@@ -248,4 +248,4 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
  * End of file
  */ 
 
-#endif/* MCUF_C045F3C4_B727_4170_9124_44EFD0DADB46 */
+#endif /* MCUF_C045F3C4_B727_4170_9124_44EFD0DADB46 */

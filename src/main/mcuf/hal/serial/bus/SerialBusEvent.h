@@ -51,4 +51,4 @@ interface mcuf::hal::serial::bus::SerialBusEvent{
  * End of file
  */ 
 
-#endif/* MCUF_F948F450_E9C5_4979_8B11_1563B5BE65F6 */
+#endif /* MCUF_F948F450_E9C5_4979_8B11_1563B5BE65F6 */

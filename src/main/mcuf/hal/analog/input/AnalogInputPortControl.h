@@ -58,4 +58,4 @@ interface mcuf::hal::analog::input::AnalogInputPortControl{
  * End of file
  */
 
-#endif/* MCUF_DF7E59DB_F968_49E3_A7B7_7304120298F4 */
+#endif /* MCUF_DF7E59DB_F968_49E3_A7B7_7304120298F4 */

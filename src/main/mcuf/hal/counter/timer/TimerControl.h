@@ -115,4 +115,4 @@ interface mcuf::hal::counter::timer::TimerControl{
  * End of file
  */ 
 
-#endif/* MCUF_B206944D_3301_4051_B3CD_59FD6BBFBF02 */
+#endif /* MCUF_B206944D_3301_4051_B3CD_59FD6BBFBF02 */

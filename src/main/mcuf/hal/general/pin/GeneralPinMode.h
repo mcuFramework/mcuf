@@ -44,4 +44,4 @@ enum struct mcuf::hal::general::pin::GeneralPinMode : char{
  * End of file
  */ 
 
-#endif/* MCUF_D6F1DE5B_EB64_4F4E_8E76_26C5EE0EF55F */
+#endif /* MCUF_D6F1DE5B_EB64_4F4E_8E76_26C5EE0EF55F */

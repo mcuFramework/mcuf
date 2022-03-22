@@ -100,4 +100,4 @@ interface mcuf::io::InputStream{
  *    End of file
  */ 
 
-#endif/* MCUF_C4AC526D_9A52_4C98_93F6_8C1F0EB6CB55 */
+#endif /* MCUF_C4AC526D_9A52_4C98_93F6_8C1F0EB6CB55 */

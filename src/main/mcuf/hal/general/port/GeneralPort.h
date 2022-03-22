@@ -47,4 +47,4 @@ interface mcuf::hal::general::port::GeneralPort extends mcuf::hal::Base,
  * End of file
  */ 
 
-#endif/* MCUF_DA8BBDE6_3AFE_4070_945C_08F9966A0B20 */
+#endif /* MCUF_DA8BBDE6_3AFE_4070_945C_08F9966A0B20 */

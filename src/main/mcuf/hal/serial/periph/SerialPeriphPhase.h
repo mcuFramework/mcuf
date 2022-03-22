@@ -37,4 +37,4 @@ enum struct mcuf::hal::serial::periph::SerialPeriphPhase : char{
  * End of file
  */ 
 
-#endif/* MCUF_D16651C7_B337_4816_97E6_0AAFC016A73D */
+#endif /* MCUF_D16651C7_B337_4816_97E6_0AAFC016A73D */

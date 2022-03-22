@@ -138,4 +138,4 @@ interface mcuf::hal::serial::periph::SerialPeriphSlot extends mcuf::hal::Base{
  * End of file
  */ 
 
-#endif/* MCUF_A6F08389_E478_4DE1_B194_3B056285084C */
+#endif /* MCUF_A6F08389_E478_4DE1_B194_3B056285084C */

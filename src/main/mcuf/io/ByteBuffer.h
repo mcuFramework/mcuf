@@ -577,11 +577,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     
 };
 
-
-
 /* *****************************************************************************************
  *    End of file
  */ 
 
-
-#endif/* MCUF_C76BAF3F_EE1F_46A3_A050_9CD1057055E5 */
+#endif /* MCUF_C76BAF3F_EE1F_46A3_A050_9CD1057055E5 */

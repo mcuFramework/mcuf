@@ -87,4 +87,4 @@ interface mcuf::util::Pool extends mcuf::util::Collection<mcuf::lang::Memory>{
  * End of file
  */ 
 
-#endif/* MCUF_B4F9BAD4_2126_4397_B252_0E3E47A7DA8F */
+#endif /* MCUF_B4F9BAD4_2126_4397_B252_0E3E47A7DA8F */

@@ -121,4 +121,4 @@ interface mcuf::hal::serial::port::SerialPortTransfer{
  * End of file
  */ 
 
-#endif/* MCUF_F892B454_EC96_4F6C_B6FD_E2048ECC8CA2 */
+#endif /* MCUF_F892B454_EC96_4F6C_B6FD_E2048ECC8CA2 */

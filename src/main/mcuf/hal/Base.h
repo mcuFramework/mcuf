@@ -60,4 +60,4 @@ interface mcuf::hal::Base{
  * End of file
  */ 
 
-#endif/* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */

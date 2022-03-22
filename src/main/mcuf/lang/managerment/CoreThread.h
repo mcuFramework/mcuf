@@ -177,4 +177,4 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
  * End of file
  */ 
 
-#endif/* MCUF_BB9B7C70_E040_4995_A1F3_1855850093BD */
+#endif /* MCUF_BB9B7C70_E040_4995_A1F3_1855850093BD */

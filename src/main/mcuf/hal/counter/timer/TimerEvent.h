@@ -44,4 +44,4 @@ interface mcuf::hal::counter::timer::TimerEvent{
   virtual void onTimerEvent(mcuf::hal::counter::timer::TimerStatus status) abstract;
 };
 
-#endif/* MCUF_DF0EC699_78D6_4243_A75D_F321C92D88BB */
+#endif /* MCUF_DF0EC699_78D6_4243_A75D_F321C92D88BB */

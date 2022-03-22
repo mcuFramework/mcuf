@@ -52,4 +52,4 @@ enum struct mcuf::lang::ErrorCode : int{
  * End of file
  */ 
 
-#endif/* MCUF_EE4E0BE6_E1E0_43B2_B9D2_2CE26334D212 */
+#endif /* MCUF_EE4E0BE6_E1E0_43B2_B9D2_2CE26334D212 */

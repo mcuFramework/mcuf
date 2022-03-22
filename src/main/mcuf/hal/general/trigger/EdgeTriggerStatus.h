@@ -41,4 +41,4 @@ enum struct mcuf::hal::general::trigger::EdgeTriggerStatus : char{
  * End of file
  */ 
 
-#endif/* MCUF_CB359CE6_8F18_42CE_8BD4_F63868B55909 */
+#endif /* MCUF_CB359CE6_8F18_42CE_8BD4_F63868B55909 */

@@ -37,4 +37,4 @@ enum struct mcuf::hal::serial::periph::SerialPeriphPolarity : char{
  * End of file
  */ 
 
-#endif/* MCUF_CDD21DA5_6229_4F95_B7D7_255A5FC8B894 */
+#endif /* MCUF_CDD21DA5_6229_4F95_B7D7_255A5FC8B894 */

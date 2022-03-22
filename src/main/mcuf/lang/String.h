@@ -214,4 +214,4 @@ class mcuf::lang::String extends mcuf::lang::Memory{
  * End of file
  */ 
  
-#endif/* MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055 */
+#endif /* MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055 */

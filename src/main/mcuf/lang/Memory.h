@@ -265,4 +265,4 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
  */ 
 
 
-#endif/* MCUF_D6A75B59_D8E5_4FB2_BAB8_41477CE17D21 */
+#endif /* MCUF_D6A75B59_D8E5_4FB2_BAB8_41477CE17D21 */

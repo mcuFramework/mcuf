@@ -47,4 +47,4 @@ interface mcuf::hal::general::pin::GeneralPin extends mcuf::hal::general::pin::G
  * End of file
  */ 
 
-#endif/* MCUF_BCEF8EF1_8E8F_4C7F_B575_41D3DEE77164 */
+#endif /* MCUF_BCEF8EF1_8E8F_4C7F_B575_41D3DEE77164 */

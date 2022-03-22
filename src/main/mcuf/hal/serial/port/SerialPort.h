@@ -45,4 +45,4 @@ interface mcuf::hal::serial::port::SerialPort extends mcuf::hal::Base,
  * End of file
  */ 
 
-#endif/* MCUF_A805502A_41D9_45B8_A89A_B11ED86A2F19 */
+#endif /* MCUF_A805502A_41D9_45B8_A89A_B11ED86A2F19 */

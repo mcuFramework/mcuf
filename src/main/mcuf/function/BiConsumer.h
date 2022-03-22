@@ -45,4 +45,4 @@ interface mcuf::function::BiConsumer{
  * End of file
  */ 
 
-#endif/* MCUF_CE48C601_AB18_4B36_8C89_8ACA733118B1 */
+#endif /* MCUF_CE48C601_AB18_4B36_8C89_8ACA733118B1 */

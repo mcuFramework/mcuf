@@ -43,4 +43,4 @@ interface mcuf::hal::counter::timer::Timer extends mcuf::hal::Base,
  * End of file
  */ 
 
-#endif/* MCUF_AD0B942D_EE2D_4080_BDAD_3E9AACE341DA */
+#endif /* MCUF_AD0B942D_EE2D_4080_BDAD_3E9AACE341DA */

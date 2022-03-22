@@ -38,4 +38,4 @@ enum struct mcuf::lang::ThreadState : int{
  * End of file
  */ 
 
-#endif/* MCUF_FF6FBB65_4795_467C_8D77_53255923274A */
+#endif /* MCUF_FF6FBB65_4795_467C_8D77_53255923274A */

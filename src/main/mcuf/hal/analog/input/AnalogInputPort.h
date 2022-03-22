@@ -47,4 +47,4 @@ interface mcuf::hal::analog::input::AnalogInputPort extends mcuf::hal::Base,
  * End of file
  */
 
-#endif/* MCUF_C04F29D8_8794_4EA6_A3AD_CFBD1C61458B */
+#endif /* MCUF_C04F29D8_8794_4EA6_A3AD_CFBD1C61458B */

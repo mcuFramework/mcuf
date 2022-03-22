@@ -204,4 +204,4 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
  * End of file
  */ 
 
-#endif/* MCUF_EABFB0E9_4CE7_4009_A990_B20F60799B41 */
+#endif /* MCUF_EABFB0E9_4CE7_4009_A990_B20F60799B41 */

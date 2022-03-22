@@ -251,4 +251,4 @@ class mcuf::lang::Math extends mcuf::lang::Object{
  */ 
 
 
-#endif/* MCUF_EEC25F8B_68C8_45FC_A820_3773DB4D7EF7 */
+#endif /* MCUF_EEC25F8B_68C8_45FC_A820_3773DB4D7EF7 */

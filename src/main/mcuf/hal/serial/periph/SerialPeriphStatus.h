@@ -38,4 +38,4 @@ enum struct mcuf::hal::serial::periph::SerialPeriphStatus : char{
  * End of file
  */ 
 
-#endif/* MCUF_AD956F3B_4912_4A25_945A_FA7139E16CEA */
+#endif /* MCUF_AD956F3B_4912_4A25_945A_FA7139E16CEA */

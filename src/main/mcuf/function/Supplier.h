@@ -45,4 +45,4 @@ interface mcuf::function::Supplier{
  * End of file
  */ 
 
-#endif/* MCUF_A59752C6_6883_4BC0_86C8_5C004260E415 */
+#endif /* MCUF_A59752C6_6883_4BC0_86C8_5C004260E415 */

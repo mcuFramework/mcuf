@@ -95,4 +95,4 @@ interface mcuf::hal::serial::bus::SerialBusTransfer{
  * End of file
  */ 
 
-#endif/* MCUF_D6F51B91_28D1_4137_A132_2CECD1B3E012 */
+#endif /* MCUF_D6F51B91_28D1_4137_A132_2CECD1B3E012 */

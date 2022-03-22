@@ -108,4 +108,4 @@ interface mcuf::hal::serial::bus::SerialBusSlot{
  * End of file
  */ 
 
-#endif/* MCUF_C7AF213C_229B_4649_8BE8_7A2304803C4D */
+#endif /* MCUF_C7AF213C_229B_4649_8BE8_7A2304803C4D */

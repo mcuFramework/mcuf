@@ -50,4 +50,4 @@ interface mcuf::hal::serial::bus::SerialBusControl{
  * End of file
  */ 
 
-#endif/* MCUF_D62227AD_6C8A_4906_8DEB_0269D2F0EBF1 */
+#endif /* MCUF_D62227AD_6C8A_4906_8DEB_0269D2F0EBF1 */

@@ -45,4 +45,4 @@ interface mcuf::hal::serial::bus::SerialBus extends mcuf::hal::Base,
  * End of file
  */ 
 
-#endif/* MCUF_BE431D3A_03AC_4CF4_85C2_68C442B30474 */
+#endif /* MCUF_BE431D3A_03AC_4CF4_85C2_68C442B30474 */

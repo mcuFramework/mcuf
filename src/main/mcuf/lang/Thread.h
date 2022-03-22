@@ -246,4 +246,4 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory implements
  * End of file
  */ 
 
-#endif/* MCUF_AC7E7A3E_E6D3_4355_B4DE_6B28DF198293 */
+#endif /* MCUF_AC7E7A3E_E6D3_4355_B4DE_6B28DF198293 */

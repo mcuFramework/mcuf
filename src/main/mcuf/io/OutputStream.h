@@ -82,4 +82,4 @@ interface mcuf::io::OutputStream{
  */ 
 
 
-#endif/* MCUF_CE4E94B8_1588_4FED_8DB8_1C22B3E8CDB4 */
+#endif /* MCUF_CE4E94B8_1588_4FED_8DB8_1C22B3E8CDB4 */

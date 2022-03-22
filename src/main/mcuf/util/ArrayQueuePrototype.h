@@ -159,4 +159,4 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
  * End of file
  */ 
 
-#endif/* MCUF_BBEA45DB_2443_4AD0_8532_619E2BDE4831 */
+#endif /* MCUF_BBEA45DB_2443_4AD0_8532_619E2BDE4831 */

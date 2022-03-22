@@ -47,4 +47,4 @@ interface mcuf::hal::general::trigger::EdgeTrigger extends mcuf::hal::Base,
  * End of file
  */ 
 
-#endif/* MCUF_EFF1A157_A291_4313_A742_99FB124D0B71 */
+#endif /* MCUF_EFF1A157_A291_4313_A742_99FB124D0B71 */

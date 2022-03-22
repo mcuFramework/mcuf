@@ -53,4 +53,4 @@ interface mcuf::hal::serial::periph::SerialPeriphEvent{
  * End of file
  */ 
 
-#endif/* MCUF_B4701C5A_F9C9_4C60_AF27_09CD2013EE9A */
+#endif /* MCUF_B4701C5A_F9C9_4C60_AF27_09CD2013EE9A */
