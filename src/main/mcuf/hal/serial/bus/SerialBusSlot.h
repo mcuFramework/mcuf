@@ -75,8 +75,8 @@ interface mcuf::hal::serial::bus::SerialBusSlot{
    * @param receiver 
    * @param event 
    */
-  virtual void read(mcuf::io::ByteBuffer* receiver, 
-                   mcuf::hal::serial::bus::SerialBusEvent* event) abstract;
+  virtual void read(mcuf::io::ByteBuffer& receiver, 
+                    mcuf::hal::serial::bus::SerialBusEvent* event) abstract;
 
   /**
    * @brief 
@@ -85,8 +85,8 @@ interface mcuf::hal::serial::bus::SerialBusSlot{
    * @param receiver 
    * @param event 
    */
-  virtual void write(mcuf::io::ByteBuffer* receiver, 
-                    mcuf::hal::serial::bus::SerialBusEvent* event) abstract;
+  virtual void write(mcuf::io::ByteBuffer& receiver, 
+                     mcuf::hal::serial::bus::SerialBusEvent* event) abstract;
   
   /**
    * @brief 
@@ -98,9 +98,9 @@ interface mcuf::hal::serial::bus::SerialBusSlot{
    * @return true 
    * @return false 
    */
-  virtual bool writeAfterRead(mcuf::io::ByteBuffer* transfer, 
-                              mcuf::io::ByteBuffer* receiver,
-                             mcuf::hal::serial::bus::SerialBusEvent* event) abstract;
+  virtual bool writeAfterRead(mcuf::io::ByteBuffer& transfer, 
+                              mcuf::io::ByteBuffer& receiver,
+                              mcuf::hal::serial::bus::SerialBusEvent* event) abstract;
 
 };
 

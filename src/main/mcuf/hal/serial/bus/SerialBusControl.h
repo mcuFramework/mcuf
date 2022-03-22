@@ -35,12 +35,17 @@ interface mcuf::hal::serial::bus::SerialBusControl{
    */
   
   /**
+   * @brief 
    * 
+   * @return uint32_t 
    */
   virtual uint32_t clockRate(void) abstract;
 
   /**
+   * @brief 
    * 
+   * @param clock 
+   * @return uint32_t 
    */
   virtual uint32_t clockRate(uint32_t clock) abstract;
 

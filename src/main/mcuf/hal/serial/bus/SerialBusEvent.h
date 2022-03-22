@@ -43,7 +43,7 @@ interface mcuf::hal::serial::bus::SerialBusEvent{
    * @param byteBuffer 
    */
   virtual void onSerialBusEvent(mcuf::hal::serial::bus::SerialBusStatus status, 
-                                mcuf::io::ByteBuffer* byteBuffer) abstract;
+                                mcuf::io::ByteBuffer& byteBuffer) abstract;
   
 };
 
