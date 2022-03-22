@@ -13,7 +13,7 @@
  */  
 #include <stdint.h>
 #include <string.h>
-#include "mcuf/lang/managerment/MemoryAllocator.h"
+#include "mcuf/lang/Allocator.h"
 
 
 
@@ -101,7 +101,7 @@ class mcuf::lang::Object{
      * @param allocator 
      * @return void* 
      */
-    void* operator new(size_t n, mcuf::lang::managerment::MemoryAllocator& allocator);  
+    void* operator new(size_t n, mcuf::lang::Allocator& allocator);  
 
   /* **************************************************************************************
    * Public Method <Static>

@@ -15,7 +15,6 @@
  * Include
  */
 #include "CoreThread.h"
-#include "MemoryAllocator.h"
 
 /* ****************************************************************************************
  * End of file

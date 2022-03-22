@@ -18,16 +18,14 @@
  */  
 namespace mcuf{
   namespace lang{
-    namespace managerment{
-      interface MemoryAllocator;
-    }
+    interface Allocator;
   }
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::lang::managerment::MemoryAllocator{
+interface mcuf::lang::Allocator{
   /* **************************************************************************************
    * Method
    */

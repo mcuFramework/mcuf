@@ -90,7 +90,7 @@ int Stacker::size(void){
 }
 
 /* ****************************************************************************************
- * Public Method <Override> mcuf::lang::managerment::MemoryAllocator
+ * Public Method <Override> mcuf::lang::Allocator
  */
 
 /**

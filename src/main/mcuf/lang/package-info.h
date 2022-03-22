@@ -15,6 +15,7 @@
 /* ****************************************************************************************
  * Include
  */
+#include "Allocator.h"
 #include "Array.h"
 #include "ArrayPrototype.h"
 #include "ErrorCode.h"

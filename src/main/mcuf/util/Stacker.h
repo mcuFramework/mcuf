@@ -16,7 +16,7 @@
 #include "mcuf_base.h"
 #include "mcuf/util/Collection.h"
 #include "mcuf/lang/Memory.h"
-#include "mcuf/lang/managerment/MemoryAllocator.h"
+#include "mcuf/lang/Allocator.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -32,7 +32,7 @@ namespace mcuf{
  */  
 class mcuf::util::Stacker extends mcuf::lang::Memory implements 
   public mcuf::util::Collection<mcuf::lang::Memory>,
-  public mcuf::lang::managerment::MemoryAllocator{
+  public mcuf::lang::Allocator{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -136,7 +136,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
 
 
   /* **************************************************************************************
-   * Public Method <Override> mcuf::lang::managerment::MemoryAllocator
+   * Public Method <Override> mcuf::lang::Allocator
    */
   public: 
 

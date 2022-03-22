@@ -61,7 +61,7 @@ interface mcuf::hal::serial::bus::SerialBusTransfer{
    */
   virtual void read(uint8_t address, 
                     mcuf::io::ByteBuffer* receiver, 
-                   mcuf::hal::serial::bus::SerialBusEvent* event) abstract;
+                    mcuf::hal::serial::bus::SerialBusEvent* event) abstract;
 
   /**
    * @brief 
@@ -72,7 +72,7 @@ interface mcuf::hal::serial::bus::SerialBusTransfer{
    */
   virtual void write(uint16_t address, 
                      mcuf::io::ByteBuffer* receiver, 
-                    mcuf::hal::serial::bus::SerialBusEvent* event) abstract;
+                     mcuf::hal::serial::bus::SerialBusEvent* event) abstract;
   
   /**
    * @brief 
@@ -87,7 +87,7 @@ interface mcuf::hal::serial::bus::SerialBusTransfer{
   virtual bool writeAfterRead(uint16_t address, 
                               mcuf::io::ByteBuffer* transfer, 
                               mcuf::io::ByteBuffer* receiver,
-                             mcuf::hal::serial::bus::SerialBusEvent* event) abstract;
+                              mcuf::hal::serial::bus::SerialBusEvent* event) abstract;
 
 };
 
