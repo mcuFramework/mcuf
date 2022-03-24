@@ -39,11 +39,13 @@ interface mcuf::hal::serial::bus::SerialBusEvent{
   /**
    * @brief 
    * 
-   * @param status 
-   * @param byteBuffer 
+   * @param status handle status
+   * @param result 0 = successful, other = remaining byte count.
+   * @param attachment user data
    */
   virtual void onSerialBusEvent(mcuf::hal::serial::bus::SerialBusStatus status, 
-                                mcuf::io::ByteBuffer& byteBuffer) abstract;
+                                int result,
+                                void* attachment) abstract;
   
 };
 
