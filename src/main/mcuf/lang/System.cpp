@@ -82,7 +82,7 @@ const uint32_t System::mSystemTimerClock = (1000/mcufTimerTick);
 /**
  * 
  */
-void System::start(mcuf::lang::Thread* userThread){
+void System::start(mcuf::lang::Thread& userThread){
   osKernelInitialize();  
   
   if(1){
@@ -97,7 +97,7 @@ void System::start(mcuf::lang::Thread* userThread){
     attachment.executor = &executor;
     attachment.timer = &timer;
     attachment.timerTick = mcufTimerTick;
-    attachment.userThread = userThread;
+    attachment.userThread = &userThread;
     
     System::mCoreThread = new(mcufCoreThreadMemory) CoreThread(attachment);
   }

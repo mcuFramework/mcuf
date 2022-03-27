@@ -92,7 +92,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * 
      * @param userThread 
      */
-    static void start(mcuf::lang::Thread* userThread);
+    static void start(mcuf::lang::Thread& userThread);
 
     /**
      * @brief 
