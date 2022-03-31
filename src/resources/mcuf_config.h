@@ -24,22 +24,6 @@
 #endif
 // </h>
 
-
-// <h>Timer
-// =======================
-
-//   <o>Timer tick [ms] <1-1000>
-#ifndef MCUF_DEFINE_TIMER_TICK
-#define MCUF_DEFINE_TIMER_TICK 5
-#endif
-
-//   <o>Timer task number <16-65536>
-#ifndef MCUF_DEFINE_TIMER_TASK_NUMBER
-#define MCUF_DEFINE_TIMER_TASK_NUMBER 32
-#endif
-
-// </h>
-
 //------------- <<< end of configuration section >>> ---------------------------
 
 

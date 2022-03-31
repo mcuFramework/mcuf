@@ -13,8 +13,9 @@
  */  
 
 //-----------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
-#include "mcuf/util/BlockPool.h"
 #include "mcuf/util/TimerTask.h"
 
 /* ****************************************************************************************
@@ -22,15 +23,14 @@
  */  
 namespace mcuf{
   namespace util{
-    class TimerScheduler;
+    class Timer;
   }
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::util::TimerScheduler extends mcuf::util::BlockPool implements 
-  public mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>{
+class mcuf::util::Timer extends mcuf::lang::Object{
     
   /* **************************************************************************************
    * Variable <Public>
@@ -43,8 +43,6 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool implements
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: 
-    uint32_t mTickMilliSecond;
     
   /* **************************************************************************************
    * Abstract method <Public>
@@ -57,20 +55,20 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool implements
   /* **************************************************************************************
    * Construct Method
    */
-  public:
-
+  private:
     /**
      * @brief Construct a new Timer Scheduler object
      * 
      * @param memory 
      */
-    TimerScheduler(const mcuf::lang::Memory& memory);
+    Timer(void);
     
+  public:  
     /**
      * @brief Destroy the Timer Scheduler object
      * 
      */
-    ~TimerScheduler();
+    virtual ~Timer(void) = default;
   
   /* **************************************************************************************
    * Operator Method
@@ -79,55 +77,7 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool implements
   /* **************************************************************************************
    * Public Method <Static>
    */
-
-  /* **************************************************************************************
-   * Public Method <Override> - mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>
-   */
-  public: 
-
-    /**
-     * @brief 
-     * 
-     * @param value 
-     * @param attachment 
-     */
-    virtual void accept(mcuf::lang::Memory* value, void* attachment) override;  
-
-  /* **************************************************************************************
-   * Public Method 
-   */
   public:
-
-    /**
-     * @brief Terminates this timer, discarding any currently scheduled tasks. Does not 
-     *        interfere with a currently executing task (if it exists). Once a timer has 
-     *        been terminated, its execution thread terminates gracefully, and no more 
-     *        tasks may be scheduled on it. Note that calling this method from within the 
-     *        run method of a timer task that was invoked by this timer absolutely 
-     *        guarantees that the ongoing task execution is the last task execution that 
-     *        will ever be performed by this timer.
-     *    
-     *        This method may be called repeatedly; the second and subsequent calls have no 
-     *        effect.
-     */
-    void cancel(void);
-
-    /**
-     * @brief Removes all cancelled tasks from this timer's task queue. Calling this method 
-     *        has no ffect on the behavior of the timer, but eliminates the references to the 
-     *        cancelled tasks from the queue. If there are no external references to these 
-     *        tasks, they become eligible for garbage collection.
-     * 
-     *        Most programs will have no need to call this method. It is designed for use by 
-     *        the rare application that cancels a large number of tasks. Calling this method 
-     *        trades time for space: the runtime of the method may be proportional to n + c 
-     *        log n, where n is the number of tasks in the queue and c is the number of 
-     *        cancelled tasks.
-     * 
-     *        Note that it is permissible to call this method from within a a task scheduled 
-     *        on this timer.
-     */
-    void purge(void);
 
     /**
      * @brief Schedules the specified task for execution after the specified delay.
@@ -137,7 +87,7 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool implements
      * @return true successful.
      * @return false 
      */
-    bool schedule(mcuf::util::TimerTask& task, uint32_t delay);
+    static bool schedule(mcuf::util::TimerTask& task, uint32_t delay);
 
     /**
      * @brief 
@@ -148,15 +98,12 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool implements
      * @return true successful
      * @return false this task was already scheduled or cancelled.
      */
-    bool scheduleAtFixedRate(mcuf::util::TimerTask& task, uint32_t delay, uint32_t period);
-
-    /**
-     * @brief 
-     * 
-     * @param milliSecont 
-     */
-    void tick(uint32_t milliSecont);
-
+    static bool scheduleAtFixedRate(mcuf::util::TimerTask& task, uint32_t delay);
+    
+  /* **************************************************************************************
+   * Public Method 
+   */
+   
   /* **************************************************************************************
    * Protected Method <Static>
    */
@@ -172,7 +119,15 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool implements
   /* **************************************************************************************
    * Private Method <Static>
    */
+  private:
 
+    /**
+     * @brief 
+     * 
+     * @param attachment 
+     */
+    static void entryPoint(void* attachment);   
+  
   /* **************************************************************************************
    * Private Method <Static Inline>
    */
@@ -188,6 +143,12 @@ class mcuf::util::TimerScheduler extends mcuf::util::BlockPool implements
   /* **************************************************************************************
    * Private Method
    */  
+  private:
+    /**
+     *
+     */
+    static bool schedule(mcuf::util::TimerTask& task, uint32_t delay, bool mode); 
+
 };
 
 /* *****************************************************************************************

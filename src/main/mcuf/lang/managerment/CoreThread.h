@@ -17,7 +17,7 @@
 #include "mcuf/lang/Memory.h"
 #include "mcuf/lang/ThreadEvent.h"
 #include "mcuf/util/Executor.h"
-#include "mcuf/util/TimerScheduler.h"
+#include "mcuf/util/Timer.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -43,7 +43,6 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   private: struct Attachment{
     mcuf::lang::Memory* stack;
     mcuf::lang::Memory* executor;
-    mcuf::lang::Memory* timer;
     mcuf::lang::Thread* userThread;
     uint32_t timerTick;
   };
@@ -62,10 +61,6 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   private: 
     mcuf::lang::Thread* mUserThread;
     mcuf::util::Executor mExecutor;
-    mcuf::util::TimerScheduler mTimerScheduler;
-    uint64_t mTimerMemory[4];
-    uint32_t mTimerTick;
-    void* mTimerID;
     bool mStart;
 
   /* **************************************************************************************

@@ -10,22 +10,23 @@
  */  
 
 //-----------------------------------------------------------------------------------------
+#ifndef MCUF_CMSISRTOS2_DISABLE
 #include "cmsis_rtos/rtx_os.h"
-#include "mcuf/lang/managerment/CoreThread.h"
-#include "mcuf/lang/ErrorCode.h"
+#endif
+
+//-----------------------------------------------------------------------------------------
+#include "mcuf/util/Timer.h"
+
+/* ****************************************************************************************
+ * Macro
+ */  
+#define getTimerHandle(TASK)       (*reinterpret_cast<osRtxTimer_t*>(&TASK.mHandler[0]))
 
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::lang::ErrorCode;
-using mcuf::lang::Memory;
-using mcuf::lang::Thread;
-using mcuf::lang::managerment::CoreThread;
-using mcuf::util::Executor;
-
-/* ****************************************************************************************
- * Variable <Static>
- */
+using mcuf::util::Timer;
+using mcuf::util::TimerTask;
 
 /* ****************************************************************************************
  * Construct Method
@@ -34,12 +35,10 @@ using mcuf::util::Executor;
 /**
  *
  */
-CoreThread::CoreThread(const CoreThread::Attachment& attachment) construct Thread(*attachment.stack)
-  ,mExecutor(*attachment.executor){
-  
-  this->mStart = false;
-  this->mUserThread = attachment.userThread;
+Timer::Timer(void){
+  return;
 }
+
 
 /* ****************************************************************************************
  * Operator Method
@@ -49,58 +48,31 @@ CoreThread::CoreThread(const CoreThread::Attachment& attachment) construct Threa
  * Public Method <Static>
  */
 
-
-/* ****************************************************************************************
- * Public Method <Override>
- */
-
-/**
- *
- */
-bool CoreThread::execute(Runnable& runnable){
-  bool result = this->mExecutor.execute(&runnable);
-  this->notify();
-  return result;
-}
-
-/** 
- *
- */
-void CoreThread::stop(void){
-  this->mStart = false;
-}
-
-/* ****************************************************************************************
- * Public Method <Override> - mcuf::function::Runnable
- */
-
-/**
- *
- */
-void CoreThread::run(void){
-  this->mStart = true;
-  
-  if(this->mUserThread != nullptr)
-    this->mUserThread->start();
-  
-  while(this->mStart){
-    this->mExecutor.actionAll();
-    
-    if(this->mExecutor.isEmpty())
-      this->wait();
-  }
-}
-
 /* ****************************************************************************************
  * Public Method
  */
+
+/**
+ * schedule
+ */
+bool Timer::schedule(TimerTask& task, uint32_t delay){
+  return Timer::schedule(task, delay, true);
+}
+
+
+/**
+ * scheduleAtFixedRate
+ */
+bool Timer::scheduleAtFixedRate(TimerTask& task, uint32_t delay){
+  return Timer::schedule(task, delay, false);
+}
 
 /* ****************************************************************************************
  * Protected Method <Static>
  */
  
 /* ****************************************************************************************
- * Protected Method <Override> 
+ * Protected Method <Override>
  */ 
 
 /* ****************************************************************************************
@@ -111,8 +83,45 @@ void CoreThread::run(void){
  * Private Method
  */
 
-void CoreThread::entryPoint(void* attachment){
-  CoreThread* coreThread = static_cast<CoreThread*>(attachment);
+/**
+ *
+ */
+void Timer::entryPoint(void* attachment){
+  TimerTask* task = reinterpret_cast<TimerTask*>(attachment);
+  if(task == nullptr)
+    return;
+  
+  if(task->classAvariable())
+    task->run();
+}
+
+/**
+ *
+ */
+bool Timer::schedule(TimerTask& task, uint32_t delay, bool mode){
+  if(task.isRunning())
+    return false;
+  
+  if(task.mTimerID){
+    if(osTimerDelete(task.mTimerID) != osOK)
+      return false;
+  }
+  
+  osTimerAttr_t attr;
+  attr.name = "";
+  attr.attr_bits = 0;
+  attr.cb_mem = &getTimerHandle(task);
+  attr.cb_size = sizeof(task.mHandler);
+  
+  if(mode)
+    task.mTimerID = osTimerNew(Timer::entryPoint, osTimerOnce, &task, &attr);
+  else
+    task.mTimerID = osTimerNew(Timer::entryPoint, osTimerPeriodic, &task, &attr);
+  
+  if(task.mTimerID == nullptr)
+    return false;
+  
+  return (osTimerStart(task.mTimerID, delay) == osOK);
 }
 
 /* ****************************************************************************************

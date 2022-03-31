@@ -44,11 +44,6 @@ static uint32_t mcufCoreEcecutorMemoryEntity[MCUF_DEFINE_EXECUTOR_TASK_NUMBER];
 void* mcufCoreEcecutorMemory = mcufCoreEcecutorMemoryEntity;
 uint32_t mcufCoreEcecutorMemorySize = sizeof(mcufCoreEcecutorMemoryEntity);
 
-static uint32_t mcufTimerTaskMemoryEntity[MCUF_DEFINE_TIMER_TASK_NUMBER + ((MCUF_DEFINE_TIMER_TASK_NUMBER+31)/32)];
-void* mcufTimerTaskMemory = mcufTimerTaskMemoryEntity;
-uint32_t mcufTimerTaskMemorySize = sizeof(mcufTimerTaskMemoryEntity);
-uint32_t mcufTimerTick = MCUF_DEFINE_TIMER_TICK;
-
 /* ****************************************************************************************
  * List
  */

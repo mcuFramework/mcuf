@@ -10,6 +10,11 @@
  */  
 
 //-----------------------------------------------------------------------------------------
+#ifndef MCUF_CMSISRTOS2_DISABLE
+#include "cmsis_rtos/rtx_os.h"
+#endif
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf/util/TimerTask.h"
 
 /* ****************************************************************************************
@@ -20,6 +25,29 @@ using mcuf::util::TimerTask;
 /* ****************************************************************************************
  * Construct Method
  */
+
+/**
+ * @brief Construct a new Timer Task object
+ * 
+ */
+TimerTask::TimerTask(void){
+  this->mTimerID = nullptr;
+}
+    
+/**
+ * @brief Destroy the Timer Task object
+ * 
+ */
+TimerTask::~TimerTask(void){
+  if(this->mTimerID == nullptr)
+    return;
+  
+  if(this->isRunning())
+    osTimerStop(this->mTimerID);
+  
+  osTimerDelete(this->mTimerID);
+  this->mTimerID = nullptr;
+}
 
 /* ****************************************************************************************
  * Operator Method
@@ -56,15 +84,24 @@ using mcuf::util::TimerTask;
  *         place.)
  */
 bool TimerTask::cancel(void){
-  if((this->mDelay == 0) & (this->mPeriod == 0))
+  if(!this->isRunning())
     return false;
-    
-  this->mDelay = 0;
-  this->mPeriod = 0;
-    
-  return true;
+  
+  return (osTimerStop(this->mTimerID) == osOK);
 }
 
+/**
+ * @brief 
+ * 
+ * @return true 
+ * @return false 
+ */
+bool TimerTask::isRunning(void){
+  if(this->mTimerID == nullptr)
+    return false;
+  
+  return osTimerIsRunning(this->mTimerID);
+}
 
 /* ****************************************************************************************
  * Protected Method <Static>

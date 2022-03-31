@@ -25,7 +25,7 @@
 #include "Pool.h"
 #include "Queue.h"
 #include "Stacker.h"
-#include "TimerScheduler.h"
+#include "Timer.h"
 #include "TimerTask.h"
 
 /* ****************************************************************************************

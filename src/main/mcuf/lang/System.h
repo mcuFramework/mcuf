@@ -139,31 +139,6 @@ class mcuf::lang::System final extends mcuf::lang::Object{
       return System::mCoreThread->mExecutor.execute(&runnable);
     }
 
-    /**
-     * @brief Schedules the specified task for execution after the specified delay.
-     * 
-     * @param task to be scheduled.
-     * @param delay in milliseconds before task is to be executed.
-     * @return true successful.
-     * @return false false if task was already scheduled or cancelled.
-     */
-    inline static bool schedule(mcuf::util::TimerTask& task, uint32_t delay){
-      return System::mCoreThread->mTimerScheduler.schedule(task, delay);
-    }
-    
-    /**
-     *
-     * @task
-     * @delay
-     * @period
-     * @return true successful
-     */
-    inline static bool scheduleAtFixedRate(mcuf::util::TimerTask& task, 
-                                          uint32_t delay, 
-                                          uint32_t period){
-      return System::mCoreThread->mTimerScheduler.scheduleAtFixedRate(task, delay, period);
-    }
-
   /* **************************************************************************************
    * Public Method <Override>
    */

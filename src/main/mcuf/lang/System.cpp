@@ -85,17 +85,15 @@ const uint32_t System::mSystemTimerClock = (1000/mcufTimerTick);
 void System::start(mcuf::lang::Thread& userThread){
   osKernelInitialize();  
   
-  if(1){
+  if(true){
     ASSERT(mcufCoreThreadMemory, __CLASSPATH__, ErrorCode::NULL_POINTER);
     
     Memory stack = Memory(mcufCoreStackMemory, mcufCoreStackMemorySize);
     Memory executor = Memory(mcufCoreEcecutorMemory, mcufCoreEcecutorMemorySize);
-    Memory timer = Memory(mcufTimerTaskMemory, mcufTimerTaskMemorySize);
     
     CoreThread::Attachment attachment;
     attachment.stack = &stack;
     attachment.executor = &executor;
-    attachment.timer = &timer;
     attachment.timerTick = mcufTimerTick;
     attachment.userThread = &userThread;
     

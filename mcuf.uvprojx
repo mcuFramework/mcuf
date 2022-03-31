@@ -1332,14 +1332,14 @@
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
             </File>
             <File>
-              <FileName>TimerScheduler.cpp</FileName>
+              <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\TimerScheduler.cpp</FilePath>
+              <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
             </File>
             <File>
-              <FileName>TimerScheduler.h</FileName>
+              <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\TimerScheduler.h</FilePath>
+              <FilePath>.\src\main\mcuf\util\Timer.h</FilePath>
             </File>
             <File>
               <FileName>TimerTask.cpp</FileName>
@@ -2790,14 +2790,14 @@
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
             </File>
             <File>
-              <FileName>TimerScheduler.cpp</FileName>
+              <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\TimerScheduler.cpp</FilePath>
+              <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
             </File>
             <File>
-              <FileName>TimerScheduler.h</FileName>
+              <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\TimerScheduler.h</FilePath>
+              <FilePath>.\src\main\mcuf\util\Timer.h</FilePath>
             </File>
             <File>
               <FileName>TimerTask.cpp</FileName>
@@ -4248,14 +4248,14 @@
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
             </File>
             <File>
-              <FileName>TimerScheduler.cpp</FileName>
+              <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\TimerScheduler.cpp</FilePath>
+              <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
             </File>
             <File>
-              <FileName>TimerScheduler.h</FileName>
+              <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\TimerScheduler.h</FilePath>
+              <FilePath>.\src\main\mcuf\util\Timer.h</FilePath>
             </File>
             <File>
               <FileName>TimerTask.cpp</FileName>
@@ -5706,14 +5706,14 @@
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
             </File>
             <File>
-              <FileName>TimerScheduler.cpp</FileName>
+              <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\TimerScheduler.cpp</FilePath>
+              <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
             </File>
             <File>
-              <FileName>TimerScheduler.h</FileName>
+              <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\TimerScheduler.h</FilePath>
+              <FilePath>.\src\main\mcuf\util\Timer.h</FilePath>
             </File>
             <File>
               <FileName>TimerTask.cpp</FileName>
@@ -7164,14 +7164,14 @@
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
             </File>
             <File>
-              <FileName>TimerScheduler.cpp</FileName>
+              <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\TimerScheduler.cpp</FilePath>
+              <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
             </File>
             <File>
-              <FileName>TimerScheduler.h</FileName>
+              <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\TimerScheduler.h</FilePath>
+              <FilePath>.\src\main\mcuf\util\Timer.h</FilePath>
             </File>
             <File>
               <FileName>TimerTask.cpp</FileName>
@@ -8622,14 +8622,14 @@
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
             </File>
             <File>
-              <FileName>TimerScheduler.cpp</FileName>
+              <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\TimerScheduler.cpp</FilePath>
+              <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
             </File>
             <File>
-              <FileName>TimerScheduler.h</FileName>
+              <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\TimerScheduler.h</FilePath>
+              <FilePath>.\src\main\mcuf\util\Timer.h</FilePath>
             </File>
             <File>
               <FileName>TimerTask.cpp</FileName>
