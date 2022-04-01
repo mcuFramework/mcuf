@@ -40,7 +40,7 @@ Memory::Memory(const Memory& memory){
  * 
  */
 Memory::Memory(const void* pointer, uint32_t length) construct Pointer(const_cast<void*>(pointer)){
-  if(length & 0x80000000)
+  if(length & 0xC0000000)
     length = 0;
   
   this->mLength = (length | 0x80000000);
@@ -51,7 +51,7 @@ Memory::Memory(const void* pointer, uint32_t length) construct Pointer(const_cas
  * 
  */
 Memory::Memory(void* pointer, uint32_t length) construct Pointer(const_cast<void*>(pointer)){
-  if(length & 0x80000000)
+  if(length & 0xC0000000)
     length = 0;
   
   this->mLength = length;
@@ -59,9 +59,24 @@ Memory::Memory(void* pointer, uint32_t length) construct Pointer(const_cast<void
 }
 
 /**
- *
+ * @brief Destroy the Memory:: Memory object
+ * 
+ * @param size 
+ */
+Memory::Memory(uint32_t size) construct Pointer(new uint8_t[(size & 0x3FFFFFFF)]){
+  size &= 0x3FFFFFFF;
+  size |= 0x40000000;
+  this->mLength = size;
+}
+
+/**
+ * @brief Destroy the Memory:: Memory object
+ * 
  */
 Memory::~Memory(void){
+  if(this->mLength & 0x40000000)
+    delete[] static_cast<uint8_t*>(this->pointer());
+    
   return;
 }
 
@@ -74,7 +89,9 @@ Memory::~Memory(void){
  */
 
 /**
+ * @brief 
  * 
+ * @return Memory 
  */
 Memory Memory::nullMemory(void){
   return Memory((const void*)nullptr, 0);
@@ -85,7 +102,11 @@ Memory Memory::nullMemory(void){
  */
 
 /**
+ * @brief 
  * 
+ * @param source 
+ * @param length 
+ * @return int 
  */
 int Memory::copy(const void* source, uint32_t length){
   if(this->isReadOnly())
@@ -98,7 +119,12 @@ int Memory::copy(const void* source, uint32_t length){
 }
 
 /**
+ * @brief 
  * 
+ * @param source 
+ * @param shift 
+ * @param length 
+ * @return int 
  */
 int Memory::copy(const void* source, uint32_t shift, uint32_t length){
   if(this->isReadOnly())
@@ -115,7 +141,13 @@ int Memory::copy(const void* source, uint32_t shift, uint32_t length){
 }
 
 /**
+ * @brief 
  * 
+ * @param source 
+ * @param shift 
+ * @param start 
+ * @param length 
+ * @return int 
  */
 int Memory::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
   if(this->isReadOnly())
@@ -135,7 +167,9 @@ int Memory::copy(const void* source, uint32_t shift, uint32_t start, uint32_t le
  */
 
 /**
+ * @brief 
  * 
+ * @return Memory& 
  */
 Memory& Memory::clear(void){
   if(this->isReadOnly())
@@ -146,7 +180,10 @@ Memory& Memory::clear(void){
 }
 
 /**
+ * @brief 
  * 
+ * @param value 
+ * @return Memory& 
  */
 Memory& Memory::clear(uint8_t value){
   if(this->isReadOnly())
@@ -157,7 +194,10 @@ Memory& Memory::clear(uint8_t value){
 }
 
 /**
+ * @brief 
  * 
+ * @param sourec 
+ * @return int 
  */
 int Memory::copyMemory(Memory& sourec){
   if(this->isReadOnly())
@@ -168,7 +208,11 @@ int Memory::copyMemory(Memory& sourec){
 }
 
 /**
+ * @brief 
  * 
+ * @param sourec 
+ * @param shift 
+ * @return int 
  */
 int Memory::copyMemory(Memory& sourec, uint32_t shift){
   if(this->isReadOnly())
@@ -178,7 +222,12 @@ int Memory::copyMemory(Memory& sourec, uint32_t shift){
 }
 
 /**
+ * @brief 
  * 
+ * @param sourec 
+ * @param shift 
+ * @param length 
+ * @return int 
  */
 int Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t length){
   if(this->isReadOnly())
@@ -188,7 +237,13 @@ int Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t length){
 }
 
 /**
+ * @brief 
  * 
+ * @param sourec 
+ * @param shift 
+ * @param start 
+ * @param length 
+ * @return int 
  */
 int Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length){
   if(this->isReadOnly())
@@ -198,7 +253,11 @@ int Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t 
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param address 
+ * @return true 
+ * @return false 
  */
 bool Memory::inRange(void* address) const{
   uint32_t start = reinterpret_cast<uint32_t>(this->pointer());
@@ -212,7 +271,10 @@ bool Memory::inRange(void* address) const{
 }
 
 /**
+ * @brief 
  * 
+ * @param beginIndex 
+ * @return Memory 
  */
 Memory Memory::subMemory(uint32_t beginIndex) const{
   if(beginIndex >= this->length())
@@ -224,7 +286,11 @@ Memory Memory::subMemory(uint32_t beginIndex) const{
 }
 
 /**
+ * @brief 
  * 
+ * @param beginIndex 
+ * @param length 
+ * @return Memory 
  */
 Memory Memory::subMemory(uint32_t beginIndex, uint32_t length) const{
   if(beginIndex >= this->length())

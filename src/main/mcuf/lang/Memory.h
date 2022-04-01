@@ -80,6 +80,13 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param length 
      */
     Memory(void* pointer, uint32_t length);
+
+    /**
+     * @brief Destroy the Memory object
+     * 
+     * @param size 
+     */
+    Memory(uint32_t size);
     
     /**
      * @brief Destroy the Memory object
@@ -107,11 +114,35 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * Public Method <Override> - mcuf::lang::Pointer
    */
   public:
-  
+
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param length 
+     * @return int 
+     */
     virtual int copy(const void* source, uint32_t length) override;
 
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param shift 
+     * @param length 
+     * @return int 
+     */
     virtual int copy(const void* source, uint32_t shift, uint32_t length) override;
 
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param shift 
+     * @param start 
+     * @param length 
+     * @return int 
+     */
     virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length) override;
 
   /* **************************************************************************************
@@ -126,7 +157,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @return false 
      */
     inline bool isReadOnly(void) const{
-      return (this->mLength <= 0);
+      return (this->mLength & 0x80000000);
     }
 
     /**
@@ -145,7 +176,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @return uint32_t 
      */
     inline int length(void) const{
-      return ((this->mLength <= 0) ? ((~this->mLength) + 1) : this->mLength);
+      return (this->mLength & 0x3FFFFFFF);
     }  
   
   /* **************************************************************************************
