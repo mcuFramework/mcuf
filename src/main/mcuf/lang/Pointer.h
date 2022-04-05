@@ -141,6 +141,21 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
     }    
 
   /* **************************************************************************************
+   * Public Method <Static Inline>
+   */
+  public:
+    /**
+     * @brief 
+     * 
+     * @param point 
+     * @param shift 
+     * @return void* 
+     */
+    static void* pointShift(void* pointer, int shift){
+      return static_cast<char*>(pointer) + shift;
+    }
+
+  /* **************************************************************************************
    * Public Method <Static>
    */
   public: 
@@ -296,8 +311,8 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param offset 
      * @return void* 
      */
-    inline void* pointer(uint32_t offset) const{
-      return &((uint8_t*)this->mPointer)[offset];
+    inline void* pointer(int offset) const{
+      return static_cast<char*>(this->mPointer) + offset;
     }
 
   /* **************************************************************************************

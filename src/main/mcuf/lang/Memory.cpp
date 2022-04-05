@@ -29,31 +29,45 @@ using mcuf::lang::Pointer;
  */
 
 /**
- *
+ * @brief Construct a new Memory:: Memory object
+ * 
+ * @param memory 
  */
 Memory::Memory(const Memory& memory){
-  *this = memory;  
+  *this = memory;
+
+  if(this->mNext != nullptr)
+    const_cast<Memory&>(memory).mNext = this;
+  
   return;
 }
 
 /**
+ * @brief Construct a new Memory:: Memory object
  * 
+ * @param pointer 
+ * @param length 
  */
 Memory::Memory(const void* pointer, uint32_t length) construct Pointer(const_cast<void*>(pointer)){
-  if(length & 0xC0000000)
+  if(length & 0x80000000)
     length = 0;
   
+  this->mNext = nullptr;
   this->mLength = (length | 0x80000000);
   return;
 }
 
 /**
+ * @brief Construct a new Memory:: Memory object
  * 
+ * @param pointer 
+ * @param length 
  */
 Memory::Memory(void* pointer, uint32_t length) construct Pointer(const_cast<void*>(pointer)){
-  if(length & 0xC0000000)
+  if(length & 0x80000000)
     length = 0;
   
+  this->mNext = nullptr;
   this->mLength = length;
   return;
 }
@@ -63,9 +77,10 @@ Memory::Memory(void* pointer, uint32_t length) construct Pointer(const_cast<void
  * 
  * @param size 
  */
-Memory::Memory(uint32_t size) construct Pointer(new uint8_t[(size & 0x3FFFFFFF)]){
-  size &= 0x3FFFFFFF;
-  size |= 0x40000000;
+Memory::Memory(uint32_t size) construct Pointer(new uint8_t[(size & 0x7FFFFFFF)]){
+  size &= 0x7FFFFFFF;
+
+  this->mNext = this;
   this->mLength = size;
 }
 
@@ -74,9 +89,26 @@ Memory::Memory(uint32_t size) construct Pointer(new uint8_t[(size & 0x3FFFFFFF)]
  * 
  */
 Memory::~Memory(void){
-  if(this->mLength & 0x40000000)
+  if(this->mNext == nullptr)
+    return;
+
+  if(this->mNext == this){
     delete[] static_cast<uint8_t*>(this->pointer());
+  }else{
+    Memory* m = this;
     
+    while(true){
+      if(m->mNext == nullptr)
+        System::error(this, mcuf::lang::ErrorCode::NULL_POINTER);
+      
+      if(m->mNext == this){
+        m->mNext = this->mNext;
+        break;
+      }
+    }
+  }
+  
+  this->mNext = nullptr;
   return;
 }
 
@@ -171,12 +203,12 @@ int Memory::copy(const void* source, uint32_t shift, uint32_t start, uint32_t le
  * 
  * @return Memory& 
  */
-Memory& Memory::clear(void){
+void Memory::clear(void){
   if(this->isReadOnly())
-    return *this;
+    return;
   
   memset(this->pointer(), 0x00, this->length());
-  return *this;
+  return;
 }
 
 /**
@@ -185,71 +217,12 @@ Memory& Memory::clear(void){
  * @param value 
  * @return Memory& 
  */
-Memory& Memory::clear(uint8_t value){
+void Memory::clear(uint8_t value){
   if(this->isReadOnly())
-    return *this;
+    return;
   
   memset(this->pointer(), 0x00, this->length());
-  return *this;
-}
-
-/**
- * @brief 
- * 
- * @param sourec 
- * @return int 
- */
-int Memory::copyMemory(Memory& sourec){
-  if(this->isReadOnly())
-    return 0;
-  
-  uint32_t length = Math::min(this->length(), sourec.length());
-  return this->copy(sourec.pointer(), length);
-}
-
-/**
- * @brief 
- * 
- * @param sourec 
- * @param shift 
- * @return int 
- */
-int Memory::copyMemory(Memory& sourec, uint32_t shift){
-  if(this->isReadOnly())
-    return 0;
-  
-  return this->copy(sourec.pointer(), shift, sourec.length());
-}
-
-/**
- * @brief 
- * 
- * @param sourec 
- * @param shift 
- * @param length 
- * @return int 
- */
-int Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t length){
-  if(this->isReadOnly())
-    return 0;
-  
-  return this->copy(sourec.pointer(), shift, length);
-}
-
-/**
- * @brief 
- * 
- * @param sourec 
- * @param shift 
- * @param start 
- * @param length 
- * @return int 
- */
-int Memory::copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length){
-  if(this->isReadOnly())
-    return 0;
-  
-  return this->copy(sourec.pointer(), shift, start, length);
+  return;
 }
 
 /**

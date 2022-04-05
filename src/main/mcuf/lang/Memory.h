@@ -44,6 +44,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    */
   private: 
     int mLength;
+    Memory* mNext;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -176,7 +177,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @return uint32_t 
      */
     inline int length(void) const{
-      return (this->mLength & 0x3FFFFFFF);
+      return (this->mLength & 0x7FFFFFFF);
     }  
   
   /* **************************************************************************************
@@ -189,7 +190,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * 
      * @return Memory& 
      */
-    Memory& clear(void);
+    virtual void clear(void);
     
     /**
      * @brief 
@@ -197,45 +198,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param value 
      * @return Memory& 
      */
-    Memory& clear(uint8_t value);  
-
-    /**
-     * @brief 
-     * 
-     * @param sourec 
-     * @return int copy of number.
-     */
-    int copyMemory(Memory& sourec);
-
-    /**
-     * @brief 
-     * 
-     * @param sourec 
-     * @param shift 
-     * @return int int copy of number.
-     */
-    int copyMemory(Memory& sourec, uint32_t shift);
-
-    /**
-     * @brief 
-     * 
-     * @param sourec 
-     * @param shift 
-     * @param length 
-     * @return int copy of number. 
-     */
-    int copyMemory(Memory& sourec, uint32_t shift, uint32_t length);
-
-    /**
-     * @brief 
-     * 
-     * @param sourec 
-     * @param shift 
-     * @param start 
-     * @param length 
-     * @return int copy of number. 
-     */
-    int copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length);
+    virtual void clear(uint8_t value);
 
     /**
      * @brief 
@@ -244,7 +207,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @return true in range.
      * @return false isn't range.
      */
-    bool inRange(void* address) const;
+    virtual bool inRange(void* address) const;
 
     /**
      * @brief 
@@ -252,7 +215,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param beginIndex 
      * @return mcuf::lang::Memory 
      */
-    mcuf::lang::Memory subMemory(uint32_t beginIndex) const;
+    virtual mcuf::lang::Memory subMemory(uint32_t beginIndex) const;
 
     /**
      * @brief 
@@ -261,7 +224,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param length 
      * @return mcuf::lang::Memory 
      */
-    mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length) const;
+    virtual mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length) const;
 
   /* **************************************************************************************
    * Protected Method <Static>

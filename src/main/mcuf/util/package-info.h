@@ -22,6 +22,7 @@
 #include "Executor.h"
 #include "Fifo.h"
 #include "Map.h"
+#include "MemoryPool.h"
 #include "Pool.h"
 #include "Queue.h"
 #include "Stacker.h"

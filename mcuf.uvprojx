@@ -1351,6 +1351,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTask.h</FilePath>
             </File>
+            <File>
+              <FileName>MemoryPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -2808,6 +2818,16 @@
               <FileName>TimerTask.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTask.h</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4267,6 +4287,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTask.h</FilePath>
             </File>
+            <File>
+              <FileName>MemoryPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -5724,6 +5754,16 @@
               <FileName>TimerTask.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTask.h</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -7183,6 +7223,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTask.h</FilePath>
             </File>
+            <File>
+              <FileName>MemoryPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -8640,6 +8690,16 @@
               <FileName>TimerTask.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTask.h</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MemoryPool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
             </File>
           </Files>
         </Group>
