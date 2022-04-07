@@ -116,19 +116,24 @@ bool Future::setWait(void){
  * 
  * @return int 
  */
-int Future::get(void){
+bool Future::get(int& result){
+  if(this->mThreadID)
+    return false;
+  
   if(this->mStatus == Status::WAIT){
+    
     this->mThreadID = Threads::getThreadID();
+    
     if(this->mThreadID != 0){
-      while(true){
-        this->wait(1000);
-        if(this->mStatus != Status::WAIT)
-          break;
+   
+      while(this->mStatus == Status::WAIT)
+        this->wait();
       
-      }
+      this->mThreadID = 0;
     }
   }
-  return this->mResult;
+  result = this->mResult;
+  return true;
 }
   
 /**
@@ -137,19 +142,26 @@ int Future::get(void){
  * @param timeout 
  * @return int 
  */
-int Future::get(uint32_t timeout){
+bool Future::get(int& result, uint32_t timeout){
+  if(this->mThreadID)
+    return false;  
+  
   if(this->mStatus == Status::WAIT){
     this->mThreadID = Threads::getThreadID();
     
     if(this->mThreadID != 0){
       this->wait(timeout);
       
+      this->mThreadID = 0;
+      
       if(this->mStatus != Status::DONE)
-        return -1;
+        return false;
       
     }
-  }  
-  return this->mResult;
+  }
+  
+  result = this->mResult;
+  return true;
 }
   
 /**

@@ -132,7 +132,7 @@ class mcuf::io::Future extends mcuf::lang::Object implements
      * 
      * @return int 
      */
-    int get(void);
+    bool get(int& result);
   
     /**
      * @brief 
@@ -140,7 +140,7 @@ class mcuf::io::Future extends mcuf::lang::Object implements
      * @param timeout 
      * @return int 
      */
-    int get(uint32_t timeout);
+    bool get(int& result, uint32_t timeout);
   
     /**
      * @brief 
