@@ -70,10 +70,17 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     ByteBuffer(const mcuf::lang::Memory& memory);
 
     /**
+     * @brief Construct a new Byte Buffer object
+     * 
+     * @param length 
+     */
+    ByteBuffer(uint32_t length);
+
+    /**
      * @brief Destroy the Byte Buffer object
      * 
      */
-    virtual ~ByteBuffer(void) = default;
+    virtual ~ByteBuffer(void);
   
   /* **************************************************************************************
    * Operator Method

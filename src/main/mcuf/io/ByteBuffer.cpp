@@ -26,13 +26,30 @@ using mcuf::lang::String;
  */
 
 /**
- * @brief 
+ * @brief Construct a new Byte Buffer:: Byte Buffer object
  * 
+ * @param memory 
  */
 ByteBuffer::ByteBuffer(const Memory& memory) construct Memory(memory){
-  this->mLimit = this->length();
-  this->mPosition = 0;
-  this->mMark = 0;  
+  this->clear();
+  return;
+}
+
+/**
+ * @brief Construct a new Byte Buffer:: Byte Buffer object
+ * 
+ * @param length 
+ */
+ByteBuffer::ByteBuffer(uint32_t length) construct Memory(length){
+  this->clear();
+  return;
+}
+
+/**
+ * @brief Destroy the Byte Buffer:: Byte Buffer object
+ * 
+ */
+ByteBuffer::~ByteBuffer(void){
   return;
 }
 
