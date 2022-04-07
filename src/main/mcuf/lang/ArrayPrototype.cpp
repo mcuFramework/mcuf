@@ -30,8 +30,11 @@ using mcuf::lang::Memory;
  * Operator Method
  */
 
-/** 
+/**
+ * @brief Construct a new Array Prototype:: Array Prototype object
  * 
+ * @param memory 
+ * @param elementSize 
  */
 ArrayPrototype::ArrayPrototype(const Memory& memory, uint32_t elementSize) construct Memory(memory){
   this->mElementSize = elementSize;
@@ -40,7 +43,11 @@ ArrayPrototype::ArrayPrototype(const Memory& memory, uint32_t elementSize) const
 }
 
 /**
- *
+ * @brief Construct a new Array Prototype:: Array Prototype object
+ * 
+ * @param pointer 
+ * @param size 
+ * @param elementSize 
  */
 ArrayPrototype::ArrayPrototype(void* pointer, uint32_t size, uint32_t elementSize) construct Memory(pointer, size){
   this->mElementSize = elementSize;
@@ -49,12 +56,34 @@ ArrayPrototype::ArrayPrototype(void* pointer, uint32_t size, uint32_t elementSiz
 }
 
 /**
- *
+ * @brief Construct a new Array Prototype:: Array Prototype object
+ * 
+ * @param pointer 
+ * @param size 
+ * @param elementSize 
  */
 ArrayPrototype::ArrayPrototype(const void* pointer, uint32_t size, uint32_t elementSize) construct Memory(pointer, size){
   this->mElementSize = elementSize;
   this->mElementLength = (this->length() / this->mElementSize);
   return;
+}
+
+/**
+ * @brief Construct a new Array Prototype:: Array Prototype object
+ * 
+ * @param length 
+ * @param elementSize 
+ */
+ArrayPrototype::ArrayPrototype(uint32_t length, uint32_t elementSize) construct Memory(length * elementSize){
+  this->mElementSize = elementSize;
+  this->mElementLength = length;
+}
+
+/**
+ * @brief Destroy the Array Prototype:: Array Prototype object
+ * 
+ */
+ArrayPrototype::~ArrayPrototype(void){
 }
 
 /* ****************************************************************************************

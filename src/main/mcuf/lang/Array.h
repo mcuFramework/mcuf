@@ -62,26 +62,40 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
   public:
 
     /**
-     * @brief 
+     * @brief Construct a new Array object
      * 
+     * @param memory 
      */
     Array(const mcuf::lang::Memory& memory) construct mcuf::lang::ArrayPrototype(memory, sizeof(E)){
       return;
     }
 
     /**
-     * @brief 
+     * @brief Construct a new Array object
      * 
+     * @param e 
+     * @param length 
      */
     Array(E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, (length * sizeof(E)), sizeof(E)){
       return;
     }
     
     /**
-     * @brief 
+     * @brief Construct a new Array object
      * 
+     * @param e 
+     * @param length 
      */
     Array(const E* e, uint32_t length) construct mcuf::lang::ArrayPrototype(e, (length * sizeof(E)), sizeof(E)){
+      return;
+    }
+
+    /**
+     * @brief Construct a new Array object
+     * 
+     * @param length 
+     */
+    Array(uint32_t length) construct mcuf::lang::ArrayPrototype(length, sizeof(E)){
       return;
     }
 
