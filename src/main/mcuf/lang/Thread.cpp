@@ -53,7 +53,6 @@ Thread* Thread::threadNodeHead = nullptr;
  *
  */
 Thread::Thread(const Memory& memory) construct Memory(memory){
-  ASSERT(this->isAlignment64Bit(), __CLASSPATH__, ErrorCode::MEMORY_NOT_ALIGNMENT_64BIT);
   ASSERT(!(this->length() < (getRtxMemorySize() + 128)), __CLASSPATH__, ErrorCode::INSUFFICIENT_MEMORY);
   ASSERT(!this->isReadOnly(), __CLASSPATH__, ErrorCode::WRITE_TO_READONLY_MEMORY);
   
@@ -69,8 +68,7 @@ Thread::Thread(const Memory& memory) construct Memory(memory){
 /**
  *
  */
-Thread::Thread(const Memory& memory, const char* name) construct Thread(memory){
-  getRtxMemory()->name = name;
+Thread::Thread(uint32_t stackSize) construct Thread(Memory(stackSize)){
   return;
 }
 
@@ -126,6 +124,10 @@ Thread* Thread::getThread(uint32_t threadID){
  */
 uint32_t Thread::getID(void) const{
   return reinterpret_cast<uint32_t>(this->mThreadID);
+}
+
+void Thread::setName(const char* name){
+  getRtxMemory()->name = name;
 }
 
 /** 

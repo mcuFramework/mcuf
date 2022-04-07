@@ -109,37 +109,38 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
    */
 
   /* **************************************************************************************
-   * Protected Method <Override>
+   * Protected Method <Override> - mcuf::lang::Memroy
    */
-
+  
   /* **************************************************************************************
    * Protected Method
    */
-
-  /**
-   *
-   */
-  protected: void clear(void);
-
-  /**
-   * 
-   */
-  protected: bool offerPointer(void* pointer);
-
-  /**
-   * 
-   */
-  protected: void* pollPointer(void);  
+  protected:
+    
+    /**
+     *
+     */
+    void clear(void);
   
-  /**
-   * 
-   */
-  protected: void* peekPointer(void);    
-  
-  /**
-   *
-   */
-  protected: uint32_t size(void);  
+    /**
+     * 
+     */
+    bool offerPointer(void* pointer);
+
+    /**
+     * 
+     */
+    void* pollPointer(void);  
+    
+    /**
+     * 
+     */
+    void* peekPointer(void);    
+    
+    /**
+     *
+     */
+    uint32_t size(void);  
 
   /* **************************************************************************************
    * Private Method <Static>

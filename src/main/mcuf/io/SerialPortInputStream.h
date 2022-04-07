@@ -15,9 +15,9 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/hal/serial/port/SerialPort.h"
-#include "mcuf/hal/serial/port/SerialPortEvent.h"
-#include "mcuf/hal/serial/port/SerialPortStatus.h"
+#include "hal/serial/SerialPort.h"
+#include "hal/serial/SerialPortEvent.h"
+#include "hal/serial/SerialPortStatus.h"
 #include "mcuf/io/InputStream.h"
 #include "mcuf/io/OutputStream.h"
 #include "mcuf/io/CompletionHandler.h"
@@ -38,7 +38,7 @@ namespace mcuf{
  */  
 class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements 
   public mcuf::io::InputStream,
-  public mcuf::hal::serial::port::SerialPortEvent
+  public hal::serial::SerialPortEvent
 {
 
   /* **************************************************************************************
@@ -53,7 +53,7 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
    * Variable <Private>
    */
   private:
-    mcuf::hal::serial::port::SerialPort& mSerialPort;
+    hal::serial::SerialPort& mSerialPort;
     mcuf::io::CompletionHandler<int, void*>* mReadHandler;
   
   /* **************************************************************************************
@@ -73,7 +73,7 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
      * 
      * @param serialPort 
      */
-    SerialPortInputStream(mcuf::hal::serial::port::SerialPort& serialPort);
+    SerialPortInputStream(hal::serial::SerialPort& serialPort);
 
     /**
      * @brief Destroy the Serial Port Input Stream object
@@ -90,7 +90,7 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::hal::serial::port::SerialPortEvent
+   * Public Method <Override> - hal::serial::SerialPortEvent
    */  
   public:
 
@@ -101,7 +101,7 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
      * @param result 0 = successful, other = remaining byte count.
      * @param attachment user data
      */
-    virtual void onSerialPortEvent(mcuf::hal::serial::port::SerialPortStatus status, 
+    virtual void onSerialPortEvent(hal::serial::SerialPortStatus status, 
                                    int result,
                                    void* attachment) override;
 

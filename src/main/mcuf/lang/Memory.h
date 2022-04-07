@@ -190,15 +190,15 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * 
      * @return Memory& 
      */
-    virtual void clear(void);
-    
+    virtual bool wipe(void);
+
     /**
      * @brief 
      * 
      * @param value 
      * @return Memory& 
      */
-    virtual void clear(uint8_t value);
+    virtual bool wipe(uint8_t value);
 
     /**
      * @brief 

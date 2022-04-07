@@ -35,8 +35,8 @@ using mcuf::io::ByteBuffer;
 using mcuf::io::CompletionHandler;
 using mcuf::io::SerialPortInputStream;
 using mcuf::io::Future;
-using mcuf::hal::serial::port::SerialPort;
-using mcuf::hal::serial::port::SerialPortStatus;
+using hal::serial::SerialPort;
+using hal::serial::SerialPortStatus;
 
 
 /* ****************************************************************************************
@@ -71,7 +71,7 @@ SerialPortInputStream::~SerialPortInputStream(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::hal::serial::port::SerialPortEvent
+ * Public Method <Override> - hal::serial::SerialPortEvent
  */
 
 /**

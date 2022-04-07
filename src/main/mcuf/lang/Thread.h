@@ -85,7 +85,7 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory implements
      * @param memory 
      * @param name 
      */
-    Thread(const Memory& memory, const char* name);
+    Thread(uint32_t stackSize);
 
     /**
      * @brief Destroy the Thread object
@@ -129,7 +129,12 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory implements
      * @return uint32_t 
      */
     uint32_t getID(void) const;
-    
+  
+    /**
+     *
+     */
+    void setName(const char* name);
+  
     /**
      * @brief Get the Name object
      * 

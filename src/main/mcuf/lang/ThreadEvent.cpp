@@ -36,7 +36,7 @@ ThreadEvent::ThreadEvent(const Memory& memory, Runnable& runnable) construct Thr
 /**
  * Construct.
  */
-ThreadEvent::ThreadEvent(const Memory& memory, const char* name, Runnable& runnable) construct Thread(memory, name){
+ThreadEvent::ThreadEvent(uint32_t stackSize, Runnable& runnable) construct Thread(stackSize){
   this->mRunnable = &runnable;
 }
 

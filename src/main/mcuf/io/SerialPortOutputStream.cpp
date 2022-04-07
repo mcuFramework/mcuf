@@ -32,8 +32,8 @@ using mcuf::lang::ErrorCode;
 using mcuf::io::ByteBuffer;
 using mcuf::io::CompletionHandler;
 using mcuf::io::SerialPortOutputStream;
-using mcuf::hal::serial::port::SerialPort;
-using mcuf::hal::serial::port::SerialPortStatus;
+using hal::serial::SerialPort;
+using hal::serial::SerialPortStatus;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -68,7 +68,7 @@ SerialPortOutputStream::~SerialPortOutputStream(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::hal::serial::port::SerialPortEvent
+ * Public Method <Override> - hal::serial::SerialPortEvent
  */
 
 /**

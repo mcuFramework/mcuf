@@ -73,7 +73,7 @@ class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
      * @param name 
      * @param runnable 
      */
-    ThreadEvent(const mcuf::lang::Memory& memory ,const char* name, mcuf::function::Runnable& runnable);
+    ThreadEvent(uint32_t stackSize, mcuf::function::Runnable& runnable);
 
     /**
      * @brief Destroy the Thread Event object

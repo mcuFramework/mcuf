@@ -123,6 +123,7 @@ uint32_t BlockPool::capacity(void){
 void BlockPool::clear(void){
   this->mSize = 0;
   memset(this->mFlags, 0x00, this->mFlagSize);
+  return;
 }
 
 /**

@@ -57,7 +57,7 @@ Stacker::Stacker(const Memory& memory) construct Memory(memory){
  */
 void Stacker::clear(void){
   this->mStackPointer = static_cast<uint8_t*>(this->Memory::pointer());
-  this->Memory::clear();
+  this->Memory::wipe();
 }
 
 /**

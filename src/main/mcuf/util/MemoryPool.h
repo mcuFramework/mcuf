@@ -36,7 +36,7 @@ class mcuf::util::MemoryPool extends mcuf::lang::Memory implements
   /* **************************************************************************************
    * Struct Node
    */
-  private:
+  public:
     struct Node{
       Node* prev;
       Node* next;
@@ -81,7 +81,7 @@ class mcuf::util::MemoryPool extends mcuf::lang::Memory implements
      * @param min 
      * @param max 
      */
-    MemoryPool(mcuf::lang::Memory& memory, uint32_t min, uint32_t max);
+    MemoryPool(const mcuf::lang::Memory& memory, uint32_t min, uint32_t max);
 
     /**
      * @brief Destroy the Memory Pool object
@@ -106,7 +106,7 @@ class mcuf::util::MemoryPool extends mcuf::lang::Memory implements
      * 
      * @return Memory& 
      */
-    virtual void clear(void) override;
+    virtual bool wipe(void) override;
     
     /**
      * @brief 
@@ -114,7 +114,7 @@ class mcuf::util::MemoryPool extends mcuf::lang::Memory implements
      * @param value 
      * @return Memory& 
      */
-    virtual void clear(uint8_t value) override;
+    virtual bool wipe(uint8_t value) override;
 
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Allocator
@@ -156,7 +156,7 @@ class mcuf::util::MemoryPool extends mcuf::lang::Memory implements
      * 
      * @return uint32_t 
      */
-    uint32_t getFreeSize(void);
+    virtual uint32_t getFreeSize(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -211,6 +211,11 @@ class mcuf::util::MemoryPool extends mcuf::lang::Memory implements
      *
      */
     bool isNodeFree(Node* node);
+    
+    /**
+     *
+     */
+    Node* allocFreeNode(uint32_t size, bool head);
     
     /**
      *

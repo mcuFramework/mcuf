@@ -46,7 +46,7 @@ using mcuf::lang::ErrorCode;
  * @param max 
  * @param min 
  */
-MemoryPool::MemoryPool(Memory& memory, uint32_t max, uint32_t min) construct Memory(memory){
+MemoryPool::MemoryPool(const Memory& memory, uint32_t min, uint32_t max) construct Memory(memory){
   
   this->mMax = this->valuePowerful(max);
   this->mMin = this->valuePowerful(min);
@@ -60,7 +60,7 @@ MemoryPool::MemoryPool(Memory& memory, uint32_t max, uint32_t min) construct Mem
   if(this->mMin > this->mMax)
     this->mMin = this->mMax;
     
-  this->clear();
+  this->wipe();
 }
 
 /**
@@ -68,7 +68,7 @@ MemoryPool::MemoryPool(Memory& memory, uint32_t max, uint32_t min) construct Mem
  * 
  */
 MemoryPool::~MemoryPool(void){
-  this->clear();
+  this->wipe();
 }
 
 /* ****************************************************************************************
@@ -92,9 +92,14 @@ void* MemoryPool::alloc(uint32_t size){
   if(this->mFreeNode == nullptr)
     return nullptr;
   
-  Node* node = this->mFreeNode;
+  size = this->sizePowerful(size + sizeof(Node));
+  Node* node = this->allocFreeNode(size, (size >= this->mMax));
   
-  return nullptr;
+  if(node == nullptr)
+    return nullptr;
+  
+  this->markUsing(node);
+  return Pointer::pointShift(node, sizeof(Node));
 }
 
 /**
@@ -136,11 +141,11 @@ bool MemoryPool::free(void* ptr, uint32_t size){
  * @brief 
  * 
  */
-void MemoryPool::clear(void){
+bool MemoryPool::wipe(void){
   if(this->isReadOnly())
-    mcuf::lang::System::error(this, ErrorCode::WRITE_TO_READONLY_MEMORY);
+    return false;
 
-  uint32_t size = (this->length() & (this->mMin - 1));
+  uint32_t size = (this->length() & ~(this->mMin - 1));
   
   this->mNode = reinterpret_cast<Node*>(this->pointer());
   Node* tail = reinterpret_cast<Node*>(this->pointer(size - sizeof(Node)));
@@ -156,6 +161,7 @@ void MemoryPool::clear(void){
   tail->next = tail;
   
   this->mFreeNode = this->mNode;
+  return true;
 }
 
 /**
@@ -163,8 +169,8 @@ void MemoryPool::clear(void){
  * 
  * @param value 
  */
-void MemoryPool::clear(uint8_t value){
-  this->clear();
+bool MemoryPool::wipe(uint8_t value){
+  return this->wipe();
 }
 
 /* ****************************************************************************************
@@ -219,16 +225,13 @@ MemoryPool::Node* MemoryPool::split(Node* node, uint32_t size){
     return nullptr;
   
   uint32_t nodeSize = this->getNodeSize(node);
-  size = this->sizePowerful(size + sizeof(Node));
 
   if((size + this->mMin) > nodeSize)  //not enough free space
       return nullptr;
-
-  nodeSize = nodeSize - size;
   
   Node* next = node->next;
   Node* linkNext = node->linkNext;
-  Node* result = static_cast<Node*>(Pointer::pointShift(node, nodeSize));
+  Node* result = static_cast<Node*>(Pointer::pointShift(node, size));
   
   result->next = next;
   result->prev = node;
@@ -318,7 +321,7 @@ bool MemoryPool::markFree(Node* node){
     //if found free node, mark and break while
     if(this->isNodeFree(temp)){
       node->linkPrev = temp;
-      temp->linkNext = temp;
+      temp->linkNext = node;
       break;
     }
     
@@ -339,7 +342,7 @@ bool MemoryPool::markFree(Node* node){
     //if found free node, mark and break while
     if(this->isNodeFree(temp)){
       node->linkNext = temp;
-      temp->linkPrev = temp;
+      temp->linkPrev = node;
       break;
     }
     
@@ -428,6 +431,50 @@ bool MemoryPool::verifyNode(Node* node){
     return false;
   
   return true;
+}
+
+/**
+ *
+ */
+MemoryPool::Node* MemoryPool::allocFreeNode(uint32_t size, bool head){
+  if(this->mFreeNode == nullptr)
+    return nullptr;
+  
+  Node* start = nullptr;
+  Node* node = nullptr;
+  
+  start = head ? this->mFreeNode : this->mFreeNode->linkPrev;
+  
+  //try to search match size node
+  node = start;
+  do{
+    uint32_t nodeSize = this->getNodeSize(node);
+    if(nodeSize == size){
+      return node;
+    }
+    
+    node = head ? node->linkNext : node->linkPrev;
+  }while(node != start);
+  
+  //try to search split node
+  node = start;
+  do{
+    uint32_t nodeSize = this->getNodeSize(node);
+    if(nodeSize > size){
+      if(head){
+        if(this->split(node, size))
+          return node;
+        
+      }else{
+        if(this->split(node, (nodeSize - size)))
+          return node->linkNext;
+      }
+    }
+    
+    node = head ? node->next : node->prev;
+  }while(node != start);
+  
+  return nullptr;
 }
 
 /* ****************************************************************************************

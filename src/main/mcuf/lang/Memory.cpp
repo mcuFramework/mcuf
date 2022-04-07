@@ -95,16 +95,18 @@ Memory::~Memory(void){
   if(this->mNext == this){
     delete[] static_cast<uint8_t*>(this->pointer());
   }else{
-    Memory* m = this;
+    Memory* next = this;
     
     while(true){
-      if(m->mNext == nullptr)
+      if(next->mNext == nullptr)
         System::error(this, mcuf::lang::ErrorCode::NULL_POINTER);
       
-      if(m->mNext == this){
-        m->mNext = this->mNext;
+      if(next->mNext == this){
+        next->mNext = this->mNext;
         break;
       }
+      
+      next = next->mNext;
     }
   }
   
@@ -203,12 +205,12 @@ int Memory::copy(const void* source, uint32_t shift, uint32_t start, uint32_t le
  * 
  * @return Memory& 
  */
-void Memory::clear(void){
+bool Memory::wipe(void){
   if(this->isReadOnly())
-    return;
+    return false;
   
   memset(this->pointer(), 0x00, this->length());
-  return;
+  return true;
 }
 
 /**
@@ -217,12 +219,12 @@ void Memory::clear(void){
  * @param value 
  * @return Memory& 
  */
-void Memory::clear(uint8_t value){
+bool Memory::wipe(uint8_t value){
   if(this->isReadOnly())
-    return;
+    return false;
   
   memset(this->pointer(), 0x00, this->length());
-  return;
+  return true;
 }
 
 /**
