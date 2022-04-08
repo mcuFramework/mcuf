@@ -38,14 +38,6 @@ interface hal::serial::SerialPortTransfer{
    * @return true 
    * @return false 
    */
-  virtual bool abortRead(void) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @return true 
-   * @return false 
-   */
   virtual bool abortWrite(void) abstract;
 
   /**
@@ -54,49 +46,7 @@ interface hal::serial::SerialPortTransfer{
    * @return true 
    * @return false 
    */
-  virtual bool clear(void) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool readBusy(void) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @return true 
-   * @return false 
-   */
   virtual bool writeBusy(void) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param byteBuffer 
-   * @param attachment 
-   * @param event 
-   * @return true 
-   * @return false 
-   */
-  virtual bool read(mcuf::io::ByteBuffer& byteBuffer, 
-                    void* attachment,
-                    hal::serial::SerialPortEvent* event) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param value 
-   * @param attachment 
-   * @param event 
-   * @return true 
-   * @return false 
-   */
-  virtual bool skip(int value,
-                    void* attachment, 
-                    hal::serial::SerialPortEvent* event) abstract;
                     
   /**
    * @brief 

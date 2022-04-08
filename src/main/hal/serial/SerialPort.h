@@ -13,6 +13,7 @@
 #include "mcuf_base.h"
 #include "hal/Base.h"
 #include "hal/serial/SerialPortConfig.h"
+#include "hal/serial/SerialPortReceiver.h"
 #include "hal/serial/SerialPortTransfer.h"
 
 /* ****************************************************************************************
@@ -29,7 +30,8 @@ namespace hal{
  */  
 interface hal::serial::SerialPort extends hal::Base,
   hal::serial::SerialPortConfig,
-  hal::serial::SerialPortTransfer{
+  hal::serial::SerialPortTransfer,
+  hal::serial::SerialPortReceiver{
 
   /* **************************************************************************************
    * Method

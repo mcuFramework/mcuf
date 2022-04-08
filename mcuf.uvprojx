@@ -747,6 +747,11 @@
               <FilePath>.\src\main\hal\serial\SerialPortEvent.h</FilePath>
             </File>
             <File>
+              <FileName>SerialPortReceiver.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\hal\serial\SerialPortReceiver.h</FilePath>
+            </File>
+            <File>
               <FileName>SerialPortStatus.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\hal\serial\SerialPortStatus.h</FilePath>
@@ -2098,6 +2103,11 @@
               <FileName>SerialPortEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\hal\serial\SerialPortEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortReceiver.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\hal\serial\SerialPortReceiver.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortStatus.h</FileName>
@@ -3453,6 +3463,11 @@
               <FilePath>.\src\main\hal\serial\SerialPortEvent.h</FilePath>
             </File>
             <File>
+              <FileName>SerialPortReceiver.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\hal\serial\SerialPortReceiver.h</FilePath>
+            </File>
+            <File>
               <FileName>SerialPortStatus.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\hal\serial\SerialPortStatus.h</FilePath>
@@ -4804,6 +4819,11 @@
               <FileName>SerialPortEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\hal\serial\SerialPortEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortReceiver.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\hal\serial\SerialPortReceiver.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortStatus.h</FileName>
@@ -6159,6 +6179,11 @@
               <FilePath>.\src\main\hal\serial\SerialPortEvent.h</FilePath>
             </File>
             <File>
+              <FileName>SerialPortReceiver.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\hal\serial\SerialPortReceiver.h</FilePath>
+            </File>
+            <File>
               <FileName>SerialPortStatus.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\hal\serial\SerialPortStatus.h</FilePath>
@@ -7510,6 +7535,11 @@
               <FileName>SerialPortEvent.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\hal\serial\SerialPortEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialPortReceiver.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\hal\serial\SerialPortReceiver.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortStatus.h</FileName>

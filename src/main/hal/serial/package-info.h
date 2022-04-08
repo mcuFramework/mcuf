@@ -32,6 +32,7 @@
 #include "SerialPort.h"
 #include "SerialPortConfig.h"
 #include "SerialPortEvent.h"
+#include "SerialPortReceiver.h"
 #include "SerialPortStatus.h"
 #include "SerialPortTransfer.h"
 
