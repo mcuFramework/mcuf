@@ -114,6 +114,27 @@ bool Future::setWait(void){
 /**
  * @brief 
  * 
+ */
+void Future::waitDone(void){
+  int result;
+  this->get(result);
+  return;
+}
+
+/**
+ * @brief 
+ * 
+ * @param timeout 
+ */
+void Future::waitDone(uint32_t timeout){
+  int result;
+  this->get(result, timeout);
+  return;
+}
+
+/**
+ * @brief 
+ * 
  * @return int 
  */
 bool Future::get(int& result){

@@ -130,6 +130,19 @@ class mcuf::io::Future extends mcuf::lang::Object implements
     /**
      * @brief 
      * 
+     */
+    void waitDone(void);
+
+    /**
+     * @brief 
+     * 
+     * @param timeout 
+     */
+    void waitDone(uint32_t timeout);
+
+    /**
+     * @brief 
+     * 
      * @return int 
      */
     bool get(int& result);
