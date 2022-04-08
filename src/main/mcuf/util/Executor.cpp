@@ -25,9 +25,28 @@ using mcuf::util::ArrayQueue;
  */
 
 /**
+ * @brief Construct a new Executor:: Executor object
+ * 
+ * @param memory 
+ */
+Executor::Executor(const Memory& memory) : ArrayQueue<Runnable>(memory){
+  return;
+}
+
+/**
+ * @brief Construct a new Executor:: Executor object
+ * 
+ * @param size 
+ */
+Executor::Executor(uint32_t size) : ArrayQueue<Runnable>(size){
+  return;
+}
+
+/**
+ * @brief Destroy the Executor:: Executor object
  * 
  */
-Executor::Executor(const Memory& memory) construct ArrayQueue<Runnable>(memory){
+Executor::~Executor(void){
   return;
 }
 

@@ -30,7 +30,7 @@ using mcuf::lang::String;
  * 
  * @param memory 
  */
-ByteBuffer::ByteBuffer(const Memory& memory) construct Memory(memory){
+ByteBuffer::ByteBuffer(const Memory& memory) : Memory(memory){
   this->clear();
   return;
 }
@@ -40,7 +40,7 @@ ByteBuffer::ByteBuffer(const Memory& memory) construct Memory(memory){
  * 
  * @param length 
  */
-ByteBuffer::ByteBuffer(uint32_t length) construct Memory(length){
+ByteBuffer::ByteBuffer(uint32_t length) : Memory(length){
   this->clear();
   return;
 }

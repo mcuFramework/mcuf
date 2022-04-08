@@ -68,24 +68,6 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
     /**
      * @brief Construct a new Array Prototype object
      * 
-     * @param pointer 
-     * @param size 
-     * @param elementSize 
-     */
-    ArrayPrototype(void* pointer, uint32_t size, uint32_t elementSize);
-    
-    /**
-     * @brief Construct a new Array Prototype object
-     * 
-     * @param pointer 
-     * @param size 
-     * @param elementSize 
-     */
-    ArrayPrototype(const void* pointer, uint32_t size, uint32_t elementSize);
-    
-    /**
-     * @brief Construct a new Array Prototype object
-     * 
      * @param length 
      * @param elementSize 
      */

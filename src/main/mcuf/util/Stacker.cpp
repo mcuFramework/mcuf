@@ -26,7 +26,7 @@ using mcuf::util::Stacker;
 /**
  * 
  */
-Stacker::Stacker(void* buffer, uint32_t size) construct Memory(buffer, size){
+Stacker::Stacker(void* buffer, uint32_t size) : Memory(buffer, size){
   this->clear();
   return;
 }
@@ -34,7 +34,7 @@ Stacker::Stacker(void* buffer, uint32_t size) construct Memory(buffer, size){
 /**
  * 
  */
-Stacker::Stacker(const Memory& memory) construct Memory(memory){
+Stacker::Stacker(const Memory& memory) : Memory(memory){
   this->clear();
   return;
 }

@@ -37,7 +37,7 @@ using mcuf::lang::Memory;
 /**
  * Construct.
  */
-String::String(void* pointer, uint32_t size) construct Memory(pointer, size){
+String::String(void* pointer, uint32_t size) : Memory(pointer, size){
   this->mSize = 0;
   return;
 }
@@ -45,7 +45,7 @@ String::String(void* pointer, uint32_t size) construct Memory(pointer, size){
 /**
  * Construct.
  */
-String::String(const char* str) construct Memory(str, strlen(str)){
+String::String(const char* str) : Memory(str, strlen(str)){
   this->mSize = this->length();
   return;
 }
@@ -53,7 +53,7 @@ String::String(const char* str) construct Memory(str, strlen(str)){
 /**
  * Construct.
  */
-String::String(const Memory& memory) construct Memory(memory){
+String::String(const Memory& memory) : Memory(memory){
   if(this->isReadOnly())
     this->mSize = strlen(static_cast<const char*>(this->pointer()));
   return;

@@ -59,16 +59,27 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
   /* **************************************************************************************
    * Construct Method
    */
+  protected:
+    
+    /**
+     * @brief Construct a new Array Queue Prototype object
+     * 
+     * @param memory 
+     */
+    ArrayQueuePrototype(const mcuf::lang::Memory& memory);
+  
+    /**
+     * @brief Construct a new Array Queue Prototype object
+     * 
+     * @param size
+     */
+    ArrayQueuePrototype(uint32_t size);
 
-  /**
-   * Construct.
-   */
-  protected: ArrayQueuePrototype(const mcuf::lang::Memory& memory);
-
-  /**
-   * Destruct.
-   */
-  protected: virtual ~ArrayQueuePrototype(void) = default;
+    /**
+     * @brief Destroy the Array Queue Prototype object
+     * 
+     */
+    virtual ~ArrayQueuePrototype(void);
 
   /* **************************************************************************************
    * Operator Method
@@ -89,20 +100,20 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
   /* **************************************************************************************
    * Public Method <Inline>
    */
-   
-  /**
-   * 
-   */
-  public: inline bool isEmpty(void){
-    return this->mEmpty;
-  }
+  public: 
+    /**
+     * 
+     */
+    inline bool isEmpty(void){
+      return this->mEmpty;
+    }
 
-  /**
-   * 
-   */
-  public: inline bool isFull(void){
-    return ((this->mHead == this->mTail) == !this->mEmpty);
-  }
+    /**
+     * 
+     */
+    inline bool isFull(void){
+      return ((this->mHead == this->mTail) == !this->mEmpty);
+    }
    
   /* **************************************************************************************
    * Protected Method <Static>

@@ -38,16 +38,6 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   friend mcuf::lang::System;
   
   /* **************************************************************************************
-   * Struct Attachment
-   */
-  private: struct Attachment{
-    mcuf::lang::Memory* stack;
-    mcuf::lang::Memory* executor;
-    mcuf::lang::Thread* userThread;
-    uint32_t timerTick;
-  };
-
-  /* **************************************************************************************
    * Variable <Public>
    */
 
@@ -81,7 +71,7 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
      * 
      * @param attachment 
      */
-    CoreThread(const Attachment& attachment);
+    CoreThread(uint32_t stackSize, uint32_t executeQueue, mcuf::lang::Thread* userThread);
 
   public: 
 
@@ -149,14 +139,6 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Private Method <Static>
    */
-   private: 
-   
-    /**
-      * @brief 
-      * 
-      * @param attachment 
-      */
-    static void entryPoint(void* attachment);
 
   /* **************************************************************************************
    * Private Method <Override>

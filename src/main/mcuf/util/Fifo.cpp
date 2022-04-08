@@ -27,7 +27,7 @@ using mcuf::util::Fifo;
 /**
  * 
  */
-Fifo::Fifo(const Memory& memory, uint32_t elementSize) construct Memory(memory){
+Fifo::Fifo(const Memory& memory, uint32_t elementSize) : Memory(memory){
   this->mElementSize = elementSize;
   this->mElementLength = (memory.length() / elementSize);
   this->mHead = 0;

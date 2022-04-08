@@ -30,9 +30,28 @@ using mcuf::lang::Memory;
  */
 
 /**
- * Construct.
+ * @brief Construct a new Array Queue Prototype:: Array Queue Prototype object
+ * 
+ * @param memory 
  */
-ArrayQueuePrototype::ArrayQueuePrototype(const Memory& memory) construct Array<void*>(memory){
+ArrayQueuePrototype::ArrayQueuePrototype(const Memory& memory) : Array<void*>(memory){
+  return;
+}
+
+/**
+ * @brief Construct a new Array Queue Prototype:: Array Queue Prototype object
+ * 
+ * @param length 
+ */
+ArrayQueuePrototype::ArrayQueuePrototype(uint32_t size) : Array<void*>(size){
+  return;
+}
+
+/**
+ * @brief Destroy the Array Queue Prototype:: Array Queue Prototype object
+ * 
+ */
+ArrayQueuePrototype::~ArrayQueuePrototype(void){
   return;
 }
 

@@ -34,11 +34,11 @@ using mcuf::util::Executor;
 /**
  *
  */
-CoreThread::CoreThread(const CoreThread::Attachment& attachment) construct Thread(*attachment.stack)
-  ,mExecutor(*attachment.executor){
+CoreThread::CoreThread(uint32_t stackSize, uint32_t executeQueue, Thread* userThread) : Thread(stackSize)
+  ,mExecutor(executeQueue){
   
   this->mStart = false;
-  this->mUserThread = attachment.userThread;
+  this->mUserThread = userThread;
 }
 
 /* ****************************************************************************************
@@ -110,10 +110,6 @@ void CoreThread::run(void){
 /* ****************************************************************************************
  * Private Method
  */
-
-void CoreThread::entryPoint(void* attachment){
-  CoreThread* coreThread = static_cast<CoreThread*>(attachment);
-}
 
 /* ****************************************************************************************
  * End of file

@@ -52,23 +52,25 @@ Thread* Thread::threadNodeHead = nullptr;
 /**
  *
  */
-Thread::Thread(const Memory& memory) construct Memory(memory){
-  ASSERT(!(this->length() < (getRtxMemorySize() + 128)), __CLASSPATH__, ErrorCode::INSUFFICIENT_MEMORY);
-  ASSERT(!this->isReadOnly(), __CLASSPATH__, ErrorCode::WRITE_TO_READONLY_MEMORY);
+Thread::Thread(const Memory& memory) : Memory(memory){
+  if(this->isReadOnly())
+    mcuf::lang::System::error(__CLASSPATH__, ErrorCode::WRITE_TO_READONLY_MEMORY);
   
+  if(this->length() < (getRtxMemorySize() + 128))
+    mcuf::lang::System::error(__CLASSPATH__, ErrorCode::INSUFFICIENT_MEMORY);
+
   memset(this->pointer(), 0x00, getRtxMemorySize());
   this->mThreadID = nullptr;
   this->mNextNode = nullptr;
   
   Thread::nodeAdd(this);
-  
   return;
 }
 
 /**
  *
  */
-Thread::Thread(uint32_t stackSize) construct Thread(Memory(stackSize)){
+Thread::Thread(uint32_t stackSize) : Thread(Memory(stackSize)){
   return;
 }
 
@@ -126,6 +128,9 @@ uint32_t Thread::getID(void) const{
   return reinterpret_cast<uint32_t>(this->mThreadID);
 }
 
+/**
+ *
+ */
 void Thread::setName(const char* name){
   getRtxMemory()->name = name;
 }

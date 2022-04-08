@@ -18,9 +18,9 @@
 #define MCUF_DEFINE_CORE_STACK_SIZE 1024
 #endif
 
-//   <o>Executor task number <16-65536>
+//   <o>Executor task number <4-1024>
 #ifndef MCUF_DEFINE_EXECUTOR_TASK_NUMBER
-#define MCUF_DEFINE_EXECUTOR_TASK_NUMBER 32
+#define MCUF_DEFINE_EXECUTOR_TASK_NUMBER 16
 #endif
 // </h>
 

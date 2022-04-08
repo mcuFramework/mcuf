@@ -48,7 +48,7 @@ Memory::Memory(const Memory& memory){
  * @param pointer 
  * @param length 
  */
-Memory::Memory(const void* pointer, uint32_t length) construct Pointer(const_cast<void*>(pointer)){
+Memory::Memory(const void* pointer, uint32_t length) : Pointer(const_cast<void*>(pointer)){
   if(length & 0x80000000)
     length = 0;
   
@@ -63,7 +63,7 @@ Memory::Memory(const void* pointer, uint32_t length) construct Pointer(const_cas
  * @param pointer 
  * @param length 
  */
-Memory::Memory(void* pointer, uint32_t length) construct Pointer(const_cast<void*>(pointer)){
+Memory::Memory(void* pointer, uint32_t length) : Pointer(const_cast<void*>(pointer)){
   if(length & 0x80000000)
     length = 0;
   
@@ -77,7 +77,7 @@ Memory::Memory(void* pointer, uint32_t length) construct Pointer(const_cast<void
  * 
  * @param size 
  */
-Memory::Memory(uint32_t size) construct Pointer(new uint8_t[(size & 0x7FFFFFFF)]){
+Memory::Memory(uint32_t size) : Pointer(new uint8_t[(size & 0x7FFFFFFF)]){
   size &= 0x7FFFFFFF;
 
   this->mNext = this;

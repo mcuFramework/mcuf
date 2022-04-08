@@ -33,7 +33,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-abstracts class mcuf::lang::Thread extends mcuf::lang::Memory implements 
+ class mcuf::lang::Thread extends mcuf::lang::Memory implements 
   public mcuf::function::Runnable{
 
   friend System;

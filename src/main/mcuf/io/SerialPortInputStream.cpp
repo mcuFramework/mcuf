@@ -50,7 +50,7 @@ using hal::serial::SerialPortStatus;
 /**
  *
  */
-SerialPortInputStream::SerialPortInputStream(SerialPort& serialPort) construct
+SerialPortInputStream::SerialPortInputStream(SerialPort& serialPort) :
   mSerialPort(serialPort){
 
   return;

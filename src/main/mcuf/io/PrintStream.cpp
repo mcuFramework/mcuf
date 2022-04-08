@@ -41,7 +41,7 @@ using mcuf::io::OutputStream;
  * @brief Construct a new Print Stream object
  * 
  */
-PrintStream::PrintStream(OutputStream& outputStream, const Memory& memory) construct 
+PrintStream::PrintStream(OutputStream& outputStream, const Memory& memory) : 
   Memory(memory),
   mOutputStream(outputStream),
   mByteBuffer(memory){

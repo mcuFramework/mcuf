@@ -37,7 +37,7 @@ using mcuf::lang::Memory;
 /**
  *
  */
-RingBuffer::RingBuffer(void* buffer, uint32_t bufferSize) construct Memory(buffer, bufferSize){
+RingBuffer::RingBuffer(void* buffer, uint32_t bufferSize) : Memory(buffer, bufferSize){
   this->init();
   return;
 }
@@ -45,7 +45,7 @@ RingBuffer::RingBuffer(void* buffer, uint32_t bufferSize) construct Memory(buffe
 /**
  * Construct.
  */
-RingBuffer::RingBuffer(const Memory& memory) construct Memory(memory){
+RingBuffer::RingBuffer(const Memory& memory) : Memory(memory){
   this->init();
   return;
 }

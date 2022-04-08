@@ -63,7 +63,16 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
      * 
      * @param memory 
      */
-    ArrayQueue(const Memory& memory) construct mcuf::util::ArrayQueuePrototype(memory){
+    ArrayQueue(const Memory& memory) : mcuf::util::ArrayQueuePrototype(memory){
+      return;
+    }
+
+    /**
+     * @brief Construct a new Array Queue object
+     * 
+     * @param length 
+     */
+    ArrayQueue(uint32_t length) : mcuf::util::ArrayQueuePrototype(length){
       return;
     }
 

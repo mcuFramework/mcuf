@@ -29,18 +29,10 @@
  * Extern
  */  
 extern unsigned int SystemCoreClockHz;
- 
-extern void* const mcufCoreThreadMemory;
-extern const uint32_t mcufCoreThreadMemorySize;
 
-extern void* const mcufCoreStackMemory;
 extern const uint32_t mcufCoreStackMemorySize;
-
-extern void* const mcufCoreEcecutorMemory;
 extern const uint32_t mcufCoreEcecutorMemorySize;
 
-extern void* const mcufTimerTaskMemory;
-extern const uint32_t mcufTimerTaskMemorySize;
 extern const uint32_t mcufTimerTick;
 
 /* ****************************************************************************************
@@ -84,21 +76,8 @@ const uint32_t System::mSystemTimerClock = (1000/mcufTimerTick);
  */
 void System::start(mcuf::lang::Thread& userThread){
   osKernelInitialize();  
-  
-  if(true){
-    ASSERT(mcufCoreThreadMemory, __CLASSPATH__, ErrorCode::NULL_POINTER);
     
-    Memory stack = Memory(mcufCoreStackMemory, mcufCoreStackMemorySize);
-    Memory executor = Memory(mcufCoreEcecutorMemory, mcufCoreEcecutorMemorySize);
-    
-    CoreThread::Attachment attachment;
-    attachment.stack = &stack;
-    attachment.executor = &executor;
-    attachment.timerTick = mcufTimerTick;
-    attachment.userThread = &userThread;
-    
-    System::mCoreThread = new(mcufCoreThreadMemory) CoreThread(attachment);
-  }
+  System::mCoreThread = new CoreThread(mcufCoreStackMemorySize, mcufCoreEcecutorMemorySize, &userThread);
   
   System::mCoreThread->start();
   osKernelStart();

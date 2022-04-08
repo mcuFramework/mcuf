@@ -28,7 +28,7 @@ using mcuf::function::BiConsumer;
 /**
  * 
  */
-BlockPool::BlockPool(const Memory& memory, uint32_t elementSize) construct Memory(memory){
+BlockPool::BlockPool(const Memory& memory, uint32_t elementSize) : Memory(memory){
   this->mElementSize = elementSize;
   this->mCapacity = this->length() / this->mElementSize;
   this->mFlagSize = Math::ceil(this->mCapacity, 8U);

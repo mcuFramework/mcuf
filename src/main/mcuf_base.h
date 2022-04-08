@@ -13,8 +13,6 @@
  */
 
 #define abstract =0
-#define abstracts 
-#define construct :
 #define extends :public
 #define implements ,
 #define interface struct

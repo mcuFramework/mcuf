@@ -46,7 +46,7 @@ using mcuf::lang::ErrorCode;
  * @param max 
  * @param min 
  */
-MemoryPool::MemoryPool(const Memory& memory, uint32_t min, uint32_t max) construct Memory(memory){
+MemoryPool::MemoryPool(const Memory& memory, uint32_t min, uint32_t max) : Memory(memory){
   
   this->mMax = this->valuePowerful(max);
   this->mMin = this->valuePowerful(min);

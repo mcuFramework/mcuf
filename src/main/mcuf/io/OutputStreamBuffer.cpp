@@ -46,7 +46,7 @@ using mcuf::lang::ErrorCode;
  * 
  * @param memory 
  */
-OutputStreamBuffer::OutputStreamBuffer(OutputStream& outputStream ,const Memory& memory) construct 
+OutputStreamBuffer::OutputStreamBuffer(OutputStream& outputStream ,const Memory& memory) : 
   RingBuffer(memory),
   mOutputStream(outputStream),
   mByteBuffer(memory){
