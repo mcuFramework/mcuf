@@ -75,7 +75,7 @@ interface hal::serial::SerialPortReceiver{
    * @return true 
    * @return false 
    */
-  virtual bool readByte(char& result);
+  virtual bool readByte(char& result) abstract;
 
   /**
    * @brief 
@@ -84,7 +84,7 @@ interface hal::serial::SerialPortReceiver{
    * @param maxLength 
    * @return uint32_t 
    */
-  virtual uint32_t read(void* buffer, uint32_t maxLength);
+  virtual uint32_t read(void* buffer, uint32_t maxLength) abstract;
 
   /**
    * @brief 
