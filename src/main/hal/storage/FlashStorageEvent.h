@@ -44,7 +44,8 @@ interface hal::storage::FlashStorageEvent{
    * @param byteBuffer 
    */
   virtual void onFlashStorageEvent(hal::storage::FlashStorageStatus status, 
-                                   mcuf::io::ByteBuffer* byteBuffer) abstract;
+                                   int result,
+                                   void* attachment) abstract;
 
 };
 

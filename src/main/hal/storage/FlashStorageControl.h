@@ -58,30 +58,27 @@ interface hal::storage::FlashStorageControl{
   /**
    * @brief 
    * 
-   * @return uint32_t 
-   */
-  virtual uint32_t minimumWriteSize(void) abstract;
-
-  /**
-   * @brief 
-   * 
    * @param bytebuffer 
+   * @param attachment 
    * @param event 
    * @return true 
    * @return false 
    */
-  virtual bool write(mcuf::io::ByteBuffer* bytebuffer, 
+  virtual bool write(mcuf::io::ByteBuffer& bytebuffer, 
+                     void* attachment,
                      hal::storage::FlashStorageEvent* event) abstract;
 
   /**
    * @brief 
    * 
    * @param bytebuffer 
+   * @param attachment 
    * @param event 
    * @return true 
    * @return false 
    */
-  virtual bool read(mcuf::io::ByteBuffer* bytebuffer, 
+  virtual bool read(mcuf::io::ByteBuffer& bytebuffer, 
+                    void* attachment,
                     hal::storage::FlashStorageEvent* event) abstract;
 
 };
