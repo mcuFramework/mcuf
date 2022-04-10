@@ -35,7 +35,10 @@ using mcuf::lang::Memory;
  */
 
 /**
- * Construct.
+ * @brief Construct a new String:: String object
+ * 
+ * @param pointer 
+ * @param size 
  */
 String::String(void* pointer, uint32_t size) : Memory(pointer, size){
   this->mSize = 0;
@@ -43,7 +46,9 @@ String::String(void* pointer, uint32_t size) : Memory(pointer, size){
 }
 
 /**
- * Construct.
+ * @brief Construct a new String:: String object
+ * 
+ * @param str 
  */
 String::String(const char* str) : Memory(str, strlen(str)){
   this->mSize = this->length();
@@ -51,11 +56,23 @@ String::String(const char* str) : Memory(str, strlen(str)){
 }
 
 /**
- * Construct.
+ * @brief Construct a new String:: String object
+ * 
+ * @param length 
+ */
+String::String(uint32_t length) : Memory(length){
+  this->mSize = 0;
+}
+
+/**
+ * @brief Construct a new String:: String object
+ * 
+ * @param memory 
  */
 String::String(const Memory& memory) : Memory(memory){
   if(this->isReadOnly())
     this->mSize = strlen(static_cast<const char*>(this->pointer()));
+
   return;
 }
 
@@ -128,6 +145,30 @@ int String::format(const mcuf::lang::Memory& memory, const char* format, ...){
   va_start(args, format);
   int result = vsnprintf(static_cast<char*>(memory.pointer()), memory.length(), format, args);
   va_end(args);
+  return result;
+}
+
+/**
+ * @brief 
+ * 
+ * @param bufferSize 
+ * @param format 
+ * @param ... 
+ * @return String 
+ */
+String String::format(int bufferSize, const char* format, ...){
+  String buffer = String(bufferSize);
+
+  va_list args;
+  va_start(args, format);  
+  buffer.format(format, args);
+  va_end(args);
+  
+  if(buffer.size() >= (((float)buffer.length()) * 0.9f))
+    return buffer;
+
+  String result = String(buffer.size());
+  result.copy(buffer, result.length());
   return result;
 }
 

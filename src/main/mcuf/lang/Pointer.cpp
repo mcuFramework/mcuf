@@ -91,7 +91,7 @@ int Pointer::copy(const void* source, uint32_t shift, uint32_t start, uint32_t l
   if((source == nullptr) || (this->mPointer == nullptr))
     return 0;  
   
-  memcpy(this->pointer(shift), &((uint8_t*)source)[start], length);
+  memcpy(this->pointer(shift), &(static_cast<const char*>(source))[start], length);
   return length;
 }
 

@@ -81,6 +81,13 @@ class mcuf::lang::String extends mcuf::lang::Memory{
     String(const mcuf::lang::Memory& memory);
 
     /**
+     * @brief Construct a new String object
+     * 
+     * @param length 
+     */
+    String(uint32_t length);
+
+    /**
      * @brief Destroy the String object
      * 
      */
@@ -146,6 +153,15 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @return int 
      */
     static int format(const mcuf::lang::Memory& memory, const char* format, ...);
+
+    /**
+     * @brief 
+     * 
+     * @param format 
+     * @param ... 
+     * @return String 
+     */
+    static String format(int bufferSize, const char* format, ...);
 
   /* **************************************************************************************
    * Public Method

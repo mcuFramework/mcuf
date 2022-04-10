@@ -35,6 +35,20 @@ interface hal::storage::FlashStorageControl{
    */
 
   /**
+   * @brief Set the Address object
+   * 
+   * @param address 
+   */
+  virtual void setAddress(uint32_t address);
+
+  /**
+   * @brief Get the Address object
+   * 
+   * @return uint32_t 
+   */
+  virtual uint32_t getAddress(void);
+
+  /**
    * @brief 
    * 
    * @return uint32_t 
@@ -71,7 +85,7 @@ interface hal::storage::FlashStorageControl{
    * @return true 
    * @return false 
    */
-  virtual bool sectorErase(uint32_t sectorNumber) abstracrt;
+  virtual bool sectorErase(uint32_t sectorNumber) abstract;
 
   /**
    * @brief 
