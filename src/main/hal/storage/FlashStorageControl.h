@@ -39,14 +39,14 @@ interface hal::storage::FlashStorageControl{
    * 
    * @param address 
    */
-  virtual void setAddress(uint32_t address);
+  virtual void setAddress(uint32_t address) abstract;
 
   /**
    * @brief Get the Address object
    * 
    * @return uint32_t 
    */
-  virtual uint32_t getAddress(void);
+  virtual uint32_t getAddress(void) abstract;
 
   /**
    * @brief 
