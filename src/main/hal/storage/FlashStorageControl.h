@@ -51,9 +51,27 @@ interface hal::storage::FlashStorageControl{
   /**
    * @brief 
    * 
+   * @param pageNumber 
+   * @return true 
+   * @return false 
+   */
+  virtual bool pageErase(uint32_t pageNumber) abstract;
+
+  /**
+   * @brief 
+   * 
    * @return uint32_t 
    */
   virtual uint32_t sectorSize(void) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @param sectorNumber 
+   * @return true 
+   * @return false 
+   */
+  virtual bool sectorErase(uint32_t sectorNumber) abstracrt;
 
   /**
    * @brief 
