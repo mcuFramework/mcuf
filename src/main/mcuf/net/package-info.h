@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_97B7535B_13AE_4AAD_887A_A197241F02C8
-#define MCUF_97B7535B_13AE_4AAD_887A_A197241F02C8
+#ifndef MCUF_3FE72934_ED10_48A8_9DC3_2B220716DBBE
+#define MCUF_3FE72934_ED10_48A8_9DC3_2B220716DBBE
 
 /* ****************************************************************************************
  * Include folder
@@ -14,13 +14,11 @@
 /* ****************************************************************************************
  * Include
  */
-#include "FlashStorage.h"
-#include "FlashStorageControl.h"
-#include "FlashStorageEvent.h"
-#include "FlashStorageStatus.h"
+#include "MediaAccessControlAddress.h"
+#include "SocketAddress.h"
 
 /* ****************************************************************************************
  * End of file
  */
 
-#endif /* MCUF_97B7535B_13AE_4AAD_887A_A197241F02C8 */
+#endif /* MCUF_3FE72934_ED10_48A8_9DC3_2B220716DBBE */

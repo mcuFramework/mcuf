@@ -5,33 +5,45 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE
-#define MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE
+#ifndef MCUF_C6CF2DB4_1F61_4562_8698_C0C22D0C69FA
+#define MCUF_C6CF2DB4_1F61_4562_8698_C0C22D0C69FA
 
 /* ****************************************************************************************
  * Include
  */  
-#include <stdint.h>
-#include <string.h>
-#include "mcuf/lang/Allocator.h"
 
+//-----------------------------------------------------------------------------------------
+#include "mcuf_base.h"
 
+//-----------------------------------------------------------------------------------------
+#include "mcuf/lang/Object.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace lang{
-    class Object;
+    class Number;
   }
 }
 
 
 
 /* ****************************************************************************************
- * Class/Interface/Struct
+ * Class Integer
  */  
-class mcuf::lang::Object{
+class mcuf::lang::Number extends mcuf::lang::Object{
+
+  /* **************************************************************************************
+   * Subclass
+   */
+  protected:
+    union Value{
+      bool b;
+      uint8_t u8[4];
+      uint16_t u16[0];
+      uint32_t u32;
+    };
 
   /* **************************************************************************************
    * Variable <Public>
@@ -40,17 +52,17 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Protected>
    */
+  protected: 
+    Value mValue;
   
   /* **************************************************************************************
    * Variable <Private>
    */
-  private:
-    Object* objectRecodeBase;
 
   /* **************************************************************************************
    * Abstract method <Public>
    */
-
+  
   /* **************************************************************************************
    * Abstract method <Protected>
    */
@@ -59,50 +71,34 @@ class mcuf::lang::Object{
    * Construct Method
    */
   public:
-
     /**
-     * @brief Construct a new Object object
+     * @brief Construct a new Number object
      * 
      */
-    Object(void);
-
+    Number(void);
+  
     /**
-     * @brief Destroy the Object object
+     * @brief Destroy the Number object
      * 
      */
-    virtual ~Object(void);
+    virtual ~Number(void);
 
   /* **************************************************************************************
    * Operator Method
    */
   public:
-
-    /**
-     * @brief 
-     * 
-     * @param n 
-     * @return void* 
-     */
-    void* operator new(size_t n);
-
-    /**
-     * @brief 
-     * 
-     * @param n 
-     * @param p 
-     * @return void* 
-     */
-    void* operator new(size_t n, void* p);
     
     /**
      * @brief 
      * 
-     * @param n 
-     * @param allocator 
-     * @return void* 
+     * @param v 
+     * @return true 
+     * @return false 
      */
-    void* operator new(size_t n, mcuf::lang::Allocator& allocator);  
-
+    inline bool operator==(Number& v){
+      return (this->mValue.u32  == v.mValue.u32);
+    }
+    
   /* **************************************************************************************
    * Public Method <Static>
    */
@@ -110,86 +106,11 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method <Override>
    */
-   
-  /* **************************************************************************************
-   * Public Method <Inline>
-   */
-  public:
-    inline bool classAvariable(void){
-      return (this == this->objectRecodeBase);
-    }
-
 
   /* **************************************************************************************
    * Public Method
    */
-  public: 
   
-    /**
-     * @brief 
-     * 
-     * @param milliseconds 
-     */
-    void delay(uint32_t milliseconds);
-
-    /**
-     * @brief 
-     * 
-     * @param object 
-     * @return true 
-     * @return false 
-     */
-    virtual bool equal(Object* object);
-
-    /**
-     * @brief 
-     * 
-     * @param object 
-     * @return true 
-     * @return false 
-     */
-    virtual bool equal(Object& object);
-
-    /**
-     * @brief 
-     * 
-     */
-    virtual void finalize(void);
-
-    /**
-     * @brief 
-     * 
-     */
-    void wait(void);
-    
-    /**
-     * @brief 
-     * 
-     * @param timeout 
-     * @return true 
-     * @return false 
-     */
-    bool wait(uint32_t timeout);
-    
-    /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
-     */
-    bool yield(void);
-    
-    /**
-     *
-     */
-    bool systemLock(void);
-    
-    /**
-     *
-     */
-    bool systemUnlock(void);
-    
-
   /* **************************************************************************************
    * Protected Method <Static>
    */
@@ -212,12 +133,15 @@ class mcuf::lang::Object{
    
   /* **************************************************************************************
    * Private Method
-   */  
-
+   */
+    
 };
 
+
+
 /* *****************************************************************************************
- * End of file
+ *  End of file
  */ 
 
-#endif /* MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE */
+
+#endif/* MCUF_C6CF2DB4_1F61_4562_8698_C0C22D0C69FA */

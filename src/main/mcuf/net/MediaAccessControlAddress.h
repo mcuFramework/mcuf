@@ -4,34 +4,34 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
-#ifndef MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE
-#define MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE
+#ifndef MCUF_E0915DBF_E370_4AE5_A1C1_FABB5C3C4CF0
+#define MCUF_E0915DBF_E370_4AE5_A1C1_FABB5C3C4CF0
 
 /* ****************************************************************************************
  * Include
  */  
-#include <stdint.h>
-#include <string.h>
-#include "mcuf/lang/Allocator.h"
 
+//-----------------------------------------------------------------------------------------
+#include "mcuf_base.h"
 
+//-----------------------------------------------------------------------------------------
+#include "mcuf/lang/Object.h"
+#include "mcuf/lang/String.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  namespace lang{
-    class Object;
+  namespace net{
+    class MediaAccessControlAddress;
   }
 }
 
 
-
 /* ****************************************************************************************
- * Class/Interface/Struct
+ * Class/Interface/Struct/Enum
  */  
-class mcuf::lang::Object{
+class mcuf::net::MediaAccessControlAddress extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -40,12 +40,12 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Protected>
    */
-  
+
   /* **************************************************************************************
    * Variable <Private>
    */
   private:
-    Object* objectRecodeBase;
+    uint8_t mAddress[6];
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -59,49 +59,29 @@ class mcuf::lang::Object{
    * Construct Method
    */
   public:
+    /**
+     * @brief Construct a new Media Access Control Address object
+     * 
+     * @param address 
+     */
+    MediaAccessControlAddress(uint8_t address[6]);
 
     /**
-     * @brief Construct a new Object object
+     * @brief Construct a new Media Access Control Address object
      * 
+     * @param address 
      */
-    Object(void);
+    MediaAccessControlAddress(const char* address);
 
     /**
-     * @brief Destroy the Object object
+     * @brief Destroy the Media Access Control Address object
      * 
      */
-    virtual ~Object(void);
+    virtual ~MediaAccessControlAddress(void);
 
   /* **************************************************************************************
    * Operator Method
    */
-  public:
-
-    /**
-     * @brief 
-     * 
-     * @param n 
-     * @return void* 
-     */
-    void* operator new(size_t n);
-
-    /**
-     * @brief 
-     * 
-     * @param n 
-     * @param p 
-     * @return void* 
-     */
-    void* operator new(size_t n, void* p);
-    
-    /**
-     * @brief 
-     * 
-     * @param n 
-     * @param allocator 
-     * @return void* 
-     */
-    void* operator new(size_t n, mcuf::lang::Allocator& allocator);  
 
   /* **************************************************************************************
    * Public Method <Static>
@@ -110,85 +90,10 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method <Override>
    */
-   
-  /* **************************************************************************************
-   * Public Method <Inline>
-   */
-  public:
-    inline bool classAvariable(void){
-      return (this == this->objectRecodeBase);
-    }
-
 
   /* **************************************************************************************
    * Public Method
    */
-  public: 
-  
-    /**
-     * @brief 
-     * 
-     * @param milliseconds 
-     */
-    void delay(uint32_t milliseconds);
-
-    /**
-     * @brief 
-     * 
-     * @param object 
-     * @return true 
-     * @return false 
-     */
-    virtual bool equal(Object* object);
-
-    /**
-     * @brief 
-     * 
-     * @param object 
-     * @return true 
-     * @return false 
-     */
-    virtual bool equal(Object& object);
-
-    /**
-     * @brief 
-     * 
-     */
-    virtual void finalize(void);
-
-    /**
-     * @brief 
-     * 
-     */
-    void wait(void);
-    
-    /**
-     * @brief 
-     * 
-     * @param timeout 
-     * @return true 
-     * @return false 
-     */
-    bool wait(uint32_t timeout);
-    
-    /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
-     */
-    bool yield(void);
-    
-    /**
-     *
-     */
-    bool systemLock(void);
-    
-    /**
-     *
-     */
-    bool systemUnlock(void);
-    
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -209,15 +114,15 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Private Method <Override>
    */
-   
+
   /* **************************************************************************************
    * Private Method
-   */  
+   */
 
 };
 
-/* *****************************************************************************************
+/* ****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE */
+#endif /* MCUF_E0915DBF_E370_4AE5_A1C1_FABB5C3C4CF0 */

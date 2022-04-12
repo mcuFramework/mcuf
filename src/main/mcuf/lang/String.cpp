@@ -11,6 +11,7 @@
 
 #include <string.h>
 #include <stdio.h>
+//-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf/lang/String.h"
@@ -41,7 +42,6 @@ using mcuf::lang::Memory;
  * @param size 
  */
 String::String(void* pointer, uint32_t size) : Memory(pointer, size){
-  this->mSize = 0;
   return;
 }
 
@@ -50,8 +50,7 @@ String::String(void* pointer, uint32_t size) : Memory(pointer, size){
  * 
  * @param str 
  */
-String::String(const char* str) : Memory(str, strlen(str)){
-  this->mSize = this->length();
+String::String(const char* str) : Memory(str, strlen(str) + 1){
   return;
 }
 
@@ -61,7 +60,7 @@ String::String(const char* str) : Memory(str, strlen(str)){
  * @param length 
  */
 String::String(uint32_t length) : Memory(length){
-  this->mSize = 0;
+  return;
 }
 
 /**
@@ -70,9 +69,6 @@ String::String(uint32_t length) : Memory(length){
  * @param memory 
  */
 String::String(const Memory& memory) : Memory(memory){
-  if(this->isReadOnly())
-    this->mSize = strlen(static_cast<const char*>(this->pointer()));
-
   return;
 }
 
@@ -191,8 +187,8 @@ int String::format(const char* format, va_list args){
   if(this->isReadOnly())
     return 0;  
   
-  this->mSize = vsnprintf(static_cast<char*>(this->pointer()), this->length(), format, args);
-  return this->mSize;
+  int result = vsnprintf(static_cast<char*>(this->pointer()), this->length(), format, args);
+  return result;
 }
 
 /**
@@ -208,9 +204,195 @@ int String::format(const char* format, ...){
   
   va_list args;
   va_start(args, format);
-  this->mSize = vsnprintf(static_cast<char*>(this->pointer()), this->length(), format, args);
+  int result = vsnprintf(static_cast<char*>(this->pointer()), this->length(), format, args);
   va_end(args);
-  return this->mSize;
+  return result;
+}
+
+/**
+ * @brief 
+ * 
+ */
+void String::convertUpper(void){
+  int max = this->size();
+  char* ptr = static_cast<char*>(this->pointer());
+
+  for(int i=0; i<max; ++i){
+    if((ptr[i] >= 'a') && (ptr[i] <= 'z')){
+			ptr[i] -= 32;
+		}
+  }
+}
+
+/**
+ * @brief 
+ * 
+ */
+void String::convertLower(void){
+  int max = this->size();
+  char* ptr = static_cast<char*>(this->pointer());
+
+  for(int i=0; i<max; ++i){
+    if((ptr[i] >= 'A') && (ptr[i] <= 'Z')){
+			ptr[i] += 32;
+		}
+  }
+}
+
+/**
+ * @brief 
+ * 
+ * @return String 
+ */
+String String::toUpper(void) const{
+  int max = this->size();
+  String result = String(max + 1);
+
+  const char* src = static_cast<char*>(this->pointer());
+  char* dst = static_cast<char*>(result.pointer());
+
+  for(int i=0; i<max; ++i){
+    if((src[i] >= 'a') && (src[i] <= 'z'))
+			dst[i] -= 32;
+
+		else
+      dst[i] = src[i];
+
+  }
+  result[max] = 0x00;
+  return result;
+}
+
+/**
+ * @brief 
+ * 
+ * @return String 
+ */
+String String::toLower(void) const{
+  int max = this->size();
+  String result = String(max + 1);
+
+  const char* src = static_cast<char*>(this->pointer());
+  char* dst = static_cast<char*>(result.pointer());
+
+  for(int i=0; i<max; ++i){
+    if((src[i] >= 'A') && (src[i] <= 'Z'))
+			dst[i] -= 32;
+      
+		else
+      dst[i] = src[i];
+
+  }
+  result[max] = 0x00;
+  return result;
+}
+
+/**
+ * @brief 
+ * 
+ * @param ch 
+ * @return int 
+ */
+int String::indexOf(char ch) const{
+  return this->indexOf(ch, 0);
+}
+
+/**
+ * @brief 
+ * 
+ * @param ch 
+ * @param offset 
+ * @return int 
+ */
+int String::indexOf(char ch, uint32_t offset) const{
+  int max = this->size();
+  if(offset > max)
+    return -1;
+  
+  const char* ptr = &ptr[offset];
+  max -= offset;
+  for(int i=0; i<max; ++i){
+    if(ptr[i] == ch)
+      return i + offset;
+  }
+  return -1;
+}
+
+/**
+ * @brief 
+ * 
+ * @return String 
+ */
+String String::clone(void) const{
+  return this->clone(0, 0);
+}
+
+/**
+ * @brief 
+ * 
+ * @param length 
+ * @return String 
+ */
+String String::clone(uint32_t length) const{
+  return this->clone(0, length);
+}
+
+/**
+ * @brief 
+ * 
+ * @param offset 
+ * @return String 
+ */
+String String::clone(uint32_t offset, uint32_t length) const{
+  uint32_t size = this->size();
+  if(offset >= size)
+    return String::empty();
+
+  if(length > size)
+    length = size;
+
+  String result = String(length + 1);
+  result.copy(this->pointer(offset), 0, length);
+  result[length] = 0x00;
+  return result;
+}
+
+/**
+ * @brief 
+ * 
+ * @return uint32_t 
+ */
+uint32_t String::size(void) const{
+  int result = strlen(static_cast<const char*>(this->pointer()));
+  
+  if(result >= this->length())
+    result = this->length();
+
+  return result;
+}
+
+/**
+ * @brief 
+ * 
+ * @param oldChar 
+ * @param newChar 
+ * @return int 
+ */
+int String::replace(char oldChar, char newChar){
+  int result = 0;
+  if(this->isReadOnly())
+    return 0;
+  
+  int max = this->size();
+  char* ptr = static_cast<char*>(this->pointer());
+  for(int i=0; i<max; ++i){
+    if(ptr[i] == oldChar){
+      ptr[i] = newChar;
+      ++result;
+    }
+  }
+  
+  return result;
 }
 
 /* ****************************************************************************************

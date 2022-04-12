@@ -967,11 +967,6 @@
           <GroupName>main\mcuf\lang</GroupName>
           <Files>
             <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
-            </File>
-            <File>
               <FileName>Allocator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Allocator.h</FilePath>
@@ -992,9 +987,39 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.h</FilePath>
             </File>
             <File>
+              <FileName>Boolean.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Boolean.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Boolean.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Boolean.h</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Byte.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Byte.h</FilePath>
+            </File>
+            <File>
               <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
+            </File>
+            <File>
+              <FileName>Integer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Integer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Integer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Integer.h</FilePath>
             </File>
             <File>
               <FileName>Iterable.h</FileName>
@@ -1037,6 +1062,16 @@
               <FilePath>.\src\main\mcuf\lang\Memory.h</FilePath>
             </File>
             <File>
+              <FileName>Number.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Number.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Number.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Number.h</FilePath>
+            </File>
+            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -1047,6 +1082,11 @@
               <FilePath>.\src\main\mcuf\lang\Object.h</FilePath>
             </File>
             <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
+            </File>
+            <File>
               <FileName>Pointer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Pointer.cpp</FilePath>
@@ -1055,6 +1095,16 @@
               <FileName>Pointer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Pointer.h</FilePath>
+            </File>
+            <File>
+              <FileName>Short.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Short.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Short.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Short.h</FilePath>
             </File>
             <File>
               <FileName>String.cpp</FileName>
@@ -1135,6 +1185,36 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\net</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>MediaAccessControlAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MediaAccessControlAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.h</FilePath>
+            </File>
+            <File>
+              <FileName>SocketAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\SocketAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SocketAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\SocketAddress.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2325,11 +2405,6 @@
           <GroupName>main\mcuf\lang</GroupName>
           <Files>
             <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
-            </File>
-            <File>
               <FileName>Allocator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Allocator.h</FilePath>
@@ -2350,9 +2425,39 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.h</FilePath>
             </File>
             <File>
+              <FileName>Boolean.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Boolean.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Boolean.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Boolean.h</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Byte.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Byte.h</FilePath>
+            </File>
+            <File>
               <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
+            </File>
+            <File>
+              <FileName>Integer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Integer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Integer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Integer.h</FilePath>
             </File>
             <File>
               <FileName>Iterable.h</FileName>
@@ -2395,6 +2500,16 @@
               <FilePath>.\src\main\mcuf\lang\Memory.h</FilePath>
             </File>
             <File>
+              <FileName>Number.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Number.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Number.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Number.h</FilePath>
+            </File>
+            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -2405,6 +2520,11 @@
               <FilePath>.\src\main\mcuf\lang\Object.h</FilePath>
             </File>
             <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
+            </File>
+            <File>
               <FileName>Pointer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Pointer.cpp</FilePath>
@@ -2413,6 +2533,16 @@
               <FileName>Pointer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Pointer.h</FilePath>
+            </File>
+            <File>
+              <FileName>Short.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Short.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Short.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Short.h</FilePath>
             </File>
             <File>
               <FileName>String.cpp</FileName>
@@ -2493,6 +2623,36 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\net</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>MediaAccessControlAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MediaAccessControlAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.h</FilePath>
+            </File>
+            <File>
+              <FileName>SocketAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\SocketAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SocketAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\SocketAddress.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3683,11 +3843,6 @@
           <GroupName>main\mcuf\lang</GroupName>
           <Files>
             <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
-            </File>
-            <File>
               <FileName>Allocator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Allocator.h</FilePath>
@@ -3708,9 +3863,39 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.h</FilePath>
             </File>
             <File>
+              <FileName>Boolean.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Boolean.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Boolean.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Boolean.h</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Byte.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Byte.h</FilePath>
+            </File>
+            <File>
               <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
+            </File>
+            <File>
+              <FileName>Integer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Integer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Integer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Integer.h</FilePath>
             </File>
             <File>
               <FileName>Iterable.h</FileName>
@@ -3753,6 +3938,16 @@
               <FilePath>.\src\main\mcuf\lang\Memory.h</FilePath>
             </File>
             <File>
+              <FileName>Number.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Number.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Number.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Number.h</FilePath>
+            </File>
+            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -3763,6 +3958,11 @@
               <FilePath>.\src\main\mcuf\lang\Object.h</FilePath>
             </File>
             <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
+            </File>
+            <File>
               <FileName>Pointer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Pointer.cpp</FilePath>
@@ -3771,6 +3971,16 @@
               <FileName>Pointer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Pointer.h</FilePath>
+            </File>
+            <File>
+              <FileName>Short.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Short.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Short.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Short.h</FilePath>
             </File>
             <File>
               <FileName>String.cpp</FileName>
@@ -3851,6 +4061,36 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\net</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>MediaAccessControlAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MediaAccessControlAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.h</FilePath>
+            </File>
+            <File>
+              <FileName>SocketAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\SocketAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SocketAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\SocketAddress.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5041,11 +5281,6 @@
           <GroupName>main\mcuf\lang</GroupName>
           <Files>
             <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
-            </File>
-            <File>
               <FileName>Allocator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Allocator.h</FilePath>
@@ -5066,9 +5301,39 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.h</FilePath>
             </File>
             <File>
+              <FileName>Boolean.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Boolean.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Boolean.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Boolean.h</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Byte.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Byte.h</FilePath>
+            </File>
+            <File>
               <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
+            </File>
+            <File>
+              <FileName>Integer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Integer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Integer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Integer.h</FilePath>
             </File>
             <File>
               <FileName>Iterable.h</FileName>
@@ -5111,6 +5376,16 @@
               <FilePath>.\src\main\mcuf\lang\Memory.h</FilePath>
             </File>
             <File>
+              <FileName>Number.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Number.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Number.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Number.h</FilePath>
+            </File>
+            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -5121,6 +5396,11 @@
               <FilePath>.\src\main\mcuf\lang\Object.h</FilePath>
             </File>
             <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
+            </File>
+            <File>
               <FileName>Pointer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Pointer.cpp</FilePath>
@@ -5129,6 +5409,16 @@
               <FileName>Pointer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Pointer.h</FilePath>
+            </File>
+            <File>
+              <FileName>Short.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Short.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Short.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Short.h</FilePath>
             </File>
             <File>
               <FileName>String.cpp</FileName>
@@ -5209,6 +5499,36 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\net</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>MediaAccessControlAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MediaAccessControlAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.h</FilePath>
+            </File>
+            <File>
+              <FileName>SocketAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\SocketAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SocketAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\SocketAddress.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6399,11 +6719,6 @@
           <GroupName>main\mcuf\lang</GroupName>
           <Files>
             <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
-            </File>
-            <File>
               <FileName>Allocator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Allocator.h</FilePath>
@@ -6424,9 +6739,39 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.h</FilePath>
             </File>
             <File>
+              <FileName>Boolean.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Boolean.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Boolean.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Boolean.h</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Byte.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Byte.h</FilePath>
+            </File>
+            <File>
               <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
+            </File>
+            <File>
+              <FileName>Integer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Integer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Integer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Integer.h</FilePath>
             </File>
             <File>
               <FileName>Iterable.h</FileName>
@@ -6469,6 +6814,16 @@
               <FilePath>.\src\main\mcuf\lang\Memory.h</FilePath>
             </File>
             <File>
+              <FileName>Number.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Number.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Number.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Number.h</FilePath>
+            </File>
+            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -6479,6 +6834,11 @@
               <FilePath>.\src\main\mcuf\lang\Object.h</FilePath>
             </File>
             <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
+            </File>
+            <File>
               <FileName>Pointer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Pointer.cpp</FilePath>
@@ -6487,6 +6847,16 @@
               <FileName>Pointer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Pointer.h</FilePath>
+            </File>
+            <File>
+              <FileName>Short.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Short.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Short.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Short.h</FilePath>
             </File>
             <File>
               <FileName>String.cpp</FileName>
@@ -6567,6 +6937,36 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\net</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>MediaAccessControlAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MediaAccessControlAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.h</FilePath>
+            </File>
+            <File>
+              <FileName>SocketAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\SocketAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SocketAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\SocketAddress.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -7757,11 +8157,6 @@
           <GroupName>main\mcuf\lang</GroupName>
           <Files>
             <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
-            </File>
-            <File>
               <FileName>Allocator.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Allocator.h</FilePath>
@@ -7782,9 +8177,39 @@
               <FilePath>.\src\main\mcuf\lang\ArrayPrototype.h</FilePath>
             </File>
             <File>
+              <FileName>Boolean.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Boolean.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Boolean.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Boolean.h</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Byte.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Byte.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Byte.h</FilePath>
+            </File>
+            <File>
               <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
+            </File>
+            <File>
+              <FileName>Integer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Integer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Integer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Integer.h</FilePath>
             </File>
             <File>
               <FileName>Iterable.h</FileName>
@@ -7827,6 +8252,16 @@
               <FilePath>.\src\main\mcuf\lang\Memory.h</FilePath>
             </File>
             <File>
+              <FileName>Number.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Number.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Number.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Number.h</FilePath>
+            </File>
+            <File>
               <FileName>Object.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Object.cpp</FilePath>
@@ -7837,6 +8272,11 @@
               <FilePath>.\src\main\mcuf\lang\Object.h</FilePath>
             </File>
             <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\package-info.h</FilePath>
+            </File>
+            <File>
               <FileName>Pointer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\lang\Pointer.cpp</FilePath>
@@ -7845,6 +8285,16 @@
               <FileName>Pointer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Pointer.h</FilePath>
+            </File>
+            <File>
+              <FileName>Short.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Short.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Short.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Short.h</FilePath>
             </File>
             <File>
               <FileName>String.cpp</FileName>
@@ -7925,6 +8375,36 @@
               <FileName>CoreThread.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreThread.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\net</GroupName>
+          <Files>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>MediaAccessControlAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>MediaAccessControlAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.h</FilePath>
+            </File>
+            <File>
+              <FileName>SocketAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\SocketAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SocketAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\SocketAddress.h</FilePath>
             </File>
           </Files>
         </Group>

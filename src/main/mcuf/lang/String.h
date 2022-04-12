@@ -42,8 +42,6 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: 
-    uint32_t mSize;
   
   /* **************************************************************************************
    * Abstract method <Public>
@@ -97,7 +95,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
    * Operator Method
    */
   public:
-
+  
     /**
      * @brief 
      * 
@@ -111,6 +109,13 @@ class mcuf::lang::String extends mcuf::lang::Memory{
    * Public Method <Static>
    */
   public:
+
+    /**
+     * @brief 
+     * 
+     * @return String 
+     */
+    static String empty(void);
 
     /**
      * @brief 
@@ -185,20 +190,92 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @return int 
      */
     int format(const char* format, ...);  
-  
-  /* **************************************************************************************
-   * Public Method <Inline>
-   */  
-  public:
 
+    /**
+     * @brief 
+     * 
+     */
+    void convertUpper(void);
+
+    /**
+     * @brief 
+     * 
+     */
+    void convertLower(void);
+
+    /**
+     * @brief 
+     * 
+     * @return String 
+     */
+    String toUpper(void) const;
+
+    /**
+     * @brief 
+     * 
+     * @return String 
+     */
+    String toLower(void) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @return int 
+     */
+    int indexOf(char ch) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @param offset 
+     * @return int 
+     */
+    int indexOf(char ch, uint32_t offset) const;
+    
+    /**
+     * @brief 
+     * 
+     * @return String 
+     */
+    String clone(void) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param length 
+     * @return String 
+     */
+    String clone(uint32_t length) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param offset 
+     * @return String 
+     */
+    String clone(uint32_t offset, uint32_t length) const;
+  
     /**
      * @brief 
      * 
      * @return uint32_t 
      */
-    inline uint32_t size(void) const{
-      return this->mSize;
-    }
+    uint32_t size(void) const;
+
+    /**
+     * @brief 
+     * 
+     * @param oldChar 
+     * @param newChar 
+     * @return int 
+     */
+    int replace(char oldChar, char newChar);
+
+  /* **************************************************************************************
+   * Public Method <Inline>
+   */  
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -222,7 +299,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
    
   /* **************************************************************************************
    * Private Method
-   */  
+   */
 
 };
 

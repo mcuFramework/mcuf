@@ -18,7 +18,8 @@
         "cstdlib": "cpp",
         "cwchar": "cpp",
         "cwctype": "cpp",
-        "cstdint": "cpp"
+        "cstdint": "cpp",
+        "xstring": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "python.pythonPath": "D:\\python\\python.exe"

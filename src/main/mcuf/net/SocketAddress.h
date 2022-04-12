@@ -4,34 +4,34 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
-#ifndef MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE
-#define MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE
+#ifndef MCUF_252F628C_C174_4836_88ED_23C33E0C2773
+#define MCUF_252F628C_C174_4836_88ED_23C33E0C2773
 
 /* ****************************************************************************************
  * Include
  */  
-#include <stdint.h>
-#include <string.h>
-#include "mcuf/lang/Allocator.h"
 
+//-----------------------------------------------------------------------------------------
+#include "mcuf_base.h"
 
+//-----------------------------------------------------------------------------------------
+#include "mcuf/lang/Object.h"
+#include "mcuf/lang/String.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  namespace lang{
-    class Object;
+  namespace net{
+    class SocketAddress;
   }
 }
 
 
-
 /* ****************************************************************************************
- * Class/Interface/Struct
+ * Class/Interface/Struct/Enum
  */  
-class mcuf::lang::Object{
+class mcuf::net::SocketAddress{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -40,12 +40,13 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Protected>
    */
-  
+
   /* **************************************************************************************
    * Variable <Private>
    */
   private:
-    Object* objectRecodeBase;
+    uint8_t mSocketAddress[4];
+    uint16_t mPort;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -59,49 +60,32 @@ class mcuf::lang::Object{
    * Construct Method
    */
   public:
+    
+    /**
+     * @brief Construct a new Socket Address object
+     * 
+     * @param address 
+     * @param port 
+     */
+    SocketAddress(uint8_t address[4], uint16_t port);
 
     /**
-     * @brief Construct a new Object object
+     * @brief Construct a new Socket Address object
      * 
+     * @param address 
+     * @param port 
      */
-    Object(void);
+    SocketAddress(const mcuf::lang::String& address, uint16_t port);
 
     /**
-     * @brief Destroy the Object object
+     * @brief Destroy the Socket Address object
      * 
      */
-    virtual ~Object(void);
+    virtual ~SocketAddress(void);
 
   /* **************************************************************************************
    * Operator Method
    */
-  public:
-
-    /**
-     * @brief 
-     * 
-     * @param n 
-     * @return void* 
-     */
-    void* operator new(size_t n);
-
-    /**
-     * @brief 
-     * 
-     * @param n 
-     * @param p 
-     * @return void* 
-     */
-    void* operator new(size_t n, void* p);
-    
-    /**
-     * @brief 
-     * 
-     * @param n 
-     * @param allocator 
-     * @return void* 
-     */
-    void* operator new(size_t n, mcuf::lang::Allocator& allocator);  
 
   /* **************************************************************************************
    * Public Method <Static>
@@ -110,85 +94,10 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method <Override>
    */
-   
-  /* **************************************************************************************
-   * Public Method <Inline>
-   */
-  public:
-    inline bool classAvariable(void){
-      return (this == this->objectRecodeBase);
-    }
-
 
   /* **************************************************************************************
    * Public Method
    */
-  public: 
-  
-    /**
-     * @brief 
-     * 
-     * @param milliseconds 
-     */
-    void delay(uint32_t milliseconds);
-
-    /**
-     * @brief 
-     * 
-     * @param object 
-     * @return true 
-     * @return false 
-     */
-    virtual bool equal(Object* object);
-
-    /**
-     * @brief 
-     * 
-     * @param object 
-     * @return true 
-     * @return false 
-     */
-    virtual bool equal(Object& object);
-
-    /**
-     * @brief 
-     * 
-     */
-    virtual void finalize(void);
-
-    /**
-     * @brief 
-     * 
-     */
-    void wait(void);
-    
-    /**
-     * @brief 
-     * 
-     * @param timeout 
-     * @return true 
-     * @return false 
-     */
-    bool wait(uint32_t timeout);
-    
-    /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
-     */
-    bool yield(void);
-    
-    /**
-     *
-     */
-    bool systemLock(void);
-    
-    /**
-     *
-     */
-    bool systemUnlock(void);
-    
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -209,15 +118,15 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Private Method <Override>
    */
-   
+
   /* **************************************************************************************
    * Private Method
-   */  
+   */
 
 };
 
-/* *****************************************************************************************
+/* ****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE */
+#endif /* MCUF_252F628C_C174_4836_88ED_23C33E0C2773 */

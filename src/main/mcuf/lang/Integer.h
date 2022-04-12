@@ -5,15 +5,14 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE
-#define MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE
+#ifndef MCUF_B13FC504_C653_4436_A427_B6D01A462988
+#define MCUF_B13FC504_C653_4436_A427_B6D01A462988
 
 /* ****************************************************************************************
- * Include
+ * Integer
  */  
-#include <stdint.h>
-#include <string.h>
-#include "mcuf/lang/Allocator.h"
+#include "mcuf_base.h"
+#include "mcuf/lang/Number.h"
 
 
 
@@ -22,16 +21,16 @@
  */  
 namespace mcuf{
   namespace lang{
-    class Object;
+    class Integer;
   }
 }
 
 
 
 /* ****************************************************************************************
- * Class/Interface/Struct
+ * Class Integer
  */  
-class mcuf::lang::Object{
+class mcuf::lang::Integer extends mcuf::lang::Number{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -40,17 +39,15 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Protected>
    */
-  
+
   /* **************************************************************************************
    * Variable <Private>
    */
-  private:
-    Object* objectRecodeBase;
 
   /* **************************************************************************************
    * Abstract method <Public>
    */
-
+   
   /* **************************************************************************************
    * Abstract method <Protected>
    */
@@ -58,51 +55,157 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Construct Method
    */
-  public:
-
+  public: 
     /**
-     * @brief Construct a new Object object
+     * @brief Construct a new Integer object
      * 
      */
-    Object(void);
+    Integer(void);
 
     /**
-     * @brief Destroy the Object object
+     * @brief Construct a new Integer object
+     * 
+     * @param value 
+     */
+    Integer(int value);
+    
+    /**
+     * @brief Destroy the Integer object
      * 
      */
-    virtual ~Object(void);
+    ~Integer(void);
 
   /* **************************************************************************************
    * Operator Method
    */
   public:
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    inline operator int(void){
+      return static_cast<int>(this->mValue.u32);
+    }
 
     /**
      * @brief 
      * 
-     * @param n 
-     * @return void* 
+     * @param v 
+     * @return true 
+     * @return false 
      */
-    void* operator new(size_t n);
+    inline bool operator==(int v){
+      return (static_cast<int>(this->mValue.u32) == v);
+    }
 
     /**
      * @brief 
      * 
-     * @param n 
-     * @param p 
-     * @return void* 
+     * @param v 
+     * @return inlien 
      */
-    void* operator new(size_t n, void* p);
-    
+    inline bool operator==(Integer& v){
+      return (this->mValue.u32 == v.mValue.u32);
+    }
+
     /**
      * @brief 
      * 
-     * @param n 
-     * @param allocator 
-     * @return void* 
+     * @param v 
+     * @return int 
      */
-    void* operator new(size_t n, mcuf::lang::Allocator& allocator);  
+    inline int operator=(int v){
+      this->mValue.u32 = v;
+      return this->mValue.u32;
+    }
 
+    /**
+     * @brief 
+     * 
+     * @param v 
+     * @return Integer 
+     */
+    inline Integer operator+=(int v){
+      this->mValue.u32 += v;
+      return *this;
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param v 
+     * @return Integer 
+     */
+    inline Integer operator-=(int v){
+      this->mValue.u32 -= v;
+      return *this;
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param v 
+     * @return Integer 
+     */
+    inline Integer operator*=(int v){
+      this->mValue.u32 *= v;
+      return *this;
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param v 
+     * @return Integer 
+     */
+    inline Integer operator/=(int v){
+      this->mValue.u32 /= v;
+      return *this;
+    }
+
+    /**
+     * @brief 
+     * 
+     * @return Integer 
+     */
+    inline Integer operator++(int){
+      Integer tmp = *this;
+      ++this->mValue.u32;
+      return tmp;
+    }
+
+    /**
+     * @brief 
+     * 
+     * @return Integer 
+     */
+    inline Integer operator++(){
+      ++this->mValue.u32;
+      return *this;
+    }
+
+    /**
+     * @brief 
+     * 
+     * @return Integer 
+     */
+    inline Integer operator--(int){
+      Integer tmp = *this;
+      --this->mValue.u32;
+      return tmp;
+    }
+
+    /**
+     * @brief 
+     * 
+     * @return Integer& 
+     */
+    inline Integer& operator--(void){
+      --this->mValue.u32;
+      return *this;
+    }  
+  
   /* **************************************************************************************
    * Public Method <Static>
    */
@@ -110,85 +213,10 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method <Override>
    */
-   
-  /* **************************************************************************************
-   * Public Method <Inline>
-   */
-  public:
-    inline bool classAvariable(void){
-      return (this == this->objectRecodeBase);
-    }
-
-
+             
   /* **************************************************************************************
    * Public Method
    */
-  public: 
-  
-    /**
-     * @brief 
-     * 
-     * @param milliseconds 
-     */
-    void delay(uint32_t milliseconds);
-
-    /**
-     * @brief 
-     * 
-     * @param object 
-     * @return true 
-     * @return false 
-     */
-    virtual bool equal(Object* object);
-
-    /**
-     * @brief 
-     * 
-     * @param object 
-     * @return true 
-     * @return false 
-     */
-    virtual bool equal(Object& object);
-
-    /**
-     * @brief 
-     * 
-     */
-    virtual void finalize(void);
-
-    /**
-     * @brief 
-     * 
-     */
-    void wait(void);
-    
-    /**
-     * @brief 
-     * 
-     * @param timeout 
-     * @return true 
-     * @return false 
-     */
-    bool wait(uint32_t timeout);
-    
-    /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
-     */
-    bool yield(void);
-    
-    /**
-     *
-     */
-    bool systemLock(void);
-    
-    /**
-     *
-     */
-    bool systemUnlock(void);
-    
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -212,12 +240,15 @@ class mcuf::lang::Object{
    
   /* **************************************************************************************
    * Private Method
-   */  
-
+   */
+    
 };
 
+
+
 /* *****************************************************************************************
- * End of file
+ *  End of file
  */ 
 
-#endif /* MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE */
+
+#endif/* MCUF_B13FC504_C653_4436_A427_B6D01A462988 */
