@@ -74,7 +74,7 @@ SocketAddress::SocketAddress(const String& address, uint16_t port){
     if(tail - head > 4)
       break;
     
-    char len = address.copyTo(cache, head, tail-1);
+    char len = address.copyTo(cache, 0, head, (tail - head));
     cache[len] = 0x00;
     this->mSocketAddress[i] = Byte::valueOf(cache);
     

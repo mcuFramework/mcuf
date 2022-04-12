@@ -318,7 +318,7 @@ int String::indexOf(char ch, uint32_t offset) const{
   if(offset > max)
     return -1;
   
-  const char* ptr = &ptr[offset];
+  const char* ptr = static_cast<const char*>(this->pointer(offset));
   max -= offset;
   for(int i=0; i<max; ++i){
     if(ptr[i] == ch)
