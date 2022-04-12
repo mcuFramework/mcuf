@@ -168,6 +168,15 @@ String String::format(int bufferSize, const char* format, ...){
   return result;
 }
 
+/**
+ * @brief 
+ * 
+ * @return String 
+ */
+String String::empty(void){
+  return String("\0");
+}
+
 /* ****************************************************************************************
  * Public Method <Override>
  */
