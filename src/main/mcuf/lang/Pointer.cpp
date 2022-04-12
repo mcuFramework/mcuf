@@ -71,27 +71,82 @@ Pointer Pointer::nullPointer(void){
  */
 
 /**
+ * @brief 
  * 
+ * @param source 
+ * @param length 
+ * @return int 
  */
 int Pointer::copy(const void* source, uint32_t length){
   return this->copy(source, 0, 0, length);
 }
 
 /**
+ * @brief 
  * 
+ * @param source 
+ * @param shift 
+ * @param length 
+ * @return int 
  */
 int Pointer::copy(const void* source, uint32_t shift, uint32_t length){
   return this->copy(source, shift, 0, length);
 }
 
 /**
+ * @brief 
  * 
+ * @param source 
+ * @param shift 
+ * @param start 
+ * @param length 
+ * @return int 
  */
 int Pointer::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
   if((source == nullptr) || (this->mPointer == nullptr))
     return 0;  
   
   memcpy(this->pointer(shift), &(static_cast<const char*>(source))[start], length);
+  return length;
+}
+
+/**
+ * @brief 
+ * 
+ * @param destination 
+ * @param length 
+ * @return int 
+ */
+int Pointer::copyTo(void* destination, uint32_t length) const{
+  return this->copyTo(destination, 0, 0, length);
+}
+
+/**
+ * @brief 
+ * 
+ * @param destination 
+ * @param shift 
+ * @param length 
+ * @return int 
+ */
+int Pointer::copyTo(void* destination, uint32_t shift, uint32_t length) const{
+  return this->copyTo(destination, shift, 0, length);
+}
+
+/**
+ * @brief 
+ * 
+ * @param destination 
+ * @param shift 
+ * @param start 
+ * @param length 
+ * @return int 
+ */
+int Pointer::copyTo(void* destination, uint32_t shift, uint32_t start, uint32_t length) const{
+  if((destination == nullptr) || (this->mPointer == nullptr))
+    return 0;  
+  
+  memcpy(&(static_cast<char*>(destination))[shift], this->pointer(start), length);
   return length;
 }
 

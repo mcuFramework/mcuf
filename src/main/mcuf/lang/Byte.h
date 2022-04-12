@@ -215,6 +215,22 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
   /* **************************************************************************************
    * Public Method <Static>
    */
+  public:
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return int 
+     */
+    static char valueOf(const char* str);
+
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return Byte 
+     */
+    static Byte valueOfShort(const char* str);
 
   /* **************************************************************************************
    * Public Method <Override>

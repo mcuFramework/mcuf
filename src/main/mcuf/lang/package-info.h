@@ -20,6 +20,7 @@
 #include "ArrayPrototype.h"
 #include "Boolean.h"
 #include "Byte.h"
+#include "Character.h"
 #include "ErrorCode.h"
 #include "Integer.h"
 #include "Iterable.h"

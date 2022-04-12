@@ -9,6 +9,8 @@
  * Include
  */  
 
+#include <stdlib.h>
+
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
@@ -53,12 +55,30 @@ Byte::~Byte(void){
   return;
 }
 
-
-
 /* ****************************************************************************************
  * Public Method <Static>
  */
- 
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @return int 
+ */
+char Byte::valueOf(const char* str){
+  return atoi(str);
+}
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @return Integer 
+ */
+Byte Byte::valueOfShort(const char* str){
+  return Byte(Byte::valueOf(str));
+}
+
 /* ****************************************************************************************
  * Public Method <Override>
  */

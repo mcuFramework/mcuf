@@ -9,12 +9,9 @@
  * Include
  */
 
-#include <string.h>
-
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/net/MediaAccessControlAddress.h"
 #include "mcuf/lang/Character.h"
 
 /* ****************************************************************************************
@@ -28,8 +25,6 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-using mcuf::net::MediaAccessControlAddress;
-using mcuf::lang::String;
 using mcuf::lang::Character;
 
 /* ****************************************************************************************
@@ -41,36 +36,19 @@ using mcuf::lang::Character;
  */
 
 /**
- * @brief Construct a new Media Access Control Address object
+ * @brief Construct a new Character object
  * 
- * @param address 
  */
-MediaAccessControlAddress::MediaAccessControlAddress(const uint8_t address[6]){
-  memcpy(this->mMediaAccessControlAddress, address, 6);
+Character::Character(void){
+  return;
 }
 
 /**
- * @brief Construct a new Media Access Control Address object
- * 
- * @param address 
- */
-MediaAccessControlAddress::MediaAccessControlAddress(const String& address){
-  if(address.size() != 17){
-    memset(this->mMediaAccessControlAddress, 0x00, 6);
-    return;
-  }
-  
-  for(uint8_t i=0, shift = 0; i<6; ++i, shift += 3){
-    this->mMediaAccessControlAddress[i] = Character::hexCharToChar(address[shift], address[shift+1]);
-  }
-}
-
-/**
- * @brief Destroy the Media Access Control Address object
+ * @brief Destroy the Character object
  * 
  */
-MediaAccessControlAddress::~MediaAccessControlAddress(void){
-  
+Character::~Character(void){
+  return;
 }
 
 /* ****************************************************************************************
@@ -80,6 +58,63 @@ MediaAccessControlAddress::~MediaAccessControlAddress(void){
 /* ****************************************************************************************
  * Public Method <Static>
  */
+
+/**
+ * @brief 
+ * 
+ * @param ch 
+ * @return char 
+ */
+char Character::toUpperCase(char ch){
+  if((ch >= 'a') && (ch <= 'z'))
+    return (ch - 32);
+  
+  return ch;
+}
+
+/**
+ * @brief 
+ * 
+ * @param ch 
+ * @return char 
+ */
+char Character::toLowerCase(char ch){
+  if((ch >= 'A') && (ch <= 'Z'))
+    return (ch + 32);
+  
+  return ch;
+}
+
+/**
+ * @brief 
+ * 
+ * @param highChar 
+ * @param lowChar 
+ * @return char 
+ */
+char Character::hexCharToChar(char highChar, char lowChar){
+  char result = Character::hexCharToChar(lowChar);
+  return (result + (Character::hexCharToChar(highChar) << 4));
+}
+
+/**
+ * @brief 
+ * 
+ * @param highChar 
+ * @param lowChar 
+ * @return char 
+ */
+char Character::hexCharToChar(char ch){
+  ch = Character::toUpperCase(ch);
+  
+  if((ch >= '0') && (ch <= '9'))
+    return (ch - '0');
+  
+  if((ch >= 'a') && (ch <= 'f'))
+    return (ch - 'a');
+  
+  return 0;
+}
 
 /* ****************************************************************************************
  * Public Method <Override>

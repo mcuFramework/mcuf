@@ -206,6 +206,36 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      */
     virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);
 
+    /**
+     * @brief 
+     * 
+     * @param destination 
+     * @param length 
+     * @return int 
+     */
+    virtual int copyTo(void* destination, uint32_t length) const;
+
+    /**
+     * @brief 
+     * 
+     * @param destination 
+     * @param shift 
+     * @param length 
+     * @return int 
+     */
+    virtual int copyTo(void* destination, uint32_t shift, uint32_t length) const;
+
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param shift 
+     * @param start 
+     * @param length 
+     * @return int 
+     */
+    virtual int copyTo(void* destination, uint32_t shift, uint32_t start, uint32_t length) const; 
+
   /* **************************************************************************************
    * Public Method <inline>
    */

@@ -9,6 +9,10 @@
  * Include
  */  
 
+#include <stdlib.h>
+
+//-----------------------------------------------------------------------------------------
+
 //-----------------------------------------------------------------------------------------
 #include "mcuf.h"
 
@@ -54,7 +58,27 @@ Short::~Short(void){
 /* ****************************************************************************************
  * Public Method <Static>
  */
- 
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @return int 
+ */
+short Short::valueOf(const char* str){
+  return atoi(str);
+}
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @return Integer 
+ */
+Short Short::valueOfShort(const char* str){
+  return Short(Short::valueOf(str));
+}
+
 /* ****************************************************************************************
  * Public Method <Override>
  */

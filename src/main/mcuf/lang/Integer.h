@@ -209,6 +209,23 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
   /* **************************************************************************************
    * Public Method <Static>
    */
+  public:
+    
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return int 
+     */
+    static int valueOf(const char* str);
+
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return Integer 
+     */
+    static Integer valueOfInteger(const char* str);
 
   /* **************************************************************************************
    * Public Method <Override>

@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_E0915DBF_E370_4AE5_A1C1_FABB5C3C4CF0
-#define MCUF_E0915DBF_E370_4AE5_A1C1_FABB5C3C4CF0
+#ifndef MCUF_5098703C_A1D7_4D60_9E2D_E5F648A0C629
+#define MCUF_5098703C_A1D7_4D60_9E2D_E5F648A0C629
 
 /* ****************************************************************************************
  * Include
@@ -15,15 +15,14 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Object.h"
-#include "mcuf/lang/String.h"
+#include "mcuf\lang\Object.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  namespace net{
-    class MediaAccessControlAddress;
+  namespace lang{
+    class Character;
   }
 }
 
@@ -31,7 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::net::MediaAccessControlAddress extends mcuf::lang::Object{
+class mcuf::lang::Character extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -44,8 +43,6 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private:
-    uint8_t mMediaAccessControlAddress[6];
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -58,26 +55,19 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::lang::Object{
   /* **************************************************************************************
    * Construct Method
    */
-  public:
+  private: 
     /**
-     * @brief Construct a new Media Access Control Address object
+     * @brief Construct a new Character object
      * 
-     * @param address 
      */
-    MediaAccessControlAddress(const uint8_t address[6]);
+    Character(void);
 
+  public: 
     /**
-     * @brief Construct a new Media Access Control Address object
-     * 
-     * @param address 
-     */
-    MediaAccessControlAddress(const mcuf::lang::String& address);
-
-    /**
-     * @brief Destroy the Media Access Control Address object
+     * @brief Destroy the Character object
      * 
      */
-    virtual ~MediaAccessControlAddress(void);
+    virtual ~Character(void);
 
   /* **************************************************************************************
    * Operator Method
@@ -86,7 +76,40 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method <Static>
    */
-
+  public:
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @return char 
+     */
+    static char toUpperCase(char ch);
+  
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @return char 
+     */
+    static char toLowerCase(char ch);
+  
+    /**
+     * @brief 
+     * 
+     * @param highChar 
+     * @param lowChar 
+     * @return char 
+     */
+    static char hexCharToChar(char highChar, char lowChar);
+    
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @return char 
+     */
+    static char hexCharToChar(char ch);     
+  
   /* **************************************************************************************
    * Public Method <Override>
    */
@@ -125,4 +148,4 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::lang::Object{
  * End of file
  */ 
 
-#endif /* MCUF_E0915DBF_E370_4AE5_A1C1_FABB5C3C4CF0 */
+#endif /* MCUF_5098703C_A1D7_4D60_9E2D_E5F648A0C629 */

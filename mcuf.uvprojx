@@ -1007,6 +1007,16 @@
               <FilePath>.\src\main\mcuf\lang\Byte.h</FilePath>
             </File>
             <File>
+              <FileName>Character.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Character.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Character.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Character.h</FilePath>
+            </File>
+            <File>
               <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
@@ -2443,6 +2453,16 @@
               <FileName>Byte.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Byte.h</FilePath>
+            </File>
+            <File>
+              <FileName>Character.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Character.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Character.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Character.h</FilePath>
             </File>
             <File>
               <FileName>ErrorCode.h</FileName>
@@ -3883,6 +3903,16 @@
               <FilePath>.\src\main\mcuf\lang\Byte.h</FilePath>
             </File>
             <File>
+              <FileName>Character.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Character.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Character.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Character.h</FilePath>
+            </File>
+            <File>
               <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
@@ -5319,6 +5349,16 @@
               <FileName>Byte.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Byte.h</FilePath>
+            </File>
+            <File>
+              <FileName>Character.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Character.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Character.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Character.h</FilePath>
             </File>
             <File>
               <FileName>ErrorCode.h</FileName>
@@ -6759,6 +6799,16 @@
               <FilePath>.\src\main\mcuf\lang\Byte.h</FilePath>
             </File>
             <File>
+              <FileName>Character.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Character.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Character.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Character.h</FilePath>
+            </File>
+            <File>
               <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
@@ -8195,6 +8245,16 @@
               <FileName>Byte.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Byte.h</FilePath>
+            </File>
+            <File>
+              <FileName>Character.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Character.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Character.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Character.h</FilePath>
             </File>
             <File>
               <FileName>ErrorCode.h</FileName>

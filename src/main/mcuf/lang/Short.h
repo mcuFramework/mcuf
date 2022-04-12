@@ -216,6 +216,23 @@ class mcuf::lang::Short extends mcuf::lang::Number{
   /* **************************************************************************************
    * Public Method <Static>
    */
+  public:
+    
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return int 
+     */
+    static short valueOf(const char* str);
+
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return Short 
+     */
+    static Short valueOfShort(const char* str);
 
   /* **************************************************************************************
    * Public Method <Override>
