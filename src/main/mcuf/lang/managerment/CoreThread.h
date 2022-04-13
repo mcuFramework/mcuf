@@ -79,7 +79,7 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
      * @brief Destroy the Core Thread object
      * 
      */
-    virtual ~CoreThread(void) = default;
+    virtual ~CoreThread(void) override;
 
   /* **************************************************************************************
    * Operator Method

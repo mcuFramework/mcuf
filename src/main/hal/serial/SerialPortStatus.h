@@ -31,8 +31,7 @@ enum struct hal::serial::SerialPortStatus : char{
   READ_ABROT,
   WRITE_SUCCESSFUL,
   WRITE_FAIL,
-  WRITE_ABROT,
-
+  WRITE_ABROT
 };
 
 /* *****************************************************************************************

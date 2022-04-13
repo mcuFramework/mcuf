@@ -29,7 +29,7 @@ enum struct hal::serial::SerialBusStatus : char{
   WRITE_SUCCESSFUL,
   WRITE_FAIL,
   READ_SUCCESSFUL,
-  READ_FAIL, 
+  READ_FAIL
 };
 
 /* *****************************************************************************************

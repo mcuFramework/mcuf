@@ -75,7 +75,7 @@ class mcuf::io::OutputStreamBuffer extends mcuf::io::RingBuffer implements
      * @brief Destroy the Output Stream Buffer object
      * 
      */
-    virtual ~OutputStreamBuffer(void);
+    virtual ~OutputStreamBuffer(void) override;
 
   /* **************************************************************************************
    * Operator Method

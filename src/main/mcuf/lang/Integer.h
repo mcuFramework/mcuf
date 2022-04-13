@@ -73,7 +73,7 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      * @brief Destroy the Integer object
      * 
      */
-    ~Integer(void);
+    virtual ~Integer(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -85,7 +85,7 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      * @return int 
      */
     inline operator int(void){
-      return static_cast<int>(this->mValue.u32);
+      return this->mValue.s32;
     }
 
     /**
@@ -96,7 +96,7 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      * @return false 
      */
     inline bool operator==(int v){
-      return (static_cast<int>(this->mValue.u32) == v);
+      return (this->mValue.s32 == v);
     }
 
     /**
@@ -106,7 +106,7 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      * @return inlien 
      */
     inline bool operator==(Integer& v){
-      return (this->mValue.u32 == v.mValue.u32);
+      return (this->mValue.s32 == v.mValue.s32);
     }
 
     /**
@@ -116,8 +116,8 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      * @return int 
      */
     inline int operator=(int v){
-      this->mValue.u32 = v;
-      return this->mValue.u32;
+      this->mValue.s32 = v;
+      return this->mValue.s32;
     }
 
     /**
@@ -127,7 +127,7 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      * @return Integer 
      */
     inline Integer operator+=(int v){
-      this->mValue.u32 += v;
+      this->mValue.s32 += v;
       return *this;
     }
 
@@ -138,7 +138,7 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      * @return Integer 
      */
     inline Integer operator-=(int v){
-      this->mValue.u32 -= v;
+      this->mValue.s32 -= v;
       return *this;
     }
 
@@ -149,7 +149,7 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      * @return Integer 
      */
     inline Integer operator*=(int v){
-      this->mValue.u32 *= v;
+      this->mValue.s32 *= v;
       return *this;
     }
 
@@ -160,7 +160,7 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      * @return Integer 
      */
     inline Integer operator/=(int v){
-      this->mValue.u32 /= v;
+      this->mValue.s32 /= v;
       return *this;
     }
 
@@ -171,7 +171,7 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      */
     inline Integer operator++(int){
       Integer tmp = *this;
-      ++this->mValue.u32;
+      ++this->mValue.s32;
       return tmp;
     }
 
@@ -181,7 +181,7 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      * @return Integer 
      */
     inline Integer operator++(){
-      ++this->mValue.u32;
+      ++this->mValue.s32;
       return *this;
     }
 
@@ -192,7 +192,7 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      */
     inline Integer operator--(int){
       Integer tmp = *this;
-      --this->mValue.u32;
+      --this->mValue.s32;
       return tmp;
     }
 
@@ -202,7 +202,7 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
      * @return Integer& 
      */
     inline Integer& operator--(void){
-      --this->mValue.u32;
+      --this->mValue.s32;
       return *this;
     }  
   
@@ -268,4 +268,4 @@ class mcuf::lang::Integer extends mcuf::lang::Number{
  */ 
 
 
-#endif/* MCUF_B13FC504_C653_4436_A427_B6D01A462988 */
+#endif /* MCUF_B13FC504_C653_4436_A427_B6D01A462988 */

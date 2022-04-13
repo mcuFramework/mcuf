@@ -56,7 +56,7 @@ Thread::Thread(const Memory& memory) : Memory(memory){
   if(this->isReadOnly())
     mcuf::lang::System::error(__CLASSPATH__, ErrorCode::WRITE_TO_READONLY_MEMORY);
   
-  if(this->length() < (getRtxMemorySize() + 128))
+  if(static_cast<uint32_t>(this->length()) < (getRtxMemorySize() + 128))
     mcuf::lang::System::error(__CLASSPATH__, ErrorCode::INSUFFICIENT_MEMORY);
 
   memset(this->pointer(), 0x00, getRtxMemorySize());
@@ -242,7 +242,6 @@ void Thread::entryPoint(void* attachment){
   thread->run();
   thread->mThreadID = nullptr;
   osThreadExit();
-  return;
 }
 
 /**

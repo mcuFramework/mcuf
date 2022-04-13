@@ -83,7 +83,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * 
      * @param length 
      */
-    String(uint32_t length);
+    String(size_t length);
 
     /**
      * @brief Destroy the String object
@@ -126,7 +126,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @param arg 
      * @return int 
      */
-    static int format(void* buffer, uint32_t bufferSize, const char* format, va_list args);
+    static int format(void* buffer, size_t bufferSize, const char* format, va_list args);
 
     /**
      * @brief 
@@ -252,7 +252,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
     /**
      * @brief 
      * 
-     * @param offset 
+     * @param offset  
      * @return String 
      */
     String clone(uint32_t offset, uint32_t length) const;
@@ -260,9 +260,9 @@ class mcuf::lang::String extends mcuf::lang::Memory{
     /**
      * @brief 
      * 
-     * @return uint32_t 
+     * @return size_t 
      */
-    uint32_t size(void) const;
+    size_t size(void) const; 
 
     /**
      * @brief 

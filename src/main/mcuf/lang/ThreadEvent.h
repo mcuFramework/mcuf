@@ -79,7 +79,7 @@ class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
      * @brief Destroy the Thread Event object
      * 
      */
-    virtual ~ThreadEvent(void) = default;
+    virtual ~ThreadEvent(void) override;
 
   /* **************************************************************************************
    * Operator Method

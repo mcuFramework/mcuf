@@ -40,7 +40,7 @@ ByteBuffer::ByteBuffer(const Memory& memory) : Memory(memory){
  * 
  * @param length 
  */
-ByteBuffer::ByteBuffer(uint32_t length) : Memory(length){
+ByteBuffer::ByteBuffer(size_t length) : Memory(length){
   this->clear();
   return;
 }
@@ -77,10 +77,10 @@ ByteBuffer::~ByteBuffer(void){
  * @return false 
  */
 bool ByteBuffer::limit(uint32_t newLimit){
-  if(newLimit > this->length())
-    return false;  
+  if(static_cast<uint16_t>(newLimit) > this->length())
+    return false;
   
-  this->mLimit = newLimit;
+  this->mLimit = static_cast<uint16_t>(newLimit);
   return true;
 }
 
@@ -92,7 +92,7 @@ bool ByteBuffer::limit(uint32_t newLimit){
  * @return false 
  */
 bool ByteBuffer::position(uint32_t newPosition){
-  this->mPosition = newPosition;
+  this->mPosition = static_cast<uint16_t>(newPosition);
   if(this->mPosition >= this->mLimit){
      this->mPosition = this->mLimit;
     return true;
@@ -131,7 +131,7 @@ bool ByteBuffer::put(char const* string){
  * @return false 
  */
 bool ByteBuffer::put(const void* ptr, uint32_t size){
-  if(size == 0)
+  if(size <= 0)
     return false;  
   
   uint32_t rem = this->remaining();
@@ -162,7 +162,7 @@ bool ByteBuffer::put(const String& string){
  * @return false 
  */
 bool ByteBuffer::put(ByteBuffer& byteBuffer){
-  int rem = byteBuffer.remaining();
+  uint32_t rem = byteBuffer.remaining();
   if(rem == 0)
     return true;
   
@@ -204,7 +204,7 @@ int ByteBuffer::putFormat(const char* format, ...){
   
   va_list args;
   va_start(args, format);
-  int result = String::format(this->pointer(this->mPosition), this->remaining(), format, args);
+  int result = String::format(this->pointer(this->mPosition), static_cast<size_t>(this->remaining()), format, args);
   
   va_end(args);
   
@@ -220,7 +220,7 @@ int ByteBuffer::putFormat(const char* format, ...){
  * @return int 
  */
 int ByteBuffer::putFormat(const char* format, va_list args){
-  int result = String::format(this->pointer(this->mPosition), this->remaining(), format, args);
+  int result = String::format(this->pointer(this->mPosition), static_cast<size_t>(this->remaining()), format, args);
   this->mPosition += result;
   return result; 
 }
@@ -254,8 +254,8 @@ bool ByteBuffer::putShortMsb(short value){
   
   uint8_t* ptr = static_cast<uint8_t*>(this->pointer());
   
-  ptr[this->mPosition++] = (uint8_t)(value >> 8);
-  ptr[this->mPosition++] = (uint8_t)(value);
+  ptr[this->mPosition++] = static_cast<uint8_t>(value >> 8);
+  ptr[this->mPosition++] = static_cast<uint8_t>(value);
   
   return true;
 }
@@ -290,10 +290,10 @@ bool ByteBuffer::putIntMsb(int value){
   
   uint8_t* ptr = static_cast<uint8_t*>(this->pointer());
   
-  ptr[this->mPosition++] = (uint8_t)(value >> 24);
-  ptr[this->mPosition++] = (uint8_t)(value >> 16);
-  ptr[this->mPosition++] = (uint8_t)(value >> 8);
-  ptr[this->mPosition++] = (uint8_t)(value);
+  ptr[this->mPosition++] = static_cast<uint8_t>(value >> 24);
+  ptr[this->mPosition++] = static_cast<uint8_t>(value >> 16);
+  ptr[this->mPosition++] = static_cast<uint8_t>(value >> 8);
+  ptr[this->mPosition++] = static_cast<uint8_t>(value);
   
   return true;
 }
@@ -345,8 +345,8 @@ bool ByteBuffer::getShortMsb(short& result){
   uint8_t* ptr = static_cast<uint8_t*>(this->pointer());
   
   result = 0;
-  result |= (((short)ptr[this->mPosition++]) << 8);
-  result |= (((short)ptr[this->mPosition++]));
+  result |= (static_cast<short>(ptr[this->mPosition++]) << 8);
+  result |= (static_cast<short>(ptr[this->mPosition++]));
   
   return true;
 }
@@ -382,10 +382,10 @@ bool ByteBuffer::getIntMsb(int& result){
   uint8_t* ptr = static_cast<uint8_t*>(this->pointer());
   
   result = 0;
-  result |= (((int)ptr[this->mPosition++]) << 24);
-  result |= (((int)ptr[this->mPosition++]) << 16);
-  result |= (((int)ptr[this->mPosition++]) << 8);
-  result |= (((int)ptr[this->mPosition++]));
+  result |= (static_cast<int>(ptr[this->mPosition++]) << 24);
+  result |= (static_cast<int>(ptr[this->mPosition++]) << 16);
+  result |= (static_cast<int>(ptr[this->mPosition++]) << 8);
+  result |= (static_cast<int>(ptr[this->mPosition++]));
   
   return true;
 }
@@ -409,4 +409,3 @@ bool ByteBuffer::getIntMsb(int& result){
 /* ****************************************************************************************
  * End of file
  */ 
- 

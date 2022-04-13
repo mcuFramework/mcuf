@@ -110,7 +110,7 @@ void* MemoryPool::alloc(uint32_t size){
  * @return false 
  */
 bool MemoryPool::free(void* ptr){
-  Node* node = static_cast<Node*>(Pointer::pointShift(ptr, -sizeof(Node)));
+  Node* node = static_cast<Node*>(Pointer::pointShift(ptr, static_cast<int>(-sizeof(Node))));
   
   if(!this->verifyNode(node))
     return false;
@@ -145,10 +145,10 @@ bool MemoryPool::wipe(void){
   if(this->isReadOnly())
     return false;
 
-  uint32_t size = (this->length() & ~(this->mMin - 1));
+  uint32_t size = (static_cast<uint32_t>(this->length()) & ~(this->mMin - 1));
   
   this->mNode = reinterpret_cast<Node*>(this->pointer());
-  Node* tail = reinterpret_cast<Node*>(this->pointer(size - sizeof(Node)));
+  Node* tail = reinterpret_cast<Node*>(this->pointer(static_cast<int>(size - sizeof(Node))));
   
   this->mNode->linkPrev = this->mNode;
   this->mNode->linkNext = this->mNode;
@@ -231,7 +231,7 @@ MemoryPool::Node* MemoryPool::split(Node* node, uint32_t size){
   
   Node* next = node->next;
   Node* linkNext = node->linkNext;
-  Node* result = static_cast<Node*>(Pointer::pointShift(node, size));
+  Node* result = static_cast<Node*>(Pointer::pointShift(node, static_cast<int>(size)));
   
   result->next = next;
   result->prev = node;

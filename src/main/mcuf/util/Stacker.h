@@ -80,7 +80,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
      * @brief Destroy the Stacker object
      * 
      */
-    virtual ~Stacker() = default;
+    virtual ~Stacker(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -115,7 +115,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
      * 
      * @return uint32_t the number of elements in this collection.
      */
-    virtual int size(void) override;
+    virtual uint32_t size(void) override;
   
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Iterable<E>
@@ -176,7 +176,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
      * 
      * @return uint32_t 
      */
-    virtual int getFree(void);
+    virtual uint32_t getFree(void);
 
     /**
      * @brief 

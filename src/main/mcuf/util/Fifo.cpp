@@ -28,11 +28,18 @@ using mcuf::util::Fifo;
  * 
  */
 Fifo::Fifo(const Memory& memory, uint32_t elementSize) : Memory(memory){
-  this->mElementSize = elementSize;
-  this->mElementLength = (memory.length() / elementSize);
+  this->mElementSize = static_cast<uint16_t>(elementSize);
+  this->mElementLength = static_cast<uint16_t>(static_cast<uint32_t>(memory.length()) / elementSize);
   this->mHead = 0;
   this->mTail = 0;
   this->mEmpty = true;
+  return;
+}
+
+/**
+ *
+ */
+Fifo::~Fifo(void){
   return;
 }
 
@@ -65,7 +72,7 @@ void Fifo::forEach(void* attachment, BiConsumer<Memory*, void*>& action){
   if(this->isEmpty())
     return;
   
-  for(int i=this->mTail; i!=this->mHead; i++){
+  for(uint32_t i=this->mTail; i!=this->mHead; i++){
     if(i>=this->mElementLength)
       i=0;
 
@@ -84,7 +91,7 @@ bool Fifo::isEmpty(void){
 /**
  *
  */
-int Fifo::size(void){
+uint32_t Fifo::size(void){
   if(this->mEmpty)
     return 0;
   

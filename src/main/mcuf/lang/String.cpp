@@ -59,7 +59,7 @@ String::String(const char* str) : Memory(str, strlen(str) + 1){
  * 
  * @param length 
  */
-String::String(uint32_t length) : Memory(length){
+String::String(size_t length) : Memory(length){
   return;
 }
 
@@ -89,7 +89,7 @@ String::String(const Memory& memory) : Memory(memory){
  * @param arg 
  * @return int 
  */
-int String::format(void* buffer, uint32_t bufferSize, const char* format, va_list args){
+int String::format(void* buffer, size_t bufferSize, const char* format, va_list args){
   return vsnprintf(static_cast<char*>(buffer), bufferSize, format, args);
 }
 
@@ -101,11 +101,11 @@ int String::format(void* buffer, uint32_t bufferSize, const char* format, va_lis
  * @param arg 
  * @return int 
  */
-int format(const mcuf::lang::Memory& memory, const char* format, va_list args){
+int String::format(const mcuf::lang::Memory& memory, const char* format, va_list args){
   if(memory.isReadOnly())
     return 0;
 
-  return vsnprintf(static_cast<char*>(memory.pointer()), memory.length(), format, args);
+  return vsnprintf(static_cast<char*>(memory.pointer()), static_cast<size_t>(memory.length()), format, args);
 }
 
 /**
@@ -139,7 +139,7 @@ int String::format(const mcuf::lang::Memory& memory, const char* format, ...){
   
   va_list args;
   va_start(args, format);
-  int result = vsnprintf(static_cast<char*>(memory.pointer()), memory.length(), format, args);
+  int result = vsnprintf(static_cast<char*>(memory.pointer()), static_cast<size_t>(memory.length()), format, args);
   va_end(args);
   return result;
 }
@@ -153,14 +153,14 @@ int String::format(const mcuf::lang::Memory& memory, const char* format, ...){
  * @return String 
  */
 String String::format(int bufferSize, const char* format, ...){
-  String buffer = String(bufferSize);
+  String buffer = String(static_cast<size_t>(bufferSize));
 
   va_list args;
   va_start(args, format);  
   buffer.format(format, args);
   va_end(args);
   
-  if(buffer.size() >= (((float)buffer.length()) * 0.9f))
+  if(buffer.size() >= static_cast<uint32_t>((static_cast<float>(buffer.length()) * 0.9f)))
     return buffer;
 
   String result = String(buffer.size());
@@ -196,7 +196,7 @@ int String::format(const char* format, va_list args){
   if(this->isReadOnly())
     return 0;  
   
-  int result = vsnprintf(static_cast<char*>(this->pointer()), this->length(), format, args);
+  int result = vsnprintf(static_cast<char*>(this->pointer()), static_cast<size_t>(this->length()), format, args);
   return result;
 }
 
@@ -213,7 +213,7 @@ int String::format(const char* format, ...){
   
   va_list args;
   va_start(args, format);
-  int result = vsnprintf(static_cast<char*>(this->pointer()), this->length(), format, args);
+  int result = vsnprintf(static_cast<char*>(this->pointer()), static_cast<size_t>(this->length()), format, args);
   va_end(args);
   return result;
 }
@@ -223,10 +223,10 @@ int String::format(const char* format, ...){
  * 
  */
 void String::convertUpper(void){
-  int max = this->size();
+  uint32_t max = this->size();
   char* ptr = static_cast<char*>(this->pointer());
 
-  for(int i=0; i<max; ++i){
+  for(uint32_t i=0; i<max; ++i){
     if((ptr[i] >= 'a') && (ptr[i] <= 'z')){
 			ptr[i] -= 32;
 		}
@@ -238,10 +238,10 @@ void String::convertUpper(void){
  * 
  */
 void String::convertLower(void){
-  int max = this->size();
+  uint32_t max = this->size();
   char* ptr = static_cast<char*>(this->pointer());
 
-  for(int i=0; i<max; ++i){
+  for(uint32_t i=0; i<max; ++i){
     if((ptr[i] >= 'A') && (ptr[i] <= 'Z')){
 			ptr[i] += 32;
 		}
@@ -254,13 +254,13 @@ void String::convertLower(void){
  * @return String 
  */
 String String::toUpper(void) const{
-  int max = this->size();
+  uint32_t max = this->size();
   String result = String(max + 1);
 
   const char* src = static_cast<char*>(this->pointer());
   char* dst = static_cast<char*>(result.pointer());
 
-  for(int i=0; i<max; ++i){
+  for(uint32_t i=0; i<max; ++i){
     if((src[i] >= 'a') && (src[i] <= 'z'))
 			dst[i] -= 32;
 
@@ -278,13 +278,13 @@ String String::toUpper(void) const{
  * @return String 
  */
 String String::toLower(void) const{
-  int max = this->size();
+  uint32_t max = this->size();
   String result = String(max + 1);
 
   const char* src = static_cast<char*>(this->pointer());
   char* dst = static_cast<char*>(result.pointer());
 
-  for(int i=0; i<max; ++i){
+  for(uint32_t i=0; i<max; ++i){
     if((src[i] >= 'A') && (src[i] <= 'Z'))
 			dst[i] -= 32;
       
@@ -314,15 +314,15 @@ int String::indexOf(char ch) const{
  * @return int 
  */
 int String::indexOf(char ch, uint32_t offset) const{
-  int max = this->size();
-  if(offset > max)
+  uint32_t max = this->size();
+  if(offset > static_cast<uint32_t>(max))
     return -1;
   
   const char* ptr = static_cast<const char*>(this->pointer(offset));
   max -= offset;
-  for(int i=0; i<max; ++i){
+  for(uint32_t i=0; i<max; ++i){
     if(ptr[i] == ch)
-      return i + offset;
+      return static_cast<int>(i + offset);
   }
   return -1;
 }
@@ -360,7 +360,7 @@ String String::clone(uint32_t offset, uint32_t length) const{
   if(length > size)
     length = size;
 
-  String result = String(length + 1);
+  String result = String(static_cast<size_t>(length + 1));
   result.copy(this->pointer(offset), 0, length);
   result[length] = 0x00;
   return result;
@@ -371,13 +371,13 @@ String String::clone(uint32_t offset, uint32_t length) const{
  * 
  * @return uint32_t 
  */
-uint32_t String::size(void) const{
-  int result = strlen(static_cast<const char*>(this->pointer()));
+size_t String::size(void) const{
+  uint32_t result = strlen(static_cast<const char*>(this->pointer()));
   
   if(result >= this->length())
     result = this->length();
 
-  return result;
+  return static_cast<size_t>(result);
 }
 
 /**
@@ -392,9 +392,9 @@ int String::replace(char oldChar, char newChar){
   if(this->isReadOnly())
     return 0;
   
-  int max = this->size();
+  uint32_t max = this->size();
   char* ptr = static_cast<char*>(this->pointer());
-  for(int i=0; i<max; ++i){
+  for(uint32_t i=0; i<max; ++i){
     if(ptr[i] == oldChar){
       ptr[i] = newChar;
       ++result;

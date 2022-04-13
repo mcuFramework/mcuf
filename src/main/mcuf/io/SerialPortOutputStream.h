@@ -79,7 +79,7 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
      * @brief Destroy the Serial Port Output Stream object
      * 
      */
-    virtual ~SerialPortOutputStream(void);
+    virtual ~SerialPortOutputStream(void) override;
 
   /* **************************************************************************************
    * Operator Method

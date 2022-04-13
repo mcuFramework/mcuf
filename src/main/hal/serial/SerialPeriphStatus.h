@@ -28,7 +28,7 @@ namespace hal{
 enum struct hal::serial::SerialPeriphStatus : char{
   SUCCESSFUL,
   FAIL,
-  ABORT,
+  ABORT
 };
 
 /* *****************************************************************************************

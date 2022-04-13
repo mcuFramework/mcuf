@@ -33,12 +33,20 @@ using mcuf::util::TimerTask;
  */
 
 /**
- *
+ * @brief Construct a new Timer:: Timer object
+ * 
  */
 Timer::Timer(void){
   return;
 }
 
+/**
+ * @brief Destroy the Timer:: Timer object
+ * 
+ */
+Timer::~Timer(void){
+  return;
+}
 
 /* ****************************************************************************************
  * Operator Method

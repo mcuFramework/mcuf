@@ -39,10 +39,13 @@ class mcuf::lang::Number extends mcuf::lang::Object{
    */
   protected:
     union Value{
-      bool b;
-      uint8_t u8[4];
-      uint16_t u16[0];
+      bool     b;
+      uint8_t  u8[4];
+      char     s8[4];
+      uint16_t u16[2];
+      short    s16[2];
       uint32_t u32;
+      int      s32;
     };
 
   /* **************************************************************************************
@@ -81,7 +84,7 @@ class mcuf::lang::Number extends mcuf::lang::Object{
      * @brief Destroy the Number object
      * 
      */
-    virtual ~Number(void);
+    virtual ~Number(void) override;
 
   /* **************************************************************************************
    * Operator Method

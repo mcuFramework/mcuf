@@ -36,8 +36,21 @@ using mcuf::lang::Threads;
 /* ****************************************************************************************
  * Construct Method
  */
+ 
+/**
+ *
+ */
 Future::Future(void){
   this->clear();
+  return;
+}
+
+/**
+ * @brief Destroy the Future object
+ * 
+ */
+Future::~Future(void){
+  return;
 }
 
 /* ****************************************************************************************

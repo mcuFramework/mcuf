@@ -76,10 +76,17 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
     RingBuffer(const mcuf::lang::Memory& memory);  
 
     /**
+     * @brief Construct a new Ring Buffer object
+     * 
+     * @param length 
+     */
+    RingBuffer(uint32_t length);
+
+    /**
      * @brief Destroy the Ring Buffer object
      * 
      */
-    virtual ~RingBuffer(void) = default;
+    virtual ~RingBuffer(void);
 
   /* **************************************************************************************
    * Operator Method
@@ -121,7 +128,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @return uint32_t Number of items in the ring buffer.
      */
     inline uint32_t getCount(void){
-      return VACCESS(uint32_t, this->mHead) - VACCESS(uint32_t, this->mTail);
+      return (VACCESS(uint32_t, this->mHead) - VACCESS(uint32_t, this->mTail));
     }
 
     /**
@@ -130,7 +137,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @return uint32_t Number of free items in the ring buffer.
      */
     inline uint32_t getFree(void){
-      return this->mCount - this->getCount();
+      return (this->mCount - this->getCount());
     }
 
     /**
@@ -158,7 +165,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * 
      * @return int 
      */
-    inline int getHeadPosition(void){
+    inline uint32_t getHeadPosition(void){
       return (this->mHead & (this->mCount -1));
     }
 
@@ -167,7 +174,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * 
      * @return int 
      */
-    inline int getTailPosition(void){
+    inline uint32_t getTailPosition(void){
       return (this->mTail & (this->mCount - 1));
     }
 
@@ -192,7 +199,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @param num 
      * @return int 
      */
-    int insertMult(const void *data, int num);
+    uint32_t insertMult(const void *data, uint32_t num);
 
     /**
      * @brief 
@@ -210,7 +217,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @param num 
      * @return int 
      */
-    int popMult(void* data, int num);
+    uint32_t popMult(void* data, uint32_t num);
 
   /* **************************************************************************************
    * Protected Method <Static>

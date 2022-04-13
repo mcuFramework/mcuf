@@ -128,7 +128,7 @@ bool OutputStreamBuffer::write(ByteBuffer& byteBuffer,
   }
   
   if(handler != nullptr){
-    handler->completed(len, attachment);
+    handler->completed(static_cast<int>(len), attachment);
   }
   
   return true;

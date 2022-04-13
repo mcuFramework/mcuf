@@ -90,7 +90,7 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      * 
      */
     inline operator char(void){
-      return this->mValue.u8[0];
+      return this->mValue.s8[0];
     }
 
     /**
@@ -101,7 +101,7 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      * @return false 
      */
     bool operator==(char v){
-      return (this->mValue.u8[0] == static_cast<char>(v));
+      return (this->mValue.s8[0] == static_cast<char>(v));
     }
 
     /**
@@ -112,7 +112,7 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      * @return false 
      */
     bool operator==(Byte& v){
-      return (this->mValue.u8[0] == v.mValue.u8[0]);
+      return (this->mValue.s8[0] == v.mValue.s8[0]);
     }
 
     /**
@@ -122,8 +122,8 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      * @return char 
      */
     char operator=(char v){
-      this->mValue.u8[0] = v;
-      return this->mValue.u8[0];
+      this->mValue.s8[0] = v;
+      return this->mValue.s8[0];
     }
 
     /**
@@ -133,7 +133,7 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      * @return Byte 
      */
     Byte operator+=(int v){
-      this->mValue.u8[0] += v;
+      this->mValue.s8[0] += v;
       return *this;
     }
 
@@ -144,7 +144,7 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      * @return Byte 
      */
     Byte operator-=(int v){
-      this->mValue.u8[0] -= v;
+      this->mValue.s8[0] -= v;
       return *this;
     }
 
@@ -155,7 +155,7 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      * @return Byte 
      */
     Byte operator*=(int v){
-      this->mValue.u8[0] *= v;
+      this->mValue.s8[0] *= v;
       return *this;
     }
 
@@ -166,7 +166,7 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      * @return Byte 
      */
     Byte operator/=(int v){
-      this->mValue.u8[0] /= v;
+      this->mValue.s8[0] /= v;
       return *this;
     }
 
@@ -177,7 +177,7 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      */
     Byte operator++(int){
       Byte tmp = *this;
-      ++this->mValue.u8[0];
+      ++this->mValue.s8[0];
       return tmp;
     }
 
@@ -187,7 +187,7 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      * @return Byte 
      */
     Byte operator++(){
-      ++this->mValue.u8[0];
+      ++this->mValue.s8[0];
       return *this;
     }
 
@@ -198,7 +198,7 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      */
     Byte operator--(int){
       Byte tmp = *this;
-      --this->mValue.u8[0];
+      --this->mValue.s8[0];
       return tmp;
     }
 
@@ -208,7 +208,7 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      * @return Byte& 
      */
     Byte& operator--(void){
-      --this->mValue.u8[0];
+      --this->mValue.s8[0];
       return *this;
     }
   

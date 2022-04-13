@@ -91,7 +91,7 @@ namespace mcuf{
      * @brief Destroy the Thread object
      * 
      */
-    virtual ~Thread(void);
+    virtual ~Thread(void) override;
 
   /* **************************************************************************************
    * Operator Method

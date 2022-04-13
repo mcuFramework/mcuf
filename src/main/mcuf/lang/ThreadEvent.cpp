@@ -27,17 +27,33 @@ using mcuf::function::Runnable;
  */
 
 /**
- * Construct.
+ * @brief Construct a new Thread Event:: Thread Event object
+ * 
+ * @param memory 
+ * @param runnable 
  */
 ThreadEvent::ThreadEvent(const Memory& memory, Runnable& runnable) : Thread(memory){
   this->mRunnable = &runnable;
+  return;
 }
 
 /**
- * Construct.
+ * @brief Construct a new Thread Event:: Thread Event object
+ * 
+ * @param stackSize 
+ * @param runnable 
  */
 ThreadEvent::ThreadEvent(uint32_t stackSize, Runnable& runnable) : Thread(stackSize){
   this->mRunnable = &runnable;
+  return;
+}
+
+/**
+ * @brief Destroy the Thread Event object
+ * 
+ */
+ThreadEvent::~ThreadEvent(void){
+  return;
 }
 
 /* ****************************************************************************************

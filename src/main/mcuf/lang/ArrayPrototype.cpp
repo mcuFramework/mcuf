@@ -38,7 +38,7 @@ using mcuf::lang::Memory;
  */
 ArrayPrototype::ArrayPrototype(const Memory& memory, uint32_t elementSize) : Memory(memory){
   this->mElementSize = elementSize;
-  this->mElementLength = (this->length() / this->mElementSize); 
+  this->mElementLength = (static_cast<uint32_t>(this->length()) / this->mElementSize); 
   return;
 }
 
@@ -93,13 +93,13 @@ uint32_t ArrayPrototype::getElementSize(void){
 int ArrayPrototype::indexOf(const void* element) const{
   int result = -1;
   
-  for(int i=0; i<this->mElementLength; i++){
+  for(uint32_t i=0; i<this->mElementLength; i++){
     const void* dst = &static_cast<uint8_t*>(this->pointer())[i * this->mElementSize];
     
     if(memcmp(dst, element, this->mElementSize) != 0)
       continue;
 
-    result = i;
+    result = static_cast<int>(i);
     break;
   }
 
@@ -110,7 +110,7 @@ int ArrayPrototype::indexOf(const void* element) const{
  * 
  */
 void ArrayPrototype::set(const void* src, uint32_t shift){
-  uint32_t location = shift * this->mElementSize;
+  int location = static_cast<int>(shift * this->mElementSize);
   this->copy(src, location, this->mElementSize);
 }
 

@@ -80,7 +80,9 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
      * @brief Destroy the Array Queue object
      * 
      */
-    virtual ~ArrayQueue(void) = default;
+    virtual ~ArrayQueue(void) override {
+      return;
+    }
 
   /* **************************************************************************************
    * Operator Method
@@ -175,7 +177,7 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
      * 
      * @return uint32_t the number of elements in this collection.
      */
-    virtual int size(void) override{
+    virtual uint32_t size(void) override{
       return this->ArrayQueuePrototype::size();
     }
 

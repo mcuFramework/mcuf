@@ -34,7 +34,7 @@ enum struct hal::general::GeneralPinMode : char{
   PUSH_PULL,
   PULL_UP,
   PULL_DOWN,
-  OPEN_DRAIN,
+  OPEN_DRAIN
 };
 
 /* *****************************************************************************************

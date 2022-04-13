@@ -65,7 +65,7 @@ interface mcuf::util::Collection extends mcuf::lang::Iterable<T>{
    * 
    * @return uint32_t the number of elements in this collection.
    */
-  virtual int size(void) abstract;
+  virtual uint32_t size(void) abstract;
 
   /* **************************************************************************************
    * Abstract method <Protected>

@@ -94,7 +94,7 @@ char Character::toLowerCase(char ch){
  */
 char Character::hexCharToChar(char highChar, char lowChar){
   char result = Character::hexCharToChar(lowChar);
-  return (result + (Character::hexCharToChar(highChar) << 4));
+  return static_cast<char>(result + (Character::hexCharToChar(highChar) << 4));
 }
 
 /**

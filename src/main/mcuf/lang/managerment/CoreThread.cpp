@@ -39,6 +39,15 @@ CoreThread::CoreThread(uint32_t stackSize, uint32_t executeQueue, Thread* userTh
   
   this->mStart = false;
   this->mUserThread = userThread;
+  return;
+}
+
+/**
+ * @brief Destroy the Core Thread object
+ * 
+ */
+CoreThread::~CoreThread(void){
+  return;
 }
 
 /* ****************************************************************************************

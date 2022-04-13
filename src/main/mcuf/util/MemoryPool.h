@@ -87,7 +87,7 @@ class mcuf::util::MemoryPool extends mcuf::lang::Memory implements
      * @brief Destroy the Memory Pool object
      * 
      */
-    virtual ~MemoryPool(void);
+    virtual ~MemoryPool(void) override;
 
   /* **************************************************************************************
    * Operator Method

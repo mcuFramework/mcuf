@@ -60,6 +60,7 @@ SerialPortInputStream::SerialPortInputStream(SerialPort& serialPort) :
  *
  */
 SerialPortInputStream::~SerialPortInputStream(void){
+  return;
 }
 
 /* ****************************************************************************************
@@ -79,7 +80,6 @@ SerialPortInputStream::~SerialPortInputStream(void){
  */
 void SerialPortInputStream::onSerialPortEvent(SerialPortStatus status, int result, void* attachment){
   CompletionHandler<int, void*>* userHandler = this->mReadHandler;
-  ByteBuffer* byteBuffer = static_cast<ByteBuffer*>(attachment);
   
   switch(status){
     case SerialPortStatus::READ_SUCCESSFUL:
@@ -93,7 +93,9 @@ void SerialPortInputStream::onSerialPortEvent(SerialPortStatus status, int resul
         userHandler->failed(&status, attachment);
       break;
       
-    default:
+    case SerialPortStatus::WRITE_SUCCESSFUL:
+    case SerialPortStatus::WRITE_FAIL:
+    case SerialPortStatus::WRITE_ABROT:
       System::error(this, ErrorCode::ILLEGAL_ARGUMENT);
       break;
   }  

@@ -49,7 +49,7 @@ Memory::Memory(const Memory& memory){
  * @param pointer 
  * @param length 
  */
-Memory::Memory(const void* pointer, uint32_t length) : Pointer(const_cast<void*>(pointer)){
+Memory::Memory(const void* pointer, size_t length) : Pointer(const_cast<void*>(pointer)){
   if(length & 0x80000000)
     length = 0;
   
@@ -64,7 +64,7 @@ Memory::Memory(const void* pointer, uint32_t length) : Pointer(const_cast<void*>
  * @param pointer 
  * @param length 
  */
-Memory::Memory(void* pointer, uint32_t length) : Pointer(const_cast<void*>(pointer)){
+Memory::Memory(void* pointer, size_t length) : Pointer(const_cast<void*>(pointer)){
   if(length & 0x80000000)
     length = 0;
   
@@ -76,13 +76,13 @@ Memory::Memory(void* pointer, uint32_t length) : Pointer(const_cast<void*>(point
 /**
  * @brief Destroy the Memory:: Memory object
  * 
- * @param size 
+ * @param length 
  */
-Memory::Memory(uint32_t size) : Pointer(new uint8_t[(size & 0x7FFFFFFF)]){
-  size &= 0x7FFFFFFF;
+Memory::Memory(size_t length) : Pointer(new uint8_t[(length & 0x7FFFFFFF)]){
+  length &= 0x7FFFFFFF;
 
   this->mNext = this;
-  this->mLength = size;
+  this->mLength = length;
 }
 
 /**
@@ -129,7 +129,7 @@ Memory::~Memory(void){
  * @return Memory 
  */
 Memory Memory::nullMemory(void){
-  return Memory((const void*)nullptr, 0);
+  return Memory(static_cast<const void*>(nullptr), 0);
 }
 
 /* ****************************************************************************************
@@ -141,14 +141,16 @@ Memory Memory::nullMemory(void){
  * 
  * @param source 
  * @param length 
- * @return int 
+ * @return int32_t 
  */
 int Memory::copy(const void* source, uint32_t length){
   if(this->isReadOnly())
     return 0;
   
-  if(length > this->mLength)
-    return Pointer::copy(source, this->mLength);
+  uint32_t max = this->length();
+  
+  if(length > max)
+    return Pointer::copy(source, max);
 
   return Pointer::copy(source, length);
 }
@@ -159,17 +161,19 @@ int Memory::copy(const void* source, uint32_t length){
  * @param source 
  * @param shift 
  * @param length 
- * @return int 
+ * @return int32_t 
  */
-int Memory::copy(const void* source, uint32_t shift, uint32_t length){
+int Memory::copy(const void* source, int32_t shift, uint32_t length){
   if(this->isReadOnly())
     return 0; 
   
-  if((shift + length) > this->mLength){
-    if(shift > this->mLength)
+  uint32_t max = this->length();
+  
+  if((shift + static_cast<int>(length)) > static_cast<int>(max)){
+    if(shift > static_cast<int>(max))
       return 0;
     
-    length = this->mLength - shift;
+    length = static_cast<uint32_t>(static_cast<int>(max) - shift);
   }
 
   return Pointer::copy(source, shift, length);
@@ -182,17 +186,19 @@ int Memory::copy(const void* source, uint32_t shift, uint32_t length){
  * @param shift 
  * @param start 
  * @param length 
- * @return int 
+ * @return int32_t 
  */
-int Memory::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
+int Memory::copy(const void* source, int32_t shift, int32_t start, uint32_t length){
   if(this->isReadOnly())
     return 0;
   
-  if(shift > this->mLength)
+  int32_t max = static_cast<int32_t>(this->length());
+  
+  if(shift > max)
     return 0;
   
-  if(length > (this->mLength - shift))
-    length = (this->mLength - shift);
+  if(length > static_cast<uint32_t>((max - shift)))
+    length = static_cast<uint32_t>((max - shift));
   
   return Pointer::copy(source, shift, start, length);
 }
@@ -210,7 +216,7 @@ bool Memory::wipe(void){
   if(this->isReadOnly())
     return false;
   
-  memset(this->pointer(), 0x00, this->length());
+  memset(this->pointer(), 0x00, static_cast<size_t>(this->length()));
   return true;
 }
 
@@ -224,7 +230,7 @@ bool Memory::wipe(uint8_t value){
   if(this->isReadOnly())
     return false;
   
-  memset(this->pointer(), 0x00, this->length());
+  memset(this->pointer(), value, static_cast<size_t>(this->length()));
   return true;
 }
 
@@ -237,7 +243,7 @@ bool Memory::wipe(uint8_t value){
  */
 bool Memory::inRange(void* address) const{
   uint32_t start = reinterpret_cast<uint32_t>(this->pointer());
-  uint32_t end = start + this->length();
+  uint32_t end = start + static_cast<uint32_t>(this->length());
   uint32_t adr = reinterpret_cast<uint32_t>(address);
   
   if((adr < start) && (adr >= end))
@@ -253,12 +259,14 @@ bool Memory::inRange(void* address) const{
  * @return Memory 
  */
 Memory Memory::subMemory(uint32_t beginIndex) const{
-  if(beginIndex >= this->length())
+  uint32_t max = static_cast<size_t>(this->length());
+  
+  if(beginIndex >= max)
     return Memory::nullMemory();
   
-  uint32_t length = this->length() - beginIndex;
+  uint32_t length = max - beginIndex;
 
-  return Memory(this->pointer(beginIndex), length);
+  return Memory(this->pointer(static_cast<int>(beginIndex)), length);
 }
 
 /**
@@ -269,15 +277,17 @@ Memory Memory::subMemory(uint32_t beginIndex) const{
  * @return Memory 
  */
 Memory Memory::subMemory(uint32_t beginIndex, uint32_t length) const{
-  if(beginIndex >= this->length())
+  uint32_t max = static_cast<size_t>(this->length());
+  
+  if(beginIndex >= max)
     return Memory::nullMemory();
 
-  uint32_t remainingLength = (this->length() - beginIndex);
+  uint32_t remainingLength = (max - beginIndex);
   if(length >= remainingLength)
     length = remainingLength;
   
 
-  return Memory(this->pointer(beginIndex), length);
+  return Memory(this->pointer(static_cast<int>(beginIndex)), length);
 }
 
 /* ****************************************************************************************

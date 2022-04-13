@@ -58,7 +58,7 @@ class mcuf::io::Future extends mcuf::lang::Object implements
   private:
     Status mStatus;
     uint32_t mThreadID;
-    uint32_t mResult;
+    int mResult;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -83,7 +83,7 @@ class mcuf::io::Future extends mcuf::lang::Object implements
      * @brief Destroy the Future object
      * 
      */
-    virtual ~Future(void) = default;
+    virtual ~Future(void) override;
 
   /* **************************************************************************************
    * Operator Method

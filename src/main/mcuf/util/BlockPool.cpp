@@ -30,15 +30,22 @@ using mcuf::function::BiConsumer;
  */
 BlockPool::BlockPool(const Memory& memory, uint32_t elementSize) : Memory(memory){
   this->mElementSize = elementSize;
-  this->mCapacity = this->length() / this->mElementSize;
+  this->mCapacity = static_cast<uint32_t>(this->length()) / this->mElementSize;
   this->mFlagSize = Math::ceil(this->mCapacity, 8U);
   this->mFlags = static_cast<uint8_t*>(this->pointer(this->length() - this->mFlagSize));
   this->mLastFlag = 0xFFFFFFFF;
   this->mSize = 0;
   
-  if((this->mCapacity * this->mElementSize) + this->mFlagSize > this->length())
+  if((this->mCapacity * this->mElementSize) + this->mFlagSize > static_cast<uint32_t>(this->length()))
     --this->mCapacity;
   
+  return;
+}
+
+/**
+ *
+ */
+BlockPool::~BlockPool(void){
   return;
 }
 
@@ -82,12 +89,12 @@ void* BlockPool::alloc(void){
     return this->getBlock(result);
   }
     
-  for(int i=0, bytes=0; i<this->mCapacity; i+=8, ++bytes){
+  for(uint32_t i=0, bytes=0; i < this->mCapacity; i+=8, ++bytes){
     if(this->mFlags[bytes] == 0xFF)
       continue;
       
-    for(int j=0; j<8; j++){
-      uint8_t mask = (1<<j);
+    for(uint32_t j=0; j<8; j++){
+      uint8_t mask = static_cast<uint8_t>(1<<j);
       if(this->mFlags[bytes] & mask)
         continue;
       
@@ -137,7 +144,7 @@ uint32_t BlockPool::elementSize(void){
  * 
  */
 void BlockPool::forEach(void* attachment, BiConsumer<Memory*, void*>& action){
-  for(int i = 0; i<this->mCapacity; i++){
+  for(uint32_t i = 0; i < this->mCapacity; i++){
     if(getFlag(i)){
       Memory memory = Memory(this->getBlock(i), this->elementSize());
       action.accept(&memory, attachment);
@@ -173,7 +180,7 @@ bool BlockPool::remove(void* element){
 /**
  * 
  */
-int BlockPool::size(void){
+uint32_t BlockPool::size(void){
   return this->mSize;
 }
 
@@ -228,7 +235,7 @@ void* BlockPool::getBlock(uint32_t shift){
     return nullptr;
   
   uint32_t bytes = shift * this->mElementSize;
-  return this->pointer(bytes);
+  return this->pointer(static_cast<int>(bytes));
 }
 
 /**
@@ -237,7 +244,7 @@ void* BlockPool::getBlock(uint32_t shift){
 bool BlockPool::getFlag(uint32_t shift){
   
   uint32_t bytes = (shift >> 3);
-  uint8_t mask = (1 << (shift & 0x00000007));
+  uint8_t mask = static_cast<uint8_t>(1 << (shift & 0x00000007));
   
   if(this->mFlags[bytes] & mask)
     return true;
@@ -287,4 +294,3 @@ uint32_t BlockPool::getBlockShift(void* block){
 /* ****************************************************************************************
  * End of file
  */ 
- 

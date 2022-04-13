@@ -61,20 +61,20 @@ SocketAddress::SocketAddress(uint8_t address[4], uint16_t port){
 SocketAddress::SocketAddress(const String& address, uint16_t port){
   *reinterpret_cast<int*>(this->mSocketAddress) = 0;
   char cache[4];
-  char head = 0;
-  char tail = 0;
+  int32_t head = 0;
+  int32_t tail = 0;
   
-  for(char i=0; i<4; ++i){
+  for(int i=0; i<4; ++i){
     if(i >= 3)
-      tail = address.size();
+      tail = static_cast<int32_t>(address.size());
     
     else
-      tail = address.indexOf('.', head);
+      tail = address.indexOf('.', static_cast<uint32_t>(head));
     
     if(tail - head > 4)
       break;
     
-    char len = address.copyTo(cache, 0, head, (tail - head));
+    int len = address.copyTo(cache, 0, head, static_cast<uint32_t>(tail - head));
     cache[len] = 0x00;
     this->mSocketAddress[i] = Byte::valueOf(cache);
     

@@ -32,14 +32,12 @@
 using mcuf::lang::ErrorCode;
 using mcuf::lang::System;
 
-uint32_t osRtxIdleThreadCount = 0;
-
 // OS Idle Thread
 extern "C" __WEAK __NO_RETURN void osRtxIdleThread (void *argument) {
   (void)argument;
 
   for (;;) {
-    ++osRtxIdleThreadCount;
+
   }
 }
  

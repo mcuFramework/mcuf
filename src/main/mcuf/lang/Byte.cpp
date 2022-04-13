@@ -66,7 +66,7 @@ Byte::~Byte(void){
  * @return int 
  */
 char Byte::valueOf(const char* str){
-  return atoi(str);
+  return static_cast<char>(atoi(str));
 }
 
 /**

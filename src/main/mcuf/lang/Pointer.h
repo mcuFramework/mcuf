@@ -83,7 +83,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @brief Destroy the Pointer object
      * 
      */
-    virtual ~Pointer() = default;
+    virtual ~Pointer(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -126,9 +126,19 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param index 
      * @return char
      */
-    char operator[](int index) const{
+    inline char operator[](int index) const{
       return static_cast<char*>(this->mPointer)[index];
     }
+    
+    /**
+     * @brief 
+     * 
+     * @param index 
+     * @return char
+     */
+    inline char operator[](unsigned int index) const{
+      return static_cast<char*>(this->mPointer)[index];
+    }    
 
     /**
      * @brief 
@@ -138,7 +148,17 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      */
     char& operator[](int index){
       return static_cast<char*>(this->mPointer)[index];
-    }    
+    }
+    
+    /**
+     * @brief 
+     * 
+     * @param index 
+     * @return char&
+     */
+    char& operator[](unsigned int index){
+      return static_cast<char*>(this->mPointer)[index];
+    }
 
   /* **************************************************************************************
    * Public Method <Static Inline>
@@ -193,7 +213,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copy(const void* source, uint32_t shift, uint32_t length);
+    virtual int copy(const void* source, int shift, uint32_t length);
 
     /**
      * @brief 
@@ -204,7 +224,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);
+    virtual int copy(const void* source, int shift, int start, uint32_t length);
 
     /**
      * @brief 
@@ -223,7 +243,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copyTo(void* destination, uint32_t shift, uint32_t length) const;
+    virtual int copyTo(void* destination, int shift, uint32_t length) const;
 
     /**
      * @brief 
@@ -234,7 +254,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copyTo(void* destination, uint32_t shift, uint32_t start, uint32_t length) const; 
+    virtual int copyTo(void* destination, int shift, int start, uint32_t length) const; 
 
   /* **************************************************************************************
    * Public Method <inline>
@@ -247,8 +267,8 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param shift 
      * @return char 
      */
-    inline char getByte(uint32_t shift) const{
-      return *(char*)this->pointer(shift);
+    inline char getByte(int shift) const{
+      return *static_cast<char*>(this->pointer(shift));
     }
 
     /**
@@ -257,8 +277,8 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param shift 
      * @return int 
      */
-    inline int getInteger(uint32_t shift) const{
-      return *(int*)this->pointer(shift);
+    inline int getInteger(int shift) const{
+      return *static_cast<int*>(this->pointer(shift));
     }
 
     /**
@@ -267,8 +287,8 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param shift 
      * @return short 
      */
-    inline short getShort(uint32_t shift) const{
-      return *(short*)this->pointer(shift);
+    inline short getShort(int shift) const{
+      return *static_cast<short*>(this->pointer(shift));
     }
 
     /**
@@ -278,7 +298,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return Pointer 
      */
     inline Pointer getPointer(uint32_t offset) const{
-      return Pointer(&((uint8_t*)this->mPointer)[offset]);
+      return Pointer(&(static_cast<char*>(this->mPointer))[offset]);
     }
 
     /**
@@ -333,6 +353,16 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      */
     inline void* pointer(void) const{
       return this->mPointer;
+    }
+    
+    /**
+     * @brief 
+     * 
+     * @param offset 
+     * @return void* 
+     */
+    inline void* pointer(uint32_t offset) const{
+      return static_cast<char*>(this->mPointer) + offset;
     }
 
     /**

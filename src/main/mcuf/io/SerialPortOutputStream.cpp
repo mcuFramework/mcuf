@@ -89,7 +89,9 @@ void SerialPortOutputStream::onSerialPortEvent(SerialPortStatus status, int resu
         handler->failed(&status, attachment);
       break;
       
-    default:
+    case SerialPortStatus::READ_SUCCESSFUL:
+    case SerialPortStatus::READ_FAIL:
+    case SerialPortStatus::READ_ABROT:
       System::error(this, ErrorCode::ILLEGAL_ARGUMENT);
       break;
   }  

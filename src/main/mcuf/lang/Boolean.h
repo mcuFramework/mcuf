@@ -79,7 +79,7 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      * @brief Destroy the Boolean object
      * 
      */
-    virtual ~Boolean(void);
+    virtual ~Boolean(void) override;
 
   /* **************************************************************************************
    * Operator Method

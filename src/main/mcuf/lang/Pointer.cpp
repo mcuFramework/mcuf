@@ -35,7 +35,7 @@ Pointer::Pointer(void){
  * 
  */
 Pointer::Pointer(void* pointer){
-  this->mPointer = (uint8_t*)pointer;
+  this->mPointer = static_cast<uint8_t*>(pointer);
   return;
 }
 
@@ -43,7 +43,15 @@ Pointer::Pointer(void* pointer){
  * 
  */
 Pointer::Pointer(uint32_t pointer){
-  this->mPointer = (uint8_t*)pointer;
+  this->mPointer = reinterpret_cast<uint8_t*>(pointer);
+  return;
+}
+
+/**
+ * @brief Destroy the Pointer object
+ * 
+ */
+Pointer::~Pointer(void){
   return;
 }
 
@@ -89,7 +97,7 @@ int Pointer::copy(const void* source, uint32_t length){
  * @param length 
  * @return int 
  */
-int Pointer::copy(const void* source, uint32_t shift, uint32_t length){
+int Pointer::copy(const void* source, int shift, uint32_t length){
   return this->copy(source, shift, 0, length);
 }
 
@@ -102,12 +110,15 @@ int Pointer::copy(const void* source, uint32_t shift, uint32_t length){
  * @param length 
  * @return int 
  */
-int Pointer::copy(const void* source, uint32_t shift, uint32_t start, uint32_t length){
+int Pointer::copy(const void* source, int shift, int start, uint32_t length){
   if((source == nullptr) || (this->mPointer == nullptr))
     return 0;  
   
-  memcpy(this->pointer(shift), &(static_cast<const char*>(source))[start], length);
-  return length;
+  if(length <= 0)
+    return 0;
+  
+  memcpy(this->pointer(shift), (static_cast<const char*>(source) + start), static_cast<size_t>(length));
+  return static_cast<int>(length);
 }
 
 /**
@@ -129,7 +140,7 @@ int Pointer::copyTo(void* destination, uint32_t length) const{
  * @param length 
  * @return int 
  */
-int Pointer::copyTo(void* destination, uint32_t shift, uint32_t length) const{
+int Pointer::copyTo(void* destination, int shift, uint32_t length) const{
   return this->copyTo(destination, shift, 0, length);
 }
 
@@ -142,12 +153,15 @@ int Pointer::copyTo(void* destination, uint32_t shift, uint32_t length) const{
  * @param length 
  * @return int 
  */
-int Pointer::copyTo(void* destination, uint32_t shift, uint32_t start, uint32_t length) const{
+int Pointer::copyTo(void* destination, int shift, int start, uint32_t length) const{
   if((destination == nullptr) || (this->mPointer == nullptr))
     return 0;  
   
-  memcpy(&(static_cast<char*>(destination))[shift], this->pointer(start), length);
-  return length;
+  if(length <= 0)
+    return 0;
+  
+  memcpy((static_cast<char*>(destination) + shift), this->pointer(start), static_cast<size_t>(length));
+  return static_cast<int>(length);
 }
 
 /* ****************************************************************************************

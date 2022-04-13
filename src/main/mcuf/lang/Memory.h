@@ -43,7 +43,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * Variable <Private>
    */
   private: 
-    int mLength;
+    uint32_t mLength;
     Memory* mNext;
 
   /* **************************************************************************************
@@ -72,7 +72,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param pointer 
      * @param length 
      */
-    Memory(const void* pointer, uint32_t length);
+    Memory(const void* pointer, size_t length);
 
     /**
      * @brief Construct a new Memory object
@@ -80,20 +80,20 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param pointer 
      * @param length 
      */
-    Memory(void* pointer, uint32_t length);
+    Memory(void* pointer, size_t length);
 
     /**
-     * @brief Destroy the Memory object
+     * @brief Construct a new Memory object
      * 
-     * @param size 
+     * @param length 
      */
-    Memory(uint32_t size);
+    Memory(size_t length);
     
     /**
      * @brief Destroy the Memory object
      * 
      */
-    ~Memory(void);
+    virtual ~Memory(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -121,9 +121,9 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * 
      * @param source 
      * @param length 
-     * @return int 
+     * @return int32_t 
      */
-    virtual int copy(const void* source, uint32_t length) override;
+    virtual int32_t copy(const void* source, uint32_t length) override;
 
     /**
      * @brief 
@@ -131,9 +131,9 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param source 
      * @param shift 
      * @param length 
-     * @return int 
+     * @return int32_t 
      */
-    virtual int copy(const void* source, uint32_t shift, uint32_t length) override;
+    virtual int32_t copy(const void* source, int32_t shift, uint32_t length) override;
 
     /**
      * @brief 
@@ -142,9 +142,9 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param shift 
      * @param start 
      * @param length 
-     * @return int 
+     * @return int32_t 
      */
-    virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length) override;
+    virtual int32_t copy(const void* source, int32_t shift, int32_t start, uint32_t length) override;
 
   /* **************************************************************************************
    * Public Method <Inline>
@@ -176,8 +176,8 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * 
      * @return uint32_t 
      */
-    inline int length(void) const{
-      return (this->mLength & 0x7FFFFFFF);
+    inline uint32_t length(void) const{
+      return static_cast<uint32_t>(this->mLength & 0x7FFFFFFF);
     }  
   
   /* **************************************************************************************

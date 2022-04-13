@@ -72,7 +72,7 @@ class mcuf::util::Fifo extends mcuf::lang::Memory implements
      * @brief Destroy the Fifo object
      * 
      */
-    virtual ~Fifo(void) = default;
+    virtual ~Fifo(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -123,7 +123,7 @@ class mcuf::util::Fifo extends mcuf::lang::Memory implements
      * 
      * @return uint32_t the number of elements in this collection.
      */
-    virtual int size(void) override;
+    virtual uint32_t size(void) override;
 
   /* **************************************************************************************
    * Public Method

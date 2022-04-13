@@ -74,7 +74,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * 
      * @param length 
      */
-    ByteBuffer(uint32_t length);
+    ByteBuffer(size_t length);
 
     /**
      * @brief Destroy the Byte Buffer object
@@ -106,7 +106,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     /**
      *
      */
-    inline ByteBuffer& operator<<(int v){
+    inline ByteBuffer& operator<<(int32_t v){
       this->putInt(v);
       return *this;
     }  
@@ -178,29 +178,29 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     /**
      *
      */
-    inline int operator=(int v){
-      this->position(v);
-      return this->position();
+    inline int32_t operator=(int32_t v){
+      this->position(static_cast<uint32_t>(v));
+      return static_cast<int32_t>(this->position());
     }
     
     /**
      *
      */
-    inline void operator+=(int shift){
-      this->position(this->position() + shift);
+    inline void operator+=(int32_t shift){
+      this->position(static_cast<uint32_t>(static_cast<int32_t>(this->position()) + shift));
     }
     
     /**
      *
      */
-    inline void operator-=(int shift){
-      this->position(this->position() - shift);
+    inline void operator-=(int32_t shift){
+      this->position(static_cast<uint32_t>(static_cast<int32_t>(this->position()) - shift));
     }
     
     /**
      *
      */
-    inline int operator++(void){
+    inline uint32_t operator++(void){
       this->position(this->position() + 1);
       return this->position();
     }
@@ -208,7 +208,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     /**
      *
      */
-    inline int operator--(void){
+    inline uint32_t operator--(void){
       this->position(this->position() - 1);
       return this->position();
     }
@@ -216,8 +216,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
         /**
      *
      */
-    inline int operator++(int){
-      int result = this->position();
+    inline uint32_t operator++(int){
+      uint32_t result = this->position();
       this->position(this->position() + 1);
       return result;
     }
@@ -225,8 +225,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     /**
      *
      */
-    inline int operator--(int){
-      int result = this->position();
+    inline uint32_t operator--(int){
+      uint32_t result = this->position();
       this->position(this->position() - 1);
       return result;
     }
@@ -269,7 +269,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     inline void clear(void){
       this->mPosition = 0;
       this->mMark = 0;
-      this->mLimit = this->length();
+      this->mLimit = static_cast<uint16_t>(this->length());
       return;
     }
     
@@ -297,7 +297,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * @return uint32_t 
      */
     inline uint32_t remaining(void){
-      return this->mLimit - this->mPosition;
+      return static_cast<uint32_t>(this->mLimit - this->mPosition);
     }  
     
     /**
@@ -383,7 +383,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     inline bool getIntMsb(uint32_t& result){
       return this->getIntMsb(reinterpret_cast<int&>(result));
     }
-  
+    
   /* **************************************************************************************
    *  Public Method
    */
@@ -464,18 +464,18 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * 
      * @param format 
      * @param ... 
-     * @return int 
+     * @return int32_t 
      */
-    int putFormat(const char* format, ...);
+    int32_t putFormat(const char* format, ...);
 
     /**
      * @brief 
      * 
      * @param format 
      * @param args 
-     * @return int 
+     * @return int32_t 
      */
-    int putFormat(const char* format, va_list args);
+    int32_t putFormat(const char* format, va_list args);
 
     /**
      * @brief 
@@ -502,7 +502,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * @return true 
      * @return false 
      */
-    bool putInt(const int value);
+    bool putInt(const int32_t value);
     
     /**
      * @brief 
@@ -511,7 +511,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * @return true 
      * @return false 
      */
-    bool putIntMsb(const int value);  
+    bool putIntMsb(const int32_t value);  
 
     /**
      * @brief Get the Byte object

@@ -39,6 +39,14 @@ Stacker::Stacker(const Memory& memory) : Memory(memory){
   return;
 }
 
+/**
+ * @brief Destroy the Stacker object
+ * 
+ */
+Stacker::~Stacker(void){
+  return;
+}
+
 /* ****************************************************************************************
  * Operator Method
  */
@@ -84,7 +92,7 @@ bool Stacker::isEmpty(void){
 /**
  *
  */
-int Stacker::size(void){
+uint32_t Stacker::size(void){
   return (reinterpret_cast<uint32_t>(this->mStackPointer) - 
     reinterpret_cast<uint32_t>(this->Memory::pointer()));
 }
@@ -97,7 +105,7 @@ int Stacker::size(void){
  * 
  */
 void* Stacker::alloc(uint32_t size){
-  if(this->getFree() < size)
+  if(static_cast<uint32_t>(this->getFree()) < size)
     return nullptr;
 
   void* result = this->mStackPointer;
@@ -127,7 +135,7 @@ bool Stacker::free(void* ptr, uint32_t size){
 /**
  * 
  */
-int Stacker::getFree(void){
+uint32_t Stacker::getFree(void){
   return (this->length() - this->size());
 }
 

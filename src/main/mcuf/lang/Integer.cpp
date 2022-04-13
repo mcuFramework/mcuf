@@ -39,7 +39,7 @@ Integer::Integer(void){
  * @param value 
  */
 Integer::Integer(int value){
-  this->mValue.u32 = value;
+  this->mValue.s32 = value;
   return;
 }
 

@@ -157,7 +157,7 @@ bool PrintStream::print(float f, bool newLine){
     return false;
 
   this->mByteBuffer.clear();
-  this->mByteBuffer.putFormat("%f", f);
+  this->mByteBuffer.putFormat("%f", static_cast<double>(f));
 
   if(newLine)
     this->mByteBuffer.put("\n");

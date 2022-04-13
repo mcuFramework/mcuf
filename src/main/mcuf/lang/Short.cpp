@@ -39,7 +39,7 @@ Short::Short(void){
  * @param value 
  */
 Short::Short(short value){
-  this->mValue.u16[0] = value;
+  this->mValue.s16[0] = value;
   return;
 }
 
@@ -66,7 +66,7 @@ Short::~Short(void){
  * @return int 
  */
 short Short::valueOf(const char* str){
-  return atoi(str);
+  return static_cast<short>(atoi(str));
 }
 
 /**
@@ -105,4 +105,4 @@ Short Short::valueOfShort(const char* str){
  
 /* ****************************************************************************************
  * End of file
- */ 
+ */

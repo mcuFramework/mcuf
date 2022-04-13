@@ -40,9 +40,10 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: uint16_t mHead;
-  protected: uint16_t mTail;
-  protected: bool mEmpty;
+  protected: 
+    uint16_t mHead;
+    uint16_t mTail;
+    bool mEmpty;
   
   /* **************************************************************************************
    * Variable <Private>
@@ -79,7 +80,7 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
      * @brief Destroy the Array Queue Prototype object
      * 
      */
-    virtual ~ArrayQueuePrototype(void);
+    virtual ~ArrayQueuePrototype(void) override;
 
   /* **************************************************************************************
    * Operator Method
