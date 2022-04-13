@@ -143,9 +143,20 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
      * @return false 
      */
     inline bool print(int i){
-      return this->print(i, false);
+      return this->print(i, false, false);
     }
 
+    /**
+     * @brief 
+     * 
+     * @param i 
+     * @return true 
+     * @return false 
+     */
+    inline bool print(unsigned int i){
+      return this->print(static_cast<int>(i), false, true);
+    }    
+    
     /**
      * @brief 
      * 
@@ -231,9 +242,20 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
      * @return false 
      */
     inline bool println(int i){
-      return this->print(i, true);
+      return this->print(i, true, false);
     }
 
+    /**
+     * @brief 
+     * 
+     * @param i 
+     * @return true 
+     * @return false 
+     */
+    inline bool println(unsigned int i){
+      return this->print(static_cast<int>(i), true, true);
+    }    
+    
     /**
      * @brief 
      * 
@@ -320,7 +342,7 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
      * @return true 
      * @return false 
      */
-    bool print(int i, bool newLine);
+    bool print(int i, bool newLine, bool unsign);
 
     /**
      * @brief 

@@ -174,12 +174,16 @@ bool PrintStream::print(float f, bool newLine){
  * @return true 
  * @return false 
  */
-bool PrintStream::print(int i, bool newLine){
+bool PrintStream::print(int i, bool newLine, bool unsign){
   if(this->mOutputStream.writeBusy())
     return false;
 
   this->mByteBuffer.clear();
-  this->mByteBuffer.putFormat("%d", i);
+  if(unsign)
+    this->mByteBuffer.putFormat("%d", static_cast<unsigned int>(i));
+  
+  else
+    this->mByteBuffer.putFormat("%d", i);
 
   if(newLine)
     this->mByteBuffer.put("\n");
