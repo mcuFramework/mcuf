@@ -68,7 +68,7 @@ class mcuf::util::Timer extends mcuf::lang::Object{
      * @brief Destroy the Timer Scheduler object
      * 
      */
-    virtual ~Timer(void);
+    virtual ~Timer(void) override;
   
   /* **************************************************************************************
    * Operator Method

@@ -75,7 +75,7 @@ class mcuf::util::Executor extends mcuf::util::ArrayQueue<mcuf::function::Runnab
      * @brief Destroy the Executor object
      * 
      */
-    virtual ~Executor(void);
+    virtual ~Executor(void) override;
 
   /* **************************************************************************************
    * Operator Method

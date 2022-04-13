@@ -69,7 +69,7 @@ class mcuf::lang::LinkedEntity extends mcuf::lang::Object{
      * @brief Destroy the Linked Entity object
      * 
      */
-    virtual ~LinkedEntity(void) = default;
+    virtual ~LinkedEntity(void) override;
 
   /* **************************************************************************************
    * Operator Method

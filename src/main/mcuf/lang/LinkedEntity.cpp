@@ -36,6 +36,13 @@ LinkedEntity::LinkedEntity(void* base){
   this->mBase = base;
 }
 
+/**
+ *
+ */
+LinkedEntity::~LinkedEntity(void){
+  return;
+}
+
 /* ****************************************************************************************
  * Operator Method
  */

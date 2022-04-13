@@ -62,13 +62,13 @@ class mcuf::lang::Math extends mcuf::lang::Object{
      * @brief Construct a new Math object
      * 
      */
-    Math(void) = default;
+    Math(void);
 
     /**
      * @brief Destroy the Math object
      * 
      */
-    virtual ~Math(void) = default;
+    virtual ~Math(void) override;
 
   /* **************************************************************************************
    * Operator Method

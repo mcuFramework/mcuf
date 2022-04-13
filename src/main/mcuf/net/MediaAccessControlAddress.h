@@ -77,7 +77,7 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::lang::Object{
      * @brief Destroy the Media Access Control Address object
      * 
      */
-    virtual ~MediaAccessControlAddress(void);
+    virtual ~MediaAccessControlAddress(void) override;
 
   /* **************************************************************************************
    * Operator Method

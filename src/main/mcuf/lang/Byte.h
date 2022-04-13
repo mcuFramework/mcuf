@@ -79,7 +79,7 @@ class mcuf::lang::Byte extends mcuf::lang::Number{
      * @brief Destroy the Byte object
      * 
      */
-    virtual ~Byte(void);
+    virtual ~Byte(void) override;
 
   /* **************************************************************************************
    * Operator Method

@@ -89,7 +89,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @brief Destroy the String object
      * 
      */
-    virtual ~String(void) = default;
+    virtual ~String(void) override;
 
   /* **************************************************************************************
    * Operator Method

@@ -57,11 +57,26 @@ using mcuf::util::Stacker;
 
 CoreThread* System::mCoreThread = nullptr;
 void (*System::mErrorCodeHandler)(const void* address, ErrorCode code);
-const uint32_t System::mSystemTimerClock = (1000/mcufTimerTick);
 
 /* ****************************************************************************************
  * Construct Method
  */
+
+/**
+ * @brief Construct a new System object
+ * 
+ */
+System::System(void){
+  return;
+}
+
+/**
+ * @brief Destroy the System object
+ * 
+ */
+System::~System(void){
+  return;
+}
 
 /* ****************************************************************************************
  * Operator Method
@@ -101,13 +116,6 @@ void System::error(const void* address, ErrorCode code){
  */
 void System::registorErrorCodeHandler(void (*handler)(const void* address, ErrorCode code)){
   System::mErrorCodeHandler = handler;
-}
-
-/**
- *
- */
-uint32_t System::getSystemTimerClock(void){
-  return System::mSystemTimerClock;
 }
 
 /**

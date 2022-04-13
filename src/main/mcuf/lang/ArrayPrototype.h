@@ -77,7 +77,7 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
      * @brief Destroy the Array Prototype object
      * 
      */
-    virtual ~ArrayPrototype(void);
+    virtual ~ArrayPrototype(void) override;
 
   /* **************************************************************************************
    * Operator Method

@@ -67,7 +67,7 @@ class mcuf::lang::Character extends mcuf::lang::Object{
      * @brief Destroy the Character object
      * 
      */
-    virtual ~Character(void);
+    virtual ~Character(void) override;
 
   /* **************************************************************************************
    * Operator Method

@@ -74,7 +74,7 @@ class mcuf::util::TimerTask extends mcuf::lang::Object implements
      * @brief Destroy the Timer Task object
      * 
      */
-    virtual ~TimerTask(void);
+    virtual ~TimerTask(void) override;
 
   /* **************************************************************************************
    * Operator Method

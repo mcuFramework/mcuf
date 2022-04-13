@@ -80,7 +80,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * @brief Destroy the Byte Buffer object
      * 
      */
-    virtual ~ByteBuffer(void);
+    virtual ~ByteBuffer(void) override;
   
   /* **************************************************************************************
    * Operator Method

@@ -72,7 +72,7 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
      * @brief Destroy the Print Stream object
      * 
      */
-    virtual ~PrintStream(void);
+    virtual ~PrintStream(void) override;
 
   /* **************************************************************************************
    * Operator Method

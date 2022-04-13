@@ -103,7 +103,9 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
      * @brief Destroy the Array object
      * 
      */
-    virtual ~Array() = default;
+    virtual ~Array(void) override {
+      return;
+    }
   
   /* **************************************************************************************
    * Operator Method

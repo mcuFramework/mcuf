@@ -20,6 +20,21 @@ using mcuf::lang::Math;
 /* ****************************************************************************************
  * Construct Method
  */
+/**
+ * @brief Construct a new Math object
+ * 
+ */
+Math::Math(void){
+  return;
+}
+
+/**
+ * @brief Destroy the Math object
+ * 
+ */
+Math::~Math(void){
+  return;
+}
 
 /* ****************************************************************************************
  * Operator Method

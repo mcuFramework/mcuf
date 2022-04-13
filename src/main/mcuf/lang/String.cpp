@@ -72,6 +72,13 @@ String::String(const Memory& memory) : Memory(memory){
   return;
 }
 
+/**
+ *
+ */
+String::~String(void){
+  return;
+}
+
 /* ****************************************************************************************
  * Operator Method
  */

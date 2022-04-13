@@ -86,7 +86,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @brief Destroy the Ring Buffer object
      * 
      */
-    virtual ~RingBuffer(void);
+    virtual ~RingBuffer(void) override;
 
   /* **************************************************************************************
    * Operator Method

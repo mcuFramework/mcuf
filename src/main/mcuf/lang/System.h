@@ -45,7 +45,6 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   private: 
     static void (*mErrorCodeHandler)(const void* address, ErrorCode code);
     static mcuf::lang::managerment::CoreThread* mCoreThread;
-    static const uint32_t mSystemTimerClock;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -64,13 +63,13 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * @brief Construct a new System object
      * 
      */
-    System(void) = default;
+    System(void);
 
     /**
      * @brief Destroy the System object
      * 
      */
-    virtual ~System(void) = default;
+    virtual ~System(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -108,13 +107,6 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * @param handler 
      */
     static void registorErrorCodeHandler(void (*handler)(const void* address, ErrorCode code));
-    
-    /**
-     * @brief Get the System Timer Clock object
-     * 
-     * @return uint32_t 
-     */
-    static uint32_t getSystemTimerClock(void);
     
     /**
      * @brief Get the Core Clock object

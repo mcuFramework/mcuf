@@ -34,6 +34,23 @@ using mcuf::lang::ThreadState;
  * Construct Method
  */
 
+/**
+ * @brief Construct a new Threads object
+ * 
+ */
+Threads::Threads(void){
+  return;
+}
+
+
+/**
+ * @brief 
+ * 
+ */
+Threads::~Threads(void){
+  return;
+}
+
 /* ****************************************************************************************
  * Operator Method
  */

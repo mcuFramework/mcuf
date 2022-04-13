@@ -80,7 +80,7 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      * @brief Destroy the Short object
      * 
      */
-    virtual ~Short(void);
+    virtual ~Short(void) override;
 
   /* **************************************************************************************
    * Operator Method
