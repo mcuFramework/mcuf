@@ -44,6 +44,7 @@ using mcuf::lang::Math;
 using mcuf::lang::Memory;
 using mcuf::lang::System;
 using mcuf::lang::managerment::CoreThread;
+using mcuf::lang::managerment::SystemRegister;
 using mcuf::lang::ThreadEvent;
 using mcuf::util::Stacker;
 
@@ -54,9 +55,13 @@ using mcuf::util::Stacker;
 /* ****************************************************************************************
  * Static Variable
  */  
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wexit-time-destructors"
+#pragma clang diagnostic ignored "-Wglobal-constructors"
+SystemRegister System::mSystemRegister = SystemRegister();
+#pragma clang diagnostic pop
 
 CoreThread* System::mCoreThread = nullptr;
-void (*System::mErrorCodeHandler)(const void* address, ErrorCode code);
 
 /* ****************************************************************************************
  * Construct Method
@@ -87,7 +92,27 @@ System::~System(void){
  */
 
 /**
+ * @brief 
  * 
+ */
+void System::reboot(void){
+  System::mSystemRegister.mSystemReset();
+  return;
+}
+
+/**
+ * @brief 
+ * 
+ * @return mcuf::io::PrintStream& 
+ */
+mcuf::io::PrintStream& System::out(void){
+  return *System::mSystemRegister.mPrintStream;
+}
+
+/**
+ * @brief 
+ * 
+ * @param userThread 
  */
 void System::start(mcuf::lang::Thread& userThread){
   osKernelInitialize();  
@@ -105,17 +130,24 @@ void System::start(mcuf::lang::Thread& userThread){
  * 
  */
 void System::error(const void* address, ErrorCode code){
-  if(System::mErrorCodeHandler != nullptr)
-    System::mErrorCodeHandler(address, code);
+  bool result = false;
+  if(System::mSystemRegister.mErrorCodeHandler){
+    result = System::mSystemRegister.mErrorCodeHandler(address, code);
+  }
+  
+  if(result)
+    return;
   
   while(1);
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @return SystemRegister 
  */
-void System::registorErrorCodeHandler(void (*handler)(const void* address, ErrorCode code)){
-  System::mErrorCodeHandler = handler;
+SystemRegister& System::getRegister(void){
+  return System::mSystemRegister;
 }
 
 /**

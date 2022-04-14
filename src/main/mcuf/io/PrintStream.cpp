@@ -38,14 +38,22 @@ using mcuf::io::OutputStream;
  */
 
 /**
- * @brief Construct a new Print Stream object
+ * @brief Construct a new Print Stream:: Print Stream object
  * 
+ * @param outputStream 
+ * @param memory 
  */
 PrintStream::PrintStream(OutputStream& outputStream, const Memory& memory) : 
   Memory(memory),
   mOutputStream(outputStream),
   mByteBuffer(memory){
   
+  return;
+}
+
+PrintStream::PrintStream(OutputStream& outputStream, uint32_t length) : 
+  PrintStream(outputStream, Memory(length)){
+
   return;
 }
 

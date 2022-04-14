@@ -16,6 +16,7 @@
 #include "mcuf/lang/Object.h"
 #include "mcuf/lang/Thread.h"
 #include "mcuf/lang/managerment/CoreThread.h"
+#include "mcuf/lang/managerment/SystemRegister.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -31,6 +32,7 @@ namespace mcuf{
  */  
 class mcuf::lang::System final extends mcuf::lang::Object{
 
+  
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -43,7 +45,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    * Variable <Private>
    */
   private: 
-    static void (*mErrorCodeHandler)(const void* address, ErrorCode code);
+    static mcuf::lang::managerment::SystemRegister mSystemRegister;
     static mcuf::lang::managerment::CoreThread* mCoreThread;
 
   /* **************************************************************************************
@@ -85,7 +87,14 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * 
      */
     static void reboot(void);
-
+  
+    /**
+     * @brief 
+     * 
+     * @return mcuf::io::PrintStream& 
+     */
+    static mcuf::io::PrintStream& out(void);
+      
     /**
      * @brief 
      * 
@@ -97,16 +106,16 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * @brief 
      * 
      * @param address 
-     * @param code 
+     * @param code
      */
     static void error(const void* address, ErrorCode code);
     
     /**
-     * @brief 
+     * @brief Get the Register object
      * 
-     * @param handler 
+     * @return mcuf::lang::managerment::SystemRegister 
      */
-    static void registorErrorCodeHandler(void (*handler)(const void* address, ErrorCode code));
+    static mcuf::lang::managerment::SystemRegister& getRegister(void);
     
     /**
      * @brief Get the Core Clock object

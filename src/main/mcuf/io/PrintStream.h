@@ -65,9 +65,19 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
     /**
      * @brief Construct a new Print Stream object
      * 
+     * @param outputStream 
+     * @param memory 
      */
     PrintStream(mcuf::io::OutputStream& outputStream, const mcuf::lang::Memory& memory);
 
+    /**
+     * @brief Construct a new Print Stream object
+     * 
+     * @param outputStream 
+     * @param length 
+     */
+    PrintStream(mcuf::io::OutputStream& outputStream, uint32_t length);
+  
     /**
      * @brief Destroy the Print Stream object
      * 

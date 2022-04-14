@@ -15,6 +15,7 @@
  * Include
  */
 #include "CoreThread.h"
+#include "SystemRegister.h"
 
 /* ****************************************************************************************
  * End of file

@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_773B1369_98E1_4A0E_BE62_135FA19FF875
-#define MCUF_773B1369_98E1_4A0E_BE62_135FA19FF875
+#ifndef MCUF_250BB139_7AA6_49B5_A65F_5344E37B3F8A
+#define MCUF_250BB139_7AA6_49B5_A65F_5344E37B3F8A
 
 /* ****************************************************************************************
  * Include
@@ -15,16 +15,18 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/io/OutputStream.h"
-#include "mcuf/io/ByteBuffer.h"
-#include "mcuf/io/RingBuffer.h"
+#include "mcuf/lang/Object.h"
+#include "mcuf/io/PrintStream.h"
+#include "mcuf/lang/ErrorCode.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
-  namespace io{
-    class OutputStreamBuffer;
+namespace mcuf::lang{
+  class System;
+
+  namespace managerment{
+    class SystemRegister;
   }
 }
 
@@ -32,14 +34,20 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::io::OutputStreamBuffer extends mcuf::io::RingBuffer implements
-  public mcuf::io::OutputStream,
-  public mcuf::io::CompletionHandler<int ,void*>{
-
+class mcuf::lang::managerment::SystemRegister extends mcuf::lang::Object{
+  
+  friend mcuf::lang::System;
+  /* **************************************************************************************
+   * Typedef
+   */
+  public:
+    typedef bool (*ErrorCodeHandler)(const void* address, ErrorCode code);
+    typedef void (*SystemReset)(void);
+  
   /* **************************************************************************************
    * Variable <Public>
    */
-
+    
   /* **************************************************************************************
    * Variable <Protected>
    */
@@ -48,9 +56,10 @@ class mcuf::io::OutputStreamBuffer extends mcuf::io::RingBuffer implements
    * Variable <Private>
    */
   private:
-    mcuf::io::OutputStream& mOutputStream;
-    mcuf::io::ByteBuffer mByteBuffer;
-
+    ErrorCodeHandler mErrorCodeHandler;
+    SystemReset mSystemReset;
+    mcuf::io::PrintStream* mPrintStream;
+  
   /* **************************************************************************************
    * Abstract method <Public>
    */
@@ -63,27 +72,18 @@ class mcuf::io::OutputStreamBuffer extends mcuf::io::RingBuffer implements
    * Construct Method
    */
   public:
-    
-    /**
-     * @brief Construct a new Output Stream Buffer object
-     * 
-     * @param memory 
-     */
-    OutputStreamBuffer(mcuf::io::OutputStream& outputStream ,const mcuf::lang::Memory& memory);
 
     /**
-     * @brief Construct a new Output Stream Buffer object
+     * @brief Construct a new System Register object
      * 
-     * @param outputStream 
-     * @param length 
      */
-    OutputStreamBuffer(mcuf::io::OutputStream& outputStream ,uint32_t length);
+    SystemRegister(void);
 
     /**
-     * @brief Destroy the Output Stream Buffer object
+     * @brief Destroy the System Register object
      * 
      */
-    virtual ~OutputStreamBuffer(void) override;
+    virtual ~SystemRegister(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -94,73 +94,33 @@ class mcuf::io::OutputStreamBuffer extends mcuf::io::RingBuffer implements
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::io::OutputStream
+   * Public Method <Override>
    */
-  public:
-
-    /**
-     * @brief 
-     * 
-     * @return true successful.
-     * @return false fail.
-     */
-    virtual bool abortWrite(void) override;
-    
-    /**
-     * @brief 
-     * 
-     * @return true is busy.
-     * @return false isn't busy.
-     */
-    virtual bool writeBusy(void) override;
-
-    /**
-     * @brief 
-     * 
-     * @param byteBuffer 
-     * @param attachment 
-     * @param handler 
-     * @return true successful.
-     * @return false fail.
-     */
-    virtual bool write(mcuf::io::ByteBuffer& byteBuffer, 
-                       void* attachment,
-                       mcuf::io::CompletionHandler<int, void*>* handler) override;
-                       
-    /**
-     * @brief 
-     * 
-     * @param byteBuffer 
-     * @param feture 
-     * @return true 
-     * @return false 
-     */
-    virtual bool write(mcuf::io::ByteBuffer& byteBuffer, mcuf::io::Future& feture) override;
-
-  /* **************************************************************************************
-   * Public Method <Override> - mcuf::io::CompletionHandler<int ,void*>
-   */
-  public:
-  
-    /**
-     * @brief 
-     * 
-     * @param result 
-     * @param attachment 
-     */
-    virtual void completed(int result, void* attachment) override;
-    
-    /**
-     * @brief 
-     * 
-     * @param exc 
-     * @param attachment 
-     */
-    virtual void failed(void* exc, void* attachment) override;
 
   /* **************************************************************************************
    * Public Method
    */
+  public:
+    /**
+     * @brief Set the Print Stream object
+     * 
+     * @param printStream 
+     */
+    void setPrintStream(mcuf::io::PrintStream* printStream);
+  
+    /**
+     * @brief Set the Error Code Handler object
+     * 
+     * @param errorCodeHandler 
+     */
+    void setErrorCodeHandler(ErrorCodeHandler errorCodeHandler);
+
+    /**
+     * @brief Set the System Reset object
+     * 
+     * @param systemReset 
+     */
+    void setSystemReset(SystemReset systemReset);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -185,17 +145,11 @@ class mcuf::io::OutputStreamBuffer extends mcuf::io::RingBuffer implements
   /* **************************************************************************************
    * Private Method
    */
-  private:
-    
-    /**
-     *
-     */
-    void writePacket(void);
-  
+
 };
 
 /* ****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_773B1369_98E1_4A0E_BE62_135FA19FF875 */
+#endif /* MCUF_250BB139_7AA6_49B5_A65F_5344E37B3F8A */

@@ -55,6 +55,17 @@ OutputStreamBuffer::OutputStreamBuffer(OutputStream& outputStream ,const Memory&
 }
 
 /**
+ * @brief Construct a new Output Stream Buffer:: Output Stream Buffer object
+ * 
+ * @param outputStream 
+ * @param length 
+ */
+OutputStreamBuffer::OutputStreamBuffer(OutputStream& outputStream ,uint32_t length) : 
+  OutputStreamBuffer(outputStream, Memory(length)){
+  this->mOutputStream = outputStream;
+}
+
+/**
  * @brief Destroy the Output Stream Buffer object
  * 
  */
