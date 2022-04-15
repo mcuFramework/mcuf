@@ -173,6 +173,8 @@ class mcuf::lang::String extends mcuf::lang::Memory{
    */
   public:
 
+    int scanFormat(const char* format, ...);
+  
     /**
      * @brief 
      * 

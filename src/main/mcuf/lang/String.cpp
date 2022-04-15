@@ -192,6 +192,14 @@ String String::empty(void){
  * Public Method
  */
 
+int String::scanFormat(const char* format, ...){
+  va_list args;
+  va_start(args, format);
+  int result = vsscanf(static_cast<char*>(this->pointer()), format, args);
+  va_end(args);
+  return result;  
+}
+
 /**
  * @brief 
  * 
