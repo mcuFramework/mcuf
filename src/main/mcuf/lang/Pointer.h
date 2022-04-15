@@ -203,17 +203,17 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copy(const void* source, uint32_t length);
+    virtual int copy(const void* source, int length);
 
     /**
      * @brief 
      * 
      * @param source 
-     * @param shift 
+     * @param start 
      * @param length 
      * @return int 
      */
-    virtual int copy(const void* source, int shift, uint32_t length);
+    virtual int copy(const void* source, int start, int length);
 
     /**
      * @brief 
@@ -224,7 +224,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copy(const void* source, int shift, int start, uint32_t length);
+    virtual int copy(const void* source, int shift, int start, int length);
 
     /**
      * @brief 
@@ -233,17 +233,17 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copyTo(void* destination, uint32_t length) const;
+    virtual int copyTo(void* destination, int length) const;
 
     /**
      * @brief 
      * 
      * @param destination 
-     * @param shift 
+     * @param start 
      * @param length 
      * @return int 
      */
-    virtual int copyTo(void* destination, int shift, uint32_t length) const;
+    virtual int copyTo(void* destination, int start, int length) const;
 
     /**
      * @brief 
@@ -254,7 +254,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copyTo(void* destination, int shift, int start, uint32_t length) const; 
+    virtual int copyTo(void* destination, int shift, int start, int length) const; 
 
   /* **************************************************************************************
    * Public Method <inline>

@@ -67,11 +67,11 @@ interface mcuf::io::OutputStream{
    * @brief 
    * 
    * @param byteBuffer 
-   * @param feture 
+   * @param future 
    * @return true 
    * @return false 
    */
-  virtual bool write(mcuf::io::ByteBuffer& byteBuffer, mcuf::io::Future& feture) abstract;
+  virtual bool write(mcuf::io::ByteBuffer& byteBuffer, mcuf::io::Future& future) abstract;
 
 };
 

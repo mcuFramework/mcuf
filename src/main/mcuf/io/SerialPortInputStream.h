@@ -146,7 +146,7 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
      * @return int 
      */
     virtual bool read(mcuf::io::ByteBuffer& byteBuffer, 
-                      mcuf::io::Future& feture) override;
+                      mcuf::io::Future& future) override;
                   
     /**
      * @brief 

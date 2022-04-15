@@ -85,7 +85,7 @@ Pointer Pointer::nullPointer(void){
  * @param length 
  * @return int 
  */
-int Pointer::copy(const void* source, uint32_t length){
+int Pointer::copy(const void* source, int length){
   return this->copy(source, 0, 0, length);
 }
 
@@ -93,12 +93,12 @@ int Pointer::copy(const void* source, uint32_t length){
  * @brief 
  * 
  * @param source 
- * @param shift 
+ * @param start 
  * @param length 
  * @return int 
  */
-int Pointer::copy(const void* source, int shift, uint32_t length){
-  return this->copy(source, shift, 0, length);
+int Pointer::copy(const void* source, int start, int length){
+  return this->copy(source, 0, start, length);
 }
 
 /**
@@ -110,15 +110,18 @@ int Pointer::copy(const void* source, int shift, uint32_t length){
  * @param length 
  * @return int 
  */
-int Pointer::copy(const void* source, int shift, int start, uint32_t length){
+int Pointer::copy(const void* source, int shift, int start, int length){
+  if(length <= 0)
+    return 0;  
+  
   if((source == nullptr) || (this->mPointer == nullptr))
     return 0;  
   
   if(length <= 0)
     return 0;
   
-  memcpy(this->pointer(shift), (static_cast<const char*>(source) + start), static_cast<size_t>(length));
-  return static_cast<int>(length);
+  memcpy(this->pointer(start), (static_cast<const char*>(source) + shift), static_cast<size_t>(length));
+  return length;
 }
 
 /**
@@ -128,7 +131,7 @@ int Pointer::copy(const void* source, int shift, int start, uint32_t length){
  * @param length 
  * @return int 
  */
-int Pointer::copyTo(void* destination, uint32_t length) const{
+int Pointer::copyTo(void* destination, int length) const{
   return this->copyTo(destination, 0, 0, length);
 }
 
@@ -140,8 +143,8 @@ int Pointer::copyTo(void* destination, uint32_t length) const{
  * @param length 
  * @return int 
  */
-int Pointer::copyTo(void* destination, int shift, uint32_t length) const{
-  return this->copyTo(destination, shift, 0, length);
+int Pointer::copyTo(void* destination, int start, int length) const{
+  return this->copyTo(destination, 0, start, length);
 }
 
 /**
@@ -153,7 +156,10 @@ int Pointer::copyTo(void* destination, int shift, uint32_t length) const{
  * @param length 
  * @return int 
  */
-int Pointer::copyTo(void* destination, int shift, int start, uint32_t length) const{
+int Pointer::copyTo(void* destination, int shift, int start, int length) const{
+  if(length <= 0)
+    return 0;
+  
   if((destination == nullptr) || (this->mPointer == nullptr))
     return 0;  
   

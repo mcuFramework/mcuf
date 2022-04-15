@@ -116,28 +116,28 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
     /**
      * @brief Return size the ring buffer.
      * 
-     * @return uint32_t Size of the ring buffer in bytes.
+     * @return int Size of the ring buffer in bytes.
      */
-    inline uint32_t getSize(void){
-      return this->mCount;
+    inline int getSize(void){
+      return static_cast<int>(this->mCount);
     }
 
     /**
      * @brief Return number of items in the ring buffer
      * 
-     * @return uint32_t Number of items in the ring buffer.
+     * @return int Number of items in the ring buffer.
      */
-    inline uint32_t getCount(void){
-      return (VACCESS(uint32_t, this->mHead) - VACCESS(uint32_t, this->mTail));
+    inline int getCount(void){
+      return static_cast<int>((VACCESS(uint32_t, this->mHead) - VACCESS(uint32_t, this->mTail)));
     }
 
     /**
      * @brief Return number of free items in the ring buffer.
      * 
-     * @return uint32_t Number of free items in the ring buffer.
+     * @return int Number of free items in the ring buffer.
      */
-    inline uint32_t getFree(void){
-      return (this->mCount - this->getCount());
+    inline int getFree(void){
+      return (static_cast<int>(this->mCount) - this->getCount());
     }
 
     /**
@@ -147,7 +147,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @return false not full.
      */
     inline bool isFull(void){
-      return (this->getCount() >= this->mCount);
+      return (this->getCount() >= static_cast<int>(this->mCount));
     }
 
     /**
@@ -165,8 +165,8 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * 
      * @return int 
      */
-    inline uint32_t getHeadPosition(void){
-      return (this->mHead & (this->mCount -1));
+    inline int getHeadPosition(void){
+      return static_cast<int>((this->mHead & (this->mCount -1)));
     }
 
     /**
@@ -174,8 +174,8 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * 
      * @return int 
      */
-    inline uint32_t getTailPosition(void){
-      return (this->mTail & (this->mCount - 1));
+    inline int getTailPosition(void){
+      return static_cast<int>((this->mTail & (this->mCount - 1)));
     }
 
   /* **************************************************************************************
@@ -199,7 +199,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @param num 
      * @return int 
      */
-    uint32_t insertMult(const void *data, uint32_t num);
+    int insertMult(const void *data, int num);
 
     /**
      * @brief 
@@ -217,7 +217,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @param num 
      * @return int 
      */
-    uint32_t popMult(void* data, uint32_t num);
+    int popMult(void* data, int num);
 
   /* **************************************************************************************
    * Protected Method <Static>

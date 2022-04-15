@@ -32,7 +32,7 @@ BlockPool::BlockPool(const Memory& memory, uint32_t elementSize) : Memory(memory
   this->mElementSize = elementSize;
   this->mCapacity = static_cast<uint32_t>(this->length()) / this->mElementSize;
   this->mFlagSize = Math::ceil(this->mCapacity, 8U);
-  this->mFlags = static_cast<uint8_t*>(this->pointer(this->length() - this->mFlagSize));
+  this->mFlags = static_cast<uint8_t*>(this->pointer(static_cast<uint32_t>(this->length()) - this->mFlagSize));
   this->mLastFlag = 0xFFFFFFFF;
   this->mSize = 0;
   

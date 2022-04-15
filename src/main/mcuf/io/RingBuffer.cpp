@@ -117,15 +117,18 @@ bool RingBuffer::insert(const void* data){
  * @param num 
  * @return int 
  */
-uint32_t RingBuffer::insertMult(const void *data, uint32_t num){
+int RingBuffer::insertMult(const void *data, int num){
+  if(num <= 0)
+    return 0;
+  
   if(data == nullptr){
-    uint32_t max = this->getFree();
+    uint32_t max = static_cast<uint32_t>(this->getFree());
 
-    if(num > max)
-      num = max;
+    if(static_cast<uint32_t>(num) > max)
+      num = static_cast<int>(max);
 
     this->mHead += static_cast<uint32_t>(num);
-    return num;
+    return static_cast<int>(num);
   }
 
   uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
@@ -158,7 +161,7 @@ uint32_t RingBuffer::insertMult(const void *data, uint32_t num){
   memcpy(ptr, data, cnt2);
   this->mHead += cnt2;
 
-  return (cnt1 + cnt2);
+  return static_cast<int>(cnt1 + cnt2);
 }
 
 /**
@@ -189,12 +192,15 @@ bool RingBuffer::pop(void* data){
  * @param num 
  * @return int 
  */
-uint32_t RingBuffer::popMult(void* data, uint32_t num){
+int RingBuffer::popMult(void* data, int num){
+  if(num <= 0)
+    return 0;
+  
   if(data == nullptr){
-    uint32_t max = this->getCount();
+    uint32_t max = static_cast<uint32_t>(this->getCount());
 
-    if(num > max)
-      num = max;
+    if(static_cast<uint32_t>(num) > max)
+      num = static_cast<int>(max);
 
     this->mTail += static_cast<uint32_t>(num);
     return num;
@@ -230,7 +236,7 @@ uint32_t RingBuffer::popMult(void* data, uint32_t num){
   memcpy(data, ptr, cnt2);
   this->mTail += cnt2;
 
-  return (cnt1 + cnt2);
+  return static_cast<int>(cnt1 + cnt2);
 }
 
 /* ****************************************************************************************

@@ -166,7 +166,7 @@ bool Fifo::insertHead(void* pointer){
     return false;
 
   this->mEmpty = false;
-  this->copy(pointer, (this->mElementSize * this->mHead), 0, this->mElementSize);
+  this->copy(pointer, 0, (this->mElementSize * this->mHead),  this->mElementSize);
   
   ++this->mHead;
   if(this->mHead >= this->mElementLength)
@@ -203,8 +203,7 @@ bool Fifo::popTail(void* pointer){
   if(this->isEmpty())
     return false;
   
-  Pointer p = pointer;
-  p.copy(this->pointer(this->mElementSize * this->mTail), 0, 0, this->mElementSize);
+  this->copyTo(pointer, 0, (this->mElementSize * this->mTail), this->mElementSize);
 
   ++this->mTail;
   if(this->mTail >= this->mElementLength)

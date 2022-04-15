@@ -143,40 +143,20 @@ Memory Memory::nullMemory(void){
  * @param length 
  * @return int32_t 
  */
-int Memory::copy(const void* source, uint32_t length){
-  if(this->isReadOnly())
-    return 0;
-  
-  uint32_t max = this->length();
-  
-  if(length > max)
-    return Pointer::copy(source, max);
-
-  return Pointer::copy(source, length);
+int Memory::copy(const void* source, int length){
+  return Memory::copy(source, 0, 0, length);
 }
 
 /**
  * @brief 
  * 
  * @param source 
- * @param shift 
+ * @param start 
  * @param length 
  * @return int32_t 
  */
-int Memory::copy(const void* source, int32_t shift, uint32_t length){
-  if(this->isReadOnly())
-    return 0; 
-  
-  uint32_t max = this->length();
-  
-  if((shift + static_cast<int>(length)) > static_cast<int>(max)){
-    if(shift > static_cast<int>(max))
-      return 0;
-    
-    length = static_cast<uint32_t>(static_cast<int>(max) - shift);
-  }
-
-  return Pointer::copy(source, shift, length);
+int Memory::copy(const void* source, int start, int length){
+  return Memory::copy(source, 0, start, length);
 }
 
 /**
@@ -188,17 +168,20 @@ int Memory::copy(const void* source, int32_t shift, uint32_t length){
  * @param length 
  * @return int32_t 
  */
-int Memory::copy(const void* source, int32_t shift, int32_t start, uint32_t length){
+int Memory::copy(const void* source, int shift, int start, int length){
+  if(length <= 0)
+    return 0;
+  
   if(this->isReadOnly())
     return 0;
   
-  int32_t max = static_cast<int32_t>(this->length());
+  int max = this->length();
   
   if(shift > max)
     return 0;
   
-  if(length > static_cast<uint32_t>((max - shift)))
-    length = static_cast<uint32_t>((max - shift));
+  if(length > (max - shift))
+    length = (max - shift);
   
   return Pointer::copy(source, shift, start, length);
 }
@@ -210,28 +193,54 @@ int Memory::copy(const void* source, int32_t shift, int32_t start, uint32_t leng
 /**
  * @brief 
  * 
- * @return Memory& 
+ * @return int 
  */
-bool Memory::wipe(void){
-  if(this->isReadOnly())
-    return false;
-  
-  memset(this->pointer(), 0x00, static_cast<size_t>(this->length()));
-  return true;
+int Memory::wipe(void){
+  return this->wipe(0x00, 0, 0);
 }
 
 /**
  * @brief 
  * 
  * @param value 
- * @return Memory& 
+ * @return int 
  */
-bool Memory::wipe(uint8_t value){
-  if(this->isReadOnly())
-    return false;
+int Memory::wipe(uint8_t value){
+  return this->wipe(value, 0, 0);
+}
+
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @param start 
+ * @return int 
+ */
+int Memory::wipe(uint8_t value, int length){
+  return this->wipe(value, 0, length);
+}
   
-  memset(this->pointer(), value, static_cast<size_t>(this->length()));
-  return true;
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @param start 
+ * @param length 
+ * @return int 
+ */
+int Memory::wipe(uint8_t value, int start, int length){
+  if(this->isReadOnly())
+    return 0;
+  
+  if(length <= 0)
+    return 0;
+  
+  int max = this->length();
+  if((start + length) > max)
+    length = max - start;
+  
+  memset(this->pointer(start), value, static_cast<size_t>(length));
+  return length;
 }
 
 /**
@@ -288,6 +297,102 @@ Memory Memory::subMemory(uint32_t beginIndex, uint32_t length) const{
   
 
   return Memory(this->pointer(static_cast<int>(beginIndex)), length);
+}
+
+/**
+ * @brief 
+ * 
+ * @param source 
+ * @param shift 
+ * @param start 
+ * @param length 
+ * @return int32_t 
+ */
+int Memory::insertArray(const void* source, int start, int length){
+  return this->insertArray(source, 0, start, length);
+}
+
+/**
+ * @brief 
+ * 
+ * @param source 
+ * @param shift 
+ * @param start 
+ * @param length 
+ * @return int32_t 
+ */
+int Memory::insertArray(const void* source, int shift, int start, int length){
+  if(length <= 0)
+    return 0;
+  
+  int max = this->length();
+  
+  if(start + length > max)
+    length = max - start;
+  
+  int less = max - (start + length);
+  
+  if(less != 0)
+    this->copy(this->pointer(start), 0, (start + length), less);
+  
+  this->copy(source, 0, start, length);
+  
+  return 0;
+}
+
+/**
+ * @brief 
+ * 
+ * @param start 
+ * @param length 
+ * @return int32_t 
+ */
+int Memory::popArray(int start, int length){
+  return this->popArray(nullptr, 0, start, length);
+}
+
+/**
+ * @brief 
+ * 
+ * @param source 
+ * @param start 
+ * @param length 
+ * @return int32_t 
+ */
+int Memory::popArray(void* source, int start, int length){
+  return this->popArray(source, 0, start, length);
+}
+
+/**
+ * @brief 
+ * 
+ * @param source 
+ * @param shift 
+ * @param start 
+ * @param length 
+ * @return true 
+ * @return false 
+ */
+int Memory::popArray(void* source, int shift, int start, int length){
+  if(length <= 0)
+    return 0;
+  
+  int max = this->length();
+  
+  if(start + length > max)
+    length = max - start;
+  
+  int less = max - (start + length);
+  
+  if(source != nullptr)
+    this->copyTo(source, shift, start, length);
+  
+  if(less != 0)
+    this->copy(this->pointer(start), 0, (start + length), less);
+  
+  this->wipe(0x00, (start + less), length);
+  
+  return length;
 }
 
 /* ****************************************************************************************

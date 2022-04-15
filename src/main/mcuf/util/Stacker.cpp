@@ -136,7 +136,7 @@ bool Stacker::free(void* ptr, uint32_t size){
  * 
  */
 uint32_t Stacker::getFree(void){
-  return (this->length() - this->size());
+  return (static_cast<uint32_t>(this->length()) - this->size());
 }
 
 /**

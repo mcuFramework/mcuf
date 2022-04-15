@@ -141,7 +141,7 @@ bool MemoryPool::free(void* ptr, uint32_t size){
  * @brief 
  * 
  */
-bool MemoryPool::wipe(void){
+int MemoryPool::wipe(void){
   if(this->isReadOnly())
     return false;
 
@@ -169,8 +169,31 @@ bool MemoryPool::wipe(void){
  * 
  * @param value 
  */
-bool MemoryPool::wipe(uint8_t value){
-  return this->wipe();
+int MemoryPool::wipe(uint8_t value){
+  return MemoryPool::wipe();
+}
+
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @param length 
+ * @return int 
+ */
+int MemoryPool::wipe(uint8_t value, int length){
+  return MemoryPool::wipe();
+}
+  
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @param start 
+ * @param length 
+ * @return int 
+ */
+int MemoryPool::wipe(uint8_t value, int start, int length){
+  return MemoryPool::wipe();
 }
 
 /* ****************************************************************************************

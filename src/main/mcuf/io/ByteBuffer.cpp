@@ -76,11 +76,14 @@ ByteBuffer::~ByteBuffer(void){
  * @return true 
  * @return false 
  */
-bool ByteBuffer::limit(uint32_t newLimit){
-  if(static_cast<uint16_t>(newLimit) > this->length())
+bool ByteBuffer::limit(int newLimit){
+  if(newLimit < 0)
     return false;
   
-  this->mLimit = static_cast<uint16_t>(newLimit);
+  if(newLimit > this->length())
+    return false;
+  
+  this->mLimit = newLimit;
   return true;
 }
 
@@ -91,14 +94,15 @@ bool ByteBuffer::limit(uint32_t newLimit){
  * @return true 
  * @return false 
  */
-bool ByteBuffer::position(uint32_t newPosition){
-  this->mPosition = static_cast<uint16_t>(newPosition);
-  if(this->mPosition >= this->mLimit){
-     this->mPosition = this->mLimit;
-    return true;
-  }
-    
-  return false;
+bool ByteBuffer::position(int newPosition){
+  if(newPosition < 0)
+    return false;
+  
+  if(newPosition > this->limit())
+    return false;
+  
+  this->mPosition = newPosition;
+  return true;
 }
 
 /**
@@ -119,7 +123,7 @@ void ByteBuffer::flip(void){
  * @return false 
  */
 bool ByteBuffer::put(char const* string){
-  return this->put(string, strlen(string));
+  return this->put(string, static_cast<int>(strlen(string)));
 }
 
 /**
@@ -130,15 +134,15 @@ bool ByteBuffer::put(char const* string){
  * @return true 
  * @return false 
  */
-bool ByteBuffer::put(const void* ptr, uint32_t size){
+bool ByteBuffer::put(const void* ptr, int size){
   if(size <= 0)
     return false;  
   
-  uint32_t rem = this->remaining();
+  int rem = this->remaining();
   if(size > rem)
     size = rem;
   
-  this->copy(ptr, this->mPosition, size);
+  this->copy(ptr, 0, this->mPosition, size);
   this->mPosition += size;
   return true;
 }
@@ -162,7 +166,7 @@ bool ByteBuffer::put(const String& string){
  * @return false 
  */
 bool ByteBuffer::put(ByteBuffer& byteBuffer){
-  uint32_t rem = byteBuffer.remaining();
+  int rem = byteBuffer.remaining();
   if(rem == 0)
     return true;
   

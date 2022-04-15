@@ -26,7 +26,7 @@
 #define getRtxMemory()         (static_cast<osRtxThread_t*>(this->pointer()))
 #define getRtxMemorySize()     (mcuf::lang::Math::align64bit(osRtxThreadCbSize))
 #define getStackMemory()       (this->pointer(getRtxMemorySize()))
-#define getStackMemorySize()   (this->length() - getRtxMemorySize())
+#define getStackMemorySize()   (static_cast<size_t>(this->length()) - getRtxMemorySize())
 
 /* ****************************************************************************************
  * Using

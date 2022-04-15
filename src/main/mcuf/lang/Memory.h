@@ -123,17 +123,17 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param length 
      * @return int32_t 
      */
-    virtual int32_t copy(const void* source, uint32_t length) override;
+    virtual int copy(const void* source, int length) override;
 
     /**
      * @brief 
      * 
      * @param source 
-     * @param shift 
+     * @param start 
      * @param length 
      * @return int32_t 
      */
-    virtual int32_t copy(const void* source, int32_t shift, uint32_t length) override;
+    virtual int copy(const void* source, int start, int length) override;
 
     /**
      * @brief 
@@ -144,7 +144,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param length 
      * @return int32_t 
      */
-    virtual int32_t copy(const void* source, int32_t shift, int32_t start, uint32_t length) override;
+    virtual int copy(const void* source, int shift, int start, int length) override;
 
   /* **************************************************************************************
    * Public Method <Inline>
@@ -176,8 +176,8 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * 
      * @return uint32_t 
      */
-    inline uint32_t length(void) const{
-      return static_cast<uint32_t>(this->mLength & 0x7FFFFFFF);
+    inline int length(void) const{
+      return static_cast<int>(this->mLength & 0x7FFFFFFF);
     }  
   
   /* **************************************************************************************
@@ -188,17 +188,36 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
     /**
      * @brief 
      * 
-     * @return Memory& 
+     * @return int 
      */
-    virtual bool wipe(void);
+    virtual int wipe(void);
 
     /**
      * @brief 
      * 
      * @param value 
-     * @return Memory& 
+     * @return int 
      */
-    virtual bool wipe(uint8_t value);
+    virtual int wipe(uint8_t value);
+  
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @param length 
+     * @return int 
+     */
+    virtual int wipe(uint8_t value, int length);
+  
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @param start 
+     * @param length 
+     * @return int 
+     */
+    virtual int wipe(uint8_t value, int start, int length);
 
     /**
      * @brief 
@@ -225,6 +244,59 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @return mcuf::lang::Memory 
      */
     virtual mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param shift 
+     * @param start 
+     * @param length 
+     * @return int32_t 
+     */
+    virtual int insertArray(const void* source, int start, int length);
+
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param shift 
+     * @param start 
+     * @param length 
+     * @return int32_t 
+     */
+    virtual int insertArray(const void* source, int shift, int start, int length);
+
+    /**
+     * @brief 
+     * 
+     * @param start 
+     * @param length 
+     * @return int32_t 
+     */
+    virtual int popArray(int start, int length);
+
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param start 
+     * @param length 
+     * @return int32_t 
+     */
+    virtual int popArray(void* source, int start, int length);
+
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param shift 
+     * @param start 
+     * @param length 
+     * @return true 
+     * @return false 
+     */
+    virtual int popArray(void* source, int shift, int start, int length);
 
   /* **************************************************************************************
    * Protected Method <Static>

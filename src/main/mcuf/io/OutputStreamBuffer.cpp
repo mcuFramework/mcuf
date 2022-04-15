@@ -127,11 +127,11 @@ bool OutputStreamBuffer::write(ByteBuffer& byteBuffer,
   }
   
   void* insert = byteBuffer.pointer(byteBuffer.position());
-  uint32_t len = byteBuffer.remaining();
+  int len = byteBuffer.remaining();
   
   if(len != 0){
     len = this->insertMult(insert, len);
-    byteBuffer.position(byteBuffer.position() + len);
+    byteBuffer.position(byteBuffer.position() + static_cast<int>(len));
   }
   
   if(!this->mOutputStream.writeBusy()){
@@ -149,18 +149,18 @@ bool OutputStreamBuffer::write(ByteBuffer& byteBuffer,
  * @brief 
  * 
  * @param byteBuffer 
- * @param feture 
+ * @param future 
  * @return true 
  * @return false 
  */
-bool OutputStreamBuffer::write(ByteBuffer& byteBuffer, Future& feture){
-  if(!feture.classAvariable())
+bool OutputStreamBuffer::write(ByteBuffer& byteBuffer, Future& future){
+  if(!future.classAvariable())
     return false;
   
-  if(!feture.isIdle())
+  if(!future.isIdle())
     return false;
   
-  return this->write(byteBuffer, nullptr, &feture);
+  return this->write(byteBuffer, nullptr, &future);
 }
 
 /* ****************************************************************************************
@@ -174,7 +174,7 @@ bool OutputStreamBuffer::write(ByteBuffer& byteBuffer, Future& feture){
  * @param attachment 
  */
 void OutputStreamBuffer::completed(int result, void* attachment){
-  uint32_t shift = this->mByteBuffer.position();
+  int shift = this->mByteBuffer.position();
   this->mByteBuffer.reset();
   shift -= this->mByteBuffer.position();
   

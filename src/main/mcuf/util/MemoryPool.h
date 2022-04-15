@@ -106,7 +106,7 @@ class mcuf::util::MemoryPool extends mcuf::lang::Memory implements
      * 
      * @return Memory& 
      */
-    virtual bool wipe(void) override;
+    virtual int wipe(void) override;
     
     /**
      * @brief 
@@ -114,7 +114,26 @@ class mcuf::util::MemoryPool extends mcuf::lang::Memory implements
      * @param value 
      * @return Memory& 
      */
-    virtual bool wipe(uint8_t value) override;
+    virtual int wipe(uint8_t value) override;
+  
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @param length 
+     * @return int 
+     */
+    virtual int wipe(uint8_t value, int length) override;
+  
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @param start 
+     * @param length 
+     * @return int 
+     */
+    virtual int wipe(uint8_t value, int start, int length) override;
 
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Allocator

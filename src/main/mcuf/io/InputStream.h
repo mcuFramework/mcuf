@@ -65,11 +65,11 @@ interface mcuf::io::InputStream{
    * @brief 
    * 
    * @param byteBuffer 
-   * @param feture 
+   * @param future 
    * @return true 
    * @return false 
    */
-  virtual bool read(mcuf::io::ByteBuffer& byteBuffer, mcuf::io::Future& feture) abstract;
+  virtual bool read(mcuf::io::ByteBuffer& byteBuffer, mcuf::io::Future& future) abstract;
 
   /**
    * @brief 
