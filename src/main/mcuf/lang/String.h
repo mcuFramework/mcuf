@@ -169,6 +169,46 @@ class mcuf::lang::String extends mcuf::lang::Memory{
     static String format(int bufferSize, const char* format, ...);
 
   /* **************************************************************************************
+   * Public Method <Override> - mcuf::lang::Memory
+   */
+  public:
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @return int 
+     */
+    virtual int indexOf(char ch) const override;
+    
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @param offset 
+     * @return int 
+     */
+    virtual int indexOf(char ch, int offset) const override;
+    
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return int 
+     */
+    virtual int indexOfString(const char* str) const override;  
+  
+    /**
+     * @brief 
+     * 
+     * @param destination 
+     * @param destinationLen 
+     * @param start 
+     * @param limit 
+     * @return int 
+     */
+    virtual int indexOfMemory(const void* destination, int destinationLen, int start) const override;
+  
+  /* **************************************************************************************
    * Public Method
    */
   public:
@@ -218,23 +258,6 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @return String 
      */
     String toLower(void) const;
-    
-    /**
-     * @brief 
-     * 
-     * @param ch 
-     * @return int 
-     */
-    int indexOf(char ch) const;
-    
-    /**
-     * @brief 
-     * 
-     * @param ch 
-     * @param offset 
-     * @return int 
-     */
-    int indexOf(char ch, int offset) const;
     
     /**
      * @brief 

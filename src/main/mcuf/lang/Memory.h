@@ -184,6 +184,9 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * Public Method
    */
   public: 
+    using Pointer::indexOf;
+    using Pointer::indexOfString;
+    using Pointer::indexOfMemory;
   
     /**
      * @brief 
@@ -297,6 +300,42 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @return false 
      */
     virtual int popArray(void* source, int shift, int start, int length);
+
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @return int 
+     */
+    virtual int indexOf(char ch) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @param offset 
+     * @return int 
+     */
+    virtual int indexOf(char ch, int offset) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return int 
+     */
+    virtual int indexOfString(const char* str) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param destination 
+     * @param destinationLen 
+     * @param start 
+     * @param limit 
+     * @return int 
+     */
+    virtual int indexOfMemory(const void* destination, int destinationLen, int start) const;    
 
   /* **************************************************************************************
    * Protected Method <Static>

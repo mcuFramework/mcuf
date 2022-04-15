@@ -170,6 +170,147 @@ int Pointer::copyTo(void* destination, int shift, int start, int length) const{
   return static_cast<int>(length);
 }
 
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @return true equal
+ * @return false not equal
+ */
+bool Pointer::compairString(const char* str) const{
+  return this->compair(str, 0, 0, static_cast<int>(strlen(str)));
+}
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @param start 
+ * @return true equal
+ * @return false not equal
+ */
+bool Pointer::compairString(const char* str, int start) const{
+  return this->compair(str, 0, start, static_cast<int>(strlen(str)));
+}
+
+/**
+ * @brief 
+ * 
+ * @param source 
+ * @param length 
+ * @return true equal
+ * @return false not equal
+ */
+bool Pointer::compair(const void* source, int length) const{
+  return this->compair(source, 0, 0, length);
+}
+
+/**
+ * @brief 
+ * 
+ * @param source 
+ * @param start 
+ * @param length 
+ * @return true equal
+ * @return false not equal
+ */
+bool Pointer::compair(const void* source, int start, int length) const{
+  return this->compair(source, 0, start, length);
+}
+
+/**
+ * @brief 
+ * 
+ * @param source 
+ * @param shift 
+ * @param start 
+ * @param length 
+ * @return true equal
+ * @return false not equal
+ */
+bool Pointer::compair(const void* source, int shift, int start, int length) const{
+  if(length <= 0)
+    return false;
+  
+  const char* str1 = static_cast<const char*>(source) + shift;
+  const char* str2 = static_cast<const char*>(this->pointer()) + start;
+  
+  return (memcmp(str1, str2, static_cast<size_t>(length)) == 0);  
+}
+
+/**
+ * @brief 
+ * 
+ * @param ch 
+ * @param start 
+ * @param limit 
+ * @return int 
+ */
+int Pointer::indexOf(char ch, int start, int limit) const{
+  return this->indexOfMemory(&ch, 1, start, limit);
+}
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @param limit 
+ * @return int 
+ */
+int Pointer::indexOfString(const char* str, int limit) const{
+  return this->indexOfMemory(str, static_cast<int>(strlen(str)), 0, limit);
+}
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @param start 
+ * @param limit 
+ * @return int 
+ */
+int Pointer::indexOfString(const char* str, int start, int limit) const{
+  return this->indexOfMemory(str, static_cast<int>(strlen(str)), start, limit);
+}
+
+/**
+ * @brief 
+ * 
+ * @param destination 
+ * @param destinationLen 
+ * @param start 
+ * @param limit 
+ * @return int 
+ */
+int Pointer::indexOfMemory(const void* destination, int destinationLen, int start, int limit) const{
+  if(limit <= 0)
+    return -1;
+
+  if(destinationLen <= 0)
+    return -1;
+  
+  const char* ptr = static_cast<const char*>(this->pointer(start));
+  const char* dst = static_cast<const char*>(destination);
+
+  for(int i=0; i<limit; ++i){
+    if(ptr[i] == dst[0]){
+      bool result = true;
+      for(int j=1; j<destinationLen; ++j){
+        if(ptr[i+j] != dst[j]){
+          result = false;
+          i+=j;
+          break;
+        }
+      }
+      
+      if(result)
+        return i + start;
+    }
+  }
+  
+  return -1;
+}
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */

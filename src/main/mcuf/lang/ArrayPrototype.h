@@ -122,7 +122,8 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
    * Protected Method
    */
   protected:
-
+    using Memory::indexOf;
+  
     /**
      * @brief 
      * 

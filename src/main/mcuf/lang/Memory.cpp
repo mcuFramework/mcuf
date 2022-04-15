@@ -395,6 +395,49 @@ int Memory::popArray(void* source, int shift, int start, int length){
   return length;
 }
 
+/**
+ * @brief 
+ * 
+ * @param ch 
+ * @return int 
+ */
+int Memory::indexOf(char ch) const{
+  return this->indexOf(ch, 0);
+}
+
+/**
+ * @brief 
+ * 
+ * @param ch 
+ * @param offset 
+ * @return int 
+ */
+int Memory::indexOf(char ch, int start) const{
+  return Pointer::indexOf(ch, start, this->length());
+}
+
+/**
+ * @brief 
+ * 
+ * @param destination 
+ * @param destinationLen 
+ * @param start 
+ * @return int 
+ */
+int Memory::indexOfMemory(const void* destination, int destinationLen, int start) const{
+  return Pointer::indexOfMemory(destination, destinationLen, start, this->length());
+}
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @return int 
+ */
+int Memory::indexOfString(const char* str) const{
+  return Pointer::indexOfString(str, this->length());
+}
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */

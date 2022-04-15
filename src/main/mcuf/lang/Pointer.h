@@ -255,6 +255,100 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return int 
      */
     virtual int copyTo(void* destination, int shift, int start, int length) const; 
+    
+    /**
+     * @brief 
+     * 
+     * @param str string
+     * @return true equal
+     * @return false not equal
+     */
+    virtual bool compairString(const char* str) const;    
+    
+    /**
+     * @brief 
+     * 
+     * @param str string
+     * @param start 
+     * @return true equal
+     * @return false not equal
+     */
+    virtual bool compairString(const char* str, int start) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param start 
+     * @param length 
+     * @return true equal
+     * @return false not equal
+     */
+    virtual bool compair(const void* source, int length) const;    
+    
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param start 
+     * @param length 
+     * @return true equal
+     * @return false not equal
+     */
+    virtual bool compair(const void* source, int start, int length) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param shift 
+     * @param start 
+     * @param length 
+     * @return true equal
+     * @return false not equal
+     */
+    virtual bool compair(const void* source, int shift, int start, int length) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @param start 
+     * @param limit 
+     * @return int 
+     */
+    virtual int indexOf(char ch, int start, int limit) const;
+
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @param start 
+     * @param limit 
+     * @return int 
+     */
+    virtual int indexOfString(const char* str, int limit) const;
+
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @param start 
+     * @param limit 
+     * @return int 
+     */
+    virtual int indexOfString(const char* str, int start, int limit) const;
+
+    /**
+     * @brief 
+     * 
+     * @param destination 
+     * @param destinationLen 
+     * @param start 
+     * @param limit 
+     * @return int 
+     */
+    virtual int indexOfMemory(const void* destination, int destinationLen, int start, int limit) const;
 
   /* **************************************************************************************
    * Public Method <inline>

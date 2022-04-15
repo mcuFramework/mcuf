@@ -185,8 +185,51 @@ String String::empty(void){
 }
 
 /* ****************************************************************************************
- * Public Method <Override>
+ * Public Method <Override> - mcuf::lang::Memory
  */
+
+/**
+ * @brief 
+ * 
+ * @param ch 
+ * @return int 
+ */
+int String::indexOf(char ch) const{
+  return this->indexOf(ch, 0);
+}
+
+/**
+ * @brief 
+ * 
+ * @param ch 
+ * @param offset 
+ * @return int 
+ */
+int String::indexOf(char ch, int start) const{
+  return Pointer::indexOf(ch, start, this->size());
+}
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @return int 
+ */
+int String::indexOfString(const char* str) const{
+  return Pointer::indexOfString(str, this->size());
+}
+
+/**
+ * @brief 
+ * 
+ * @param destination 
+ * @param destinationLen 
+ * @param start 
+ * @return int 
+ */
+int String::indexOfMemory(const void* destination, int destinationLen, int start) const{
+  return Pointer::indexOfMemory(destination, destinationLen, start, this->size());
+}
 
 /* ****************************************************************************************
  * Public Method
@@ -309,37 +352,6 @@ String String::toLower(void) const{
   }
   result[max] = 0x00;
   return result;
-}
-
-/**
- * @brief 
- * 
- * @param ch 
- * @return int 
- */
-int String::indexOf(char ch) const{
-  return this->indexOf(ch, 0);
-}
-
-/**
- * @brief 
- * 
- * @param ch 
- * @param offset 
- * @return int 
- */
-int String::indexOf(char ch, int offset) const{
-  int max = this->size();
-  if(offset > max)
-    return -1;
-  
-  const char* ptr = static_cast<const char*>(this->pointer(offset));
-  max -= offset;
-  for(int i=0; i<max; ++i){
-    if(ptr[i] == ch)
-      return (i + offset);
-  }
-  return -1;
 }
 
 /**
