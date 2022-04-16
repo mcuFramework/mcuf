@@ -70,7 +70,7 @@ MediaAccessControlAddress::MediaAccessControlAddress(const String& address){
  * 
  */
 MediaAccessControlAddress::~MediaAccessControlAddress(void){
-  
+  return;
 }
 
 /* ****************************************************************************************
@@ -88,6 +88,23 @@ MediaAccessControlAddress::~MediaAccessControlAddress(void){
 /* ****************************************************************************************
  * Public Method
  */
+
+/**
+ * @brief 
+ * 
+ * @return mcuf::lang::String 
+ */
+String MediaAccessControlAddress::toString(void){
+  String result = String(18);
+  result.format("%2x:%2x:%2x:%2x:%2x:%2x\0", this->mMediaAccessControlAddress[0]
+                                           , this->mMediaAccessControlAddress[1]
+                                           , this->mMediaAccessControlAddress[2]
+                                           , this->mMediaAccessControlAddress[3]
+                                           , this->mMediaAccessControlAddress[4]
+                                           , this->mMediaAccessControlAddress[5]);
+
+  return result;
+}
 
 /* ****************************************************************************************
  * Protected Method <Static>

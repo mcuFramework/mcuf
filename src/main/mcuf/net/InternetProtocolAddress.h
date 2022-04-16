@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_252F628C_C174_4836_88ED_23C33E0C2773
-#define MCUF_252F628C_C174_4836_88ED_23C33E0C2773
+#ifndef MCUF_9CD16300_B15A_4988_BFCB_DA68322802ED
+#define MCUF_9CD16300_B15A_4988_BFCB_DA68322802ED
 
 /* ****************************************************************************************
  * Include
@@ -15,7 +15,6 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/net/InternetProtocolAddress.h"
 #include "mcuf/lang/Object.h"
 #include "mcuf/lang/String.h"
 
@@ -24,7 +23,7 @@
  */  
 namespace mcuf{
   namespace net{
-    class SocketAddress;
+    class InternetProtocolAddress;
   }
 }
 
@@ -32,7 +31,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
+class mcuf::net::InternetProtocolAddress extends mcuf::lang::Object{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -41,12 +40,12 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
   /* **************************************************************************************
    * Variable <Protected>
    */
-
+  protected:
+    uint8_t mInternetProtocolAddress[4];
+  
   /* **************************************************************************************
    * Variable <Private>
    */
-  private:
-    uint16_t mPort;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -59,51 +58,49 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
   /* **************************************************************************************
    * Construct Method
    */
-  public:
-    
+  public: 
     /**
-     * @brief Construct a new Socket Address object
+     * @brief Construct a new Internet Protocol Address object
      * 
      */
-    SocketAddress(void);
-  
-    /**
-     * @brief Construct a new Socket Address object
-     * 
-     * @param address 
-     * @param port 
-     */
-    SocketAddress(uint32_t address, uint16_t port);
-  
-    /**
-     * @brief Construct a new Socket Address object
-     * 
-     * @param address 
-     * @param port 
-     */
-    SocketAddress(uint8_t a1, uint8_t a2, uint8_t a3, uint8_t a4, uint16_t port);
+    InternetProtocolAddress(void);
 
     /**
-     * @brief Construct a new Socket Address object
+     * @brief Construct a new Internet Protocol Address object
      * 
      * @param address 
-     * @param port 
      */
-    SocketAddress(uint8_t* address, uint16_t port);
+    InternetProtocolAddress(uint32_t address);
 
     /**
-     * @brief Construct a new Socket Address object
+     * @brief Construct a new Internet Protocol Address object
+     * 
+     * @param a1 
+     * @param a2 
+     * @param a3 
+     * @param a4 
+     */
+    InternetProtocolAddress(uint8_t a1, uint8_t a2, uint8_t a3, uint8_t a4);
+
+    /**
+     * @brief Construct a new Internet Protocol Address object
      * 
      * @param address 
-     * @param port 
      */
-    SocketAddress(const mcuf::lang::String& address, uint16_t port);
+    InternetProtocolAddress(uint8_t* address);
 
     /**
-     * @brief Destroy the Socket Address object
+     * @brief Construct a new Internet Protocol Address object
+     * 
+     * @param address 
+     */
+    InternetProtocolAddress(const mcuf::lang::String& address);
+
+    /**
+     * @brief Destroy the Internet Protocol Address object
      * 
      */
-    virtual ~SocketAddress(void) override;
+    virtual ~InternetProtocolAddress(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -114,15 +111,8 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::net::InternetProtocolAddress
+   * Public Method <Override>
    */
-  public:
-    /**
-     * @brief 
-     * 
-     * @return mcuf::lang::String 
-     */
-    virtual mcuf::lang::String toString(void) override;
 
   /* **************************************************************************************
    * Public Method
@@ -130,12 +120,36 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
   public:
     
     /**
-     * @brief Get the Port object
+     * @brief Get the Address object
      * 
-     * @return uint16_t 
+     * @return int 
      */
-    uint16_t getPort(void);
+    virtual uint32_t getAddress(void);
+  
+    /**
+     * @brief Get the Address object
+     * 
+     * @param a1 
+     * @param a2 
+     * @param a3 
+     * @param a4 
+     */
+    virtual void getAddress(uint8_t& a1, uint8_t& a2, uint8_t& a3, uint8_t& a4);
+
+    /**
+     * @brief Get the Address object
+     * 
+     * @param result 
+     */
+    virtual void getAddress(uint8_t* result);
     
+    /**
+     * @brief 
+     * 
+     * @return mcuf::lang::String 
+     */
+    virtual mcuf::lang::String toString(void);
+
   /* **************************************************************************************
    * Protected Method <Static>
    */
@@ -166,4 +180,4 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
  * End of file
  */ 
 
-#endif /* MCUF_252F628C_C174_4836_88ED_23C33E0C2773 */
+#endif /* MCUF_9CD16300_B15A_4988_BFCB_DA68322802ED */

@@ -29,6 +29,7 @@
 using mcuf::net::SocketAddress;
 using mcuf::lang::String;
 using mcuf::lang::Byte;
+using mcuf::net::InternetProtocolAddress;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -39,17 +40,37 @@ using mcuf::lang::Byte;
  */
 
 /**
+ * @brief Construct a new Socket Address object
+ * 
+ */
+SocketAddress::SocketAddress(void) : 
+InternetProtocolAddress(){
+  this->mPort = 0;
+  return;
+}
+  
+/**
+ * @brief Construct a new Socket Address object
+ * 
+ * @param address 
+ * @param port 
+ */
+SocketAddress::SocketAddress(uint32_t address, uint16_t port) : 
+InternetProtocolAddress(address){
+  this->mPort = port;
+  return;
+}
+
+/**
  * @brief Construct a new Socket Address:: Socket Address object
  * 
  * @param address 
  * @param port 
  */
-SocketAddress::SocketAddress(uint8_t address[4], uint16_t port){
-  this->mSocketAddress[0] = address[0];
-  this->mSocketAddress[1] = address[1];
-  this->mSocketAddress[2] = address[2];
-  this->mSocketAddress[3] = address[3];
+SocketAddress::SocketAddress(uint8_t a1, uint8_t a2, uint8_t a3, uint8_t a4, uint16_t port) : 
+InternetProtocolAddress(a1, a2, a3, a4){
   this->mPort = port;
+  return;
 }
 
 /**
@@ -58,28 +79,21 @@ SocketAddress::SocketAddress(uint8_t address[4], uint16_t port){
  * @param address 
  * @param port 
  */
-SocketAddress::SocketAddress(const String& address, uint16_t port){
-  *reinterpret_cast<int*>(this->mSocketAddress) = 0;
-  char cache[4];
-  int head = 0;
-  int tail = 0;
-  
-  for(int i=0; i<4; ++i){
-    if(i >= 3)
-      tail = static_cast<int32_t>(address.size());
-    
-    else
-      tail = address.indexOf('.', head);
-    
-    if(tail - head > 4)
-      break;
-    
-    int len = address.copyTo(cache, 0, head, static_cast<int>(tail - head));
-    cache[len] = 0x00;
-    this->mSocketAddress[i] = Byte::valueOf(cache);
-    
-    head = tail + 1;
-  }
+SocketAddress::SocketAddress(uint8_t* address, uint16_t port) : 
+InternetProtocolAddress(address){
+  this->mPort = port;
+  return;
+}
+
+/**
+ * @brief Construct a new Socket Address object
+ * 
+ * @param address 
+ * @param port 
+ */
+SocketAddress::SocketAddress(const String& address, uint16_t port) : 
+InternetProtocolAddress(address){
+  this->mPort = port;
 }
 
 /**
@@ -99,12 +113,36 @@ SocketAddress::~SocketAddress(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override>
+ * Public Method <Override> - mcuf::net::InternetProtocolAddress
  */
+
+/**
+ * @brief 
+ * 
+ * @return mcuf::lang::String 
+ */
+String SocketAddress::toString(void){
+  String result = String(22);
+  result.format("%d.%d.%d.%d:%d\0", this->mInternetProtocolAddress[0], 
+                                    this->mInternetProtocolAddress[1], 
+                                    this->mInternetProtocolAddress[2], 
+                                    this->mInternetProtocolAddress[3],
+                                    this->mPort);
+  return result;
+}
 
 /* ****************************************************************************************
  * Public Method
  */
+
+/**
+ * @brief Get the Port object
+ * 
+ * @return uint16_t 
+ */
+uint16_t SocketAddress::getPort(void){
+  return this->mPort;
+}
 
 /* ****************************************************************************************
  * Protected Method <Static>

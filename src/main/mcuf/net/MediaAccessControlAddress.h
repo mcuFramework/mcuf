@@ -94,7 +94,13 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method
    */
-
+  public:
+    /**
+     * @brief 
+     * 
+     * @return mcuf::lang::String 
+     */
+    mcuf::lang::String toString(void);
   /* **************************************************************************************
    * Protected Method <Static>
    */

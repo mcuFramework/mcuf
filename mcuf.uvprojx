@@ -1217,6 +1217,16 @@
               <FilePath>.\src\main\mcuf\net\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>InternetProtocolAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\InternetProtocolAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>InternetProtocolAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\InternetProtocolAddress.h</FilePath>
+            </File>
+            <File>
               <FileName>MediaAccessControlAddress.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.cpp</FilePath>
@@ -2673,6 +2683,16 @@
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\net\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>InternetProtocolAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\InternetProtocolAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>InternetProtocolAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\InternetProtocolAddress.h</FilePath>
             </File>
             <File>
               <FileName>MediaAccessControlAddress.cpp</FileName>
@@ -4133,6 +4153,16 @@
               <FilePath>.\src\main\mcuf\net\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>InternetProtocolAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\InternetProtocolAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>InternetProtocolAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\InternetProtocolAddress.h</FilePath>
+            </File>
+            <File>
               <FileName>MediaAccessControlAddress.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.cpp</FilePath>
@@ -5589,6 +5619,16 @@
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\net\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>InternetProtocolAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\InternetProtocolAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>InternetProtocolAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\InternetProtocolAddress.h</FilePath>
             </File>
             <File>
               <FileName>MediaAccessControlAddress.cpp</FileName>
@@ -7049,6 +7089,16 @@
               <FilePath>.\src\main\mcuf\net\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>InternetProtocolAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\InternetProtocolAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>InternetProtocolAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\InternetProtocolAddress.h</FilePath>
+            </File>
+            <File>
               <FileName>MediaAccessControlAddress.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\net\MediaAccessControlAddress.cpp</FilePath>
@@ -8505,6 +8555,16 @@
               <FileName>package-info.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\net\package-info.h</FilePath>
+            </File>
+            <File>
+              <FileName>InternetProtocolAddress.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\net\InternetProtocolAddress.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>InternetProtocolAddress.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\net\InternetProtocolAddress.h</FilePath>
             </File>
             <File>
               <FileName>MediaAccessControlAddress.cpp</FileName>

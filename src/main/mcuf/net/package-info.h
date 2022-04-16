@@ -14,6 +14,7 @@
 /* ****************************************************************************************
  * Include
  */
+#include "InternetProtocolAddress.h"
 #include "MediaAccessControlAddress.h"
 #include "SocketAddress.h"
 
