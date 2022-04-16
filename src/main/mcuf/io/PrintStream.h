@@ -273,7 +273,7 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
      * @return true 
      * @return false 
      */
-    inline bool println(mcuf::lang::String& string){
+    inline bool println(const mcuf::lang::String& string){
       return this->print(string, true);
     }
 
