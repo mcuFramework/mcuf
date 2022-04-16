@@ -96,12 +96,12 @@ MediaAccessControlAddress::~MediaAccessControlAddress(void){
  */
 String MediaAccessControlAddress::toString(void){
   String result = String(18);
-  result.format("%2x:%2x:%2x:%2x:%2x:%2x\0", this->mMediaAccessControlAddress[0]
-                                           , this->mMediaAccessControlAddress[1]
-                                           , this->mMediaAccessControlAddress[2]
-                                           , this->mMediaAccessControlAddress[3]
-                                           , this->mMediaAccessControlAddress[4]
-                                           , this->mMediaAccessControlAddress[5]);
+  result.format("%02x:%02x:%02x:%02x:%02x:%02x\0", this->mMediaAccessControlAddress[0]
+                                                 , this->mMediaAccessControlAddress[1]
+                                                 , this->mMediaAccessControlAddress[2]
+                                                 , this->mMediaAccessControlAddress[3]
+                                                 , this->mMediaAccessControlAddress[4]
+                                                 , this->mMediaAccessControlAddress[5]);
 
   return result;
 }
