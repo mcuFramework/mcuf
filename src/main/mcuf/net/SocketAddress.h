@@ -73,7 +73,7 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
      * @param address 
      * @param port 
      */
-    SocketAddress(uint32_t address, uint16_t port);
+    SocketAddress(const uint32_t address, const uint16_t port);
   
     /**
      * @brief Construct a new Socket Address object
@@ -81,7 +81,7 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
      * @param address 
      * @param port 
      */
-    SocketAddress(uint8_t a1, uint8_t a2, uint8_t a3, uint8_t a4, uint16_t port);
+    SocketAddress(const uint8_t a1, const uint8_t a2, const uint8_t a3, const uint8_t a4, const uint16_t port);
 
     /**
      * @brief Construct a new Socket Address object
@@ -89,7 +89,7 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
      * @param address 
      * @param port 
      */
-    SocketAddress(uint8_t* address, uint16_t port);
+    SocketAddress(const uint8_t address[4], const uint16_t port);
 
     /**
      * @brief Construct a new Socket Address object
@@ -97,7 +97,7 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
      * @param address 
      * @param port 
      */
-    SocketAddress(const mcuf::lang::String& address, uint16_t port);
+    SocketAddress(const mcuf::lang::String& address, const uint16_t port);
 
     /**
      * @brief Destroy the Socket Address object
@@ -135,6 +135,20 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
      * @return uint16_t 
      */
     uint16_t getPort(void);
+  
+    /**
+     * @brief Get the Socket Address object
+     * 
+     * @param result 
+     */
+    void getSocketAddress(mcuf::lang::String& result);
+
+    /**
+     * @brief Set the Port object
+     * 
+     * @param port 
+     */
+    void setPort(uint16_t port);
     
   /* **************************************************************************************
    * Protected Method <Static>

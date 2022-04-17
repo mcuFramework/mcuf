@@ -70,7 +70,7 @@ class mcuf::net::InternetProtocolAddress extends mcuf::lang::Object{
      * 
      * @param address 
      */
-    InternetProtocolAddress(uint32_t address);
+    InternetProtocolAddress(const uint32_t address);
 
     /**
      * @brief Construct a new Internet Protocol Address object
@@ -80,14 +80,14 @@ class mcuf::net::InternetProtocolAddress extends mcuf::lang::Object{
      * @param a3 
      * @param a4 
      */
-    InternetProtocolAddress(uint8_t a1, uint8_t a2, uint8_t a3, uint8_t a4);
+    InternetProtocolAddress(const uint8_t a1, const uint8_t a2, const uint8_t a3, const uint8_t a4);
 
     /**
      * @brief Construct a new Internet Protocol Address object
      * 
      * @param address 
      */
-    InternetProtocolAddress(uint8_t* address);
+    InternetProtocolAddress(const uint8_t address[4]);
 
     /**
      * @brief Construct a new Internet Protocol Address object
@@ -143,6 +143,44 @@ class mcuf::net::InternetProtocolAddress extends mcuf::lang::Object{
      */
     virtual void getAddress(uint8_t* result);
     
+    /**
+     * @brief Get the Address object
+     * 
+     * @param address 
+     */
+    virtual void getAddress(mcuf::lang::String& result);
+    
+    /**
+     * @brief Set the Address object
+     * 
+     * @param address 
+     */
+    virtual void setAddress(const uint32_t address);
+
+    /**
+     * @brief Set the Address object
+     * 
+     * @param a1 
+     * @param a2 
+     * @param a3 
+     * @param a4 
+     */
+    virtual void setAddress(const uint8_t a1, const uint8_t a2, const uint8_t a3, const uint8_t a4);
+
+    /**
+     * @brief Set the Address object
+     * 
+     * @param address 
+     */
+    virtual void setAddress(const uint8_t address[4]);
+
+    /**
+     * @brief Set the Address object
+     * 
+     * @param address 
+     */
+    virtual void setAddress(const mcuf::lang::String& address);
+
     /**
      * @brief 
      * 

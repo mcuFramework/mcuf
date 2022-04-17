@@ -55,7 +55,7 @@ InternetProtocolAddress(){
  * @param address 
  * @param port 
  */
-SocketAddress::SocketAddress(uint32_t address, uint16_t port) : 
+SocketAddress::SocketAddress(const uint32_t address, const uint16_t port) : 
 InternetProtocolAddress(address){
   this->mPort = port;
   return;
@@ -67,7 +67,7 @@ InternetProtocolAddress(address){
  * @param address 
  * @param port 
  */
-SocketAddress::SocketAddress(uint8_t a1, uint8_t a2, uint8_t a3, uint8_t a4, uint16_t port) : 
+SocketAddress::SocketAddress(const uint8_t a1, const uint8_t a2, const uint8_t a3, const uint8_t a4, const uint16_t port) : 
 InternetProtocolAddress(a1, a2, a3, a4){
   this->mPort = port;
   return;
@@ -79,7 +79,7 @@ InternetProtocolAddress(a1, a2, a3, a4){
  * @param address 
  * @param port 
  */
-SocketAddress::SocketAddress(uint8_t* address, uint16_t port) : 
+SocketAddress::SocketAddress(const uint8_t address[4], const uint16_t port) : 
 InternetProtocolAddress(address){
   this->mPort = port;
   return;
@@ -91,7 +91,7 @@ InternetProtocolAddress(address){
  * @param address 
  * @param port 
  */
-SocketAddress::SocketAddress(const String& address, uint16_t port) : 
+SocketAddress::SocketAddress(const String& address, const uint16_t port) : 
 InternetProtocolAddress(address){
   this->mPort = port;
 }
@@ -123,11 +123,7 @@ SocketAddress::~SocketAddress(void){
  */
 String SocketAddress::toString(void){
   String result = String(22);
-  result.format("%d.%d.%d.%d:%d\0", this->mInternetProtocolAddress[0], 
-                                    this->mInternetProtocolAddress[1], 
-                                    this->mInternetProtocolAddress[2], 
-                                    this->mInternetProtocolAddress[3],
-                                    this->mPort);
+  this->getSocketAddress(result);
   return result;
 }
 
@@ -142,6 +138,29 @@ String SocketAddress::toString(void){
  */
 uint16_t SocketAddress::getPort(void){
   return this->mPort;
+}
+
+/**
+ * @brief Get the Socket Address object
+ * 
+ * @param result 
+ */
+void SocketAddress::getSocketAddress(mcuf::lang::String& result){
+  result.format("%d.%d.%d.%d:%d\0", this->mInternetProtocolAddress[0], 
+                                    this->mInternetProtocolAddress[1], 
+                                    this->mInternetProtocolAddress[2], 
+                                    this->mInternetProtocolAddress[3],
+                                    this->mPort);
+  return; 
+}
+
+/**
+ * @brief Set the Port object
+ * 
+ * @param port 
+ */
+void SocketAddress::setPort(uint16_t port){
+  this->mPort = port;
 }
 
 /* ****************************************************************************************

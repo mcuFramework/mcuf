@@ -52,8 +52,8 @@ InternetProtocolAddress::InternetProtocolAddress(void){
  * 
  * @param address 
  */
-InternetProtocolAddress::InternetProtocolAddress(uint32_t address){
-  *reinterpret_cast<uint32_t*>(this->mInternetProtocolAddress) = address;
+InternetProtocolAddress::InternetProtocolAddress(const uint32_t address){
+  this->setAddress(address);
   return;
 }
 
@@ -65,11 +65,8 @@ InternetProtocolAddress::InternetProtocolAddress(uint32_t address){
  * @param a3 
  * @param a4 
  */
-InternetProtocolAddress::InternetProtocolAddress(uint8_t a1, uint8_t a2, uint8_t a3, uint8_t a4){
-  this->mInternetProtocolAddress[0] = a1;
-  this->mInternetProtocolAddress[1] = a2;
-  this->mInternetProtocolAddress[2] = a3;
-  this->mInternetProtocolAddress[3] = a4;
+InternetProtocolAddress::InternetProtocolAddress(const uint8_t a1, const uint8_t a2, const uint8_t a3, const uint8_t a4){
+  this->setAddress(a1, a2, a3, a4);
   return;
 }
 
@@ -78,8 +75,8 @@ InternetProtocolAddress::InternetProtocolAddress(uint8_t a1, uint8_t a2, uint8_t
  * 
  * @param address 
  */
-InternetProtocolAddress::InternetProtocolAddress(uint8_t* address){
-  *reinterpret_cast<uint32_t*>(this->mInternetProtocolAddress) = *reinterpret_cast<uint32_t*>(address);
+InternetProtocolAddress::InternetProtocolAddress(const uint8_t address[4]){
+  this->setAddress(address);
 }
 
 /**
@@ -88,27 +85,8 @@ InternetProtocolAddress::InternetProtocolAddress(uint8_t* address){
  * @param address 
  */
 InternetProtocolAddress::InternetProtocolAddress(const String& address){
-  *reinterpret_cast<uint32_t*>(this->mInternetProtocolAddress) = 0;
-  char cache[4];
-  int head = 0;
-  int tail = 0;
-  
-  for(int i=0; i<4; ++i){
-    if(i >= 3)
-      tail = static_cast<int32_t>(address.size());
-    
-    else
-      tail = address.indexOf('.', head);
-    
-    if(tail - head > 4)
-      break;
-    
-    int len = address.copyTo(cache, 0, head, static_cast<int>(tail - head));
-    cache[len] = 0x00;
-    this->mInternetProtocolAddress[i] = Byte::valueOf(cache);
-    
-    head = tail + 1;
-  }
+  this->setAddress(address);
+  return;
 }
 
 /**
@@ -171,19 +149,95 @@ void InternetProtocolAddress::getAddress(uint8_t* result){
 }
 
 /**
+ * @brief Get the Address object
+ * 
+ * @param address 
+ */
+void InternetProtocolAddress::getAddress(mcuf::lang::String& result){
+  result.format("%d.%d.%d.%d\0", this->mInternetProtocolAddress[0], 
+                                 this->mInternetProtocolAddress[1], 
+                                 this->mInternetProtocolAddress[2], 
+                                 this->mInternetProtocolAddress[3]);
+  return;
+}
+
+/**
  * @brief 
  * 
  * @return mcuf::lang::String 
  */
 String InternetProtocolAddress::toString(void){
   String result = String(16);
-  result.format("%d.%d.%d.%d\0", this->mInternetProtocolAddress[0], 
-                                 this->mInternetProtocolAddress[1], 
-                                 this->mInternetProtocolAddress[2], 
-                                 this->mInternetProtocolAddress[3]);
-                                 
+  this->getAddress(result);                                 
   return result;
 }
+
+/**
+ * @brief Set the Address object
+ * 
+ * @param address 
+ */
+void InternetProtocolAddress::setAddress(uint32_t address){
+  *reinterpret_cast<uint32_t*>(this->mInternetProtocolAddress) = address;
+  return;
+}
+
+/**
+ * @brief Set the Address object
+ * 
+ * @param a1 
+ * @param a2 
+ * @param a3 
+ * @param a4 
+ */
+void InternetProtocolAddress::setAddress(const uint8_t a1, const uint8_t a2, const uint8_t a3, const uint8_t a4){
+  this->mInternetProtocolAddress[0] = a1;
+  this->mInternetProtocolAddress[1] = a2;
+  this->mInternetProtocolAddress[2] = a3;
+  this->mInternetProtocolAddress[3] = a4;
+  return;  
+}
+
+/**
+ * @brief Set the Address object
+ * 
+ * @param address 
+ */
+void InternetProtocolAddress::setAddress(const uint8_t address[4]){
+  *reinterpret_cast<uint32_t*>(this->mInternetProtocolAddress) = *reinterpret_cast<const uint32_t*>(address);
+  return;
+}
+
+/**
+ * @brief Set the Address object
+ * 
+ * @param address 
+ */
+void InternetProtocolAddress::setAddress(const mcuf::lang::String& address){
+  *reinterpret_cast<uint32_t*>(this->mInternetProtocolAddress) = 0;
+  char cache[4];
+  int head = 0;
+  int tail = 0;
+  
+  for(int i=0; i<4; ++i){
+    if(i >= 3)
+      tail = static_cast<int32_t>(address.size());
+    
+    else
+      tail = address.indexOf('.', head);
+    
+    if(tail - head > 4)
+      break;
+    
+    int len = address.copyTo(cache, 0, head, static_cast<int>(tail - head));
+    cache[len] = 0x00;
+    this->mInternetProtocolAddress[i] = Byte::valueOf(cache);
+    
+    head = tail + 1;
+  }
+  return;
+}
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */
