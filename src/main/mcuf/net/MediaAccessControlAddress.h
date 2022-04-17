@@ -62,6 +62,12 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::lang::Object{
     /**
      * @brief Construct a new Media Access Control Address object
      * 
+     */
+    MediaAccessControlAddress(void);
+
+    /**
+     * @brief Construct a new Media Access Control Address object
+     * 
      * @param address 
      */
     MediaAccessControlAddress(const uint8_t address[6]);

@@ -43,6 +43,15 @@ using mcuf::lang::Character;
 /**
  * @brief Construct a new Media Access Control Address object
  * 
+ */
+MediaAccessControlAddress::MediaAccessControlAddress(void){
+  memset(this->mMediaAccessControlAddress, 0x00, 6);
+  return;
+}
+
+/**
+ * @brief Construct a new Media Access Control Address object
+ * 
  * @param address 
  */
 MediaAccessControlAddress::MediaAccessControlAddress(const uint8_t address[6]){
