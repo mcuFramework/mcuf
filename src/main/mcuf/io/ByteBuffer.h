@@ -236,9 +236,45 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
    */
 
   /* **************************************************************************************
-   *  Public Method <Override>
+   *  Public Method <Override> - mcuf::lang::Memory
    */
-
+  public:
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @return int 
+     */
+    virtual int indexOf(char ch) const override;
+    
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @param offset 
+     * @return int 
+     */
+    virtual int indexOf(char ch, int offset) const override;
+    
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return int 
+     */
+    virtual int indexOfString(const char* str) const override;
+    
+    /**
+     * @brief 
+     * 
+     * @param destination 
+     * @param destinationLen 
+     * @param start 
+     * @param limit 
+     * @return int 
+     */
+    virtual int indexOfMemory(const void* destination, int destinationLen, int start) const override;
+    
   /* **************************************************************************************
    *  Public Method <Inline>
    */
@@ -249,7 +285,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * 
      * @return unsigned int 
      */
-    inline int limit(void){
+    inline int limit(void) const{
       return this->mLimit;
     }
 
@@ -258,7 +294,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * 
      * @return unsigned int 
      */
-    inline int capacity(void){
+    inline int capacity(void) const{
       return this->length();
     }
     
@@ -278,7 +314,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * 
      * @return unsigned int 
      */
-    inline int position(void){
+    inline int position(void) const{
       return this->mPosition;
     }  
     
@@ -296,7 +332,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * 
      * @return unsigned int 
      */
-    inline int remaining(void){
+    inline int remaining(void) const{
       return (this->mLimit - this->mPosition);
     }  
     
@@ -306,7 +342,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * @return true 
      * @return false 
      */
-    inline bool hasRemaining(void){
+    inline bool hasRemaining(void) const{
       return (this->mLimit > this->mPosition);
     }
     

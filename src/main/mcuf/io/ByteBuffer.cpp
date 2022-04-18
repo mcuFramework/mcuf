@@ -62,9 +62,50 @@ ByteBuffer::~ByteBuffer(void){
  */
  
 /* ****************************************************************************************
- * Public Method <Override>
+ * Public Method <Override> - mcuf::lang::Memory
  */
+/**
+ * @brief 
+ * 
+ * @param ch 
+ * @return int 
+ */
+int ByteBuffer::indexOf(char ch) const{
+  return ByteBuffer::indexOf(ch, 0);
+}
 
+/**
+ * @brief 
+ * 
+ * @param ch 
+ * @param offset 
+ * @return int 
+ */
+int ByteBuffer::indexOf(char ch, int start) const{
+  return Pointer::indexOf(ch, start, this->limit());
+}
+
+/**
+ * @brief 
+ * 
+ * @param destination 
+ * @param destinationLen 
+ * @param start 
+ * @return int 
+ */
+int ByteBuffer::indexOfMemory(const void* destination, int destinationLen, int start) const{
+  return Pointer::indexOfMemory(destination, destinationLen, start, this->limit());
+}
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @return int 
+ */
+int ByteBuffer::indexOfString(const char* str) const{
+  return Pointer::indexOfString(str, this->limit());
+}
 /* ****************************************************************************************
  * Public Method
  */
