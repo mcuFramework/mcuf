@@ -942,6 +942,16 @@
               <FilePath>.\src\main\mcuf\io\RingBuffer.h</FilePath>
             </File>
             <File>
+              <FileName>RingBufferInputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBufferInputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBufferInputStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBufferInputStream.h</FilePath>
+            </File>
+            <File>
               <FileName>SerialPortOutputStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\SerialPortOutputStream.cpp</FilePath>
@@ -2408,6 +2418,16 @@
               <FileName>RingBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\RingBuffer.h</FilePath>
+            </File>
+            <File>
+              <FileName>RingBufferInputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBufferInputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBufferInputStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBufferInputStream.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortOutputStream.cpp</FileName>
@@ -3878,6 +3898,16 @@
               <FilePath>.\src\main\mcuf\io\RingBuffer.h</FilePath>
             </File>
             <File>
+              <FileName>RingBufferInputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBufferInputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBufferInputStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBufferInputStream.h</FilePath>
+            </File>
+            <File>
               <FileName>SerialPortOutputStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\SerialPortOutputStream.cpp</FilePath>
@@ -5344,6 +5374,16 @@
               <FileName>RingBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\RingBuffer.h</FilePath>
+            </File>
+            <File>
+              <FileName>RingBufferInputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBufferInputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBufferInputStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBufferInputStream.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortOutputStream.cpp</FileName>
@@ -6814,6 +6854,16 @@
               <FilePath>.\src\main\mcuf\io\RingBuffer.h</FilePath>
             </File>
             <File>
+              <FileName>RingBufferInputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBufferInputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBufferInputStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBufferInputStream.h</FilePath>
+            </File>
+            <File>
               <FileName>SerialPortOutputStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\SerialPortOutputStream.cpp</FilePath>
@@ -8280,6 +8330,16 @@
               <FileName>RingBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\RingBuffer.h</FilePath>
+            </File>
+            <File>
+              <FileName>RingBufferInputStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBufferInputStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>RingBufferInputStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\RingBufferInputStream.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortOutputStream.cpp</FileName>

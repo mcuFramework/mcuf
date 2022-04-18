@@ -190,7 +190,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @return true 
      * @return false 
      */
-    bool insert(const void* data);
+    virtual bool insert(const void* data);
     
     /**
      * @brief 
@@ -199,7 +199,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @param num 
      * @return int 
      */
-    int insertMult(const void *data, int num);
+    virtual int insertMult(const void *data, int num);
 
     /**
      * @brief 
@@ -208,7 +208,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @return true 
      * @return false 
      */
-    bool pop(void* data);
+    virtual bool pop(void* data);
 
     /**
      * @brief 
@@ -217,7 +217,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @param num 
      * @return int 
      */
-    int popMult(void* data, int num);
+    virtual int popMult(void* data, int num);
 
   /* **************************************************************************************
    * Protected Method <Static>

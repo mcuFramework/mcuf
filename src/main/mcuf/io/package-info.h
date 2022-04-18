@@ -23,6 +23,7 @@
 #include "OutputStreamBuffer.h"
 #include "PrintStream.h"
 #include "RingBuffer.h"
+#include "RingBufferInputStream.h"
 #include "SerialPortInputStream.h"
 #include "SerialPortOutputStream.h"
 

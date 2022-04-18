@@ -174,6 +174,17 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
     static void* pointShift(void* pointer, int shift){
       return static_cast<char*>(pointer) + shift;
     }
+    
+    /**
+     * @brief 
+     * 
+     * @param point 
+     * @param shift 
+     * @return void* 
+     */
+    static const void* pointShift(const void* pointer, int shift){
+      return static_cast<const char*>(pointer) + shift;
+    }    
 
   /* **************************************************************************************
    * Public Method <Static>
