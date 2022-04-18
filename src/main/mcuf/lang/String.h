@@ -158,6 +158,26 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @return int 
      */
     static int format(const mcuf::lang::Memory& memory, const char* format, ...);
+    
+    /**
+     * @brief 
+     * 
+     * @param src 
+     * @param format 
+     * @param args 
+     * @return int 
+     */
+    static int scanFormat(const char* src, const char* format, va_list args);
+    
+    /**
+     * @brief 
+     * 
+     * @param src 
+     * @param format 
+     * @param ... 
+     * @return int 
+     */
+    static int scanFormat(const char* src, const char* format, ...);
 
     /**
      * @brief 
@@ -213,6 +233,13 @@ class mcuf::lang::String extends mcuf::lang::Memory{
    */
   public:
 
+    /**
+     * @brief 
+     * 
+     * @param format 
+     * @param ... 
+     * @return int 
+     */
     int scanFormat(const char* format, ...);
   
     /**

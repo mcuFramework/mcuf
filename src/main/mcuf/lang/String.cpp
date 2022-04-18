@@ -178,6 +178,34 @@ String String::format(int bufferSize, const char* format, ...){
 /**
  * @brief 
  * 
+ * @param src 
+ * @param format 
+ * @param args 
+ * @return int 
+ */
+int String::scanFormat(const char* src, const char* format, va_list args){
+  return vsscanf(src, format, args);
+}
+
+/**
+ * @brief 
+ * 
+ * @param src 
+ * @param format 
+ * @param ... 
+ * @return int 
+ */
+int String::scanFormat(const char* src, const char* format, ...){
+  va_list args;
+  va_start(args, format);
+  int result = vsscanf(src, format, args);
+  va_end(args);
+  return result;  
+}
+
+/**
+ * @brief 
+ * 
  * @return String 
  */
 String String::empty(void){
@@ -235,6 +263,13 @@ int String::indexOfMemory(const void* destination, int destinationLen, int start
  * Public Method
  */
 
+/**
+ * @brief 
+ * 
+ * @param format 
+ * @param ... 
+ * @return int 
+ */
 int String::scanFormat(const char* format, ...){
   va_list args;
   va_start(args, format);
