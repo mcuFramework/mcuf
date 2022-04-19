@@ -149,6 +149,14 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
     virtual bool readBusy(void) override;
     
     /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return int 
+     */
+    virtual bool read(mcuf::io::ByteBuffer& byteBuffer) override;        
+    
+    /**
      * @brief nonblocking
      * 
      * @param byteBuffer 

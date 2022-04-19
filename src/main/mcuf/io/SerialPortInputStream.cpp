@@ -129,6 +129,21 @@ bool SerialPortInputStream::readBusy(void){
 }
 
 /**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @return bool 
+ */
+bool SerialPortInputStream::read(mcuf::io::ByteBuffer& byteBuffer){
+  Future future = Future();
+  bool result = SerialPortInputStream::read(byteBuffer, future);
+  if(result)
+    future.waitDone();
+  
+  return result;
+}
+
+/**
  *
  */
 bool SerialPortInputStream::read(ByteBuffer& byteBuffer, void* attachment, CompletionHandler<int, void*>* handler){

@@ -59,6 +59,14 @@ interface mcuf::io::InputStream{
   virtual bool readBusy(void) abstract;
   
   /**
+   * @brief 
+   * 
+   * @param byteBuffer 
+   * @return int 
+   */
+  virtual bool read(mcuf::io::ByteBuffer& byteBuffer) abstract;
+  
+  /**
    * @brief nonblocking
    * 
    * @param byteBuffer 

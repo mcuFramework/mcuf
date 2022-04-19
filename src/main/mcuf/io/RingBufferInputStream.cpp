@@ -192,6 +192,21 @@ bool RingBufferInputStream::readBusy(void){
 }
 
 /**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @return int 
+ */
+bool RingBufferInputStream::read(mcuf::io::ByteBuffer& byteBuffer){
+  Future future = Future();
+  bool result = RingBufferInputStream::read(byteBuffer, future);
+  if(result)
+    future.waitDone();
+  
+  return result;
+}    
+
+/**
  * @brief nonblocking
  * 
  * @param byteBuffer 
