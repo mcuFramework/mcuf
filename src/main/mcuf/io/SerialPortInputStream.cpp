@@ -129,6 +129,38 @@ bool SerialPortInputStream::readBusy(void){
 }
 
 /**
+ * @brief pop buffer byte non blocking.
+ * 
+ * @param result 
+ * @return true has data in buffer.
+ * @return false no data in buffer.
+ */
+bool SerialPortInputStream::getByte(char& result){
+  return this->mSerialPort.getByte(result);
+}
+
+/**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @return int 
+ */
+int SerialPortInputStream::get(mcuf::io::ByteBuffer& byteBuffer){
+  return this->mSerialPort.get(byteBuffer);
+}
+
+/**
+ * @brief 
+ * 
+ * @param buffer 
+ * @param bufferSize 
+ * @return int 
+ */
+int SerialPortInputStream::get(void* buffer, int bufferSize){
+  return this->mSerialPort.get(buffer, bufferSize);
+}
+
+/**
  * @brief 
  * 
  * @param byteBuffer 

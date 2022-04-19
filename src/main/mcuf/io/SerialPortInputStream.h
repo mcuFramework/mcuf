@@ -134,6 +134,32 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
     virtual bool readBusy(void) override;
     
     /**
+     * @brief pop buffer byte non blocking.
+     * 
+     * @param result 
+     * @return true has data in buffer.
+     * @return false no data in buffer.
+     */
+    virtual bool getByte(char& result) override;
+
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return int 
+     */
+    virtual int get(mcuf::io::ByteBuffer& byteBuffer) override;
+
+    /**
+     * @brief 
+     * 
+     * @param buffer 
+     * @param bufferSize 
+     * @return int 
+     */
+    virtual int get(void* buffer, int bufferSize) override;    
+    
+    /**
      * @brief 
      * 
      * @param byteBuffer 

@@ -192,6 +192,40 @@ bool RingBufferInputStream::readBusy(void){
 }
 
 /**
+ * @brief pop buffer byte non blocking.
+ * 
+ * @param result 
+ * @return true has data in buffer.
+ * @return false no data in buffer.
+ */
+bool RingBufferInputStream::getByte(char& result){
+  return this->pop(&result);
+}
+
+/**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @return int 
+ */
+int RingBufferInputStream::get(mcuf::io::ByteBuffer& byteBuffer){
+  void* buffer = byteBuffer.pointer(byteBuffer.position());
+  int bufferSize = byteBuffer.remaining();
+  return this->get(buffer, bufferSize);
+}
+
+/**
+ * @brief 
+ * 
+ * @param buffer 
+ * @param bufferSize 
+ * @return int 
+ */
+int RingBufferInputStream::get(void* buffer, int bufferSize){
+  return this->popMult(buffer, bufferSize);
+}
+
+/**
  * @brief 
  * 
  * @param byteBuffer 
