@@ -174,6 +174,8 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   
 };
 
+using mcuf::lang::System;
+
 /* *****************************************************************************************
  * End of file
  */ 
