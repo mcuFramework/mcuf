@@ -48,7 +48,19 @@ InternetProtocolAddress(){
   this->mPort = 0;
   return;
 }
-  
+
+/**
+ * @brief Construct a new Socket Address object
+ * 
+ * @param internetProtocolAddress 
+ * @param port 
+ */
+SocketAddress::SocketAddress(const InternetProtocolAddress& internetProtocolAddress, const uint16_t port):
+InternetProtocolAddress(internetProtocolAddress){
+  this->mPort = port;
+  return;
+}
+
 /**
  * @brief Construct a new Socket Address object
  * 

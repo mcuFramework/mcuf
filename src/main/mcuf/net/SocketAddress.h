@@ -70,6 +70,14 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
     /**
      * @brief Construct a new Socket Address object
      * 
+     * @param internetProtocolAddress 
+     * @param port 
+     */
+    SocketAddress(const mcuf::net::InternetProtocolAddress& internetProtocolAddress, const uint16_t port);
+
+    /**
+     * @brief Construct a new Socket Address object
+     * 
      * @param address 
      * @param port 
      */
