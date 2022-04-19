@@ -36,7 +36,17 @@ interface mcuf::io::InputStream{
    */
   
   /**
+   * @brief 
    * 
+   * @return int 
+   */
+  virtual int avariable(void) abstract;
+  
+  /**
+   * @brief 
+   * 
+   * @return true 
+   * @return false 
    */
   virtual bool abortRead(void) abstract;  
   

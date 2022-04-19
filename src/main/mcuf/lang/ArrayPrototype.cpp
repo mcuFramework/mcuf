@@ -36,9 +36,9 @@ using mcuf::lang::Memory;
  * @param memory 
  * @param elementSize 
  */
-ArrayPrototype::ArrayPrototype(const Memory& memory, uint32_t elementSize) : Memory(memory){
-  this->mElementSize = elementSize;
-  this->mElementLength = (static_cast<uint32_t>(this->length()) / this->mElementSize); 
+ArrayPrototype::ArrayPrototype(const Memory& memory, size_t elementSize) : Memory(memory){
+  this->mElementSize = static_cast<int>(elementSize);
+  this->mElementLength = (this->length() / this->mElementSize); 
   return;
 }
 
@@ -48,9 +48,9 @@ ArrayPrototype::ArrayPrototype(const Memory& memory, uint32_t elementSize) : Mem
  * @param length 
  * @param elementSize 
  */
-ArrayPrototype::ArrayPrototype(uint32_t length, uint32_t elementSize) : Memory(length * elementSize){
-  this->mElementSize = elementSize;
-  this->mElementLength = length;
+ArrayPrototype::ArrayPrototype(size_t length, size_t elementSize) : Memory(length * elementSize){
+  this->mElementSize = static_cast<int>(elementSize);
+  this->mElementLength = this->length() / static_cast<int>(elementSize);
 }
 
 /**
@@ -76,14 +76,14 @@ ArrayPrototype::~ArrayPrototype(void){
 /**
  *
  */
-uint32_t ArrayPrototype::getElementLength(void){
+int ArrayPrototype::getElementLength(void){
   return this->mElementLength;
 }
 
 /**
  *
  */
-uint32_t ArrayPrototype::getElementSize(void){
+int ArrayPrototype::getElementSize(void){
   return this->mElementSize;
 }
 
@@ -93,10 +93,10 @@ uint32_t ArrayPrototype::getElementSize(void){
 int ArrayPrototype::indexOf(const void* element) const{
   int result = -1;
   
-  for(uint32_t i=0; i<this->mElementLength; i++){
+  for(int i=0; i<this->mElementLength; i++){
     const void* dst = &static_cast<uint8_t*>(this->pointer())[i * this->mElementSize];
     
-    if(memcmp(dst, element, this->mElementSize) != 0)
+    if(memcmp(dst, element, static_cast<size_t>(this->mElementSize)) != 0)
       continue;
 
     result = static_cast<int>(i);
@@ -109,7 +109,7 @@ int ArrayPrototype::indexOf(const void* element) const{
 /**
  * 
  */
-void ArrayPrototype::set(const void* src, uint32_t shift){
+void ArrayPrototype::set(const void* src, int shift){
   int location = static_cast<int>(shift * this->mElementSize);
   this->copy(src, 0, location, static_cast<int>(this->mElementSize));
 }
@@ -117,9 +117,9 @@ void ArrayPrototype::set(const void* src, uint32_t shift){
 /**
  * 
  */
-void* ArrayPrototype::get(uint32_t shift){
-  uint32_t location = shift * this->mElementSize;
-  if(location >= static_cast<uint32_t>(this->length()))
+void* ArrayPrototype::get(int shift){
+  int location = shift * this->mElementSize;
+  if(location >= this->length())
     return nullptr;
   
   return this->pointer(location);

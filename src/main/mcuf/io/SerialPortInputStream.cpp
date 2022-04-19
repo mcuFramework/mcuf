@@ -106,6 +106,15 @@ void SerialPortInputStream::onSerialPortEvent(SerialPortStatus status, int resul
  */
 
 /**
+ * @brief 
+ * 
+ * @return int 
+ */
+int SerialPortInputStream::avariable(void){
+  return static_cast<int>(this->mSerialPort.avariable());
+}
+
+/**
  *
  */
 bool SerialPortInputStream::abortRead(void){

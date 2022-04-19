@@ -160,6 +160,16 @@ int RingBufferInputStream::insertMult(const void *data, int num){
 /* ****************************************************************************************
  * Public Method <Override> - mcuf::io::InputStream 
  */
+
+/**
+ * @brief 
+ * 
+ * @return int 
+ */
+int RingBufferInputStream::avariable(void){
+  return this->getCount();
+}    
+
 /**
  * 
  */

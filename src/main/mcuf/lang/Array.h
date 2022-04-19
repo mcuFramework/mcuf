@@ -76,7 +76,7 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
      * @param e 
      * @param length 
      */
-    Array(E* e, uint32_t length) : mcuf::lang::ArrayPrototype(mcuf::lang::Memory(e, sizeof(E) * length), sizeof(E)){
+    Array(E* e, size_t length) : mcuf::lang::ArrayPrototype(mcuf::lang::Memory(e, sizeof(E) * length), sizeof(E)){
       return;
     }
     
@@ -86,7 +86,7 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
      * @param e 
      * @param length 
      */
-    Array(const E* e, uint32_t length) : mcuf::lang::ArrayPrototype(mcuf::lang::Memory(e, sizeof(E) * length), sizeof(E)){
+    Array(const E* e, size_t length) : mcuf::lang::ArrayPrototype(mcuf::lang::Memory(e, sizeof(E) * length), sizeof(E)){
       return;
     }
 
@@ -95,7 +95,7 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
      * 
      * @param length 
      */
-    Array(uint32_t length) : mcuf::lang::ArrayPrototype(length, sizeof(E)){
+    Array(size_t length) : mcuf::lang::ArrayPrototype(length, sizeof(E)){
       return;
     }
 
@@ -154,7 +154,7 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
      * 
      * @return uint32_t 
      */
-    inline uint32_t length(void) const {
+    inline int length(void) const {
       return this->mElementLength;
     }
     

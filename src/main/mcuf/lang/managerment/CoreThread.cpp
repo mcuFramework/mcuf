@@ -96,7 +96,7 @@ void CoreThread::run(void){
     this->mExecutor.actionAll();
     
     if(this->mExecutor.isEmpty())
-      this->wait();
+      this->wait(100);
   }
 }
 

@@ -9,6 +9,7 @@
  * Include
  */  
 #include "mcuf/util/ArrayQueuePrototype.h"
+#include "mcuf/lang/System.h"
 
 /* ****************************************************************************************
  * Macro
@@ -35,6 +36,7 @@ using mcuf::lang::Memory;
  * @param memory 
  */
 ArrayQueuePrototype::ArrayQueuePrototype(const Memory& memory) : Array<void*>(memory){
+  this->clear();
   return;
 }
 
@@ -44,6 +46,7 @@ ArrayQueuePrototype::ArrayQueuePrototype(const Memory& memory) : Array<void*>(me
  * @param length 
  */
 ArrayQueuePrototype::ArrayQueuePrototype(uint32_t size) : Array<void*>(size){
+  this->clear();
   return;
 }
 
@@ -52,6 +55,7 @@ ArrayQueuePrototype::ArrayQueuePrototype(uint32_t size) : Array<void*>(size){
  * 
  */
 ArrayQueuePrototype::~ArrayQueuePrototype(void){
+  this->clear();
   return;
 }
 
@@ -145,7 +149,7 @@ void* ArrayQueuePrototype::peekPointer(void){
 /**
  *
  */
-uint32_t ArrayQueuePrototype::size(void){
+int ArrayQueuePrototype::size(void) const{
   if(this->mEmpty)
     return 0;
   

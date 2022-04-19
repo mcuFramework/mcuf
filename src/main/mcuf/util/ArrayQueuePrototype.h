@@ -105,15 +105,15 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
     /**
      * 
      */
-    inline bool isEmpty(void){
+    inline bool isEmpty(void) const{
       return this->mEmpty;
     }
 
     /**
      * 
      */
-    inline bool isFull(void){
-      return ((this->mHead == this->mTail) == !this->mEmpty);
+    inline bool isFull(void) const{
+      return ((this->mHead == this->mTail) && (!this->mEmpty));
     }
    
   /* **************************************************************************************
@@ -152,7 +152,7 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
     /**
      *
      */
-    uint32_t size(void);  
+    int size(void) const;
 
   /* **************************************************************************************
    * Private Method <Static>

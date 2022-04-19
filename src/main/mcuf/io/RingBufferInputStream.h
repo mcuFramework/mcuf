@@ -126,7 +126,17 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
    */
   public:
     /**
+     * @brief 
      * 
+     * @return int 
+     */
+    virtual int avariable(void) override;    
+  
+    /**
+     * @brief 
+     * 
+     * @return true abrot successful.
+     * @return false abrot fail.
      */
     virtual bool abortRead(void) override;  
     

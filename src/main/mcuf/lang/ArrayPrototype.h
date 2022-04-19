@@ -37,8 +37,8 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
    * Variable <Protected>
    */
   protected: 
-    uint32_t mElementSize;
-    uint32_t mElementLength;
+    int mElementSize;
+    int mElementLength;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -63,7 +63,7 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
      * @param memory 
      * @param elementSize 
      */
-    ArrayPrototype(const mcuf::lang::Memory& memory, uint32_t elementSize);
+    ArrayPrototype(const mcuf::lang::Memory& memory, size_t elementSize);
     
     /**
      * @brief Construct a new Array Prototype object
@@ -71,7 +71,7 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
      * @param length 
      * @param elementSize 
      */
-    ArrayPrototype(uint32_t length, uint32_t elementSize);
+    ArrayPrototype(size_t length, size_t elementSize);
 
     /**
      * @brief Destroy the Array Prototype object
@@ -99,16 +99,16 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
     /**
      * @brief Get the Element Length object
      * 
-     * @return uint32_t 
+     * @return int 
      */
-    uint32_t getElementLength(void);
+    int getElementLength(void);
 
     /**
      * @brief Get the Element Size object
      * 
      * @return uint32_t 
      */
-    uint32_t getElementSize(void);
+    int getElementSize(void);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -138,7 +138,7 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
      * @param src 
      * @param shift 
      */
-    void set(const void* src, uint32_t shift);
+    void set(const void* src, int shift);
 
     /**
      * @brief 
@@ -146,7 +146,7 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
      * @param shift 
      * @return void* 
      */
-    void* get(uint32_t shift);
+    void* get(int shift);
 
   /* **************************************************************************************
    * Private Method <Static>

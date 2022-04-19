@@ -113,6 +113,13 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
     /**
      * @brief 
      * 
+     * @return int 
+     */
+    virtual int avariable(void) override;
+  
+    /**
+     * @brief 
+     * 
      * @return true abrot successful.
      * @return false abrot fail.
      */
