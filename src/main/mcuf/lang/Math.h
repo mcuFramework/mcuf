@@ -198,6 +198,17 @@ class mcuf::lang::Math extends mcuf::lang::Object{
     static inline uint32_t min(uint32_t a, uint32_t b){
       return ((a)<(b)?(a):(b));
     }
+    
+    /**
+     * @brief 
+     * 
+     * @param a 
+     * @param b 
+     * @return int 
+     */
+    static inline int min(int a, int b){
+      return ((a)<(b)?(a):(b));
+    }    
 
     /**
      * @brief 

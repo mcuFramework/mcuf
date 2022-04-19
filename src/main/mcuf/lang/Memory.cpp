@@ -438,6 +438,41 @@ int Memory::indexOfString(const char* str) const{
   return Pointer::indexOfString(str, this->length());
 }
 
+/**
+ * @brief 
+ * 
+ * @param size 
+ * @return true 
+ * @return false 
+ */
+bool Memory::resize(int size){
+  if(size <= 0)
+    return false;
+
+  if(!this->isHeapMemory())
+    return false;
+  
+  char* newMemory = new char[size];
+  if(newMemory == nullptr)
+    return false;
+  
+  Pointer::move(newMemory, this->pointer(), Math::min(size, this->length()));
+  char* oldPointer = static_cast<char*>(this->pointer());
+  Memory* next = this;
+  
+  while(true){
+    next->mPointer = newMemory;
+    next->mLength = static_cast<uint32_t>(size);
+    if(next->mNext == this)
+      break;
+    
+    next = next->mNext;
+  }
+  
+  delete[] oldPointer;
+  return true;
+}
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */

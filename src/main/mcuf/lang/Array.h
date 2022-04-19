@@ -154,7 +154,7 @@ class mcuf::lang::Array extends mcuf::lang::ArrayPrototype{
      * 
      * @return uint32_t 
      */
-    inline int length(void) const {
+    inline int length(void) const{
       return this->mElementLength;
     }
     

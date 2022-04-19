@@ -157,7 +157,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @return true 
      * @return false 
      */
-    inline bool isReadOnly(void) const{
+    virtual inline bool isReadOnly(void) const{
       return (this->mLength & 0x80000000);
     }
 
@@ -178,7 +178,17 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      */
     inline int length(void) const{
       return static_cast<int>(this->mLength & 0x7FFFFFFF);
-    }  
+    }
+    
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    inline bool isHeapMemory(void) const{
+      return (this->mNext != nullptr);
+    }
   
   /* **************************************************************************************
    * Public Method
@@ -335,7 +345,16 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param limit 
      * @return int 
      */
-    virtual int indexOfMemory(const void* destination, int destinationLen, int start) const;    
+    virtual int indexOfMemory(const void* destination, int destinationLen, int start) const;
+
+    /**
+     * @brief 
+     * 
+     * @param size 
+     * @return true 
+     * @return false 
+     */
+    virtual bool resize(int size);
 
   /* **************************************************************************************
    * Protected Method <Static>
