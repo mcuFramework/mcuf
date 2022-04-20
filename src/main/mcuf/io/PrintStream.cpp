@@ -253,9 +253,37 @@ bool PrintStream::print(const char* string, bool newLine){
  * @return false 
  */
 bool PrintStream::print(mcuf::io::ByteBuffer& byteBuffer, bool newLine){
+  if(this->mOutputStream.writeBusy())
+    return false;
+
   this->mByteBuffer.clear();
   this->mByteBuffer.put(byteBuffer);
 
+  if(newLine)
+    this->mByteBuffer.put("\n");
+
+  this->mByteBuffer.flip();
+  return this->mOutputStream.write(this->mByteBuffer, nullptr, nullptr);
+}
+
+/**
+ * @brief 
+ * 
+ * @param InputStream 
+ * @param newLine 
+ * @return true 
+ * @return false 
+ */
+bool PrintStream::print(mcuf::io::InputStream& inputStream, bool newLine){
+  if(this->mOutputStream.writeBusy())
+    return false;
+
+  this->mByteBuffer.clear();
+  if(newLine)
+    this->mByteBuffer.limit(this->mByteBuffer.limit()-1);
+  
+  inputStream.get(this->mByteBuffer);
+  this->mByteBuffer.limit(this->mByteBuffer.capacity());
   if(newLine)
     this->mByteBuffer.put("\n");
 

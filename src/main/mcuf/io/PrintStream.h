@@ -18,6 +18,7 @@
 //-----------------------------------------------------------------------------------------
 #include "mcuf/lang/Memory.h"
 #include "mcuf/io/OutputStream.h"
+#include "mcuf/io/InputStream.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -203,6 +204,17 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
     /**
      * @brief 
      * 
+     * @param inputStream 
+     * @return true 
+     * @return false 
+     */
+    inline bool print(mcuf::io::InputStream& inputStream){
+      return this->print(inputStream, false);
+    }    
+    
+    /**
+     * @brief 
+     * 
      * @param b 
      * @return true 
      * @return false 
@@ -299,6 +311,17 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
       return this->print(byteBuffer, true);
     }
     
+    /**
+     * @brief 
+     * 
+     * @param inputStream 
+     * @return true 
+     * @return false 
+     */
+    inline bool println(mcuf::io::InputStream& inputStream){
+      return this->print(inputStream, true);
+    }
+    
   /* **************************************************************************************
    * Public Method
    */
@@ -383,6 +406,16 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
      * @return false 
      */
     bool print(mcuf::io::ByteBuffer& byteBuffer, bool newLine);
+
+    /**
+     * @brief 
+     * 
+     * @param InputStream 
+     * @param newLine 
+     * @return true 
+     * @return false 
+     */
+    bool print(mcuf::io::InputStream& inputStream, bool newLine);
 
     /**
      * @brief 
