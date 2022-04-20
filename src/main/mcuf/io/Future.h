@@ -41,7 +41,8 @@ class mcuf::io::Future extends mcuf::lang::Object implements
     enum struct Status : uint32_t{
       IDLE,
       WAIT,
-      DONE
+      DONE_COMPLETED,
+      DONE_FAILED
     };
 
   /* **************************************************************************************
@@ -168,6 +169,22 @@ class mcuf::io::Future extends mcuf::lang::Object implements
      * @return false 
      */
     bool isDone(void);
+    
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool isCompleted(void);
+
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool isFailed(void);
     
     /**
      * @brief 

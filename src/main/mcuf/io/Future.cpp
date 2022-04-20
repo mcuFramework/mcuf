@@ -79,7 +79,7 @@ void Future::completed(int result, void* attachment){
     return;
   
   this->mResult = result;
-  this->mStatus = Status::DONE;
+  this->mStatus = Status::DONE_COMPLETED;
   if(this->mThreadID != 0)
     Threads::notify(this->mThreadID);
 }
@@ -98,7 +98,7 @@ void Future::failed(void* exc, void* attachment){
     return;
   
   this->mResult = -1;
-  this->mStatus = Status::DONE;
+  this->mStatus = Status::DONE_FAILED;
   if(this->mThreadID != 0)
     Threads::notify(this->mThreadID);
 }
@@ -188,7 +188,7 @@ bool Future::get(int& result, uint32_t timeout){
       
       this->mThreadID = 0;
       
-      if(this->mStatus != Status::DONE)
+      if(!this->isDone())
         return false;
       
     }
@@ -216,9 +216,29 @@ void Future::clear(void){
  * @return false 
  */
 bool Future::isDone(void){
-  return (this->mStatus == Status::DONE);
+  return ((this->mStatus == Status::DONE_COMPLETED) || (this->mStatus == Status::DONE_FAILED));
 }
-    
+
+/**
+ * @brief 
+ * 
+ * @return true 
+ * @return false 
+ */
+bool Future::isCompleted(void){
+  return (this->mStatus == Status::DONE_COMPLETED);
+}
+
+/**
+ * @brief 
+ * 
+ * @return true 
+ * @return false 
+ */
+bool Future::isFailed(void){
+  return (this->mStatus == Status::DONE_FAILED);
+}
+
 /**
  * @brief 
  * 
