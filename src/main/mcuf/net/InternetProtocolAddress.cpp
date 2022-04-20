@@ -118,8 +118,8 @@ InternetProtocolAddress::~InternetProtocolAddress(void){
  * 
  * @return int 
  */
-uint32_t InternetProtocolAddress::getAddress(void){
-  return *reinterpret_cast<uint32_t*>(this->mInternetProtocolAddress);
+uint32_t InternetProtocolAddress::getAddress(void) const{
+  return *reinterpret_cast<const uint32_t*>(this->mInternetProtocolAddress);
 }
   
 /**
@@ -130,7 +130,7 @@ uint32_t InternetProtocolAddress::getAddress(void){
  * @param a3 
  * @param a4 
  */
-void InternetProtocolAddress::getAddress(uint8_t& a1, uint8_t& a2, uint8_t& a3, uint8_t& a4){
+void InternetProtocolAddress::getAddress(uint8_t& a1, uint8_t& a2, uint8_t& a3, uint8_t& a4) const{
   a1 = this->mInternetProtocolAddress[0];
   a2 = this->mInternetProtocolAddress[1];
   a3 = this->mInternetProtocolAddress[2];
@@ -143,8 +143,8 @@ void InternetProtocolAddress::getAddress(uint8_t& a1, uint8_t& a2, uint8_t& a3, 
  * 
  * @param result 
  */
-void InternetProtocolAddress::getAddress(uint8_t* result){
-  *reinterpret_cast<uint32_t*>(result) = *reinterpret_cast<uint32_t*>(this->mInternetProtocolAddress);
+void InternetProtocolAddress::getAddress(uint8_t* result) const{
+  *reinterpret_cast<uint32_t*>(result) = *reinterpret_cast<const uint32_t*>(this->mInternetProtocolAddress);
   return;
 }
 
@@ -153,7 +153,7 @@ void InternetProtocolAddress::getAddress(uint8_t* result){
  * 
  * @param address 
  */
-void InternetProtocolAddress::getAddress(mcuf::lang::String& result){
+void InternetProtocolAddress::getAddress(mcuf::lang::String& result) const{
   result.format("%d.%d.%d.%d\0", this->mInternetProtocolAddress[0], 
                                  this->mInternetProtocolAddress[1], 
                                  this->mInternetProtocolAddress[2], 
@@ -166,7 +166,7 @@ void InternetProtocolAddress::getAddress(mcuf::lang::String& result){
  * 
  * @return mcuf::lang::String 
  */
-String InternetProtocolAddress::toString(void){
+String InternetProtocolAddress::toString(void) const{
   String result = String(16);
   this->getAddress(result);                                 
   return result;
@@ -244,8 +244,8 @@ void InternetProtocolAddress::setAddress(const mcuf::lang::String& address){
  * @return true 
  * @return false 
  */
-bool InternetProtocolAddress::isNull(void){
-  return (*reinterpret_cast<uint32_t*>(this->mInternetProtocolAddress) == 0);
+bool InternetProtocolAddress::isNull(void) const{
+  return (*reinterpret_cast<const uint32_t*>(this->mInternetProtocolAddress) == 0);
 }
 
 

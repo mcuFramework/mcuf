@@ -124,7 +124,7 @@ class mcuf::net::InternetProtocolAddress extends mcuf::lang::Object{
      * 
      * @return int 
      */
-    virtual uint32_t getAddress(void);
+    virtual uint32_t getAddress(void) const;
   
     /**
      * @brief Get the Address object
@@ -134,21 +134,21 @@ class mcuf::net::InternetProtocolAddress extends mcuf::lang::Object{
      * @param a3 
      * @param a4 
      */
-    virtual void getAddress(uint8_t& a1, uint8_t& a2, uint8_t& a3, uint8_t& a4);
+    virtual void getAddress(uint8_t& a1, uint8_t& a2, uint8_t& a3, uint8_t& a4) const;
 
     /**
      * @brief Get the Address object
      * 
      * @param result 
      */
-    virtual void getAddress(uint8_t* result);
+    virtual void getAddress(uint8_t* result) const;
     
     /**
      * @brief Get the Address object
      * 
      * @param address 
      */
-    virtual void getAddress(mcuf::lang::String& result);
+    virtual void getAddress(mcuf::lang::String& result) const;
     
     /**
      * @brief Set the Address object
@@ -186,7 +186,7 @@ class mcuf::net::InternetProtocolAddress extends mcuf::lang::Object{
      * 
      * @return mcuf::lang::String 
      */
-    virtual mcuf::lang::String toString(void);
+    virtual mcuf::lang::String toString(void) const;
     
     /**
      * @brief 
@@ -194,7 +194,7 @@ class mcuf::net::InternetProtocolAddress extends mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool isNull(void);
+    virtual bool isNull(void) const;
 
   /* **************************************************************************************
    * Protected Method <Static>

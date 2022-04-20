@@ -133,7 +133,7 @@ SocketAddress::~SocketAddress(void){
  * 
  * @return mcuf::lang::String 
  */
-String SocketAddress::toString(void){
+String SocketAddress::toString(void) const{
   String result = String(22);
   this->getSocketAddress(result);
   return result;
@@ -148,7 +148,7 @@ String SocketAddress::toString(void){
  * 
  * @return uint16_t 
  */
-uint16_t SocketAddress::getPort(void){
+uint16_t SocketAddress::getPort(void) const{
   return this->mPort;
 }
 
@@ -157,7 +157,7 @@ uint16_t SocketAddress::getPort(void){
  * 
  * @param result 
  */
-void SocketAddress::getSocketAddress(mcuf::lang::String& result){
+void SocketAddress::getSocketAddress(mcuf::lang::String& result) const{
   result.format("%d.%d.%d.%d:%d\0", this->mInternetProtocolAddress[0], 
                                     this->mInternetProtocolAddress[1], 
                                     this->mInternetProtocolAddress[2], 

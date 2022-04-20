@@ -130,7 +130,7 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
      * 
      * @return mcuf::lang::String 
      */
-    virtual mcuf::lang::String toString(void) override;
+    virtual mcuf::lang::String toString(void) const override;
 
   /* **************************************************************************************
    * Public Method
@@ -142,14 +142,14 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
      * 
      * @return uint16_t 
      */
-    virtual uint16_t getPort(void);
+    virtual uint16_t getPort(void) const;
   
     /**
      * @brief Get the Socket Address object
      * 
      * @param result 
      */
-    virtual void getSocketAddress(mcuf::lang::String& result);
+    virtual void getSocketAddress(mcuf::lang::String& result) const;
 
     /**
      * @brief Set the Port object

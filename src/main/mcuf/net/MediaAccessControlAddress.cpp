@@ -125,7 +125,7 @@ void MediaAccessControlAddress::setMediaAccessControlAddress(const mcuf::lang::S
  * 
  * @param result 
  */
-void MediaAccessControlAddress::getMediaAccessControlAddress(uint8_t* result){
+void MediaAccessControlAddress::getMediaAccessControlAddress(uint8_t* result) const{
   memcpy(result, this->mMediaAccessControlAddress, 6);
   return;
 }
@@ -134,7 +134,7 @@ void MediaAccessControlAddress::getMediaAccessControlAddress(uint8_t* result){
  * 
  * @param result 
  */
-void MediaAccessControlAddress::getMediaAccessControlAddress(mcuf::lang::String& result){
+void MediaAccessControlAddress::getMediaAccessControlAddress(mcuf::lang::String& result) const{
   result.format("%02x:%02x:%02x:%02x:%02x:%02x\0", this->mMediaAccessControlAddress[0]
                                                  , this->mMediaAccessControlAddress[1]
                                                  , this->mMediaAccessControlAddress[2]
@@ -149,7 +149,7 @@ void MediaAccessControlAddress::getMediaAccessControlAddress(mcuf::lang::String&
  * 
  * @return mcuf::lang::String 
  */
-String MediaAccessControlAddress::toString(void){
+String MediaAccessControlAddress::toString(void) const{
   String result = String(18);
   this->getMediaAccessControlAddress(result);
   return result;
@@ -161,7 +161,7 @@ String MediaAccessControlAddress::toString(void){
  * @return true 
  * @return false 
  */
-bool MediaAccessControlAddress::isNull(void){
+bool MediaAccessControlAddress::isNull(void) const{
   for(int i=0; i<6; ++i){
     if(this->mMediaAccessControlAddress[i] != 0)
       return false;

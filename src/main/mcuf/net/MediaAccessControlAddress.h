@@ -120,21 +120,21 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::lang::Object{
      * 
      * @param result 
      */
-    virtual void getMediaAccessControlAddress(uint8_t* result);
+    virtual void getMediaAccessControlAddress(uint8_t* result) const;
 
     /**
      * @brief Get the Media Access Control Address object
      * 
      * @param result 
      */
-    virtual void getMediaAccessControlAddress(mcuf::lang::String& result);
+    virtual void getMediaAccessControlAddress(mcuf::lang::String& result) const;
   
     /**
      * @brief 
      * 
      * @return mcuf::lang::String 
      */
-    virtual mcuf::lang::String toString(void);
+    virtual mcuf::lang::String toString(void) const;
     
     /**
      * @brief 
@@ -142,7 +142,7 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool isNull(void);
+    virtual bool isNull(void) const;
     
   /* **************************************************************************************
    * Protected Method <Static>
