@@ -157,6 +157,19 @@ uint32_t System::getCoreClock(void){
   return SystemCoreClockHz;
 }
 
+/**
+ * @brief 
+ * 
+ * @param times 
+ */
+void System::lowerDelay(uint32_t times){
+#pragma clang optimize off
+  while(times){
+    --times;
+  }
+#pragma clang optimize on
+}
+
 /* ****************************************************************************************
  * Public Method <Override>
  */

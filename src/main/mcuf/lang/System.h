@@ -123,6 +123,13 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * @return uint32_t 
      */
     static uint32_t getCoreClock(void);
+    
+    /**
+     * @brief 
+     * 
+     * @param times 
+     */
+    static void lowerDelay(uint32_t times);
   
   /* **************************************************************************************
    * Public Method <Inline Static>
