@@ -142,21 +142,21 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
      * 
      * @return uint16_t 
      */
-    uint16_t getPort(void);
+    virtual uint16_t getPort(void);
   
     /**
      * @brief Get the Socket Address object
      * 
      * @param result 
      */
-    void getSocketAddress(mcuf::lang::String& result);
+    virtual void getSocketAddress(mcuf::lang::String& result);
 
     /**
      * @brief Set the Port object
      * 
      * @param port 
      */
-    void setPort(uint16_t port);
+    virtual void setPort(uint16_t port);
     
   /* **************************************************************************************
    * Protected Method <Static>

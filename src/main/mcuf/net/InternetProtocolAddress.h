@@ -187,6 +187,14 @@ class mcuf::net::InternetProtocolAddress extends mcuf::lang::Object{
      * @return mcuf::lang::String 
      */
     virtual mcuf::lang::String toString(void);
+    
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    virtual bool isNull(void);
 
   /* **************************************************************************************
    * Protected Method <Static>

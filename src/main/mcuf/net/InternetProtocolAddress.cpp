@@ -238,6 +238,17 @@ void InternetProtocolAddress::setAddress(const mcuf::lang::String& address){
   return;
 }
 
+/**
+ * @brief 
+ * 
+ * @return true 
+ * @return false 
+ */
+bool InternetProtocolAddress::isNull(void){
+  return (*reinterpret_cast<uint32_t*>(this->mInternetProtocolAddress) == 0);
+}
+
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */

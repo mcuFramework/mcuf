@@ -106,36 +106,44 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::lang::Object{
      * 
      * @param address 
      */
-    void setMediaAccessControlAddress(const uint8_t address[6]);
+    virtual void setMediaAccessControlAddress(const uint8_t address[6]);
   
     /**
      * @brief Set the Media Access Control Address object
      * 
      * @param address 
      */
-    void setMediaAccessControlAddress(const mcuf::lang::String& address);
+    virtual void setMediaAccessControlAddress(const mcuf::lang::String& address);
   
     /**
      * @brief Get the Media Access Control Address object
      * 
      * @param result 
      */
-    void getMediaAccessControlAddress(uint8_t* result);
+    virtual void getMediaAccessControlAddress(uint8_t* result);
 
     /**
      * @brief Get the Media Access Control Address object
      * 
      * @param result 
      */
-    void getMediaAccessControlAddress(mcuf::lang::String& result);
+    virtual void getMediaAccessControlAddress(mcuf::lang::String& result);
   
     /**
      * @brief 
      * 
      * @return mcuf::lang::String 
      */
-    mcuf::lang::String toString(void);
-  
+    virtual mcuf::lang::String toString(void);
+    
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    virtual bool isNull(void);
+    
   /* **************************************************************************************
    * Protected Method <Static>
    */

@@ -155,6 +155,21 @@ String MediaAccessControlAddress::toString(void){
   return result;
 }
 
+/**
+ * @brief 
+ * 
+ * @return true 
+ * @return false 
+ */
+bool MediaAccessControlAddress::isNull(void){
+  for(int i=0; i<6; ++i){
+    if(this->mMediaAccessControlAddress[i] != 0)
+      return false;
+  }
+  
+  return true;
+}
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */
