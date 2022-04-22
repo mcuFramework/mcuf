@@ -211,7 +211,9 @@ bool RingBufferInputStream::getByte(char& result){
 int RingBufferInputStream::get(mcuf::io::ByteBuffer& byteBuffer){
   void* buffer = byteBuffer.pointer(byteBuffer.position());
   int bufferSize = byteBuffer.remaining();
-  return this->get(buffer, bufferSize);
+  int result = this->get(buffer, bufferSize);
+  byteBuffer += result;
+  return result;
 }
 
 /**
