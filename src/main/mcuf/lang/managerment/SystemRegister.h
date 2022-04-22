@@ -17,6 +17,7 @@
 //-----------------------------------------------------------------------------------------
 #include "mcuf/lang/Object.h"
 #include "mcuf/io/PrintStream.h"
+#include "mcuf/io/InputStream.h"
 #include "mcuf/lang/ErrorCode.h"
 
 /* ****************************************************************************************
@@ -59,6 +60,7 @@ class mcuf::lang::managerment::SystemRegister extends mcuf::lang::Object{
     ErrorCodeHandler mErrorCodeHandler;
     SystemReset mSystemReset;
     mcuf::io::PrintStream* mPrintStream;
+    mcuf::io::InputStream* mInputStream;
   
   /* **************************************************************************************
    * Abstract method <Public>
@@ -101,6 +103,13 @@ class mcuf::lang::managerment::SystemRegister extends mcuf::lang::Object{
    * Public Method
    */
   public:
+    /**
+     * @brief Set the Input Stream object
+     * 
+     * @param inputStream 
+     */
+    void setInputStream(mcuf::io::InputStream* inputStream);
+
     /**
      * @brief Set the Print Stream object
      * 

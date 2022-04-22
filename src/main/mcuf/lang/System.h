@@ -87,7 +87,14 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * 
      */
     static void reboot(void);
-  
+
+    /**
+     * @brief 
+     * 
+     * @return mcuf::io::InputStream& 
+     */
+    static mcuf::io::InputStream& in(void);
+
     /**
      * @brief 
      * 

@@ -103,6 +103,15 @@ void System::reboot(void){
 /**
  * @brief 
  * 
+ * @return mcuf::io::InputStream& 
+ */
+mcuf::io::InputStream& System::in(void){
+  return *System::mSystemRegister.mInputStream;
+}
+
+/**
+ * @brief 
+ * 
  * @return mcuf::io::PrintStream& 
  */
 mcuf::io::PrintStream& System::out(void){

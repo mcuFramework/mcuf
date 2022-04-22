@@ -68,6 +68,16 @@ SystemRegister::~SystemRegister(void){
  */
 
 /**
+ * @brief Set the Input Stream object
+ * 
+ * @param inputStream 
+ */
+void SystemRegister::setInputStream(mcuf::io::InputStream* inputStream){
+  this->mInputStream = inputStream;
+  return;
+}
+
+/**
  * @brief Set the Print Stream object
  * 
  * @param printStream 
