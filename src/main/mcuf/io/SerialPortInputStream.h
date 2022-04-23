@@ -18,6 +18,7 @@
 #include "hal/serial/SerialPort.h"
 #include "hal/serial/SerialPortEvent.h"
 #include "hal/serial/SerialPortStatus.h"
+#include "mcuf/io/InputBuffer.h"
 #include "mcuf/io/InputStream.h"
 #include "mcuf/io/OutputStream.h"
 #include "mcuf/io/CompletionHandler.h"
@@ -38,6 +39,7 @@ namespace mcuf{
  */  
 class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements 
   public mcuf::io::InputStream,
+  public mcuf::io::InputBuffer,
   public hal::serial::SerialPortEvent
 {
 
@@ -106,33 +108,17 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
                                    void* attachment) override;
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::io::InputStream
-   */                      
-  public:
+   * Public Method <Override> - mcuf::io::InputBuffer
+   */     
+  public:                   
 
     /**
      * @brief 
      * 
      * @return int 
      */
-    virtual int avariable(void) override;
-  
-    /**
-     * @brief 
-     * 
-     * @return true abrot successful.
-     * @return false abrot fail.
-     */
-    virtual bool abortRead(void) override;
-                              
-    /**
-     * @brief 
-     * 
-     * @return true is busy.
-     * @return false isn't busy.
-     */
-    virtual bool readBusy(void) override;
-    
+    virtual int avariable(void) const override;
+
     /**
      * @brief pop buffer byte non blocking.
      * 
@@ -148,7 +134,7 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
      * @param byteBuffer 
      * @return int 
      */
-    virtual int get(mcuf::io::ByteBuffer& byteBuffer) override;
+    virtual int get(mcuf::io::OutputBuffer& outputBuffer) override;
 
     /**
      * @brief 
@@ -157,7 +143,36 @@ class mcuf::io::SerialPortInputStream extends mcuf::lang::Object implements
      * @param bufferSize 
      * @return int 
      */
-    virtual int get(void* buffer, int bufferSize) override;    
+    virtual int get(void* buffer, int bufferSize) override;
+
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return int 
+     */
+    virtual int skip(int value) override;
+    
+  /* **************************************************************************************
+   * Public Method <Override> - mcuf::io::InputStream
+   */                      
+  public:
+    
+    /**
+     * @brief 
+     * 
+     * @return true abrot successful.
+     * @return false abrot fail.
+     */
+    virtual bool abortRead(void) override;
+                              
+    /**
+     * @brief 
+     * 
+     * @return true is busy.
+     * @return false isn't busy.
+     */
+    virtual bool readBusy(void) override;
     
     /**
      * @brief 

@@ -19,7 +19,8 @@
         "cwchar": "cpp",
         "cwctype": "cpp",
         "cstdint": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "algorithm": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "python.pythonPath": "D:\\python\\python.exe"

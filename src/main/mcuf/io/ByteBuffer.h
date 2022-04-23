@@ -18,6 +18,7 @@
 #include "mcuf/lang/Object.h"
 #include "mcuf/lang/Memory.h"
 #include "mcuf/lang/String.h"
+#include "mcuf/io/Buffer.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -31,7 +32,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */
-class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
+class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
+  public mcuf::io::Buffer{
 
   /* **************************************************************************************
    *  Variable <Public>
@@ -276,6 +278,102 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     virtual int indexOfMemory(const void* destination, int destinationLen, int start) const override;
     
   /* **************************************************************************************
+   *  Public Method <Override> - mcuf::io::Buffer
+   */
+  public:
+    /**
+     * @brief 
+     * 
+     */
+    virtual void flush(void) override;
+  
+  /* **************************************************************************************
+   *  Public Method <Override> - mcuf::io::InputBuffer
+   */
+  public:
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    inline virtual int avariable(void) const override{
+      return (this->mLimit - this->mPosition);
+    }
+
+    /**
+     * @brief pop buffer byte non blocking.
+     * 
+     * @param result 
+     * @return true has data in buffer.
+     * @return false no data in buffer.
+     */
+    virtual bool getByte(char& result) override;
+
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return int 
+     */
+    virtual int get(mcuf::io::OutputBuffer& outputBuffer) override;
+
+    /**
+     * @brief 
+     * 
+     * @param buffer 
+     * @param bufferSize 
+     * @return int 
+     */
+    virtual int get(void* buffer, int bufferSize) override;
+
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return int 
+     */
+    virtual int skip(int value) override;
+    
+  /* **************************************************************************************
+   *  Public Method <Override> - mcuf::io::OutputBuffer
+   */
+  public:
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    inline virtual int remaining(void) const override{
+      return (this->mLimit - this->mPosition);
+    }
+
+    /**
+     * @brief pop buffer byte non blocking.
+     * 
+     * @param result 
+     * @return true has data in buffer.
+     * @return false no data in buffer.
+     */
+    virtual bool putByte(const char result) override;
+
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return int 
+     */
+    virtual int put(mcuf::io::InputBuffer& inputBuffer) override;
+
+    /**
+     * @brief 
+     * 
+     * @param buffer 
+     * @param bufferSize 
+     * @return int 
+     */
+    virtual int put(const void* buffer, int bufferSize) override;
+    
+  /* **************************************************************************************
    *  Public Method <Inline>
    */
   public:
@@ -325,15 +423,6 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     inline void reset(void){
       this->position(this->mMark);
       return;
-    }  
-    
-    /**
-     * @brief 
-     * 
-     * @return unsigned int 
-     */
-    inline int remaining(void) const{
-      return (this->mLimit - this->mPosition);
     }  
     
     /**
@@ -461,16 +550,6 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
     /**
      * @brief 
      * 
-     * @param ptr 
-     * @param size 
-     * @return true 
-     * @return false 
-     */
-    bool put(const void* ptr, int size);
-    
-    /**
-     * @brief 
-     * 
      * @param string 
      * @return true 
      * @return false 
@@ -485,15 +564,6 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * @return false 
      */
     bool put(mcuf::io::ByteBuffer& byteBuffer);
-
-    /**
-     * @brief 
-     * 
-     * @param value 
-     * @return true 
-     * @return false 
-     */
-    bool putByte(const char value);
     
     /**
      * @brief 
@@ -548,15 +618,6 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory{
      * @return false 
      */
     bool putIntMsb(const int value);  
-
-    /**
-     * @brief Get the Byte object
-     * 
-     * @param result 
-     * @return true 
-     * @return false 
-     */
-    bool getByte(char& result);
 
     /**
      * @brief Get the Short object

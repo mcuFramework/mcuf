@@ -130,7 +130,7 @@ bool OutputStreamBuffer::write(ByteBuffer& byteBuffer,
   int len = byteBuffer.remaining();
   
   if(len != 0){
-    len = this->insertMult(insert, len);
+    len = this->put(insert, len);
     byteBuffer.position(byteBuffer.position() + static_cast<int>(len));
   }
   
@@ -178,7 +178,7 @@ void OutputStreamBuffer::completed(int result, void* attachment){
   this->mByteBuffer.reset();
   shift -= this->mByteBuffer.position();
   
-  this->popMult(nullptr, shift);
+  this->skip(shift);
   if(!this->isEmpty()){
     this->writePacket();
   }

@@ -100,7 +100,7 @@ RingBufferInputStream::~RingBufferInputStream(void){
  * @return true 
  * @return false 
  */
-bool RingBufferInputStream::insert(const void* data){
+bool RingBufferInputStream::putByte(const char data){
   if(this->mSkip > 0){
     --this->mSkip;
     if(this->mSkip == 0)
@@ -111,9 +111,9 @@ bool RingBufferInputStream::insert(const void* data){
     
   
   if(this->mByteBuffer == nullptr)
-    return RingBuffer::insert(data);
+    return RingBuffer::putByte(data);
   
-  this->mByteBuffer->putByte(*static_cast<const char*>(data));
+  this->mByteBuffer->putByte(data);
   if(!this->mByteBuffer->hasRemaining())
     this->executeCompletionHandler();
       
@@ -127,7 +127,7 @@ bool RingBufferInputStream::insert(const void* data){
  * @param num 
  * @return int 
  */
-int RingBufferInputStream::insertMult(const void *data, int num){
+int RingBufferInputStream::put(const void *data, int num){
   if(num <= 0)
     return 0;
   
@@ -144,14 +144,14 @@ int RingBufferInputStream::insertMult(const void *data, int num){
   }
     
   if(this->mByteBuffer == nullptr)
-    return RingBuffer::insertMult(data, num);
+    return RingBuffer::put(data, num);
   
   int remaining = this->mByteBuffer->remaining();
   if(remaining >= num)
     this->mByteBuffer->put(data, num);
   else{
     this->mByteBuffer->put(data, remaining);
-    RingBuffer::insertMult(Pointer::pointShift(data, remaining), (num - remaining));
+    RingBuffer::put(Pointer::pointShift(data, remaining), (num - remaining));
   }
   
   return num;
@@ -160,15 +160,6 @@ int RingBufferInputStream::insertMult(const void *data, int num){
 /* ****************************************************************************************
  * Public Method <Override> - mcuf::io::InputStream 
  */
-
-/**
- * @brief 
- * 
- * @return int 
- */
-int RingBufferInputStream::avariable(void){
-  return this->getCount();
-}    
 
 /**
  * 
@@ -189,42 +180,6 @@ bool RingBufferInputStream::abortRead(void){
  */
 bool RingBufferInputStream::readBusy(void){
   return ((this->mByteBuffer != nullptr) || (this->mSkip >= 0));
-}
-
-/**
- * @brief pop buffer byte non blocking.
- * 
- * @param result 
- * @return true has data in buffer.
- * @return false no data in buffer.
- */
-bool RingBufferInputStream::getByte(char& result){
-  return this->pop(&result);
-}
-
-/**
- * @brief 
- * 
- * @param byteBuffer 
- * @return int 
- */
-int RingBufferInputStream::get(mcuf::io::ByteBuffer& byteBuffer){
-  void* buffer = byteBuffer.pointer(byteBuffer.position());
-  int bufferSize = byteBuffer.remaining();
-  int result = this->get(buffer, bufferSize);
-  byteBuffer += result;
-  return result;
-}
-
-/**
- * @brief 
- * 
- * @param buffer 
- * @param bufferSize 
- * @return int 
- */
-int RingBufferInputStream::get(void* buffer, int bufferSize){
-  return this->popMult(buffer, bufferSize);
 }
 
 /**
@@ -255,8 +210,8 @@ bool RingBufferInputStream::read(ByteBuffer& byteBuffer, void* attachment, Compl
   if(this->readBusy())
     return false;
   
-  if(this->getCount() >= byteBuffer.remaining()){
-    byteBuffer += this->popMult(byteBuffer.pointer(byteBuffer.position()), byteBuffer.remaining());
+  if(this->avariable() >= byteBuffer.remaining()){
+    byteBuffer += this->get(byteBuffer.pointer(byteBuffer.position()), byteBuffer.remaining());
     if(handler)
       handler->completed(byteBuffer.remaining(), attachment);
   }
@@ -264,7 +219,7 @@ bool RingBufferInputStream::read(ByteBuffer& byteBuffer, void* attachment, Compl
   this->mByteBuffer = &byteBuffer;
   this->mAttachment = attachment;
   this->mHandler = handler;
-  byteBuffer += this->popMult(byteBuffer.pointer(byteBuffer.position()), byteBuffer.remaining());
+  byteBuffer += this->get(byteBuffer.pointer(byteBuffer.position()), byteBuffer.remaining());
   
   return true;
 }
@@ -300,7 +255,7 @@ bool RingBufferInputStream::skip(int value, void* attachment, CompletionHandler<
   if(this->readBusy())
     return false;
 
-  int result = this->popMult(nullptr, value);
+  int result = this->skip(value);
   if(result == value){
     if(handler)
       handler->completed(0, attachment);

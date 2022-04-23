@@ -103,6 +103,8 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
    * Public Method <Override> - mcuf::io::RingBuffer 
    */
    public:
+    using RingBuffer::skip;
+   
     /**
      * @brief 
      * 
@@ -110,7 +112,7 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
      * @return true 
      * @return false 
      */
-    virtual bool insert(const void* data) override;
+    virtual bool putByte(const char data) override;
     
     /**
      * @brief 
@@ -119,18 +121,12 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
      * @param num 
      * @return int 
      */
-    virtual int insertMult(const void *data, int num) override;
+    virtual int put(const void* data, int num) override;
 
   /* **************************************************************************************
    * Public Method <Override> - mcuf::io::InputStream 
    */
   public:
-    /**
-     * @brief 
-     * 
-     * @return int 
-     */
-    virtual int avariable(void) override;    
   
     /**
      * @brief 
@@ -147,32 +143,6 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
      * @return false isn't busy.
      */
     virtual bool readBusy(void) override;
-    
-    /**
-     * @brief pop buffer byte non blocking.
-     * 
-     * @param result 
-     * @return true has data in buffer.
-     * @return false no data in buffer.
-     */
-    virtual bool getByte(char& result) override;
-
-    /**
-     * @brief 
-     * 
-     * @param byteBuffer 
-     * @return int 
-     */
-    virtual int get(mcuf::io::ByteBuffer& byteBuffer) override;
-
-    /**
-     * @brief 
-     * 
-     * @param buffer 
-     * @param bufferSize 
-     * @return int 
-     */
-    virtual int get(void* buffer, int bufferSize) override;     
     
     /**
      * @brief 

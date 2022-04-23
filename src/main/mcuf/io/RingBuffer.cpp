@@ -15,8 +15,8 @@
 /* ****************************************************************************************
  * Macro
  */  
-#define INDH()    (this->mHead & (this->mCount - 1))
-#define INDT()    (this->mTail & (this->mCount - 1))
+#define INDH()    (static_cast<int>(this->mHead & (this->mCount - 1)))
+#define INDT()    (static_cast<int>(this->mTail & (this->mCount - 1)))
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))
 
@@ -25,6 +25,8 @@
  */  
 using mcuf::io::RingBuffer;
 using mcuf::lang::Memory;
+using mcuf::io::OutputBuffer;
+using mcuf::io::InputBuffer;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -82,11 +84,7 @@ RingBuffer::~RingBuffer(void){
  */
  
 /* ****************************************************************************************
- * Public Method <Override>
- */
-
-/* ****************************************************************************************
- * Public Method
+ * Public Method <Override> - mcuf::io::InputBuffer
  */
 
 /**
@@ -96,7 +94,7 @@ RingBuffer::~RingBuffer(void){
  * @return true 
  * @return false 
  */
-bool RingBuffer::insert(const void* data){
+bool RingBuffer::putByte(const char result){
   uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
 
   /* We cannot insert when queue is full */
@@ -104,7 +102,7 @@ bool RingBuffer::insert(const void* data){
     return false;
 
   ptr += INDH();
-  *(static_cast<uint8_t*>(ptr)) = *(static_cast<const uint8_t*>(data));
+  *(static_cast<uint8_t*>(ptr)) = (static_cast<const uint8_t>(result));
   this->mHead++;
 
   return true;
@@ -117,72 +115,42 @@ bool RingBuffer::insert(const void* data){
  * @param num 
  * @return int 
  */
-int RingBuffer::insertMult(const void *data, int num){
+int RingBuffer::put(InputBuffer& inputBuffer){
+  int num = inputBuffer.avariable();
+  
   if(num <= 0)
     return 0;
-  
-  if(data == nullptr){
-    uint32_t max = static_cast<uint32_t>(this->getFree());
-
-    if(static_cast<uint32_t>(num) > max)
-      num = static_cast<int>(max);
-
-    this->mHead += static_cast<uint32_t>(num);
-    return static_cast<int>(num);
-  }
 
   uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
-  uint32_t cnt1, cnt2;
+  int cnt1, cnt2;
 
   /* We cannot insert when queue is full */
   if (this->isFull())
     return 0;
 
   /* Calculate the segment lengths */
-  cnt1 = cnt2 = static_cast<uint32_t>(this->getFree());
-  if (INDH() + cnt1 >= this->mCount)
-    cnt1 = this->mCount - INDH();
+  cnt1 = cnt2 = this->remaining();
+  if (INDH() + cnt1 >= static_cast<int>(this->mCount))
+    cnt1 = static_cast<int>(this->mCount) - INDH();
   cnt2 -= cnt1;
 
-  cnt1 = MIN(cnt1, static_cast<uint32_t>(num));
+  cnt1 = MIN(cnt1, num);
   num -= cnt1;
 
-  cnt2 = MIN(cnt2, static_cast<uint32_t>(num));
+  cnt2 = MIN(cnt2, num);
   num -= cnt2;
 
   /* Write segment 1 */
   ptr += INDH();
-  memcpy(ptr, data, cnt1);
-  this->mHead += cnt1;
+  inputBuffer.get(ptr, cnt1);
+  this->mHead += static_cast<uint32_t>(cnt1);
 
   /* Write segment 2 */
   ptr = static_cast<uint8_t*>(this->pointer()) + INDH();
-  data = static_cast<const uint8_t*>(data) + cnt1;
-  memcpy(ptr, data, cnt2);
-  this->mHead += cnt2;
+  inputBuffer.get(ptr, cnt2);
+  this->mHead += static_cast<uint32_t>(cnt2);
 
-  return static_cast<int>(cnt1 + cnt2);
-}
-
-/**
- * @brief 
- * 
- * @param data 
- * @return true 
- * @return false 
- */
-bool RingBuffer::pop(void* data){
-  uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
-
-  /* We cannot pop when queue is empty */
-  if (this->isEmpty())
-    return false;
-
-  ptr += INDT();
-  *static_cast<uint8_t*>(data) = *static_cast<uint8_t*>(ptr);
-  ++this->mTail;
-
-  return true;
+  return (cnt1 + cnt2);
 }
 
 /**
@@ -192,12 +160,134 @@ bool RingBuffer::pop(void* data){
  * @param num 
  * @return int 
  */
-int RingBuffer::popMult(void* data, int num){
+int RingBuffer::put(const void *data, int num){
   if(num <= 0)
     return 0;
   
   if(data == nullptr){
-    uint32_t max = static_cast<uint32_t>(this->getCount());
+    uint32_t max = static_cast<uint32_t>(this->remaining());
+
+    if(static_cast<uint32_t>(num) > max)
+      num = static_cast<int>(max);
+
+    this->mHead += static_cast<uint32_t>(num);
+    return static_cast<int>(num);
+  }
+
+  uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
+  int cnt1, cnt2;
+
+  /* We cannot insert when queue is full */
+  if (this->isFull())
+    return 0;
+
+  /* Calculate the segment lengths */
+  cnt1 = cnt2 = this->remaining();
+  if (INDH() + cnt1 >= static_cast<int>(this->mCount))
+    cnt1 = static_cast<int>(this->mCount) - INDH();
+  cnt2 -= cnt1;
+
+  cnt1 = MIN(cnt1, num);
+  num -= cnt1;
+
+  cnt2 = MIN(cnt2, num);
+  num -= cnt2;
+
+  /* Write segment 1 */
+  ptr += INDH();
+  memcpy(ptr, data, static_cast<uint32_t>(cnt1));
+  this->mHead += static_cast<uint32_t>(cnt1);
+
+  /* Write segment 2 */
+  ptr = static_cast<uint8_t*>(this->pointer()) + INDH();
+  data = static_cast<const uint8_t*>(data) + cnt1;
+  memcpy(ptr, data, static_cast<uint32_t>(cnt2));
+  this->mHead += static_cast<uint32_t>(cnt2);
+
+  return (cnt1 + cnt2);
+}
+
+/* ****************************************************************************************
+ * Public Method <Override> - mcuf::io::OutputBuffer
+ */
+
+/**
+ * @brief 
+ * 
+ * @param data 
+ * @return true 
+ * @return false 
+ */
+bool RingBuffer::getByte(char& data){
+  uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
+
+  /* We cannot pop when queue is empty */
+  if (this->isEmpty())
+    return false;
+
+  ptr += INDT();
+  data = static_cast<char>(*ptr);
+  ++this->mTail;
+
+  return true;
+}
+
+/**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @return int 
+ */
+int RingBuffer::get(OutputBuffer& outputBuffer){
+  int num = outputBuffer.remaining();
+  if(num <= 0)
+    return 0;
+
+  uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
+  int cnt1, cnt2;
+
+  /* We cannot insert when queue is full */
+  if (this->isFull())
+    return 0;
+
+  /* Calculate the segment lengths */
+  cnt1 = cnt2 = this->remaining();
+  if (INDH() + cnt1 >= static_cast<int>(this->mCount))
+    cnt1 = static_cast<int>(this->mCount) - INDH();
+  cnt2 -= cnt1;
+
+  cnt1 = MIN(cnt1, num);
+  num -= cnt1;
+
+  cnt2 = MIN(cnt2, num);
+  num -= cnt2;
+
+  /* Write segment 1 */
+  ptr += INDH();
+  outputBuffer.put(ptr, cnt1);
+  this->mHead += static_cast<uint32_t>(cnt1);
+
+  /* Write segment 2 */
+  ptr = static_cast<uint8_t*>(this->pointer()) + INDH();
+  outputBuffer.put(ptr, cnt2);
+  this->mHead += static_cast<uint32_t>(cnt2);
+
+  return cnt1 + cnt2;
+}
+
+/**
+ * @brief 
+ * 
+ * @param data 
+ * @param num 
+ * @return int 
+ */
+int RingBuffer::get(void* data, int num){
+  if(num <= 0)
+    return 0;
+  
+  if(data == nullptr){
+    uint32_t max = static_cast<uint32_t>(this->avariable());
 
     if(static_cast<uint32_t>(num) > max)
       num = static_cast<int>(max);
@@ -207,37 +297,58 @@ int RingBuffer::popMult(void* data, int num){
   }
 
   uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
-  uint32_t cnt1, cnt2;
+  int cnt1, cnt2;
 
   /* We cannot insert when queue is empty */
   if (this->isEmpty())
     return 0;
 
   /* Calculate the segment lengths */
-  cnt1 = cnt2 = static_cast<uint32_t>(this->getCount());
-  if(INDT() + cnt1 >= this->mCount)
-    cnt1 = this->mCount - INDT();
+  cnt1 = cnt2 = this->avariable();
+  if(INDT() + cnt1 >= static_cast<int>(this->mCount))
+    cnt1 = static_cast<int>(this->mCount) - INDT();
+  
   cnt2 -= cnt1;
 
-  cnt1 = MIN(cnt1, static_cast<uint32_t>(num));
+  cnt1 = MIN(cnt1, num);
   num -= cnt1;
 
-  cnt2 = MIN(cnt2, static_cast<uint32_t>(num));
+  cnt2 = MIN(cnt2, num);
   num -= cnt2;
 
   /* Write segment 1 */
   ptr += INDT();
-  memcpy(data, ptr, cnt1);
-  this->mTail += cnt1;
+  memcpy(data, ptr, static_cast<uint32_t>(cnt1));
+  this->mTail += static_cast<uint32_t>(cnt1);
 
   /* Write segment 2 */
   ptr = static_cast<uint8_t*>(this->pointer()) + INDT();
   data = static_cast<uint8_t*>(data) + cnt1;
-  memcpy(data, ptr, cnt2);
-  this->mTail += cnt2;
+  memcpy(data, ptr, static_cast<uint32_t>(cnt2));
+  this->mTail += static_cast<uint32_t>(cnt2);
 
-  return static_cast<int>(cnt1 + cnt2);
+  return cnt1 + cnt2;
 }
+
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @return int 
+ */
+int RingBuffer::skip(int value){
+  int max = this->avariable();
+  
+  if(value > max)
+    value = max;
+
+  this->mTail += static_cast<uint32_t>(value);
+  return value;
+}
+
+/* ****************************************************************************************
+ * Public Method
+ */
 
 /* ****************************************************************************************
  * Protected Method <Static>

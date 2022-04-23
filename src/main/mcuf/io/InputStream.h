@@ -38,13 +38,6 @@ interface mcuf::io::InputStream{
   /**
    * @brief 
    * 
-   * @return int 
-   */
-  virtual int avariable(void) abstract;
-  
-  /**
-   * @brief 
-   * 
    * @return true 
    * @return false 
    */
@@ -57,32 +50,6 @@ interface mcuf::io::InputStream{
    * @return false isn't busy.
    */
   virtual bool readBusy(void) abstract;
-  
-  /**
-   * @brief pop buffer byte non blocking.
-   * 
-   * @param result 
-   * @return true has data in buffer.
-   * @return false no data in buffer.
-   */
-  virtual bool getByte(char& result) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param byteBuffer 
-   * @return int 
-   */
-  virtual int get(mcuf::io::ByteBuffer& byteBuffer) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param buffer 
-   * @param bufferSize 
-   * @return int 
-   */
-  virtual int get(void* buffer, int bufferSize) abstract;
 
   /**
    * @brief 

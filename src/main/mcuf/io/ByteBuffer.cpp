@@ -17,6 +17,7 @@
  * Using
  */  
 using mcuf::io::ByteBuffer;
+using mcuf::io::OutputBuffer;
 using mcuf::lang::Memory;
 using mcuf::lang::System;
 using mcuf::lang::String;
@@ -64,6 +65,7 @@ ByteBuffer::~ByteBuffer(void){
 /* ****************************************************************************************
  * Public Method <Override> - mcuf::lang::Memory
  */
+
 /**
  * @brief 
  * 
@@ -106,6 +108,114 @@ int ByteBuffer::indexOfMemory(const void* destination, int destinationLen, int s
 int ByteBuffer::indexOfString(const char* str) const{
   return Pointer::indexOfString(str, this->limit());
 }
+
+/* ****************************************************************************************
+ * Public Method <Override> - mcuf::io::InputBufferBuffer
+ */
+
+/**
+ * @brief 
+ * 
+ * @param result 
+ * @return true 
+ * @return false 
+ */
+bool ByteBuffer::getByte(char& result){
+  if(this->mPosition >= this->mLimit)
+    return false;
+  
+  result = *static_cast<uint8_t*>(this->pointer(this->mPosition));
+  this->mPosition += 1;
+  return true;
+}
+
+/**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @return int 
+ */
+int ByteBuffer::get(OutputBuffer& outputBuffer){
+  int len = outputBuffer.remaining();
+  int max = this->avariable();
+  if(len > max)
+    len = max;
+
+  outputBuffer.put(this->pointer(this->position()), len);
+  this->mPosition += len;
+  return len;
+}
+
+/**
+ * @brief 
+ * 
+ * @param buffer 
+ * @param bufferSize 
+ * @return int 
+ */
+int ByteBuffer::get(void* buffer, int bufferSize){
+  if(bufferSize > this->avariable())
+    bufferSize = this->avariable();
+
+  this->copyTo(buffer, this->position(), bufferSize);
+  this->mPosition += bufferSize;
+  return bufferSize;
+}
+
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @return int 
+ */
+int ByteBuffer::skip(int value){
+  if(value > this->avariable())
+    value = this->avariable();
+  
+  this->mPosition += value;
+  return value;
+}
+
+/* ****************************************************************************************
+ * Public Method <Override> - mcuf::io::OutputBuffer
+ */
+
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @return true 
+ * @return false 
+ */
+bool ByteBuffer::putByte(const char value){
+  if(this->mPosition >= this->mLimit)
+    return false;
+  
+  *static_cast<uint8_t*>(this->pointer(this->mPosition++)) = value;
+  return true;
+}
+
+/**
+ * @brief 
+ * 
+ * @param ptr 
+ * @param size 
+ * @return true 
+ * @return false 
+ */
+int ByteBuffer::put(const void* buffer, int bufferSize){
+  if(bufferSize <= 0)
+    return false;  
+  
+  int rem = this->remaining();
+  if(bufferSize > rem)
+    bufferSize = rem;
+  
+  this->copy(buffer, 0, this->mPosition, bufferSize);
+  this->mPosition += bufferSize;
+  return bufferSize;
+}
+
 /* ****************************************************************************************
  * Public Method
  */
@@ -170,27 +280,6 @@ bool ByteBuffer::put(char const* string){
 /**
  * @brief 
  * 
- * @param ptr 
- * @param size 
- * @return true 
- * @return false 
- */
-bool ByteBuffer::put(const void* ptr, int size){
-  if(size <= 0)
-    return false;  
-  
-  int rem = this->remaining();
-  if(size > rem)
-    size = rem;
-  
-  this->copy(ptr, 0, this->mPosition, size);
-  this->mPosition += size;
-  return true;
-}
-
-/**
- * @brief 
- * 
  * @param string 
  * @return true 
  * @return false 
@@ -218,22 +307,6 @@ bool ByteBuffer::put(ByteBuffer& byteBuffer){
     byteBuffer.position(byteBuffer.position() + rem);
   
   return result;
-  
-}
-
-/**
- * @brief 
- * 
- * @param value 
- * @return true 
- * @return false 
- */
-bool ByteBuffer::putByte(char value){
-  if(this->mPosition >= this->mLimit)
-    return false;
-  
-  *static_cast<uint8_t*>(this->pointer(this->mPosition++)) = value;
-  return true;
 }
 
 /**
@@ -343,21 +416,7 @@ bool ByteBuffer::putIntMsb(int value){
   return true;
 }
 
-/**
- * @brief 
- * 
- * @param result 
- * @return true 
- * @return false 
- */
-bool ByteBuffer::getByte(char& result){
-  if(this->mPosition >= this->mLimit)
-    return false;
-  
-  result = *static_cast<uint8_t*>(this->pointer(this->mPosition));
-  this->mPosition += 1;
-  return true;
-}
+
 
 /**
  * @brief 

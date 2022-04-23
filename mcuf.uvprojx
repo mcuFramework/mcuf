@@ -872,6 +872,11 @@
               <FilePath>.\src\main\mcuf\io\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Buffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Buffer.h</FilePath>
+            </File>
+            <File>
               <FileName>ByteBuffer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\ByteBuffer.cpp</FilePath>
@@ -902,9 +907,19 @@
               <FilePath>.\src\main\mcuf\io\Future.h</FilePath>
             </File>
             <File>
+              <FileName>InputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\InputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>InputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\InputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>OutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
             </File>
             <File>
               <FileName>OutputStream.h</FileName>
@@ -2350,6 +2365,11 @@
               <FilePath>.\src\main\mcuf\io\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Buffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Buffer.h</FilePath>
+            </File>
+            <File>
               <FileName>ByteBuffer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\ByteBuffer.cpp</FilePath>
@@ -2380,9 +2400,19 @@
               <FilePath>.\src\main\mcuf\io\Future.h</FilePath>
             </File>
             <File>
+              <FileName>InputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\InputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>InputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\InputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>OutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
             </File>
             <File>
               <FileName>OutputStream.h</FileName>
@@ -3828,6 +3858,11 @@
               <FilePath>.\src\main\mcuf\io\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Buffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Buffer.h</FilePath>
+            </File>
+            <File>
               <FileName>ByteBuffer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\ByteBuffer.cpp</FilePath>
@@ -3858,9 +3893,19 @@
               <FilePath>.\src\main\mcuf\io\Future.h</FilePath>
             </File>
             <File>
+              <FileName>InputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\InputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>InputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\InputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>OutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
             </File>
             <File>
               <FileName>OutputStream.h</FileName>
@@ -5306,6 +5351,11 @@
               <FilePath>.\src\main\mcuf\io\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Buffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Buffer.h</FilePath>
+            </File>
+            <File>
               <FileName>ByteBuffer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\ByteBuffer.cpp</FilePath>
@@ -5336,9 +5386,19 @@
               <FilePath>.\src\main\mcuf\io\Future.h</FilePath>
             </File>
             <File>
+              <FileName>InputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\InputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>InputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\InputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>OutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
             </File>
             <File>
               <FileName>OutputStream.h</FileName>
@@ -6784,6 +6844,11 @@
               <FilePath>.\src\main\mcuf\io\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Buffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Buffer.h</FilePath>
+            </File>
+            <File>
               <FileName>ByteBuffer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\ByteBuffer.cpp</FilePath>
@@ -6814,9 +6879,19 @@
               <FilePath>.\src\main\mcuf\io\Future.h</FilePath>
             </File>
             <File>
+              <FileName>InputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\InputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>InputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\InputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>OutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
             </File>
             <File>
               <FileName>OutputStream.h</FileName>
@@ -8262,6 +8337,11 @@
               <FilePath>.\src\main\mcuf\io\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Buffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Buffer.h</FilePath>
+            </File>
+            <File>
               <FileName>ByteBuffer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\ByteBuffer.cpp</FilePath>
@@ -8292,9 +8372,19 @@
               <FilePath>.\src\main\mcuf\io\Future.h</FilePath>
             </File>
             <File>
+              <FileName>InputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\InputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>InputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\InputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>OutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
             </File>
             <File>
               <FileName>OutputStream.h</FileName>

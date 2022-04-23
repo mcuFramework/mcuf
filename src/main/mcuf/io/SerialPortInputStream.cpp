@@ -110,7 +110,7 @@ void SerialPortInputStream::onSerialPortEvent(SerialPortStatus status, int resul
  * 
  * @return int 
  */
-int SerialPortInputStream::avariable(void){
+int SerialPortInputStream::avariable(void) const {
   return static_cast<int>(this->mSerialPort.avariable());
 }
 
@@ -145,8 +145,8 @@ bool SerialPortInputStream::getByte(char& result){
  * @param byteBuffer 
  * @return int 
  */
-int SerialPortInputStream::get(mcuf::io::ByteBuffer& byteBuffer){
-  return this->mSerialPort.get(byteBuffer);
+int SerialPortInputStream::get(mcuf::io::OutputBuffer& outputBuffer){
+  return 0;
 }
 
 /**
