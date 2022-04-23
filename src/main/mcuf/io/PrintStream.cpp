@@ -93,7 +93,7 @@ bool PrintStream::print(bool b, bool newLine){
   if(this->mOutputStream.writeBusy())
     return false;
 
-  this->mByteBuffer.clear();
+  this->mByteBuffer.flush();
 
   if(b)
     this->mByteBuffer.put("True");
@@ -120,7 +120,7 @@ bool PrintStream::print(char c, bool newLine){
   if(this->mOutputStream.writeBusy())
     return false;
 
-  this->mByteBuffer.clear();
+  this->mByteBuffer.flush();
   this->mByteBuffer.putByte(c);
 
   if(newLine)
@@ -142,7 +142,7 @@ bool PrintStream::print(double d, bool newLine){
   if(this->mOutputStream.writeBusy())
     return false;
 
-  this->mByteBuffer.clear();
+  this->mByteBuffer.flush();
   this->mByteBuffer.putFormat("%f", d);
 
   if(newLine)
@@ -164,7 +164,7 @@ bool PrintStream::print(float f, bool newLine){
   if(this->mOutputStream.writeBusy())
     return false;
 
-  this->mByteBuffer.clear();
+  this->mByteBuffer.flush();
   this->mByteBuffer.putFormat("%f", static_cast<double>(f));
 
   if(newLine)
@@ -186,7 +186,7 @@ bool PrintStream::print(int i, bool newLine, bool unsign){
   if(this->mOutputStream.writeBusy())
     return false;
 
-  this->mByteBuffer.clear();
+  this->mByteBuffer.flush();
   if(unsign)
     this->mByteBuffer.putFormat("%d", static_cast<unsigned int>(i));
   
@@ -212,7 +212,7 @@ bool PrintStream::print(const mcuf::lang::String& string, bool newLine){
   if(this->mOutputStream.writeBusy())
     return false;
 
-  this->mByteBuffer.clear();
+  this->mByteBuffer.flush();
   this->mByteBuffer.putFormat(string);
 
   if(newLine)
@@ -234,7 +234,7 @@ bool PrintStream::print(const char* string, bool newLine){
   if(this->mOutputStream.writeBusy())
     return false;
 
-  this->mByteBuffer.clear();
+  this->mByteBuffer.flush();
   this->mByteBuffer.put(string);
 
   if(newLine)
@@ -256,7 +256,7 @@ bool PrintStream::print(mcuf::io::ByteBuffer& byteBuffer, bool newLine){
   if(this->mOutputStream.writeBusy())
     return false;
 
-  this->mByteBuffer.clear();
+  this->mByteBuffer.flush();
   this->mByteBuffer.put(byteBuffer);
 
   if(newLine)
@@ -278,7 +278,7 @@ bool PrintStream::print(mcuf::io::InputBuffer& inputBuffer, bool newLine){
   if(this->mOutputStream.writeBusy())
     return false;
 
-  this->mByteBuffer.clear();
+  this->mByteBuffer.flush();
   if(newLine)
     this->mByteBuffer.limit(this->mByteBuffer.limit()-1);
   
@@ -302,7 +302,7 @@ bool PrintStream::println(void){
   if(this->mOutputStream.writeBusy())
     return false;
 
-  this->mByteBuffer.clear();
+  this->mByteBuffer.flush();
   this->mByteBuffer.put("\n");
   this->mByteBuffer.flip();
   return this->mOutputStream.write(this->mByteBuffer, nullptr, nullptr);
@@ -320,7 +320,7 @@ bool PrintStream::format(const char* format, ...){
   if(this->mOutputStream.writeBusy())
     return false;
 
-  this->mByteBuffer.clear();
+  this->mByteBuffer.flush();
   va_list args;
   va_start(args, format);
   this->mByteBuffer.putFormat(format, args);

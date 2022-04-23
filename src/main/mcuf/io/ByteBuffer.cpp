@@ -18,6 +18,7 @@
  */  
 using mcuf::io::ByteBuffer;
 using mcuf::io::OutputBuffer;
+using mcuf::io::InputBuffer;
 using mcuf::lang::Memory;
 using mcuf::lang::System;
 using mcuf::lang::String;
@@ -32,7 +33,7 @@ using mcuf::lang::String;
  * @param memory 
  */
 ByteBuffer::ByteBuffer(const Memory& memory) : Memory(memory){
-  this->clear();
+  this->flush();
   return;
 }
 
@@ -42,7 +43,7 @@ ByteBuffer::ByteBuffer(const Memory& memory) : Memory(memory){
  * @param length 
  */
 ByteBuffer::ByteBuffer(size_t length) : Memory(length){
-  this->clear();
+  this->flush();
   return;
 }
 
@@ -125,7 +126,7 @@ bool ByteBuffer::getByte(char& result){
     return false;
   
   result = *static_cast<uint8_t*>(this->pointer(this->mPosition));
-  this->mPosition += 1;
+  this->position(this->position() + 1);
   return true;
 }
 
@@ -137,12 +138,9 @@ bool ByteBuffer::getByte(char& result){
  */
 int ByteBuffer::get(OutputBuffer& outputBuffer){
   int len = outputBuffer.remaining();
-  int max = this->avariable();
-  if(len > max)
-    len = max;
-
-  outputBuffer.put(this->pointer(this->position()), len);
-  this->mPosition += len;
+  int pos = this->position();
+  len = outputBuffer.put(this->pointer(pos), len);
+  this->position(pos + len);
   return len;
 }
 
@@ -154,11 +152,13 @@ int ByteBuffer::get(OutputBuffer& outputBuffer){
  * @return int 
  */
 int ByteBuffer::get(void* buffer, int bufferSize){
-  if(bufferSize > this->avariable())
-    bufferSize = this->avariable();
+  int max = this->avariable();
+  int pos = this->position();
+  if(bufferSize > max)
+    bufferSize = max;
 
-  this->copyTo(buffer, this->position(), bufferSize);
-  this->mPosition += bufferSize;
+  this->copyTo(buffer, pos, bufferSize);
+  this->position(pos + bufferSize);
   return bufferSize;
 }
 
@@ -169,10 +169,11 @@ int ByteBuffer::get(void* buffer, int bufferSize){
  * @return int 
  */
 int ByteBuffer::skip(int value){
-  if(value > this->avariable())
-    value = this->avariable();
+  int max = this->avariable();
+  if(value > max)
+    value = max;
   
-  this->mPosition += value;
+  this->position(this->position() + value);
   return value;
 }
 
@@ -198,6 +199,19 @@ bool ByteBuffer::putByte(const char value){
 /**
  * @brief 
  * 
+ * @param byteBuffer 
+ * @return int 
+ */
+int ByteBuffer::put(InputBuffer& inputBuffer){
+  int len = this->remaining();
+  len = inputBuffer.get(this->pointer(this->mPosition), len);
+  this->position(this->position() + len);
+  return len;
+}
+
+/**
+ * @brief 
+ * 
  * @param ptr 
  * @param size 
  * @return true 
@@ -207,12 +221,14 @@ int ByteBuffer::put(const void* buffer, int bufferSize){
   if(bufferSize <= 0)
     return false;  
   
-  int rem = this->remaining();
-  if(bufferSize > rem)
-    bufferSize = rem;
+  int max = this->remaining();
+  
+  if(bufferSize > max)
+    bufferSize = max;
   
   this->copy(buffer, 0, this->mPosition, bufferSize);
-  this->mPosition += bufferSize;
+  this->position(this->position() + bufferSize);
+  
   return bufferSize;
 }
 

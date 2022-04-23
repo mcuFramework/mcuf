@@ -102,7 +102,7 @@ void SerialPortInputStream::onSerialPortEvent(SerialPortStatus status, int resul
 }
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::io::InputStream
+ * Public Method <Override> - mcuf::io::InputBuffer
  */
 
 /**
@@ -112,20 +112,6 @@ void SerialPortInputStream::onSerialPortEvent(SerialPortStatus status, int resul
  */
 int SerialPortInputStream::avariable(void) const {
   return static_cast<int>(this->mSerialPort.avariable());
-}
-
-/**
- *
- */
-bool SerialPortInputStream::abortRead(void){
-  return this->mSerialPort.abortRead();
-}
-
-/**
- *
- */
-bool SerialPortInputStream::readBusy(void){
-  return this->mSerialPort.readBusy();
 }
 
 /**
@@ -158,6 +144,34 @@ int SerialPortInputStream::get(mcuf::io::OutputBuffer& outputBuffer){
  */
 int SerialPortInputStream::get(void* buffer, int bufferSize){
   return this->mSerialPort.get(buffer, bufferSize);
+}
+
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @return int 
+ */
+int SerialPortInputStream::skip(int value){
+  return 0;
+}
+
+/* ****************************************************************************************
+ * Public Method <Override> - mcuf::io::InputStream
+ */
+
+/**
+ *
+ */
+bool SerialPortInputStream::abortRead(void){
+  return this->mSerialPort.abortRead();
+}
+
+/**
+ *
+ */
+bool SerialPortInputStream::readBusy(void){
+  return this->mSerialPort.readBusy();
 }
 
 /**

@@ -224,7 +224,7 @@ void OutputStreamBuffer::writePacket(void){
   if(this->isEmpty())
     return;
   
-  this->mByteBuffer.clear();
+  this->mByteBuffer.flush();
   
   if(this->getTailPosition() >= this->getHeadPosition()){
     this->mByteBuffer.position(this->getTailPosition());

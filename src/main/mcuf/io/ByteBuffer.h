@@ -285,7 +285,12 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @brief 
      * 
      */
-    virtual void flush(void) override;
+    inline virtual void flush(void) override{
+      this->mPosition = 0;
+      this->mMark = 0;
+      this->mLimit = static_cast<uint16_t>(this->length());
+      return;
+    }
   
   /* **************************************************************************************
    *  Public Method <Override> - mcuf::io::InputBuffer
@@ -394,17 +399,6 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      */
     inline int capacity(void) const{
       return this->length();
-    }
-    
-    /**
-     * @brief 
-     * 
-     */
-    inline void clear(void){
-      this->mPosition = 0;
-      this->mMark = 0;
-      this->mLimit = static_cast<uint16_t>(this->length());
-      return;
     }
     
     /**
