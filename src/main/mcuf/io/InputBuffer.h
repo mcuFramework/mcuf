@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_739FA0D6_740F_4CA0_975C_FD713D983D41
-#define MCUF_739FA0D6_740F_4CA0_975C_FD713D983D41
+#ifndef MCUF_866C8352_DB87_4C00_A483_93113124908D
+#define MCUF_866C8352_DB87_4C00_A483_93113124908D
 
 /* ****************************************************************************************
  * Include
@@ -25,6 +25,7 @@ namespace mcuf{
   }
 }
 
+
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
@@ -39,7 +40,7 @@ interface mcuf::io::InputBuffer{
    * 
    * @return int 
    */
-  virtual int avariable(void) const abstract;
+  virtual int remaining(void) const abstract;
 
   /**
    * @brief pop buffer byte non blocking.
@@ -48,7 +49,7 @@ interface mcuf::io::InputBuffer{
    * @return true has data in buffer.
    * @return false no data in buffer.
    */
-  virtual bool getByte(char& result) abstract;
+  virtual bool putByte(const char result) abstract;
 
   /**
    * @brief 
@@ -56,7 +57,7 @@ interface mcuf::io::InputBuffer{
    * @param byteBuffer 
    * @return int 
    */
-  virtual int get(mcuf::io::OutputBuffer& outputBuffer) abstract;
+  virtual int put(mcuf::io::OutputBuffer& outputBuffer) abstract;
 
   /**
    * @brief 
@@ -65,20 +66,11 @@ interface mcuf::io::InputBuffer{
    * @param bufferSize 
    * @return int 
    */
-  virtual int get(void* buffer, int bufferSize) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param value 
-   * @return int 
-   */
-  virtual int skip(int value) abstract;
-
+  virtual int put(const void* buffer, int bufferSize) abstract;
 };
 
 /* ****************************************************************************************
  * End of file
  */
 
-#endif /* MCUF_739FA0D6_740F_4CA0_975C_FD713D983D41 */
+#endif /* MCUF_866C8352_DB87_4C00_A483_93113124908D */

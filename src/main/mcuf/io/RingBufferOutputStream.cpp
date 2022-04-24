@@ -12,7 +12,8 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/io/RingBufferInputStream.h"
+#include "mcuf/io/RingBufferOutputStream.h"
+#include "mcuf/lang/ErrorCode.h"
 #include "mcuf/lang/System.h"
 
 /* ****************************************************************************************
@@ -26,11 +27,11 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-using mcuf::io::RingBufferInputStream;
-using mcuf::io::Future;
-using mcuf::io::InputBuffer;
-using mcuf::io::CompletionHandler;
-using mcuf::lang::Pointer;
+using mcuf::io::RingBufferOutputStream;
+using mcuf::io::OutputStream;
+using mcuf::io::OutputBuffer;
+using mcuf::io::RingBuffer;
+using mcuf::lang::Memory;
 using mcuf::lang::System;
 
 /* ****************************************************************************************
@@ -47,10 +48,9 @@ using mcuf::lang::System;
  * @param buffer 
  * @param bufferSize 
  */
-RingBufferInputStream::RingBufferInputStream(void* buffer, uint32_t bufferSize) :
+RingBufferOutputStream::RingBufferOutputStream(void* buffer, uint32_t bufferSize) :
 RingBuffer(buffer, bufferSize){
-  this->mInputBuffer = nullptr;
-  this->mSkip = -1;
+  this->mOutputBuffer = nullptr;
   this->mResult = 0;
   return;
 }
@@ -60,10 +60,9 @@ RingBuffer(buffer, bufferSize){
  * 
  * @param memory 
  */
-RingBufferInputStream::RingBufferInputStream(const mcuf::lang::Memory& memory) :
+RingBufferOutputStream::RingBufferOutputStream(const mcuf::lang::Memory& memory) :
 RingBuffer(memory){
-  this->mInputBuffer = nullptr;
-  this->mSkip = -1;
+  this->mOutputBuffer = nullptr;
   this->mResult = 0;
   return;
 }
@@ -72,10 +71,9 @@ RingBuffer(memory){
  * 
  * @param length 
  */
-RingBufferInputStream::RingBufferInputStream(uint32_t length) :
+RingBufferOutputStream::RingBufferOutputStream(uint32_t length) :
 RingBuffer(length){
-  this->mInputBuffer = nullptr;
-  this->mSkip = -1;
+  this->mOutputBuffer = nullptr;
   this->mResult = 0;
   return;
 }
@@ -83,7 +81,7 @@ RingBuffer(length){
  * @brief Destroy the RingBufferInputStream object
  * 
  */
-RingBufferInputStream::~RingBufferInputStream(void){
+RingBufferOutputStream::~RingBufferOutputStream(void){
   return;
 }
 
@@ -96,25 +94,25 @@ RingBufferInputStream::~RingBufferInputStream(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::io::RingBuffer 
+ * Public Method <Override> - mcuf::io::RingBuffer
  */
 
 /**
- * @brief 
+ * @brief pop buffer byte non blocking.
  * 
- * @param data 
- * @return true 
- * @return false 
+ * @param result 
+ * @return true has data in buffer.
+ * @return false no data in buffer.
  */
-bool RingBufferInputStream::putByte(const char data){
-  bool result = RingBuffer::putByte(data);
+bool RingBufferOutputStream::getByte(char& result){
+  bool r = RingBuffer::getByte(result);
   
   if(this->mHandling == false){
     this->mHandling = true;
     System::execute(*this);
   }
   
-  return result;  
+  return r;   
 }
 
 /**
@@ -123,8 +121,26 @@ bool RingBufferInputStream::putByte(const char data){
  * @param byteBuffer 
  * @return int 
  */
-int RingBufferInputStream::put(OutputBuffer& outputBuffer){
-  int result = RingBuffer::put(outputBuffer);
+int RingBufferOutputStream::get(mcuf::io::InputBuffer& inputBuffer){
+  int result = RingBuffer::get(inputBuffer);
+  
+  if(this->mHandling == false){
+    this->mHandling = true;
+    System::execute(*this);
+  }
+  
+  return result;   
+}
+
+/**
+ * @brief 
+ * 
+ * @param buffer 
+ * @param bufferSize 
+ * @return int 
+ */
+int RingBufferOutputStream::get(void* buffer, int bufferSize){
+  int result = RingBuffer::get(buffer, bufferSize);
   
   if(this->mHandling == false){
     this->mHandling = true;
@@ -137,12 +153,11 @@ int RingBufferInputStream::put(OutputBuffer& outputBuffer){
 /**
  * @brief 
  * 
- * @param data 
- * @param num 
+ * @param value 
  * @return int 
  */
-int RingBufferInputStream::put(const void *data, int num){
-  int result = RingBuffer::put(data, num);
+int RingBufferOutputStream::skip(int value){
+  int result = RingBuffer::skip(value);
   
   if(this->mHandling == false){
     this->mHandling = true;
@@ -153,19 +168,22 @@ int RingBufferInputStream::put(const void *data, int num){
 }
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::io::InputStream 
+ * Public Method <Override> - mcuf::io::OutputStream
  */
 
 /**
+ * @brief 
  * 
+ * @return true successful.
+ * @return false fail.
  */
-bool RingBufferInputStream::abortRead(void){
-  if(!this->readBusy())
+bool RingBufferOutputStream::abortWrite(void){
+  if(!this->writeBusy())
     return false;
   
   this->executeCompletionHandler();
   return true;
-}  
+}
 
 /**
  * @brief 
@@ -173,116 +191,55 @@ bool RingBufferInputStream::abortRead(void){
  * @return true is busy.
  * @return false isn't busy.
  */
-bool RingBufferInputStream::readBusy(void){
-  return ((this->mInputBuffer != nullptr) || (this->mSkip >= 0));
+bool RingBufferOutputStream::writeBusy(void){
+  return (this->mOutputBuffer != nullptr);
 }
 
 /**
  * @brief 
  * 
- * @param inputBuffer 
- * @return int 
- */
-bool RingBufferInputStream::read(mcuf::io::InputBuffer& inputBuffer){
-  Future future = Future();
-  bool result = RingBufferInputStream::read(inputBuffer, future);
-  if(result)
-    future.waitDone();
-  
-  return result;
-}    
-
-/**
- * @brief nonblocking
- * 
- * @param inputBuffer 
+ * @param byteBuffer 
  * @param attachment 
  * @param handler 
  * @return true successful.
  * @return false fail.
  */
-bool RingBufferInputStream::read(InputBuffer& inputBuffer, void* attachment, CompletionHandler<int, void*>* handler){
-  if(this->readBusy())
+bool RingBufferOutputStream::write(OutputBuffer& outputBuffer, void* attachment, CompletionHandler<int, void*>* handler){
+  if(this->writeBusy())
     return false;
   
-  int result = inputBuffer.put(*this);
-  
-  if(inputBuffer.remaining() <= 0){
+  int result = this->put(outputBuffer);
+  if(outputBuffer.avariable() <= 0){
     if(handler)
       handler->completed(result, attachment);
     
     return result;
   }
- 
-  this->mInputBuffer = &inputBuffer;
+  
+  this->mOutputBuffer = &outputBuffer;
+  this->mHandler = handler;
+  this->mAttachment = attachment;
   this->mResult = result;
-  this->mAttachment = attachment;
-  this->mHandler = handler;
-  this->mResult = inputBuffer.put(*this);
-  
+
   return true;
 }
-
+                               
 /**
  * @brief 
  * 
- * @param inputBuffer 
+ * @param byteBuffer 
  * @param future 
  * @return true 
  * @return false 
  */
-bool RingBufferInputStream::read(InputBuffer& inputBuffer, Future& future){
+bool RingBufferOutputStream::write(OutputBuffer& outputBuffer, Future& future){
   if(!future.classAvariable())
     return false;
   
   if(!future.isIdle())
     return false;
   
-  return this->read(inputBuffer, nullptr, &future);
-}
-
-/**
- * @brief 
- * 
- * @param value 
- * @param attachment 
- * @param handler 
- * @return true 
- * @return false 
- */
-bool RingBufferInputStream::skip(int value, void* attachment, CompletionHandler<int, void*>* handler){
-  if(this->readBusy())
-    return false;
-
-  int result = RingBuffer::skip(value);
-  if(result >= value){
-    if(handler)
-      handler->completed(result, attachment);
-  }
-  
-  this->mSkip = value - result;
-  this->mHandler = handler;
-  this->mAttachment = attachment;
-  
-  return true;
-}
-
-/**
- * @brief 
- * 
- * @param value 
- * @param future 
- * @return true 
- * @return false 
- */
-bool RingBufferInputStream::skip(int value, Future& future){
-  if(!future.classAvariable())
-    return false;
-  
-  if(!future.isIdle())
-    return false;
-  
-  return this->skip(value, nullptr, &future);
+  return this->write(outputBuffer, nullptr, &future);
 }
 
 /* ****************************************************************************************
@@ -293,23 +250,16 @@ bool RingBufferInputStream::skip(int value, Future& future){
  * @brief 
  * 
  */
-void RingBufferInputStream::run(void){
+void RingBufferOutputStream::run(void){
   if(this->mHandling == false)
     return;
   
   //RingBuffer has data
-  while(this->avariable()){
+  while(this->remaining()){
     
-    if(this->mSkip > 0){
-      int cache = RingBuffer::skip(this->mSkip);
-      this->mSkip -= cache;
-      this->mResult += cache;
-      if(this->mSkip <= 0)
-        this->executeCompletionHandler();
-      
-    }else if(this->mInputBuffer != nullptr){
-      this->mResult += this->mInputBuffer->put(*this);
-      if(this->mInputBuffer->remaining() <= 0)
+    if(this->mOutputBuffer != nullptr){
+      this->mResult += this->put(*this->mOutputBuffer);
+      if(this->mOutputBuffer->avariable() <= 0)
         this->executeCompletionHandler();
       
     }else{
@@ -339,13 +289,13 @@ void RingBufferInputStream::run(void){
 /* ****************************************************************************************
  * Private Method
  */
-  
+
 /**
  * @brief 
  *
  */
-void RingBufferInputStream::executeCompletionHandler(void){
-  if(!this->readBusy())
+void RingBufferOutputStream::executeCompletionHandler(void){
+  if(!this->writeBusy())
     return;
   
   CompletionHandler<int, void*>* handler = this->mHandler;
@@ -353,8 +303,7 @@ void RingBufferInputStream::executeCompletionHandler(void){
   
   int result = this->mResult;
   this->mResult = 0;
-  this->mInputBuffer = nullptr;
-  this->mSkip = -1;
+  this->mOutputBuffer = nullptr;
   
   if(handler)
     handler->completed(result, attachment);

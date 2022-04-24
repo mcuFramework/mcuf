@@ -25,8 +25,8 @@
  */  
 using mcuf::io::RingBuffer;
 using mcuf::lang::Memory;
-using mcuf::io::OutputBuffer;
 using mcuf::io::InputBuffer;
+using mcuf::io::OutputBuffer;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -84,7 +84,7 @@ RingBuffer::~RingBuffer(void){
  */
  
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::io::InputBuffer
+ * Public Method <Override> - mcuf::io::OutputBuffer
  */
 
 /**
@@ -115,8 +115,8 @@ bool RingBuffer::putByte(const char result){
  * @param num 
  * @return int 
  */
-int RingBuffer::put(InputBuffer& inputBuffer){
-  int num = inputBuffer.avariable();
+int RingBuffer::put(OutputBuffer& outputBuffer){
+  int num = outputBuffer.avariable();
   
   if(num <= 0)
     return 0;
@@ -142,12 +142,12 @@ int RingBuffer::put(InputBuffer& inputBuffer){
 
   /* Write segment 1 */
   ptr += INDH();
-  inputBuffer.get(ptr, cnt1);
+  outputBuffer.get(ptr, cnt1);
   this->mHead += static_cast<uint32_t>(cnt1);
 
   /* Write segment 2 */
   ptr = static_cast<uint8_t*>(this->pointer()) + INDH();
-  inputBuffer.get(ptr, cnt2);
+  outputBuffer.get(ptr, cnt2);
   this->mHead += static_cast<uint32_t>(cnt2);
 
   return (cnt1 + cnt2);
@@ -208,7 +208,7 @@ int RingBuffer::put(const void *data, int num){
 }
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::io::OutputBuffer
+ * Public Method <Override> - mcuf::io::InputBuffer
  */
 
 /**
@@ -238,8 +238,8 @@ bool RingBuffer::getByte(char& data){
  * @param byteBuffer 
  * @return int 
  */
-int RingBuffer::get(OutputBuffer& outputBuffer){
-  int num = outputBuffer.remaining();
+int RingBuffer::get(InputBuffer& inputBuffer){
+  int num = inputBuffer.remaining();
   if(num <= 0)
     return 0;
 
@@ -264,12 +264,12 @@ int RingBuffer::get(OutputBuffer& outputBuffer){
 
   /* Write segment 1 */
   ptr += INDH();
-  outputBuffer.put(ptr, cnt1);
+  inputBuffer.put(ptr, cnt1);
   this->mHead += static_cast<uint32_t>(cnt1);
 
   /* Write segment 2 */
   ptr = static_cast<uint8_t*>(this->pointer()) + INDH();
-  outputBuffer.put(ptr, cnt2);
+  inputBuffer.put(ptr, cnt2);
   this->mHead += static_cast<uint32_t>(cnt2);
 
   return cnt1 + cnt2;

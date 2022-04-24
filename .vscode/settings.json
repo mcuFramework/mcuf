@@ -20,7 +20,15 @@
         "cwctype": "cpp",
         "cstdint": "cpp",
         "xstring": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "array": "cpp",
+        "istream": "cpp",
+        "memory": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "xlocnum": "cpp",
+        "xmemory": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "python.pythonPath": "D:\\python\\python.exe"

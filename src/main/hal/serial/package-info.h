@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_78B7EF1E_A789_4563_A9F9_910B2196DC29
-#define MCUF_78B7EF1E_A789_4563_A9F9_910B2196DC29
+#ifndef MCUF_E94FE72B_26C7_4586_BC13_242D1EE6CFE0
+#define MCUF_E94FE72B_26C7_4586_BC13_242D1EE6CFE0
 
 /* ****************************************************************************************
  * Include folder
@@ -31,13 +31,10 @@
 #include "SerialPeriphTransfer.h"
 #include "SerialPort.h"
 #include "SerialPortConfig.h"
-#include "SerialPortEvent.h"
-#include "SerialPortReceiver.h"
-#include "SerialPortStatus.h"
 #include "SerialPortTransfer.h"
 
 /* ****************************************************************************************
  * End of file
  */
 
-#endif /* MCUF_78B7EF1E_A789_4563_A9F9_910B2196DC29 */
+#endif /* MCUF_E94FE72B_26C7_4586_BC13_242D1EE6CFE0 */

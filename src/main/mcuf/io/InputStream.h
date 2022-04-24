@@ -12,7 +12,7 @@
  * Include
  */
 #include "mcuf_base.h"
-#include "mcuf/io/ByteBuffer.h"
+#include "mcuf/io/InputBuffer.h"
 #include "mcuf/io/CompletionHandler.h"
 #include "mcuf/io/Future.h"
 #include "mcuf/lang/Object.h"
@@ -54,33 +54,33 @@ interface mcuf::io::InputStream{
   /**
    * @brief 
    * 
-   * @param byteBuffer 
+   * @param outputBuffer 
    * @return int 
    */
-  virtual bool read(mcuf::io::ByteBuffer& byteBuffer) abstract;
+  virtual bool read(mcuf::io::InputBuffer& inputBuffer) abstract;
   
   /**
    * @brief nonblocking
    * 
-   * @param byteBuffer 
+   * @param outputBuffer 
    * @param attachment 
    * @param handler 
    * @return true successful.
    * @return false fail.
    */
-  virtual bool read(mcuf::io::ByteBuffer& byteBuffer, 
+  virtual bool read(mcuf::io::InputBuffer& inputBuffer, 
                     void* attachment,
                     mcuf::io::CompletionHandler<int, void*>* handler) abstract;
 
   /**
    * @brief 
    * 
-   * @param byteBuffer 
+   * @param outputBuffer 
    * @param future 
    * @return true 
    * @return false 
    */
-  virtual bool read(mcuf::io::ByteBuffer& byteBuffer, mcuf::io::Future& future) abstract;
+  virtual bool read(mcuf::io::InputBuffer& inputBuffer, mcuf::io::Future& future) abstract;
 
   /**
    * @brief 

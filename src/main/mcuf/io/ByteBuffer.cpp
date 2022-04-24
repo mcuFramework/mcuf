@@ -17,8 +17,8 @@
  * Using
  */  
 using mcuf::io::ByteBuffer;
-using mcuf::io::OutputBuffer;
 using mcuf::io::InputBuffer;
+using mcuf::io::OutputBuffer;
 using mcuf::lang::Memory;
 using mcuf::lang::System;
 using mcuf::lang::String;
@@ -111,7 +111,7 @@ int ByteBuffer::indexOfString(const char* str) const{
 }
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::io::InputBufferBuffer
+ * Public Method <Override> - mcuf::io::OutputBufferBuffer
  */
 
 /**
@@ -136,11 +136,11 @@ bool ByteBuffer::getByte(char& result){
  * @param byteBuffer 
  * @return int 
  */
-int ByteBuffer::get(OutputBuffer& outputBuffer){
-  int len = outputBuffer.remaining();
-  int pos = this->position();
-  len = outputBuffer.put(this->pointer(pos), len);
-  this->position(pos + len);
+int ByteBuffer::get(InputBuffer& inputBuffer){
+  int len = this->avariable();
+  len = inputBuffer.put(this->pointer(this->mPosition), len);
+  this->position(this->position() + len);
+
   return len;
 }
 
@@ -178,7 +178,7 @@ int ByteBuffer::skip(int value){
 }
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::io::OutputBuffer
+ * Public Method <Override> - mcuf::io::InputBuffer
  */
 
 /**
@@ -202,9 +202,9 @@ bool ByteBuffer::putByte(const char value){
  * @param byteBuffer 
  * @return int 
  */
-int ByteBuffer::put(InputBuffer& inputBuffer){
+int ByteBuffer::put(OutputBuffer& outputBuffer){
   int len = this->remaining();
-  len = inputBuffer.get(this->pointer(this->mPosition), len);
+  len = outputBuffer.get(this->pointer(this->mPosition), len);
   this->position(this->position() + len);
   return len;
 }
@@ -302,27 +302,6 @@ bool ByteBuffer::put(char const* string){
  */
 bool ByteBuffer::put(const String& string){
   return this->put(string.pointer(), string.size());
-}
-
-/**
- * @brief 
- * 
- * @param byteBuffer 
- * @return true 
- * @return false 
- */
-bool ByteBuffer::put(ByteBuffer& byteBuffer){
-  int rem = byteBuffer.remaining();
-  if(rem == 0)
-    return true;
-  
-  void* start = byteBuffer.pointer(byteBuffer.position());
-  bool result = this->put(start, rem);
-  
-  if(result)
-    byteBuffer.position(byteBuffer.position() + rem);
-  
-  return result;
 }
 
 /**

@@ -269,12 +269,12 @@ bool PrintStream::print(mcuf::io::ByteBuffer& byteBuffer, bool newLine){
 /**
  * @brief 
  * 
- * @param InputBuffer 
+ * @param OutputBuffer 
  * @param newLine 
  * @return true 
  * @return false 
  */
-bool PrintStream::print(mcuf::io::InputBuffer& inputBuffer, bool newLine){
+bool PrintStream::print(mcuf::io::OutputBuffer& outputBuffer, bool newLine){
   if(this->mOutputStream.writeBusy())
     return false;
 
@@ -282,8 +282,7 @@ bool PrintStream::print(mcuf::io::InputBuffer& inputBuffer, bool newLine){
   if(newLine)
     this->mByteBuffer.limit(this->mByteBuffer.limit()-1);
   
-  int result = inputBuffer.get(this->mByteBuffer, this->mByteBuffer.limit());
-  this->mByteBuffer.limit(result);
+  this->mByteBuffer.put(outputBuffer);
   this->mByteBuffer.limit(this->mByteBuffer.capacity());
   if(newLine)
     this->mByteBuffer.put("\n");

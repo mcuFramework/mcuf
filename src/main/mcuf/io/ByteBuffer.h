@@ -293,7 +293,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
     }
   
   /* **************************************************************************************
-   *  Public Method <Override> - mcuf::io::InputBuffer
+   *  Public Method <Override> - mcuf::io::OutputBuffer
    */
   public:
     /**
@@ -320,7 +320,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @param byteBuffer 
      * @return int 
      */
-    virtual int get(mcuf::io::OutputBuffer& outputBuffer) override;
+    virtual int get(mcuf::io::InputBuffer& inputBuffer) override;
 
     /**
      * @brief 
@@ -340,7 +340,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
     virtual int skip(int value) override;
     
   /* **************************************************************************************
-   *  Public Method <Override> - mcuf::io::OutputBuffer
+   *  Public Method <Override> - mcuf::io::InputBuffer
    */
   public:
     /**
@@ -367,7 +367,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @param byteBuffer 
      * @return int 
      */
-    virtual int put(mcuf::io::InputBuffer& inputBuffer) override;
+    virtual int put(mcuf::io::OutputBuffer& outputBuffer) override;
 
     /**
      * @brief 
@@ -549,15 +549,6 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @return false 
      */
     bool put(const mcuf::lang::String& string);
-    
-    /**
-     * @brief 
-     * 
-     * @param byteBuffer 
-     * @return true 
-     * @return false 
-     */
-    bool put(mcuf::io::ByteBuffer& byteBuffer);
     
     /**
      * @brief 

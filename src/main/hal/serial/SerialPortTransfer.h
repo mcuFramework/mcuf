@@ -11,8 +11,8 @@
  * Include
  */  
 #include "mcuf_base.h"
-#include "mcuf/io/ByteBuffer.h"
-#include "hal/serial/SerialPortEvent.h"
+#include "mcuf/io/InputStreamBuffer.h"
+#include "mcuf/io/OutputStream.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -26,40 +26,13 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPortTransfer{
+interface hal::serial::SerialPortTransfer extends 
+mcuf::io::InputStreamBuffer,
+mcuf::io::OutputStream{
 
   /* **************************************************************************************
    * Method
    */
-
-  /**
-   * @brief 
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool abortWrite(void) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool writeBusy(void) abstract;
-                    
-  /**
-   * @brief 
-   * 
-   * @param byteBuffer 
-   * @param attachment 
-   * @param event 
-   * @return true 
-   * @return false 
-   */
-  virtual bool write(mcuf::io::ByteBuffer& byteBuffer,
-                     void* attachment,
-                     hal::serial::SerialPortEvent* event) abstract;
   
 };
 

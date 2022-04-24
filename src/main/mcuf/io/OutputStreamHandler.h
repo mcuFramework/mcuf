@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_056EB5AC_CAA5_4283_A960_832982C15294
-#define MCUF_056EB5AC_CAA5_4283_A960_832982C15294
+#ifndef MCUF_DEBBE420_CC2F_4D95_AD55_B08F0EDCDC0C
+#define MCUF_DEBBE420_CC2F_4D95_AD55_B08F0EDCDC0C
 
 /* ****************************************************************************************
  * Include
@@ -15,11 +15,7 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/serial/SerialPort.h"
-#include "hal/serial/SerialPortEvent.h"
-#include "hal/serial/SerialPortStatus.h"
-#include "mcuf/io/InputStream.h"
-#include "mcuf/io/OutputStream.h"
+#include "mcuf/io/RingBufferOutputStream.h"
 #include "mcuf/io/CompletionHandler.h"
 
 /* ****************************************************************************************
@@ -27,7 +23,7 @@
  */  
 namespace mcuf{
   namespace io{
-    class SerialPortOutputStream;
+    class OutputStreamHandler;
   }
 }
 
@@ -35,10 +31,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements 
-  public mcuf::io::OutputStream,
-  public hal::serial::SerialPortEvent
-{
+class mcuf::io::OutputStreamHandler extends mcuf::io::RingBufferOutputStream implements
+  public mcuf::io::CompletionHandler<int, void*>{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -52,8 +46,7 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
    * Variable <Private>
    */
   private:
-    hal::serial::SerialPort& mSerialPort;
-    mcuf::io::CompletionHandler<int, void*>* mWriteHandler;
+    mcuf::io::OutputStream& mOutputStream;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -66,20 +59,38 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
   /* **************************************************************************************
    * Construct Method
    */
-  public:
+  public: 
 
     /**
-     * @brief Construct a new Serial Port Output Stream object 
+     * @brief Construct a new Output Stream Buffer object
      * 
-     * @param serialPort 
+     * @param outputStream 
+     * @param buffer 
+     * @param bufferSize 
      */
-    SerialPortOutputStream(hal::serial::SerialPort& serialPort);
+    OutputStreamHandler(mcuf::io::OutputStream& OutputStream, void* buffer, uint32_t bufferSize);
+      
+    /**
+     * @brief Construct a new Output Stream Buffer object
+     * 
+     * @param outputStream 
+     * @param memory 
+     */
+    OutputStreamHandler(mcuf::io::OutputStream& OutputStream, const mcuf::lang::Memory& memory);  
 
     /**
-     * @brief Destroy the Serial Port Output Stream object
+     * @brief Construct a new Output Stream Buffer object
+     * 
+     * @param outputStream 
+     * @param length 
+     */
+    OutputStreamHandler(mcuf::io::OutputStream& OutputStream, uint32_t length);
+
+    /**
+     * @brief Destroy the Output Stream Buffer object
      * 
      */
-    virtual ~SerialPortOutputStream(void) override;
+    virtual ~OutputStreamHandler(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -90,63 +101,56 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - hal::serial::SerialPortEvent
-   */  
+   * Public Method <Override> - mcuf::io::RingBuffer
+   */
   public:
+    /**
+     * @brief pop buffer byte non blocking.
+     * 
+     * @param result 
+     * @return true has data in buffer.
+     * @return false no data in buffer.
+     */
+    virtual bool putByte(const char result) override;
 
     /**
      * @brief 
      * 
-     * @param status 
      * @param byteBuffer 
+     * @return int 
      */
-    virtual void onSerialPortEvent(hal::serial::SerialPortStatus status, 
-                                   int resutl,
-                                   void* attachment) override;
+    virtual int put(mcuf::io::OutputBuffer& outputBuffer) override;
 
+    /**
+     * @brief 
+     * 
+     * @param buffer 
+     * @param bufferSize 
+     * @return int 
+     */
+    virtual int put(const void* buffer, int bufferSize) override;
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::io::OutputStream
+   * Public Method <Override> - mcuf::io::CompletionHandler<int, void*>
    */
   public:
 
     /**
      * @brief 
      * 
-     * @return true 
-     * @return false 
+     * @param result 
+     * @param attachment 
      */
-    virtual bool abortWrite(void) override;
+    virtual void completed(int result, void* attachment) override;
     
     /**
      * @brief 
      * 
-     * @return true is busy.
-     * @return false isn't busy.
-     */
-    virtual bool writeBusy(void) override;
-
-    /**
-     * @brief 
-     * 
-     * @param byteBuffer 
+     * @param exc 
      * @param attachment 
-     * @param handler 
-     * @return true successful.
-     * @return false fail.
      */
-    virtual bool write(mcuf::io::ByteBuffer& byteBuffer, 
-                      void* attachment,
-                      mcuf::io::CompletionHandler<int, void*>* handler) override;
+    virtual void failed(void* exc, void* attachment) override;
 
-    /**
-     * @brief blocking, cannot call in interrupt
-     * 
-     * @param byteBuffer 
-     * @return int 
-     */
-    virtual bool write(mcuf::io::ByteBuffer& byteBuffer, mcuf::io::Future& future) override;
-                      
   /* **************************************************************************************
    * Public Method
    */
@@ -174,11 +178,17 @@ class mcuf::io::SerialPortOutputStream extends mcuf::lang::Object implements
   /* **************************************************************************************
    * Private Method
    */
+  private:
 
+    /**
+     * @brief 
+     * 
+     */
+    void writePacket(void);
 };
 
 /* ****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_056EB5AC_CAA5_4283_A960_832982C15294 */
+#endif /* MCUF_DEBBE420_CC2F_4D95_AD55_B08F0EDCDC0C */

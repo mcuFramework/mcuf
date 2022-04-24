@@ -15,8 +15,9 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/io/InputStream.h"
+#include "mcuf/io/InputStreamBuffer.h"
 #include "mcuf/io/RingBuffer.h"
+#include "mcuf/function/Runnable.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -32,7 +33,8 @@ namespace mcuf{
  * Class/Interface/Struct/Enum
  */  
 class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
-  public mcuf::io::InputStream{
+  public mcuf::io::InputStreamBuffer,
+  public mcuf::function::Runnable{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -46,10 +48,12 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
    * Variable <Private>
    */
   private:
-    mcuf::io::ByteBuffer* mByteBuffer;
+    mcuf::io::InputBuffer* mInputBuffer;
     void* mAttachment;
     mcuf::io::CompletionHandler<int, void*>* mHandler;
+    int mResult;
     int mSkip;
+    bool mHandling;
   
   /* **************************************************************************************
    * Abstract method <Public>
@@ -103,6 +107,7 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
    * Public Method <Override> - mcuf::io::RingBuffer 
    */
    public:
+    using RingBuffer::avariable;
     using RingBuffer::skip;
    
     /**
@@ -114,6 +119,14 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
      */
     virtual bool putByte(const char data) override;
     
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return int 
+     */
+    virtual int put(mcuf::io::OutputBuffer& outputBuffer) override;   
+   
     /**
      * @brief 
      * 
@@ -147,33 +160,33 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
     /**
      * @brief 
      * 
-     * @param byteBuffer 
+     * @param inputBuffer 
      * @return int 
      */
-    virtual bool read(mcuf::io::ByteBuffer& byteBuffer) override;        
+    virtual bool read(mcuf::io::InputBuffer& inputBuffer) override;        
     
     /**
      * @brief nonblocking
      * 
-     * @param byteBuffer 
+     * @param inputBuffer 
      * @param attachment 
      * @param handler 
      * @return true successful.
      * @return false fail.
      */
-    virtual bool read(mcuf::io::ByteBuffer& byteBuffer, 
+    virtual bool read(mcuf::io::InputBuffer& inputBuffer, 
                       void* attachment,
                       mcuf::io::CompletionHandler<int, void*>* handler) override;
 
     /**
      * @brief 
      * 
-     * @param byteBuffer 
+     * @param inputBuffer 
      * @param future 
      * @return true 
      * @return false 
      */
-    virtual bool read(mcuf::io::ByteBuffer& byteBuffer, mcuf::io::Future& future) override;
+    virtual bool read(mcuf::io::InputBuffer& inputBuffer, mcuf::io::Future& future) override;
 
     /**
      * @brief 
@@ -198,6 +211,17 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
      */
     virtual bool skip(int value, mcuf::io::Future& future) override;
     
+
+  /* **************************************************************************************
+   * Public Method <Override> - mcuf::function::Runnable
+   */
+  public:
+    /**
+     * @brief 
+     * 
+     */
+    virtual void run(void) override;
+                      
   /* **************************************************************************************
    * Public Method
    */

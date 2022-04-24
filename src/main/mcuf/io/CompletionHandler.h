@@ -34,12 +34,18 @@ interface mcuf::io::CompletionHandler{
    */
     
   /**
-   *
+   * @brief 
+   * 
+   * @param result 
+   * @param attachment 
    */
   virtual void completed(V result, A attachment) abstract;
   
   /**
-   *
+   * @brief 
+   * 
+   * @param exc 
+   * @param attachment 
    */
   virtual void failed(void* exc, A attachment) abstract;
 

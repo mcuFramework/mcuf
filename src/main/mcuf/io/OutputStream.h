@@ -12,7 +12,7 @@
  * Include
  */
 #include "mcuf_base.h"
-#include "mcuf/io/ByteBuffer.h"
+#include "mcuf/io/OutputBuffer.h"
 #include "mcuf/io/CompletionHandler.h"
 #include "mcuf/io/Future.h"
 #include "mcuf/lang/Object.h"
@@ -49,29 +49,29 @@ interface mcuf::io::OutputStream{
    * @return false isn't busy.
    */
   virtual bool writeBusy(void) abstract;
-
+  
   /**
    * @brief 
    * 
-   * @param byteBuffer 
+   * @param outputBuffer
    * @param attachment 
    * @param handler 
    * @return true successful.
    * @return false fail.
    */
-  virtual bool write(mcuf::io::ByteBuffer& byteBuffer, 
+  virtual bool write(mcuf::io::OutputBuffer& outputBuffer, 
                      void* attachment,
                      mcuf::io::CompletionHandler<int, void*>* handler) abstract;
 
   /**
    * @brief 
    * 
-   * @param byteBuffer 
+   * @param outputBuffer
    * @param future 
    * @return true 
    * @return false 
    */
-  virtual bool write(mcuf::io::ByteBuffer& byteBuffer, mcuf::io::Future& future) abstract;
+  virtual bool write(mcuf::io::OutputBuffer& outputBuffer, mcuf::io::Future& future) abstract;
 
 };
 
