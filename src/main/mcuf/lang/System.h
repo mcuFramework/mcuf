@@ -93,7 +93,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * 
      * @return mcuf::io::InputStream& 
      */
-    static mcuf::io::InputStream& in(void);
+    static mcuf::io::InputStreamBuffer& in(void);
 
     /**
      * @brief 

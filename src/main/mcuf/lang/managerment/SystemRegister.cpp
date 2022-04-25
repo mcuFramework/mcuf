@@ -72,8 +72,8 @@ SystemRegister::~SystemRegister(void){
  * 
  * @param inputStream 
  */
-void SystemRegister::setInputStream(mcuf::io::InputStream* inputStream){
-  this->mInputStream = inputStream;
+void SystemRegister::setInputStreamBuffer(mcuf::io::InputStreamBuffer* inputStreamBuffer){
+  this->mInputStreamBuffer = inputStreamBuffer;
   return;
 }
 

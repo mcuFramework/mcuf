@@ -105,8 +105,8 @@ void System::reboot(void){
  * 
  * @return mcuf::io::InputStream& 
  */
-mcuf::io::InputStream& System::in(void){
-  return *System::mSystemRegister.mInputStream;
+mcuf::io::InputStreamBuffer& System::in(void){
+  return *System::mSystemRegister.mInputStreamBuffer;
 }
 
 /**
