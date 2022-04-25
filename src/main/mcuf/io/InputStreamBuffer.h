@@ -39,7 +39,9 @@ interface mcuf::io::InputStreamBuffer extends
   /* **************************************************************************************
    * Method
    */
-
+  using mcuf::io::OutputBuffer::skip;
+  using mcuf::io::InputStream::skip;
+  
 };
 
 /* ****************************************************************************************
