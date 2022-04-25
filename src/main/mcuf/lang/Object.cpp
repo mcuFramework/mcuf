@@ -77,8 +77,11 @@ void* Object::operator new(size_t n, Allocator& allocator){
 /**
  *
  */
-void Object::delay(uint32_t milliseconds){
-  osDelay(milliseconds);
+void Object::delay(int milliseconds){
+  if(milliseconds <= 0)
+    return;
+  
+  osDelay(static_cast<uint32_t>(milliseconds));
   return;
 }
 
@@ -114,9 +117,12 @@ void Object::wait(void){
 /**
  *
  */
-bool Object::wait(uint32_t timeout){
+bool Object::wait(int timeout){
+  if(timeout <= 0)
+    return false;
+  
   osThreadFlagsClear(0x00000001U);
-  if(osThreadFlagsWait(0x00000001U, osFlagsWaitAny, timeout) == osFlagsErrorTimeout)
+  if(osThreadFlagsWait(0x00000001U, osFlagsWaitAny, static_cast<uint32_t>(timeout)) == osFlagsErrorTimeout)
     return true;
   
   return false;

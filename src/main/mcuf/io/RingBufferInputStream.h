@@ -163,7 +163,7 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
      * @param inputBuffer 
      * @return int 
      */
-    virtual bool read(mcuf::io::InputBuffer& inputBuffer) override;        
+    virtual bool read(mcuf::io::InputBuffer& inputBuffer, int timeout) override;        
     
     /**
      * @brief nonblocking

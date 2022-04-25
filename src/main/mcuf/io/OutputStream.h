@@ -54,6 +54,16 @@ interface mcuf::io::OutputStream{
    * @brief 
    * 
    * @param outputBuffer
+   * @param future 
+   * @return true 
+   * @return false 
+   */
+  virtual bool write(mcuf::io::OutputBuffer& outputBuffer, int timeout) abstract;  
+  
+  /**
+   * @brief 
+   * 
+   * @param outputBuffer
    * @param attachment 
    * @param handler 
    * @return true successful.

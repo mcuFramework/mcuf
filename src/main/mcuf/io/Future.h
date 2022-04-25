@@ -139,7 +139,7 @@ class mcuf::io::Future extends mcuf::lang::Object implements
      * 
      * @param timeout 
      */
-    void waitDone(uint32_t timeout);
+    void waitDone(int timeout);
 
     /**
      * @brief 
@@ -154,7 +154,7 @@ class mcuf::io::Future extends mcuf::lang::Object implements
      * @param timeout 
      * @return int 
      */
-    bool get(int& result, uint32_t timeout);
+    bool get(int& result, int timeout);
   
     /**
      * @brief 

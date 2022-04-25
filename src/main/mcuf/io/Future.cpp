@@ -139,7 +139,7 @@ void Future::waitDone(void){
  * 
  * @param timeout 
  */
-void Future::waitDone(uint32_t timeout){
+void Future::waitDone(int timeout){
   int result;
   this->get(result, timeout);
   return;
@@ -176,7 +176,7 @@ bool Future::get(int& result){
  * @param timeout 
  * @return int 
  */
-bool Future::get(int& result, uint32_t timeout){
+bool Future::get(int& result, int timeout){
   if(this->mThreadID)
     return false;  
   

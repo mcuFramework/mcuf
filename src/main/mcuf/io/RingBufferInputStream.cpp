@@ -183,11 +183,11 @@ bool RingBufferInputStream::readBusy(void){
  * @param inputBuffer 
  * @return int 
  */
-bool RingBufferInputStream::read(mcuf::io::InputBuffer& inputBuffer){
+bool RingBufferInputStream::read(InputBuffer& inputBuffer, int timeout){
   Future future = Future();
   bool result = RingBufferInputStream::read(inputBuffer, future);
   if(result)
-    future.waitDone();
+    future.waitDone(timeout);
   
   return result;
 }    

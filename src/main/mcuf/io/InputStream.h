@@ -57,7 +57,7 @@ interface mcuf::io::InputStream{
    * @param outputBuffer 
    * @return int 
    */
-  virtual bool read(mcuf::io::InputBuffer& inputBuffer) abstract;
+  virtual bool read(mcuf::io::InputBuffer& inputBuffer, int timeout) abstract;
   
   /**
    * @brief nonblocking

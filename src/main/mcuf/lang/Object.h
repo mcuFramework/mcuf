@@ -130,7 +130,7 @@ class mcuf::lang::Object{
      * 
      * @param milliseconds 
      */
-    void delay(uint32_t milliseconds);
+    void delay(int milliseconds);
 
     /**
      * @brief 
@@ -169,7 +169,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    bool wait(uint32_t timeout);
+    bool wait(int timeout);
     
     /**
      * @brief 
