@@ -164,6 +164,16 @@ class mcuf::io::RingBufferOutputStream extends mcuf::io::RingBuffer implements
     /**
      * @brief 
      * 
+     * @param outputBuffer
+     * @param future 
+     * @return true 
+     * @return false 
+     */
+    virtual bool write(mcuf::io::OutputBuffer& outputBuffer, int timeout) override;
+  
+    /**
+     * @brief 
+     * 
      * @param byteBuffer 
      * @param attachment 
      * @param handler 

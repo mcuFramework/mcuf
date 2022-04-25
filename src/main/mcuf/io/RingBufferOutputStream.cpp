@@ -198,6 +198,27 @@ bool RingBufferOutputStream::writeBusy(void){
 /**
  * @brief 
  * 
+ * @param outputBuffer
+ * @param future 
+ * @return true 
+ * @return false 
+ */
+bool RingBufferOutputStream::write(mcuf::io::OutputBuffer& outputBuffer, int timeout){
+  Future future = Future();
+  if(this->write(outputBuffer, future) == false)
+    return false;
+  
+  future.waitDone(timeout);
+  if(future.isDone() == false)
+    this->abortWrite();
+  
+  future.waitDone();
+  return true;
+}
+
+/**
+ * @brief 
+ * 
  * @param byteBuffer 
  * @param attachment 
  * @param handler 
