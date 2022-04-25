@@ -117,6 +117,16 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
     /**
      * @brief 
      * 
+     * @return true 
+     * @return false 
+     */
+    inline virtual bool isEmpty(void) const override{
+      return (VACCESS(const uint32_t, this->mHead) == VACCESS(const uint32_t, this->mTail));
+    }
+  
+    /**
+     * @brief 
+     * 
      * @return int 
      */
     inline virtual int avariable(void) const override{
@@ -161,6 +171,16 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
    * Public Method <Override> - mcuf::io::InputBuffer
    */  
   public:
+    /**
+     * @brief Return empty status of ring buffer.
+     * 
+     * @return true is full.
+     * @return false not full.
+     */
+    inline virtual bool isFull(void) const override{
+      return (this->avariable() >= static_cast<int>(this->mCount));
+    }
+
     /**
      * @brief 
      * 
@@ -208,26 +228,6 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
      */
     inline int getSize(void){
       return static_cast<int>(this->mCount);
-    }
-
-    /**
-     * @brief Return empty status of ring buffer.
-     * 
-     * @return true is full.
-     * @return false not full.
-     */
-    inline bool isFull(void){
-      return (this->avariable() >= static_cast<int>(this->mCount));
-    }
-
-    /**
-     * @brief Return empty status of ring buffer.
-     * 
-     * @return true is empty.
-     * @return false not empty.
-     */
-    inline bool isEmpty(void){
-      return (VACCESS(uint32_t, this->mHead) == VACCESS(uint32_t, this->mTail));
     }
 
     /**

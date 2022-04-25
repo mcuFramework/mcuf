@@ -299,6 +299,16 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
     /**
      * @brief 
      * 
+     * @return true 
+     * @return false 
+     */
+    inline virtual bool isEmpty(void) const override{
+      return (this->mPosition >= this->mLimit);
+    }    
+  
+    /**
+     * @brief 
+     * 
      * @return int 
      */
     inline virtual int avariable(void) const override{
@@ -343,6 +353,16 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
    *  Public Method <Override> - mcuf::io::InputBuffer
    */
   public:
+    /**
+     * @brief Return empty status of ring buffer.
+     * 
+     * @return true is full.
+     * @return false not full.
+     */
+    inline virtual bool isFull(void) const override{
+      return (this->mPosition >= this->mLimit);
+    }    
+  
     /**
      * @brief 
      * 
@@ -418,16 +438,6 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
       this->position(this->mMark);
       return;
     }  
-    
-    /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
-     */
-    inline bool hasRemaining(void) const{
-      return (this->mLimit > this->mPosition);
-    }
     
     /**
      * @brief 

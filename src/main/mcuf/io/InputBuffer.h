@@ -34,6 +34,14 @@ interface mcuf::io::InputBuffer{
   /* **************************************************************************************
    * Method
    */
+  
+  /**
+   * @brief 
+   * 
+   * @return true 
+   * @return false 
+   */
+  virtual bool isFull(void) const abstract;
 
   /**
    * @brief 

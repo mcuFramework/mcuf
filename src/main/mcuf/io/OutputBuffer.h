@@ -37,6 +37,14 @@ interface mcuf::io::OutputBuffer{
   /**
    * @brief 
    * 
+   * @return true 
+   * @return false 
+   */
+  virtual bool isEmpty(void) const abstract;
+
+  /**
+   * @brief 
+   * 
    * @return int 
    */
   virtual int avariable(void) const abstract;
