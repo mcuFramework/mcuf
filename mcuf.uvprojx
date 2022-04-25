@@ -907,6 +907,16 @@
               <FilePath>.\src\main\mcuf\io\InputStreamBuffer.h</FilePath>
             </File>
             <File>
+              <FileName>InputStreamHandler.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\InputStreamHandler.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>InputStreamHandler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\InputStreamHandler.h</FilePath>
+            </File>
+            <File>
               <FileName>OutputBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
@@ -2383,6 +2393,16 @@
               <FileName>InputStreamBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\InputStreamBuffer.h</FilePath>
+            </File>
+            <File>
+              <FileName>InputStreamHandler.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\InputStreamHandler.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>InputStreamHandler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\InputStreamHandler.h</FilePath>
             </File>
             <File>
               <FileName>OutputBuffer.h</FileName>
@@ -3863,6 +3883,16 @@
               <FilePath>.\src\main\mcuf\io\InputStreamBuffer.h</FilePath>
             </File>
             <File>
+              <FileName>InputStreamHandler.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\InputStreamHandler.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>InputStreamHandler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\InputStreamHandler.h</FilePath>
+            </File>
+            <File>
               <FileName>OutputBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
@@ -5339,6 +5369,16 @@
               <FileName>InputStreamBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\InputStreamBuffer.h</FilePath>
+            </File>
+            <File>
+              <FileName>InputStreamHandler.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\InputStreamHandler.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>InputStreamHandler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\InputStreamHandler.h</FilePath>
             </File>
             <File>
               <FileName>OutputBuffer.h</FileName>
@@ -6819,6 +6859,16 @@
               <FilePath>.\src\main\mcuf\io\InputStreamBuffer.h</FilePath>
             </File>
             <File>
+              <FileName>InputStreamHandler.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\InputStreamHandler.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>InputStreamHandler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\InputStreamHandler.h</FilePath>
+            </File>
+            <File>
               <FileName>OutputBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
@@ -8295,6 +8345,16 @@
               <FileName>InputStreamBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\InputStreamBuffer.h</FilePath>
+            </File>
+            <File>
+              <FileName>InputStreamHandler.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\InputStreamHandler.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>InputStreamHandler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\InputStreamHandler.h</FilePath>
             </File>
             <File>
               <FileName>OutputBuffer.h</FileName>
