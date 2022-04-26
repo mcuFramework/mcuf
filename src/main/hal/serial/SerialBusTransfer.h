@@ -11,7 +11,8 @@
  * Include
  */  
 #include "mcuf_base.h"
-#include "mcuf/io/ByteBuffer.h"
+#include "mcuf/io/OutputBuffer.h"
+#include "mcuf/io/InputBuffer.h"
 #include "hal/serial/SerialBusEvent.h"
 
 /* ****************************************************************************************
@@ -53,11 +54,11 @@ interface hal::serial::SerialBusTransfer{
    * @brief 
    * 
    * @param address 
-   * @param receiver 
+   * @param in 
    * @param event 
    */
   virtual bool read(uint16_t address, 
-                    mcuf::io::ByteBuffer& receiver,
+                    mcuf::io::InputBuffer& in,
                     void* attachment,
                     hal::serial::SerialBusEvent* event) abstract;
 
@@ -65,11 +66,11 @@ interface hal::serial::SerialBusTransfer{
    * @brief 
    * 
    * @param address 
-   * @param receiver 
+   * @param out 
    * @param event 
    */
   virtual bool write(uint16_t address, 
-                     mcuf::io::ByteBuffer& transfer,
+                     mcuf::io::OutputBuffer& out,
                      void* attachment,
                      hal::serial::SerialBusEvent* event) abstract;
   
@@ -77,17 +78,17 @@ interface hal::serial::SerialBusTransfer{
    * @brief 
    * 
    * @param address 
-   * @param transfer 
-   * @param receiver 
+   * @param out 
+   * @param in 
    * @param event 
    * @return true 
    * @return false 
    */
-  virtual bool writeAfterRead(uint16_t address, 
-                              mcuf::io::ByteBuffer& transfer, 
-                              mcuf::io::ByteBuffer& receiver,
-                              void* attachment,
-                              hal::serial::SerialBusEvent* event) abstract;
+  virtual bool transfer(uint16_t address, 
+                        mcuf::io::OutputBuffer& out, 
+                        mcuf::io::InputBuffer& in,
+                        void* attachment,
+                        hal::serial::SerialBusEvent* event) abstract;
 
 };
 

@@ -17,7 +17,6 @@
 #include "SerialBus.h"
 #include "SerialBusControl.h"
 #include "SerialBusEvent.h"
-#include "SerialBusSlot.h"
 #include "SerialBusStatus.h"
 #include "SerialBusTransfer.h"
 #include "SerialPeriph.h"
