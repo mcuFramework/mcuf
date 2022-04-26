@@ -18,6 +18,7 @@
 #include "ByteBuffer.h"
 #include "Closeable.h"
 #include "CompletionHandler.h"
+#include "DuplexStream.h"
 #include "Future.h"
 #include "InputBuffer.h"
 #include "InputStream.h"
@@ -30,6 +31,8 @@
 #include "RingBuffer.h"
 #include "RingBufferInputStream.h"
 #include "RingBufferOutputStream.h"
+#include "SerialBusStream.h"
+#include "StreamSkipper.h"
 
 /* ****************************************************************************************
  * End of file

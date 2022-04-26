@@ -672,11 +672,6 @@
               <FilePath>.\src\main\hal\serial\SerialBusEvent.h</FilePath>
             </File>
             <File>
-              <FileName>SerialBusSlot.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\hal\serial\SerialBusSlot.h</FilePath>
-            </File>
-            <File>
               <FileName>SerialBusStatus.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\hal\serial\SerialBusStatus.h</FilePath>
@@ -882,6 +877,11 @@
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
             </File>
             <File>
+              <FileName>DuplexStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\DuplexStream.h</FilePath>
+            </File>
+            <File>
               <FileName>Future.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\Future.cpp</FilePath>
@@ -980,6 +980,26 @@
               <FileName>RingBufferOutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\RingBufferOutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>StreamSkipper.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\StreamSkipper.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StreamSkipper.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\StreamSkipper.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2160,11 +2180,6 @@
               <FilePath>.\src\main\hal\serial\SerialBusEvent.h</FilePath>
             </File>
             <File>
-              <FileName>SerialBusSlot.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\hal\serial\SerialBusSlot.h</FilePath>
-            </File>
-            <File>
               <FileName>SerialBusStatus.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\hal\serial\SerialBusStatus.h</FilePath>
@@ -2370,6 +2385,11 @@
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
             </File>
             <File>
+              <FileName>DuplexStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\DuplexStream.h</FilePath>
+            </File>
+            <File>
               <FileName>Future.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\Future.cpp</FilePath>
@@ -2468,6 +2488,26 @@
               <FileName>RingBufferOutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\RingBufferOutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>StreamSkipper.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\StreamSkipper.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StreamSkipper.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\StreamSkipper.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3648,11 +3688,6 @@
               <FilePath>.\src\main\hal\serial\SerialBusEvent.h</FilePath>
             </File>
             <File>
-              <FileName>SerialBusSlot.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\hal\serial\SerialBusSlot.h</FilePath>
-            </File>
-            <File>
               <FileName>SerialBusStatus.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\hal\serial\SerialBusStatus.h</FilePath>
@@ -3858,6 +3893,11 @@
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
             </File>
             <File>
+              <FileName>DuplexStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\DuplexStream.h</FilePath>
+            </File>
+            <File>
               <FileName>Future.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\Future.cpp</FilePath>
@@ -3956,6 +3996,26 @@
               <FileName>RingBufferOutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\RingBufferOutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>StreamSkipper.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\StreamSkipper.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StreamSkipper.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\StreamSkipper.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5136,11 +5196,6 @@
               <FilePath>.\src\main\hal\serial\SerialBusEvent.h</FilePath>
             </File>
             <File>
-              <FileName>SerialBusSlot.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\hal\serial\SerialBusSlot.h</FilePath>
-            </File>
-            <File>
               <FileName>SerialBusStatus.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\hal\serial\SerialBusStatus.h</FilePath>
@@ -5346,6 +5401,11 @@
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
             </File>
             <File>
+              <FileName>DuplexStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\DuplexStream.h</FilePath>
+            </File>
+            <File>
               <FileName>Future.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\Future.cpp</FilePath>
@@ -5444,6 +5504,26 @@
               <FileName>RingBufferOutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\RingBufferOutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>StreamSkipper.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\StreamSkipper.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StreamSkipper.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\StreamSkipper.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6624,11 +6704,6 @@
               <FilePath>.\src\main\hal\serial\SerialBusEvent.h</FilePath>
             </File>
             <File>
-              <FileName>SerialBusSlot.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\hal\serial\SerialBusSlot.h</FilePath>
-            </File>
-            <File>
               <FileName>SerialBusStatus.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\hal\serial\SerialBusStatus.h</FilePath>
@@ -6834,6 +6909,11 @@
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
             </File>
             <File>
+              <FileName>DuplexStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\DuplexStream.h</FilePath>
+            </File>
+            <File>
               <FileName>Future.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\Future.cpp</FilePath>
@@ -6932,6 +7012,26 @@
               <FileName>RingBufferOutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\RingBufferOutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>StreamSkipper.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\StreamSkipper.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StreamSkipper.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\StreamSkipper.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -8112,11 +8212,6 @@
               <FilePath>.\src\main\hal\serial\SerialBusEvent.h</FilePath>
             </File>
             <File>
-              <FileName>SerialBusSlot.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\hal\serial\SerialBusSlot.h</FilePath>
-            </File>
-            <File>
               <FileName>SerialBusStatus.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\hal\serial\SerialBusStatus.h</FilePath>
@@ -8322,6 +8417,11 @@
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
             </File>
             <File>
+              <FileName>DuplexStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\DuplexStream.h</FilePath>
+            </File>
+            <File>
               <FileName>Future.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\Future.cpp</FilePath>
@@ -8420,6 +8520,26 @@
               <FileName>RingBufferOutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\RingBufferOutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusStream.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusStream.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>StreamSkipper.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\StreamSkipper.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>StreamSkipper.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\StreamSkipper.h</FilePath>
             </File>
           </Files>
         </Group>
