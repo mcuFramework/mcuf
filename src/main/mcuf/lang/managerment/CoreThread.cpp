@@ -71,7 +71,7 @@ CoreThread::~CoreThread(void){
 bool CoreThread::execute(Runnable& runnable){
   bool result = this->mExecutor.execute(&runnable);
   
-  if(this->mOnWait == false)
+  if(this->mOnWait)
     this->notify();
   
   return result;
