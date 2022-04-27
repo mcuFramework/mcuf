@@ -32,6 +32,16 @@ Pointer::Pointer(void){
 }
 
 /**
+ * @brief Construct a new Pointer object
+ * 
+ * @param pointer 
+ */
+Pointer::Pointer(const void* pointer){
+  this->mPointer = const_cast<uint8_t*>(static_cast<const uint8_t*>(pointer));
+  return;  
+}
+
+/**
  * 
  */
 Pointer::Pointer(void* pointer){
@@ -302,7 +312,7 @@ bool Pointer::compair(const void* source, int shift, int start, int length) cons
  * @return int 
  */
 int Pointer::indexOf(char ch, int start, int limit) const{
-  return this->indexOfMemory(&ch, 1, start, limit);
+  return this->indexOfData(&ch, 1, start, limit);
 }
 
 /**
@@ -313,7 +323,7 @@ int Pointer::indexOf(char ch, int start, int limit) const{
  * @return int 
  */
 int Pointer::indexOfString(const char* str, int limit) const{
-  return this->indexOfMemory(str, static_cast<int>(strlen(str)), 0, limit);
+  return this->indexOfData(str, static_cast<int>(strlen(str)), 0, limit);
 }
 
 /**
@@ -325,7 +335,7 @@ int Pointer::indexOfString(const char* str, int limit) const{
  * @return int 
  */
 int Pointer::indexOfString(const char* str, int start, int limit) const{
-  return this->indexOfMemory(str, static_cast<int>(strlen(str)), start, limit);
+  return this->indexOfData(str, static_cast<int>(strlen(str)), start, limit);
 }
 
 /**
@@ -337,7 +347,7 @@ int Pointer::indexOfString(const char* str, int start, int limit) const{
  * @param limit 
  * @return int 
  */
-int Pointer::indexOfMemory(const void* destination, int destinationLen, int start, int limit) const{
+int Pointer::indexOfData(const void* destination, int destinationLen, int start, int limit) const{
   if(limit <= 0)
     return -1;
 

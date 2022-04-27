@@ -255,8 +255,8 @@ int String::indexOfString(const char* str) const{
  * @param start 
  * @return int 
  */
-int String::indexOfMemory(const void* destination, int destinationLen, int start) const{
-  return Pointer::indexOfMemory(destination, destinationLen, start, this->size());
+int String::indexOfData(const void* destination, int destinationLen, int start) const{
+  return Pointer::indexOfData(destination, destinationLen, start, this->size());
 }
 
 /* ****************************************************************************************

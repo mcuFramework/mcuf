@@ -1057,6 +1057,16 @@
               <FilePath>.\src\main\mcuf\lang\Character.h</FilePath>
             </File>
             <File>
+              <FileName>Data.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Data.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Data.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Data.h</FilePath>
+            </File>
+            <File>
               <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
@@ -2563,6 +2573,16 @@
               <FileName>Character.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Character.h</FilePath>
+            </File>
+            <File>
+              <FileName>Data.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Data.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Data.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Data.h</FilePath>
             </File>
             <File>
               <FileName>ErrorCode.h</FileName>
@@ -4073,6 +4093,16 @@
               <FilePath>.\src\main\mcuf\lang\Character.h</FilePath>
             </File>
             <File>
+              <FileName>Data.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Data.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Data.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Data.h</FilePath>
+            </File>
+            <File>
               <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
@@ -5579,6 +5609,16 @@
               <FileName>Character.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Character.h</FilePath>
+            </File>
+            <File>
+              <FileName>Data.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Data.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Data.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Data.h</FilePath>
             </File>
             <File>
               <FileName>ErrorCode.h</FileName>
@@ -7089,6 +7129,16 @@
               <FilePath>.\src\main\mcuf\lang\Character.h</FilePath>
             </File>
             <File>
+              <FileName>Data.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Data.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Data.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Data.h</FilePath>
+            </File>
+            <File>
               <FileName>ErrorCode.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ErrorCode.h</FilePath>
@@ -8595,6 +8645,16 @@
               <FileName>Character.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\Character.h</FilePath>
+            </File>
+            <File>
+              <FileName>Data.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\Data.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Data.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\Data.h</FilePath>
             </File>
             <File>
               <FileName>ErrorCode.h</FileName>

@@ -226,7 +226,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @param limit 
      * @return int 
      */
-    virtual int indexOfMemory(const void* destination, int destinationLen, int start) const override;
+    virtual int indexOfData(const void* destination, int destinationLen, int start) const override;
   
   /* **************************************************************************************
    * Public Method

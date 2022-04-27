@@ -13,7 +13,7 @@
  */  
 #include "mcuf_base.h"
 #include "mcuf/lang/Object.h"
-#include "mcuf/lang/Pointer.h"
+#include "mcuf/lang/Data.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -29,7 +29,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::lang::Memory extends mcuf::lang::Pointer{
+class mcuf::lang::Memory extends mcuf::lang::Data{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -43,7 +43,6 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * Variable <Private>
    */
   private: 
-    uint32_t mLength;
     Memory* mNext;
 
   /* **************************************************************************************
@@ -110,76 +109,12 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @return mcuf::lang::Memory 
      */
     static mcuf::lang::Memory nullMemory(void);
-  
-  /* **************************************************************************************
-   * Public Method <Override> - mcuf::lang::Pointer
-   */
-  public:
-
-    /**
-     * @brief 
-     * 
-     * @param source 
-     * @param length 
-     * @return int32_t 
-     */
-    virtual int copy(const void* source, int length) override;
-
-    /**
-     * @brief 
-     * 
-     * @param source 
-     * @param start 
-     * @param length 
-     * @return int32_t 
-     */
-    virtual int copy(const void* source, int start, int length) override;
-
-    /**
-     * @brief 
-     * 
-     * @param source 
-     * @param shift 
-     * @param start 
-     * @param length 
-     * @return int32_t 
-     */
-    virtual int copy(const void* source, int shift, int start, int length) override;
 
   /* **************************************************************************************
    * Public Method <Inline>
    */
   public: 
 
-    /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
-     */
-    virtual inline bool isReadOnly(void) const{
-      return (this->mLength & 0x80000000);
-    }
-
-    /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
-     */
-    inline bool isEmpty(void) const{
-      return (this->isNull()) | (this->length() == 0);
-    }
-
-    /**
-     * @brief 
-     * 
-     * @return uint32_t 
-     */
-    inline int length(void) const{
-      return static_cast<int>(this->mLength & 0x7FFFFFFF);
-    }
-    
     /**
      * @brief 
      * 
@@ -193,54 +128,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
   /* **************************************************************************************
    * Public Method
    */
-  public: 
-    using Pointer::indexOf;
-    using Pointer::indexOfString;
-    using Pointer::indexOfMemory;
-  
-    /**
-     * @brief 
-     * 
-     * @return int 
-     */
-    virtual int wipe(void);
-
-    /**
-     * @brief 
-     * 
-     * @param value 
-     * @return int 
-     */
-    virtual int wipe(uint8_t value);
-  
-    /**
-     * @brief 
-     * 
-     * @param value 
-     * @param length 
-     * @return int 
-     */
-    virtual int wipe(uint8_t value, int length);
-  
-    /**
-     * @brief 
-     * 
-     * @param value 
-     * @param start 
-     * @param length 
-     * @return int 
-     */
-    virtual int wipe(uint8_t value, int start, int length);
-
-    /**
-     * @brief 
-     * 
-     * @param address 
-     * @return true in range.
-     * @return false isn't range.
-     */
-    virtual bool inRange(void* address) const;
-
+  public:
     /**
      * @brief 
      * 
@@ -256,97 +144,8 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param length 
      * @return mcuf::lang::Memory 
      */
-    virtual mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length) const;
-    
-    /**
-     * @brief 
-     * 
-     * @param source 
-     * @param shift 
-     * @param start 
-     * @param length 
-     * @return int32_t 
-     */
-    virtual int insertArray(const void* source, int start, int length);
-
-    /**
-     * @brief 
-     * 
-     * @param source 
-     * @param shift 
-     * @param start 
-     * @param length 
-     * @return int32_t 
-     */
-    virtual int insertArray(const void* source, int shift, int start, int length);
-
-    /**
-     * @brief 
-     * 
-     * @param start 
-     * @param length 
-     * @return int32_t 
-     */
-    virtual int popArray(int start, int length);
-
-    /**
-     * @brief 
-     * 
-     * @param source 
-     * @param start 
-     * @param length 
-     * @return int32_t 
-     */
-    virtual int popArray(void* source, int start, int length);
-
-    /**
-     * @brief 
-     * 
-     * @param source 
-     * @param shift 
-     * @param start 
-     * @param length 
-     * @return true 
-     * @return false 
-     */
-    virtual int popArray(void* source, int shift, int start, int length);
-
-    /**
-     * @brief 
-     * 
-     * @param ch 
-     * @return int 
-     */
-    virtual int indexOf(char ch) const;
-    
-    /**
-     * @brief 
-     * 
-     * @param ch 
-     * @param offset 
-     * @return int 
-     */
-    virtual int indexOf(char ch, int offset) const;
-    
-    /**
-     * @brief 
-     * 
-     * @param str 
-     * @return int 
-     */
-    virtual int indexOfString(const char* str) const;
-    
-    /**
-     * @brief 
-     * 
-     * @param destination 
-     * @param destinationLen 
-     * @param start 
-     * @param limit 
-     * @return int 
-     */
-    virtual int indexOfMemory(const void* destination, int destinationLen, int start) const;
-
+    virtual mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length) const;    
+  
     /**
      * @brief 
      * 

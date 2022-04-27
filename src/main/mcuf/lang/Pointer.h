@@ -72,6 +72,13 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * 
      * @param pointer 
      */
+    Pointer(const void* pointer);  
+  
+    /**
+     * @brief Construct a new Pointer object
+     * 
+     * @param pointer 
+     */
     Pointer(void* pointer);
 
     /**
@@ -410,7 +417,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param limit 
      * @return int 
      */
-    virtual int indexOfMemory(const void* destination, int destinationLen, int start, int limit) const;
+    virtual int indexOfData(const void* destination, int destinationLen, int start, int limit) const;
 
   /* **************************************************************************************
    * Public Method <inline>

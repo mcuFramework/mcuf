@@ -96,8 +96,8 @@ int ByteBuffer::indexOf(char ch, int start) const{
  * @param start 
  * @return int 
  */
-int ByteBuffer::indexOfMemory(const void* destination, int destinationLen, int start) const{
-  return Pointer::indexOfMemory(destination, destinationLen, start, this->limit());
+int ByteBuffer::indexOfData(const void* destination, int destinationLen, int start) const{
+  return Pointer::indexOfData(destination, destinationLen, start, this->limit());
 }
 
 /**
