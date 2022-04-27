@@ -151,7 +151,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * @return false 
      */
     inline static void execute(mcuf::function::Runnable& runnable){
-      if(System::mCoreThread->mExecutor.execute(&runnable) == false)
+      if(System::mCoreThread->execute(runnable) == false)
         runnable.run();
       
     }
