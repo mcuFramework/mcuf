@@ -34,10 +34,12 @@ using mcuf::util::Executor;
 /**
  *
  */
-CoreThread::CoreThread(uint32_t stackSize, uint32_t executeQueue, Thread* userThread) : Thread(stackSize)
-  ,mExecutor(executeQueue){
+CoreThread::CoreThread(uint32_t stackSize, uint32_t executeQueue, Thread* userThread) : 
+Thread(stackSize),
+mExecutor(executeQueue){
   
   this->mStart = false;
+  this->mOnWait = false;
   this->mUserThread = userThread;
   return;
 }
@@ -68,7 +70,10 @@ CoreThread::~CoreThread(void){
  */
 bool CoreThread::execute(Runnable& runnable){
   bool result = this->mExecutor.execute(&runnable);
-  this->notify();
+  
+  if(this->mOnWait == false)
+    this->notify();
+  
   return result;
 }
 
@@ -95,8 +100,11 @@ void CoreThread::run(void){
   while(this->mStart){
     this->mExecutor.actionAll();
     
-    if(this->mExecutor.isEmpty())
-      this->wait(100);
+    if(this->mExecutor.isEmpty()){
+      this->mOnWait = true;
+      this->wait();
+      this->mOnWait = false;
+    }
   }
 }
 

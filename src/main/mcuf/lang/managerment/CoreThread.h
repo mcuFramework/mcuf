@@ -52,6 +52,7 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
     mcuf::lang::Thread* mUserThread;
     mcuf::util::Executor mExecutor;
     bool mStart;
+    bool mOnWait;
 
   /* **************************************************************************************
    * Abstract method <Public>
