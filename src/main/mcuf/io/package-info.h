@@ -29,6 +29,7 @@
 #include "OutputStreamHandler.h"
 #include "PrintStream.h"
 #include "RingBuffer.h"
+#include "ReadonlyOutputBuffer.h"
 #include "RingBufferInputStream.h"
 #include "RingBufferOutputStream.h"
 #include "SerialBusStream.h"

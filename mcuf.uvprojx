@@ -952,6 +952,16 @@
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
             </File>
             <File>
+              <FileName>ReadonlyOutputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadonlyOutputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadonlyOutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadonlyOutputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>RingBuffer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\RingBuffer.cpp</FilePath>
@@ -2468,6 +2478,16 @@
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>ReadonlyOutputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadonlyOutputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadonlyOutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadonlyOutputBuffer.h</FilePath>
             </File>
             <File>
               <FileName>RingBuffer.cpp</FileName>
@@ -3988,6 +4008,16 @@
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
             </File>
             <File>
+              <FileName>ReadonlyOutputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadonlyOutputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadonlyOutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadonlyOutputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>RingBuffer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\RingBuffer.cpp</FilePath>
@@ -5504,6 +5534,16 @@
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>ReadonlyOutputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadonlyOutputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadonlyOutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadonlyOutputBuffer.h</FilePath>
             </File>
             <File>
               <FileName>RingBuffer.cpp</FileName>
@@ -7024,6 +7064,16 @@
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
             </File>
             <File>
+              <FileName>ReadonlyOutputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadonlyOutputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadonlyOutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadonlyOutputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>RingBuffer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\RingBuffer.cpp</FilePath>
@@ -8540,6 +8590,16 @@
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>ReadonlyOutputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadonlyOutputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ReadonlyOutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ReadonlyOutputBuffer.h</FilePath>
             </File>
             <File>
               <FileName>RingBuffer.cpp</FileName>
