@@ -212,6 +212,16 @@ String String::empty(void){
   return String("\0");
 }
 
+/**
+ * @brief 
+ * 
+ * @param src 
+ * @return int 
+ */
+int String::stringLength(const char* src){
+  return static_cast<int>(strlen(src));
+}
+
 /* ****************************************************************************************
  * Public Method <Override> - mcuf::lang::Memory
  */

@@ -11,9 +11,11 @@
 /* ****************************************************************************************
  * Include
  */  
-#include <stdarg.h>
 
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf/lang/Memory.h"
 #include "mcuf/lang/Object.h"
 
@@ -162,6 +164,15 @@ class mcuf::lang::String extends mcuf::lang::Memory{
     /**
      * @brief 
      * 
+     * @param format 
+     * @param ... 
+     * @return String 
+     */
+    static String format(int bufferSize, const char* format, ...);    
+    
+    /**
+     * @brief 
+     * 
      * @param src 
      * @param format 
      * @param args 
@@ -182,11 +193,10 @@ class mcuf::lang::String extends mcuf::lang::Memory{
     /**
      * @brief 
      * 
-     * @param format 
-     * @param ... 
-     * @return String 
+     * @param src 
+     * @return int 
      */
-    static String format(int bufferSize, const char* format, ...);
+    static int stringLength(const char* src);
 
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Memory
