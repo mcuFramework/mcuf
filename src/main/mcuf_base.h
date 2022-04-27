@@ -63,6 +63,7 @@
  */
 #include <stdint.h>
 #include <stdarg.h>
+#include <typeinfo>
 
 /* ****************************************************************************************
  * Include folder

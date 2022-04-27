@@ -106,25 +106,6 @@ int ArrayPrototype::indexOf(const void* element) const{
   return result;
 }
 
-/**
- * 
- */
-void ArrayPrototype::set(const void* src, int shift){
-  int location = static_cast<int>(shift * this->mElementSize);
-  this->copy(src, 0, location, static_cast<int>(this->mElementSize));
-}
-
-/**
- * 
- */
-void* ArrayPrototype::get(int shift){
-  int location = shift * this->mElementSize;
-  if(location >= this->length())
-    return nullptr;
-  
-  return this->pointer(location);
-}
-
 /* ****************************************************************************************
  * Protected Method <Static>
  */

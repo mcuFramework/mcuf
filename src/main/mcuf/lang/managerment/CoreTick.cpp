@@ -7,23 +7,25 @@
 
 /* ****************************************************************************************
  * Include
- */  
+ */
 
 //-----------------------------------------------------------------------------------------
-#include "cmsis_rtos/rtx_os.h"
-#include "mcuf/lang/managerment/CoreThread.h"
-#include "mcuf/lang/ErrorCode.h"
-#include "mcuf/util/Timer.h"
+
+//-----------------------------------------------------------------------------------------
+#include "mcuf/lang/managerment/CoreTick.h"
+
+/* ****************************************************************************************
+ * Macro
+ */
 
 /* ****************************************************************************************
  * Using
- */  
-using mcuf::lang::ErrorCode;
-using mcuf::lang::Memory;
-using mcuf::lang::Thread;
-using mcuf::lang::managerment::CoreThread;
-using mcuf::util::Executor;
-using mcuf::util::Timer;
+ */
+
+//-----------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------
+using mcuf::lang::managerment::CoreTick;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -34,24 +36,24 @@ using mcuf::util::Timer;
  */
 
 /**
- *
+ * @brief Construct a new Core Tick object
+ * 
+ * @param executeQueue 
  */
-CoreThread::CoreThread(uint32_t stackSize, uint32_t executeQueue, uint32_t tickQueue, uint32_t tickBase, Thread* userThread) : 
-Thread(stackSize),
-mCoreTick(tickQueue, tickBase),
+CoreTick::CoreTick(uint32_t executeQueue, uint32_t tickBase) : 
 mExecutor(executeQueue){
   
-  this->mStart = false;
-  this->mOnWait = false;
-  this->mUserThread = userThread;
+  this->mTickBase = tickBase;
   return;
 }
 
 /**
- * @brief Destroy the Core Thread object
+ * @brief Destroy the Core Tick object
  * 
  */
-CoreThread::~CoreThread(void){
+CoreTick::~CoreTick(void){
+  this->cancel();
+  this->mExecutor.clear();
   return;
 }
 
@@ -64,54 +66,21 @@ CoreThread::~CoreThread(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override>
- */
-
-/**
- *
- */
-bool CoreThread::execute(Runnable& runnable){
-  bool result = this->mExecutor.execute(&runnable);
-  
-  if(this->mOnWait)
-    this->notify();
-  
-  return result;
-}
-
-/** 
- *
- */
-void CoreThread::stop(void){
-  this->mStart = false;
-}
-
-/* ****************************************************************************************
  * Public Method <Override> - mcuf::function::Runnable
  */
 
 /**
- *
+ * @brief 
+ * 
  */
-void CoreThread::run(void){
-  this->mStart = true;
-  
-  Timer::scheduleAtFixedRate(this->mCoreTick, static_cast<uint32_t>(this->mCoreTick.getTickBase()));
-  
-  if(this->mUserThread != nullptr)
-    this->mUserThread->start();
-  
-  while(this->mStart){
-    this->mExecutor.actionAll();
-    
-    if(this->mExecutor.isEmpty()){
-      this->mOnWait = true;
-      this->wait();
-      this->mOnWait = false;
-    }
-  }
-}
+void CoreTick::run(void){
+  int count = static_cast<int>(this->mExecutor.size());
 
+  for(int i=0; i<count; ++i)
+    this->mExecutor.actionSingle();
+    
+  return;
+}
 /* ****************************************************************************************
  * Public Method
  */
@@ -119,10 +88,10 @@ void CoreThread::run(void){
 /* ****************************************************************************************
  * Protected Method <Static>
  */
- 
+
 /* ****************************************************************************************
- * Protected Method <Override> 
- */ 
+ * Protected Method <Override>
+ */
 
 /* ****************************************************************************************
  * Protected Method
@@ -134,4 +103,4 @@ void CoreThread::run(void){
 
 /* ****************************************************************************************
  * End of file
- */ 
+ */

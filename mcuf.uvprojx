@@ -336,7 +336,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions</MiscControls>
+              <MiscControls>-fexceptions -frtti</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main;.\src\resources</IncludePath>
@@ -1265,6 +1265,16 @@
               <FileName>SystemRegister.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\SystemRegister.h</FilePath>
+            </File>
+            <File>
+              <FileName>CoreTick.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CoreTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1864,7 +1874,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions</MiscControls>
+              <MiscControls>-fexceptions -frtti</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main;.\src\resources</IncludePath>
@@ -2793,6 +2803,16 @@
               <FileName>SystemRegister.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\SystemRegister.h</FilePath>
+            </File>
+            <File>
+              <FileName>CoreTick.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CoreTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3392,7 +3412,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions</MiscControls>
+              <MiscControls>-fexceptions -frtti</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main;.\src\resources</IncludePath>
@@ -4321,6 +4341,16 @@
               <FileName>SystemRegister.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\SystemRegister.h</FilePath>
+            </File>
+            <File>
+              <FileName>CoreTick.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CoreTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4920,7 +4950,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions</MiscControls>
+              <MiscControls>-fexceptions -frtti</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main;.\src\resources</IncludePath>
@@ -5849,6 +5879,16 @@
               <FileName>SystemRegister.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\SystemRegister.h</FilePath>
+            </File>
+            <File>
+              <FileName>CoreTick.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CoreTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6448,7 +6488,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions</MiscControls>
+              <MiscControls>-fexceptions -frtti</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main;.\src\resources</IncludePath>
@@ -7377,6 +7417,16 @@
               <FileName>SystemRegister.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\SystemRegister.h</FilePath>
+            </File>
+            <File>
+              <FileName>CoreTick.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CoreTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -7976,7 +8026,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions</MiscControls>
+              <MiscControls>-fexceptions -frtti</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main;.\src\resources</IncludePath>
@@ -8905,6 +8955,16 @@
               <FileName>SystemRegister.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\SystemRegister.h</FilePath>
+            </File>
+            <File>
+              <FileName>CoreTick.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CoreTick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.h</FilePath>
             </File>
           </Files>
         </Group>

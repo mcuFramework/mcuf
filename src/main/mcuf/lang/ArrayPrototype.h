@@ -132,22 +132,6 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
      */
     int indexOf(const void* element) const;
 
-    /**
-     * @brief 
-     * 
-     * @param src 
-     * @param shift 
-     */
-    void set(const void* src, int shift);
-
-    /**
-     * @brief 
-     * 
-     * @param shift 
-     * @return void* 
-     */
-    void* get(int shift);
-
   /* **************************************************************************************
    * Private Method <Static>
    */

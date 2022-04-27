@@ -15,6 +15,7 @@
 #include "mcuf/lang/ErrorCode.h"
 #include "mcuf/lang/Object.h"
 #include "mcuf/lang/Thread.h"
+#include "mcuf/lang/managerment/CoreTick.h"
 #include "mcuf/lang/managerment/CoreThread.h"
 #include "mcuf/lang/managerment/SystemRegister.h"
 
@@ -45,7 +46,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    * Variable <Private>
    */
   private: 
-    static mcuf::lang::managerment::SystemRegister mSystemRegister;
+    static mcuf::lang::managerment::SystemRegister* mSystemRegister;
     static mcuf::lang::managerment::CoreThread* mCoreThread;
 
   /* **************************************************************************************
@@ -105,6 +106,12 @@ class mcuf::lang::System final extends mcuf::lang::Object{
     /**
      * @brief 
      * 
+     */
+    static void initialize(void);
+      
+    /**
+     * @brief 
+     * 
      * @param userThread 
      */
     static void start(mcuf::lang::Thread& userThread);
@@ -154,6 +161,17 @@ class mcuf::lang::System final extends mcuf::lang::Object{
       if(System::mCoreThread->execute(runnable) == false)
         runnable.run();
       
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param runnable 
+     */
+    inline static void tick(mcuf::function::Runnable& runnable){
+      if(System::mCoreThread->tick(runnable) == false)
+        System::error(nullptr, mcuf::lang::ErrorCode::OUT_OF_MEMORY);
+
     }
 
   /* **************************************************************************************

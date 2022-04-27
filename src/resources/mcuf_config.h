@@ -24,6 +24,20 @@
 #endif
 // </h>
 
+// <h>Tick
+// =======================
+
+//   <o>System tick base time [ms] <5-1000:8>
+#ifndef MCUF_DEFINE_TICK_BASE_TIME
+#define MCUF_DEFINE_TICK_BASE_TIME 50
+#endif
+
+//   <o>System tick task number <4-1024>
+#ifndef MCUF_DEFINE_TICK_TASK_NUMBER
+#define MCUF_DEFINE_TICK_TASK_NUMBER 16
+#endif
+// </h>
+
 //------------- <<< end of configuration section >>> ---------------------------
 
 

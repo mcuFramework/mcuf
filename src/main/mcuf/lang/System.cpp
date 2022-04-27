@@ -19,6 +19,7 @@
 #include "mcuf/lang/System.h"
 #include "mcuf/lang/ThreadEvent.h"
 #include "mcuf/lang/managerment/CoreThread.h"
+#include "mcuf/util/Timer.h"
 #include "mcuf/util/Stacker.h"
 
 /* ****************************************************************************************
@@ -31,9 +32,9 @@
 extern unsigned int SystemCoreClockHz;
 
 extern const uint32_t mcufCoreStackMemorySize;
-extern const uint32_t mcufCoreEcecutorMemorySize;
-
-extern const uint32_t mcufTimerTick;
+extern const uint32_t mcufCoreEcecutorTaskNumber;
+extern const uint32_t mcufTickBaseTime;
+extern const uint32_t mcufTickTaskNumber;
 
 /* ****************************************************************************************
  * Using
@@ -43,10 +44,12 @@ using mcuf::function::Runnable;
 using mcuf::lang::Math;
 using mcuf::lang::Memory;
 using mcuf::lang::System;
+using mcuf::lang::managerment::CoreTick;
 using mcuf::lang::managerment::CoreThread;
 using mcuf::lang::managerment::SystemRegister;
 using mcuf::lang::ThreadEvent;
 using mcuf::util::Stacker;
+using mcuf::util::Timer;
 
 /* ****************************************************************************************
  * Global Operator
@@ -55,12 +58,8 @@ using mcuf::util::Stacker;
 /* ****************************************************************************************
  * Static Variable
  */  
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wexit-time-destructors"
-#pragma clang diagnostic ignored "-Wglobal-constructors"
-SystemRegister System::mSystemRegister = SystemRegister();
-#pragma clang diagnostic pop
 
+SystemRegister* System::mSystemRegister = nullptr;
 CoreThread* System::mCoreThread = nullptr;
 
 /* ****************************************************************************************
@@ -96,7 +95,7 @@ System::~System(void){
  * 
  */
 void System::reboot(void){
-  System::mSystemRegister.mSystemReset();
+  System::mSystemRegister->mSystemReset();
   return;
 }
 
@@ -106,7 +105,7 @@ void System::reboot(void){
  * @return mcuf::io::InputStream& 
  */
 mcuf::io::InputStreamBuffer& System::in(void){
-  return *System::mSystemRegister.mInputStreamBuffer;
+  return *System::mSystemRegister->mInputStreamBuffer;
 }
 
 /**
@@ -115,7 +114,18 @@ mcuf::io::InputStreamBuffer& System::in(void){
  * @return mcuf::io::PrintStream& 
  */
 mcuf::io::PrintStream& System::out(void){
-  return *System::mSystemRegister.mPrintStream;
+  return *System::mSystemRegister->mPrintStream;
+}
+/**
+ * @brief 
+ * 
+ */
+void System::initialize(void){
+  if(System::mSystemRegister != nullptr)
+    return;
+  
+  osKernelInitialize();
+  System::mSystemRegister = new SystemRegister();
 }
 
 /**
@@ -124,13 +134,16 @@ mcuf::io::PrintStream& System::out(void){
  * @param userThread 
  */
 void System::start(mcuf::lang::Thread& userThread){
-  osKernelInitialize();  
-    
-  System::mCoreThread = new CoreThread(mcufCoreStackMemorySize, mcufCoreEcecutorMemorySize, &userThread);
+
+  System::mCoreThread 
+    = new CoreThread(mcufCoreStackMemorySize, mcufCoreEcecutorTaskNumber, 
+                     mcufTickTaskNumber, mcufTickBaseTime, 
+                     &userThread);
   
   System::mCoreThread->start();
   osKernelStart();
   
+  delete System::mCoreThread;
   System::mCoreThread = nullptr;
   return;
 }
@@ -140,8 +153,8 @@ void System::start(mcuf::lang::Thread& userThread){
  */
 void System::error(const void* address, ErrorCode code){
   bool result = false;
-  if(System::mSystemRegister.mErrorCodeHandler){
-    result = System::mSystemRegister.mErrorCodeHandler(address, code);
+  if(System::mSystemRegister->mErrorCodeHandler){
+    result = System::mSystemRegister->mErrorCodeHandler(address, code);
   }
   
   if(result)
@@ -156,7 +169,7 @@ void System::error(const void* address, ErrorCode code){
  * @return SystemRegister 
  */
 SystemRegister& System::getRegister(void){
-  return System::mSystemRegister;
+  return *System::mSystemRegister;
 }
 
 /**

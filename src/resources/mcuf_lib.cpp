@@ -32,8 +32,11 @@
  * Variable
  */
 
-const uint32_t mcufCoreStackMemorySize = MCUF_DEFINE_CORE_STACK_SIZE;
-const uint32_t mcufCoreEcecutorMemorySize = MCUF_DEFINE_EXECUTOR_TASK_NUMBER;
+uint32_t mcufCoreStackMemorySize = MCUF_DEFINE_CORE_STACK_SIZE;
+uint32_t mcufCoreEcecutorTaskNumber = MCUF_DEFINE_EXECUTOR_TASK_NUMBER;
+
+uint32_t mcufTickBaseTime = MCUF_DEFINE_TICK_BASE_TIME;
+uint32_t mcufTickTaskNumber = MCUF_DEFINE_TICK_TASK_NUMBER;
 
 /* ****************************************************************************************
  * List
