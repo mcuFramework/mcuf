@@ -28,7 +28,7 @@ using mcuf::lang::Allocator;
  * 
  */
 Object::Object(void){
-  this->objectHashCode = this->hashCode();
+  this->mObjectRecodeBase = this;
   return;
 }
 
@@ -37,7 +37,7 @@ Object::Object(void){
  * 
  */
 Object::~Object(void){
-  this->objectHashCode = 0;
+  this->mObjectRecodeBase = nullptr;
   return;
 }
 
@@ -94,7 +94,7 @@ void* Object::operator new(size_t n, Allocator& allocator){
  * 
  * @param milliseconds 
  */
-void Object::delay(int milliseconds){
+void Object::delay(int milliseconds) const{
   if(milliseconds <= 0)
     return;
   
@@ -109,7 +109,7 @@ void Object::delay(int milliseconds){
  * @return true 
  * @return false 
  */
-bool Object::equal(Object* object){
+bool Object::equal(Object* object) const{
   return (this == object);
 }
 
@@ -120,7 +120,7 @@ bool Object::equal(Object* object){
  * @return true 
  * @return false 
  */
-bool Object::equal(Object& object){
+bool Object::equal(Object& object) const{
   return (this == &object);
 }
 
@@ -136,7 +136,7 @@ void Object::finalize(void){
  * @brief 
  * 
  */
-void Object::wait(void){
+void Object::wait(void) const{
   osThreadFlagsClear(0x00000001U);
   osThreadFlagsWait(0x00000001U, osFlagsWaitAny, osWaitForever);
 }
@@ -148,7 +148,7 @@ void Object::wait(void){
  * @return true 
  * @return false 
  */
-bool Object::wait(int timeout){
+bool Object::wait(int timeout) const{
   if(timeout <= 0)
     return false;
   
@@ -165,7 +165,7 @@ bool Object::wait(int timeout){
  * @return true 
  * @return false 
  */
-bool Object::yield(void){
+bool Object::yield(void) const{
   if(osThreadYield() == osOK)
     return true;
   
@@ -178,7 +178,7 @@ bool Object::yield(void){
  * @return true 
  * @return false 
  */
-bool Object::systemLock(void){
+bool Object::systemLock(void) const{
   if(osKernelLock() > 0)
     return true;
   
@@ -192,7 +192,7 @@ bool Object::systemLock(void){
  * @return true 
  * @return false 
  */
-bool Object::systemUnlock(void){
+bool Object::systemUnlock(void) const{
   if(osKernelUnlock() == 0)
     return true;
   

@@ -45,7 +45,7 @@ class mcuf::lang::Object{
    * Variable <Private>
    */
   private:
-    uint32_t objectHashCode;
+    Object* mObjectRecodeBase;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -115,8 +115,8 @@ class mcuf::lang::Object{
    * Public Method <Inline>
    */
   public:
-    inline bool classAvariable(void){
-      return (this->objectHashCode == this->hashCode());
+    inline bool classAvariable(void) const{
+      return (this == this->mObjectRecodeBase);
     }
 
 
@@ -130,7 +130,7 @@ class mcuf::lang::Object{
      * 
      * @param milliseconds 
      */
-    void delay(int milliseconds);
+    void delay(int milliseconds) const;
 
     /**
      * @brief 
@@ -139,7 +139,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool equal(Object* object);
+    virtual bool equal(Object* object) const;
 
     /**
      * @brief 
@@ -148,7 +148,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool equal(Object& object);
+    virtual bool equal(Object& object) const;
 
     /**
      * @brief 
@@ -160,7 +160,7 @@ class mcuf::lang::Object{
      * @brief 
      * 
      */
-    virtual void wait(void);
+    virtual void wait(void) const;
     
     /**
      * @brief 
@@ -169,7 +169,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool wait(int timeout);
+    virtual bool wait(int timeout) const;
     
     /**
      * @brief 
@@ -177,7 +177,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool yield(void);
+    virtual bool yield(void) const;
     
     /**
      * @brief 
@@ -185,7 +185,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool systemLock(void);
+    virtual bool systemLock(void) const;
     
     /**
      * @brief 
@@ -193,7 +193,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool systemUnlock(void);
+    virtual bool systemUnlock(void) const;
     
     /**
      * @brief Get the Name object
