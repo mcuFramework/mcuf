@@ -45,7 +45,7 @@ class mcuf::lang::Object{
    * Variable <Private>
    */
   private:
-    Object* objectRecodeBase;
+    uint32_t objectHashCode;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -116,7 +116,7 @@ class mcuf::lang::Object{
    */
   public:
     inline bool classAvariable(void){
-      return (this == this->objectRecodeBase);
+      return (this->objectHashCode == this->hashCode());
     }
 
 
@@ -160,7 +160,7 @@ class mcuf::lang::Object{
      * @brief 
      * 
      */
-    void wait(void);
+    virtual void wait(void);
     
     /**
      * @brief 
@@ -169,7 +169,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    bool wait(int timeout);
+    virtual bool wait(int timeout);
     
     /**
      * @brief 
@@ -177,7 +177,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    bool yield(void);
+    virtual bool yield(void);
     
     /**
      * @brief 
@@ -185,7 +185,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    bool systemLock(void);
+    virtual bool systemLock(void);
     
     /**
      * @brief 
@@ -193,14 +193,21 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    bool systemUnlock(void);
+    virtual bool systemUnlock(void);
     
     /**
      * @brief Get the Name object
      * 
      * @return const char* 
      */
-    virtual const char* getName(void);
+    virtual const char* getName(void) const;
+
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    virtual uint32_t hashCode(void) const;
 
   /* **************************************************************************************
    * Protected Method <Static>

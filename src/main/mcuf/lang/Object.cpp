@@ -28,7 +28,7 @@ using mcuf::lang::Allocator;
  * 
  */
 Object::Object(void){
-  this->objectRecodeBase = this;
+  this->objectHashCode = this->hashCode();
   return;
 }
 
@@ -37,7 +37,7 @@ Object::Object(void){
  * 
  */
 Object::~Object(void){
-  this->objectRecodeBase = nullptr;
+  this->objectHashCode = 0;
   return;
 }
 
@@ -205,8 +205,17 @@ bool Object::systemUnlock(void){
  * 
  * @return const char* 
  */
-const char* Object::getName(void){
+const char* Object::getName(void) const{
   return typeid(*this).name();
+}
+
+/**
+ * @brief 
+ * 
+ * @return uint32_t 
+ */
+uint32_t Object::hashCode(void) const{
+  return typeid(*this).hash_code();
 }
 
 /* ****************************************************************************************
