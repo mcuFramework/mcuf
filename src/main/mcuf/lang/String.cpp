@@ -405,7 +405,11 @@ String String::toLower(void) const{
  * @return String 
  */
 String String::clone(void) const{
-  return this->clone(0, 0);
+  if(this->isReadOnly())
+    return String(static_cast<const char*>(this->pointer()));
+  
+  else
+    return this->clone(0, 0);
 }
 
 /**

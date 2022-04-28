@@ -40,6 +40,7 @@
 #include "ThreadPriority.h"
 #include "Threads.h"
 #include "ThreadState.h"
+#include "Throwable.h"
 
 /* ****************************************************************************************
  * End of file

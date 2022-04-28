@@ -5,53 +5,51 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C
-#define MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C
+#ifndef MCUF_A1CEB570_37B1_46EF_A349_E340807CFCCB
+#define MCUF_A1CEB570_37B1_46EF_A349_E340807CFCCB
 
 /* ****************************************************************************************
  * Include
- */
+ */  
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/ErrorCode.h"
 #include "mcuf/lang/Object.h"
-#include "mcuf/lang/Thread.h"
-#include "mcuf/lang/managerment/CoreTick.h"
-#include "mcuf/lang/managerment/CoreThread.h"
-#include "mcuf/lang/managerment/SystemRegister.h"
+#include "mcuf/lang/String.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace lang{
-    class System;
+    class Throwable;
   }
 }
 
 /* ****************************************************************************************
- * Class/Interface/Struct
+ * Class Throwable
  */  
-class mcuf::lang::System final extends mcuf::lang::Object{
+class mcuf::lang::Throwable extends mcuf::lang::Object{
 
-  
+  /* **************************************************************************************
+   * Subclass
+   */
+
   /* **************************************************************************************
    * Variable <Public>
    */
-  
+
   /* **************************************************************************************
    * Variable <Protected>
    */
+  protected: 
+    mcuf::lang::String mMessage;
 
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: 
-    static mcuf::lang::managerment::SystemRegister* mSystemRegister;
-    static mcuf::lang::managerment::CoreThread* mCoreThread;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -64,19 +62,26 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Construct Method
    */
-  private:
+
+  public: 
+    /**
+     * @brief Construct a new Throwable object
+     * 
+     */
+    Throwable(void);
   
     /**
-     * @brief Construct a new System object
+     * @brief Construct a new Throwable object
      * 
+     * @param message 
      */
-    System(void);
+    Throwable(mcuf::lang::String& message);
 
     /**
-     * @brief Destroy the System object
+     * @brief Destroy the Throwable object
      * 
      */
-    virtual ~System(void) override;
+    virtual ~Throwable(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -85,98 +90,6 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method <Static>
    */
-  public:
-
-    /**
-     * @brief 
-     * 
-     */
-    static void reboot(void);
-
-    /**
-     * @brief 
-     * 
-     * @return mcuf::io::InputStream& 
-     */
-    static mcuf::io::InputStreamBuffer& in(void);
-
-    /**
-     * @brief 
-     * 
-     * @return mcuf::io::PrintStream& 
-     */
-    static mcuf::io::PrintStream& out(void);
-      
-    /**
-     * @brief 
-     * 
-     */
-    static void initialize(void);
-      
-    /**
-     * @brief 
-     * 
-     * @param userThread 
-     */
-    static void start(mcuf::lang::Thread& userThread);
-
-    /**
-     * @brief 
-     * 
-     * @param address 
-     * @param code
-     */
-    static void error(const void* address, ErrorCode code);
-    
-    /**
-     * @brief Get the Register object
-     * 
-     * @return mcuf::lang::managerment::SystemRegister 
-     */
-    static mcuf::lang::managerment::SystemRegister& getRegister(void);
-    
-    /**
-     * @brief Get the Core Clock object
-     * 
-     * @return uint32_t 
-     */
-    static uint32_t getCoreClock(void);
-    
-    /**
-     * @brief 
-     * 
-     * @param times 
-     */
-    static void lowerDelay(uint32_t times);
-  
-  /* **************************************************************************************
-   * Public Method <Inline Static>
-   */
-  public: 
-
-    /**
-     * @brief 
-     * 
-     * @param runnable 
-     * @return true 
-     * @return false 
-     */
-    inline static void execute(mcuf::function::Runnable& runnable){
-      if(System::mCoreThread->execute(runnable) == false)
-        runnable.run();
-      
-    }
-
-    /**
-     * @brief 
-     * 
-     * @param runnable 
-     */
-    inline static void tick(mcuf::function::Runnable& runnable){
-      if(System::mCoreThread->tick(runnable) == false)
-        System::error(nullptr, mcuf::lang::ErrorCode::OUT_OF_MEMORY);
-
-    }
 
   /* **************************************************************************************
    * Public Method <Override>
@@ -185,6 +98,14 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method
    */
+  public: 
+  
+    /**
+     * @brief Get the Message object
+     * 
+     * @return const char* 
+     */
+    const char* getMessage(void) const;  
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -201,7 +122,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Private Method <Static>
    */
-  
+
   /* **************************************************************************************
    * Private Method <Override>
    */
@@ -209,13 +130,11 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Private Method
    */  
-  
-};
 
-using mcuf::lang::System;
+};
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C */
+#endif/* MCUF_A1CEB570_37B1_46EF_A349_E340807CFCCB */
