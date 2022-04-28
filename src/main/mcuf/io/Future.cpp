@@ -72,9 +72,6 @@ Future::~Future(void){
  * @param attachment 
  */
 void Future::completed(int result, void* attachment){
-  if(!this->classAvariable())
-    return;
-  
   if(this->mStatus != Status::WAIT)
     return;
   
@@ -91,9 +88,6 @@ void Future::completed(int result, void* attachment){
  * @param attachment 
  */
 void Future::failed(void* exc, void* attachment){
-  if(!this->classAvariable())
-    return;
-  
   if(this->mStatus != Status::WAIT)
     return;
   

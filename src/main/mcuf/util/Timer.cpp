@@ -99,8 +99,7 @@ void Timer::entryPoint(void* attachment){
   if(task == nullptr)
     return;
   
-  if(task->classAvariable())
-    task->run();
+  task->run();
 }
 
 /**

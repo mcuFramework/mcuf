@@ -232,9 +232,6 @@ bool RingBufferInputStream::read(InputBuffer& inputBuffer, void* attachment, Com
  * @return false 
  */
 bool RingBufferInputStream::read(InputBuffer& inputBuffer, Future& future){
-  if(!future.classAvariable())
-    return false;
-  
   if(!future.isIdle())
     return false;
   
@@ -276,9 +273,6 @@ bool RingBufferInputStream::skip(int value, void* attachment, CompletionHandler<
  * @return false 
  */
 bool RingBufferInputStream::skip(int value, Future& future){
-  if(!future.classAvariable())
-    return false;
-  
   if(!future.isIdle())
     return false;
   

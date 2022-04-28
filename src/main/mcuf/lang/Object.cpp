@@ -28,7 +28,6 @@ using mcuf::lang::Allocator;
  * 
  */
 Object::Object(void){
-  this->mObjectRecodeBase = this;
   return;
 }
 
@@ -37,7 +36,6 @@ Object::Object(void){
  * 
  */
 Object::~Object(void){
-  this->mObjectRecodeBase = nullptr;
   return;
 }
 

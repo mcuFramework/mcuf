@@ -254,9 +254,6 @@ bool RingBufferOutputStream::write(OutputBuffer& outputBuffer, void* attachment,
  * @return false 
  */
 bool RingBufferOutputStream::write(OutputBuffer& outputBuffer, Future& future){
-  if(!future.classAvariable())
-    return false;
-  
   if(!future.isIdle())
     return false;
   

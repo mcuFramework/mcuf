@@ -139,9 +139,6 @@ bool SerialBusStream::read(InputBuffer& inputBuffer, void* attachment, Completio
  * @return false 
  */
 bool SerialBusStream::read(InputBuffer& inputBuffer, Future& future){
-  if(!future.classAvariable())
-    return false;
-  
   if(!future.isIdle())
     return false;
   
@@ -187,9 +184,6 @@ bool SerialBusStream::skip(int value, void* attachment, CompletionHandler<int, v
  * @return false 
  */
 bool SerialBusStream::skip(int value, Future& future){
-  if(!future.classAvariable())
-    return false;
-  
   if(!future.isIdle())
     return false;
   
@@ -274,9 +268,6 @@ bool SerialBusStream::write(OutputBuffer& outputBuffer, void* attachment, Comple
  * @return false 
  */
 bool SerialBusStream::write(OutputBuffer& outputBuffer, Future& future){
-  if(!future.classAvariable())
-    return false;
-  
   if(!future.isIdle())
     return false;
   
@@ -361,9 +352,6 @@ bool SerialBusStream::transfer(InputBuffer& inputBuffer, OutputBuffer& outputBuf
  * @return false 
  */
 bool SerialBusStream::transfer(InputBuffer& inputBuffer, OutputBuffer& outputBuffer, Future& future){
-  if(!future.classAvariable())
-    return false;
-  
   if(!future.isIdle())
     return false;  
   

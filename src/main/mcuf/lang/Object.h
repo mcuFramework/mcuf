@@ -44,8 +44,6 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private:
-    Object* mObjectRecodeBase;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -114,11 +112,6 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method <Inline>
    */
-  public:
-    inline bool classAvariable(void) const{
-      return (this == this->mObjectRecodeBase);
-    }
-
 
   /* **************************************************************************************
    * Public Method
