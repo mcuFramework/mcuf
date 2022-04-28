@@ -180,15 +180,27 @@ class mcuf::lang::Object{
     bool yield(void);
     
     /**
-     *
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
      */
     bool systemLock(void);
     
     /**
-     *
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
      */
     bool systemUnlock(void);
     
+    /**
+     * @brief Get the Name object
+     * 
+     * @return const char* 
+     */
+    virtual const char* getName(void);
 
   /* **************************************************************************************
    * Protected Method <Static>

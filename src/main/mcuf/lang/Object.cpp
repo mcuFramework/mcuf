@@ -24,17 +24,21 @@ using mcuf::lang::Allocator;
  */
 
 /**
- *
+ * @brief Construct a new Object:: Object object
+ * 
  */
 Object::Object(void){
   this->objectRecodeBase = this;
+  return;
 }
 
 /**
- *
+ * @brief Destroy the Object:: Object object
+ * 
  */
 Object::~Object(void){
   this->objectRecodeBase = nullptr;
+  return;
 }
 
 /* ****************************************************************************************
@@ -42,21 +46,32 @@ Object::~Object(void){
  */
 
 /**
+ * @brief 
  * 
+ * @param n 
+ * @return void* 
  */
 void* Object::operator new(size_t n){
   return ::operator new(n);
 }
 
 /**
+ * @brief 
  * 
+ * @param n 
+ * @param p 
+ * @return void* 
  */
 void* Object::operator new(size_t n, void* const p){
   return p;
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param n 
+ * @param allocator 
+ * @return void* 
  */
 void* Object::operator new(size_t n, Allocator& allocator){
   return allocator.alloc(n);
@@ -75,7 +90,9 @@ void* Object::operator new(size_t n, Allocator& allocator){
  */
 
 /**
- *
+ * @brief 
+ * 
+ * @param milliseconds 
  */
 void Object::delay(int milliseconds){
   if(milliseconds <= 0)
@@ -86,20 +103,29 @@ void Object::delay(int milliseconds){
 }
 
 /**
+ * @brief 
  * 
+ * @param object 
+ * @return true 
+ * @return false 
  */
 bool Object::equal(Object* object){
   return (this == object);
 }
 
 /**
+ * @brief 
  * 
+ * @param object 
+ * @return true 
+ * @return false 
  */
 bool Object::equal(Object& object){
   return (this == &object);
 }
 
 /**
+ * @brief 
  * 
  */
 void Object::finalize(void){
@@ -107,7 +133,8 @@ void Object::finalize(void){
 }
 
 /**
- *
+ * @brief 
+ * 
  */
 void Object::wait(void){
   osThreadFlagsClear(0x00000001U);
@@ -115,7 +142,11 @@ void Object::wait(void){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param timeout 
+ * @return true 
+ * @return false 
  */
 bool Object::wait(int timeout){
   if(timeout <= 0)
@@ -129,7 +160,10 @@ bool Object::wait(int timeout){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @return true 
+ * @return false 
  */
 bool Object::yield(void){
   if(osThreadYield() == osOK)
@@ -139,7 +173,10 @@ bool Object::yield(void){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @return true 
+ * @return false 
  */
 bool Object::systemLock(void){
   if(osKernelLock() > 0)
@@ -150,7 +187,10 @@ bool Object::systemLock(void){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @return true 
+ * @return false 
  */
 bool Object::systemUnlock(void){
   if(osKernelUnlock() == 0)
@@ -158,6 +198,15 @@ bool Object::systemUnlock(void){
   
   else
     return false;
+}
+
+/**
+ * @brief Get the Name object
+ * 
+ * @return const char* 
+ */
+const char* Object::getName(void){
+  return typeid(*this).name();
 }
 
 /* ****************************************************************************************

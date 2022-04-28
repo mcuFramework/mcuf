@@ -50,7 +50,9 @@ Thread* Thread::threadNodeHead = nullptr;
  */
 
 /**
- *
+ * @brief Construct a new Thread:: Thread object
+ * 
+ * @param memory 
  */
 Thread::Thread(const Memory& memory) : Memory(memory){
   if(this->isReadOnly())
@@ -68,14 +70,17 @@ Thread::Thread(const Memory& memory) : Memory(memory){
 }
 
 /**
- *
+ * @brief Construct a new Thread:: Thread object
+ * 
+ * @param stackSize 
  */
 Thread::Thread(uint32_t stackSize) : Thread(Memory(stackSize)){
   return;
 }
 
 /**
- *
+ * @brief Destroy the Thread:: Thread object
+ * 
  */
 Thread::~Thread(void){
   if(this->mThreadID)
@@ -90,7 +95,10 @@ Thread::~Thread(void){
  */
 
 /**
- *
+ * @brief 
+ * 
+ * @param threadID 
+ * @return Thread* 
  */
 Thread* Thread::getThread(uint32_t threadID){
   if(threadID == 0)
@@ -122,63 +130,83 @@ Thread* Thread::getThread(uint32_t threadID){
  */
 
 /**
- *
+ * @brief 
+ * 
+ * @return uint32_t 
  */
 uint32_t Thread::getID(void) const{
   return reinterpret_cast<uint32_t>(this->mThreadID);
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param name 
  */
 void Thread::setName(const char* name){
   getRtxMemory()->name = name;
 }
 
-/** 
- *
+/**
+ * @brief 
+ * 
+ * @return const char* 
  */
-const char* Thread::getName(void) const{
+const char* Thread::getThreadName(void) const{
   return getRtxMemory()->name;
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @return ThreadPriority 
  */
 ThreadPriority Thread::getPriority(void){
   return static_cast<ThreadPriority>(osThreadGetPriority(this->mThreadID));
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @return ThreadState 
  */
 ThreadState Thread::getState(void){
   return static_cast<ThreadState>(osThreadGetState(this->mThreadID));
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @return uint32_t 
  */
 uint32_t Thread::getStackSize(void){
   return osThreadGetStackSize(this->mThreadID);
 }
 
 /**
- *
+ * @brief 
+ * 
  */
 void Thread::notify(void){
   osThreadFlagsSet(this->mThreadID, 0x00000001U);
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @return true 
+ * @return false 
  */
 bool Thread::start(void){
   return this->start(ThreadPriority::NORMAL);
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param priority 
+ * @return true 
+ * @return false 
  */
 bool Thread::start(ThreadPriority priority){
   if(this->mThreadID)
@@ -206,7 +234,11 @@ bool Thread::start(ThreadPriority priority){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param priority 
+ * @return true 
+ * @return false 
  */
 bool Thread::setPriority(ThreadPriority priority){
   if(osThreadSetPriority(this->mThreadID, static_cast<osPriority_t>(priority)) == osOK)
@@ -233,7 +265,9 @@ bool Thread::setPriority(ThreadPriority priority){
  */
 
 /**
- *
+ * @brief 
+ * 
+ * @param attachment 
  */
 void Thread::entryPoint(void* attachment){
   ASSERT(attachment, __CLASSPATH__, ErrorCode::NULL_POINTER);
@@ -245,7 +279,11 @@ void Thread::entryPoint(void* attachment){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param thread 
+ * @return true 
+ * @return false 
  */
 bool Thread::nodeAdd(Thread* thread){
   if(thread == nullptr)
@@ -274,7 +312,11 @@ bool Thread::nodeAdd(Thread* thread){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param thread 
+ * @return true 
+ * @return false 
  */
 bool Thread::nodeRemove(Thread* thread){
   if(thread == nullptr)

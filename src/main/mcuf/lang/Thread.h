@@ -131,28 +131,30 @@ namespace mcuf{
     uint32_t getID(void) const;
   
     /**
-     *
+     * @brief Set the Name object
+     * 
+     * @param name 
      */
     void setName(const char* name);
   
     /**
-     * @brief Get the Name object
+     * @brief Get the Thread Name object
      * 
      * @return const char* 
      */
-    const char* getName(void) const;
+    const char* getThreadName(void) const;
     
     /**
      * @brief Get the Priority object
      * 
-     * @return Priority 
+     * @return mcuf::lang::ThreadPriority 
      */
     mcuf::lang::ThreadPriority getPriority(void);
 
     /**
      * @brief Get the State object
      * 
-     * @return State 
+     * @return mcuf::lang::ThreadState 
      */
      mcuf::lang::ThreadState getState(void);
     
