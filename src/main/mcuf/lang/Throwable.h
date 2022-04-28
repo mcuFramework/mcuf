@@ -75,7 +75,14 @@ class mcuf::lang::Throwable extends mcuf::lang::Object{
      * 
      * @param message 
      */
-    Throwable(mcuf::lang::String& message);
+    Throwable(const mcuf::lang::String& message);
+
+    /**
+     * @brief Construct a new Throwable object
+     * 
+     * @param message 
+     */
+    Throwable(mcuf::lang::String&& message);
 
     /**
      * @brief Destroy the Throwable object

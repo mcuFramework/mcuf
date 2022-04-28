@@ -76,6 +76,16 @@ Pointer(pointer){
 }
 
 /**
+ * @brief Construct a new Data:: Data object
+ * 
+ * @param other 
+ */
+Data::Data(const Data& other){
+  *this = other;
+  return;
+}
+
+/**
  * @brief Destroy the Data object
  * 
  */

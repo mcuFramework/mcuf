@@ -73,7 +73,8 @@ String::String(const Memory& memory) : Memory(memory){
 }
 
 /**
- *
+ * @brief Destroy the String:: String object
+ * 
  */
 String::~String(void){
   return;
@@ -409,7 +410,7 @@ String String::clone(void) const{
     return String(static_cast<const char*>(this->pointer()));
   
   else
-    return this->clone(0, 0);
+    return this->clone(0, this->size());
 }
 
 /**

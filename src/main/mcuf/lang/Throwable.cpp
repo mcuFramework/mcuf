@@ -41,8 +41,19 @@ mMessage("NULL"){
  * 
  * @param message 
  */
-Throwable::Throwable(String& message) : 
+Throwable::Throwable(const String& message) : 
 mMessage(message.clone()){
+
+  return;
+}
+
+/**
+ * @brief Construct a new Throwable object
+ * 
+ * @param message 
+ */
+Throwable::Throwable(mcuf::lang::String&& message) : 
+mMessage(message){
 
   return;
 }

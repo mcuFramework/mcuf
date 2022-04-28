@@ -24,6 +24,7 @@ using mcuf::lang::Pointer;
  */
 
 /**
+ * @brief Construct a new Pointer:: Pointer object
  * 
  */
 Pointer::Pointer(void){
@@ -42,7 +43,9 @@ Pointer::Pointer(const void* pointer){
 }
 
 /**
+ * @brief Construct a new Pointer:: Pointer object
  * 
+ * @param pointer 
  */
 Pointer::Pointer(void* pointer){
   this->mPointer = static_cast<uint8_t*>(pointer);
@@ -50,10 +53,22 @@ Pointer::Pointer(void* pointer){
 }
 
 /**
+ * @brief Construct a new Pointer:: Pointer object
  * 
+ * @param pointer 
  */
 Pointer::Pointer(uint32_t pointer){
   this->mPointer = reinterpret_cast<uint8_t*>(pointer);
+  return;
+}
+
+/**
+ * @brief Construct a new Pointer object
+ * 
+ * @param other 
+ */
+Pointer::Pointer(const Pointer& other){
+  *this = other;
   return;
 }
 

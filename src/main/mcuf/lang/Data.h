@@ -83,6 +83,13 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
     Data(void* pointer, size_t length);
 
     /**
+     * @brief Construct a new Data object
+     * 
+     * @param other 
+     */
+    Data(const Data& other);
+
+    /**
      * @brief Destroy the Data object
      * 
      */

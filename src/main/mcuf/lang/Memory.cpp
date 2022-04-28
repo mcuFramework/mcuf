@@ -30,16 +30,13 @@ using mcuf::lang::Pointer;
  */
 
 /**
- * @brief Construct a new Memory:: Memory object
+ * @brief Construct a new Memory object
  * 
- * @param memory 
+ * @param data 
  */
-Memory::Memory(const Memory& memory){
-  *this = memory;
-
-  if(this->mNext != nullptr)
-    const_cast<Memory&>(memory).mNext = this;
-  
+Memory::Memory(const Data& data) :
+Data(data){
+  this->mNext = nullptr;
   return;
 }
 
@@ -78,6 +75,20 @@ Memory::Memory(size_t length) :
 Data(new uint8_t[(length & 0x7FFFFFFF)], (length & 0x7FFFFFFF)){
 
   this->mNext = this;
+  return;
+}
+
+/**
+ * @brief Construct a new Memory:: Memory object
+ * 
+ * @param other 
+ */
+Memory::Memory(const Memory& other){
+  
+  *this = other;
+  if(this->mNext != nullptr)
+    const_cast<Memory&>(other).mNext = this;
+  
   return;
 }
 

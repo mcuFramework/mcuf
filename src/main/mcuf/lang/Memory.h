@@ -57,13 +57,12 @@ class mcuf::lang::Memory extends mcuf::lang::Data{
    * Construct Method
    */
   public:
-
     /**
      * @brief Construct a new Memory object
      * 
-     * @param memory 
+     * @param data 
      */
-    Memory(const Memory& memory);
+    Memory(const Data& data);
 
     /**
      * @brief Construct a new Memory object
@@ -88,6 +87,13 @@ class mcuf::lang::Memory extends mcuf::lang::Data{
      */
     Memory(size_t length);
     
+    /**
+     * @brief Construct a new Memory object
+     * 
+     * @param other 
+     */
+    Memory(const Memory& other);
+
     /**
      * @brief Destroy the Memory object
      * 

@@ -89,6 +89,13 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
     Pointer(uint32_t pointer);
     
     /**
+     * @brief Construct a new Pointer object
+     * 
+     * @param other 
+     */
+    Pointer(const Pointer& other);
+    
+    /**
      * @brief Destroy the Pointer object
      * 
      */
