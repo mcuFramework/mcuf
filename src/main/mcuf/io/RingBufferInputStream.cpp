@@ -207,21 +207,16 @@ bool RingBufferInputStream::read(InputBuffer& inputBuffer, int timeout){
 bool RingBufferInputStream::read(InputBuffer& inputBuffer, void* attachment, CompletionHandler<int, void*>* handler){
   if(this->readBusy())
     return false;
-  
-  int result = inputBuffer.put(*this);
-  
-  if(inputBuffer.remaining() <= 0){
-    if(handler)
-      handler->completed(result, attachment);
-    
-    return result;
-  }
  
   this->mInputBuffer = &inputBuffer;
-  this->mResult = result;
   this->mAttachment = attachment;
   this->mHandler = handler;
-  this->mResult = inputBuffer.put(*this);
+  this->mResult = 0;
+  
+  if(this->mHandling == false){
+    this->mHandling = true;
+    System::execute(*this);
+  }
   
   return true;
 }
@@ -294,27 +289,29 @@ void RingBufferInputStream::run(void){
   if(this->mHandling == false)
     return;
   
-  //RingBuffer has data
-  while(this->avariable()){
+  this->mHandling = false;
+  
+  if(this->avariable() == 0)
+    return;
+  
+  if(this->mSkip > 0){
+    int cache = RingBuffer::skip(this->mSkip);
+    this->mSkip -= cache;
+    this->mResult += cache;
     
-    if(this->mSkip > 0){
-      int cache = RingBuffer::skip(this->mSkip);
-      this->mSkip -= cache;
-      this->mResult += cache;
-      if(this->mSkip <= 0)
-        this->executeCompletionHandler();
+    if(this->mSkip <= 0)
+      this->executeCompletionHandler();
       
-    }else if(this->mInputBuffer != nullptr){
-      this->mResult += this->mInputBuffer->put(*this);
-      if(this->mInputBuffer->remaining() <= 0)
-        this->executeCompletionHandler();
-      
-    }else{
-      break;
-    }
+    
+  }else if(this->mInputBuffer != nullptr){
+    this->mResult += this->mInputBuffer->put(*this);
+    
+    if(this->mInputBuffer->remaining() <= 0)
+      this->executeCompletionHandler();
+    
   }
   
-  this->mHandling = false;
+  return;
 }
 
 /* ****************************************************************************************

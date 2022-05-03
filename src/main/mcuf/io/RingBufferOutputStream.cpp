@@ -52,6 +52,7 @@ RingBufferOutputStream::RingBufferOutputStream(void* buffer, uint32_t bufferSize
 RingBuffer(buffer, bufferSize){
   this->mOutputBuffer = nullptr;
   this->mResult = 0;
+  this->mHandling = false;
   return;
 }
   
@@ -64,6 +65,7 @@ RingBufferOutputStream::RingBufferOutputStream(const mcuf::lang::Memory& memory)
 RingBuffer(memory){
   this->mOutputBuffer = nullptr;
   this->mResult = 0;
+  this->mHandling = false;
   return;
 }
 /**
@@ -75,6 +77,7 @@ RingBufferOutputStream::RingBufferOutputStream(uint32_t length) :
 RingBuffer(length){
   this->mOutputBuffer = nullptr;
   this->mResult = 0;
+  this->mHandling = false;
   return;
 }
 /**
@@ -229,18 +232,15 @@ bool RingBufferOutputStream::write(OutputBuffer& outputBuffer, void* attachment,
   if(this->writeBusy())
     return false;
   
-  int result = this->put(outputBuffer);
-  if(outputBuffer.avariable() <= 0){
-    if(handler)
-      handler->completed(result, attachment);
-    
-    return result;
-  }
-  
   this->mOutputBuffer = &outputBuffer;
   this->mHandler = handler;
   this->mAttachment = attachment;
-  this->mResult = result;
+  this->mResult = 0;
+  
+  if(this->mHandling == false){
+    this->mHandling = true;
+    System::execute(*this);
+  }
 
   return true;
 }
@@ -272,20 +272,19 @@ void RingBufferOutputStream::run(void){
   if(this->mHandling == false)
     return;
   
+  this->mHandling = false;
+  
   //RingBuffer has data
-  while(this->remaining()){
+  if(this->remaining() == 0)
+    return;
     
-    if(this->mOutputBuffer != nullptr){
-      this->mResult += this->put(*this->mOutputBuffer);
-      if(this->mOutputBuffer->avariable() <= 0)
-        this->executeCompletionHandler();
-      
-    }else{
-      break;
-    }
+  if(this->mOutputBuffer != nullptr){
+    this->mResult += this->put(*this->mOutputBuffer);
+    if(this->mOutputBuffer->avariable() <= 0)
+      this->executeCompletionHandler();     
   }
   
-  this->mHandling = false;
+  return;
 }
 
 /* ****************************************************************************************

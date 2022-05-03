@@ -80,6 +80,7 @@ ReadonlyOutputBuffer::~ReadonlyOutputBuffer(void){
 /* ****************************************************************************************
  * Public Method <Override> - mcuf::io::OutputBuffer
  */
+
 /**
  * @brief pop buffer byte non blocking.
  * 
@@ -96,6 +97,7 @@ bool ReadonlyOutputBuffer::getByte(char& result){
   
   return true;
 }
+
 /**
  * @brief 
  * 
@@ -110,6 +112,7 @@ int ReadonlyOutputBuffer::get(mcuf::io::InputBuffer& inputBuffer){
   this->mPosition += result;
   return result;
 }
+
 /**
  * @brief 
  * 
@@ -131,6 +134,7 @@ int ReadonlyOutputBuffer::get(void* buffer, int bufferSize){
   this->mPosition += result;
   return result;
 }
+
 /**
  * @brief 
  * 
@@ -140,6 +144,7 @@ int ReadonlyOutputBuffer::get(void* buffer, int bufferSize){
 int ReadonlyOutputBuffer::skip(int value){
   return this->get(nullptr, value);
 }
+
 /* ****************************************************************************************
  * Public Method
  */
@@ -161,6 +166,7 @@ bool ReadonlyOutputBuffer::position(int newPosition){
   this->mPosition = newPosition;
   return true;
 }
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */
