@@ -182,6 +182,28 @@ uint32_t System::getCoreClock(void){
 /**
  * @brief 
  * 
+ * @param runnable 
+ * @return true 
+ * @return false 
+ */
+void System::execute(mcuf::function::Runnable& runnable){
+  if(System::mCoreThread->execute(runnable) == false)
+    runnable.run();
+}
+
+/**
+ * @brief 
+ * 
+ * @param runnable 
+ */
+void System::tick(mcuf::function::Runnable& runnable){
+  if(System::mCoreThread->tick(runnable) == false)
+    System::error(nullptr, mcuf::lang::ErrorCode::OUT_OF_MEMORY);
+}
+
+/**
+ * @brief 
+ * 
  * @param times 
  */
 void System::lowerDelay(uint32_t times){

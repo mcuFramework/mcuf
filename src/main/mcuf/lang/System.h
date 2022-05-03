@@ -149,11 +149,6 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      */
     static void lowerDelay(uint32_t times);
   
-  /* **************************************************************************************
-   * Public Method <Inline Static>
-   */
-  public: 
-
     /**
      * @brief 
      * 
@@ -161,22 +156,18 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    inline static void execute(mcuf::function::Runnable& runnable){
-      if(System::mCoreThread->execute(runnable) == false)
-        runnable.run();
-      
-    }
+    static void execute(mcuf::function::Runnable& runnable);
 
     /**
      * @brief 
      * 
      * @param runnable 
      */
-    inline static void tick(mcuf::function::Runnable& runnable){
-      if(System::mCoreThread->tick(runnable) == false)
-        System::error(nullptr, mcuf::lang::ErrorCode::OUT_OF_MEMORY);
-
-    }
+    static void tick(mcuf::function::Runnable& runnable);  
+  
+  /* **************************************************************************************
+   * Public Method <Inline Static>
+   */
 
   /* **************************************************************************************
    * Public Method <Override>
