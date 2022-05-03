@@ -52,6 +52,7 @@ RingBuffer(buffer, bufferSize){
   this->mInputBuffer = nullptr;
   this->mSkip = -1;
   this->mResult = 0;
+  this->mHandling = false;
   return;
 }
   
@@ -65,6 +66,7 @@ RingBuffer(memory){
   this->mInputBuffer = nullptr;
   this->mSkip = -1;
   this->mResult = 0;
+  this->mHandling = false;
   return;
 }
 /**
@@ -77,6 +79,7 @@ RingBuffer(length){
   this->mInputBuffer = nullptr;
   this->mSkip = -1;
   this->mResult = 0;
+  this->mHandling = false;
   return;
 }
 /**
