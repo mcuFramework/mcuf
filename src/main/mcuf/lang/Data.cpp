@@ -102,6 +102,32 @@ Data::~Data(void){
  * Public Method <Static>
  */
 
+/**
+ * @brief 
+ * 
+ * @param pointer 
+ * @param value 
+ * @param length 
+ */
+void Data::wipe(void* pointer, uint8_t value, int length){
+  if(length <= 0)
+    return;
+
+  memset(pointer, value, static_cast<uint32_t>(length));
+  return;
+}
+
+/**
+ * @brief 
+ * 
+ * @param pointer 
+ * @param length 
+ */
+void Data::wipe(void* pointer, int length){
+  Data::wipe(pointer, 0x00, length);
+  return;
+}
+
 /* ****************************************************************************************
  * Public Method <Override> - mcuf::lang::Pointer
  */

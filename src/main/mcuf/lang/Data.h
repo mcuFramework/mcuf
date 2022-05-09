@@ -102,6 +102,23 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
   /* **************************************************************************************
    * Public Method <Static>
    */
+  public:
+    /**
+     * @brief 
+     * 
+     * @param pointer 
+     * @param value 
+     * @param length 
+     */
+    static void wipe(void* pointer, uint8_t value, int length);
+
+    /**
+     * @brief 
+     * 
+     * @param pointer 
+     * @param length 
+     */
+    static void wipe(void* pointer, int length);
 
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Pointer
