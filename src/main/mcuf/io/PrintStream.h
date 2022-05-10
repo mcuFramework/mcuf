@@ -34,7 +34,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::io::PrintStream extends mcuf::lang::Memory{
+class mcuf::io::PrintStream extends mcuf::lang::Memory implements
+public mcuf::io::OutputStream{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -95,9 +96,55 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
    */
 
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> - mcuf::io::OutputStream
    */
+  public:
+    /**
+     * 
+     */
+    virtual bool abortWrite(void) override;
+    
+    /**
+     * @brief 
+     * 
+     * @return true is busy.
+     * @return false isn't busy.
+     */
+    virtual bool writeBusy(void) override;
+    
+    /**
+     * @brief 
+     * 
+     * @param outputBuffer
+     * @param future 
+     * @return true 
+     * @return false 
+     */
+    virtual bool write(mcuf::io::OutputBuffer& outputBuffer, int timeout) override;  
+    
+    /**
+     * @brief 
+     * 
+     * @param outputBuffer
+     * @param attachment 
+     * @param handler 
+     * @return true successful.
+     * @return false fail.
+     */
+    virtual bool write(mcuf::io::OutputBuffer& outputBuffer, 
+                      void* attachment,
+                      mcuf::io::CompletionHandler<int, void*>* handler) override;
 
+    /**
+     * @brief 
+     * 
+     * @param outputBuffer
+     * @param future 
+     * @return true 
+     * @return false 
+     */
+    virtual bool write(mcuf::io::OutputBuffer& outputBuffer, mcuf::io::Future& future) override;
+    
   /* **************************************************************************************
    * Public Method <Inline>
    */
@@ -194,18 +241,7 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
     /**
      * @brief 
      * 
-     * @param byteBuffer 
-     * @return true 
-     * @return false 
-     */
-    inline bool print(mcuf::io::ByteBuffer& byteBuffer){
-      return this->print(byteBuffer, false);
-    }
-
-    /**
-     * @brief 
-     * 
-     * @param inputStream 
+     * @param outputBuffer 
      * @return true 
      * @return false 
      */
@@ -300,22 +336,11 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
     inline bool println(const char* string){
       return this->print(string, true);
     }
-
-    /**
-     * @brief 
-     * 
-     * @param byteBuffer 
-     * @return true 
-     * @return false 
-     */
-    inline bool println(mcuf::io::ByteBuffer& byteBuffer){
-      return this->print(byteBuffer, true);
-    }
     
     /**
      * @brief 
      * 
-     * @param inputStream 
+     * @param outputBuffer 
      * @return true 
      * @return false 
      */
@@ -397,16 +422,6 @@ class mcuf::io::PrintStream extends mcuf::lang::Memory{
      * @return false 
      */
     bool print(const char* string, bool newLine);
-    
-    /**
-     * @brief 
-     * 
-     * @param byteBuffer 
-     * @param newLine 
-     * @return true 
-     * @return false 
-     */
-    bool print(mcuf::io::ByteBuffer& byteBuffer, bool newLine);
 
     /**
      * @brief 

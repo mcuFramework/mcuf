@@ -28,6 +28,8 @@
 using mcuf::lang::Memory;
 using mcuf::io::PrintStream;
 using mcuf::io::OutputStream;
+using mcuf::io::OutputBuffer;
+using mcuf::io::CompletionHandler;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -44,15 +46,15 @@ using mcuf::io::OutputStream;
  * @param memory 
  */
 PrintStream::PrintStream(OutputStream& outputStream, const Memory& memory) : 
-  Memory(memory),
-  mOutputStream(outputStream),
-  mByteBuffer(memory){
+Memory(memory),
+mOutputStream(outputStream),
+mByteBuffer(memory){
   
   return;
 }
 
 PrintStream::PrintStream(OutputStream& outputStream, uint32_t length) : 
-  PrintStream(outputStream, Memory(length)){
+PrintStream(outputStream, Memory(length)){
 
   return;
 }
@@ -74,8 +76,65 @@ PrintStream::~PrintStream(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override>
+ * Public Method <Override> - mcuf::io::OutputStream
  */
+
+/**
+ * @brief 
+ * 
+ * @return true 
+ * @return false 
+ */
+bool PrintStream::abortWrite(void){
+  return this->mOutputStream.abortWrite();
+}
+
+/**
+ * @brief 
+ * 
+ * @return true is busy.
+ * @return false isn't busy.
+ */
+bool PrintStream::writeBusy(void){
+  return this->mOutputStream.writeBusy();
+}
+
+/**
+ * @brief 
+ * 
+ * @param outputBuffer
+ * @param future 
+ * @return true 
+ * @return false 
+ */
+bool PrintStream::write(OutputBuffer& outputBuffer, int timeout){
+  return this->mOutputStream.write(outputBuffer, timeout);
+}  
+
+/**
+ * @brief 
+ * 
+ * @param outputBuffer
+ * @param attachment 
+ * @param handler 
+ * @return true successful.
+ * @return false fail.
+ */
+bool PrintStream::write(OutputBuffer& outputBuffer, void* attachment, CompletionHandler<int, void*>* handler){
+  return this->mOutputStream.write(outputBuffer, attachment, handler);
+}
+
+/**
+ * @brief 
+ * 
+ * @param outputBuffer
+ * @param future 
+ * @return true 
+ * @return false 
+ */
+bool PrintStream::write(OutputBuffer& outputBuffer, mcuf::io::Future& future){
+  return this->mOutputStream.write(outputBuffer, future);
+}
 
 /* ****************************************************************************************
  * Public Method
@@ -247,34 +306,12 @@ bool PrintStream::print(const char* string, bool newLine){
 /**
  * @brief 
  * 
- * @param byteBuffer 
- * @param newLine 
- * @return true 
- * @return false 
- */
-bool PrintStream::print(mcuf::io::ByteBuffer& byteBuffer, bool newLine){
-  if(this->mOutputStream.writeBusy())
-    return false;
-
-  this->mByteBuffer.flush();
-  this->mByteBuffer.put(byteBuffer);
-
-  if(newLine)
-    this->mByteBuffer.put("\n");
-
-  this->mByteBuffer.flip();
-  return this->mOutputStream.write(this->mByteBuffer, nullptr, nullptr);
-}
-
-/**
- * @brief 
- * 
  * @param OutputBuffer 
  * @param newLine 
  * @return true 
  * @return false 
  */
-bool PrintStream::print(mcuf::io::OutputBuffer& outputBuffer, bool newLine){
+bool PrintStream::print(OutputBuffer& outputBuffer, bool newLine){
   if(this->mOutputStream.writeBusy())
     return false;
 

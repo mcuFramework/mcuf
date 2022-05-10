@@ -4,7 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}\\src\\main",
-                "${workspaceFolder}\\src\\test",
+                //"${workspaceFolder}\\src\\test",
                 //"${workspaceFolder}\\src\\resources",
                 "C:\\MinGW\\include"
             ],
@@ -18,7 +18,7 @@
             "browse": {
                 "path": [
                     "${workspaceFolder}\\src\\main",
-                    "${workspaceFolder}\\src\\test",
+                    //"${workspaceFolder}\\src\\test",
                     //"${workspaceFolder}\\src\\resources",
                     "C:\\MinGW\\include"
                 ],
