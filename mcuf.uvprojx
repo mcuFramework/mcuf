@@ -1337,6 +1337,16 @@
               <FilePath>.\src\main\mcuf\util\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Ammeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Ammeter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Ammeter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Ammeter.h</FilePath>
+            </File>
+            <File>
               <FileName>ArrayQueue.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\ArrayQueue.h</FilePath>
@@ -1440,6 +1450,16 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>Voltmeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Voltmeter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Voltmeter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Voltmeter.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2885,6 +2905,16 @@
               <FilePath>.\src\main\mcuf\util\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Ammeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Ammeter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Ammeter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Ammeter.h</FilePath>
+            </File>
+            <File>
               <FileName>ArrayQueue.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\ArrayQueue.h</FilePath>
@@ -2988,6 +3018,16 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>Voltmeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Voltmeter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Voltmeter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Voltmeter.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4433,6 +4473,16 @@
               <FilePath>.\src\main\mcuf\util\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Ammeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Ammeter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Ammeter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Ammeter.h</FilePath>
+            </File>
+            <File>
               <FileName>ArrayQueue.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\ArrayQueue.h</FilePath>
@@ -4536,6 +4586,16 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>Voltmeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Voltmeter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Voltmeter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Voltmeter.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5981,6 +6041,16 @@
               <FilePath>.\src\main\mcuf\util\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Ammeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Ammeter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Ammeter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Ammeter.h</FilePath>
+            </File>
+            <File>
               <FileName>ArrayQueue.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\ArrayQueue.h</FilePath>
@@ -6084,6 +6154,16 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>Voltmeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Voltmeter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Voltmeter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Voltmeter.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -7529,6 +7609,16 @@
               <FilePath>.\src\main\mcuf\util\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Ammeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Ammeter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Ammeter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Ammeter.h</FilePath>
+            </File>
+            <File>
               <FileName>ArrayQueue.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\ArrayQueue.h</FilePath>
@@ -7632,6 +7722,16 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>Voltmeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Voltmeter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Voltmeter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Voltmeter.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -9077,6 +9177,16 @@
               <FilePath>.\src\main\mcuf\util\package-info.h</FilePath>
             </File>
             <File>
+              <FileName>Ammeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Ammeter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Ammeter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Ammeter.h</FilePath>
+            </File>
+            <File>
               <FileName>ArrayQueue.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\ArrayQueue.h</FilePath>
@@ -9180,6 +9290,16 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>Voltmeter.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\Voltmeter.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Voltmeter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Voltmeter.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -15,6 +15,7 @@
 /* ****************************************************************************************
  * Include
  */
+#include "Ammeter.h"
 #include "ArrayQueue.h"
 #include "ArrayQueuePrototype.h"
 #include "BlockPool.h"
@@ -28,6 +29,7 @@
 #include "Stacker.h"
 #include "Timer.h"
 #include "TimerTask.h"
+#include "Voltmeter.h"
 
 /* ****************************************************************************************
  * End of file
