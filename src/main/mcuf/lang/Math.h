@@ -77,6 +77,173 @@ class mcuf::lang::Math extends mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method <Static>
    */ 
+  public:
+    /**
+     * @brief 返回x的反餘弦弧度。
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double acos(double x);
+
+    /**
+     * @brief 返回x的正弦弧線弧度。
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double asin(double x);
+
+    /**
+     * @brief 返回x的反正切值，以弧度為單位。
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double atan(double x);
+
+    /**
+     * @brief 返回y/x的以弧度為單位的反正切值，根據這兩個值，以確定正確的象限上的標誌。
+     * 
+     * @param y 
+     * @param x 
+     * @return double 
+     */
+    static double atan2(double y, double x);
+
+    /**
+     * @brief 返回的弧度角x的餘弦值。
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double cos(double x);
+
+    /**
+     * @brief 返回x的雙曲餘弦。
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double cosh(double x);
+
+    /**
+     * @brief 返回一個弧度角x的正弦。
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double sin(double x);
+
+    /**
+     * @brief 返回x的雙曲正弦。
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double sinh(double x);
+
+    /**
+     * @brief 返回x的雙曲正切。
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double tanh(double x);
+
+    /**
+     * @brief The returned value is the mantissa and the integer yiibaied to by exponent is 
+     *        the exponent. The resultant value is x = mantissa * 2 ^ exponent.
+     * 
+     * @param x 
+     * @param exponent 
+     * @return double 
+     */
+    static double frexp(double x, int *exponent);
+
+    /**
+     * @brief Returns x multiplied by 2 raised to the power of exponent.
+     * 
+     * @param x 
+     * @param exponent 
+     * @return double 
+     */
+    static double ldexp(double x, int exponent);
+      
+    /**
+     * @brief 返回自然對數的x（基準-E對數）
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double log(double x);
+
+    /**
+     * @brief 返回x的常用對數（以10為底）。
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double log10(double x);
+
+    /**
+     * @brief 返回的值是小數成分（小數點後的部分），並設置整數的整數部分。
+     * 
+     * @param x 
+     * @param integer 
+     * @return double 
+     */
+    static double modf(double x, double *integer);
+
+    /**
+     * @brief 返回x的y次方。
+     * 
+     * @param x 
+     * @param y 
+     * @return double 
+     */
+    static double pow(double x, double y);
+
+    /**
+     * @brief 返回x的平方根。
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double sqrt(double x);
+    
+    /**
+     * @brief 返回大於或等於x的最小整數值。
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double ceil(double x);
+
+    /**
+     * @brief 返回x的絕對值
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double fabs(double x);
+
+    /**
+     * @brief 返回的最大整數值小於或等於x。
+     * 
+     * @param x 
+     * @return double 
+     */
+    static double floor(double x);
+    
+    /**
+     * @brief 返回的x除以y的餘數。
+     * 
+     * @param x 
+     * @param y 
+     * @return double 
+     */
+    static double fmod(double x, double y);
   
   /* **************************************************************************************
    * Public Method <Static Inline>
