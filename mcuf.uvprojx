@@ -1012,6 +1012,21 @@
               <FilePath>.\src\main\mcuf\io\RingBufferOutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>SerialBusQueue.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueue.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueue.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueue.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueuePacket.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueuePacket.h</FilePath>
+            </File>
+            <File>
               <FileName>SerialBusStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\SerialBusStream.cpp</FilePath>
@@ -2603,6 +2618,21 @@
               <FileName>RingBufferOutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\RingBufferOutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueue.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueue.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueue.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueue.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueuePacket.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueuePacket.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusStream.cpp</FileName>
@@ -4198,6 +4228,21 @@
               <FilePath>.\src\main\mcuf\io\RingBufferOutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>SerialBusQueue.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueue.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueue.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueue.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueuePacket.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueuePacket.h</FilePath>
+            </File>
+            <File>
               <FileName>SerialBusStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\SerialBusStream.cpp</FilePath>
@@ -5789,6 +5834,21 @@
               <FileName>RingBufferOutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\RingBufferOutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueue.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueue.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueue.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueue.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueuePacket.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueuePacket.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusStream.cpp</FileName>
@@ -7384,6 +7444,21 @@
               <FilePath>.\src\main\mcuf\io\RingBufferOutputStream.h</FilePath>
             </File>
             <File>
+              <FileName>SerialBusQueue.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueue.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueue.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueue.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueuePacket.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueuePacket.h</FilePath>
+            </File>
+            <File>
               <FileName>SerialBusStream.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\io\SerialBusStream.cpp</FilePath>
@@ -8975,6 +9050,21 @@
               <FileName>RingBufferOutputStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\RingBufferOutputStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueue.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueue.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueue.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueue.h</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBusQueuePacket.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\SerialBusQueuePacket.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusStream.cpp</FileName>
