@@ -45,11 +45,11 @@ interface hal::analog::AnalogInputPin{
   virtual uint32_t convert(void) abstract;
 
   /**
-   * @brief Get the adc convert bit.
+   * @brief Get the adc convert level.
    * 
    * @return uint32_t 
    */
-  virtual uint32_t getConvertBit(void) abstract;
+  virtual uint32_t getConvertLevel(void) abstract;
 };  
 
 /* *****************************************************************************************

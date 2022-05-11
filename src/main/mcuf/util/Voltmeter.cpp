@@ -47,7 +47,7 @@ mAnalogPin(analogPin){
 
   this->mVoltageMin = voltageMin;
   this->mVoltageMax = voltageMax;
-  this->mVoltageDelta = (voltageMax - voltageMin) / static_cast<float>(analogPin.getConvertBit());
+  this->mVoltageDelta = (voltageMax - voltageMin) / static_cast<float>(analogPin.getConvertLevel());
   return;
 }
 
@@ -100,7 +100,7 @@ float Voltmeter::voltageMax(void){
  */
 void Voltmeter::voltageMax(float value){
   this->mVoltageMax = value;
-  this->mVoltageDelta = (this->mVoltageMax - this->mVoltageMin) / static_cast<float>(this->mAnalogPin.getConvertBit());
+  this->mVoltageDelta = (this->mVoltageMax - this->mVoltageMin) / static_cast<float>(this->mAnalogPin.getConvertLevel());
 }
 
 /**
@@ -119,7 +119,7 @@ float Voltmeter::voltageMin(void){
  */
 void Voltmeter::voltageMin(float value){
   this->mVoltageMin = value;
-  this->mVoltageDelta = (this->mVoltageMax - this->mVoltageMin) / static_cast<float>(this->mAnalogPin.getConvertBit());
+  this->mVoltageDelta = (this->mVoltageMax - this->mVoltageMin) / static_cast<float>(this->mAnalogPin.getConvertLevel());
 }
 /* ****************************************************************************************
  * Protected Method <Static>

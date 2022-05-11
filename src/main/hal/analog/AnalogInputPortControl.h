@@ -48,7 +48,7 @@ interface hal::analog::AnalogInputPortControl{
    * 
    * @return uint32_t 
    */
-  virtual uint32_t getConvertBit(void) abstract;
+  virtual uint32_t getConvertLevel(void) abstract;
 };  
 
 /* *****************************************************************************************
