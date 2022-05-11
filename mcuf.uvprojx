@@ -1422,6 +1422,11 @@
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
             </File>
             <File>
+              <FileName>TemperatureSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
+            </File>
+            <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
@@ -2988,6 +2993,11 @@
               <FileName>Stacker.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
+            </File>
+            <File>
+              <FileName>TemperatureSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
             </File>
             <File>
               <FileName>Timer.cpp</FileName>
@@ -4558,6 +4568,11 @@
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
             </File>
             <File>
+              <FileName>TemperatureSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
+            </File>
+            <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
@@ -6124,6 +6139,11 @@
               <FileName>Stacker.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
+            </File>
+            <File>
+              <FileName>TemperatureSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
             </File>
             <File>
               <FileName>Timer.cpp</FileName>
@@ -7694,6 +7714,11 @@
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
             </File>
             <File>
+              <FileName>TemperatureSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
+            </File>
+            <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
@@ -9260,6 +9285,11 @@
               <FileName>Stacker.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Stacker.h</FilePath>
+            </File>
+            <File>
+              <FileName>TemperatureSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
             </File>
             <File>
               <FileName>Timer.cpp</FileName>

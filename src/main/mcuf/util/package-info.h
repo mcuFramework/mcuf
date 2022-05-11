@@ -27,6 +27,7 @@
 #include "Pool.h"
 #include "Queue.h"
 #include "Stacker.h"
+#include "TemperatureSensor.h"
 #include "Timer.h"
 #include "TimerTask.h"
 #include "Voltmeter.h"
