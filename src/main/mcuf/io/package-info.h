@@ -19,6 +19,7 @@
 #include "Closeable.h"
 #include "CompletionHandler.h"
 #include "Console.h"
+#include "ConsoleSerialPort.h"
 #include "DuplexStream.h"
 #include "Future.h"
 #include "InputBuffer.h"
