@@ -18,6 +18,7 @@
 #include "ByteBuffer.h"
 #include "Closeable.h"
 #include "CompletionHandler.h"
+#include "Console.h"
 #include "DuplexStream.h"
 #include "Future.h"
 #include "InputBuffer.h"

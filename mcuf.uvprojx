@@ -384,6 +384,11 @@
           <GroupName>main</GroupName>
           <Files>
             <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\hal.h</FilePath>
+            </File>
+            <File>
               <FileName>mcuf.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf.h</FilePath>
@@ -394,9 +399,9 @@
               <FilePath>.\src\main\mcuf_base.h</FilePath>
             </File>
             <File>
-              <FileName>hal.h</FileName>
+              <FileName>mcuf_param.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\hal.h</FilePath>
+              <FilePath>.\src\main\mcuf_param.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -875,6 +880,21 @@
               <FileName>CompletionHandler.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
+            </File>
+            <File>
+              <FileName>Console.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Console.h</FilePath>
+            </File>
+            <File>
+              <FileName>ConsoleSerialPort.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ConsoleSerialPort.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ConsoleSerialPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ConsoleSerialPort.h</FilePath>
             </File>
             <File>
               <FileName>DuplexStream.h</FileName>
@@ -1957,6 +1977,11 @@
           <GroupName>main</GroupName>
           <Files>
             <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\hal.h</FilePath>
+            </File>
+            <File>
               <FileName>mcuf.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf.h</FilePath>
@@ -1967,9 +1992,9 @@
               <FilePath>.\src\main\mcuf_base.h</FilePath>
             </File>
             <File>
-              <FileName>hal.h</FileName>
+              <FileName>mcuf_param.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\hal.h</FilePath>
+              <FilePath>.\src\main\mcuf_param.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2448,6 +2473,21 @@
               <FileName>CompletionHandler.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
+            </File>
+            <File>
+              <FileName>Console.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Console.h</FilePath>
+            </File>
+            <File>
+              <FileName>ConsoleSerialPort.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ConsoleSerialPort.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ConsoleSerialPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ConsoleSerialPort.h</FilePath>
             </File>
             <File>
               <FileName>DuplexStream.h</FileName>
@@ -3530,6 +3570,11 @@
           <GroupName>main</GroupName>
           <Files>
             <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\hal.h</FilePath>
+            </File>
+            <File>
               <FileName>mcuf.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf.h</FilePath>
@@ -3540,9 +3585,9 @@
               <FilePath>.\src\main\mcuf_base.h</FilePath>
             </File>
             <File>
-              <FileName>hal.h</FileName>
+              <FileName>mcuf_param.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\hal.h</FilePath>
+              <FilePath>.\src\main\mcuf_param.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4021,6 +4066,21 @@
               <FileName>CompletionHandler.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
+            </File>
+            <File>
+              <FileName>Console.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Console.h</FilePath>
+            </File>
+            <File>
+              <FileName>ConsoleSerialPort.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ConsoleSerialPort.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ConsoleSerialPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ConsoleSerialPort.h</FilePath>
             </File>
             <File>
               <FileName>DuplexStream.h</FileName>
@@ -5103,6 +5163,11 @@
           <GroupName>main</GroupName>
           <Files>
             <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\hal.h</FilePath>
+            </File>
+            <File>
               <FileName>mcuf.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf.h</FilePath>
@@ -5113,9 +5178,9 @@
               <FilePath>.\src\main\mcuf_base.h</FilePath>
             </File>
             <File>
-              <FileName>hal.h</FileName>
+              <FileName>mcuf_param.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\hal.h</FilePath>
+              <FilePath>.\src\main\mcuf_param.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5594,6 +5659,21 @@
               <FileName>CompletionHandler.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
+            </File>
+            <File>
+              <FileName>Console.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Console.h</FilePath>
+            </File>
+            <File>
+              <FileName>ConsoleSerialPort.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ConsoleSerialPort.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ConsoleSerialPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ConsoleSerialPort.h</FilePath>
             </File>
             <File>
               <FileName>DuplexStream.h</FileName>
@@ -6676,6 +6756,11 @@
           <GroupName>main</GroupName>
           <Files>
             <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\hal.h</FilePath>
+            </File>
+            <File>
               <FileName>mcuf.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf.h</FilePath>
@@ -6686,9 +6771,9 @@
               <FilePath>.\src\main\mcuf_base.h</FilePath>
             </File>
             <File>
-              <FileName>hal.h</FileName>
+              <FileName>mcuf_param.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\hal.h</FilePath>
+              <FilePath>.\src\main\mcuf_param.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -7167,6 +7252,21 @@
               <FileName>CompletionHandler.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
+            </File>
+            <File>
+              <FileName>Console.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Console.h</FilePath>
+            </File>
+            <File>
+              <FileName>ConsoleSerialPort.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ConsoleSerialPort.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ConsoleSerialPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ConsoleSerialPort.h</FilePath>
             </File>
             <File>
               <FileName>DuplexStream.h</FileName>
@@ -8249,6 +8349,11 @@
           <GroupName>main</GroupName>
           <Files>
             <File>
+              <FileName>hal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\hal.h</FilePath>
+            </File>
+            <File>
               <FileName>mcuf.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf.h</FilePath>
@@ -8259,9 +8364,9 @@
               <FilePath>.\src\main\mcuf_base.h</FilePath>
             </File>
             <File>
-              <FileName>hal.h</FileName>
+              <FileName>mcuf_param.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\main\hal.h</FilePath>
+              <FilePath>.\src\main\mcuf_param.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -8740,6 +8845,21 @@
               <FileName>CompletionHandler.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\CompletionHandler.h</FilePath>
+            </File>
+            <File>
+              <FileName>Console.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\Console.h</FilePath>
+            </File>
+            <File>
+              <FileName>ConsoleSerialPort.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\ConsoleSerialPort.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ConsoleSerialPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\ConsoleSerialPort.h</FilePath>
             </File>
             <File>
               <FileName>DuplexStream.h</FileName>

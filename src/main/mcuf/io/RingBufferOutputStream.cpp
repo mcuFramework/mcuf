@@ -235,11 +235,15 @@ bool RingBufferOutputStream::write(OutputBuffer& outputBuffer, void* attachment,
   this->mOutputBuffer = &outputBuffer;
   this->mHandler = handler;
   this->mAttachment = attachment;
-  this->mResult = 0;
-  
-  if(this->mHandling == false){
+  this->mResult = this->put(*this->mOutputBuffer);
+
+  if(this->mOutputBuffer->avariable() <= 0){
+    this->executeCompletionHandler();
+
+  }else if(this->mHandling == false){
     this->mHandling = true;
     System::execute(*this);
+    
   }
 
   return true;

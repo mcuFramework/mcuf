@@ -211,11 +211,15 @@ bool RingBufferInputStream::read(InputBuffer& inputBuffer, void* attachment, Com
   this->mInputBuffer = &inputBuffer;
   this->mAttachment = attachment;
   this->mHandler = handler;
-  this->mResult = 0;
+  this->mResult = this->mInputBuffer->put(*this);
   
-  if(this->mHandling == false){
+  if(this->mInputBuffer->remaining() <= 0){
+    this->executeCompletionHandler();
+
+  }else if(this->mHandling == false){
     this->mHandling = true;
     System::execute(*this);
+    
   }
   
   return true;
