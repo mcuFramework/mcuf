@@ -48,6 +48,7 @@ using mcuf::io::Future;
 SerialBusStream::SerialBusStream(hal::serial::SerialBus& serialBus, uint16_t address) :
 mSerialBus(serialBus),
 mStreamSkipper(){
+  this->mAddress = address;
   this->mBusy = false;
   return;
 }

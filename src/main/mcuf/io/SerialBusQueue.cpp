@@ -237,6 +237,9 @@ void SerialBusQueue::onSerialBusEvent(SerialBusStatus status, int result, void* 
 
       if(this->handlerConfig(packet) == false)
         this->executeFail(p);
+      
+      else
+        break;
         
     }    
   }
@@ -281,18 +284,18 @@ bool SerialBusQueue::handlerConfig(Packet& packet){
     return this->insertHead(&packet);
     
   this->mPacket = packet;
-  packet.reserved = 0xFFFF;
+  this->mPacket.reserved = 0xFFFF;
   
   bool result = false;
  
   if((this->mPacket.out != nullptr) && (this->mPacket.in != nullptr))
-    result = this->mSerialBus.transfer(this->mPacket.address, *this->mPacket.out, *this->mPacket.in, this->mPacket.attachment, this->mPacket.event);
+    result = this->mSerialBus.transfer(this->mPacket.address, *this->mPacket.out, *this->mPacket.in, this->mPacket.attachment, this);
       
   else if(this->mPacket.out != nullptr)
-    result = this->mSerialBus.write(this->mPacket.address, *this->mPacket.out, this->mPacket.attachment, this->mPacket.event);
+    result = this->mSerialBus.write(this->mPacket.address, *this->mPacket.out, this->mPacket.attachment, this);
   
   else if(this->mPacket.in != nullptr)
-    result = this->mSerialBus.read(this->mPacket.address, *this->mPacket.in, this->mPacket.attachment, this->mPacket.event);
+    result = this->mSerialBus.read(this->mPacket.address, *this->mPacket.in, this->mPacket.attachment, this);
   
   else
     result = false;
