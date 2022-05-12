@@ -13,6 +13,7 @@
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf/io/SerialBusQueue.h"
+#include "hal/serial/SerialBusEvent.h"
 
 /* ****************************************************************************************
  * Macro
@@ -26,7 +27,6 @@
 
 //-----------------------------------------------------------------------------------------
 using mcuf::io::SerialBusQueue;
-using mcuf::io::SerialBusQueuePacket;
 using mcuf::io::OutputBuffer;
 using mcuf::io::InputBuffer;
 using hal::serial::SerialBus;
@@ -47,9 +47,9 @@ using hal::serial::SerialBusEvent;
  * @param queueSize 
  */
 SerialBusQueue::SerialBusQueue(SerialBus& serialBus, uint32_t queueSize) : 
-ArrayQueue<SerialBusQueuePacket>(queueSize),
+Fifo(queueSize, sizeof(SerialBusQueue::Packet)),
 mSerialBus(serialBus){
-  
+  this->mPacket.reserved = 0;
   return;
 }
 
@@ -138,7 +138,7 @@ uint32_t SerialBusQueue::clockRate(uint32_t clock){
  * @return false 
  */
 bool SerialBusQueue::abort(void){
-  return false;
+  return this->mSerialBus.abort();
 }
 
 /**
@@ -148,7 +148,7 @@ bool SerialBusQueue::abort(void){
  * @return false 
  */
 bool SerialBusQueue::isBusy(void){
-  return false;
+  return this->isFull();
 }
 
 /**
@@ -160,7 +160,15 @@ bool SerialBusQueue::isBusy(void){
  * @param event 
  */
 bool SerialBusQueue::read(uint16_t address, InputBuffer& in, void* attachment, SerialBusEvent* event){
-  return false;
+  Packet packet;
+  packet.reserved = 0;
+  packet.address = address;
+  packet.in = &in;
+  packet.out = nullptr;
+  packet.attachment = attachment;
+  packet.event = event;
+  
+  return this->handlerConfig(packet);
 }
 
 /**
@@ -172,7 +180,15 @@ bool SerialBusQueue::read(uint16_t address, InputBuffer& in, void* attachment, S
  * @param event 
  */
 bool SerialBusQueue::write(uint16_t address, OutputBuffer& out, void* attachment, SerialBusEvent* event){
-  return false;
+  Packet packet;
+  packet.reserved = 0;
+  packet.address = address;
+  packet.in = nullptr;
+  packet.out = &out;
+  packet.attachment = attachment;
+  packet.event = event;
+  
+  return this->handlerConfig(packet);
 }
 
 /**
@@ -187,7 +203,15 @@ bool SerialBusQueue::write(uint16_t address, OutputBuffer& out, void* attachment
  * @return false 
  */
 bool SerialBusQueue::transfer(uint16_t address, OutputBuffer& out, InputBuffer& in, void* attachment, SerialBusEvent* event){
-  return false;
+  Packet packet;
+  packet.reserved = 0;
+  packet.address = address;
+  packet.in = &in;
+  packet.out = &out;
+  packet.attachment = attachment;
+  packet.event = event;
+  
+  return this->handlerConfig(packet);
 }
 
 /* ****************************************************************************************
@@ -201,6 +225,26 @@ bool SerialBusQueue::transfer(uint16_t address, OutputBuffer& out, InputBuffer& 
  * @param attachment user data
  */
 void SerialBusQueue::onSerialBusEvent(SerialBusStatus status, int result, void* attachment){
+  Packet p = this->mPacket;
+  this->mPacket.reserved = 0;
+  
+  if(this->isEmpty() == false){
+    Packet packet;
+    
+    while(true){
+      if(this->popTail(&packet) == false)
+        break;
+
+      if(this->handlerConfig(packet) == false)
+        this->executeFail(p);
+        
+    }    
+  }
+  
+  if(p.event == nullptr)
+    return;
+  
+  p.event->onSerialBusEvent(status, result, attachment);
   return;
 }
 
@@ -213,8 +257,69 @@ void SerialBusQueue::onSerialBusEvent(SerialBusStatus status, int result, void* 
  * @return true 
  * @return false 
  */
-bool SerialBusQueue::abortAll(void){
-  return false;
+void SerialBusQueue::abortAll(void){
+  this->abort();
+  
+  while(true){
+    Packet p;
+    if(this->popTail(&p) == false)
+      break;
+    
+    this->executeFail(p);
+  }
+}
+
+/**
+ * @brief 
+ * 
+ * @param packet 
+ * @return true 
+ * @return false 
+ */
+bool SerialBusQueue::handlerConfig(Packet& packet){
+  if(this->mPacket.reserved != 0)
+    return this->insertHead(&packet);
+    
+  this->mPacket = packet;
+  packet.reserved = 0xFFFF;
+  
+  bool result = false;
+ 
+  if((this->mPacket.out != nullptr) && (this->mPacket.in != nullptr))
+    result = this->mSerialBus.transfer(this->mPacket.address, *this->mPacket.out, *this->mPacket.in, this->mPacket.attachment, this->mPacket.event);
+      
+  else if(this->mPacket.out != nullptr)
+    result = this->mSerialBus.write(this->mPacket.address, *this->mPacket.out, this->mPacket.attachment, this->mPacket.event);
+  
+  else if(this->mPacket.in != nullptr)
+    result = this->mSerialBus.read(this->mPacket.address, *this->mPacket.in, this->mPacket.attachment, this->mPacket.event);
+  
+  else
+    result = false;
+  
+  if(result == false)
+    this->mPacket.reserved = 0;
+      
+  return result;
+}
+
+/**
+ * @brief 
+ * 
+ * @param packet 
+ */
+void SerialBusQueue::executeFail(Packet& packet){
+  if(packet.event != nullptr){
+    if((packet.out != nullptr) && (packet.in != nullptr))
+      packet.event->onSerialBusEvent(SerialBusStatus::TRANSFER_FAIL_WRITE, 0, packet.attachment);
+        
+    else if(packet.out != nullptr)
+      packet.event->onSerialBusEvent(SerialBusStatus::WRITE_FAIL, 0, packet.attachment);
+        
+    else if(packet.in != nullptr)
+      packet.event->onSerialBusEvent(SerialBusStatus::READ_FAIL, 0, packet.attachment);
+       
+  }
 }
 
 /* ****************************************************************************************

@@ -27,7 +27,8 @@ using mcuf::util::Fifo;
 /**
  * 
  */
-Fifo::Fifo(const Memory& memory, uint32_t elementSize) : Memory(memory){
+Fifo::Fifo(const Memory& memory, uint32_t elementSize) :
+Memory(memory){
   this->mElementSize = static_cast<uint16_t>(elementSize);
   this->mElementLength = static_cast<uint16_t>(static_cast<uint32_t>(memory.length()) / elementSize);
   this->mHead = 0;
@@ -35,6 +36,22 @@ Fifo::Fifo(const Memory& memory, uint32_t elementSize) : Memory(memory){
   this->mEmpty = true;
   return;
 }
+
+/**
+ * @brief Construct a new Fifo object
+ * 
+ * @param size 
+ * @param elementSize 
+ */
+Fifo::Fifo(uint32_t size, uint32_t elementSize) : 
+Memory(size * elementSize){
+  this->mElementSize = static_cast<uint16_t>(elementSize);
+  this->mElementLength = static_cast<uint16_t>(size);
+  this->mHead = 0;
+  this->mTail = 0;
+  this->mEmpty = true;
+}
+
 
 /**
  *

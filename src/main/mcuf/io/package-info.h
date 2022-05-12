@@ -35,7 +35,6 @@
 #include "RingBufferInputStream.h"
 #include "RingBufferOutputStream.h"
 #include "SerialBusQueue.h"
-#include "SerialBusQueuePacket.h"
 #include "SerialBusStream.h"
 #include "StreamSkipper.h"
 

@@ -69,6 +69,14 @@ class mcuf::util::Fifo extends mcuf::lang::Memory implements
     Fifo(const mcuf::lang::Memory& memory, uint32_t elementSize);
 
     /**
+     * @brief Construct a new Fifo object
+     * 
+     * @param size 
+     * @param elementSize 
+     */
+    Fifo(uint32_t size, uint32_t elementSize);
+
+    /**
      * @brief Destroy the Fifo object
      * 
      */

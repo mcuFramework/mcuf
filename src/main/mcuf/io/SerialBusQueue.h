@@ -15,8 +15,8 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/util/ArrayQueue.h"
-#include "mcuf/io/SerialBusQueuePacket.h"
+#include "mcuf/util/Fifo.h"
+#include "hal/serial/SerialBus.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -31,9 +31,19 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::io::SerialBusQueue extends mcuf::util::ArrayQueue<mcuf::io::SerialBusQueuePacket> implements
+class mcuf::io::SerialBusQueue extends mcuf::util::Fifo implements
 public hal::serial::SerialBus,
 public hal::serial::SerialBusEvent{
+
+  private:
+    struct Packet{
+      uint16_t reserved;
+      uint16_t address;
+      mcuf::io::OutputBuffer* out;
+      mcuf::io::InputBuffer* in;
+      void* attachment;
+      hal::serial::SerialBusEvent* event;
+    };
 
   /* **************************************************************************************
    * Variable <Public>
@@ -48,6 +58,7 @@ public hal::serial::SerialBusEvent{
    */
   private:
     hal::serial::SerialBus& mSerialBus;
+    Packet mPacket;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -215,10 +226,24 @@ public hal::serial::SerialBusEvent{
     /**
      * @brief 
      * 
+     */
+    virtual void abortAll(void);
+  
+    /**
+     * @brief 
+     * 
+     * @param packet 
      * @return true 
      * @return false 
      */
-    virtual bool abortAll(void);
+    virtual bool handlerConfig(Packet& packet);
+
+    /**
+     * @brief 
+     * 
+     * @param packet 
+     */
+    virtual void executeFail(Packet& packet);
 
   /* **************************************************************************************
    * Protected Method <Static>
