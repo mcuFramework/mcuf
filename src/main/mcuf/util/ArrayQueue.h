@@ -144,8 +144,8 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
      * @param attachment user data.
      * @param action action The action to be performed for each element.
      */
-    virtual void forEach(void* attachment, mcuf::function::BiConsumer<E*, void*>& action) override{
-      return;
+    virtual void forEach(void* attachment, mcuf::function::BiConsumer<E*, void*>& action) const override{
+      this->foreachPrototype(attachment, reinterpret_cast<mcuf::function::BiConsumer<void*, void*>&>(action));
     }
   
   /* **************************************************************************************
@@ -168,7 +168,7 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
      * @return true if this collection contains no elements
      * @return false 
      */
-    virtual bool isEmpty(void) override{
+    virtual bool isEmpty(void) const override{
       return this->ArrayQueuePrototype::isEmpty();
     }
     
@@ -177,8 +177,8 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
      * 
      * @return uint32_t the number of elements in this collection.
      */
-    virtual uint32_t size(void) override{
-      return static_cast<uint32_t>(this->ArrayQueuePrototype::size());
+    virtual int size(void) const override{
+      return this->ArrayQueuePrototype::size();
     }
 
   /* **************************************************************************************

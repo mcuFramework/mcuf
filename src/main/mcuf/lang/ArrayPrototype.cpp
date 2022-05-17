@@ -74,21 +74,28 @@ ArrayPrototype::~ArrayPrototype(void){
  */
 
 /**
- *
+ * @brief 
+ * 
+ * @return int 
  */
-int ArrayPrototype::getElementLength(void){
+int ArrayPrototype::getElementLength(void) const{
   return this->mElementLength;
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @return int 
  */
-int ArrayPrototype::getElementSize(void){
+int ArrayPrototype::getElementSize(void) const{
   return this->mElementSize;
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param element 
+ * @return int 
  */
 int ArrayPrototype::indexOf(const void* element) const{
   int result = -1;

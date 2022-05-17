@@ -4,31 +4,36 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
-#ifndef MCUF_B4E61D80_F9A1_469D_84FD_FBB3D8FC11E4
-#define MCUF_B4E61D80_F9A1_469D_84FD_FBB3D8FC11E4
+#ifndef MCUF_87EC67B3_1F8A_47E6_9439_DC0E8A5375CA
+#define MCUF_87EC67B3_1F8A_47E6_9439_DC0E8A5375CA
 
 /* ****************************************************************************************
  * Include
  */  
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
-#include "mcuf/lang/Iterable.h"
+
+//-----------------------------------------------------------------------------------------
+#include "mcuf/lang/Object.h"
+#include "mcuf/io/InputBuffer.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  namespace util{
-    template<typename T> interface Collection;
+  namespace io{
+    class LinkedInputBuffer;
   }
 }
 
+
 /* ****************************************************************************************
- * Class/Interface/Struct
+ * Class/Interface/Struct/Enum
  */  
-template<typename T>
-interface mcuf::util::Collection extends mcuf::lang::Iterable<T>{
-  
+class mcuf::io::LinkedInputBuffer extends mcuf::lang::Object implements
+public mcuf::io::InputBuffer{
+
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -40,32 +45,13 @@ interface mcuf::util::Collection extends mcuf::lang::Iterable<T>{
   /* **************************************************************************************
    * Variable <Private>
    */
+  private:
+    mcuf::io::InputBuffer& mCurrent;
+    mcuf::io::InputBuffer* mNext;
 
   /* **************************************************************************************
    * Abstract method <Public>
    */
-
-  /**
-   * @brief Removes all of the elements from this collection. The collection will be empty 
-   *        after this method returns.
-   * 
-   */
-  virtual void clear(void) abstract;
-
-  /**
-   * @brief Returns true if this collection contains no elements.
-   * 
-   * @return true if this collection contains no elements.
-   * @return false 
-   */
-  virtual bool isEmpty(void) const abstract;
-
-  /**
-   * @brief Returns the number of elements in this collection.
-   * 
-   * @return uint32_t the number of elements in this collection.
-   */
-  virtual int size(void) const abstract;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -74,6 +60,27 @@ interface mcuf::util::Collection extends mcuf::lang::Iterable<T>{
   /* **************************************************************************************
    * Construct Method
    */
+  public: 
+    /**
+     * @brief Construct a new Linked Input Buffer object
+     * 
+     * @param current 
+     */
+    LinkedInputBuffer(mcuf::io::InputBuffer& current);
+
+    /**
+     * @brief Construct a new Linked Input Buffer object
+     * 
+     * @param current 
+     * @param next 
+     */
+    LinkedInputBuffer(mcuf::io::InputBuffer& current, mcuf::io::InputBuffer* next);
+
+    /**
+     * @brief Destroy the Linked Input Buffer object
+     * 
+     */
+    virtual ~LinkedInputBuffer(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -84,8 +91,49 @@ interface mcuf::util::Collection extends mcuf::lang::Iterable<T>{
    */
 
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> - mcuf::io::InputBuffer
    */
+  public:
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    virtual bool isFull(void) const override;
+
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    virtual int remaining(void) const override;
+
+    /**
+     * @brief pop buffer byte non blocking.
+     * 
+     * @param result 
+     * @return true has data in buffer.
+     * @return false no data in buffer.
+     */
+    virtual bool putByte(const char result) override;
+
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return int 
+     */
+    virtual int put(mcuf::io::OutputBuffer& outputBuffer) override;
+
+    /**
+     * @brief 
+     * 
+     * @param buffer 
+     * @param bufferSize 
+     * @return int 
+     */
+    virtual int put(const void* buffer, int bufferSize) override;
 
   /* **************************************************************************************
    * Public Method
@@ -110,19 +158,15 @@ interface mcuf::util::Collection extends mcuf::lang::Iterable<T>{
   /* **************************************************************************************
    * Private Method <Override>
    */
-   
+
   /* **************************************************************************************
    * Private Method
    */
-  
-  
+
 };
 
-
-
-/* *****************************************************************************************
+/* ****************************************************************************************
  * End of file
  */ 
 
-
-#endif /* MCUF_B4E61D80_F9A1_469D_84FD_FBB3D8FC11E4 */
+#endif /* MCUF_87EC67B3_1F8A_47E6_9439_DC0E8A5375CA */

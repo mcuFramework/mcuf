@@ -24,7 +24,10 @@ using mcuf::util::Stacker;
  */
 
 /**
+ * @brief Construct a new Stacker:: Stacker object
  * 
+ * @param buffer 
+ * @param size 
  */
 Stacker::Stacker(void* buffer, uint32_t size) : Memory(buffer, size){
   this->clear();
@@ -32,7 +35,9 @@ Stacker::Stacker(void* buffer, uint32_t size) : Memory(buffer, size){
 }
 
 /**
+ * @brief Construct a new Stacker:: Stacker object
  * 
+ * @param memory 
  */
 Stacker::Stacker(const Memory& memory) : Memory(memory){
   this->clear();
@@ -60,8 +65,9 @@ Stacker::~Stacker(void){
  */
 
 /**
- * Removes all of the elements from this collection. The collection will be empty after 
- * this method returns.
+ * @brief Removes all of the elements from this collection. The collection will be empty 
+ *        after this method returns.
+ * 
  */
 void Stacker::clear(void){
   this->mStackPointer = static_cast<uint8_t*>(this->Memory::pointer());
@@ -69,32 +75,34 @@ void Stacker::clear(void){
 }
 
 /**
- * Performs the given action for each element of the Iterable until all elements have 
- * been processed or the action throws an exception. Unless otherwise specified by the 
- * implementing class, actions are performed in the order of iteration (if an iteration 
- * order is specified). 
+ * @brief Performs the given action for each element of the Iterable until all elements 
+ *        have been processed or the action throws an exception. Unless otherwise specified 
+ *        by the implementing class, actions are performed in the order of iteration (if an 
+ *        iteration order is specified). 
  *
  * @param Consumer<Memory&>-action The action to be performed for each element.
  */
-void Stacker::forEach(void* attachment, BiConsumer<mcuf::lang::Memory*, void*>& action){
+void Stacker::forEach(void* attachment, BiConsumer<mcuf::lang::Memory*, void*>& action) const{
   return;
 }
 
 /**
- * Returns true if this collection contains no elements.
+ * @brief Returns true if this collection contains no elements.
  * 
  * @return true if this collection contains no elements.
  */
-bool Stacker::isEmpty(void){
+bool Stacker::isEmpty(void) const{
   return (this->mStackPointer == this->Memory::pointer());
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @return int 
  */
-uint32_t Stacker::size(void){
-  return (reinterpret_cast<uint32_t>(this->mStackPointer) - 
-    reinterpret_cast<uint32_t>(this->Memory::pointer()));
+int Stacker::size(void) const{
+  return static_cast<int>((reinterpret_cast<uint32_t>(this->mStackPointer) - 
+    reinterpret_cast<uint32_t>(this->Memory::pointer())));
 }
 
 /* ****************************************************************************************
@@ -102,7 +110,10 @@ uint32_t Stacker::size(void){
  */
 
 /**
+ * @brief 
  * 
+ * @param size 
+ * @return void* 
  */
 void* Stacker::alloc(uint32_t size){
   if(static_cast<uint32_t>(this->getFree()) < size)
@@ -115,14 +126,23 @@ void* Stacker::alloc(uint32_t size){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param ptr 
+ * @return true 
+ * @return false 
  */
 bool Stacker::free(void* ptr){
   return false;
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param ptr 
+ * @param size 
+ * @return true 
+ * @return false 
  */
 bool Stacker::free(void* ptr, uint32_t size){
   return false;
@@ -133,14 +153,19 @@ bool Stacker::free(void* ptr, uint32_t size){
  */
 
 /**
+ * @brief 
  * 
+ * @return uint32_t 
  */
 uint32_t Stacker::getFree(void){
-  return (static_cast<uint32_t>(this->length()) - this->size());
+  return (static_cast<uint32_t>(this->length() - this->size()));
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @param size 
+ * @return void* 
  */
 void* Stacker::allocAlignment32(uint32_t size){
   uint32_t alignment = (reinterpret_cast<uint32_t>(this->mStackPointer) & 0x00000003);
@@ -154,7 +179,10 @@ void* Stacker::allocAlignment32(uint32_t size){
 }
   
 /**
- *
+ * @brief 
+ * 
+ * @param size 
+ * @return void* 
  */
 void* Stacker::allocAlignment64(uint32_t size){
   uint32_t alignment = (reinterpret_cast<uint32_t>(this->mStackPointer) & 0x00000007);
@@ -168,7 +196,10 @@ void* Stacker::allocAlignment64(uint32_t size){
 }
 
 /**
+ * @brief 
  * 
+ * @param size 
+ * @return Memory 
  */
 Memory Stacker::allocMemory(uint32_t size){
   void* result = this->alloc(size);
@@ -179,7 +210,10 @@ Memory Stacker::allocMemory(uint32_t size){
 }
 
 /**
+ * @brief 
  * 
+ * @param size 
+ * @return Memory 
  */
 Memory Stacker::allocMemoryAlignment32(uint32_t size){
   void* result = this->allocAlignment32(size);
@@ -190,7 +224,10 @@ Memory Stacker::allocMemoryAlignment32(uint32_t size){
 }
 
 /**
+ * @brief 
  * 
+ * @param size 
+ * @return Memory 
  */
 Memory Stacker::allocMemoryAlignment64(uint32_t size){
   void* result = this->allocAlignment64(size);

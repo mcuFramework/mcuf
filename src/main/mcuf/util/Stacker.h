@@ -108,14 +108,14 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
-    virtual bool isEmpty(void) override;
+    virtual bool isEmpty(void) const override;
 
     /**
      * @brief Returns the number of elements in this collection.
      * 
      * @return uint32_t the number of elements in this collection.
      */
-    virtual uint32_t size(void) override;
+    virtual int size(void) const override;
   
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Iterable<E>
@@ -132,7 +132,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
      * @param action 
      */
     virtual void forEach(void* attachment, 
-                         mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>& action) override;
+                         mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>& action) const override;
 
 
   /* **************************************************************************************
@@ -237,7 +237,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
   /* **************************************************************************************
    * Private Method <Override>
    */
-   
+
   /* **************************************************************************************
    * Private Method
    */

@@ -101,14 +101,14 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
      * 
      * @return int 
      */
-    int getElementLength(void);
+    int getElementLength(void) const;
 
     /**
      * @brief Get the Element Size object
      * 
      * @return uint32_t 
      */
-    int getElementSize(void);
+    int getElementSize(void) const;
 
   /* **************************************************************************************
    * Protected Method <Static>

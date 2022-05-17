@@ -25,6 +25,8 @@
 #include "InputBuffer.h"
 #include "InputStream.h"
 #include "InputStreamBuffer.h"
+#include "LinkedInputBuffer.h"
+#include "LinkedOutputBuffer.h"
 #include "OutputBuffer.h"
 #include "OutputStream.h"
 #include "OutputStreamBuffer.h"

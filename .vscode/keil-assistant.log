@@ -1,0 +1,15 @@
+[info] Log at : 2022/5/13|10:17:55|GMT+0800
+
+[SyntaxError: Unexpected token / in JSON at position 165
+	at JSON.parse (<anonymous>)
+	at F.updateCppProperties (c:\Users\danny\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:10911)
+	at F.<anonymous> (c:\Users\danny\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:12641)
+	at Generator.next (<anonymous>)
+	at c:\Users\danny\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:4542
+	at new Promise (<anonymous>)
+	at r (c:\Users\danny\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:4287)
+	at F.load (c:\Users\danny\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:11372)
+	at w.<anonymous> (c:\Users\danny\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:8799)
+	at Generator.next (<anonymous>)
+	at a (c:\Users\danny\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:4344)
+	at processTicksAndRejections (internal/process/task_queues.js:93:5)]

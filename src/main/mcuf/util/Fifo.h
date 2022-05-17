@@ -104,7 +104,7 @@ class mcuf::util::Fifo extends mcuf::lang::Memory implements
      * @param action 
      */
     virtual void forEach(void* attachment, 
-                        mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>& action) override;
+                        mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>& action) const override;
 
   /* **************************************************************************************
    * Public Method <Override> - mcuf::util::Collection<E>
@@ -124,14 +124,14 @@ class mcuf::util::Fifo extends mcuf::lang::Memory implements
      * @return true if this collection contains no elements.
      * @return false 
      */
-    virtual bool isEmpty(void) override;
+    virtual bool isEmpty(void) const override;
 
     /**
      * @brief Returns the number of elements in this collection.
      * 
      * @return uint32_t the number of elements in this collection.
      */
-    virtual uint32_t size(void) override;
+    virtual int size(void) const override;
 
   /* **************************************************************************************
    * Public Method
@@ -190,14 +190,14 @@ class mcuf::util::Fifo extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
-    bool isFull(void);
+    bool isFull(void) const;
 
     /**
      * @brief 
      * 
      * @return uint32_t 
      */
-    uint32_t length(void);
+    uint32_t length(void) const;
 
     /**
      * @brief 

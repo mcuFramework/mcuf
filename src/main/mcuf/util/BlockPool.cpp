@@ -120,7 +120,7 @@ Memory BlockPool::allocMemory(void){
 /**
  * 
  */
-uint32_t BlockPool::capacity(void){
+uint32_t BlockPool::capacity(void) const{
   return this->mCapacity;
 }
 
@@ -136,16 +136,16 @@ void BlockPool::clear(void){
 /**
  * 
  */
-uint32_t BlockPool::elementSize(void){
+uint32_t BlockPool::elementSize(void) const{
   return this->mElementSize;
 }
 
 /**
  * 
  */
-void BlockPool::forEach(void* attachment, BiConsumer<Memory*, void*>& action){
+void BlockPool::forEach(void* attachment, BiConsumer<Memory*, void*>& action) const{
   for(uint32_t i = 0; i < this->mCapacity; i++){
-    if(getFlag(i)){
+    if(this->getFlag(i)){
       Memory memory = Memory(this->getBlock(i), this->elementSize());
       action.accept(&memory, attachment);
     }
@@ -155,7 +155,7 @@ void BlockPool::forEach(void* attachment, BiConsumer<Memory*, void*>& action){
 /**
  * 
  */
-bool BlockPool::isEmpty(void){
+bool BlockPool::isEmpty(void) const{
   return (this->mSize == 0);
 }
 
@@ -180,8 +180,8 @@ bool BlockPool::remove(void* element){
 /**
  * 
  */
-uint32_t BlockPool::size(void){
-  return this->mSize;
+int BlockPool::size(void) const{
+  return static_cast<int>(this->mSize);
 }
 
 /* ****************************************************************************************
@@ -230,7 +230,7 @@ void BlockPool::setFlag(uint32_t shift, bool enable){
 /**
  *
  */
-void* BlockPool::getBlock(uint32_t shift){
+void* BlockPool::getBlock(uint32_t shift) const{
   if(shift >= this->mCapacity)
     return nullptr;
   
@@ -241,7 +241,7 @@ void* BlockPool::getBlock(uint32_t shift){
 /**
  *
  */
-bool BlockPool::getFlag(uint32_t shift){
+bool BlockPool::getFlag(uint32_t shift) const{
   
   uint32_t bytes = (shift >> 3);
   uint8_t mask = static_cast<uint8_t>(1 << (shift & 0x00000007));

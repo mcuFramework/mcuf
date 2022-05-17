@@ -10,13 +10,13 @@
       <TargetName>Cortex-M0</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
+      <pCCUsed>6140000::V6.14::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>ARMCM0</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -937,6 +937,26 @@
               <FilePath>.\src\main\mcuf\io\InputStreamHandler.h</FilePath>
             </File>
             <File>
+              <FileName>LinkedInputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedInputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedInputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedInputBuffer.h</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedOutputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedOutputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedOutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedOutputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>OutputBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
@@ -962,14 +982,14 @@
               <FilePath>.\src\main\mcuf\io\OutputStreamHandler.h</FilePath>
             </File>
             <File>
-              <FileName>PrintStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
-            </File>
-            <File>
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
             </File>
             <File>
               <FileName>ReadonlyOutputBuffer.cpp</FileName>
@@ -1619,7 +1639,7 @@
         <TargetCommonOption>
           <Device>ARMCM0P</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0+") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -2540,6 +2560,26 @@
               <FilePath>.\src\main\mcuf\io\InputStreamHandler.h</FilePath>
             </File>
             <File>
+              <FileName>LinkedInputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedInputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedInputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedInputBuffer.h</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedOutputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedOutputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedOutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedOutputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>OutputBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
@@ -2565,14 +2605,14 @@
               <FilePath>.\src\main\mcuf\io\OutputStreamHandler.h</FilePath>
             </File>
             <File>
-              <FileName>PrintStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
-            </File>
-            <File>
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
             </File>
             <File>
               <FileName>ReadonlyOutputBuffer.cpp</FileName>
@@ -3222,7 +3262,7 @@
         <TargetCommonOption>
           <Device>ARMCM3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M3") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -4143,6 +4183,26 @@
               <FilePath>.\src\main\mcuf\io\InputStreamHandler.h</FilePath>
             </File>
             <File>
+              <FileName>LinkedInputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedInputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedInputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedInputBuffer.h</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedOutputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedOutputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedOutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedOutputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>OutputBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
@@ -4168,14 +4228,14 @@
               <FilePath>.\src\main\mcuf\io\OutputStreamHandler.h</FilePath>
             </File>
             <File>
-              <FileName>PrintStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
-            </File>
-            <File>
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
             </File>
             <File>
               <FileName>ReadonlyOutputBuffer.cpp</FileName>
@@ -4825,7 +4885,7 @@
         <TargetCommonOption>
           <Device>ARMCM4</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -5746,6 +5806,26 @@
               <FilePath>.\src\main\mcuf\io\InputStreamHandler.h</FilePath>
             </File>
             <File>
+              <FileName>LinkedInputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedInputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedInputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedInputBuffer.h</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedOutputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedOutputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedOutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedOutputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>OutputBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
@@ -5771,14 +5851,14 @@
               <FilePath>.\src\main\mcuf\io\OutputStreamHandler.h</FilePath>
             </File>
             <File>
-              <FileName>PrintStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
-            </File>
-            <File>
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
             </File>
             <File>
               <FileName>ReadonlyOutputBuffer.cpp</FileName>
@@ -6428,7 +6508,7 @@
         <TargetCommonOption>
           <Device>ARMCM4_FP</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -7349,6 +7429,26 @@
               <FilePath>.\src\main\mcuf\io\InputStreamHandler.h</FilePath>
             </File>
             <File>
+              <FileName>LinkedInputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedInputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedInputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedInputBuffer.h</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedOutputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedOutputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedOutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedOutputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>OutputBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
@@ -7374,14 +7474,14 @@
               <FilePath>.\src\main\mcuf\io\OutputStreamHandler.h</FilePath>
             </File>
             <File>
-              <FileName>PrintStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
-            </File>
-            <File>
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
             </File>
             <File>
               <FileName>ReadonlyOutputBuffer.cpp</FileName>
@@ -8031,7 +8131,7 @@
         <TargetCommonOption>
           <Device>ARMCM7</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M7") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -8952,6 +9052,26 @@
               <FilePath>.\src\main\mcuf\io\InputStreamHandler.h</FilePath>
             </File>
             <File>
+              <FileName>LinkedInputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedInputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedInputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedInputBuffer.h</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedOutputBuffer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedOutputBuffer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>LinkedOutputBuffer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\io\LinkedOutputBuffer.h</FilePath>
+            </File>
+            <File>
               <FileName>OutputBuffer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\OutputBuffer.h</FilePath>
@@ -8977,14 +9097,14 @@
               <FilePath>.\src\main\mcuf\io\OutputStreamHandler.h</FilePath>
             </File>
             <File>
-              <FileName>PrintStream.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
-            </File>
-            <File>
               <FileName>PrintStream.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\io\PrintStream.h</FilePath>
+            </File>
+            <File>
+              <FileName>PrintStream.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\io\PrintStream.cpp</FilePath>
             </File>
             <File>
               <FileName>ReadonlyOutputBuffer.cpp</FileName>
@@ -9636,6 +9756,12 @@
     <Layers>
       <Layer>
         <LayName>mcuf</LayName>
+        <LayDesc></LayDesc>
+        <LayUrl></LayUrl>
+        <LayKeys></LayKeys>
+        <LayCat></LayCat>
+        <LayLic></LayLic>
+        <LayTarg>0</LayTarg>
         <LayPrjMark>1</LayPrjMark>
       </Layer>
     </Layers>

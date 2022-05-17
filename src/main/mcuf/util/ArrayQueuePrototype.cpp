@@ -88,7 +88,8 @@ ArrayQueuePrototype::~ArrayQueuePrototype(void){
  */
   
 /**
- *
+ * @brief 
+ * 
  */
 void ArrayQueuePrototype::clear(void){
   this->mHead = 0;
@@ -98,7 +99,11 @@ void ArrayQueuePrototype::clear(void){
 }
 
 /**
+ * @brief 
  * 
+ * @param pointer 
+ * @return true 
+ * @return false 
  */
 bool ArrayQueuePrototype::offerPointer(void* pointer){
   if(this->isFull())
@@ -135,7 +140,9 @@ void* ArrayQueuePrototype::pollPointer(void){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @return void* 
  */
 void* ArrayQueuePrototype::peekPointer(void){
   if(this->isEmpty())
@@ -147,7 +154,9 @@ void* ArrayQueuePrototype::peekPointer(void){
 }
 
 /**
- *
+ * @brief 
+ * 
+ * @return int 
  */
 int ArrayQueuePrototype::size(void) const{
   if(this->mEmpty)
@@ -163,10 +172,37 @@ int ArrayQueuePrototype::size(void) const{
     return (this->mElementLength - this->mHead) + this->mTail;
 }
 
+/**
+ * @brief 
+ * 
+ * @param attachment 
+ * @param action 
+ */
+void ArrayQueuePrototype::foreachPrototype(void* attachment, mcuf::function::BiConsumer<void*, void*>& action) const{
+  if(this->isEmpty())
+    return;
+  void** p = static_cast<void**>(this->Pointer::pointer());
+
+  if(this->mHead >= this->mTail){
+		for(int i=this->mHead; i<this->mElementLength; ++i){
+      action.accept(p[i], attachment);
+		}
+		
+		for(int i=0; i<this->mTail; ++i){
+      action.accept(p[i], attachment);
+		}
+
+  }else{
+		for(int i=this->mHead; i<this->mTail; ++i){
+			action.accept(p[i], attachment);
+		}
+  }
+}
+
 /* ****************************************************************************************
  * Private Method
  */
- 
+
 /* ****************************************************************************************
  * End of file
  */ 

@@ -85,7 +85,7 @@ void Fifo::clear(void){
 /**
  *
  */
-void Fifo::forEach(void* attachment, BiConsumer<Memory*, void*>& action){
+void Fifo::forEach(void* attachment, BiConsumer<Memory*, void*>& action) const{
   if(this->isEmpty())
     return;
   
@@ -101,14 +101,14 @@ void Fifo::forEach(void* attachment, BiConsumer<Memory*, void*>& action){
 /**
  *
  */
-bool Fifo::isEmpty(void){
+bool Fifo::isEmpty(void) const{
   return this->mEmpty;
 }
 
 /**
  *
  */
-uint32_t Fifo::size(void){
+int Fifo::size(void) const{
   if(this->mEmpty)
     return 0;
   
@@ -195,14 +195,14 @@ bool Fifo::insertHead(void* pointer){
 /**
  * 
  */
-bool Fifo::isFull(void){
+bool Fifo::isFull(void) const{
   return ((this->mHead == this->mTail) == !this->mEmpty);
 }
 
 /**
  * 
  */
-uint32_t Fifo::length(void){
+uint32_t Fifo::length(void) const{
   return this->mElementLength;
 }
 

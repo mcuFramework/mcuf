@@ -14,6 +14,7 @@
 #include "mcuf_base.h"
 
 #include "mcuf/lang/Array.h"
+#include "mcuf/function/BiConsumer.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -103,14 +104,20 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
    */
   public: 
     /**
+     * @brief 
      * 
+     * @return true 
+     * @return false 
      */
     inline bool isEmpty(void) const{
       return this->mEmpty;
     }
 
     /**
+     * @brief 
      * 
+     * @return true 
+     * @return false 
      */
     inline bool isFull(void) const{
       return ((this->mHead == this->mTail) && (!this->mEmpty));
@@ -130,29 +137,48 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
   protected:
     
     /**
-     *
+     * @brief 
+     * 
      */
     void clear(void);
   
     /**
+     * @brief 
      * 
+     * @param pointer 
+     * @return true 
+     * @return false 
      */
     bool offerPointer(void* pointer);
 
     /**
+     * @brief 
      * 
+     * @return void* 
      */
     void* pollPointer(void);  
     
     /**
+     * @brief 
      * 
+     * @return void* 
      */
     void* peekPointer(void);    
     
     /**
-     *
+     * @brief 
+     * 
+     * @return int 
      */
     int size(void) const;
+
+    /**
+     * @brief 
+     * 
+     * @param attachment 
+     * @param action 
+     */
+    void foreachPrototype(void* attachment, mcuf::function::BiConsumer<void*, void*>& action) const;
 
   /* **************************************************************************************
    * Private Method <Static>

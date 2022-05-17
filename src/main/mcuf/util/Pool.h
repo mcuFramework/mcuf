@@ -41,14 +41,14 @@ interface mcuf::util::Pool extends mcuf::util::Collection<mcuf::lang::Memory>{
    * 
    * @return uint32_t element size of byte.
    */
-  virtual uint32_t elementSize(void) abstract;
+  virtual uint32_t elementSize(void) const abstract;
   
   /**
    * @brief Returns this pool's capacity.
    * 
    * @return uint32_t The capacity of this pool.
    */
-  virtual uint32_t capacity(void) abstract;
+  virtual uint32_t capacity(void) const abstract;
   
   /**
    * @brief Alloc memory from pool.
