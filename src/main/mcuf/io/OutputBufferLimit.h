@@ -4,34 +4,35 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
-#ifndef MCUF_BA359EBF_505B_445E_8A31_2AB82A22FEB8
-#define MCUF_BA359EBF_505B_445E_8A31_2AB82A22FEB8
+#ifndef MCUF_4E76CD8C_2BE4_404C_97CE_3D2E84E2E1D7
+#define MCUF_4E76CD8C_2BE4_404C_97CE_3D2E84E2E1D7
 
 /* ****************************************************************************************
  * Include
- */
+ */  
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
-#include "mcuf/lang/Memory.h"
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf/lang/Object.h"
-#include "mcuf/io/Buffer.h"
+#include "mcuf/io/OutputBuffer.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
   namespace io{
-    class RingBuffer;
+    class OutputBufferLimit;
   }
 }
 
+
 /* ****************************************************************************************
- * Class/Interface/Struct
+ * Class/Interface/Struct/Enum
  */  
-class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
-  public mcuf::io::Buffer{
+class mcuf::io::OutputBufferLimit extends mcuf::lang::Object implements
+public mcuf::io::OutputBuffer{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -44,10 +45,10 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: 
-    uint32_t mCount;
-    uint32_t mHead;
-    uint32_t mTail;
+  private:
+    int mLimit;
+    int mPosition;
+    mcuf::io::OutputBuffer* mOutputBuffer;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -60,35 +61,18 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
   /* **************************************************************************************
    * Construct Method
    */
-  public:
+  public: 
+    /**
+     * @brief Construct a new Output Buffer Limit object
+     * 
+     */
+    OutputBufferLimit(void);
 
     /**
-     * @brief Construct a new Ring Buffer object
-     * 
-     * @param buffer 
-     * @param bufferSize 
-     */
-    RingBuffer(void* buffer, uint32_t bufferSize);
-      
-    /**
-     * @brief Construct a new Ring Buffer object
-     * 
-     * @param memory 
-     */
-    RingBuffer(const mcuf::lang::Memory& memory);  
-
-    /**
-     * @brief Construct a new Ring Buffer object
-     * 
-     * @param length 
-     */
-    RingBuffer(uint32_t length);
-
-    /**
-     * @brief Destroy the Ring Buffer object
+     * @brief Destroy the Output Buffer Limit object
      * 
      */
-    virtual ~RingBuffer(void) override;
+    virtual ~OutputBufferLimit(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -99,19 +83,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::io::Buffer
-   */
-  public:
-    /**
-     * @brief 
-     * 
-     */
-    inline virtual void flush(void) override{
-      this->mHead = this->mTail = 0;
-    }
-
-  /* **************************************************************************************
-   * Public Method <Override> - mcuf::io::OutputBuffer
+   *  Public Method <Override> - mcuf::io::OutputBuffer
    */
   public:
     /**
@@ -120,18 +92,14 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
-    inline virtual bool isEmpty(void) const override{
-      return (VACCESS(const uint32_t, this->mHead) == VACCESS(const uint32_t, this->mTail));
-    }
-  
+    virtual bool isEmpty(void) const override;
+
     /**
      * @brief 
      * 
      * @return int 
      */
-    inline virtual int avariable(void) const override{
-      return static_cast<int>((VACCESS(const uint32_t, this->mHead) - VACCESS(const uint32_t, this->mTail)));
-    }
+    virtual int avariable(void) const override;
 
     /**
      * @brief pop buffer byte non blocking.
@@ -150,14 +118,14 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
      */
     virtual int get(mcuf::io::InputBuffer& inputBuffer) override;
 
-	  /**
-	   * @brief 
-	   * 
-	   * @param byteBuffer 
-	   * @return int 
-	   */
-	  virtual int get(mcuf::io::InputBuffer& inputBuffer, int length) override;    
-    
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return int 
+     */
+    virtual int get(mcuf::io::InputBuffer& inputBuffer, int length) override;
+
     /**
      * @brief 
      * 
@@ -176,98 +144,59 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
     virtual int skip(int value) override;
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::io::InputBuffer
-   */  
-  public:
-    /**
-     * @brief Return empty status of ring buffer.
-     * 
-     * @return true is full.
-     * @return false not full.
-     */
-    inline virtual bool isFull(void) const override{
-      return (this->avariable() >= static_cast<int>(this->mCount));
-    }
-
-    /**
-     * @brief 
-     * 
-     * @return int 
-     */
-    inline virtual int remaining(void) const override{
-      return (static_cast<int>(this->mCount) - this->avariable());
-    }
-
-    /**
-     * @brief pop buffer byte non blocking.
-     * 
-     * @param result 
-     * @return true has data in buffer.
-     * @return false no data in buffer.
-     */
-    virtual bool putByte(const char result) override;
-
-    /**
-     * @brief 
-     * 
-     * @param byteBuffer 
-     * @return int 
-     */
-    virtual int put(mcuf::io::OutputBuffer& outputBuffer) override;
-
-    /**
-     * @brief 
-     * 
-     * @param byteBuffer 
-     * @param length 
-     * @return int 
-     */
-    virtual int put(mcuf::io::OutputBuffer& outputBuffer, int length) override;     
-    
-    /**
-     * @brief 
-     * 
-     * @param buffer 
-     * @param bufferSize 
-     * @return int 
-     */
-    virtual int put(const void* buffer, int bufferSize) override;
-
-  /* **************************************************************************************
-   * Public Method <Inline>
-   */
-  public: 
-
-    /**
-     * @brief Return size the ring buffer.
-     * 
-     * @return int Size of the ring buffer in bytes.
-     */
-    inline int getSize(void){
-      return static_cast<int>(this->mCount);
-    }
-
-    /**
-     * @brief Get the Head Position object
-     * 
-     * @return int 
-     */
-    inline int getHeadPosition(void){
-      return static_cast<int>((this->mHead & (this->mCount -1)));
-    }
-
-    /**
-     * @brief Get the Tail Position object
-     * 
-     * @return int 
-     */
-    inline int getTailPosition(void){
-      return static_cast<int>((this->mTail & (this->mCount - 1)));
-    }
-
-  /* **************************************************************************************
    * Public Method
    */
+  public:
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return int 
+     */
+    virtual int limit(int value);
+
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    virtual int limit(void);
+
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return int 
+     */
+    virtual int position(int value);
+
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    virtual int position(void);
+
+    /**
+     * @brief 
+     * 
+     */
+    virtual void flush(void);
+
+    /**
+     * @brief Get the Output Buffer object
+     * 
+     * @return mcuf::io::OutputBuffer* 
+     */
+    virtual mcuf::io::OutputBuffer* getOutputBuffer(void);
+
+    /**
+     * @brief Set the Output Buffer object
+     * 
+     * @param outputBuffer 
+     * @return mcuf::io::OutputBuffer* 
+     */
+    virtual mcuf::io::OutputBuffer* setOutputBuffer(mcuf::io::OutputBuffer* outputBuffer);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -288,20 +217,15 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
   /* **************************************************************************************
    * Private Method <Override>
    */
-   
+
   /* **************************************************************************************
    * Private Method
-   */  
-  
-  /**
-   *
    */
-  private: void init(void);
 
 };
 
-/* *****************************************************************************************
+/* ****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_BA359EBF_505B_445E_8A31_2AB82A22FEB8 */
+#endif /* MCUF_4E76CD8C_2BE4_404C_97CE_3D2E84E2E1D7 */

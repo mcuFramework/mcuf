@@ -116,10 +116,23 @@ bool RingBuffer::putByte(const char result){
  * @return int 
  */
 int RingBuffer::put(OutputBuffer& outputBuffer){
-  int num = outputBuffer.avariable();
+  return RingBuffer::put(outputBuffer, outputBuffer.avariable());
+}
+
+/**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @param length 
+ * @return int 
+ */
+int RingBuffer::put(OutputBuffer& outputBuffer, int length){
+  if(length <= 0)
+    return 0;  
   
-  if(num <= 0)
-    return 0;
+  int num = outputBuffer.avariable();
+  if(num > length)
+    num = length;
 
   uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
   int cnt1, cnt2;
@@ -239,10 +252,23 @@ bool RingBuffer::getByte(char& data){
  * @return int 
  */
 int RingBuffer::get(InputBuffer& inputBuffer){
-  int num = inputBuffer.remaining();
-  if(num <= 0)
-    return 0;
+  return RingBuffer::get(inputBuffer, inputBuffer.remaining());
+}
 
+/**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @return int 
+ */
+int RingBuffer::get(mcuf::io::InputBuffer& inputBuffer, int length){
+  if(length <= 0)
+    return 0;  
+  
+  int num = inputBuffer.remaining();
+  if(num > length)
+    num = length;
+  
   uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
   int cnt1, cnt2;
 

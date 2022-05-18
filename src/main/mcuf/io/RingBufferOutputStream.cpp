@@ -138,6 +138,23 @@ int RingBufferOutputStream::get(mcuf::io::InputBuffer& inputBuffer){
 /**
  * @brief 
  * 
+ * @param byteBuffer 
+ * @return int 
+ */
+int RingBufferOutputStream::get(mcuf::io::InputBuffer& inputBuffer, int length){
+  int result = RingBuffer::get(inputBuffer, length);
+  
+  if(this->mHandling == false){
+    this->mHandling = true;
+    System::execute(*this);
+  }
+  
+  return result;   
+}
+
+/**
+ * @brief 
+ * 
  * @param buffer 
  * @param bufferSize 
  * @return int 

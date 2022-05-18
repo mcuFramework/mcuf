@@ -129,6 +129,21 @@ int OutputStreamHandler::put(OutputBuffer& outputBuffer){
 /**
  * @brief 
  * 
+ * @param byteBuffer 
+ * @param length 
+ * @return int 
+ */
+int OutputStreamHandler::put(OutputBuffer& outputBuffer, int length){
+  int result = RingBufferOutputStream::put(outputBuffer, length);
+  if(this->mOutputStream.writeBusy() == false)
+    this->writePacket();
+  
+  return result;
+}
+
+/**
+ * @brief 
+ * 
  * @param buffer 
  * @param bufferSize 
  * @return int 

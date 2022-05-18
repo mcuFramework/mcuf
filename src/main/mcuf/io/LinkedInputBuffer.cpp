@@ -149,6 +149,23 @@ int LinkedInputBuffer::put(mcuf::io::OutputBuffer& outputBuffer){
 /**
  * @brief 
  * 
+ * @param byteBuffer 
+ * @param length 
+ * @return int 
+ */
+int LinkedInputBuffer::put(OutputBuffer& outputBuffer, int length){
+  int result = this->mCurrent.put(outputBuffer, length);
+  length -= result;
+  
+  if(this->mNext != nullptr)
+    result += this->mNext->put(outputBuffer);
+
+  return result;
+}
+
+/**
+ * @brief 
+ * 
  * @param buffer 
  * @param bufferSize 
  * @return int 

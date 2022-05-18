@@ -125,6 +125,7 @@ bool LinkedOutputBuffer::getByte(char& result){
 
   return this->mNext->getByte(result);
 }
+
 /**
  * @brief 
  * 
@@ -138,6 +139,23 @@ int LinkedOutputBuffer::get(mcuf::io::InputBuffer& inputBuffer){
   
   return result;
 }
+
+/**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @return int 
+ */
+int LinkedOutputBuffer::get(mcuf::io::InputBuffer& inputBuffer, int length){
+  int result = this->mCurrent.get(inputBuffer, length);
+  length -= result;
+  
+  if(this->mNext != nullptr)
+    result += this->mNext->get(inputBuffer, length);
+  
+  return result;
+}
+
 /**
  * @brief 
  * 

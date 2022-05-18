@@ -130,6 +130,15 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
     /**
      * @brief 
      * 
+     * @param byteBuffer 
+     * @param length 
+     * @return int 
+     */
+    virtual int put(mcuf::io::OutputBuffer& outputBuffer, int length) override;     
+   
+    /**
+     * @brief 
+     * 
      * @param data 
      * @param num 
      * @return int 

@@ -147,6 +147,23 @@ int ByteBuffer::get(InputBuffer& inputBuffer){
 /**
  * @brief 
  * 
+ * @param byteBuffer 
+ * @return int 
+ */
+int ByteBuffer::get(mcuf::io::InputBuffer& inputBuffer, int length){
+  int max = this->avariable();
+  if(length > max)
+    length = max;
+  
+  int result = inputBuffer.put(this->pointer(this->mPosition), length);
+  this->position(this->position() + result);
+
+  return result;
+}
+
+/**
+ * @brief 
+ * 
  * @param buffer 
  * @param bufferSize 
  * @return int 
@@ -207,6 +224,26 @@ int ByteBuffer::put(OutputBuffer& outputBuffer){
   len = outputBuffer.get(this->pointer(this->mPosition), len);
   this->position(this->position() + len);
   return len;
+}
+
+/**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @param length 
+ * @return int 
+ */
+int ByteBuffer::put(OutputBuffer& outputBuffer, int length){
+  if(length <= 0)
+    return 0;
+  
+  int max = this->remaining();
+  if(length > max)
+    length = max;
+  
+  int result = outputBuffer.get(this->pointer(this->mPosition), length);
+  this->position(this->position() + result);
+  return result;
 }
 
 /**

@@ -125,6 +125,20 @@ int InputStreamHandler::get(mcuf::io::InputBuffer& inputBuffer){
 /**
  * @brief 
  * 
+ * @param byteBuffer 
+ * @return int 
+ */
+int InputStreamHandler::get(mcuf::io::InputBuffer& inputBuffer, int length){
+  int result = RingBufferInputStream::get(inputBuffer, length);
+  if(this->mInputStream.readBusy() == false)
+    this->readPacket();
+
+  return result;  
+}
+
+/**
+ * @brief 
+ * 
  * @param buffer 
  * @param bufferSize 
  * @return int 

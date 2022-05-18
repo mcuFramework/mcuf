@@ -99,6 +99,23 @@ int StreamSkipper::put(OutputBuffer& outputBuffer){
 /**
  * @brief 
  * 
+ * @param byteBuffer 
+ * @param length 
+ * @return int 
+ */
+int StreamSkipper::put(OutputBuffer& outputBuffer, int length){
+  int max = this->remaining();
+  if(length > max)
+    length = max;
+  
+  int result = outputBuffer.skip(length);
+  this->mPosition += result;
+  return result;
+}   
+
+/**
+ * @brief 
+ * 
  * @param buffer 
  * @param bufferSize 
  * @return int 

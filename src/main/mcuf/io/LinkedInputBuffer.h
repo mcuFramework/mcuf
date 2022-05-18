@@ -129,6 +129,15 @@ public mcuf::io::InputBuffer{
     /**
      * @brief 
      * 
+     * @param byteBuffer 
+     * @param length 
+     * @return int 
+     */
+    virtual int put(mcuf::io::OutputBuffer& outputBuffer, int length) override;  
+
+    /**
+     * @brief 
+     * 
      * @param buffer 
      * @param bufferSize 
      * @return int 

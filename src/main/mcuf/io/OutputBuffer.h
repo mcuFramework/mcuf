@@ -69,6 +69,14 @@ interface mcuf::io::OutputBuffer{
   /**
    * @brief 
    * 
+   * @param byteBuffer 
+   * @return int 
+   */
+  virtual int get(mcuf::io::InputBuffer& inputBuffer, int length) abstract;
+
+  /**
+   * @brief 
+   * 
    * @param buffer 
    * @param bufferSize 
    * @return int 

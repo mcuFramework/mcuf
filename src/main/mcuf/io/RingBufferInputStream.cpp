@@ -140,6 +140,24 @@ int RingBufferInputStream::put(OutputBuffer& outputBuffer){
 /**
  * @brief 
  * 
+ * @param byteBuffer 
+ * @param length 
+ * @return int 
+ */
+int RingBufferInputStream::put(OutputBuffer& outputBuffer, int length){
+  int result = RingBuffer::put(outputBuffer, length);
+  
+  if(this->mHandling == false){
+    this->mHandling = true;
+    System::execute(*this);
+  }
+  
+  return result; 
+}
+
+/**
+ * @brief 
+ * 
  * @param data 
  * @param num 
  * @return int 

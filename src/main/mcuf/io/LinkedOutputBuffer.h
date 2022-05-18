@@ -126,6 +126,14 @@ public mcuf::io::OutputBuffer{
      */
     virtual int get(mcuf::io::InputBuffer& inputBuffer) override;
 
+	  /**
+	   * @brief 
+	   * 
+	   * @param byteBuffer 
+	   * @return int 
+	   */
+	  virtual int get(mcuf::io::InputBuffer& inputBuffer, int length) override;
+
     /**
      * @brief 
      * 

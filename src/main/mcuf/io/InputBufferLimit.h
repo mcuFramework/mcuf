@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_191BC7E7_9B06_42F9_A2A6_564525AECDC8
-#define MCUF_191BC7E7_9B06_42F9_A2A6_564525AECDC8
+#ifndef MCUF_AD68F30C_7CB7_48CC_8520_CDED0C606033
+#define MCUF_AD68F30C_7CB7_48CC_8520_CDED0C606033
 
 /* ****************************************************************************************
  * Include
@@ -23,7 +23,7 @@
  */  
 namespace mcuf{
   namespace io{
-    class StreamSkipper;
+    class InputBufferLimit;
   }
 }
 
@@ -31,7 +31,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::io::StreamSkipper extends mcuf::lang::Object implements
+class mcuf::io::InputBufferLimit extends mcuf::lang::Object implements
 public mcuf::io::InputBuffer{
 
   /* **************************************************************************************
@@ -46,8 +46,9 @@ public mcuf::io::InputBuffer{
    * Variable <Private>
    */
   private:
+    int mLimit;
     int mPosition;
-    int mCapacity;
+    mcuf::io::InputBuffer* mInputBuffer;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -62,77 +63,21 @@ public mcuf::io::InputBuffer{
    */
   public: 
     /**
-     * @brief Construct a new Stream Skipper object
+     * @brief Construct a new Input Buffer Limit object
      * 
      */
-    StreamSkipper(void);
+    InputBufferLimit(void);
 
     /**
-     * @brief Destroy the Stream Skipper object
+     * @brief Destroy the Input Buffer Limit object
      * 
      */
-    virtual ~StreamSkipper(void) override;
+    virtual ~InputBufferLimit(void) override;
 
   /* **************************************************************************************
    * Operator Method
    */
-  public:
-    /**
-     *
-     */
-    inline int operator=(int v){
-      this->position(v);
-      return this->position();
-    }
-    
-    /**
-     *
-     */
-    inline void operator+=(int shift){
-      this->position(this->position() + shift);
-    }
-    
-    /**
-     *
-     */
-    inline void operator-=(int shift){
-      this->position(this->position() - shift);
-    }
-    
-    /**
-     *
-     */
-    inline unsigned int operator++(void){
-      this->position(this->position() + 1);
-      return static_cast<unsigned int>(this->position());
-    }
-    
-    /**
-     *
-     */
-    inline unsigned int operator--(void){
-      this->position(this->position() - 1);
-      return static_cast<unsigned int>(this->position());
-    }
 
-        /**
-     *
-     */
-    inline unsigned int operator++(int){
-      unsigned int result = static_cast<unsigned int>(this->position());
-      this->position(this->position() + 1);
-      return result;
-    }
-    
-    /**
-     *
-     */
-    inline unsigned int operator--(int){
-      unsigned int result = static_cast<unsigned int>(this->position());
-      this->position(this->position() - 1);
-      return result;
-    }  
-  
   /* **************************************************************************************
    * Public Method <Static>
    */
@@ -147,18 +92,14 @@ public mcuf::io::InputBuffer{
      * @return true 
      * @return false 
      */
-    inline virtual bool isFull(void) const override{
-      return (this->mPosition >= this->mCapacity);
-    }
+    virtual bool isFull(void) const override;
 
     /**
      * @brief 
      * 
      * @return int 
      */
-    inline virtual int remaining(void) const override{
-      return (this->mCapacity - this->mPosition);
-    }
+    virtual int remaining(void) const override;
 
     /**
      * @brief pop buffer byte non blocking.
@@ -184,8 +125,8 @@ public mcuf::io::InputBuffer{
      * @param length 
      * @return int 
      */
-    virtual int put(mcuf::io::OutputBuffer& outputBuffer, int length) override;      
-    
+    virtual int put(mcuf::io::OutputBuffer& outputBuffer, int length) override;  
+
     /**
      * @brief 
      * 
@@ -196,63 +137,59 @@ public mcuf::io::InputBuffer{
     virtual int put(const void* buffer, int bufferSize) override;
 
   /* **************************************************************************************
-   * Public Method <Inline>
-   */
-  public:
-
-    /**
-     * @brief 
-     * 
-     * @param v 
-     */
-    inline void position(int v){
-      if(v < 0)
-        v = 0;
-
-      if(v > this->mCapacity)
-        v = this->mCapacity;
-
-      this->mPosition = v;
-      return;
-    }
-    
-    /**
-     * @brief 
-     * 
-     * @return int 
-     */
-    inline int position(void){
-      return this->mPosition;
-    }
-
-    /**
-     * @brief 
-     * 
-     * @param v 
-     */
-    inline void capacity(int v){
-      if(v < 0)
-        v = 0;
-
-      if(this->mPosition > v)
-        this->mPosition = v;
-
-      this->mCapacity = v;
-      return;
-    }
-
-    /**
-     * @brief 
-     * 
-     * @return int 
-     */
-    inline int capacity(void){
-      return this->mCapacity;
-    }
-
-  /* **************************************************************************************
    * Public Method
    */
+  public:
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return int 
+     */
+    virtual int limit(int value);
+
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    virtual int limit(void);
+
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return int 
+     */
+    virtual int position(int value);
+
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    virtual int position(void);
+
+    /**
+     * @brief 
+     * 
+     */
+    virtual void flush(void);
+
+    /**
+     * @brief Get the Input Buffer object
+     * 
+     * @return mcuf::io::InputBuffer* 
+     */
+    virtual mcuf::io::InputBuffer* getInputBuffer(void);
+
+    /**
+     * @brief Set the Input Buffer object
+     * 
+     * @param inputBuffer 
+     * @return mcuf::io::InputBuffer* 
+     */
+    virtual mcuf::io::InputBuffer* setInputBuffer(mcuf::io::InputBuffer* inputBuffer);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -284,4 +221,4 @@ public mcuf::io::InputBuffer{
  * End of file
  */ 
 
-#endif /* MCUF_191BC7E7_9B06_42F9_A2A6_564525AECDC8 */
+#endif /* MCUF_AD68F30C_7CB7_48CC_8520_CDED0C606033 */

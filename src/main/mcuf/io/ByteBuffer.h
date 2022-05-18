@@ -335,6 +335,14 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
     /**
      * @brief 
      * 
+     * @param byteBuffer 
+     * @return int 
+     */
+    virtual int get(mcuf::io::InputBuffer& inputBuffer, int length) override;    
+    
+    /**
+     * @brief 
+     * 
      * @param buffer 
      * @param bufferSize 
      * @return int 
@@ -388,6 +396,15 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @return int 
      */
     virtual int put(mcuf::io::OutputBuffer& outputBuffer) override;
+    
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @param length 
+     * @return int 
+     */
+    virtual int put(mcuf::io::OutputBuffer& outputBuffer, int length) override;  
 
     /**
      * @brief 

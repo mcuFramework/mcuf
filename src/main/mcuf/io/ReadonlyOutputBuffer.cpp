@@ -105,8 +105,22 @@ bool ReadonlyOutputBuffer::getByte(char& result){
  * @return int 
  */
 int ReadonlyOutputBuffer::get(mcuf::io::InputBuffer& inputBuffer){
+  return ReadonlyOutputBuffer::get(inputBuffer, this->avariable());
+}
+
+/**
+ * @brief 
+ * 
+ * @param byteBuffer 
+ * @return int 
+ */
+int ReadonlyOutputBuffer::get(mcuf::io::InputBuffer& inputBuffer, int length){
   if(this->isEmpty())
     return 0;
+  
+  int max = this->avariable();
+  if(length > max)
+    length = max;
   
   int result = inputBuffer.put(this->pointer(mPosition), this->avariable());
   this->mPosition += result;

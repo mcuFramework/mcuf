@@ -120,6 +120,15 @@ class mcuf::io::OutputStreamHandler extends mcuf::io::RingBufferOutputStream imp
      * @return int 
      */
     virtual int put(mcuf::io::OutputBuffer& outputBuffer) override;
+  
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @param length 
+     * @return int 
+     */
+    virtual int put(mcuf::io::OutputBuffer& outputBuffer, int length) override;  
 
     /**
      * @brief 
