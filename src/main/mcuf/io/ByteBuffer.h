@@ -685,6 +685,21 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      */
     bool getIntMsb(int& result);  
 
+    /**
+     * @brief Get the Float object
+     * 
+     * @param result 
+     * @return true 
+     * @return false 
+     */
+    bool getFloat(float& result);
+
+    /**
+     * @brief 
+     * 
+     */
+    bool getFloatMsb(float& result);
+
   /* **************************************************************************************
    *  Protected Method <Static>
    */

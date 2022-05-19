@@ -391,6 +391,7 @@ bool ByteBuffer::putShort(short value){
   
   return true;
 }
+
 /**
  * @brief 
  * 
@@ -448,7 +449,29 @@ bool ByteBuffer::putIntMsb(int value){
   return true;
 }
 
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @return true 
+ * @return false 
+ */
+bool ByteBuffer::putFloat(const float value){
+  const int* i = reinterpret_cast<const int*>(&value);
+  return this->putInt(*i);
+}
 
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @return true 
+ * @return false 
+ */
+bool ByteBuffer::putFloatMsb(const float value){
+  const int* i = reinterpret_cast<const int*>(&value);
+  return this->putIntMsb(*i);
+}
 
 /**
  * @brief 
@@ -527,28 +550,27 @@ bool ByteBuffer::getIntMsb(int& result){
 }
 
 /**
- * @brief 
+ * @brief Get the Float object
  * 
- * @param value 
+ * @param result 
  * @return true 
  * @return false 
  */
-bool ByteBuffer::putFloat(const float value){
-  const int* i = reinterpret_cast<const int*>(&value);
-  return this->putInt(*i);
+bool ByteBuffer::getFloat(float& result){
+  int* r = reinterpret_cast<int*>(&result);
+  return this->getInt(*r);
 }
 
 /**
  * @brief 
  * 
- * @param value 
- * @return true 
- * @return false 
  */
-bool ByteBuffer::putFloatMsb(const float value){
-  const int* i = reinterpret_cast<const int*>(&value);
-  return this->putIntMsb(*i);
+bool ByteBuffer::getFloatMsb(float& result){
+  int* r = reinterpret_cast<int*>(&result);
+  return this->getIntMsb(*r);
 }
+
+
 
 /* ****************************************************************************************
  * Protected Method <Static>
