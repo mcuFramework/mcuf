@@ -629,6 +629,24 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
+    bool putFloat(const float value);
+    
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return true 
+     * @return false 
+     */
+    bool putFloatMsb(const float value);    
+    
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return true 
+     * @return false 
+     */
     bool putIntMsb(const int value);  
 
     /**

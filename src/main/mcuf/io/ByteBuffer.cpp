@@ -526,6 +526,30 @@ bool ByteBuffer::getIntMsb(int& result){
   return true;
 }
 
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @return true 
+ * @return false 
+ */
+bool ByteBuffer::putFloat(const float value){
+  const int* i = reinterpret_cast<const int*>(&value);
+  return this->putInt(*i);
+}
+
+/**
+ * @brief 
+ * 
+ * @param value 
+ * @return true 
+ * @return false 
+ */
+bool ByteBuffer::putFloatMsb(const float value){
+  const int* i = reinterpret_cast<const int*>(&value);
+  return this->putIntMsb(*i);
+}
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */
