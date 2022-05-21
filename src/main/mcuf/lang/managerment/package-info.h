@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_0F4C2D44_0EF0_4E60_AA1C_9DD5F7457DBB
-#define MCUF_0F4C2D44_0EF0_4E60_AA1C_9DD5F7457DBB
+#ifndef MCUF_D8024B82_EAE6_4D15_80AF_33387C03E3D7
+#define MCUF_D8024B82_EAE6_4D15_80AF_33387C03E3D7
 
 /* ****************************************************************************************
  * Include folder
@@ -15,10 +15,10 @@
  * Include
  */
 #include "CoreThread.h"
-#include "MemoryAllocator.h"
+#include "SystemRegister.h"
 
 /* ****************************************************************************************
  * End of file
  */
 
-#endif /* MCUF_0F4C2D44_0EF0_4E60_AA1C_9DD5F7457DBB */
+#endif /* MCUF_D8024B82_EAE6_4D15_80AF_33387C03E3D7 */

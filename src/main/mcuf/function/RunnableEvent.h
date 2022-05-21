@@ -29,6 +29,7 @@ namespace mcuf{
 class mcuf::function::RunnableEvent extends mcuf::lang::Object implements 
   public mcuf::function::Runnable{
 
+  typedef void (*Method)(void);
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -41,7 +42,7 @@ class mcuf::function::RunnableEvent extends mcuf::lang::Object implements
    * Variable <Private>
    */
   private: 
-    void (*event)(void);
+    Method mMethod;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -61,9 +62,8 @@ class mcuf::function::RunnableEvent extends mcuf::lang::Object implements
      * 
      * @param event 
      */
-    RunnableEvent(void (*event)(void)){
-
-      this->event = event;
+    RunnableEvent(Method method){
+      this->mMethod = method;
       return;
     }
   
@@ -71,7 +71,7 @@ class mcuf::function::RunnableEvent extends mcuf::lang::Object implements
      * @brief Destroy the Runnable Event object
      * 
      */
-    ~RunnableEvent(void){
+    ~RunnableEvent(void) override {
       return;
     }
 
@@ -92,8 +92,8 @@ class mcuf::function::RunnableEvent extends mcuf::lang::Object implements
      * @brief 
      * 
      */
-    virtual void run(void){
-      this->event();
+    virtual void run(void) override {
+      this->mMethod();
     }
 
   /* **************************************************************************************
@@ -130,4 +130,4 @@ class mcuf::function::RunnableEvent extends mcuf::lang::Object implements
  * End of file
  */ 
 
-#endif/* MCUF_C0CBB109_D7C7_4D02_9E97_1BE3A534DFAE */
+#endif /* MCUF_C0CBB109_D7C7_4D02_9E97_1BE3A534DFAE */

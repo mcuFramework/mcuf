@@ -65,10 +65,17 @@ class mcuf::util::Executor extends mcuf::util::ArrayQueue<mcuf::function::Runnab
     Executor(const mcuf::lang::Memory& memory);
 
     /**
+     * @brief Construct a new Executor object
+     * 
+     * @param size 
+     */
+    Executor(uint32_t size);
+
+    /**
      * @brief Destroy the Executor object
      * 
      */
-    virtual ~Executor() = default;
+    virtual ~Executor(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -140,4 +147,4 @@ class mcuf::util::Executor extends mcuf::util::ArrayQueue<mcuf::function::Runnab
  * End of file
  */ 
 
-#endif/* MCUF_B33994C2_08DF_4AFD_A659_6CE8721463F1 */
+#endif /* MCUF_B33994C2_08DF_4AFD_A659_6CE8721463F1 */

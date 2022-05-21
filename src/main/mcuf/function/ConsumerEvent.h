@@ -29,6 +29,7 @@ template<typename T>
 class mcuf::function::ConsumerEvent extends mcuf::lang::Object implements 
   public mcuf::function::Consumer<T>{
 
+  typedef void (*Method)(T);
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -41,7 +42,7 @@ class mcuf::function::ConsumerEvent extends mcuf::lang::Object implements
    * Variable <Private>
    */
   private: 
-    void (*event)(T);
+    Method mMethod;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -61,9 +62,8 @@ class mcuf::function::ConsumerEvent extends mcuf::lang::Object implements
      * 
      * @param event 
      */
-    ConsumerEvent(void (*event)(T)){
-      
-      this->event = event;
+    ConsumerEvent(Method method){
+      this->mMethod = method;
       return;
     }
   
@@ -71,7 +71,9 @@ class mcuf::function::ConsumerEvent extends mcuf::lang::Object implements
      * @brief Destroy the Consumer Event object
      * 
      */
-    virtual ~ConsumerEvent() = default;
+    virtual ~ConsumerEvent(void) override {
+      return;
+    }
 
   /* **************************************************************************************
    * Operator Method
@@ -104,7 +106,7 @@ class mcuf::function::ConsumerEvent extends mcuf::lang::Object implements
      * @param t 
      */
     virtual void accept(T t){
-      this->event(t);
+      this->mMethod(t);
     }
 
   /* **************************************************************************************
@@ -129,4 +131,4 @@ class mcuf::function::ConsumerEvent extends mcuf::lang::Object implements
  * End of file
  */ 
 
-#endif/* MCUF_D2D64DF4_37AF_4608_A7A7_C551E3231977 */
+#endif /* MCUF_D2D64DF4_37AF_4608_A7A7_C551E3231977 */

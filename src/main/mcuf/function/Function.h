@@ -45,4 +45,4 @@ interface mcuf::function::Function{
  * End of file
  */ 
 
-#endif/* MCUF_B1264AE8_03E1_49A5_9EE7_8C4B88B06CFE */
+#endif /* MCUF_B1264AE8_03E1_49A5_9EE7_8C4B88B06CFE */

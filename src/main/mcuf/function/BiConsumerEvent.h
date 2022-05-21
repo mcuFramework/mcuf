@@ -131,4 +131,4 @@ class mcuf::function::BiConsumerEvent extends mcuf::lang::Object implements
  * End of file
  */ 
 
-#endif/* MCUF_FC6FA4E2_E818_4894_866D_38F6B2541263 */
+#endif /* MCUF_FC6FA4E2_E818_4894_866D_38F6B2541263 */

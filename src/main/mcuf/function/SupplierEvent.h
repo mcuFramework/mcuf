@@ -30,7 +30,8 @@ namespace mcuf{
 template<typename T>
 class mcuf::function::SupplierEvent extends mcuf::lang::Object implements 
   public mcuf::function::Supplier<T>{
-
+  
+  typedef T (*Method)(void);
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -43,7 +44,7 @@ class mcuf::function::SupplierEvent extends mcuf::lang::Object implements
    * Variable <Private>
    */
   private: 
-    T (*event)(void);
+    Method mMethod;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -63,9 +64,8 @@ class mcuf::function::SupplierEvent extends mcuf::lang::Object implements
      * 
      * @param event 
      */
-    SupplierEvent(T (*event)(void)){
-
-      this->event = event;
+    SupplierEvent(Method method){
+      this->mMethod = method;
       return;
     }
     
@@ -73,7 +73,9 @@ class mcuf::function::SupplierEvent extends mcuf::lang::Object implements
      * @brief Destroy the Supplier Event object
      * 
      */
-    virtual ~SupplierEvent() = default;
+    virtual ~SupplierEvent(void) override {
+      return;
+    }
 
   /* **************************************************************************************
    * Public Method <Static>
@@ -90,7 +92,7 @@ class mcuf::function::SupplierEvent extends mcuf::lang::Object implements
      * @return T 
      */
     virtual T get(void){
-      return this->event();
+      return this->method();
     }
 
   /* **************************************************************************************
@@ -127,4 +129,4 @@ class mcuf::function::SupplierEvent extends mcuf::lang::Object implements
  * End of file
  */ 
 
-#endif/* MCUF_ECCE32BB_1A96_496A_95AD_A35907FC3343 */
+#endif /* MCUF_ECCE32BB_1A96_496A_95AD_A35907FC3343 */

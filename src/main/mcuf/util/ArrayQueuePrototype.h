@@ -14,6 +14,7 @@
 #include "mcuf_base.h"
 
 #include "mcuf/lang/Array.h"
+#include "mcuf/function/BiConsumer.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -40,9 +41,10 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
   /* **************************************************************************************
    * Variable <Protected>
    */
-  protected: uint16_t mHead;
-  protected: uint16_t mTail;
-  protected: bool mEmpty;
+  protected: 
+    uint16_t mHead;
+    uint16_t mTail;
+    bool mEmpty;
   
   /* **************************************************************************************
    * Variable <Private>
@@ -59,16 +61,27 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
   /* **************************************************************************************
    * Construct Method
    */
+  protected:
+    
+    /**
+     * @brief Construct a new Array Queue Prototype object
+     * 
+     * @param memory 
+     */
+    ArrayQueuePrototype(const mcuf::lang::Memory& memory);
+  
+    /**
+     * @brief Construct a new Array Queue Prototype object
+     * 
+     * @param size
+     */
+    ArrayQueuePrototype(uint32_t size);
 
-  /**
-   * Construct.
-   */
-  protected: ArrayQueuePrototype(const mcuf::lang::Memory& memory);
-
-  /**
-   * Destruct.
-   */
-  protected: virtual ~ArrayQueuePrototype(void) = default;
+    /**
+     * @brief Destroy the Array Queue Prototype object
+     * 
+     */
+    virtual ~ArrayQueuePrototype(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -89,57 +102,83 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
   /* **************************************************************************************
    * Public Method <Inline>
    */
-   
-  /**
-   * 
-   */
-  public: inline bool isEmpty(void){
-    return this->mEmpty;
-  }
+  public: 
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    inline bool isEmpty(void) const{
+      return this->mEmpty;
+    }
 
-  /**
-   * 
-   */
-  public: inline bool isFull(void){
-    return ((this->mHead == this->mTail) == !this->mEmpty);
-  }
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    inline bool isFull(void) const{
+      return ((this->mHead == this->mTail) && (!this->mEmpty));
+    }
    
   /* **************************************************************************************
    * Protected Method <Static>
    */
 
   /* **************************************************************************************
-   * Protected Method <Override>
+   * Protected Method <Override> - mcuf::lang::Memroy
    */
-
+  
   /* **************************************************************************************
    * Protected Method
    */
-
-  /**
-   *
-   */
-  protected: void clear(void);
-
-  /**
-   * 
-   */
-  protected: bool offerPointer(void* pointer);
-
-  /**
-   * 
-   */
-  protected: void* pollPointer(void);  
+  protected:
+    
+    /**
+     * @brief 
+     * 
+     */
+    void clear(void);
   
-  /**
-   * 
-   */
-  protected: void* peekPointer(void);    
-  
-  /**
-   *
-   */
-  protected: uint32_t size(void);  
+    /**
+     * @brief 
+     * 
+     * @param pointer 
+     * @return true 
+     * @return false 
+     */
+    bool offerPointer(void* pointer);
+
+    /**
+     * @brief 
+     * 
+     * @return void* 
+     */
+    void* pollPointer(void);  
+    
+    /**
+     * @brief 
+     * 
+     * @return void* 
+     */
+    void* peekPointer(void);    
+    
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    int size(void) const;
+
+    /**
+     * @brief 
+     * 
+     * @param attachment 
+     * @param action 
+     */
+    void foreachPrototype(void* attachment, mcuf::function::BiConsumer<void*, void*>& action) const;
 
   /* **************************************************************************************
    * Private Method <Static>
@@ -159,4 +198,4 @@ class mcuf::util::ArrayQueuePrototype extends mcuf::lang::Array<void*>{
  * End of file
  */ 
 
-#endif/* MCUF_BBEA45DB_2443_4AD0_8532_619E2BDE4831 */
+#endif /* MCUF_BBEA45DB_2443_4AD0_8532_619E2BDE4831 */

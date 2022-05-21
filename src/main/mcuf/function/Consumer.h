@@ -45,4 +45,4 @@ interface mcuf::function::Consumer{
  * End of file
  */ 
 
-#endif/* MCUF_E537A6FD_D802_4D38_AB7E_1AAF3D6487AD */
+#endif /* MCUF_E537A6FD_D802_4D38_AB7E_1AAF3D6487AD */

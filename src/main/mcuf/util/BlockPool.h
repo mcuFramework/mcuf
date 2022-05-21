@@ -74,7 +74,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory implements
      * @brief Destroy the Block Pool object
      * 
      */
-    virtual ~BlockPool(void) = default;
+    virtual ~BlockPool(void) override;
     
   /* **************************************************************************************
    * Operator Method
@@ -94,21 +94,21 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory implements
      * 
      * @return uint32_t element size of byte.
      */
-    virtual uint32_t elementSize(void) override;
+    virtual uint32_t elementSize(void) const override;
 
     /**
      * @brief Returns this pool's capacity.
      * 
      * @return uint32_t The capacity of this pool.
      */
-    virtual uint32_t capacity(void) override;
+    virtual uint32_t capacity(void) const override;
 
     /**
      * @brief Returns the number of elements in this pool.
      * 
      * @return uint32_t the number of elements in this pool.
      */
-    virtual int size(void) override;
+    virtual int size(void) const override;
     
     /**
      * @brief Removes all of the elements from this pool (optional operation). The pool 
@@ -123,7 +123,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory implements
      * @return true pool contains no elements.
      * @return false 
      */
-    virtual bool isEmpty(void) override;
+    virtual bool isEmpty(void) const override;
 
     /**
      * @brief Alloc memory from pool.
@@ -171,7 +171,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory implements
      * @param action 
      */
     virtual void forEach(void* attachment, 
-                         mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>& action) override;
+                         mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>& action) const override;
   
   /* **************************************************************************************
    * Public Method
@@ -232,7 +232,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory implements
      * @param shift 
      * @return void* 
      */
-    void* getBlock(uint32_t shift);
+    void* getBlock(uint32_t shift) const;
 
     /**
      * @brief Get the Flag object
@@ -241,7 +241,7 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
-    bool getFlag(uint32_t shift);
+    bool getFlag(uint32_t shift) const;
     
     /**
      * @brief 
@@ -277,4 +277,4 @@ class mcuf::util::BlockPool extends mcuf::lang::Memory implements
  */ 
 
 
-#endif/* MCUF_E650C2D3_441C_41FE_9189_E4BDDEA0CC31 */
+#endif /* MCUF_E650C2D3_441C_41FE_9189_E4BDDEA0CC31 */

@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_B7FB7425_1048_4864_9F56_6E58BE8EBCEE
-#define MCUF_B7FB7425_1048_4864_9F56_6E58BE8EBCEE
+#ifndef MCUF_958C74F4_0CE0_460D_8C83_072AE8FB9CF2
+#define MCUF_958C74F4_0CE0_460D_8C83_072AE8FB9CF2
 
 /* ****************************************************************************************
  * Include folder
@@ -15,6 +15,7 @@
 /* ****************************************************************************************
  * Include
  */
+#include "Ammeter.h"
 #include "ArrayQueue.h"
 #include "ArrayQueuePrototype.h"
 #include "BlockPool.h"
@@ -22,14 +23,17 @@
 #include "Executor.h"
 #include "Fifo.h"
 #include "Map.h"
+#include "MemoryPool.h"
 #include "Pool.h"
 #include "Queue.h"
 #include "Stacker.h"
-#include "TimerScheduler.h"
+#include "TemperatureSensor.h"
+#include "Timer.h"
 #include "TimerTask.h"
+#include "Voltmeter.h"
 
 /* ****************************************************************************************
  * End of file
  */
 
-#endif /* MCUF_B7FB7425_1048_4864_9F56_6E58BE8EBCEE */
+#endif /* MCUF_958C74F4_0CE0_460D_8C83_072AE8FB9CF2 */

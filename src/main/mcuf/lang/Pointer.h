@@ -20,6 +20,7 @@
 namespace mcuf{
   namespace lang{
     class Pointer;
+    class Memory;
   }
 }
 
@@ -27,7 +28,8 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 class mcuf::lang::Pointer extends mcuf::lang::Object{
-      
+  
+  friend Memory;
   /* **************************************************************************************
    * Subclass
    */
@@ -70,6 +72,13 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * 
      * @param pointer 
      */
+    Pointer(const void* pointer);  
+  
+    /**
+     * @brief Construct a new Pointer object
+     * 
+     * @param pointer 
+     */
     Pointer(void* pointer);
 
     /**
@@ -80,10 +89,17 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
     Pointer(uint32_t pointer);
     
     /**
+     * @brief Construct a new Pointer object
+     * 
+     * @param other 
+     */
+    Pointer(const Pointer& other);
+    
+    /**
      * @brief Destroy the Pointer object
      * 
      */
-    virtual ~Pointer() = default;
+    virtual ~Pointer(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -119,6 +135,72 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
     inline bool operator==(const Pointer& pointer){
       return (this->mPointer == pointer.mPointer);
     }
+    
+    /**
+     * @brief 
+     * 
+     * @param index 
+     * @return char
+     */
+    inline char operator[](int index) const{
+      return static_cast<char*>(this->mPointer)[index];
+    }
+    
+    /**
+     * @brief 
+     * 
+     * @param index 
+     * @return char
+     */
+    inline char operator[](unsigned int index) const{
+      return static_cast<char*>(this->mPointer)[index];
+    }    
+
+    /**
+     * @brief 
+     * 
+     * @param index 
+     * @return char&
+     */
+    char& operator[](int index){
+      return static_cast<char*>(this->mPointer)[index];
+    }
+    
+    /**
+     * @brief 
+     * 
+     * @param index 
+     * @return char&
+     */
+    char& operator[](unsigned int index){
+      return static_cast<char*>(this->mPointer)[index];
+    }
+
+  /* **************************************************************************************
+   * Public Method <Static Inline>
+   */
+  public:
+    /**
+     * @brief 
+     * 
+     * @param point 
+     * @param shift 
+     * @return void* 
+     */
+    static void* pointShift(void* pointer, int shift){
+      return static_cast<char*>(pointer) + shift;
+    }
+    
+    /**
+     * @brief 
+     * 
+     * @param point 
+     * @param shift 
+     * @return void* 
+     */
+    static const void* pointShift(const void* pointer, int shift){
+      return static_cast<const char*>(pointer) + shift;
+    }    
 
   /* **************************************************************************************
    * Public Method <Static>
@@ -131,6 +213,55 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return Pointer 
      */
     static Pointer nullPointer(void);
+
+    /**
+     * @brief Copies the values of num bytes from the location pointed to by source 
+     *        directly to the memory block pointed to by destination.
+     * 
+     *        he underlying type of the objects pointed to by both the source and 
+     *        destination pointers are irrelevant for this function; The result is a 
+     *         binary copy of the data.
+     *  
+     *        The function does not check for any terminating null character in source - 
+     *        it always copies exactly num bytes.
+     * 
+     *        To avoid overflows, the size of the arrays pointed to by both the 
+     *        destination and source parameters, shall be at least num bytes, and should 
+     *        not overlap(for overlapping memory blocks, move is a safer approach).
+     * 
+     * @param destination Pointer to the destination array where the content is to be copied, 
+     *                    type-casted to a pointer of type void*.
+     * 
+     * @param source Pointer to the source of data to be copied, type-casted to a pointer of 
+     *               type const void*.
+     * 
+     * @param length Number of bytes to copy.
+     */
+    static void copy(void* destination, const void* source, int length);
+
+    /**
+     * @brief Copies the values of num bytes from the location pointed by source to the memory 
+     *        block pointed by destination. Copying takes place as if an intermediate buffer 
+     *        were used, allowing the destination and source to overlap.
+     *        
+     *        The underlying type of the objects pointed by both the source and destination 
+     *        pointers are irrelevant for this function; The result is a binary copy of the data.
+     * 
+     *        The function does not check for any terminating null character in source - it always 
+     *        copies exactly num bytes.
+     * 
+     *        To avoid overflows, the size of the arrays pointed by both the destination and source 
+     *        parameters, shall be at least num bytes.
+     * 
+     * @param destination Pointer to the destination array where the content is to be copied, 
+     *                    type-casted to a pointer of type void*.
+     * 
+     * @param source Pointer to the source of data to be copied, type-casted to a pointer of 
+     *               type const void*.
+     * 
+     * @param length Number of bytes to copy.
+     */
+    static void move(void* destination, const void* source, int length);
 
   /* **************************************************************************************
    * Public Method <Override>
@@ -148,17 +279,17 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copy(const void* source, uint32_t length);
+    virtual int copy(const void* source, int length);
 
     /**
      * @brief 
      * 
      * @param source 
-     * @param shift 
+     * @param start 
      * @param length 
      * @return int 
      */
-    virtual int copy(const void* source, uint32_t shift, uint32_t length);
+    virtual int copy(const void* source, int start, int length);
 
     /**
      * @brief 
@@ -169,7 +300,131 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length);
+    virtual int copy(const void* source, int shift, int start, int length);
+
+    /**
+     * @brief 
+     * 
+     * @param destination 
+     * @param length 
+     * @return int 
+     */
+    virtual int copyTo(void* destination, int length) const;
+
+    /**
+     * @brief 
+     * 
+     * @param destination 
+     * @param start 
+     * @param length 
+     * @return int 
+     */
+    virtual int copyTo(void* destination, int start, int length) const;
+
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param shift 
+     * @param start 
+     * @param length 
+     * @return int 
+     */
+    virtual int copyTo(void* destination, int shift, int start, int length) const; 
+    
+    /**
+     * @brief 
+     * 
+     * @param str string
+     * @return true equal
+     * @return false not equal
+     */
+    virtual bool compairString(const char* str) const;    
+    
+    /**
+     * @brief 
+     * 
+     * @param str string
+     * @param start 
+     * @return true equal
+     * @return false not equal
+     */
+    virtual bool compairString(const char* str, int start) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param start 
+     * @param length 
+     * @return true equal
+     * @return false not equal
+     */
+    virtual bool compair(const void* source, int length) const;    
+    
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param start 
+     * @param length 
+     * @return true equal
+     * @return false not equal
+     */
+    virtual bool compair(const void* source, int start, int length) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param shift 
+     * @param start 
+     * @param length 
+     * @return true equal
+     * @return false not equal
+     */
+    virtual bool compair(const void* source, int shift, int start, int length) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @param start 
+     * @param limit 
+     * @return int 
+     */
+    virtual int indexOf(char ch, int start, int limit) const;
+
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @param start 
+     * @param limit 
+     * @return int 
+     */
+    virtual int indexOfString(const char* str, int limit) const;
+
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @param start 
+     * @param limit 
+     * @return int 
+     */
+    virtual int indexOfString(const char* str, int start, int limit) const;
+
+    /**
+     * @brief 
+     * 
+     * @param destination 
+     * @param destinationLen 
+     * @param start 
+     * @param limit 
+     * @return int 
+     */
+    virtual int indexOfData(const void* destination, int destinationLen, int start, int limit) const;
 
   /* **************************************************************************************
    * Public Method <inline>
@@ -182,8 +437,8 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param shift 
      * @return char 
      */
-    inline char getByte(uint32_t shift) const{
-      return *(char*)this->pointer(shift);
+    inline char getByte(int shift) const{
+      return *static_cast<char*>(this->pointer(shift));
     }
 
     /**
@@ -192,8 +447,8 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param shift 
      * @return int 
      */
-    inline int getInteger(uint32_t shift) const{
-      return *(int*)this->pointer(shift);
+    inline int getInteger(int shift) const{
+      return *static_cast<int*>(this->pointer(shift));
     }
 
     /**
@@ -202,8 +457,8 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param shift 
      * @return short 
      */
-    inline short getShort(uint32_t shift) const{
-      return *(short*)this->pointer(shift);
+    inline short getShort(int shift) const{
+      return *static_cast<short*>(this->pointer(shift));
     }
 
     /**
@@ -213,7 +468,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return Pointer 
      */
     inline Pointer getPointer(uint32_t offset) const{
-      return Pointer(&((uint8_t*)this->mPointer)[offset]);
+      return Pointer(&(static_cast<char*>(this->mPointer))[offset]);
     }
 
     /**
@@ -269,7 +524,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
     inline void* pointer(void) const{
       return this->mPointer;
     }
-
+    
     /**
      * @brief 
      * 
@@ -277,7 +532,17 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return void* 
      */
     inline void* pointer(uint32_t offset) const{
-      return &((uint8_t*)this->mPointer)[offset];
+      return static_cast<char*>(this->mPointer) + offset;
+    }
+
+    /**
+     * @brief 
+     * 
+     * @param offset 
+     * @return void* 
+     */
+    inline void* pointer(int offset) const{
+      return static_cast<char*>(this->mPointer) + offset;
     }
 
   /* **************************************************************************************
@@ -310,4 +575,4 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
  * End of file
  */ 
 
-#endif/* MCUF_D6412968_F88E_43C3_9B72_FA8611376187 */
+#endif /* MCUF_D6412968_F88E_43C3_9B72_FA8611376187 */

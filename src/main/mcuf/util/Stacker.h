@@ -16,7 +16,7 @@
 #include "mcuf_base.h"
 #include "mcuf/util/Collection.h"
 #include "mcuf/lang/Memory.h"
-#include "mcuf/lang/managerment/MemoryAllocator.h"
+#include "mcuf/lang/Allocator.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -32,7 +32,7 @@ namespace mcuf{
  */  
 class mcuf::util::Stacker extends mcuf::lang::Memory implements 
   public mcuf::util::Collection<mcuf::lang::Memory>,
-  public mcuf::lang::managerment::MemoryAllocator{
+  public mcuf::lang::Allocator{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -80,7 +80,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
      * @brief Destroy the Stacker object
      * 
      */
-    virtual ~Stacker() = default;
+    virtual ~Stacker(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -108,14 +108,14 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
-    virtual bool isEmpty(void) override;
+    virtual bool isEmpty(void) const override;
 
     /**
      * @brief Returns the number of elements in this collection.
      * 
      * @return uint32_t the number of elements in this collection.
      */
-    virtual int size(void) override;
+    virtual int size(void) const override;
   
   /* **************************************************************************************
    * Public Method <Override> - mcuf::lang::Iterable<E>
@@ -132,11 +132,11 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
      * @param action 
      */
     virtual void forEach(void* attachment, 
-                         mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>& action) override;
+                         mcuf::function::BiConsumer<mcuf::lang::Memory*, void*>& action) const override;
 
 
   /* **************************************************************************************
-   * Public Method <Override> mcuf::lang::managerment::MemoryAllocator
+   * Public Method <Override> mcuf::lang::Allocator
    */
   public: 
 
@@ -176,7 +176,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
      * 
      * @return uint32_t 
      */
-    virtual int getFree(void);
+    virtual uint32_t getFree(void);
 
     /**
      * @brief 
@@ -237,7 +237,7 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
   /* **************************************************************************************
    * Private Method <Override>
    */
-   
+
   /* **************************************************************************************
    * Private Method
    */
@@ -248,4 +248,4 @@ class mcuf::util::Stacker extends mcuf::lang::Memory implements
  * End of file
  */ 
 
-#endif/* MCUF_C045F3C4_B727_4170_9124_44EFD0DADB46 */
+#endif /* MCUF_C045F3C4_B727_4170_9124_44EFD0DADB46 */

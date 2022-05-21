@@ -34,12 +34,18 @@ interface mcuf::io::CompletionHandler{
    */
     
   /**
-   *
+   * @brief 
+   * 
+   * @param result 
+   * @param attachment 
    */
   virtual void completed(V result, A attachment) abstract;
   
   /**
-   *
+   * @brief 
+   * 
+   * @param exc 
+   * @param attachment 
    */
   virtual void failed(void* exc, A attachment) abstract;
 
@@ -49,4 +55,4 @@ interface mcuf::io::CompletionHandler{
  *    End of file
  */ 
 
-#endif/* MCUF_F628179A_5A6B_4572_99A4_3338D77AED7B */
+#endif /* MCUF_F628179A_5A6B_4572_99A4_3338D77AED7B */

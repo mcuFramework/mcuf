@@ -37,8 +37,8 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
    * Variable <Protected>
    */
   protected: 
-    uint32_t mElementSize;
-    uint32_t mElementLength;
+    int mElementSize;
+    int mElementLength;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -63,25 +63,7 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
      * @param memory 
      * @param elementSize 
      */
-    ArrayPrototype(const mcuf::lang::Memory& memory, uint32_t elementSize);
-    
-    /**
-     * @brief Construct a new Array Prototype object
-     * 
-     * @param pointer 
-     * @param size 
-     * @param elementSize 
-     */
-    ArrayPrototype(void* pointer, uint32_t size, uint32_t elementSize);
-    
-    /**
-     * @brief Construct a new Array Prototype object
-     * 
-     * @param pointer 
-     * @param size 
-     * @param elementSize 
-     */
-    ArrayPrototype(const void* pointer, uint32_t size, uint32_t elementSize);
+    ArrayPrototype(const mcuf::lang::Memory& memory, size_t elementSize);
     
     /**
      * @brief Construct a new Array Prototype object
@@ -89,13 +71,13 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
      * @param length 
      * @param elementSize 
      */
-    ArrayPrototype(uint32_t length, uint32_t elementSize);
+    ArrayPrototype(size_t length, size_t elementSize);
 
     /**
      * @brief Destroy the Array Prototype object
      * 
      */
-    virtual ~ArrayPrototype(void) = default;
+    virtual ~ArrayPrototype(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -117,16 +99,16 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
     /**
      * @brief Get the Element Length object
      * 
-     * @return uint32_t 
+     * @return int 
      */
-    uint32_t getElementLength(void);
+    int getElementLength(void) const;
 
     /**
      * @brief Get the Element Size object
      * 
      * @return uint32_t 
      */
-    uint32_t getElementSize(void);
+    int getElementSize(void) const;
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -140,7 +122,8 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
    * Protected Method
    */
   protected:
-
+    using Memory::indexOf;
+  
     /**
      * @brief 
      * 
@@ -148,22 +131,6 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
      * @return int 
      */
     int indexOf(const void* element) const;
-
-    /**
-     * @brief 
-     * 
-     * @param src 
-     * @param shift 
-     */
-    void set(const void* src, uint32_t shift);
-
-    /**
-     * @brief 
-     * 
-     * @param shift 
-     * @return void* 
-     */
-    void* get(uint32_t shift);
 
   /* **************************************************************************************
    * Private Method <Static>
@@ -183,4 +150,4 @@ class mcuf::lang::ArrayPrototype extends mcuf::lang::Memory{
  * End of file
  */ 
 
-#endif/* MCUF_EC5AD114_2891_41FA_8DE3_9D5FAD422A07 */
+#endif /* MCUF_EC5AD114_2891_41FA_8DE3_9D5FAD422A07 */

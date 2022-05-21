@@ -30,6 +30,7 @@ template<typename T, typename R>
 class mcuf::function::FunctionEvent extends mcuf::lang::Object implements 
   public mcuf::function::Function<T, R>{
 
+  typedef R (*Method)(T);
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -42,7 +43,7 @@ class mcuf::function::FunctionEvent extends mcuf::lang::Object implements
    * Variable <Private>
    */
   private:
-    R (*event)(T);
+    Method mMethod;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -62,8 +63,8 @@ class mcuf::function::FunctionEvent extends mcuf::lang::Object implements
      * 
      * @param event 
      */
-    FunctionEvent(R (*event)(T)){
-      this->event = event;
+    FunctionEvent(Method method){
+      this->mMethod = method;
       return;
     }
   
@@ -71,7 +72,9 @@ class mcuf::function::FunctionEvent extends mcuf::lang::Object implements
      * @brief Destroy the Function Event object
      * 
      */
-    virtual ~FunctionEvent() = default;
+    virtual ~FunctionEvent(void) override{
+      return;
+    }
 
   /* **************************************************************************************
    * Operator Method
@@ -93,7 +96,7 @@ class mcuf::function::FunctionEvent extends mcuf::lang::Object implements
      * @return R 
      */
     virtual R apply(T t){
-      return this->event(t);
+      return this->mMethod(t);
     }
 
   /* **************************************************************************************
@@ -130,4 +133,4 @@ class mcuf::function::FunctionEvent extends mcuf::lang::Object implements
  * End of file
  */ 
 
-#endif/* MCUF_F730676C_6AFB_43FF_A269_0F8D00511C5D */
+#endif /* MCUF_F730676C_6AFB_43FF_A269_0F8D00511C5D */

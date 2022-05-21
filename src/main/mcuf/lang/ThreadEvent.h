@@ -73,13 +73,13 @@ class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
      * @param name 
      * @param runnable 
      */
-    ThreadEvent(const mcuf::lang::Memory& memory ,const char* name, mcuf::function::Runnable& runnable);
+    ThreadEvent(uint32_t stackSize, mcuf::function::Runnable& runnable);
 
     /**
      * @brief Destroy the Thread Event object
      * 
      */
-    virtual ~ThreadEvent(void) = default;
+    virtual ~ThreadEvent(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -134,4 +134,4 @@ class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
  * End of file
  */ 
 
-#endif/* MCUF_C2842937_BF83_418E_9A72_EBE18B10E733 */
+#endif /* MCUF_C2842937_BF83_418E_9A72_EBE18B10E733 */

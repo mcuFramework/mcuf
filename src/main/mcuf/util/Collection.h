@@ -58,14 +58,14 @@ interface mcuf::util::Collection extends mcuf::lang::Iterable<T>{
    * @return true if this collection contains no elements.
    * @return false 
    */
-  virtual bool isEmpty(void) abstract;
+  virtual bool isEmpty(void) const abstract;
 
   /**
    * @brief Returns the number of elements in this collection.
    * 
    * @return uint32_t the number of elements in this collection.
    */
-  virtual int size(void) abstract;
+  virtual int size(void) const abstract;
 
   /* **************************************************************************************
    * Abstract method <Protected>
@@ -125,4 +125,4 @@ interface mcuf::util::Collection extends mcuf::lang::Iterable<T>{
  */ 
 
 
-#endif/* MCUF_B4E61D80_F9A1_469D_84FD_FBB3D8FC11E4 */
+#endif /* MCUF_B4E61D80_F9A1_469D_84FD_FBB3D8FC11E4 */

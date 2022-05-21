@@ -14,10 +14,12 @@
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
+#include "mcuf/lang/managerment/CoreTick.h"
 #include "mcuf/lang/Memory.h"
 #include "mcuf/lang/ThreadEvent.h"
 #include "mcuf/util/Executor.h"
-#include "mcuf/util/TimerScheduler.h"
+#include "mcuf/util/Timer.h"
+
 
 /* ****************************************************************************************
  * Namespace
@@ -38,17 +40,6 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   friend mcuf::lang::System;
   
   /* **************************************************************************************
-   * Struct Attachment
-   */
-  private: struct Attachment{
-    mcuf::lang::Memory* stack;
-    mcuf::lang::Memory* executor;
-    mcuf::lang::Memory* timer;
-    mcuf::lang::Thread* userThread;
-    uint32_t timerTick;
-  };
-
-  /* **************************************************************************************
    * Variable <Public>
    */
 
@@ -61,12 +52,11 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
    */
   private: 
     mcuf::lang::Thread* mUserThread;
+    mcuf::lang::managerment::CoreTick mCoreTick;
     mcuf::util::Executor mExecutor;
-    mcuf::util::TimerScheduler mTimerScheduler;
-    uint64_t mTimerMemory[4];
-    uint32_t mTimerTick;
-    void* mTimerID;
+    uint32_t mTickBase;
     bool mStart;
+    bool mOnWait;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -86,7 +76,7 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
      * 
      * @param attachment 
      */
-    CoreThread(const Attachment& attachment);
+    CoreThread(uint32_t stackSize, uint32_t executeQueue, uint32_t tickQueue, uint32_t tickBase, mcuf::lang::Thread* userThread);
 
   public: 
 
@@ -94,7 +84,7 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
      * @brief Destroy the Core Thread object
      * 
      */
-    virtual ~CoreThread(void) = default;
+    virtual ~CoreThread(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -119,6 +109,14 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
      */
     void run(void) override;
 
+  /* **************************************************************************************
+   * Public Method <Inline>
+   */
+  public:   
+    bool tick(mcuf::function::Runnable& runnable){
+      return this->mCoreTick.mExecutor.execute(&runnable);
+    }
+  
   /* **************************************************************************************
    * Public Method
    */
@@ -154,14 +152,6 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Private Method <Static>
    */
-   private: 
-   
-    /**
-      * @brief 
-      * 
-      * @param attachment 
-      */
-    static void entryPoint(void* attachment);
 
   /* **************************************************************************************
    * Private Method <Override>
@@ -177,4 +167,4 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
  * End of file
  */ 
 
-#endif/* MCUF_BB9B7C70_E040_4995_A1F3_1855850093BD */
+#endif /* MCUF_BB9B7C70_E040_4995_A1F3_1855850093BD */

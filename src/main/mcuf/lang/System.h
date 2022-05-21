@@ -11,11 +11,17 @@
 /* ****************************************************************************************
  * Include
  */
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf/lang/ErrorCode.h"
 #include "mcuf/lang/Object.h"
 #include "mcuf/lang/Thread.h"
+#include "mcuf/lang/managerment/CoreTick.h"
 #include "mcuf/lang/managerment/CoreThread.h"
+#include "mcuf/lang/managerment/SystemRegister.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -31,6 +37,7 @@ namespace mcuf{
  */  
 class mcuf::lang::System final extends mcuf::lang::Object{
 
+  
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -43,9 +50,8 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    * Variable <Private>
    */
   private: 
-    static void (*mErrorCodeHandler)(const void* address, ErrorCode code);
+    static mcuf::lang::managerment::SystemRegister* mSystemRegister;
     static mcuf::lang::managerment::CoreThread* mCoreThread;
-    static const uint32_t mSystemTimerClock;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -64,13 +70,13 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * @brief Construct a new System object
      * 
      */
-    System(void) = default;
+    System(void);
 
     /**
      * @brief Destroy the System object
      * 
      */
-    virtual ~System(void) = default;
+    virtual ~System(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -90,31 +96,44 @@ class mcuf::lang::System final extends mcuf::lang::Object{
     /**
      * @brief 
      * 
+     * @return mcuf::io::InputStream& 
+     */
+    static mcuf::io::InputStreamBuffer& in(void);
+
+    /**
+     * @brief 
+     * 
+     * @return mcuf::io::PrintStream& 
+     */
+    static mcuf::io::PrintStream& out(void);
+      
+    /**
+     * @brief 
+     * 
+     */
+    static void initialize(void);
+      
+    /**
+     * @brief 
+     * 
      * @param userThread 
      */
-    static void start(mcuf::lang::Thread* userThread);
+    static void start(mcuf::lang::Thread& userThread);
 
     /**
      * @brief 
      * 
      * @param address 
-     * @param code 
+     * @param code
      */
     static void error(const void* address, ErrorCode code);
     
     /**
-     * @brief 
+     * @brief Get the Register object
      * 
-     * @param handler 
+     * @return mcuf::lang::managerment::SystemRegister 
      */
-    static void registorErrorCodeHandler(void (*handler)(const void* address, ErrorCode code));
-    
-    /**
-     * @brief Get the System Timer Clock object
-     * 
-     * @return uint32_t 
-     */
-    static uint32_t getSystemTimerClock(void);
+    static mcuf::lang::managerment::SystemRegister& getRegister(void);
     
     /**
      * @brief Get the Core Clock object
@@ -122,12 +141,14 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * @return uint32_t 
      */
     static uint32_t getCoreClock(void);
+    
+    /**
+     * @brief 
+     * 
+     * @param times 
+     */
+    static void lowerDelay(uint32_t times);
   
-  /* **************************************************************************************
-   * Public Method <Inline Static>
-   */
-  public: 
-
     /**
      * @brief 
      * 
@@ -135,34 +156,18 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    inline static bool execute(mcuf::function::Runnable& runnable){
-      return System::mCoreThread->mExecutor.execute(&runnable);
-    }
+    static void execute(mcuf::function::Runnable& runnable);
 
     /**
-     * @brief Schedules the specified task for execution after the specified delay.
+     * @brief 
      * 
-     * @param task to be scheduled.
-     * @param delay in milliseconds before task is to be executed.
-     * @return true successful.
-     * @return false false if task was already scheduled or cancelled.
+     * @param runnable 
      */
-    inline static bool schedule(mcuf::util::TimerTask& task, uint32_t delay){
-      return System::mCoreThread->mTimerScheduler.schedule(task, delay);
-    }
-    
-    /**
-     *
-     * @task
-     * @delay
-     * @period
-     * @return true successful
-     */
-    inline static bool scheduleAtFixedRate(mcuf::util::TimerTask& task, 
-                                          uint32_t delay, 
-                                          uint32_t period){
-      return System::mCoreThread->mTimerScheduler.scheduleAtFixedRate(task, delay, period);
-    }
+    static void tick(mcuf::function::Runnable& runnable);  
+  
+  /* **************************************************************************************
+   * Public Method <Inline Static>
+   */
 
   /* **************************************************************************************
    * Public Method <Override>
@@ -198,8 +203,10 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   
 };
 
+using mcuf::lang::System;
+
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif/* MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C */
+#endif /* MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C */

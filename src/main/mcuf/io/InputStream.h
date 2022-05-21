@@ -12,7 +12,7 @@
  * Include
  */
 #include "mcuf_base.h"
-#include "mcuf/io/ByteBuffer.h"
+#include "mcuf/io/InputBuffer.h"
 #include "mcuf/io/CompletionHandler.h"
 #include "mcuf/io/Future.h"
 #include "mcuf/lang/Object.h"
@@ -36,7 +36,10 @@ interface mcuf::io::InputStream{
    */
   
   /**
+   * @brief 
    * 
+   * @return true 
+   * @return false 
    */
   virtual bool abortRead(void) abstract;  
   
@@ -47,29 +50,60 @@ interface mcuf::io::InputStream{
    * @return false isn't busy.
    */
   virtual bool readBusy(void) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @param outputBuffer 
+   * @return int 
+   */
+  virtual bool read(mcuf::io::InputBuffer& inputBuffer, int timeout) abstract;
   
   /**
    * @brief nonblocking
    * 
-   * @param byteBuffer 
+   * @param outputBuffer 
    * @param attachment 
    * @param handler 
    * @return true successful.
    * @return false fail.
    */
-  virtual bool read(mcuf::io::ByteBuffer* byteBuffer, 
+  virtual bool read(mcuf::io::InputBuffer& inputBuffer, 
                     void* attachment,
                     mcuf::io::CompletionHandler<int, void*>* handler) abstract;
 
   /**
    * @brief 
    * 
-   * @param byteBuffer 
-   * @param feture 
+   * @param outputBuffer 
+   * @param future 
    * @return true 
    * @return false 
    */
-  virtual bool read(mcuf::io::ByteBuffer* byteBuffer, mcuf::io::Future& feture) abstract;
+  virtual bool read(mcuf::io::InputBuffer& inputBuffer, mcuf::io::Future& future) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @param value 
+   * @param attachment 
+   * @param handler 
+   * @return true 
+   * @return false 
+   */
+  virtual bool skip(int value, 
+                    void* attachment,
+                    mcuf::io::CompletionHandler<int, void*>* handler) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @param value 
+   * @param future 
+   * @return true 
+   * @return false 
+   */
+  virtual bool skip(int value, mcuf::io::Future& future) abstract;
 
 };
 
@@ -77,4 +111,4 @@ interface mcuf::io::InputStream{
  *    End of file
  */ 
 
-#endif/* MCUF_C4AC526D_9A52_4C98_93F6_8C1F0EB6CB55 */
+#endif /* MCUF_C4AC526D_9A52_4C98_93F6_8C1F0EB6CB55 */

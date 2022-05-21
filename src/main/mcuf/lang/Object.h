@@ -13,7 +13,7 @@
  */  
 #include <stdint.h>
 #include <string.h>
-#include "mcuf/lang/managerment/MemoryAllocator.h"
+#include "mcuf/lang/Allocator.h"
 
 
 
@@ -44,8 +44,6 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private:
-    Object* objectRecodeBase;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -101,7 +99,7 @@ class mcuf::lang::Object{
      * @param allocator 
      * @return void* 
      */
-    void* operator new(size_t n, mcuf::lang::managerment::MemoryAllocator& allocator);  
+    void* operator new(size_t n, mcuf::lang::Allocator& allocator);  
 
   /* **************************************************************************************
    * Public Method <Static>
@@ -114,11 +112,6 @@ class mcuf::lang::Object{
   /* **************************************************************************************
    * Public Method <Inline>
    */
-  public:
-    bool classAvariable(void){
-      return (this == this->objectRecodeBase);
-    }
-
 
   /* **************************************************************************************
    * Public Method
@@ -130,7 +123,7 @@ class mcuf::lang::Object{
      * 
      * @param milliseconds 
      */
-    void delay(uint32_t milliseconds);
+    void delay(int milliseconds) const;
 
     /**
      * @brief 
@@ -139,7 +132,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    bool equal(Object* object);
+    virtual bool equal(Object* object) const;
 
     /**
      * @brief 
@@ -148,19 +141,19 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    bool equal(Object& object);
+    virtual bool equal(Object& object) const;
 
     /**
      * @brief 
      * 
      */
-    void finalize(void);
+    virtual void finalize(void);
 
     /**
      * @brief 
      * 
      */
-    void wait(void);
+    virtual void wait(void) const;
     
     /**
      * @brief 
@@ -169,7 +162,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    bool wait(uint32_t timeout);
+    virtual bool wait(int timeout) const;
     
     /**
      * @brief 
@@ -177,18 +170,37 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    bool yield(void);
+    virtual bool yield(void) const;
     
     /**
-     *
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
      */
-    bool systemLock(void);
+    virtual bool systemLock(void) const;
     
     /**
-     *
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
      */
-    bool systemUnlock(void);
+    virtual bool systemUnlock(void) const;
     
+    /**
+     * @brief Get the Name object
+     * 
+     * @return const char* 
+     */
+    virtual const char* getName(void) const;
+
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    virtual uint32_t hashCode(void) const;
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -220,4 +232,4 @@ class mcuf::lang::Object{
  * End of file
  */ 
 
-#endif/* MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE */
+#endif /* MCUF_E0630DAA_6AA0_44AB_8E3D_C89ABCA310DE */

@@ -33,7 +33,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-abstracts class mcuf::lang::Thread extends mcuf::lang::Memory implements 
+ class mcuf::lang::Thread extends mcuf::lang::Memory implements 
   public mcuf::function::Runnable{
 
   friend System;
@@ -85,13 +85,13 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory implements
      * @param memory 
      * @param name 
      */
-    Thread(const Memory& memory, const char* name);
+    Thread(uint32_t stackSize);
 
     /**
      * @brief Destroy the Thread object
      * 
      */
-    virtual ~Thread(void);
+    virtual ~Thread(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -129,25 +129,32 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory implements
      * @return uint32_t 
      */
     uint32_t getID(void) const;
-    
+  
     /**
-     * @brief Get the Name object
+     * @brief Set the Name object
+     * 
+     * @param name 
+     */
+    void setName(const char* name);
+  
+    /**
+     * @brief Get the Thread Name object
      * 
      * @return const char* 
      */
-    const char* getName(void) const;
+    const char* getThreadName(void) const;
     
     /**
      * @brief Get the Priority object
      * 
-     * @return Priority 
+     * @return mcuf::lang::ThreadPriority 
      */
     mcuf::lang::ThreadPriority getPriority(void);
 
     /**
      * @brief Get the State object
      * 
-     * @return State 
+     * @return mcuf::lang::ThreadState 
      */
      mcuf::lang::ThreadState getState(void);
     
@@ -246,4 +253,4 @@ abstracts class mcuf::lang::Thread extends mcuf::lang::Memory implements
  * End of file
  */ 
 
-#endif/* MCUF_AC7E7A3E_E6D3_4355_B4DE_6B28DF198293 */
+#endif /* MCUF_AC7E7A3E_E6D3_4355_B4DE_6B28DF198293 */

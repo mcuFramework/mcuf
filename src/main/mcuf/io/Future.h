@@ -41,7 +41,8 @@ class mcuf::io::Future extends mcuf::lang::Object implements
     enum struct Status : uint32_t{
       IDLE,
       WAIT,
-      DONE
+      DONE_COMPLETED,
+      DONE_FAILED
     };
 
   /* **************************************************************************************
@@ -58,7 +59,7 @@ class mcuf::io::Future extends mcuf::lang::Object implements
   private:
     Status mStatus;
     uint32_t mThreadID;
-    uint32_t mResult;
+    int mResult;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -83,7 +84,7 @@ class mcuf::io::Future extends mcuf::lang::Object implements
      * @brief Destroy the Future object
      * 
      */
-    virtual ~Future(void) = default;
+    virtual ~Future(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -130,9 +131,22 @@ class mcuf::io::Future extends mcuf::lang::Object implements
     /**
      * @brief 
      * 
+     */
+    void waitDone(void);
+
+    /**
+     * @brief 
+     * 
+     * @param timeout 
+     */
+    void waitDone(int timeout);
+
+    /**
+     * @brief 
+     * 
      * @return int 
      */
-    int get(void);
+    bool get(int& result);
   
     /**
      * @brief 
@@ -140,13 +154,13 @@ class mcuf::io::Future extends mcuf::lang::Object implements
      * @param timeout 
      * @return int 
      */
-    int get(uint32_t timeout);
+    bool get(int& result, int timeout);
   
     /**
      * @brief 
      * 
      */
-    void reset(void);
+    void clear(void);
   
     /**
      * @brief 
@@ -155,6 +169,22 @@ class mcuf::io::Future extends mcuf::lang::Object implements
      * @return false 
      */
     bool isDone(void);
+    
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool isCompleted(void);
+
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool isFailed(void);
     
     /**
      * @brief 

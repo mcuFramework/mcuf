@@ -13,7 +13,7 @@
  */  
 #include "mcuf_base.h"
 #include "mcuf/lang/Object.h"
-#include "mcuf/lang/Pointer.h"
+#include "mcuf/lang/Data.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -29,7 +29,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::lang::Memory extends mcuf::lang::Pointer{
+class mcuf::lang::Memory extends mcuf::lang::Data{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -43,7 +43,7 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * Variable <Private>
    */
   private: 
-    int mLength;
+    Memory* mNext;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -57,21 +57,12 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
    * Construct Method
    */
   public:
-
     /**
      * @brief Construct a new Memory object
      * 
-     * @param memory 
+     * @param data 
      */
-    Memory(const Memory& memory);
-
-    /**
-     * @brief Construct a new Memory object
-     * 
-     * @param pointer 
-     * @param length 
-     */
-    Memory(const void* pointer, uint32_t length);
+    Memory(const Data& data);
 
     /**
      * @brief Construct a new Memory object
@@ -79,18 +70,40 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @param pointer 
      * @param length 
      */
-    Memory(void* pointer, uint32_t length);
+    Memory(const void* pointer, size_t length);
+
+    /**
+     * @brief Construct a new Memory object
+     * 
+     * @param pointer 
+     * @param length 
+     */
+    Memory(void* pointer, size_t length);
+
+    /**
+     * @brief Construct a new Memory object
+     * 
+     * @param length 
+     */
+    Memory(size_t length);
     
+    /**
+     * @brief Construct a new Memory object
+     * 
+     * @param other 
+     */
+    Memory(const Memory& other);
+
     /**
      * @brief Destroy the Memory object
      * 
      */
-    ~Memory(void);
+    virtual ~Memory(void) override;
 
   /* **************************************************************************************
    * Operator Method
    */
-
+    
   /* **************************************************************************************
    * Public Method <Static>
    */
@@ -102,17 +115,6 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @return mcuf::lang::Memory 
      */
     static mcuf::lang::Memory nullMemory(void);
-  
-  /* **************************************************************************************
-   * Public Method <Override> - mcuf::lang::Pointer
-   */
-  public:
-  
-  virtual int copy(const void* source, uint32_t length) override;
-
-  virtual int copy(const void* source, uint32_t shift, uint32_t length) override;
-
-  virtual int copy(const void* source, uint32_t shift, uint32_t start, uint32_t length) override;
 
   /* **************************************************************************************
    * Public Method <Inline>
@@ -125,112 +127,39 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
      * @return true 
      * @return false 
      */
-    inline bool isReadOnly(void) const{
-      return (this->mLength <= 0);
+    inline bool isHeapMemory(void) const{
+      return (this->mNext != nullptr);
     }
-
-    /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
-     */
-    inline bool isEmpty(void) const{
-      return (this->isNull()) | (this->length() == 0);
-    }
-
-    /**
-     * @brief 
-     * 
-     * @return uint32_t 
-     */
-    inline int length(void) const{
-      return ((this->mLength <= 0) ? ((~this->mLength) + 1) : this->mLength);
-    }  
   
   /* **************************************************************************************
    * Public Method
    */
-  public: 
+  public:
+    /**
+     * @brief 
+     * 
+     * @param beginIndex 
+     * @return mcuf::lang::Memory 
+     */
+    virtual mcuf::lang::Memory subMemory(uint32_t beginIndex) const;
+
+    /**
+     * @brief 
+     * 
+     * @param beginIndex 
+     * @param length 
+     * @return mcuf::lang::Memory 
+     */
+    virtual mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length) const;    
   
     /**
      * @brief 
      * 
-     * @return Memory& 
+     * @param size 
+     * @return true 
+     * @return false 
      */
-    Memory& clear(void);
-    
-    /**
-     * @brief 
-     * 
-     * @param value 
-     * @return Memory& 
-     */
-    Memory& clear(uint8_t value);  
-
-    /**
-     * @brief 
-     * 
-     * @param sourec 
-     * @return int copy of number.
-     */
-    int copyMemory(Memory& sourec);
-
-    /**
-     * @brief 
-     * 
-     * @param sourec 
-     * @param shift 
-     * @return int int copy of number.
-     */
-    int copyMemory(Memory& sourec, uint32_t shift);
-
-    /**
-     * @brief 
-     * 
-     * @param sourec 
-     * @param shift 
-     * @param length 
-     * @return int copy of number. 
-     */
-    int copyMemory(Memory& sourec, uint32_t shift, uint32_t length);
-
-    /**
-     * @brief 
-     * 
-     * @param sourec 
-     * @param shift 
-     * @param start 
-     * @param length 
-     * @return int copy of number. 
-     */
-    int copyMemory(Memory& sourec, uint32_t shift, uint32_t start, uint32_t length);
-
-    /**
-     * @brief 
-     * 
-     * @param address 
-     * @return true in range.
-     * @return false isn't range.
-     */
-    bool inRange(void* address) const;
-
-    /**
-     * @brief 
-     * 
-     * @param beginIndex 
-     * @return mcuf::lang::Memory 
-     */
-    mcuf::lang::Memory subMemory(uint32_t beginIndex) const;
-
-    /**
-     * @brief 
-     * 
-     * @param beginIndex 
-     * @param length 
-     * @return mcuf::lang::Memory 
-     */
-    mcuf::lang::Memory subMemory(uint32_t beginIndex, uint32_t length) const;
+    virtual bool resize(int size);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -265,4 +194,4 @@ class mcuf::lang::Memory extends mcuf::lang::Pointer{
  */ 
 
 
-#endif/* MCUF_D6A75B59_D8E5_4FB2_BAB8_41477CE17D21 */
+#endif /* MCUF_D6A75B59_D8E5_4FB2_BAB8_41477CE17D21 */

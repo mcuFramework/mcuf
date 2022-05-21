@@ -57,13 +57,15 @@ class mcuf::lang::Threads extends mcuf::lang::Object{
      * @brief Construct a new Threads object
      * 
      */
-    Threads(void) = default;
+    Threads(void);
 
+
+  public: 
     /**
      * @brief 
      * 
      */
-    public: virtual ~Threads(void) = default;
+    virtual ~Threads(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -171,4 +173,4 @@ class mcuf::lang::Threads extends mcuf::lang::Object{
  * End of file
  */ 
 
-#endif/* MCUF_EE4D20CF_E390_4820_8EDB_28EB54FA83B7 */
+#endif /* MCUF_EE4D20CF_E390_4820_8EDB_28EB54FA83B7 */

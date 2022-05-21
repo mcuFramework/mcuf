@@ -11,9 +11,11 @@
 /* ****************************************************************************************
  * Include
  */  
-#include <stdarg.h>
 
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf/lang/Memory.h"
 #include "mcuf/lang/Object.h"
 
@@ -42,8 +44,6 @@ class mcuf::lang::String extends mcuf::lang::Memory{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: 
-    uint32_t mSize;
   
   /* **************************************************************************************
    * Abstract method <Public>
@@ -64,7 +64,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @param pointer 
      * @param size 
      */
-    String(void* pointer, uint32_t size);
+    String(void* pointer, unsigned int size);
 
     /**
      * @brief Construct a new String object
@@ -81,16 +81,23 @@ class mcuf::lang::String extends mcuf::lang::Memory{
     String(const mcuf::lang::Memory& memory);
 
     /**
+     * @brief Construct a new String object
+     * 
+     * @param length 
+     */
+    String(size_t length);
+
+    /**
      * @brief Destroy the String object
      * 
      */
-    virtual ~String(void) = default;
+    virtual ~String(void) override;
 
   /* **************************************************************************************
    * Operator Method
    */
   public:
-
+  
     /**
      * @brief 
      * 
@@ -108,13 +115,20 @@ class mcuf::lang::String extends mcuf::lang::Memory{
     /**
      * @brief 
      * 
+     * @return String 
+     */
+    static String empty(void);
+
+    /**
+     * @brief 
+     * 
      * @param buffer 
      * @param bufferSize 
      * @param format 
      * @param arg 
      * @return int 
      */
-    static int format(void* buffer, uint32_t bufferSize, const char* format, va_list args);
+    static int format(void* buffer, size_t bufferSize, const char* format, va_list args);
 
     /**
      * @brief 
@@ -135,7 +149,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @param ... 
      * @return int 
      */
-    static int format(void* buffer, uint32_t bufferSize, const char* format, ...);
+    static int format(void* buffer, unsigned int bufferSize, const char* format, ...);
 
     /**
      * @brief 
@@ -146,12 +160,98 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @return int 
      */
     static int format(const mcuf::lang::Memory& memory, const char* format, ...);
+    
+    /**
+     * @brief 
+     * 
+     * @param format 
+     * @param ... 
+     * @return String 
+     */
+    static String format(int bufferSize, const char* format, ...);    
+    
+    /**
+     * @brief 
+     * 
+     * @param src 
+     * @param format 
+     * @param args 
+     * @return int 
+     */
+    static int scanFormat(const char* src, const char* format, va_list args);
+    
+    /**
+     * @brief 
+     * 
+     * @param src 
+     * @param format 
+     * @param ... 
+     * @return int 
+     */
+    static int scanFormat(const char* src, const char* format, ...);
 
+    /**
+     * @brief 
+     * 
+     * @param src 
+     * @return int 
+     */
+    static int stringLength(const char* src);
+
+  /* **************************************************************************************
+   * Public Method <Override> - mcuf::lang::Memory
+   */
+  public:
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @return int 
+     */
+    virtual int indexOf(char ch) const override;
+    
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @param offset 
+     * @return int 
+     */
+    virtual int indexOf(char ch, int offset) const override;
+    
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return int 
+     */
+    virtual int indexOfString(const char* str) const override;  
+  
+    /**
+     * @brief 
+     * 
+     * @param destination 
+     * @param destinationLen 
+     * @param start 
+     * @param limit 
+     * @return int 
+     */
+    virtual int indexOfData(const void* destination, int destinationLen, int start) const override;
+  
   /* **************************************************************************************
    * Public Method
    */
   public:
 
+    /**
+     * @brief 
+     * 
+     * @param format 
+     * @param ... 
+     * @return int 
+     */
+    int scanFormat(const char* format, ...);
+  
     /**
      * @brief 
      * 
@@ -169,20 +269,75 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @return int 
      */
     int format(const char* format, ...);  
-  
-  /* **************************************************************************************
-   * Public Method <Inline>
-   */  
-  public:
 
     /**
      * @brief 
      * 
-     * @return uint32_t 
      */
-    inline uint32_t size(void) const{
-      return this->mSize;
-    }
+    void convertUpper(void);
+
+    /**
+     * @brief 
+     * 
+     */
+    void convertLower(void);
+
+    /**
+     * @brief 
+     * 
+     * @return String 
+     */
+    String toUpper(void) const;
+
+    /**
+     * @brief 
+     * 
+     * @return String 
+     */
+    String toLower(void) const;
+    
+    /**
+     * @brief 
+     * 
+     * @return String 
+     */
+    String clone(void) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param length 
+     * @return String 
+     */
+    String clone(int length) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param offset  
+     * @return String 
+     */
+    String clone(int offset, int length) const;
+  
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    int size(void) const; 
+
+    /**
+     * @brief 
+     * 
+     * @param oldChar 
+     * @param newChar 
+     * @return int 
+     */
+    int replace(char oldChar, char newChar);
+
+  /* **************************************************************************************
+   * Public Method <Inline>
+   */  
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -206,7 +361,7 @@ class mcuf::lang::String extends mcuf::lang::Memory{
    
   /* **************************************************************************************
    * Private Method
-   */  
+   */
 
 };
 
@@ -214,4 +369,4 @@ class mcuf::lang::String extends mcuf::lang::Memory{
  * End of file
  */ 
  
-#endif/* MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055 */
+#endif /* MCUF_F115800B_0B0A_4795_ABFB_A37BD1DE2055 */

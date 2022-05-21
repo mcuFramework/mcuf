@@ -11,16 +11,25 @@
 /* ****************************************************************************************
  * Macro
  */
- 
+
+#pragma clang diagnostic ignored "-Wnon-virtual-dtor"
+#pragma clang diagnostic ignored "-Wdeprecated-copy-dtor"
+#pragma clang diagnostic ignored "-Wc++98-compat"
+#pragma clang diagnostic ignored "-Wweak-vtables"
+#pragma clang diagnostic ignored "-Wunused-parameter"
+#pragma clang diagnostic ignored "-Wmissing-noreturn"
+#pragma clang diagnostic ignored "-Wformat-nonliteral"
+#pragma clang diagnostic ignored "-Wpadded"
+#pragma clang diagnostic ignored "-Wc++17-extensions"
+
+
 #define abstract =0
-#define abstracts 
-#define construct :
 #define extends :public
 #define implements ,
 #define interface struct
 
 #ifndef VACCESS
-#define VACCESS(type, target) (*(volatile type *) &(target))
+#define VACCESS(type, target) (*static_cast<volatile type*>(&target))
 #endif
 
 #ifndef ALIGN32BIT
@@ -31,7 +40,7 @@
 #define ALIGN64BIT(source) if(source&0x7){source = (source & 0xFFFFFFF8) + 8;}
 #endif
 
-#if DEBUG
+#ifdef DEBUG
   #ifndef __CLASSPATH__
   #define __CLASSPATH__ __PRETTY_FUNCTION__
   #endif
@@ -53,6 +62,8 @@
  * Include
  */
 #include <stdint.h>
+#include <stdarg.h>
+#include <typeinfo>
 
 /* ****************************************************************************************
  * Include folder

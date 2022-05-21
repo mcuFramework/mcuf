@@ -10,7 +10,7 @@
 
 /* ****************************************************************************************
  * Include
- */  
+ */
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
@@ -67,4 +67,4 @@ interface mcuf::util::Queue extends mcuf::util::Collection<E>{
  * End of file
  */ 
 
-#endif/* MCUF_BFC82B3D_EF2A_4C50_AC22_04B947DCE669 */
+#endif /* MCUF_BFC82B3D_EF2A_4C50_AC22_04B947DCE669 */

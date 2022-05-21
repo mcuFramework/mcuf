@@ -218,7 +218,7 @@
 //   <i> May be set to 0 when timers are not used.
 //   <i> Default: 4
 #ifndef OS_TIMER_CB_QUEUE
-#define OS_TIMER_CB_QUEUE           2
+#define OS_TIMER_CB_QUEUE           8
 #endif
  
 // </h>

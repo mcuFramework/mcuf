@@ -52,4 +52,4 @@ interface mcuf::io::Closeable{
  * End of file
  */ 
 
-#endif/* MCUF_B08DB2A3_7AA4_4166_A88E_E997AA2B0BAD */
+#endif /* MCUF_B08DB2A3_7AA4_4166_A88E_E997AA2B0BAD */

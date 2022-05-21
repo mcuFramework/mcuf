@@ -81,4 +81,4 @@ enum struct mcuf::lang::ThreadPriority : int{
  * End of file
  */ 
 
-#endif/* MCUF_A4ED407B_D298_46DA_B209_AEF00726AA6F */
+#endif /* MCUF_A4ED407B_D298_46DA_B209_AEF00726AA6F */

@@ -63,7 +63,16 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
      * 
      * @param memory 
      */
-    ArrayQueue(const Memory& memory) construct mcuf::util::ArrayQueuePrototype(memory){
+    ArrayQueue(const Memory& memory) : mcuf::util::ArrayQueuePrototype(memory){
+      return;
+    }
+
+    /**
+     * @brief Construct a new Array Queue object
+     * 
+     * @param length 
+     */
+    ArrayQueue(uint32_t length) : mcuf::util::ArrayQueuePrototype(length){
       return;
     }
 
@@ -71,7 +80,9 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
      * @brief Destroy the Array Queue object
      * 
      */
-    virtual ~ArrayQueue(void) = default;
+    virtual ~ArrayQueue(void) override {
+      return;
+    }
 
   /* **************************************************************************************
    * Operator Method
@@ -133,8 +144,8 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
      * @param attachment user data.
      * @param action action The action to be performed for each element.
      */
-    virtual void forEach(void* attachment, mcuf::function::BiConsumer<E*, void*>& action) override{
-      return;
+    virtual void forEach(void* attachment, mcuf::function::BiConsumer<E*, void*>& action) const override{
+      this->foreachPrototype(attachment, reinterpret_cast<mcuf::function::BiConsumer<void*, void*>&>(action));
     }
   
   /* **************************************************************************************
@@ -157,7 +168,7 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
      * @return true if this collection contains no elements
      * @return false 
      */
-    virtual bool isEmpty(void) override{
+    virtual bool isEmpty(void) const override{
       return this->ArrayQueuePrototype::isEmpty();
     }
     
@@ -166,7 +177,7 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
      * 
      * @return uint32_t the number of elements in this collection.
      */
-    virtual int size(void) override{
+    virtual int size(void) const override{
       return this->ArrayQueuePrototype::size();
     }
 
@@ -204,4 +215,4 @@ class mcuf::util::ArrayQueue extends mcuf::util::ArrayQueuePrototype implements
  * End of file
  */ 
 
-#endif/* MCUF_EABFB0E9_4CE7_4009_A990_B20F60799B41 */
+#endif /* MCUF_EABFB0E9_4CE7_4009_A990_B20F60799B41 */

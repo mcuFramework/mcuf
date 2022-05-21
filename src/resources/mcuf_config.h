@@ -18,26 +18,24 @@
 #define MCUF_DEFINE_CORE_STACK_SIZE 1024
 #endif
 
-//   <o>Executor task number <16-65536>
+//   <o>Executor task number <4-1024>
 #ifndef MCUF_DEFINE_EXECUTOR_TASK_NUMBER
-#define MCUF_DEFINE_EXECUTOR_TASK_NUMBER 32
+#define MCUF_DEFINE_EXECUTOR_TASK_NUMBER 16
 #endif
 // </h>
 
-
-// <h>Timer
+// <h>Tick
 // =======================
 
-//   <o>Timer tick [ms] <1-1000>
-#ifndef MCUF_DEFINE_TIMER_TICK
-#define MCUF_DEFINE_TIMER_TICK 5
+//   <o>System tick base time [ms] <5-1000:8>
+#ifndef MCUF_DEFINE_TICK_BASE_TIME
+#define MCUF_DEFINE_TICK_BASE_TIME 50
 #endif
 
-//   <o>Timer task number <16-65536>
-#ifndef MCUF_DEFINE_TIMER_TASK_NUMBER
-#define MCUF_DEFINE_TIMER_TASK_NUMBER 32
+//   <o>System tick task number <4-1024>
+#ifndef MCUF_DEFINE_TICK_TASK_NUMBER
+#define MCUF_DEFINE_TICK_TASK_NUMBER 16
 #endif
-
 // </h>
 
 //------------- <<< end of configuration section >>> ---------------------------
@@ -47,4 +45,4 @@
  * End of file
  */ 
 
-#endif/* MCUF_B4D7504F_54A9_496C_92BF_849CCCA491C0 */
+#endif /* MCUF_B4D7504F_54A9_496C_92BF_849CCCA491C0 */

@@ -16,6 +16,7 @@
 #include "mcuf_base.h"
 #include "mcuf/lang/Memory.h"
 #include "mcuf/lang/Object.h"
+#include "mcuf/io/Buffer.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -29,7 +30,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::io::RingBuffer extends mcuf::lang::Memory{
+class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
+  public mcuf::io::Buffer{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -76,10 +78,17 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
     RingBuffer(const mcuf::lang::Memory& memory);  
 
     /**
+     * @brief Construct a new Ring Buffer object
+     * 
+     * @param length 
+     */
+    RingBuffer(uint32_t length);
+
+    /**
      * @brief Destroy the Ring Buffer object
      * 
      */
-    virtual ~RingBuffer(void) = default;
+    virtual ~RingBuffer(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -90,67 +99,152 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
    */
 
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> - mcuf::io::Buffer
    */
-
-  /* **************************************************************************************
-   * Public Method <Inline>
-   */
-  public: 
-  
+  public:
     /**
      * @brief 
      * 
      */
-    inline void flush(void){
+    inline virtual void flush(void) override{
       this->mHead = this->mTail = 0;
     }
 
+  /* **************************************************************************************
+   * Public Method <Override> - mcuf::io::OutputBuffer
+   */
+  public:
     /**
-     * @brief Return size the ring buffer.
+     * @brief 
      * 
-     * @return uint32_t Size of the ring buffer in bytes.
+     * @return true 
+     * @return false 
      */
-    inline uint32_t getSize(void){
-      return this->mCount;
+    inline virtual bool isEmpty(void) const override{
+      return (VACCESS(const uint32_t, this->mHead) == VACCESS(const uint32_t, this->mTail));
+    }
+  
+    /**
+     * @brief 
+     * 
+     * @return int 
+     */
+    inline virtual int avariable(void) const override{
+      return static_cast<int>((VACCESS(const uint32_t, this->mHead) - VACCESS(const uint32_t, this->mTail)));
     }
 
     /**
-     * @brief Return number of items in the ring buffer
+     * @brief pop buffer byte non blocking.
      * 
-     * @return uint32_t Number of items in the ring buffer.
+     * @param result 
+     * @return true has data in buffer.
+     * @return false no data in buffer.
      */
-    inline uint32_t getCount(void){
-      return VACCESS(uint32_t, this->mHead) - VACCESS(uint32_t, this->mTail);
-    }
+    virtual bool getByte(char& result) override;
 
     /**
-     * @brief Return number of free items in the ring buffer.
+     * @brief 
      * 
-     * @return uint32_t Number of free items in the ring buffer.
+     * @param byteBuffer 
+     * @return int 
      */
-    inline uint32_t getFree(void){
-      return this->mCount - this->getCount();
-    }
+    virtual int get(mcuf::io::InputBuffer& inputBuffer) override;
 
+	  /**
+	   * @brief 
+	   * 
+	   * @param byteBuffer 
+	   * @return int 
+	   */
+	  virtual int get(mcuf::io::InputBuffer& inputBuffer, int length) override;    
+    
+    /**
+     * @brief 
+     * 
+     * @param buffer 
+     * @param bufferSize 
+     * @return int 
+     */
+    virtual int get(void* buffer, int bufferSize) override;
+
+    /**
+     * @brief 
+     * 
+     * @param value 
+     * @return int 
+     */
+    virtual int skip(int value) override;
+
+  /* **************************************************************************************
+   * Public Method <Override> - mcuf::io::InputBuffer
+   */  
+  public:
     /**
      * @brief Return empty status of ring buffer.
      * 
      * @return true is full.
      * @return false not full.
      */
-    inline bool isFull(void){
-      return (this->getCount() >= this->mCount);
+    inline virtual bool isFull(void) const override{
+      return (this->avariable() >= static_cast<int>(this->mCount));
     }
 
     /**
-     * @brief Return empty status of ring buffer.
+     * @brief 
      * 
-     * @return true is empty.
-     * @return false not empty.
+     * @return int 
      */
-    inline bool isEmpty(void){
-      return (VACCESS(uint32_t, this->mHead) == VACCESS(uint32_t, this->mTail));
+    inline virtual int remaining(void) const override{
+      return (static_cast<int>(this->mCount) - this->avariable());
+    }
+
+    /**
+     * @brief pop buffer byte non blocking.
+     * 
+     * @param result 
+     * @return true has data in buffer.
+     * @return false no data in buffer.
+     */
+    virtual bool putByte(const char result) override;
+
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @return int 
+     */
+    virtual int put(mcuf::io::OutputBuffer& outputBuffer) override;
+
+    /**
+     * @brief 
+     * 
+     * @param byteBuffer 
+     * @param length 
+     * @return int 
+     */
+    virtual int put(mcuf::io::OutputBuffer& outputBuffer, int length) override;     
+    
+    /**
+     * @brief 
+     * 
+     * @param buffer 
+     * @param bufferSize 
+     * @return int 
+     */
+    virtual int put(const void* buffer, int bufferSize) override;
+
+  /* **************************************************************************************
+   * Public Method <Inline>
+   */
+  public: 
+
+    /**
+     * @brief Return size the ring buffer.
+     * 
+     * @return int Size of the ring buffer in bytes.
+     */
+    inline int getSize(void){
+      return static_cast<int>(this->mCount);
     }
 
     /**
@@ -159,7 +253,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @return int 
      */
     inline int getHeadPosition(void){
-      return (this->mHead & (this->mCount -1));
+      return static_cast<int>((this->mHead & (this->mCount -1)));
     }
 
     /**
@@ -168,49 +262,12 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
      * @return int 
      */
     inline int getTailPosition(void){
-      return (this->mTail & (this->mCount - 1));
+      return static_cast<int>((this->mTail & (this->mCount - 1)));
     }
 
   /* **************************************************************************************
    * Public Method
    */
-  public:
-
-    /**
-     * @brief 
-     * 
-     * @param data 
-     * @return true 
-     * @return false 
-     */
-    bool insert(const void* data);
-    
-    /**
-     * @brief 
-     * 
-     * @param data 
-     * @param num 
-     * @return int 
-     */
-    int insertMult(const void *data, int num);
-
-    /**
-     * @brief 
-     * 
-     * @param data 
-     * @return true 
-     * @return false 
-     */
-    bool pop(void* data);
-
-    /**
-     * @brief 
-     * 
-     * @param data 
-     * @param num 
-     * @return int 
-     */
-    int popMult(void* data, int num);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -247,4 +304,4 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory{
  * End of file
  */ 
 
-#endif/* MCUF_BA359EBF_505B_445E_8A31_2AB82A22FEB8 */
+#endif /* MCUF_BA359EBF_505B_445E_8A31_2AB82A22FEB8 */
