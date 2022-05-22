@@ -255,7 +255,12 @@ bool RingBufferInputStream::read(InputBuffer& inputBuffer, Future& future){
   if(!future.isIdle())
     return false;
   
-  return this->read(inputBuffer, nullptr, &future);
+  future.waitDone();
+  bool result = this->read(inputBuffer, nullptr, &future);
+  if(result == false)
+    future.clear();
+  
+  return result;
 }
 
 /**
@@ -296,7 +301,12 @@ bool RingBufferInputStream::skip(int value, Future& future){
   if(!future.isIdle())
     return false;
   
-  return this->skip(value, nullptr, &future);
+  future.waitDone();
+  bool result = this->skip(value, nullptr, &future);
+  if(result == false)
+    future.clear();
+  
+  return result;
 }
 
 /* ****************************************************************************************

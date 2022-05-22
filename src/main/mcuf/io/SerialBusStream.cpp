@@ -143,7 +143,12 @@ bool SerialBusStream::read(InputBuffer& inputBuffer, Future& future){
   if(!future.isIdle())
     return false;
   
-  return this->read(inputBuffer, nullptr, &future);
+  future.setWait();
+  bool result = this->read(inputBuffer, nullptr, &future);
+  if(result == false)
+    future.clear();
+  
+  return result;
 }
 
 /**
@@ -188,7 +193,12 @@ bool SerialBusStream::skip(int value, Future& future){
   if(!future.isIdle())
     return false;
   
-  return this->skip(value, nullptr, &future);
+  future.setWait();
+  bool result = this->skip(value, nullptr, &future);
+  if(result == false)
+    future.clear();
+  
+  return result;
 }
 
 /* ****************************************************************************************
@@ -272,7 +282,12 @@ bool SerialBusStream::write(OutputBuffer& outputBuffer, Future& future){
   if(!future.isIdle())
     return false;
   
-  return this->write(outputBuffer, nullptr, &future);
+  future.setWait();
+  bool result = this->write(outputBuffer, nullptr, &future);
+  if(result == false)
+    future.clear();
+  
+  return result;
 }
 
 /* ****************************************************************************************
@@ -355,8 +370,13 @@ bool SerialBusStream::transfer(InputBuffer& inputBuffer, OutputBuffer& outputBuf
 bool SerialBusStream::transfer(InputBuffer& inputBuffer, OutputBuffer& outputBuffer, Future& future){
   if(!future.isIdle())
     return false;  
+
+  future.setWait();
+  bool result = this->transfer(inputBuffer, outputBuffer, nullptr, &future);
+  if(result == false)
+    future.clear();
   
-  return this->transfer(inputBuffer, outputBuffer, nullptr, &future);
+  return result;
 }
 
 /* ****************************************************************************************
