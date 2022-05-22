@@ -255,7 +255,7 @@ bool RingBufferInputStream::read(InputBuffer& inputBuffer, Future& future){
   if(!future.isIdle())
     return false;
   
-  future.waitDone();
+  future.setWait();
   bool result = this->read(inputBuffer, nullptr, &future);
   if(result == false)
     future.clear();
