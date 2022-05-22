@@ -10,7 +10,7 @@
       <TargetName>Cortex-M0</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>6140000::V6.14::ARMCLANG</pCCUsed>
+      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -1495,6 +1495,16 @@
               <FileName>TemperatureSensor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>TemperatureSensorSimulator.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TemperatureSensorSimulator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.h</FilePath>
             </File>
             <File>
               <FileName>Timer.cpp</FileName>
@@ -3140,6 +3150,16 @@
               <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
             </File>
             <File>
+              <FileName>TemperatureSensorSimulator.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TemperatureSensorSimulator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.h</FilePath>
+            </File>
+            <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
@@ -4781,6 +4801,16 @@
               <FileName>TemperatureSensor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>TemperatureSensorSimulator.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TemperatureSensorSimulator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.h</FilePath>
             </File>
             <File>
               <FileName>Timer.cpp</FileName>
@@ -6426,6 +6456,16 @@
               <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
             </File>
             <File>
+              <FileName>TemperatureSensorSimulator.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TemperatureSensorSimulator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.h</FilePath>
+            </File>
+            <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
@@ -8069,6 +8109,16 @@
               <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
             </File>
             <File>
+              <FileName>TemperatureSensorSimulator.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TemperatureSensorSimulator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.h</FilePath>
+            </File>
+            <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
@@ -9710,6 +9760,16 @@
               <FileName>TemperatureSensor.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>TemperatureSensorSimulator.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>TemperatureSensorSimulator.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.h</FilePath>
             </File>
             <File>
               <FileName>Timer.cpp</FileName>
