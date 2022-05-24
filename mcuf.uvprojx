@@ -1527,6 +1527,26 @@
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
             </File>
             <File>
+              <FileName>VirtualAnalogInputPin.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualAnalogInputPin.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualAnalogInputPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualAnalogInputPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualGeneralPin.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualGeneralPin.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualGeneralPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualGeneralPin.h</FilePath>
+            </File>
+            <File>
               <FileName>VirtualTemperatureSensor.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.cpp</FilePath>
@@ -3178,6 +3198,26 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualAnalogInputPin.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualAnalogInputPin.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualAnalogInputPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualAnalogInputPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualGeneralPin.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualGeneralPin.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualGeneralPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualGeneralPin.h</FilePath>
             </File>
             <File>
               <FileName>VirtualTemperatureSensor.cpp</FileName>
@@ -4833,6 +4873,26 @@
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
             </File>
             <File>
+              <FileName>VirtualAnalogInputPin.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualAnalogInputPin.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualAnalogInputPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualAnalogInputPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualGeneralPin.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualGeneralPin.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualGeneralPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualGeneralPin.h</FilePath>
+            </File>
+            <File>
               <FileName>VirtualTemperatureSensor.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.cpp</FilePath>
@@ -6484,6 +6544,26 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualAnalogInputPin.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualAnalogInputPin.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualAnalogInputPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualAnalogInputPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualGeneralPin.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualGeneralPin.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualGeneralPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualGeneralPin.h</FilePath>
             </File>
             <File>
               <FileName>VirtualTemperatureSensor.cpp</FileName>
@@ -8139,6 +8219,26 @@
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
             </File>
             <File>
+              <FileName>VirtualAnalogInputPin.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualAnalogInputPin.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualAnalogInputPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualAnalogInputPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualGeneralPin.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualGeneralPin.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualGeneralPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualGeneralPin.h</FilePath>
+            </File>
+            <File>
               <FileName>VirtualTemperatureSensor.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.cpp</FilePath>
@@ -9790,6 +9890,26 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualAnalogInputPin.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualAnalogInputPin.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualAnalogInputPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualAnalogInputPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualGeneralPin.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualGeneralPin.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualGeneralPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualGeneralPin.h</FilePath>
             </File>
             <File>
               <FileName>VirtualTemperatureSensor.cpp</FileName>

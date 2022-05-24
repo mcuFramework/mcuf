@@ -30,6 +30,8 @@
 #include "TemperatureSensor.h"
 #include "Timer.h"
 #include "TimerTask.h"
+#include "VirtualAnalogInputPin.h"
+#include "VirtualGeneralPin.h"
 #include "VirtualTemperatureSensor.h"
 #include "Voltmeter.h"
 
