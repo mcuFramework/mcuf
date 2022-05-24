@@ -12,7 +12,7 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/util/TemperatureSensorSimulator.h"
+#include "mcuf/util/VirtualTemperatureSensor.h"
 
 /* ****************************************************************************************
  * Macro
@@ -25,7 +25,7 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-using mcuf::util::TemperatureSensorSimulator;
+using mcuf::util::VirtualTemperatureSensor;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -38,7 +38,7 @@ using mcuf::util::TemperatureSensorSimulator;
  * @brief Construct a new Temperature Sensor Simulator object
  * 
  */
-TemperatureSensorSimulator::TemperatureSensorSimulator(void){
+VirtualTemperatureSensor::VirtualTemperatureSensor(void){
   this->mValue = 25.0f;
   return;
 }
@@ -48,7 +48,7 @@ TemperatureSensorSimulator::TemperatureSensorSimulator(void){
  * 
  * @param value 
  */
-TemperatureSensorSimulator::TemperatureSensorSimulator(float value){
+VirtualTemperatureSensor::VirtualTemperatureSensor(float value){
   this->mValue = value;
   return;
 }
@@ -57,7 +57,7 @@ TemperatureSensorSimulator::TemperatureSensorSimulator(float value){
  * @brief Destroy the Temperature Sensor Simulator object
  * 
  */
-TemperatureSensorSimulator::~TemperatureSensorSimulator(void){
+VirtualTemperatureSensor::~VirtualTemperatureSensor(void){
   return;
 }
 
@@ -78,7 +78,7 @@ TemperatureSensorSimulator::~TemperatureSensorSimulator(void){
  * 
  * @return float 
  */
-float TemperatureSensorSimulator::getCelsius(void){
+float VirtualTemperatureSensor::getCelsius(void){
   return this->mValue;
 }
 
@@ -90,7 +90,7 @@ float TemperatureSensorSimulator::getCelsius(void){
  * 
  * @return float 
  */
-float TemperatureSensorSimulator::setCelsius(float value){
+float VirtualTemperatureSensor::setCelsius(float value){
   this->mValue = value;
   return this->getCelsius();
 }

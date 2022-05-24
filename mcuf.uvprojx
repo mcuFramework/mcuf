@@ -1497,16 +1497,6 @@
               <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
             </File>
             <File>
-              <FileName>TemperatureSensorSimulator.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>TemperatureSensorSimulator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.h</FilePath>
-            </File>
-            <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
@@ -1535,6 +1525,16 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualTemperatureSensor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualTemperatureSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.h</FilePath>
             </File>
             <File>
               <FileName>Voltmeter.cpp</FileName>
@@ -3150,16 +3150,6 @@
               <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
             </File>
             <File>
-              <FileName>TemperatureSensorSimulator.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>TemperatureSensorSimulator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.h</FilePath>
-            </File>
-            <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
@@ -3188,6 +3178,16 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualTemperatureSensor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualTemperatureSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.h</FilePath>
             </File>
             <File>
               <FileName>Voltmeter.cpp</FileName>
@@ -4803,16 +4803,6 @@
               <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
             </File>
             <File>
-              <FileName>TemperatureSensorSimulator.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>TemperatureSensorSimulator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.h</FilePath>
-            </File>
-            <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
@@ -4841,6 +4831,16 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualTemperatureSensor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualTemperatureSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.h</FilePath>
             </File>
             <File>
               <FileName>Voltmeter.cpp</FileName>
@@ -6456,16 +6456,6 @@
               <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
             </File>
             <File>
-              <FileName>TemperatureSensorSimulator.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>TemperatureSensorSimulator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.h</FilePath>
-            </File>
-            <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
@@ -6494,6 +6484,16 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualTemperatureSensor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualTemperatureSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.h</FilePath>
             </File>
             <File>
               <FileName>Voltmeter.cpp</FileName>
@@ -8109,16 +8109,6 @@
               <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
             </File>
             <File>
-              <FileName>TemperatureSensorSimulator.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>TemperatureSensorSimulator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.h</FilePath>
-            </File>
-            <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
@@ -8147,6 +8137,16 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualTemperatureSensor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualTemperatureSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.h</FilePath>
             </File>
             <File>
               <FileName>Voltmeter.cpp</FileName>
@@ -9762,16 +9762,6 @@
               <FilePath>.\src\main\mcuf\util\TemperatureSensor.h</FilePath>
             </File>
             <File>
-              <FileName>TemperatureSensorSimulator.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>TemperatureSensorSimulator.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\TemperatureSensorSimulator.h</FilePath>
-            </File>
-            <File>
               <FileName>Timer.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Timer.cpp</FilePath>
@@ -9800,6 +9790,16 @@
               <FileName>MemoryPool.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualTemperatureSensor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>VirtualTemperatureSensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\VirtualTemperatureSensor.h</FilePath>
             </File>
             <File>
               <FileName>Voltmeter.cpp</FileName>

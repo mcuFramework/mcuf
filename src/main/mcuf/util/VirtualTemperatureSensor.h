@@ -23,7 +23,7 @@
  */  
 namespace mcuf{
   namespace util{
-    class TemperatureSensorSimulator;
+    class VirtualTemperatureSensor;
   }
 }
 
@@ -31,7 +31,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::util::TemperatureSensorSimulator extends mcuf::lang::Object implements
+class mcuf::util::VirtualTemperatureSensor extends mcuf::lang::Object implements
 public mcuf::util::TemperatureSensor{
 
   /* **************************************************************************************
@@ -64,20 +64,20 @@ public mcuf::util::TemperatureSensor{
      * @brief Construct a new Temperature Sensor Simulator object
      * 
      */
-    TemperatureSensorSimulator(void);
+    VirtualTemperatureSensor(void);
 
     /**
      * @brief Construct a new Temperature Sensor Simulator object
      * 
      * @param value 
      */
-    TemperatureSensorSimulator(float value);
+    VirtualTemperatureSensor(float value);
 
     /**
      * @brief Destroy the Temperature Sensor Simulator object
      * 
      */
-    virtual ~TemperatureSensorSimulator(void) override;
+    virtual ~VirtualTemperatureSensor(void) override;
 
   /* **************************************************************************************
    * Operator Method

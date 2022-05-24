@@ -28,9 +28,9 @@
 #include "Queue.h"
 #include "Stacker.h"
 #include "TemperatureSensor.h"
-#include "TemperatureSensorSimulator.h"
 #include "Timer.h"
 #include "TimerTask.h"
+#include "VirtualTemperatureSensor.h"
 #include "Voltmeter.h"
 
 /* ****************************************************************************************
