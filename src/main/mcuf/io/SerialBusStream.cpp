@@ -390,9 +390,23 @@ bool SerialBusStream::transfer(InputBuffer& inputBuffer, OutputBuffer& outputBuf
  * @param attachment user data
  */
 void SerialBusStream::onSerialBusEvent(SerialBusStatus status, int result, void* attachment){
-  if(this->mHandler != nullptr)
-    this->mHandler->completed(result, attachment);
-  
+  if(this->mHandler != nullptr){
+    switch(status){
+      case SerialBusStatus::READ_FAIL:
+      case SerialBusStatus::TRANSFER_FAIL_READ:
+      case SerialBusStatus::TRANSFER_FAIL_WRITE:
+      case SerialBusStatus::WRITE_FAIL:
+        this->mHandler->failed(nullptr, attachment);
+        break;
+      
+      case SerialBusStatus::READ_SUCCESSFUL:
+      case SerialBusStatus::TRANSFER_SUCCESSFUL:
+      case SerialBusStatus::WRITE_SUCCESSFUL:
+        this->mHandler->completed(result, attachment);
+        break;
+    }
+
+  }
   this->mBusy = false;
 }
 
