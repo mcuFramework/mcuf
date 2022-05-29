@@ -198,24 +198,6 @@ bool Object::systemUnlock(void) const{
     return false;
 }
 
-/**
- * @brief Get the Name object
- * 
- * @return const char* 
- */
-const char* Object::getName(void) const{
-  return typeid(*this).name();
-}
-
-/**
- * @brief 
- * 
- * @return uint32_t 
- */
-uint32_t Object::hashCode(void) const{
-  return typeid(*this).hash_code();
-}
-
 /* ****************************************************************************************
  * Protected Method <Static>
  */

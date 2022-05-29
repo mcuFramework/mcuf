@@ -187,20 +187,6 @@ class mcuf::lang::Object{
      * @return false 
      */
     virtual bool systemUnlock(void) const;
-    
-    /**
-     * @brief Get the Name object
-     * 
-     * @return const char* 
-     */
-    virtual const char* getName(void) const;
-
-    /**
-     * @brief 
-     * 
-     * @return uint32_t 
-     */
-    virtual uint32_t hashCode(void) const;
 
   /* **************************************************************************************
    * Protected Method <Static>

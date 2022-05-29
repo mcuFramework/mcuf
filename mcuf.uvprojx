@@ -2009,7 +2009,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions -frtti</MiscControls>
+              <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main;.\src\resources</IncludePath>
@@ -3682,7 +3682,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions -frtti</MiscControls>
+              <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main;.\src\resources</IncludePath>
@@ -5355,7 +5355,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions -frtti</MiscControls>
+              <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main;.\src\resources</IncludePath>
@@ -7028,7 +7028,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions -frtti</MiscControls>
+              <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main;.\src\resources</IncludePath>
@@ -8701,7 +8701,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions -frtti</MiscControls>
+              <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main;.\src\resources</IncludePath>
