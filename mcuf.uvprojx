@@ -1447,6 +1447,21 @@
               <FilePath>.\src\main\mcuf\util\Collection.h</FilePath>
             </File>
             <File>
+              <FileName>CommandLineExecutor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineExecutor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineExecutor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineExecutor.h</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineHandler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineHandler.h</FilePath>
+            </File>
+            <File>
               <FileName>Executor.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Executor.cpp</FilePath>
@@ -3118,6 +3133,21 @@
               <FileName>Collection.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Collection.h</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineExecutor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineExecutor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineExecutor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineExecutor.h</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineHandler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineHandler.h</FilePath>
             </File>
             <File>
               <FileName>Executor.cpp</FileName>
@@ -4793,6 +4823,21 @@
               <FilePath>.\src\main\mcuf\util\Collection.h</FilePath>
             </File>
             <File>
+              <FileName>CommandLineExecutor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineExecutor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineExecutor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineExecutor.h</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineHandler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineHandler.h</FilePath>
+            </File>
+            <File>
               <FileName>Executor.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Executor.cpp</FilePath>
@@ -6464,6 +6509,21 @@
               <FileName>Collection.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Collection.h</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineExecutor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineExecutor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineExecutor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineExecutor.h</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineHandler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineHandler.h</FilePath>
             </File>
             <File>
               <FileName>Executor.cpp</FileName>
@@ -8139,6 +8199,21 @@
               <FilePath>.\src\main\mcuf\util\Collection.h</FilePath>
             </File>
             <File>
+              <FileName>CommandLineExecutor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineExecutor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineExecutor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineExecutor.h</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineHandler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineHandler.h</FilePath>
+            </File>
+            <File>
               <FileName>Executor.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\main\mcuf\util\Executor.cpp</FilePath>
@@ -9810,6 +9885,21 @@
               <FileName>Collection.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Collection.h</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineExecutor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineExecutor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineExecutor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineExecutor.h</FilePath>
+            </File>
+            <File>
+              <FileName>CommandLineHandler.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\CommandLineHandler.h</FilePath>
             </File>
             <File>
               <FileName>Executor.cpp</FileName>
