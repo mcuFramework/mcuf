@@ -160,6 +160,12 @@ class mcuf::util::CommandLineExecutor extends mcuf::io::ByteBuffer{
      * 
      */
     void commandExecute(void);
+  
+    /**
+     * @brief 
+     * 
+     */
+    void bufferClear(void);
 
 };
 

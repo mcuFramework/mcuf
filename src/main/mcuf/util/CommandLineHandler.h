@@ -48,7 +48,7 @@ interface mcuf::util::CommandLineHandler{
    * @param args 
    * @param length 
    */
-  virtual execute(const char* args[], int length) abstract;
+  virtual void execute(char* const args[], int length) abstract;
 
 };
 

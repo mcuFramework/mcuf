@@ -90,8 +90,15 @@ CommandLineExecutor::~CommandLineExecutor(void){
  * 
  */
 void CommandLineExecutor::action(void){
+  if(this->mOutputBuffer.avariable() <= 0)
+    return;
+  
+  
   char* buffer = static_cast<char*>(this->pointer());
-  this->mArgs[0] = buffer;
+  if(this->mArgsLen == 0){
+    this->mArgs[0] = buffer;
+    ++this->mArgsLen;
+  }
   
   while (true){
     char temp = 0x00;
@@ -105,9 +112,14 @@ void CommandLineExecutor::action(void){
     switch(temp){
       //-----------------------------------------------------------------------------------
       case ' ':
+        if(this->mArgsLen >= 16){
+          this->putByte(' ');
+          break;
+        }
+        
         if(buffer[this->position()-1] != 0x00){
           this->putByte(0x00);
-          this->mArgs[++this->mArgsLen] = &buffer[this->position()];
+          this->mArgs[this->mArgsLen++] = &buffer[this->position()];
         }
         
         break;
@@ -117,16 +129,16 @@ void CommandLineExecutor::action(void){
       case '\r':
       case 0x00:
         this->putByte(0x00);
-        
+        this->flip();
+        this->commandExecute();
+        this->bufferClear();
         break;
       //-----------------------------------------------------------------------------------
       default:
         this->putByte(temp);
+        break;
     }
-
-    
   }
-  
 }
 
 /**
@@ -143,6 +155,7 @@ bool CommandLineExecutor::addCommand(mcuf::util::CommandLineHandler& commandLine
       return true;
     }
   }
+  return false;
 }
 
 /**
@@ -170,12 +183,7 @@ void CommandLineExecutor::clearCommand(void){
   for(int i=0; i<32; ++i)
     this->mCommand[i] = nullptr;
   
-  for(int i=0; i<16; ++i)
-    this->mArgs[i] = nullptr;
-
-  this->mArgsLen = 0;
-
-  this->flush();
+  this->bufferClear();
   return;
 }
 /* ****************************************************************************************
@@ -193,20 +201,44 @@ void CommandLineExecutor::clearCommand(void){
 /* ****************************************************************************************
  * Private Method
  */
+
 /**
  * @brief 
  * 
  */
 void CommandLineExecutor::commandExecute(void){
-  size_t cmdlen = strlen(static_cast<const char*>(this->pointer()));
+  const char* command = static_cast<const char*>(this->pointer());
+  size_t commandLen = strlen(command);
   for(int i=0; i<32; ++i){
     if(this->mCommand[i] == nullptr)
       continue;
     
-    
+    size_t targetLen = strlen(this->mCommand[i]->getCommand());
+    if(commandLen != targetLen)
+      continue;
       
-  }
+    if(strcmp(command, this->mCommand[i]->getCommand()) != 0)
+      continue;
+    
+    this->mCommand[i]->execute(this->mArgs, this->mArgsLen);
+    break;
+  }  
+}
+
+/**
+ * @brief 
+ * 
+ */
+void CommandLineExecutor::bufferClear(void){
+  this->flush();
   
+  for(int i=0; i<16; ++i)
+    this->mArgs[i] = nullptr;  
+  
+  this->mArgs[0] = static_cast<char*>(this->pointer());
+  this->mArgsLen = 1;
+  
+  return;
 }
 
 /* ****************************************************************************************

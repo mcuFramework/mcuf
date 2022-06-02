@@ -20,6 +20,8 @@
 #include "ArrayQueuePrototype.h"
 #include "BlockPool.h"
 #include "Collection.h"
+#include "CommandLineExecutor.h"
+#include "CommandLineHandler.h"
 #include "Executor.h"
 #include "Fifo.h"
 #include "Map.h"
