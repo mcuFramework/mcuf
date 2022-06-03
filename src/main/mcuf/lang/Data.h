@@ -177,7 +177,7 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @return false 
      */
     inline bool isEmpty(void) const{
-      return (this->isNull()) | (this->length() == 0);
+      return (this->isNull()) || (this->length() == 0);
     }
 
     /**
