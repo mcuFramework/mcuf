@@ -62,6 +62,14 @@ TimerTick::~TimerTick(void){
  * Public Method <Override>
  */
 
+/**
+ * @brief 
+ * 
+ */
+void TimerTick::run(void){
+  ++this->mStatus;
+}
+
 /* ****************************************************************************************
  * Public Method
  */
