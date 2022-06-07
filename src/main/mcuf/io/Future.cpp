@@ -243,6 +243,16 @@ bool Future::isIdle(void){
    return (this->mStatus == Status::IDLE);
 }
 
+/**
+ * @brief 
+ * 
+ * @return true 
+ * @return false 
+ */
+bool Future::isBusy(void){
+  return (this->mStatus == Status::WAIT);
+}
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */

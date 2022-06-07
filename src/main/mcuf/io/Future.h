@@ -194,6 +194,14 @@ class mcuf::io::Future extends mcuf::lang::Object implements
      */
     bool isIdle(void);
 
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool isBusy(void);
+
   /* **************************************************************************************
    * Protected Method <Static>
    */
