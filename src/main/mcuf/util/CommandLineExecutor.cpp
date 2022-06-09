@@ -79,8 +79,27 @@ CommandLineExecutor::~CommandLineExecutor(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override>
+ * Public Method <Override> - mcuf::lang::Iterable<mcuf::util::CommandLineHandler&>
  */
+
+/**
+ * @brief Performs the given action for each element of the Iterable until all elements 
+ *        have been processed or the action throws an exception. Unless otherwise 
+ *        specified by the implementing class, actions are performed in the order of 
+ *        iteration (if an iteration order is specified).
+ * 
+ * @param attachment User data.
+ * @param action The action to be performed for each element.
+ */
+void CommandLineExecutor::forEach(void* attachment, mcuf::function::BiConsumer<mcuf::util::CommandLineHandler*, void*>& action) const{
+  for(int i=0; i<32; ++i){
+    if(this->mCommand[i] == nullptr)
+      continue;
+
+    action.accept(this->mCommand[i], attachment);
+  }
+  return;
+}
 
 /* ****************************************************************************************
  * Public Method
@@ -176,6 +195,33 @@ bool CommandLineExecutor::removeCommand(mcuf::util::CommandLineHandler& commandL
 }
 
 /**
+ * @brief Get the Command object
+ * 
+ * @param command 
+ * @return mcuf::util::CommandLineHandler& 
+ */
+mcuf::util::CommandLineHandler* CommandLineExecutor::getCommand(const char* command){
+  if(command == nullptr)
+    return nullptr;
+
+  size_t commandLen = strlen(command);
+  for(int i=0; i<32; ++i){
+    if(this->mCommand[i] == nullptr)
+      continue;
+    
+    size_t targetLen = strlen(this->mCommand[i]->getCommand());
+    if(commandLen != targetLen)
+      continue;
+      
+    if(strcmp(command, this->mCommand[i]->getCommand()) != 0)
+      continue;
+    
+    return this->mCommand[i];
+  }
+  return nullptr;
+}
+
+/**
  * @brief 
  * 
  */
@@ -207,22 +253,11 @@ void CommandLineExecutor::clearCommand(void){
  * 
  */
 void CommandLineExecutor::commandExecute(void){
-  const char* command = static_cast<const char*>(this->pointer());
-  size_t commandLen = strlen(command);
-  for(int i=0; i<32; ++i){
-    if(this->mCommand[i] == nullptr)
-      continue;
-    
-    size_t targetLen = strlen(this->mCommand[i]->getCommand());
-    if(commandLen != targetLen)
-      continue;
-      
-    if(strcmp(command, this->mCommand[i]->getCommand()) != 0)
-      continue;
-    
-    this->mCommand[i]->execute(this->mArgs, this->mArgsLen);
-    break;
-  }  
+  mcuf::util::CommandLineHandler* c = this->getCommand(static_cast<const char*>(this->pointer()));
+  if(c != nullptr)
+    c->execute(this->mArgs, this->mArgsLen);
+
+  return;
 }
 
 /**

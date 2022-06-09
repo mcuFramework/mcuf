@@ -41,6 +41,13 @@ interface mcuf::util::CommandLineHandler{
    * @return const char* 
    */
   virtual const char* getCommand(void) const abstract;
+  
+  /**
+   * @brief Get the Help object
+   * 
+   * @return const char* 
+   */
+  virtual const char* getHelp(void) const abstract;
 
   /**
    * @brief Construct a new execute object

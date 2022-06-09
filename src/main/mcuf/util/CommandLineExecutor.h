@@ -15,6 +15,7 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
+#include "mcuf/lang/Iterable.h"
 #include "mcuf/io/ByteBuffer.h"
 #include "mcuf/io/OutputBuffer.h"
 #include "mcuf/util/CommandLineHandler.h"
@@ -32,7 +33,8 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::util::CommandLineExecutor extends mcuf::io::ByteBuffer{
+class mcuf::util::CommandLineExecutor extends mcuf::io::ByteBuffer implements
+public mcuf::lang::Iterable<mcuf::util::CommandLineHandler>{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -47,8 +49,8 @@ class mcuf::util::CommandLineExecutor extends mcuf::io::ByteBuffer{
    */
   private:
     mcuf::io::OutputBuffer& mOutputBuffer;
-    char* mArgs[16];
     mcuf::util::CommandLineHandler* mCommand[32];
+    char* mArgs[16];
     int mArgsLen;
 
   /* **************************************************************************************
@@ -94,9 +96,21 @@ class mcuf::util::CommandLineExecutor extends mcuf::io::ByteBuffer{
    */
 
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> - mcuf::lang::Iterable<mcuf::util::CommandLineHandler&>
    */
-
+  public:
+    /**
+     * @brief Performs the given action for each element of the Iterable until all elements 
+     *        have been processed or the action throws an exception. Unless otherwise 
+     *        specified by the implementing class, actions are performed in the order of 
+     *        iteration (if an iteration order is specified).
+     * 
+     * @param attachment User data.
+     * @param action The action to be performed for each element.
+     */
+    virtual void forEach(void* attachment, 
+                        mcuf::function::BiConsumer<mcuf::util::CommandLineHandler*, void*>& action) const override;
+                        
   /* **************************************************************************************
    * Public Method
    */
@@ -124,6 +138,14 @@ class mcuf::util::CommandLineExecutor extends mcuf::io::ByteBuffer{
      * @return false 
      */
     bool removeCommand(mcuf::util::CommandLineHandler& commandLineHandler);
+
+    /**
+     * @brief Get the Command object
+     * 
+     * @param command 
+     * @return mcuf::util::CommandLineHandler& 
+     */
+    mcuf::util::CommandLineHandler* getCommand(const char* command);
 
     /**
      * @brief 
