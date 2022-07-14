@@ -19,15 +19,17 @@
 /* ****************************************************************************************
  * Namespace
  */
-namespace util{
-  interface NioExecuteMethod;
+namespace mcuf{
+  namespace util{
+    interface NioExecuteMethod;
+  }
 }
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface util::NioExecuteMethod{
+interface mcuf::util::NioExecuteMethod{
 
   /* **************************************************************************************
    * Method
