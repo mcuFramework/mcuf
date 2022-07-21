@@ -225,11 +225,11 @@ int RingBuffer::put(const void *data, int num){
  */
 
 /**
- * @brief 
+ * @brief 將data輸入至InputBuffer
  * 
- * @param data 
- * @return true 
- * @return false 
+ * @param data 資料來源
+ * @return true 成功將data輸入至InputBuffer
+ * @return false InputBuffer已滿
  */
 bool RingBuffer::getByte(char& data){
   uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
@@ -246,20 +246,21 @@ bool RingBuffer::getByte(char& data){
 }
 
 /**
- * @brief 
+ * @brief 將outputBuffer內資料輸入至InputBuffer
  * 
- * @param byteBuffer 
- * @return int 
+ * @param byteBuffer 資料來源
+ * @return int 移動資料數量(byte)
  */
 int RingBuffer::get(InputBuffer& inputBuffer){
   return RingBuffer::get(inputBuffer, inputBuffer.remaining());
 }
 
 /**
- * @brief 
+ * @brief 將outputBuffer內資料輸入至InputBuffer並指定輸入長度
  * 
- * @param byteBuffer 
- * @return int 
+ * @param byteBuffer 資料來源
+ * @param length 輸入長度
+ * @return int 移動資料數量(byte)
  */
 int RingBuffer::get(mcuf::io::InputBuffer& inputBuffer, int length){
   if(length <= 0)
@@ -303,11 +304,11 @@ int RingBuffer::get(mcuf::io::InputBuffer& inputBuffer, int length){
 }
 
 /**
- * @brief 
+ * @brief 將buffer內資料輸入至InputBuffer
  * 
- * @param data 
- * @param num 
- * @return int 
+ * @param buffer 資料來源
+ * @param length 輸入長度
+ * @return int 移動資料數量(byte)
  */
 int RingBuffer::get(void* data, int num){
   if(num <= 0)
@@ -358,10 +359,10 @@ int RingBuffer::get(void* data, int num){
 }
 
 /**
- * @brief 
+ * @brief 將data內資料輸入至InputBuffer
  * 
- * @param value 
- * @return int 
+ * @param data 資料來源
+ * @return int 移動資料數量(byte)
  */
 int RingBuffer::skip(int value){
   int max = this->avariable();

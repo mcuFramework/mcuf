@@ -85,11 +85,12 @@ LinkedInputBuffer::~LinkedInputBuffer(void){
 /* ****************************************************************************************
  * Public Method
  */
+
 /**
- * @brief 
+ * @brief 取得InputBuffer是否已滿
  * 
- * @return true 
- * @return false 
+ * @return true 已滿
+ * @return false 未滿，仍有空間
  */
 bool LinkedInputBuffer::isFull(void) const {
   if(this->mCurrent.isFull() == false)
@@ -102,9 +103,9 @@ bool LinkedInputBuffer::isFull(void) const {
 }
 
 /**
- * @brief 
+ * @brief 取得InputBuffer內資料數量
  * 
- * @return int 
+ * @return int InputBuffer內資料數量
  */
 int LinkedInputBuffer::remaining(void) const {
   int result = this->mCurrent.remaining();
@@ -116,11 +117,11 @@ int LinkedInputBuffer::remaining(void) const {
 }
 
 /**
- * @brief pop buffer byte non blocking.
+ * @brief 將data輸入至InputBuffer
  * 
- * @param result 
- * @return true has data in buffer.
- * @return false no data in buffer.
+ * @param data 資料來源
+ * @return true 成功將data輸入至InputBuffer
+ * @return false InputBuffer已滿
  */
 bool LinkedInputBuffer::putByte(const char result){
   if(this->mCurrent.putByte(result) == true)
@@ -133,10 +134,10 @@ bool LinkedInputBuffer::putByte(const char result){
 }
 
 /**
- * @brief 
+ * @brief 將outputBuffer內資料輸入至InputBuffer
  * 
- * @param byteBuffer 
- * @return int 
+ * @param byteBuffer 資料來源
+ * @return int 移動資料數量(byte)
  */
 int LinkedInputBuffer::put(mcuf::io::OutputBuffer& outputBuffer){
   int result = this->mCurrent.put(outputBuffer);
@@ -147,11 +148,11 @@ int LinkedInputBuffer::put(mcuf::io::OutputBuffer& outputBuffer){
 }
 
 /**
- * @brief 
+ * @brief 將outputBuffer內資料輸入至InputBuffer並指定輸入長度
  * 
- * @param byteBuffer 
- * @param length 
- * @return int 
+ * @param byteBuffer 資料來源
+ * @param length 輸入長度
+ * @return int 移動資料數量(byte)
  */
 int LinkedInputBuffer::put(OutputBuffer& outputBuffer, int length){
   int result = this->mCurrent.put(outputBuffer, length);
@@ -164,11 +165,11 @@ int LinkedInputBuffer::put(OutputBuffer& outputBuffer, int length){
 }
 
 /**
- * @brief 
+ * @brief 將buffer內資料輸入至InputBuffer
  * 
- * @param buffer 
- * @param bufferSize 
- * @return int 
+ * @param buffer 資料來源
+ * @param length 輸入長度
+ * @return int 移動資料數量(byte)
  */
 int LinkedInputBuffer::put(const void* buffer, int bufferSize){
   int result = this->mCurrent.put(buffer, bufferSize);

@@ -95,55 +95,55 @@ public mcuf::io::InputBuffer{
    */
   public:
     /**
-     * @brief 
+     * @brief 取得InputBuffer是否已滿
      * 
-     * @return true 
-     * @return false 
+     * @return true 已滿
+     * @return false 未滿，仍有空間
      */
     virtual bool isFull(void) const override;
 
     /**
-     * @brief 
+     * @brief 取得InputBuffer內資料數量
      * 
-     * @return int 
+     * @return int InputBuffer內資料數量
      */
     virtual int remaining(void) const override;
 
     /**
-     * @brief pop buffer byte non blocking.
+     * @brief 將data輸入至InputBuffer
      * 
-     * @param result 
-     * @return true has data in buffer.
-     * @return false no data in buffer.
+     * @param data 資料來源
+     * @return true 成功將data輸入至InputBuffer
+     * @return false InputBuffer已滿
      */
-    virtual bool putByte(const char result) override;
+    virtual bool putByte(const char data) override;
 
     /**
-     * @brief 
+     * @brief 將outputBuffer內資料輸入至InputBuffer
      * 
-     * @param byteBuffer 
-     * @return int 
+     * @param byteBuffer 資料來源
+     * @return int 移動資料數量(byte)
      */
     virtual int put(mcuf::io::OutputBuffer& outputBuffer) override;
 
     /**
-     * @brief 
+     * @brief 將outputBuffer內資料輸入至InputBuffer並指定輸入長度
      * 
-     * @param byteBuffer 
-     * @param length 
-     * @return int 
+     * @param byteBuffer 資料來源
+     * @param length 輸入長度
+     * @return int 移動資料數量(byte)
      */
     virtual int put(mcuf::io::OutputBuffer& outputBuffer, int length) override;  
 
     /**
-     * @brief 
+     * @brief 將buffer內資料輸入至InputBuffer
      * 
-     * @param buffer 
-     * @param bufferSize 
-     * @return int 
+     * @param buffer 資料來源
+     * @param length 輸入長度
+     * @return int 移動資料數量(byte)
      */
-    virtual int put(const void* buffer, int bufferSize) override;
-
+    virtual int put(const void* buffer, int length) override;
+    
   /* **************************************************************************************
    * Public Method
    */
