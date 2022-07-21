@@ -106,6 +106,28 @@ class mcuf::lang::String extends mcuf::lang::Memory{
     inline operator const char*(void) const{
       return static_cast<const char*>(this->pointer());
     }
+    
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return String& 
+     */
+    inline String& operator+=(const char* str){
+      this->append(str);
+      return *this;
+    }
+    
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return String& 
+     */
+    inline String& operator=(const char* str){
+      this->set(str);
+      return *this;
+    }
 
   /* **************************************************************************************
    * Public Method <Static>
@@ -242,6 +264,20 @@ class mcuf::lang::String extends mcuf::lang::Memory{
    * Public Method
    */
   public:
+    
+    /**
+     * @brief 
+     * 
+     * @return uint32_t 
+     */
+    int size(void) const;
+  
+    /**
+     * @brief 取的String原始空間大小
+     * 
+     * @return int 
+     */
+    int bufferSize(void);
 
     /**
      * @brief 
@@ -318,13 +354,6 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @return String 
      */
     String clone(int offset, int length) const;
-  
-    /**
-     * @brief 
-     * 
-     * @return int 
-     */
-    int size(void) const; 
 
     /**
      * @brief 
@@ -334,6 +363,22 @@ class mcuf::lang::String extends mcuf::lang::Memory{
      * @return int 
      */
     int replace(char oldChar, char newChar);
+    
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return int 
+     */
+    String& append(const char* str);
+    
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return int 
+     */
+    String& set(const char* str);
 
   /* **************************************************************************************
    * Public Method <Inline>

@@ -93,7 +93,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline ByteBuffer& operator<<(char c){
-      this->putByte(c);
+      ByteBuffer::putByte(c);
       return *this;
     }  
   
@@ -101,7 +101,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline ByteBuffer& operator<<(short s){
-      this->putShort(s);
+      ByteBuffer::putShort(s);
       return *this;
     }  
   
@@ -109,7 +109,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline ByteBuffer& operator<<(int v){
-      this->putInt(v);
+      ByteBuffer::putInt(v);
       return *this;
     }  
   
@@ -117,7 +117,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline ByteBuffer& operator<<(const char* string){
-      this->put(string);
+      ByteBuffer::put(string);
       return *this;
     }
     
@@ -125,7 +125,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline ByteBuffer& operator<<(mcuf::lang::String& string){
-      this->put(string);
+      ByteBuffer::put(string);
       return *this;
     }        
     
@@ -133,7 +133,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline ByteBuffer& operator>>(char& c){
-      this->getByte(c);
+      ByteBuffer::getByte(c);
       return *this;
     }
     
@@ -141,7 +141,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline ByteBuffer& operator>>(uint8_t& c){
-      this->getByte(c);
+      ByteBuffer::getByte(c);
       return *this;
     }    
   
@@ -149,7 +149,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline ByteBuffer& operator>>(short& s){
-      this->getShort(s);
+      ByteBuffer::getShort(s);
       return *this;
     }
     
@@ -157,7 +157,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline ByteBuffer& operator>>(uint16_t& s){
-      this->getShort(s);
+      ByteBuffer::getShort(s);
       return *this;
     }  
   
@@ -165,7 +165,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline ByteBuffer& operator>>(int& v){
-      this->getInt(v);
+      ByteBuffer::getInt(v);
       return *this;
     }
     
@@ -173,7 +173,7 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline ByteBuffer& operator>>(unsigned int& v){
-      this->getInt(v);
+      ByteBuffer::getInt(v);
       return *this;
     }
     
@@ -181,46 +181,46 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline int operator=(int v){
-      this->position(v);
-      return this->position();
+      ByteBuffer::position(v);
+      return ByteBuffer::position();
     }
     
     /**
      *
      */
     inline void operator+=(int shift){
-      this->position(this->position() + shift);
+      ByteBuffer::position(ByteBuffer::position() + shift);
     }
     
     /**
      *
      */
     inline void operator-=(int shift){
-      this->position(this->position() - shift);
+      ByteBuffer::position(ByteBuffer::position() - shift);
     }
     
     /**
      *
      */
     inline unsigned int operator++(void){
-      this->position(this->position() + 1);
-      return static_cast<unsigned int>(this->position());
+      ByteBuffer::position(ByteBuffer::position() + 1);
+      return static_cast<unsigned int>(ByteBuffer::position());
     }
     
     /**
      *
      */
     inline unsigned int operator--(void){
-      this->position(this->position() - 1);
-      return static_cast<unsigned int>(this->position());
+      ByteBuffer::position(ByteBuffer::position() - 1);
+      return static_cast<unsigned int>(ByteBuffer::position());
     }
 
         /**
      *
      */
     inline unsigned int operator++(int){
-      unsigned int result = static_cast<unsigned int>(this->position());
-      this->position(this->position() + 1);
+      unsigned int result = static_cast<unsigned int>(ByteBuffer::position());
+      ByteBuffer::position(ByteBuffer::position() + 1);
       return result;
     }
     
@@ -228,8 +228,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      *
      */
     inline unsigned int operator--(int){
-      unsigned int result = static_cast<unsigned int>(this->position());
-      this->position(this->position() - 1);
+      unsigned int result = static_cast<unsigned int>(ByteBuffer::position());
+      ByteBuffer::position(ByteBuffer::position() - 1);
       return result;
     }
     
@@ -285,10 +285,10 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @brief 
      * 
      */
-    inline virtual void flush(void) override{
-      this->mPosition = 0;
-      this->mMark = 0;
-      this->mLimit = static_cast<uint16_t>(this->length());
+    virtual inline void flush(void) override{
+      ByteBuffer::mPosition = 0;
+      ByteBuffer::mMark = 0;
+      ByteBuffer::mLimit = static_cast<uint16_t>(ByteBuffer::length());
       return;
     }
   
@@ -302,8 +302,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
-    inline virtual bool isEmpty(void) const override{
-      return (this->mPosition >= this->mLimit);
+    virtual inline bool isEmpty(void) const override{
+      return (ByteBuffer::mPosition >= ByteBuffer::mLimit);
     }    
   
     /**
@@ -311,8 +311,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * 
      * @return int 
      */
-    inline virtual int avariable(void) const override{
-      return (this->mLimit - this->mPosition);
+    virtual inline int avariable(void) const override{
+      return (ByteBuffer::mLimit - ByteBuffer::mPosition);
     }
 
     /**
@@ -367,8 +367,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @return true is full.
      * @return false not full.
      */
-    inline virtual bool isFull(void) const override{
-      return (this->mPosition >= this->mLimit);
+    virtual inline bool isFull(void) const override{
+      return (ByteBuffer::mPosition >= ByteBuffer::mLimit);
     }    
   
     /**
@@ -376,8 +376,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * 
      * @return int 
      */
-    inline virtual int remaining(void) const override{
-      return (this->mLimit - this->mPosition);
+    virtual inline int remaining(void) const override{
+      return (ByteBuffer::mLimit - ByteBuffer::mPosition);
     }
 
     /**
@@ -425,8 +425,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * 
      * @return unsigned int 
      */
-    inline int limit(void) const{
-      return this->mLimit;
+    virtual inline int limit(void) const{
+      return ByteBuffer::mLimit;
     }
 
     /**
@@ -434,8 +434,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * 
      * @return unsigned int 
      */
-    inline int capacity(void) const{
-      return this->length();
+    virtual inline int capacity(void) const{
+      return ByteBuffer::length();
     }
     
     /**
@@ -443,16 +443,16 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * 
      * @return unsigned int 
      */
-    inline int position(void) const{
-      return this->mPosition;
+    virtual inline int position(void) const{
+      return ByteBuffer::mPosition;
     }  
     
     /**
      * @brief 
      * 
      */
-    inline void reset(void){
-      this->position(this->mMark);
+    virtual inline void reset(void){
+      ByteBuffer::position(ByteBuffer::mMark);
       return;
     }  
     
@@ -460,8 +460,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @brief 
      * 
      */
-    inline void mark(void){
-      this->mMark = mPosition;
+    virtual inline void mark(void){
+      ByteBuffer::mMark = mPosition;
       return;
     }
     
@@ -469,9 +469,9 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @brief 
      * 
      */
-    inline void rewind(void){
-      this->mPosition = 0;
-      this->mMark = 0;
+    virtual inline void rewind(void){
+      ByteBuffer::mPosition = 0;
+      ByteBuffer::mMark = 0;
       return;
     }  
     
@@ -482,8 +482,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
-    inline bool getByte(uint8_t& result){
-      return this->getByte(reinterpret_cast<char&>(result));
+    virtual inline bool getByte(uint8_t& result){
+      return ByteBuffer::getByte(reinterpret_cast<char&>(result));
     }
 
     /**
@@ -493,8 +493,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
-    inline bool getShort(uint16_t& result){
-      return this->getShort(reinterpret_cast<short&>(result));
+    virtual inline bool getShort(uint16_t& result){
+      return ByteBuffer::getShort(reinterpret_cast<short&>(result));
     }
     
     /**
@@ -504,8 +504,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
-    inline bool getShortMsb(uint16_t& result){
-      return this->getShortMsb(reinterpret_cast<short&>(result));
+    virtual inline bool getShortMsb(uint16_t& result){
+      return ByteBuffer::getShortMsb(reinterpret_cast<short&>(result));
     }
 
     /**
@@ -515,8 +515,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
-    inline bool getInt(unsigned int& result){
-      return this->getInt(reinterpret_cast<int&>(result));
+    virtual inline bool getInt(unsigned int& result){
+      return ByteBuffer::getInt(reinterpret_cast<int&>(result));
     }
     
     /**
@@ -526,8 +526,8 @@ class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
-    inline bool getIntMsb(unsigned int& result){
-      return this->getIntMsb(reinterpret_cast<int&>(result));
+    virtual inline bool getIntMsb(unsigned int& result){
+      return ByteBuffer::getIntMsb(reinterpret_cast<int&>(result));
     }
     
   /* **************************************************************************************

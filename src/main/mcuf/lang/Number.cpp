@@ -28,7 +28,7 @@ using mcuf::lang::Number;
  * 
  */
 Number::Number(void){
-  this->mValue.u32 = 0;
+  Number::mValue.u32 = 0;
   return;
 }
 
@@ -37,7 +37,7 @@ Number::Number(void){
  * 
  */
 Number::~Number(void){
-  this->mValue.u32 = 0;
+  Number::mValue.u32 = 0;
   return;
 }
 

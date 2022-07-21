@@ -15,8 +15,8 @@
 /* ****************************************************************************************
  * Macro
  */  
-#define INDH()    (static_cast<int>(this->mHead & (this->mCount - 1)))
-#define INDT()    (static_cast<int>(this->mTail & (this->mCount - 1)))
+#define INDH()    (static_cast<int>(RingBuffer::mHead & (RingBuffer::mCount - 1)))
+#define INDT()    (static_cast<int>(RingBuffer::mTail & (RingBuffer::mCount - 1)))
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))
 
@@ -43,7 +43,7 @@ using mcuf::io::OutputBuffer;
  * @param bufferSize 
  */
 RingBuffer::RingBuffer(void* buffer, uint32_t bufferSize) : Memory(buffer, bufferSize){
-  this->init();
+  RingBuffer::init();
   return;
 }
 
@@ -53,7 +53,7 @@ RingBuffer::RingBuffer(void* buffer, uint32_t bufferSize) : Memory(buffer, buffe
  * @param memory 
  */
 RingBuffer::RingBuffer(const Memory& memory) : Memory(memory){
-  this->init();
+  RingBuffer::init();
   return;
 }
 
@@ -63,7 +63,7 @@ RingBuffer::RingBuffer(const Memory& memory) : Memory(memory){
  * @param length 
  */
 RingBuffer::RingBuffer(uint32_t length) : Memory(length){
-  this->init();
+  RingBuffer::init();
   return;
 }
 
@@ -95,15 +95,15 @@ RingBuffer::~RingBuffer(void){
  * @return false 
  */
 bool RingBuffer::putByte(const char result){
-  uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
+  uint8_t *ptr = static_cast<uint8_t*>(RingBuffer::pointer());
 
   /* We cannot insert when queue is full */
-  if (this->isFull())
+  if (RingBuffer::isFull())
     return false;
 
   ptr += INDH();
   *(static_cast<uint8_t*>(ptr)) = (static_cast<const uint8_t>(result));
-  this->mHead++;
+  RingBuffer::mHead++;
 
   return true;
 }
@@ -134,17 +134,17 @@ int RingBuffer::put(OutputBuffer& outputBuffer, int length){
   if(num > length)
     num = length;
 
-  uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
+  uint8_t *ptr = static_cast<uint8_t*>(RingBuffer::pointer());
   int cnt1, cnt2;
 
   /* We cannot insert when queue is full */
-  if (this->isFull())
+  if (RingBuffer::isFull())
     return 0;
 
   /* Calculate the segment lengths */
-  cnt1 = cnt2 = this->remaining();
-  if (INDH() + cnt1 >= static_cast<int>(this->mCount))
-    cnt1 = static_cast<int>(this->mCount) - INDH();
+  cnt1 = cnt2 = RingBuffer::remaining();
+  if (INDH() + cnt1 >= static_cast<int>(RingBuffer::mCount))
+    cnt1 = static_cast<int>(RingBuffer::mCount) - INDH();
   cnt2 -= cnt1;
 
   cnt1 = MIN(cnt1, num);
@@ -156,12 +156,12 @@ int RingBuffer::put(OutputBuffer& outputBuffer, int length){
   /* Write segment 1 */
   ptr += INDH();
   outputBuffer.get(ptr, cnt1);
-  this->mHead += static_cast<uint32_t>(cnt1);
+  RingBuffer::mHead += static_cast<uint32_t>(cnt1);
 
   /* Write segment 2 */
-  ptr = static_cast<uint8_t*>(this->pointer()) + INDH();
+  ptr = static_cast<uint8_t*>(RingBuffer::pointer()) + INDH();
   outputBuffer.get(ptr, cnt2);
-  this->mHead += static_cast<uint32_t>(cnt2);
+  RingBuffer::mHead += static_cast<uint32_t>(cnt2);
 
   return (cnt1 + cnt2);
 }
@@ -178,26 +178,26 @@ int RingBuffer::put(const void *data, int num){
     return 0;
   
   if(data == nullptr){
-    uint32_t max = static_cast<uint32_t>(this->remaining());
+    uint32_t max = static_cast<uint32_t>(RingBuffer::remaining());
 
     if(static_cast<uint32_t>(num) > max)
       num = static_cast<int>(max);
 
-    this->mHead += static_cast<uint32_t>(num);
+    RingBuffer::mHead += static_cast<uint32_t>(num);
     return static_cast<int>(num);
   }
 
-  uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
+  uint8_t *ptr = static_cast<uint8_t*>(RingBuffer::pointer());
   int cnt1, cnt2;
 
   /* We cannot insert when queue is full */
-  if (this->isFull())
+  if (RingBuffer::isFull())
     return 0;
 
   /* Calculate the segment lengths */
-  cnt1 = cnt2 = this->remaining();
-  if (INDH() + cnt1 >= static_cast<int>(this->mCount))
-    cnt1 = static_cast<int>(this->mCount) - INDH();
+  cnt1 = cnt2 = RingBuffer::remaining();
+  if (INDH() + cnt1 >= static_cast<int>(RingBuffer::mCount))
+    cnt1 = static_cast<int>(RingBuffer::mCount) - INDH();
   cnt2 -= cnt1;
 
   cnt1 = MIN(cnt1, num);
@@ -209,13 +209,13 @@ int RingBuffer::put(const void *data, int num){
   /* Write segment 1 */
   ptr += INDH();
   memcpy(ptr, data, static_cast<uint32_t>(cnt1));
-  this->mHead += static_cast<uint32_t>(cnt1);
+  RingBuffer::mHead += static_cast<uint32_t>(cnt1);
 
   /* Write segment 2 */
-  ptr = static_cast<uint8_t*>(this->pointer()) + INDH();
+  ptr = static_cast<uint8_t*>(RingBuffer::pointer()) + INDH();
   data = static_cast<const uint8_t*>(data) + cnt1;
   memcpy(ptr, data, static_cast<uint32_t>(cnt2));
-  this->mHead += static_cast<uint32_t>(cnt2);
+  RingBuffer::mHead += static_cast<uint32_t>(cnt2);
 
   return (cnt1 + cnt2);
 }
@@ -232,15 +232,15 @@ int RingBuffer::put(const void *data, int num){
  * @return false InputBuffer已滿
  */
 bool RingBuffer::getByte(char& data){
-  uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
+  uint8_t *ptr = static_cast<uint8_t*>(RingBuffer::pointer());
 
   /* We cannot pop when queue is empty */
-  if (this->isEmpty())
+  if (RingBuffer::isEmpty())
     return false;
 
   ptr += INDT();
   data = static_cast<char>(*ptr);
-  ++this->mTail;
+  ++RingBuffer::mTail;
 
   return true;
 }
@@ -270,17 +270,17 @@ int RingBuffer::get(mcuf::io::InputBuffer& inputBuffer, int length){
   if(num > length)
     num = length;
   
-  uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
+  uint8_t *ptr = static_cast<uint8_t*>(RingBuffer::pointer());
   int cnt1, cnt2;
 
   /* We cannot insert when queue is full */
-  if (this->isEmpty())
+  if (RingBuffer::isEmpty())
     return 0;
 
   /* Calculate the segment lengths */
-  cnt1 = cnt2 = this->avariable();
-  if(INDT() + cnt1 >= static_cast<int>(this->mCount))
-    cnt1 = static_cast<int>(this->mCount) - INDT();
+  cnt1 = cnt2 = RingBuffer::avariable();
+  if(INDT() + cnt1 >= static_cast<int>(RingBuffer::mCount))
+    cnt1 = static_cast<int>(RingBuffer::mCount) - INDT();
     
   cnt2 -= cnt1;
 
@@ -293,12 +293,12 @@ int RingBuffer::get(mcuf::io::InputBuffer& inputBuffer, int length){
   /* Write segment 1 */
   ptr += INDT();
   inputBuffer.put(ptr, cnt1);
-  this->mTail += static_cast<uint32_t>(cnt1);
+  RingBuffer::mTail += static_cast<uint32_t>(cnt1);
 
   /* Write segment 2 */
-  ptr = static_cast<uint8_t*>(this->pointer()) + INDT();
+  ptr = static_cast<uint8_t*>(RingBuffer::pointer()) + INDT();
   inputBuffer.put(ptr, cnt2);
-  this->mTail += static_cast<uint32_t>(cnt2);
+  RingBuffer::mTail += static_cast<uint32_t>(cnt2);
 
   return cnt1 + cnt2;
 }
@@ -315,26 +315,26 @@ int RingBuffer::get(void* data, int num){
     return 0;
   
   if(data == nullptr){
-    uint32_t max = static_cast<uint32_t>(this->avariable());
+    uint32_t max = static_cast<uint32_t>(RingBuffer::avariable());
 
     if(static_cast<uint32_t>(num) > max)
       num = static_cast<int>(max);
 
-    this->mTail += static_cast<uint32_t>(num);
+    RingBuffer::mTail += static_cast<uint32_t>(num);
     return num;
   }
 
-  uint8_t *ptr = static_cast<uint8_t*>(this->pointer());
+  uint8_t *ptr = static_cast<uint8_t*>(RingBuffer::pointer());
   int cnt1, cnt2;
 
   /* We cannot insert when queue is empty */
-  if (this->isEmpty())
+  if (RingBuffer::isEmpty())
     return 0;
 
   /* Calculate the segment lengths */
-  cnt1 = cnt2 = this->avariable();
-  if(INDT() + cnt1 >= static_cast<int>(this->mCount))
-    cnt1 = static_cast<int>(this->mCount) - INDT();
+  cnt1 = cnt2 = RingBuffer::avariable();
+  if(INDT() + cnt1 >= static_cast<int>(RingBuffer::mCount))
+    cnt1 = static_cast<int>(RingBuffer::mCount) - INDT();
   
   cnt2 -= cnt1;
 
@@ -347,13 +347,13 @@ int RingBuffer::get(void* data, int num){
   /* Write segment 1 */
   ptr += INDT();
   memcpy(data, ptr, static_cast<uint32_t>(cnt1));
-  this->mTail += static_cast<uint32_t>(cnt1);
+  RingBuffer::mTail += static_cast<uint32_t>(cnt1);
 
   /* Write segment 2 */
-  ptr = static_cast<uint8_t*>(this->pointer()) + INDT();
+  ptr = static_cast<uint8_t*>(RingBuffer::pointer()) + INDT();
   data = static_cast<uint8_t*>(data) + cnt1;
   memcpy(data, ptr, static_cast<uint32_t>(cnt2));
-  this->mTail += static_cast<uint32_t>(cnt2);
+  RingBuffer::mTail += static_cast<uint32_t>(cnt2);
 
   return cnt1 + cnt2;
 }
@@ -365,12 +365,12 @@ int RingBuffer::get(void* data, int num){
  * @return int 移動資料數量(byte)
  */
 int RingBuffer::skip(int value){
-  int max = this->avariable();
+  int max = RingBuffer::avariable();
   
   if(value > max)
     value = max;
 
-  this->mTail += static_cast<uint32_t>(value);
+  RingBuffer::mTail += static_cast<uint32_t>(value);
   return value;
 }
 
@@ -399,9 +399,9 @@ int RingBuffer::skip(int value){
  * 
  */
 void RingBuffer::init(void){
-  uint32_t bufferSize = static_cast<uint32_t>(this->length());
-  this->mHead = 0;
-  this->mTail = 0;
+  uint32_t bufferSize = static_cast<uint32_t>(RingBuffer::length());
+  RingBuffer::mHead = 0;
+  RingBuffer::mTail = 0;
   
   for(int i=0; i<32; i++){
     bufferSize &= ~(1<<i);
@@ -411,7 +411,7 @@ void RingBuffer::init(void){
     }
   }
   
-  this->mCount = bufferSize;
+  RingBuffer::mCount = bufferSize;
 }
  
 /* ****************************************************************************************

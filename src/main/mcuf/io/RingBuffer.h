@@ -106,8 +106,8 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
      * @brief 
      * 
      */
-    inline virtual void flush(void) override{
-      this->mHead = this->mTail = 0;
+    virtual inline void flush(void) override{
+      RingBuffer::mHead = RingBuffer::mTail = 0;
     }
 
   /* **************************************************************************************
@@ -120,7 +120,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
      * @return true 
      * @return false 
      */
-    inline virtual bool isEmpty(void) const override{
+    virtual inline bool isEmpty(void) const override{
       return (VACCESS(const uint32_t, this->mHead) == VACCESS(const uint32_t, this->mTail));
     }
   
@@ -129,7 +129,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
      * 
      * @return int 
      */
-    inline virtual int avariable(void) const override{
+    virtual inline int avariable(void) const override{
       return static_cast<int>((VACCESS(const uint32_t, this->mHead) - VACCESS(const uint32_t, this->mTail)));
     }
 
@@ -185,8 +185,8 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
      * @return true 已滿
      * @return false 未滿，仍有空間
      */
-    inline virtual bool isFull(void) const override{
-      return (this->avariable() >= static_cast<int>(this->mCount));
+    virtual inline bool isFull(void) const override{
+      return (RingBuffer::avariable() >= static_cast<int>(RingBuffer::mCount));
     }
 
     /**
@@ -194,8 +194,8 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
      * 
      * @return int InputBuffer內資料數量
      */
-    inline virtual int remaining(void) const override{
-      return (static_cast<int>(this->mCount) - this->avariable());
+    virtual inline int remaining(void) const override{
+      return (static_cast<int>(RingBuffer::mCount) - RingBuffer::avariable());
     }
 
     /**
@@ -244,7 +244,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
      * @return int Size of the ring buffer in bytes.
      */
     inline int getSize(void){
-      return static_cast<int>(this->mCount);
+      return static_cast<int>(RingBuffer::mCount);
     }
 
     /**
@@ -253,7 +253,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
      * @return int 
      */
     inline int getHeadPosition(void){
-      return static_cast<int>((this->mHead & (this->mCount -1)));
+      return static_cast<int>((this->mHead & (RingBuffer::mCount -1)));
     }
 
     /**
@@ -262,7 +262,7 @@ class mcuf::io::RingBuffer extends mcuf::lang::Memory implements
      * @return int 
      */
     inline int getTailPosition(void){
-      return static_cast<int>((this->mTail & (this->mCount - 1)));
+      return static_cast<int>((this->mTail & (RingBuffer::mCount - 1)));
     }
 
   /* **************************************************************************************

@@ -33,7 +33,7 @@ using mcuf::lang::String;
  * @param memory 
  */
 ByteBuffer::ByteBuffer(const Memory& memory) : Memory(memory){
-  this->flush();
+  ByteBuffer::flush();
   return;
 }
 
@@ -43,7 +43,7 @@ ByteBuffer::ByteBuffer(const Memory& memory) : Memory(memory){
  * @param length 
  */
 ByteBuffer::ByteBuffer(size_t length) : Memory(length){
-  this->flush();
+  ByteBuffer::flush();
   return;
 }
 
@@ -85,7 +85,7 @@ int ByteBuffer::indexOf(char ch) const{
  * @return int 
  */
 int ByteBuffer::indexOf(char ch, int start) const{
-  return Pointer::indexOf(ch, start, this->limit());
+  return Pointer::indexOf(ch, start, ByteBuffer::limit());
 }
 
 /**
@@ -97,7 +97,7 @@ int ByteBuffer::indexOf(char ch, int start) const{
  * @return int 
  */
 int ByteBuffer::indexOfData(const void* destination, int destinationLen, int start) const{
-  return Pointer::indexOfData(destination, destinationLen, start, this->limit());
+  return Pointer::indexOfData(destination, destinationLen, start, ByteBuffer::limit());
 }
 
 /**
@@ -107,7 +107,7 @@ int ByteBuffer::indexOfData(const void* destination, int destinationLen, int sta
  * @return int 
  */
 int ByteBuffer::indexOfString(const char* str) const{
-  return Pointer::indexOfString(str, this->limit());
+  return Pointer::indexOfString(str, ByteBuffer::limit());
 }
 
 /* ****************************************************************************************
@@ -122,11 +122,11 @@ int ByteBuffer::indexOfString(const char* str) const{
  * @return false 
  */
 bool ByteBuffer::getByte(char& result){
-  if(this->mPosition >= this->mLimit)
+  if(ByteBuffer::mPosition >= ByteBuffer::mLimit)
     return false;
   
-  result = *static_cast<uint8_t*>(this->pointer(this->mPosition));
-  this->position(this->position() + 1);
+  result = *static_cast<uint8_t*>(ByteBuffer::pointer(ByteBuffer::mPosition));
+  ByteBuffer::position(ByteBuffer::position() + 1);
   return true;
 }
 
@@ -137,9 +137,9 @@ bool ByteBuffer::getByte(char& result){
  * @return int 
  */
 int ByteBuffer::get(InputBuffer& inputBuffer){
-  int len = this->avariable();
-  len = inputBuffer.put(this->pointer(this->mPosition), len);
-  this->position(this->position() + len);
+  int len = ByteBuffer::avariable();
+  len = inputBuffer.put(ByteBuffer::pointer(ByteBuffer::mPosition), len);
+  ByteBuffer::position(ByteBuffer::position() + len);
 
   return len;
 }
@@ -151,12 +151,12 @@ int ByteBuffer::get(InputBuffer& inputBuffer){
  * @return int 
  */
 int ByteBuffer::get(mcuf::io::InputBuffer& inputBuffer, int length){
-  int max = this->avariable();
+  int max = ByteBuffer::avariable();
   if(length > max)
     length = max;
   
-  int result = inputBuffer.put(this->pointer(this->mPosition), length);
-  this->position(this->position() + result);
+  int result = inputBuffer.put(ByteBuffer::pointer(ByteBuffer::mPosition), length);
+  ByteBuffer::position(ByteBuffer::position() + result);
 
   return result;
 }
@@ -169,13 +169,13 @@ int ByteBuffer::get(mcuf::io::InputBuffer& inputBuffer, int length){
  * @return int 
  */
 int ByteBuffer::get(void* buffer, int bufferSize){
-  int max = this->avariable();
-  int pos = this->position();
+  int max = ByteBuffer::avariable();
+  int pos = ByteBuffer::position();
   if(bufferSize > max)
     bufferSize = max;
 
-  this->copyTo(buffer, pos, bufferSize);
-  this->position(pos + bufferSize);
+  ByteBuffer::copyTo(buffer, pos, bufferSize);
+  ByteBuffer::position(pos + bufferSize);
   return bufferSize;
 }
 
@@ -186,11 +186,11 @@ int ByteBuffer::get(void* buffer, int bufferSize){
  * @return int 
  */
 int ByteBuffer::skip(int value){
-  int max = this->avariable();
+  int max = ByteBuffer::avariable();
   if(value > max)
     value = max;
   
-  this->position(this->position() + value);
+  ByteBuffer::position(ByteBuffer::position() + value);
   return value;
 }
 
@@ -206,10 +206,10 @@ int ByteBuffer::skip(int value){
  * @return false 
  */
 bool ByteBuffer::putByte(const char value){
-  if(this->mPosition >= this->mLimit)
+  if(ByteBuffer::mPosition >= ByteBuffer::mLimit)
     return false;
   
-  *static_cast<uint8_t*>(this->pointer(this->mPosition++)) = value;
+  *static_cast<uint8_t*>(ByteBuffer::pointer(ByteBuffer::mPosition++)) = value;
   return true;
 }
 
@@ -220,9 +220,9 @@ bool ByteBuffer::putByte(const char value){
  * @return int 
  */
 int ByteBuffer::put(OutputBuffer& outputBuffer){
-  int len = this->remaining();
-  len = outputBuffer.get(this->pointer(this->mPosition), len);
-  this->position(this->position() + len);
+  int len = ByteBuffer::remaining();
+  len = outputBuffer.get(ByteBuffer::pointer(ByteBuffer::mPosition), len);
+  ByteBuffer::position(ByteBuffer::position() + len);
   return len;
 }
 
@@ -237,12 +237,12 @@ int ByteBuffer::put(OutputBuffer& outputBuffer, int length){
   if(length <= 0)
     return 0;
   
-  int max = this->remaining();
+  int max = ByteBuffer::remaining();
   if(length > max)
     length = max;
   
-  int result = outputBuffer.get(this->pointer(this->mPosition), length);
-  this->position(this->position() + result);
+  int result = outputBuffer.get(ByteBuffer::pointer(ByteBuffer::mPosition), length);
+  ByteBuffer::position(ByteBuffer::position() + result);
   return result;
 }
 
@@ -258,13 +258,13 @@ int ByteBuffer::put(const void* buffer, int bufferSize){
   if(bufferSize <= 0)
     return false;  
   
-  int max = this->remaining();
+  int max = ByteBuffer::remaining();
   
   if(bufferSize > max)
     bufferSize = max;
   
-  this->copy(buffer, 0, this->mPosition, bufferSize);
-  this->position(this->position() + bufferSize);
+  ByteBuffer::copy(buffer, 0, ByteBuffer::mPosition, bufferSize);
+  ByteBuffer::position(ByteBuffer::position() + bufferSize);
   
   return bufferSize;
 }
@@ -284,10 +284,10 @@ bool ByteBuffer::limit(int newLimit){
   if(newLimit < 0)
     return false;
   
-  if(newLimit > this->length())
+  if(newLimit > ByteBuffer::length())
     return false;
   
-  this->mLimit = newLimit;
+  ByteBuffer::mLimit = newLimit;
   return true;
 }
 
@@ -302,10 +302,10 @@ bool ByteBuffer::position(int newPosition){
   if(newPosition < 0)
     return false;
   
-  if(newPosition > this->limit())
+  if(newPosition > ByteBuffer::limit())
     return false;
   
-  this->mPosition = newPosition;
+  ByteBuffer::mPosition = newPosition;
   return true;
 }
 
@@ -314,8 +314,8 @@ bool ByteBuffer::position(int newPosition){
  * 
  */
 void ByteBuffer::flip(void){
-  this->mLimit = this->mPosition;
-  this->mPosition = 0;
+  ByteBuffer::mLimit = ByteBuffer::mPosition;
+  ByteBuffer::mPosition = 0;
   return;
 }
 
@@ -327,7 +327,7 @@ void ByteBuffer::flip(void){
  * @return false 
  */
 bool ByteBuffer::put(char const* string){
-  return this->put(string, static_cast<int>(strlen(string)));
+  return ByteBuffer::put(string, static_cast<int>(strlen(string)));
 }
 
 /**
@@ -338,7 +338,7 @@ bool ByteBuffer::put(char const* string){
  * @return false 
  */
 bool ByteBuffer::put(const String& string){
-  return this->put(string.pointer(), string.size());
+  return ByteBuffer::put(string.pointer(), string.size());
 }
 
 /**
@@ -349,16 +349,16 @@ bool ByteBuffer::put(const String& string){
  * @return int 
  */
 int ByteBuffer::putFormat(const char* format, ...){
-  if(this->isReadOnly())
+  if(ByteBuffer::isReadOnly())
     return 0;
   
   va_list args;
   va_start(args, format);
-  int result = String::format(this->pointer(this->mPosition), static_cast<size_t>(this->remaining()), format, args);
+  int result = String::format(ByteBuffer::pointer(ByteBuffer::mPosition), static_cast<size_t>(ByteBuffer::remaining()), format, args);
   
   va_end(args);
   
-  this->mPosition += result;
+  ByteBuffer::mPosition += result;
   return result;
 }
 
@@ -370,8 +370,8 @@ int ByteBuffer::putFormat(const char* format, ...){
  * @return int 
  */
 int ByteBuffer::putFormat(const char* format, va_list args){
-  int result = String::format(this->pointer(this->mPosition), static_cast<size_t>(this->remaining()), format, args);
-  this->mPosition += result;
+  int result = String::format(ByteBuffer::pointer(ByteBuffer::mPosition), static_cast<size_t>(ByteBuffer::remaining()), format, args);
+  ByteBuffer::mPosition += result;
   return result; 
 }
 
@@ -383,11 +383,11 @@ int ByteBuffer::putFormat(const char* format, va_list args){
  * @return false 
  */
 bool ByteBuffer::putShort(short value){
-  if((this->mPosition + 1) >= this->mLimit)
+  if((ByteBuffer::mPosition + 1) >= ByteBuffer::mLimit)
     return false;
   
-  *static_cast<short*>(this->pointer(this->mPosition)) = value;
-  this->mPosition+=2;
+  *static_cast<short*>(ByteBuffer::pointer(ByteBuffer::mPosition)) = value;
+  ByteBuffer::mPosition+=2;
   
   return true;
 }
@@ -400,13 +400,13 @@ bool ByteBuffer::putShort(short value){
  * @return false 
  */
 bool ByteBuffer::putShortMsb(short value){
-  if((this->mPosition + 1) >= this->mLimit)
+  if((ByteBuffer::mPosition + 1) >= ByteBuffer::mLimit)
     return false;
   
-  uint8_t* ptr = static_cast<uint8_t*>(this->pointer());
+  uint8_t* ptr = static_cast<uint8_t*>(ByteBuffer::pointer());
   
-  ptr[this->mPosition++] = static_cast<uint8_t>(value >> 8);
-  ptr[this->mPosition++] = static_cast<uint8_t>(value);
+  ptr[ByteBuffer::mPosition++] = static_cast<uint8_t>(value >> 8);
+  ptr[ByteBuffer::mPosition++] = static_cast<uint8_t>(value);
   
   return true;
 }
@@ -419,11 +419,11 @@ bool ByteBuffer::putShortMsb(short value){
  * @return false 
  */
 bool ByteBuffer::putInt(int value){
-  if((this->mPosition + 3) >= this->mLimit)
+  if((ByteBuffer::mPosition + 3) >= ByteBuffer::mLimit)
     return false;
   
-  *static_cast<int*>(this->pointer(this->mPosition)) = value;
-  this->mPosition+=4;
+  *static_cast<int*>(ByteBuffer::pointer(ByteBuffer::mPosition)) = value;
+  ByteBuffer::mPosition+=4;
   
   return true;
 }
@@ -436,15 +436,15 @@ bool ByteBuffer::putInt(int value){
  * @return false 
  */
 bool ByteBuffer::putIntMsb(int value){
-  if((this->mPosition + 3) >= this->mLimit)
+  if((ByteBuffer::mPosition + 3) >= ByteBuffer::mLimit)
     return false;
   
-  uint8_t* ptr = static_cast<uint8_t*>(this->pointer());
+  uint8_t* ptr = static_cast<uint8_t*>(ByteBuffer::pointer());
   
-  ptr[this->mPosition++] = static_cast<uint8_t>(value >> 24);
-  ptr[this->mPosition++] = static_cast<uint8_t>(value >> 16);
-  ptr[this->mPosition++] = static_cast<uint8_t>(value >> 8);
-  ptr[this->mPosition++] = static_cast<uint8_t>(value);
+  ptr[ByteBuffer::mPosition++] = static_cast<uint8_t>(value >> 24);
+  ptr[ByteBuffer::mPosition++] = static_cast<uint8_t>(value >> 16);
+  ptr[ByteBuffer::mPosition++] = static_cast<uint8_t>(value >> 8);
+  ptr[ByteBuffer::mPosition++] = static_cast<uint8_t>(value);
   
   return true;
 }
@@ -458,7 +458,7 @@ bool ByteBuffer::putIntMsb(int value){
  */
 bool ByteBuffer::putFloat(const float value){
   const int* i = reinterpret_cast<const int*>(&value);
-  return this->putInt(*i);
+  return ByteBuffer::putInt(*i);
 }
 
 /**
@@ -470,7 +470,7 @@ bool ByteBuffer::putFloat(const float value){
  */
 bool ByteBuffer::putFloatMsb(const float value){
   const int* i = reinterpret_cast<const int*>(&value);
-  return this->putIntMsb(*i);
+  return ByteBuffer::putIntMsb(*i);
 }
 
 /**
@@ -481,11 +481,11 @@ bool ByteBuffer::putFloatMsb(const float value){
  * @return false 
  */
 bool ByteBuffer::getShort(short& result){
-  if((this->mPosition + 1) >= this->mLimit)
+  if((ByteBuffer::mPosition + 1) >= ByteBuffer::mLimit)
     return false;
   
-  result = *static_cast<short*>(this->pointer(this->mPosition));
-  this->mPosition += 2;
+  result = *static_cast<short*>(ByteBuffer::pointer(ByteBuffer::mPosition));
+  ByteBuffer::mPosition += 2;
   
   return true;
 }
@@ -498,14 +498,14 @@ bool ByteBuffer::getShort(short& result){
  * @return false 
  */
 bool ByteBuffer::getShortMsb(short& result){
-  if((this->mPosition + 1) >= this->mLimit)
+  if((ByteBuffer::mPosition + 1) >= ByteBuffer::mLimit)
     return false;
   
-  uint8_t* ptr = static_cast<uint8_t*>(this->pointer());
+  uint8_t* ptr = static_cast<uint8_t*>(ByteBuffer::pointer());
   
   result = 0;
-  result |= (static_cast<short>(ptr[this->mPosition++]) << 8);
-  result |= (static_cast<short>(ptr[this->mPosition++]));
+  result |= (static_cast<short>(ptr[ByteBuffer::mPosition++]) << 8);
+  result |= (static_cast<short>(ptr[ByteBuffer::mPosition++]));
   
   return true;
 }
@@ -518,11 +518,11 @@ bool ByteBuffer::getShortMsb(short& result){
  * @return false 
  */
 bool ByteBuffer::getInt(int& result){
-  if((this->mPosition + 3) >= this->mLimit)
+  if((ByteBuffer::mPosition + 3) >= ByteBuffer::mLimit)
     return false;
   
-  result = *static_cast<int*>(this->pointer(this->mPosition));
-  this->mPosition+=4;
+  result = *static_cast<int*>(ByteBuffer::pointer(ByteBuffer::mPosition));
+  ByteBuffer::mPosition+=4;
 
   return true;
 }
@@ -535,16 +535,16 @@ bool ByteBuffer::getInt(int& result){
  * @return false 
  */
 bool ByteBuffer::getIntMsb(int& result){
-  if((this->mPosition + 3) >= this->mLimit)
+  if((ByteBuffer::mPosition + 3) >= ByteBuffer::mLimit)
     return false;
   
-  uint8_t* ptr = static_cast<uint8_t*>(this->pointer());
+  uint8_t* ptr = static_cast<uint8_t*>(ByteBuffer::pointer());
   
   result = 0;
-  result |= (static_cast<int>(ptr[this->mPosition++]) << 24);
-  result |= (static_cast<int>(ptr[this->mPosition++]) << 16);
-  result |= (static_cast<int>(ptr[this->mPosition++]) << 8);
-  result |= (static_cast<int>(ptr[this->mPosition++]));
+  result |= (static_cast<int>(ptr[ByteBuffer::mPosition++]) << 24);
+  result |= (static_cast<int>(ptr[ByteBuffer::mPosition++]) << 16);
+  result |= (static_cast<int>(ptr[ByteBuffer::mPosition++]) << 8);
+  result |= (static_cast<int>(ptr[ByteBuffer::mPosition++]));
   
   return true;
 }
@@ -558,7 +558,7 @@ bool ByteBuffer::getIntMsb(int& result){
  */
 bool ByteBuffer::getFloat(float& result){
   int* r = reinterpret_cast<int*>(&result);
-  return this->getInt(*r);
+  return ByteBuffer::getInt(*r);
 }
 
 /**
@@ -567,7 +567,7 @@ bool ByteBuffer::getFloat(float& result){
  */
 bool ByteBuffer::getFloatMsb(float& result){
   int* r = reinterpret_cast<int*>(&result);
-  return this->getIntMsb(*r);
+  return ByteBuffer::getIntMsb(*r);
 }
 
 

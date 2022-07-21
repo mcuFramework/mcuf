@@ -41,7 +41,7 @@ using mcuf::lang::Data;
  */
 Data::Data(void) :
 Pointer(){
-  this->mLength = 0;
+  Data::mLength = 0;
   return;
 }
 
@@ -57,7 +57,7 @@ Pointer(pointer){
   if(length & 0x80000000)
     length = 0;
   
-  this->mLength = (length | 0x80000000);
+  Data::mLength = (length | 0x80000000);
   return;
 }
 
@@ -72,7 +72,7 @@ Pointer(pointer){
   if(length & 0x80000000)
     length = 0;
   
-  this->mLength = length;
+  Data::mLength = length;
 }
 
 /**
@@ -90,7 +90,7 @@ Data::Data(const Data& other){
  * 
  */
 Data::~Data(void){
-  this->mLength = 0;
+  Data::mLength = 0;
   return;
 }
 
@@ -168,10 +168,10 @@ int Data::copy(const void* source, int shift, int start, int length){
   if(length <= 0)
     return 0;
   
-  if(this->isReadOnly())
+  if(Data::isReadOnly())
     return 0;
   
-  int max = this->length();
+  int max = Data::length();
   
   if(shift > max)
     return 0;
@@ -192,7 +192,7 @@ int Data::copy(const void* source, int shift, int start, int length){
  * @return int 
  */
 int Data::wipe(void){
-  return this->wipe(0x00, 0, 0);
+  return Data::wipe(0x00, 0, 0);
 }
 
 /**
@@ -202,7 +202,7 @@ int Data::wipe(void){
  * @return int 
  */
 int Data::wipe(uint8_t value){
-  return this->wipe(value, 0, 0);
+  return Data::wipe(value, 0, 0);
 }
 
 /**
@@ -213,7 +213,7 @@ int Data::wipe(uint8_t value){
  * @return int 
  */
 int Data::wipe(uint8_t value, int length){
-  return this->wipe(value, 0, length);
+  return Data::wipe(value, 0, length);
 }
   
 /**
@@ -225,17 +225,17 @@ int Data::wipe(uint8_t value, int length){
  * @return int 
  */
 int Data::wipe(uint8_t value, int start, int length){
-  if(this->isReadOnly())
+  if(Data::isReadOnly())
     return 0;
   
   if(length <= 0)
     return 0;
   
-  int max = this->length();
+  int max = Data::length();
   if((start + length) > max)
     length = max - start;
   
-  memset(this->pointer(start), value, static_cast<size_t>(length));
+  memset(Data::pointer(start), value, static_cast<size_t>(length));
   return length;
 }
 
@@ -247,8 +247,8 @@ int Data::wipe(uint8_t value, int start, int length){
  * @return false 
  */
 bool Data::inRange(void* address) const{
-  uint32_t start = reinterpret_cast<uint32_t>(this->pointer());
-  uint32_t end = start + static_cast<uint32_t>(this->length());
+  uint32_t start = reinterpret_cast<uint32_t>(Data::pointer());
+  uint32_t end = start + static_cast<uint32_t>(Data::length());
   uint32_t adr = reinterpret_cast<uint32_t>(address);
   
   if((adr < start) && (adr >= end))
@@ -264,14 +264,14 @@ bool Data::inRange(void* address) const{
  * @return Memory 
  */
 Data Data::subData(uint32_t beginIndex) const{
-  uint32_t max = static_cast<size_t>(this->length());
+  uint32_t max = static_cast<size_t>(Data::length());
   
   if(beginIndex >= max)
     return Data();
   
   uint32_t length = max - beginIndex;
 
-  return Data(this->pointer(static_cast<int>(beginIndex)), length);
+  return Data(Data::pointer(static_cast<int>(beginIndex)), length);
 }
 
 /**
@@ -282,7 +282,7 @@ Data Data::subData(uint32_t beginIndex) const{
  * @return Memory 
  */
 Data Data::subData(uint32_t beginIndex, uint32_t length) const{
-  uint32_t max = static_cast<size_t>(this->length());
+  uint32_t max = static_cast<size_t>(Data::length());
   
   if(beginIndex >= max)
     return Data();
@@ -292,7 +292,7 @@ Data Data::subData(uint32_t beginIndex, uint32_t length) const{
     length = remainingLength;
   
 
-  return Data(this->pointer(static_cast<int>(beginIndex)), length);
+  return Data(Data::pointer(static_cast<int>(beginIndex)), length);
 }
 
 /**
@@ -305,7 +305,7 @@ Data Data::subData(uint32_t beginIndex, uint32_t length) const{
  * @return int32_t 
  */
 int Data::insertArray(const void* source, int start, int length){
-  return this->insertArray(source, 0, start, length);
+  return Data::insertArray(source, 0, start, length);
 }
 
 /**
@@ -321,7 +321,7 @@ int Data::insertArray(const void* source, int shift, int start, int length){
   if(length <= 0)
     return 0;
   
-  int max = this->length();
+  int max = Data::length();
   
   if(start + length > max)
     length = max - start;
@@ -329,9 +329,9 @@ int Data::insertArray(const void* source, int shift, int start, int length){
   int less = max - (start + length);
   
   if(less != 0)
-    this->copy(this->pointer(start), 0, (start + length), less);
+    Data::copy(Data::pointer(start), 0, (start + length), less);
   
-  this->copy(source, 0, start, length);
+  Data::copy(source, 0, start, length);
   
   return 0;
 }
@@ -344,7 +344,7 @@ int Data::insertArray(const void* source, int shift, int start, int length){
  * @return int32_t 
  */
 int Data::popArray(int start, int length){
-  return this->popArray(nullptr, 0, start, length);
+  return Data::popArray(nullptr, 0, start, length);
 }
 
 /**
@@ -356,7 +356,7 @@ int Data::popArray(int start, int length){
  * @return int32_t 
  */
 int Data::popArray(void* source, int start, int length){
-  return this->popArray(source, 0, start, length);
+  return Data::popArray(source, 0, start, length);
 }
 
 /**
@@ -373,7 +373,7 @@ int Data::popArray(void* source, int shift, int start, int length){
   if(length <= 0)
     return 0;
   
-  int max = this->length();
+  int max = Data::length();
   
   if(start + length > max)
     length = max - start;
@@ -381,12 +381,12 @@ int Data::popArray(void* source, int shift, int start, int length){
   int less = max - (start + length);
   
   if(source != nullptr)
-    this->copyTo(source, shift, start, length);
+    Data::copyTo(source, shift, start, length);
   
   if(less != 0)
-    this->copy(this->pointer(start), 0, (start + length), less);
+    Data::copy(Data::pointer(start), 0, (start + length), less);
   
-  this->wipe(0x00, (start + less), length);
+  Data::wipe(0x00, (start + less), length);
   
   return length;
 }
@@ -398,7 +398,7 @@ int Data::popArray(void* source, int shift, int start, int length){
  * @return int 
  */
 int Data::indexOf(char ch) const{
-  return this->indexOf(ch, 0);
+  return Data::indexOf(ch, 0);
 }
 
 /**
@@ -409,7 +409,7 @@ int Data::indexOf(char ch) const{
  * @return int 
  */
 int Data::indexOf(char ch, int start) const{
-  return Pointer::indexOf(ch, start, this->length());
+  return Pointer::indexOf(ch, start, Data::length());
 }
 
 /**
@@ -421,7 +421,7 @@ int Data::indexOf(char ch, int start) const{
  * @return int 
  */
 int Data::indexOfData(const void* destination, int destinationLen, int start) const{
-  return Pointer::indexOfData(destination, destinationLen, start, this->length());
+  return Pointer::indexOfData(destination, destinationLen, start, Data::length());
 }
 
 /**
@@ -431,7 +431,7 @@ int Data::indexOfData(const void* destination, int destinationLen, int start) co
  * @return int 
  */
 int Data::indexOfString(const char* str) const{
-  return Pointer::indexOfString(str, this->length());
+  return Pointer::indexOfString(str, Data::length());
 }
 
 /* ****************************************************************************************

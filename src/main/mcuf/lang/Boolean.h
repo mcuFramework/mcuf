@@ -90,7 +90,7 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      * 
      */
     operator bool(void){
-      return this->mValue.b;
+      return Boolean::mValue.b;
     }
 
     /**
@@ -101,7 +101,7 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      * @return false 
      */
     bool operator==(bool v){
-      return (static_cast<bool>(this->mValue.b) == v);
+      return (static_cast<bool>(Boolean::mValue.b) == v);
     }
 
     /**
@@ -112,7 +112,7 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      * @return false 
      */
     bool operator==(Boolean& v){
-      return (this->mValue.b == v.mValue.b);
+      return (Boolean::mValue.b == v.mValue.b);
     }
 
     /**
@@ -123,8 +123,8 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      * @return false 
      */
     bool operator=(bool v){
-      this->mValue.b = v;
-      return this->mValue.b;
+      Boolean::mValue.b = v;
+      return Boolean::mValue.b;
     }
 
     /**
@@ -135,10 +135,10 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      */
     Boolean operator+=(int v){
       if(v > 0)
-        this->mValue.b = true;
+        Boolean::mValue.b = true;
       
       else if(v < 0)
-        this->mValue.b = false;
+        Boolean::mValue.b = false;
       
       return *this;
     }
@@ -151,10 +151,10 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      */
     Boolean operator-=(int v){
       if(v < 0)
-        this->mValue.b = true;
+        Boolean::mValue.b = true;
       
       else if(v > 0)
-        this->mValue.b = false;
+        Boolean::mValue.b = false;
       
       return *this;
     }
@@ -166,7 +166,7 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      * @return Boolean 
      */
     Boolean operator*=(int v){
-      this->mValue.b *= v;
+      Boolean::mValue.b *= v;
       return *this;
     }
 
@@ -177,7 +177,7 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      * @return Boolean 
      */
     Boolean operator/=(int v){
-      this->mValue.b /= v;
+      Boolean::mValue.b /= v;
       return *this;
     }
 
@@ -188,7 +188,7 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      */
     Boolean operator++(int){
       Boolean tmp = *this;
-      this->mValue.b = true;
+      Boolean::mValue.b = true;
       return tmp;
     }
 
@@ -198,7 +198,7 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      * @return Boolean 
      */
     Boolean operator++(){
-      this->mValue.b = true;
+      Boolean::mValue.b = true;
       return *this;
     }
 
@@ -209,7 +209,7 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      */
     Boolean operator--(int){
       Boolean tmp = *this;
-      this->mValue.b = false;
+      Boolean::mValue.b = false;
       return tmp;
     }
       
@@ -219,7 +219,7 @@ class mcuf::lang::Boolean extends mcuf::lang::Number{
      * @return Boolean& 
      */
     Boolean& operator--(){
-      this->mValue.b = false;
+      Boolean::mValue.b = false;
       return *this;
     }
   
