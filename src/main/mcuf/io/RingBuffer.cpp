@@ -273,13 +273,14 @@ int RingBuffer::get(mcuf::io::InputBuffer& inputBuffer, int length){
   int cnt1, cnt2;
 
   /* We cannot insert when queue is full */
-  if (this->isFull())
+  if (this->isEmpty())
     return 0;
 
   /* Calculate the segment lengths */
-  cnt1 = cnt2 = this->remaining();
-  if (INDH() + cnt1 >= static_cast<int>(this->mCount))
-    cnt1 = static_cast<int>(this->mCount) - INDH();
+  cnt1 = cnt2 = this->avariable();
+  if(INDT() + cnt1 >= static_cast<int>(this->mCount))
+    cnt1 = static_cast<int>(this->mCount) - INDT();
+    
   cnt2 -= cnt1;
 
   cnt1 = MIN(cnt1, num);
@@ -289,14 +290,14 @@ int RingBuffer::get(mcuf::io::InputBuffer& inputBuffer, int length){
   num -= cnt2;
 
   /* Write segment 1 */
-  ptr += INDH();
+  ptr += INDT();
   inputBuffer.put(ptr, cnt1);
-  this->mHead += static_cast<uint32_t>(cnt1);
+  this->mTail += static_cast<uint32_t>(cnt1);
 
   /* Write segment 2 */
-  ptr = static_cast<uint8_t*>(this->pointer()) + INDH();
+  ptr = static_cast<uint8_t*>(this->pointer()) + INDT();
   inputBuffer.put(ptr, cnt2);
-  this->mHead += static_cast<uint32_t>(cnt2);
+  this->mTail += static_cast<uint32_t>(cnt2);
 
   return cnt1 + cnt2;
 }
