@@ -34,6 +34,7 @@
 #include "Timer.h"
 #include "TimerTask.h"
 #include "TimerTick.h"
+#include "Updater.h"
 #include "VirtualAnalogInputPin.h"
 #include "VirtualGeneralPin.h"
 #include "VirtualTemperatureSensor.h"
