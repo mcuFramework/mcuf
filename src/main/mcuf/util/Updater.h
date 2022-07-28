@@ -42,7 +42,7 @@ interface mcuf::util::Updater{
    * @return true 開始嘗試更新成功
    * @return false 開始嘗試更新失敗
    */
-  bool update(void);
+  virtual bool update(void) abstract;
 
   /**
    * @brief 是否正在更新
@@ -50,7 +50,7 @@ interface mcuf::util::Updater{
    * @return true 正在更新中
    * @return false 等待更新
    */
-  bool isUpdating(void);
+  virtual bool isUpdating(void) abstract;
 };
 
 /* ****************************************************************************************
