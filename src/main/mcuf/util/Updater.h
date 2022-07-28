@@ -37,23 +37,20 @@ interface mcuf::util::Updater{
    */
 
   /**
-   * @brief 
+   * @brief 更新資源
    * 
-   * @param timeout 
-   * @return true 
-   * @return false 
+   * @return true 開始嘗試更新成功
+   * @return false 開始嘗試更新失敗
    */
-  bool update(int timeout);
+  bool update(void);
 
   /**
-   * @brief 
+   * @brief 是否正在更新
    * 
-   * @param future 
-   * @return true 
-   * @return false 
+   * @return true 正在更新中
+   * @return false 等待更新
    */
-  bool update(mcuf::io::Future& future);
-
+  bool isUpdating(void);
 };
 
 /* ****************************************************************************************
