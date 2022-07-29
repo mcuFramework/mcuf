@@ -91,7 +91,7 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      * 
      */
     inline operator short(void){
-      return this->mValue.s16[0];
+      return Short::mValue.s16[0];
     }
 
     /**
@@ -102,7 +102,7 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      * @return false 
      */
     inline bool operator==(int v){
-      return (this->mValue.s16[0] == (v & 0x0000FFFF));
+      return (Short::mValue.s16[0] == (v & 0x0000FFFF));
     }
 
     /**
@@ -113,7 +113,7 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      * @return false 
      */
     inline bool operator==(Short& v){
-      return (this->mValue.s16[0] == v.mValue.s16[0]);
+      return (Short::mValue.s16[0] == v.mValue.s16[0]);
     }
 
     /**
@@ -123,8 +123,8 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      * @return Short 
      */
     Short operator=(Short v){
-      this->mValue.s16[0] = v.mValue.s16[0];
-      return this->mValue.s16[0];
+      Short::mValue.s16[0] = v.mValue.s16[0];
+      return Short::mValue.s16[0];
     }
 
     /**
@@ -134,7 +134,7 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      * @return Short 
      */
     Short operator+=(int v){
-      this->mValue.s16[0] += v;
+      Short::mValue.s16[0] += v;
       return *this;
     }
 
@@ -145,7 +145,7 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      * @return Short 
      */
     Short operator-=(int v){
-      this->mValue.s16[0] -= v;
+      Short::mValue.s16[0] -= v;
       return *this;
     }
 
@@ -156,7 +156,7 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      * @return Short 
      */
     Short operator*=(int v){
-      this->mValue.s16[0] *= v;
+      Short::mValue.s16[0] *= v;
       return *this;
     }
 
@@ -167,7 +167,7 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      * @return Short 
      */
     Short operator/=(int v){
-      this->mValue.s16[0] /= v;
+      Short::mValue.s16[0] /= v;
       return *this;
     }
 
@@ -178,7 +178,7 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      */
     Short operator++(int){
       Short tmp = *this;
-      ++this->mValue.s16[0];
+      ++Short::mValue.s16[0];
       return tmp;
     }
 
@@ -188,7 +188,7 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      * @return Short 
      */
     Short operator++(void){
-      ++this->mValue.s16[0];
+      ++Short::mValue.s16[0];
       return *this;
     }
 
@@ -199,7 +199,7 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      */
     Short operator--(int){
       Short tmp = *this;
-      --this->mValue.s16[0];
+      --Short::mValue.s16[0];
       return tmp;
     }
 
@@ -209,7 +209,7 @@ class mcuf::lang::Short extends mcuf::lang::Number{
      * @return Short& 
      */
     Short& operator--(void){
-      --this->mValue.s16[0];
+      --Short::mValue.s16[0];
       return *this;
     }
 

@@ -167,7 +167,7 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @return false 
      */
     virtual inline bool isReadOnly(void) const{
-      return (this->mLength & 0x80000000);
+      return (Data::mLength & 0x80000000);
     }
 
     /**
@@ -177,7 +177,7 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @return false 
      */
     inline bool isEmpty(void) const{
-      return (this->isNull()) || (this->length() == 0);
+      return (Data::isNull()) || (Data::length() == 0);
     }
 
     /**
@@ -186,7 +186,7 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @return int 
      */
     inline int length(void) const{
-      return static_cast<int>(this->mLength & 0x7FFFFFFF);
+      return static_cast<int>(Data::mLength & 0x7FFFFFFF);
     }
     
   /* **************************************************************************************

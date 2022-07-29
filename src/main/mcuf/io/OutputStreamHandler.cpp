@@ -98,25 +98,25 @@ OutputStreamHandler::~OutputStreamHandler(void){
  */
 
 /**
- * @brief pop buffer byte non blocking.
+ * @brief 將data輸入至InputBuffer
  * 
- * @param result 
- * @return true has data in buffer.
- * @return false no data in buffer.
+ * @param data 資料來源
+ * @return true 成功將data輸入至InputBuffer
+ * @return false InputBuffer已滿
  */
-bool OutputStreamHandler::putByte(const char result){
-  bool r = RingBufferOutputStream::putByte(result);
+bool OutputStreamHandler::putByte(const char data){
+  bool result = RingBufferOutputStream::putByte(data);
   if(this->mOutputStream.writeBusy() == false)
     this->writePacket();
   
-  return r;
+  return result;
 }
 
 /**
- * @brief 
+ * @brief 將outputBuffer內資料輸入至InputBuffer
  * 
- * @param byteBuffer 
- * @return int 
+ * @param byteBuffer 資料來源
+ * @return int 移動資料數量(byte)
  */
 int OutputStreamHandler::put(OutputBuffer& outputBuffer){
   int result = RingBufferOutputStream::put(outputBuffer);
@@ -127,11 +127,11 @@ int OutputStreamHandler::put(OutputBuffer& outputBuffer){
 }
 
 /**
- * @brief 
+ * @brief 將outputBuffer內資料輸入至InputBuffer並指定輸入長度
  * 
- * @param byteBuffer 
- * @param length 
- * @return int 
+ * @param byteBuffer 資料來源
+ * @param length 輸入長度
+ * @return int 移動資料數量(byte)
  */
 int OutputStreamHandler::put(OutputBuffer& outputBuffer, int length){
   int result = RingBufferOutputStream::put(outputBuffer, length);
@@ -142,14 +142,14 @@ int OutputStreamHandler::put(OutputBuffer& outputBuffer, int length){
 }
 
 /**
- * @brief 
+ * @brief 將buffer內資料輸入至InputBuffer
  * 
- * @param buffer 
- * @param bufferSize 
- * @return int 
+ * @param buffer 資料來源
+ * @param length 輸入長度
+ * @return int 移動資料數量(byte)
  */
-int OutputStreamHandler::put(const void* buffer, int bufferSize){
-  int result = RingBufferOutputStream::put(buffer, bufferSize);
+int OutputStreamHandler::put(const void* buffer, int length){
+  int result = RingBufferOutputStream::put(buffer, length);
   if(this->mOutputStream.writeBusy() == false)
     this->writePacket();
   

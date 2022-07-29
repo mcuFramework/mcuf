@@ -99,7 +99,7 @@ class mcuf::lang::Number extends mcuf::lang::Object{
      * @return false 
      */
     inline bool operator==(Number& v){
-      return (this->mValue.u32  == v.mValue.u32);
+      return (Number::mValue.u32  == v.mValue.u32);
     }
     
   /* **************************************************************************************

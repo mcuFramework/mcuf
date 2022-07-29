@@ -111,7 +111,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * 
      */
     inline operator void*(void){
-      return this->mPointer;
+      return Pointer::mPointer;
     }
 
     /**
@@ -122,7 +122,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return false 
      */
     inline bool operator==(const void* pointer){
-      return (this->mPointer == pointer);
+      return (Pointer::mPointer == pointer);
     }
     
     /**
@@ -133,7 +133,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return false 
      */
     inline bool operator==(const Pointer& pointer){
-      return (this->mPointer == pointer.mPointer);
+      return (Pointer::mPointer == pointer.mPointer);
     }
     
     /**
@@ -143,7 +143,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return char
      */
     inline char operator[](int index) const{
-      return static_cast<char*>(this->mPointer)[index];
+      return static_cast<char*>(Pointer::mPointer)[index];
     }
     
     /**
@@ -153,7 +153,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return char
      */
     inline char operator[](unsigned int index) const{
-      return static_cast<char*>(this->mPointer)[index];
+      return static_cast<char*>(Pointer::mPointer)[index];
     }    
 
     /**
@@ -163,7 +163,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return char&
      */
     char& operator[](int index){
-      return static_cast<char*>(this->mPointer)[index];
+      return static_cast<char*>(Pointer::mPointer)[index];
     }
     
     /**
@@ -173,7 +173,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return char&
      */
     char& operator[](unsigned int index){
-      return static_cast<char*>(this->mPointer)[index];
+      return static_cast<char*>(Pointer::mPointer)[index];
     }
 
   /* **************************************************************************************
@@ -294,13 +294,13 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
     /**
      * @brief 
      * 
-     * @param source 
-     * @param shift 
-     * @param start 
-     * @param length 
+     * @param source 來源目標
+     * @param offset 儲存目標起始偏移
+     * @param start 來源目標起始偏移
+     * @param length 來源目標長度
      * @return int 
      */
-    virtual int copy(const void* source, int shift, int start, int length);
+    virtual int copy(const void* source, int offset, int start, int length);
 
     /**
      * @brief 
@@ -438,7 +438,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return char 
      */
     inline char getByte(int shift) const{
-      return *static_cast<char*>(this->pointer(shift));
+      return *static_cast<char*>(Pointer::pointer(shift));
     }
 
     /**
@@ -448,7 +448,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return int 
      */
     inline int getInteger(int shift) const{
-      return *static_cast<int*>(this->pointer(shift));
+      return *static_cast<int*>(Pointer::pointer(shift));
     }
 
     /**
@@ -458,7 +458,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return short 
      */
     inline short getShort(int shift) const{
-      return *static_cast<short*>(this->pointer(shift));
+      return *static_cast<short*>(Pointer::pointer(shift));
     }
 
     /**
@@ -468,7 +468,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return Pointer 
      */
     inline Pointer getPointer(uint32_t offset) const{
-      return Pointer(&(static_cast<char*>(this->mPointer))[offset]);
+      return Pointer(&(static_cast<char*>(Pointer::mPointer))[offset]);
     }
 
     /**
@@ -477,7 +477,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return uint32_t 
      */
     inline uint32_t getAddress(void) const{
-      return reinterpret_cast<uint32_t>(this->mPointer);
+      return reinterpret_cast<uint32_t>(Pointer::mPointer);
     }
 
     /**
@@ -487,7 +487,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return false 
      */
     inline bool isAlignment32Bit(void){
-      if((this->getAddress() & 0x00000003) != 0)
+      if((Pointer::getAddress() & 0x00000003) != 0)
         return false;
       
       return true;
@@ -500,7 +500,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return false 
      */
     inline bool isAlignment64Bit(void){
-      if((this->getAddress() & 0x00000007) != 0)
+      if((Pointer::getAddress() & 0x00000007) != 0)
         return false;
       
       return true;
@@ -513,7 +513,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return false 
      */
     inline bool isNull(void) const{
-      return (this->mPointer == nullptr);
+      return (Pointer::mPointer == nullptr);
     }
 
     /**
@@ -522,7 +522,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return void* 
      */
     inline void* pointer(void) const{
-      return this->mPointer;
+      return Pointer::mPointer;
     }
     
     /**
@@ -532,7 +532,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return void* 
      */
     inline void* pointer(uint32_t offset) const{
-      return static_cast<char*>(this->mPointer) + offset;
+      return static_cast<char*>(Pointer::mPointer) + offset;
     }
 
     /**
@@ -542,7 +542,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return void* 
      */
     inline void* pointer(int offset) const{
-      return static_cast<char*>(this->mPointer) + offset;
+      return static_cast<char*>(Pointer::mPointer) + offset;
     }
 
   /* **************************************************************************************

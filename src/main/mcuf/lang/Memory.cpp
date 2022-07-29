@@ -36,7 +36,7 @@ using mcuf::lang::Pointer;
  */
 Memory::Memory(const Data& data) :
 Data(data){
-  this->mNext = nullptr;
+  Memory::mNext = nullptr;
   return;
 }
 
@@ -49,7 +49,7 @@ Data(data){
 Memory::Memory(const void* pointer, size_t length) : 
 Data(const_cast<void*>(pointer), length){
  
-  this->mNext = nullptr;
+  Memory::mNext = nullptr;
   return;
 }
 
@@ -62,7 +62,7 @@ Data(const_cast<void*>(pointer), length){
 Memory::Memory(void* pointer, size_t length) : 
 Data(const_cast<void*>(pointer), length){
 
-  this->mNext = nullptr;
+  Memory::mNext = nullptr;
   return;
 }
 
@@ -74,7 +74,7 @@ Data(const_cast<void*>(pointer), length){
 Memory::Memory(size_t length) : 
 Data(new uint8_t[(length & 0x7FFFFFFF)], (length & 0x7FFFFFFF)){
 
-  this->mNext = this;
+  Memory::mNext = this;
   return;
 }
 
@@ -86,7 +86,7 @@ Data(new uint8_t[(length & 0x7FFFFFFF)], (length & 0x7FFFFFFF)){
 Memory::Memory(const Memory& other){
   
   *this = other;
-  if(this->mNext != nullptr)
+  if(Memory::mNext != nullptr)
     const_cast<Memory&>(other).mNext = this;
   
   return;
@@ -97,11 +97,11 @@ Memory::Memory(const Memory& other){
  * 
  */
 Memory::~Memory(void){
-  if(this->mNext == nullptr)
+  if(Memory::mNext == nullptr)
     return;
 
-  if(this->mNext == this){
-    delete[] static_cast<uint8_t*>(this->pointer());
+  if(Memory::mNext == this){
+    delete[] static_cast<uint8_t*>(Memory::pointer());
   }else{
     Memory* next = this;
     
@@ -110,7 +110,7 @@ Memory::~Memory(void){
         System::error(this, mcuf::lang::ErrorCode::NULL_POINTER);
       
       if(next->mNext == this){
-        next->mNext = this->mNext;
+        next->mNext = Memory::mNext;
         break;
       }
       
@@ -118,7 +118,7 @@ Memory::~Memory(void){
     }
   }
   
-  this->mNext = nullptr;
+  Memory::mNext = nullptr;
   return;
 }
 
@@ -150,14 +150,14 @@ Memory Memory::nullMemory(void){
  * @return Memory 
  */
 Memory Memory::subMemory(uint32_t beginIndex) const{
-  uint32_t max = static_cast<size_t>(this->length());
+  uint32_t max = static_cast<size_t>(Memory::length());
   
   if(beginIndex >= max)
     return Memory::nullMemory();
   
   uint32_t length = max - beginIndex;
 
-  return Memory(this->pointer(static_cast<int>(beginIndex)), length);
+  return Memory(Memory::pointer(static_cast<int>(beginIndex)), length);
 }
 
 /**
@@ -168,7 +168,7 @@ Memory Memory::subMemory(uint32_t beginIndex) const{
  * @return Memory 
  */
 Memory Memory::subMemory(uint32_t beginIndex, uint32_t length) const{
-  uint32_t max = static_cast<size_t>(this->length());
+  uint32_t max = static_cast<size_t>(Memory::length());
   
   if(beginIndex >= max)
     return Memory::nullMemory();
@@ -178,7 +178,7 @@ Memory Memory::subMemory(uint32_t beginIndex, uint32_t length) const{
     length = remainingLength;
   
 
-  return Memory(this->pointer(static_cast<int>(beginIndex)), length);
+  return Memory(Memory::pointer(static_cast<int>(beginIndex)), length);
 }
 
 /**
@@ -192,15 +192,15 @@ bool Memory::resize(int size){
   if(size <= 0)
     return false;
 
-  if(!this->isHeapMemory())
+  if(!Memory::isHeapMemory())
     return false;
   
   char* newMemory = new char[size];
   if(newMemory == nullptr)
     return false;
   
-  Pointer::move(newMemory, this->pointer(), Math::min(size, this->length()));
-  char* oldPointer = static_cast<char*>(this->pointer());
+  Pointer::move(newMemory, Memory::pointer(), Math::min(size, Memory::length()));
+  char* oldPointer = static_cast<char*>(Memory::pointer());
   Memory* next = this;
   
   while(true){

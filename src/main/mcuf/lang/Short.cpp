@@ -39,7 +39,7 @@ Short::Short(void){
  * @param value 
  */
 Short::Short(short value){
-  this->mValue.s16[0] = value;
+  Short::mValue.s16[0] = value;
   return;
 }
 

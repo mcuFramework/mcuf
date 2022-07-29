@@ -275,6 +275,15 @@ int String::indexOfData(const void* destination, int destinationLen, int start) 
  */
 
 /**
+ * @brief 取的String原始空間大小
+ * 
+ * @return int 
+ */
+int String::bufferSize(void){
+  return Memory::length();
+}
+
+/**
  * @brief 
  * 
  * @param format 
@@ -479,6 +488,31 @@ int String::replace(char oldChar, char newChar){
   }
   
   return result;
+}
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @return int 
+ */
+String& String::append(const char* str){
+  int len = String::stringLength(str);
+  int entityLen = this->size();
+  this->copy(str, entityLen ,0, (len + 1));
+  return *this;
+}
+
+/**
+ * @brief 
+ * 
+ * @param str 
+ * @return int 
+ */
+String& String::set(const char* str){
+  int len = String::stringLength(str);
+  this->copy(str, 0 ,0, (len + 1));
+  return *this;
 }
 
 /* ****************************************************************************************

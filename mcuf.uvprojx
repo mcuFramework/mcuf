@@ -1611,6 +1611,11 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Voltmeter.h</FilePath>
             </File>
+            <File>
+              <FileName>Updater.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Updater.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1734,7 +1739,7 @@
         <TargetCommonOption>
           <Device>ARMCM0P</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.9.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0+") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -3329,6 +3334,11 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Voltmeter.h</FilePath>
             </File>
+            <File>
+              <FileName>Updater.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Updater.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -3452,7 +3462,7 @@
         <TargetCommonOption>
           <Device>ARMCM3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.9.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M3") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -5046,6 +5056,11 @@
               <FileName>Voltmeter.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Voltmeter.h</FilePath>
+            </File>
+            <File>
+              <FileName>Updater.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Updater.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6765,6 +6780,11 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Voltmeter.h</FilePath>
             </File>
+            <File>
+              <FileName>Updater.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Updater.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -6888,7 +6908,7 @@
         <TargetCommonOption>
           <Device>ARMCM4_FP</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.9.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -8483,6 +8503,11 @@
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Voltmeter.h</FilePath>
             </File>
+            <File>
+              <FileName>Updater.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Updater.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -8606,7 +8631,7 @@
         <TargetCommonOption>
           <Device>ARMCM7</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.9.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M7") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -10200,6 +10225,11 @@
               <FileName>Voltmeter.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\Voltmeter.h</FilePath>
+            </File>
+            <File>
+              <FileName>Updater.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\util\Updater.h</FilePath>
             </File>
           </Files>
         </Group>

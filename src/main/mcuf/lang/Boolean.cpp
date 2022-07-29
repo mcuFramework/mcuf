@@ -35,7 +35,7 @@ Boolean::Boolean(void){
  * @param value 
  */
 Boolean::Boolean(bool value){
-  this->mValue.b = value;
+  Boolean::mValue.b = value;
   return;
 }
 
