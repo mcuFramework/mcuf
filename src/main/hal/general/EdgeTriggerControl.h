@@ -30,22 +30,9 @@ namespace hal{
  * Class/Interface/Struct
  */  
 interface hal::general::EdgeTriggerControl{
-
-  /* **************************************************************************************
-   * Destruction
-   */
-  
-  /**
-   * @brief Destroy the Edge Trigger Control object
-   * 
-   */
-  virtual ~EdgeTriggerControl(void) abstract;
-
   /* **************************************************************************************
    * Method
    */
-
-
 
   /**
    * @brief 取消全部邊緣觸發事件

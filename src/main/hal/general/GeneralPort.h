@@ -33,17 +33,6 @@ namespace hal{
  */  
 interface hal::general::GeneralPort extends hal::Base, 
   hal::general::GeneralPortControl{
-
-  /* **************************************************************************************
-   * Destruction
-   */
-
-  /**
-   * @brief Destroy the General Port object
-   * 
-   */
-  virtual ~GeneralPort(void) override;
-
   /* **************************************************************************************
    * Method 
    */

@@ -31,22 +31,9 @@ namespace hal{
  * Class/Interface/Struct
  */  
 interface hal::general::EdgeTriggerEvent{
-  
-  /* **************************************************************************************
-   * Destruction
-   */
-
-  /**
-   * @brief Destroy the Edge Trigger Event object
-   * 
-   */
-  virtual ~EdgeTriggerEvent(void) abstract;
-  
   /* **************************************************************************************
    * Method
    */
-  
-
 
   /**
    * @brief 
