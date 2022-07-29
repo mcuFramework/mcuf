@@ -21,6 +21,7 @@
 #include "Function.h"
 #include "FunctionEvent.h"
 #include "Runnable.h"
+#include "RunnableEntity.h"
 #include "RunnableEvent.h"
 #include "Supplier.h"
 #include "SupplierEvent.h"

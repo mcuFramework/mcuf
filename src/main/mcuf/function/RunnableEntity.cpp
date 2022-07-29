@@ -12,7 +12,7 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/managerment/SystemRegister.h"
+#include "mcuf/function/RunnableEntity.h"
 
 /* ****************************************************************************************
  * Macro
@@ -25,7 +25,7 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-using mcuf::lang::managerment::SystemRegister;
+using mcuf::function::RunnableEntity;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -34,23 +34,59 @@ using mcuf::lang::managerment::SystemRegister;
 /* ****************************************************************************************
  * Construct Method
  */
-
 /**
- * @brief Construct a new System Register object
+ * @brief Construct a new Runnable Entity object
  * 
  */
-SystemRegister::SystemRegister(void){
+RunnableEntity:: RunnableEntity(void) : RunnableEntity(nullptr){
   return;
 }
 
 /**
- * @brief Destroy the System Register object
+ * @brief Construct a new Runnable Entity object
  * 
+ * @param runnable 
  */
-SystemRegister::~SystemRegister(void){
+RunnableEntity::RunnableEntity(mcuf::function::Runnable& runnable) :
+mRunnableEvent(nullptr){
+  this->mRunnable = &runnable;
   return;
 }
 
+/**
+ * @brief Construct a new Runnable Entity object
+ * 
+ * @param function 
+ */
+RunnableEntity::RunnableEntity(void (*function)(void)) :
+mRunnableEvent(function){
+  this->mRunnable = &this->mRunnableEvent;
+  return;
+}
+
+/**
+ * @brief 複製建構子
+ * 
+ * @param source 
+ */
+RunnableEntity::RunnableEntity(const RunnableEntity& source) :
+mRunnableEvent(source.mRunnableEvent){
+  this->mRunnable = source.mRunnable;
+  
+  if(source.mRunnable == &source.mRunnableEvent){
+    RunnableEntity::mRunnable = &(RunnableEntity::mRunnableEvent);
+  }
+  
+  return;
+}
+
+/**
+ * @brief Destroy the Runnable Entity object
+ * 
+ */
+RunnableEntity::~RunnableEntity(void){
+  return;
+}
 /* ****************************************************************************************
  * Operator Method
  */
@@ -60,52 +96,21 @@ SystemRegister::~SystemRegister(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override>
+ * Public Method <Override> - mcuf::function::Runnable
  */
+/**
+ * @brief 
+ * 
+ */
+void RunnableEntity::run(void){
+  this->mRunnable->run();
+  return;
+}
 
 /* ****************************************************************************************
  * Public Method
  */
 
-/**
- * @brief Set the Input Stream object
- * 
- * @param inputStream 
- */
-void SystemRegister::setInputStreamBuffer(mcuf::io::InputStreamBuffer* inputStreamBuffer){
-  this->mInputStreamBuffer = inputStreamBuffer;
-  return;
-}
-
-/**
- * @brief Set the Print Stream object
- * 
- * @param printStream 
- */
-void SystemRegister::setPrintStream(mcuf::io::PrintStream* printStream){
-  this->mPrintStream = printStream;
-  return;
-}
-
-/**
- * @brief Set the Error Code Handler object
- * 
- * @param errorCodeHandler 
- */
-void SystemRegister::setErrorCodeHandler(ErrorCodeHandler errorCodeHandler){
-  this->mErrorCodeHandler = errorCodeHandler;
-  return;
-}
-
-/**
- * @brief Set the Idle Task object
- * 
- * @param task 
- */
-void SystemRegister::setIdleTask(mcuf::function::RunnableEntity task){
-  this->mIdleTask = task;
-  return;
-}
 /* ****************************************************************************************
  * Protected Method <Static>
  */

@@ -4,14 +4,22 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C0CBB109_D7C7_4D02_9E97_1BE3A534DFAE
-#define MCUF_C0CBB109_D7C7_4D02_9E97_1BE3A534DFAE
+
+#ifndef CORE_ARTERYTEK_AT32F415_B21E95F1_A4B3_4BBD_96AA_E98F66338E8B
+#define CORE_ARTERYTEK_AT32F415_B21E95F1_A4B3_4BBD_96AA_E98F66338E8B
+#ifndef MCUF_03ECECB0_EFC6_464A_A4FB_833247AF27AB
+#define MCUF_03ECECB0_EFC6_464A_A4FB_833247AF27AB
 
 /* ****************************************************************************************
  * Include
  */  
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf/function/Runnable.h"
+#include "mcuf/function/RunnableEvent.h"
 #include "mcuf/lang/Object.h"
 
 /* ****************************************************************************************
@@ -19,14 +27,15 @@
  */  
 namespace mcuf{
   namespace function{
-    class RunnableEvent;
+    class RunnableEntity;
   }
 }
 
+
 /* ****************************************************************************************
- * Class/Interface/Struct
+ * Class/Interface/Struct/Enum
  */  
-class mcuf::function::RunnableEvent final extends mcuf::lang::Object implements 
+class mcuf::function::RunnableEntity final extends mcuf::lang::Object implements
 public mcuf::function::Runnable{
 
   /* **************************************************************************************
@@ -40,13 +49,14 @@ public mcuf::function::Runnable{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: 
-    void (*mFunction)(void);
+  private:
+    mcuf::function::RunnableEvent mRunnableEvent;
+    mcuf::function::Runnable* mRunnable;
 
   /* **************************************************************************************
    * Abstract method <Public>
    */
-  
+
   /* **************************************************************************************
    * Abstract method <Protected>
    */
@@ -54,25 +64,39 @@ public mcuf::function::Runnable{
   /* **************************************************************************************
    * Construct Method
    */
-  public:
+  public: 
     /**
-     * @brief Construct a new Runnable Event object
+     * @brief Construct a new Runnable Entity object
      * 
      */
-    RunnableEvent(void);
+    RunnableEntity(void);
 
     /**
-     * @brief Construct a new Runnable Event object
+     * @brief Construct a new Runnable Entity object
+     * 
+     * @param runnable 
+     */
+    RunnableEntity(mcuf::function::Runnable& runnable);
+
+    /**
+     * @brief Construct a new Runnable Entity object
      * 
      * @param function 
      */
-    RunnableEvent(void (*function)(void));
-  
+    RunnableEntity(void (*function)(void));
+
     /**
-     * @brief Destroy the Runnable Event object
+     * @brief 複製建構子
+     * 
+     * @param source 
+     */
+    RunnableEntity(const RunnableEntity& source);
+
+    /**
+     * @brief Destroy the Runnable Entity object
      * 
      */
-    virtual ~RunnableEvent(void) override;
+    virtual ~RunnableEntity(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -86,13 +110,12 @@ public mcuf::function::Runnable{
    * Public Method <Override> - mcuf::function::Runnable
    */
   public:
-  
     /**
      * @brief 
      * 
      */
     virtual void run(void) override;
-
+  
   /* **************************************************************************************
    * Public Method
    */
@@ -116,15 +139,18 @@ public mcuf::function::Runnable{
   /* **************************************************************************************
    * Private Method <Override>
    */
-   
+
   /* **************************************************************************************
    * Private Method
    */
-   
+
 };
 
-/* *****************************************************************************************
+/* ****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_C0CBB109_D7C7_4D02_9E97_1BE3A534DFAE */
+#endif /* MCUF_03ECECB0_EFC6_464A_A4FB_833247AF27AB */
+
+
+#endif/* CORE_ARTERYTEK_AT32F415_B21E95F1_A4B3_4BBD_96AA_E98F66338E8B */

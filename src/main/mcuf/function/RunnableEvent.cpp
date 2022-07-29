@@ -12,7 +12,7 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/managerment/SystemRegister.h"
+#include "mcuf/function/RunnableEvent.h"
 
 /* ****************************************************************************************
  * Macro
@@ -25,7 +25,7 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-using mcuf::lang::managerment::SystemRegister;
+using mcuf::function::RunnableEvent;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -34,20 +34,29 @@ using mcuf::lang::managerment::SystemRegister;
 /* ****************************************************************************************
  * Construct Method
  */
-
 /**
- * @brief Construct a new System Register object
+ * @brief Construct a new Runnable Event object
  * 
  */
-SystemRegister::SystemRegister(void){
+RunnableEvent::RunnableEvent(void){
+  RunnableEvent::mFunction = nullptr;
+}
+
+/**
+ * @brief Construct a new Runnable Event object
+ * 
+ * @param event 
+ */
+RunnableEvent::RunnableEvent(void (*function)(void)){
+  RunnableEvent::mFunction = function;
   return;
 }
 
 /**
- * @brief Destroy the System Register object
+ * @brief Destroy the Runnable Event object
  * 
  */
-SystemRegister::~SystemRegister(void){
+RunnableEvent::~RunnableEvent(void){
   return;
 }
 
@@ -62,50 +71,18 @@ SystemRegister::~SystemRegister(void){
 /* ****************************************************************************************
  * Public Method <Override>
  */
-
+/**
+ * @brief 
+ * 
+ */
+void RunnableEvent::run(void){
+  if(RunnableEvent::mFunction != nullptr)
+    RunnableEvent::mFunction();
+}
 /* ****************************************************************************************
  * Public Method
  */
 
-/**
- * @brief Set the Input Stream object
- * 
- * @param inputStream 
- */
-void SystemRegister::setInputStreamBuffer(mcuf::io::InputStreamBuffer* inputStreamBuffer){
-  this->mInputStreamBuffer = inputStreamBuffer;
-  return;
-}
-
-/**
- * @brief Set the Print Stream object
- * 
- * @param printStream 
- */
-void SystemRegister::setPrintStream(mcuf::io::PrintStream* printStream){
-  this->mPrintStream = printStream;
-  return;
-}
-
-/**
- * @brief Set the Error Code Handler object
- * 
- * @param errorCodeHandler 
- */
-void SystemRegister::setErrorCodeHandler(ErrorCodeHandler errorCodeHandler){
-  this->mErrorCodeHandler = errorCodeHandler;
-  return;
-}
-
-/**
- * @brief Set the Idle Task object
- * 
- * @param task 
- */
-void SystemRegister::setIdleTask(mcuf::function::RunnableEntity task){
-  this->mIdleTask = task;
-  return;
-}
 /* ****************************************************************************************
  * Protected Method <Static>
  */

@@ -214,6 +214,14 @@ void System::lowerDelay(uint32_t times){
 #pragma clang optimize on
 }
 
+/**
+ * @brief 執行idle是件
+ * 
+ */
+void System::idleTask(void){
+  System::mSystemRegister->mIdleTask.run();
+}
+
 /* ****************************************************************************************
  * Public Method <Override>
  */

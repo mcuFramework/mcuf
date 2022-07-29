@@ -19,6 +19,7 @@
 #include "mcuf/io/PrintStream.h"
 #include "mcuf/io/InputStreamBuffer.h"
 #include "mcuf/lang/ErrorCode.h"
+#include "mcuf/function/RunnableEntity.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -57,6 +58,7 @@ class mcuf::lang::managerment::SystemRegister extends mcuf::lang::Object{
    * Variable <Private>
    */
   private:
+    mcuf::function::RunnableEntity mIdleTask;
     ErrorCodeHandler mErrorCodeHandler;
     SystemReset mSystemReset;
     mcuf::io::PrintStream* mPrintStream;
@@ -130,6 +132,13 @@ class mcuf::lang::managerment::SystemRegister extends mcuf::lang::Object{
      * @param systemReset 
      */
     void setSystemReset(SystemReset systemReset);
+    
+    /**
+     * @brief Set the Idle Task object
+     * 
+     * @param task 
+     */
+    void setIdleTask(mcuf::function::RunnableEntity task);
 
   /* **************************************************************************************
    * Protected Method <Static>

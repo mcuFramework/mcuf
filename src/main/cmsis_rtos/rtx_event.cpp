@@ -37,7 +37,7 @@ extern "C" __WEAK __NO_RETURN void osRtxIdleThread (void *argument) {
   (void)argument;
 
   for (;;) {
-
+    System::idleTask();
   }
 }
  

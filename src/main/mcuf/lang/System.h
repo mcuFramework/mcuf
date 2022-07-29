@@ -163,7 +163,13 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * 
      * @param runnable 
      */
-    static void tick(mcuf::function::Runnable& runnable);  
+    static void tick(mcuf::function::Runnable& runnable);
+    
+    /**
+     * @brief 執行idle是件
+     * 
+     */
+    static void idleTask(void);
   
   /* **************************************************************************************
    * Public Method <Inline Static>
