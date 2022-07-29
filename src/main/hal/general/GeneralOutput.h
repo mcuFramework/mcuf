@@ -4,57 +4,72 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_A6C99BE5_AB26_4FEE_B210_6549D41C6EDF
-#define MCUF_A6C99BE5_AB26_4FEE_B210_6549D41C6EDF
+#ifndef MCUF_F5896110_0162_406F_9ECE_A67699B0938F
+#define MCUF_F5896110_0162_406F_9ECE_A67699B0938F
 
 /* ****************************************************************************************
  * Include
- */  
+ */
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/general/GeneralPinMode.h"
 
 /* ****************************************************************************************
  * Namespace
- */  
-
+ */
 namespace hal{
   namespace general{
-    interface GeneralPinConfig;
+    interface GeneralOutput;
   }
 }
 
+
 /* ****************************************************************************************
- * Class/Interface/Struct
- */  
-interface hal::general::GeneralPinConfig{
+ * Class/Interface/Struct/Enum
+ */
+interface hal::general::GeneralOutput{
   /* **************************************************************************************
    * Method
    */
-  
-  /**
-   * @brief 
-   * 
-   * @return PinMode 
-   */
-  virtual hal::general::GeneralPinMode pinMode(void) abstract;
 
   /**
-   * @brief 
+   * @brief Set the High object
    * 
-   * @param mode 
-   * @return true 
-   * @return false 
    */
-  virtual bool pinMode(hal::general::GeneralPinMode mode) abstract; 
+  virtual void setHigh(void) abstract;
+
+/**
+   * @brief Set the Low object
+   * 
+   */
+  virtual void setLow(void) abstract;
+  
+  /**
+   * @brief Set the Output object
+   * 
+   */
+  virtual void setOutput(void) abstract;
+
+  /**
+   * @brief Set the Toggle object
+   * 
+   */
+  virtual void setToggle(void) abstract;  
+
+  /**
+   * @brief Get io pin.
+   * 
+   * @return true high
+   * @return false low
+   */
+  virtual bool value(void) abstract;
 
 };
 
-/* *****************************************************************************************
+/* ****************************************************************************************
  * End of file
- */ 
+ */
 
-#endif /* MCUF_A6C99BE5_AB26_4FEE_B210_6549D41C6EDF */
+#endif /* MCUF_F5896110_0162_406F_9ECE_A67699B0938F */

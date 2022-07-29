@@ -33,6 +33,16 @@ namespace hal{
 interface hal::general::GeneralPortControl{
 
   /* **************************************************************************************
+   * Destruction
+   */
+
+  /**
+   * @brief Destroy the General Port Control object
+   * 
+   */
+  virtual ~GeneralPortControl(void) abstract;
+
+  /* **************************************************************************************
    * Method 
    */
 

@@ -4,57 +4,47 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_A6C99BE5_AB26_4FEE_B210_6549D41C6EDF
-#define MCUF_A6C99BE5_AB26_4FEE_B210_6549D41C6EDF
+#ifndef MCUF_9C655B34_D715_4F1E_957C_F1BFB3213FB8
+#define MCUF_9C655B34_D715_4F1E_957C_F1BFB3213FB8
 
 /* ****************************************************************************************
  * Include
- */  
+ */
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/general/GeneralPinMode.h"
 
 /* ****************************************************************************************
  * Namespace
- */  
-
+ */
 namespace hal{
   namespace general{
-    interface GeneralPinConfig;
+    interface GeneralInput;
   }
 }
 
+
 /* ****************************************************************************************
- * Class/Interface/Struct
- */  
-interface hal::general::GeneralPinConfig{
+ * Class/Interface/Struct/Enum
+ */
+interface hal::general::GeneralInput{
   /* **************************************************************************************
    * Method
    */
-  
-  /**
-   * @brief 
-   * 
-   * @return PinMode 
-   */
-  virtual hal::general::GeneralPinMode pinMode(void) abstract;
 
   /**
-   * @brief 
+   * @brief Set io pin to high or low.
    * 
-   * @param mode 
-   * @return true 
-   * @return false 
+   * @param level false = low, true = high.
    */
-  virtual bool pinMode(hal::general::GeneralPinMode mode) abstract; 
+  virtual void value(bool level) abstract; 
 
 };
 
-/* *****************************************************************************************
+/* ****************************************************************************************
  * End of file
- */ 
+ */
 
-#endif /* MCUF_A6C99BE5_AB26_4FEE_B210_6549D41C6EDF */
+#endif /* MCUF_9C655B34_D715_4F1E_957C_F1BFB3213FB8 */

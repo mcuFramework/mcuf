@@ -35,8 +35,20 @@ interface hal::general::EdgeTrigger extends hal::Base,
   hal::general::EdgeTriggerControl{
 
   /* **************************************************************************************
+   * Destruction
+   */
+
+  /**
+   * @brief Destroy the Edge Trigger Control object
+   * 
+   */
+  virtual ~EdgeTrigger(void) override;
+
+  /* **************************************************************************************
    * Method
    */
+
+
 
 };
 

@@ -15,6 +15,8 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
+#include "hal/general/GeneralInput.h"
+#include "hal/general/GeneralOutput.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -29,12 +31,16 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::GeneralPinControl{
+interface hal::general::GeneralPinControl extends 
+hal::general::GeneralInput,
+hal::general::GeneralOutput{
 
   /* **************************************************************************************
    * Method
    */
-  
+  using GeneralInput::value;
+  using GeneralOutput::value;
+
   /**
    * @brief  Get io direction.
    * 
@@ -42,7 +48,7 @@ interface hal::general::GeneralPinControl{
    * @return false input
    */
   virtual bool dir(void) abstract;
-
+  
   /**
    * @brief Set io direction.
    * 
@@ -51,49 +57,10 @@ interface hal::general::GeneralPinControl{
   virtual void dir(bool dir) abstract;
 
   /**
-   * @brief Set the High object
-   * 
-   */
-  virtual void setHigh(void) abstract;
-  
-  /**
    * @brief Set the Input object
    * 
    */
   virtual void setInput(void) abstract;
-
-  /**
-   * @brief Set the Low object
-   * 
-   */
-  virtual void setLow(void) abstract;
-  
-  /**
-   * @brief Set the Output object
-   * 
-   */
-  virtual void setOutput(void) abstract;
-
-  /**
-   * @brief Set the Toggle object
-   * 
-   */
-  virtual void setToggle(void) abstract;
-  
-  /**
-   * @brief Get io pin.
-   * 
-   * @return true high
-   * @return false low
-   */
-  virtual bool value(void) abstract;
-
-  /**
-   * @brief Set io pin to high or low.
-   * 
-   * @param level false = low, true = high.
-   */
-  virtual void value(bool level) abstract; 
 
 };
 

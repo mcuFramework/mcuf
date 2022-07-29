@@ -32,42 +32,54 @@ namespace hal{
 interface hal::general::EdgeTriggerControl{
 
   /* **************************************************************************************
+   * Destruction
+   */
+  
+  /**
+   * @brief Destroy the Edge Trigger Control object
+   * 
+   */
+  virtual ~EdgeTriggerControl(void) abstract;
+
+  /* **************************************************************************************
    * Method
    */
 
+
+
   /**
-   * @brief 
+   * @brief 取消全部邊緣觸發事件
    * 
    */
   virtual void disableAll(void) abstract;
 
   /**
-   * @brief 
+   * @brief 取消負緣觸發
    * 
    */
   virtual void disableFall(void) abstract;
 
   /**
-   * @brief 
+   * @brief 取消正緣觸發
    * 
    */
   virtual void disableRise(void) abstract;
 
   /**
-   * @brief 
+   * @brief 啟用負緣觸發
    * 
-   * @param event 
-   * @return true 
-   * @return false 
+   * @param event 觸發事件
+   * @return true 設定成功
+   * @return false 設定失敗
    */
   virtual bool enableFall(hal::general::EdgeTriggerEvent* event) abstract;
 
   /**
    * @brief 
    * 
-   * @param event 
-   * @return true 
-   * @return false 
+   * @param event 啟用正緣觸發
+   * @return true 設定成功
+   * @return false 設定失敗
    */
   virtual bool enableRise(hal::general::EdgeTriggerEvent* event) abstract;
 

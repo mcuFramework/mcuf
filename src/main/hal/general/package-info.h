@@ -18,6 +18,8 @@
 #include "EdgeTriggerControl.h"
 #include "EdgeTriggerEvent.h"
 #include "EdgeTriggerStatus.h"
+#include "GeneralInput.h"
+#include "GeneralOutput.h"
 #include "GeneralPin.h"
 #include "GeneralPinConfig.h"
 #include "GeneralPinControl.h"
