@@ -24,17 +24,6 @@ namespace hal{
  * Class/Interface/Struct
  */  
 interface hal::Base{
-
-  /* **************************************************************************************
-   * Method
-   */
-  
-  /**
-   * @brief Destroy the Base object
-   * 
-   */
-  virtual ~Base(void) abstract;
-
   /**
    * @brief uninitialze hardware.
    * 
