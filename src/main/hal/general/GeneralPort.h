@@ -31,7 +31,8 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::GeneralPort extends hal::Base, 
+interface hal::general::GeneralPort extends 
+hal::Base, 
 hal::general::GeneralPortControl{
   /* **************************************************************************************
    * Method 

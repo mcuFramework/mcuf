@@ -30,7 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::util::NioExecuteMethod extends mcuf::lang::Interface{
+interface mcuf::util::NioExecuteMethod extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

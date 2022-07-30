@@ -27,7 +27,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename T>
-interface mcuf::function::Supplier extends mcuf::lang::Interface{
+interface mcuf::function::Supplier extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

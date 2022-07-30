@@ -27,8 +27,9 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPeriph extends hal::Base,
-  hal::serial::SerialPeriphTransfer{
+interface hal::serial::SerialPeriph extends 
+hal::Base,
+hal::serial::SerialPeriphTransfer{
 
   /* **************************************************************************************
    * Method

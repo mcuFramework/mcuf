@@ -32,7 +32,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename E>
-interface mcuf::lang::Iterable extends mcuf::lang::Interface{
+interface mcuf::lang::Iterable extends virtual mcuf::lang::Interface{
   
   /* **************************************************************************************
    * Method

@@ -33,7 +33,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::io::Console extends mcuf::lang::Interface{
+interface mcuf::io::Console extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

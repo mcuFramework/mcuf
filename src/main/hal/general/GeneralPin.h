@@ -31,7 +31,8 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::GeneralPin extends hal::general::GeneralPinConfig,
+interface hal::general::GeneralPin extends 
+hal::general::GeneralPinConfig,
 hal::general::GeneralPinControl{
 
 

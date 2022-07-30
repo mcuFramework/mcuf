@@ -25,7 +25,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::function::Runnable extends mcuf::lang::Interface{
+interface mcuf::function::Runnable extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

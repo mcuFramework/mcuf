@@ -27,9 +27,10 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPort extends hal::Base,
-  hal::serial::SerialPortConfig,
-  hal::serial::SerialPortTransfer{
+interface hal::serial::SerialPort extends 
+hal::Base,
+hal::serial::SerialPortConfig,
+hal::serial::SerialPortTransfer{
 
   /* **************************************************************************************
    * Method

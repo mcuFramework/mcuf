@@ -31,7 +31,7 @@ namespace mcuf{
  * Class Future
  */  
 template<typename V>
-interface mcuf::util::concurrent::Future extends mcuf::lang::Interface{
+interface mcuf::util::concurrent::Future extends virtual mcuf::lang::Interface{
   
   /* **************************************************************************************
    * Subclass

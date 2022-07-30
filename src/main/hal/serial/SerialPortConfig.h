@@ -11,6 +11,7 @@
  * Include
  */  
 #include "mcuf_base.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -25,7 +26,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPortConfig{
+interface hal::serial::SerialPortConfig extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

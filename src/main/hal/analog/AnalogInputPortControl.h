@@ -30,7 +30,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::analog::AnalogInputPortControl extends mcuf::lang::Interface{
+interface hal::analog::AnalogInputPortControl extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

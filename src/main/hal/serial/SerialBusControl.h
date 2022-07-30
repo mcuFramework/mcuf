@@ -11,6 +11,7 @@
  * Include
  */  
 #include "mcuf_base.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -25,7 +26,7 @@ namespace hal{
 /* ****************************************************************************************
  * Interface/Class/Struct
  */  
-interface hal::serial::SerialBusControl{
+interface hal::serial::SerialBusControl extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

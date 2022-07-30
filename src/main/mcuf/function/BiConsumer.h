@@ -26,7 +26,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename T, typename U>
-interface mcuf::function::BiConsumer extends mcuf::lang::Interface{
+interface mcuf::function::BiConsumer extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method 

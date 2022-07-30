@@ -30,7 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::util::CommandLineHandler extends mcuf::lang::Interface{
+interface mcuf::util::CommandLineHandler extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

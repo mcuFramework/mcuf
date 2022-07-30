@@ -29,7 +29,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */
 template<typename V, typename A>
-interface mcuf::io::CompletionHandler extends mcuf::lang::Interface{
+interface mcuf::io::CompletionHandler extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    *  Method

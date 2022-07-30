@@ -28,7 +28,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::io::Closeable extends mcuf::lang::Interface{
+interface mcuf::io::Closeable extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

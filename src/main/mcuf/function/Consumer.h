@@ -27,7 +27,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename T>
-interface mcuf::function::Consumer extends mcuf::lang::Interface{
+interface mcuf::function::Consumer extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

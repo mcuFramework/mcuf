@@ -18,7 +18,7 @@
 #include "mcuf/lang/Allocator.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/ObjectBase.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -34,7 +34,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::lang::Object : virtual public mcuf::lang::ObjectBase{
+class mcuf::lang::Object : virtual public mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Variable <Public>

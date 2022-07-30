@@ -27,9 +27,10 @@ namespace hal{
 /* ****************************************************************************************
  * Interface/Class/Struct
  */  
-interface hal::serial::SerialBus extends hal::Base,
-  hal::serial::SerialBusControl,
-  hal::serial::SerialBusTransfer{
+interface hal::serial::SerialBus extends 
+hal::Base,
+hal::serial::SerialBusControl,
+hal::serial::SerialBusTransfer{
 
   /* **************************************************************************************
    * Method

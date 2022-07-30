@@ -31,7 +31,8 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPeriphSlot extends hal::Base{
+interface hal::serial::SerialPeriphSlot extends 
+hal::Base{
 
   /* **************************************************************************************
    * Method

@@ -31,7 +31,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::GeneralPinConfig extends mcuf::lang::Interface{
+interface hal::general::GeneralPinConfig extends virtual mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */

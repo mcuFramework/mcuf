@@ -14,6 +14,7 @@
 //-----------------------------------------------------------------------------------------
 #include "mcuf/io/ByteBuffer.h"
 #include "hal/storage/FlashStorageEvent.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -28,7 +29,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::storage::FlashStorageControl{
+interface hal::storage::FlashStorageControl extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

@@ -31,8 +31,9 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::analog::AnalogInputPort extends hal::Base,
-  hal::analog::AnalogInputPortControl{
+interface hal::analog::AnalogInputPort extends 
+hal::Base,
+hal::analog::AnalogInputPortControl{
 
   /* **************************************************************************************
    * Method

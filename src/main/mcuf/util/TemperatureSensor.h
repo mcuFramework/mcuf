@@ -30,7 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::util::TemperatureSensor extends mcuf::lang::Interface{
+interface mcuf::util::TemperatureSensor extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

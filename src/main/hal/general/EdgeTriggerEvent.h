@@ -31,7 +31,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::EdgeTriggerEvent extends mcuf::lang::Interface{
+interface hal::general::EdgeTriggerEvent extends virtual mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */

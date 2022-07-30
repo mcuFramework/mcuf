@@ -27,7 +27,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::counter::TimerControl extends mcuf::lang::Interface{
+interface hal::counter::TimerControl extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

@@ -27,7 +27,8 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::counter::Timer extends hal::Base,
+interface hal::counter::Timer extends 
+hal::Base,
 hal::counter::TimerControl{
 
   /* **************************************************************************************

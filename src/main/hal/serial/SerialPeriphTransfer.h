@@ -15,6 +15,7 @@
 #include "mcuf/io/ByteBuffer.h"
 #include "hal/serial/SerialPeriphEvent.h"
 #include "hal/serial/SerialPeriphPacket.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -29,7 +30,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPeriphTransfer{
+interface hal::serial::SerialPeriphTransfer extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

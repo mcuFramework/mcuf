@@ -35,7 +35,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::io::DuplexStream extends mcuf::lang::Interface{
+interface mcuf::io::DuplexStream extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

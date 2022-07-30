@@ -30,7 +30,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */
-interface mcuf::io::InputStream extends mcuf::lang::Interface{
+interface mcuf::io::InputStream extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    *  Method <Public>

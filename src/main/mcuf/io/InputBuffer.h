@@ -32,7 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::io::InputBuffer extends mcuf::lang::Interface{
+interface mcuf::io::InputBuffer extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

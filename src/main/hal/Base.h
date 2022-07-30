@@ -11,6 +11,7 @@
  * Include
  */  
 #include "mcuf_base.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -23,7 +24,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base{
+interface hal::Base extends virtual mcuf::lang::Interface{
   /**
    * @brief uninitialze hardware.
    * 

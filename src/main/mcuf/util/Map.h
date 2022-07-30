@@ -30,7 +30,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename K, typename V>
-interface mcuf::util::Map extends mcuf::lang::Interface{
+interface mcuf::util::Map extends virtual mcuf::lang::Interface{
   
   /* **************************************************************************************
    * Method

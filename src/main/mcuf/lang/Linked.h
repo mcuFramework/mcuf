@@ -29,7 +29,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename E>
-interface mcuf::lang::Linked extends mcuf::lang::Interface{
+interface mcuf::lang::Linked extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

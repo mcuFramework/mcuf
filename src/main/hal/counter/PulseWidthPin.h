@@ -31,7 +31,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface hal::counter::PulseWidthPin extends mcuf::lang::Interface{
+interface hal::counter::PulseWidthPin extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

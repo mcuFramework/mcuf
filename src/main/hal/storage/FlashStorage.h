@@ -30,8 +30,9 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::storage::FlashStorage extends hal::Base,
-  hal::storage::FlashStorageControl{
+interface hal::storage::FlashStorage extends 
+hal::Base,
+hal::storage::FlashStorageControl{
 
   /* **************************************************************************************
    * Method

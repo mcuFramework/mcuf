@@ -30,7 +30,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface hal::general::GeneralOutput extends mcuf::lang::Interface{
+interface hal::general::GeneralOutput extends virtual mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */

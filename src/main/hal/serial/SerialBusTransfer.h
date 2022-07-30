@@ -14,6 +14,7 @@
 #include "mcuf/io/OutputBuffer.h"
 #include "mcuf/io/InputBuffer.h"
 #include "hal/serial/SerialBusEvent.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -28,7 +29,7 @@ namespace hal{
 /* ****************************************************************************************
  * Interface/Class/Struct
  */  
-interface hal::serial::SerialBusTransfer{
+interface hal::serial::SerialBusTransfer extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

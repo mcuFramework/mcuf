@@ -26,7 +26,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::lang::Allocator extends mcuf::lang::Interface{
+interface mcuf::lang::Allocator extends virtual mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */
