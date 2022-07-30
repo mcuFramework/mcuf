@@ -14,6 +14,7 @@
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -28,7 +29,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename E>
-interface mcuf::lang::Linked{
+interface mcuf::lang::Linked extends mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_CAA15689_322D_4F0B_A08E_EDBD4E40B379
-#define MCUF_CAA15689_322D_4F0B_A08E_EDBD4E40B379
+#ifndef MCUF_03993C4C_AF0A_428D_9EA5_3A9BC4E9ED50
+#define MCUF_03993C4C_AF0A_428D_9EA5_3A9BC4E9ED50
 
 /* ****************************************************************************************
  * Include folder
@@ -26,6 +26,7 @@
 #include "InputBufferLimit.h"
 #include "InputStream.h"
 #include "InputStreamBuffer.h"
+#include "InputStreamHandler.h"
 #include "LinkedInputBuffer.h"
 #include "LinkedOutputBuffer.h"
 #include "OutputBuffer.h"
@@ -34,8 +35,8 @@
 #include "OutputStreamBuffer.h"
 #include "OutputStreamHandler.h"
 #include "PrintStream.h"
-#include "RingBuffer.h"
 #include "ReadonlyOutputBuffer.h"
+#include "RingBuffer.h"
 #include "RingBufferInputStream.h"
 #include "RingBufferOutputStream.h"
 #include "SerialBusQueue.h"
@@ -46,4 +47,4 @@
  * End of file
  */
 
-#endif /* MCUF_CAA15689_322D_4F0B_A08E_EDBD4E40B379 */
+#endif /* MCUF_03993C4C_AF0A_428D_9EA5_3A9BC4E9ED50 */

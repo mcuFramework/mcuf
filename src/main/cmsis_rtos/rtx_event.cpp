@@ -32,12 +32,14 @@
 using mcuf::lang::ErrorCode;
 using mcuf::lang::System;
 
+extern void idle(void);
+
 // OS Idle Thread
 extern "C" __WEAK __NO_RETURN void osRtxIdleThread (void *argument) {
   (void)argument;
 
   for (;;) {
-    System::idleTask();
+    idle();
   }
 }
  

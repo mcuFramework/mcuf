@@ -16,6 +16,7 @@
 
 //-----------------------------------------------------------------------------------------
 #include "hal/Base.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -30,7 +31,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::GeneralPortControl{
+interface hal::general::GeneralPortControl extends mcuf::lang::Interface{
   /* **************************************************************************************
    * Method 
    */

@@ -11,6 +11,7 @@
  * Include
  */  
 #include "mcuf_base.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -24,7 +25,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::function::Runnable{
+interface mcuf::function::Runnable extends mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

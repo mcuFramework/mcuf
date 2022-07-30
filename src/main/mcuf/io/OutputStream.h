@@ -16,6 +16,7 @@
 #include "mcuf/io/CompletionHandler.h"
 #include "mcuf/io/Future.h"
 #include "mcuf/lang/Object.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -31,7 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */
-interface mcuf::io::OutputStream{
+interface mcuf::io::OutputStream extends mcuf::lang::Interface{
 
   /* **************************************************************************************
    *  Method <Public>

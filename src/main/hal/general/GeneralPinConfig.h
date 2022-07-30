@@ -16,6 +16,7 @@
 
 //-----------------------------------------------------------------------------------------
 #include "hal/general/GeneralPinMode.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -30,7 +31,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::GeneralPinConfig{
+interface hal::general::GeneralPinConfig extends mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */

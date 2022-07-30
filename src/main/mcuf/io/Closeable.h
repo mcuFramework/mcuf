@@ -13,6 +13,8 @@
  * Include
  */  
 #include "mcuf_base.h"
+#include "mcuf/lang/Interface.h"
+
 
 /* ****************************************************************************************
  * Namespace
@@ -26,7 +28,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::io::Closeable{
+interface mcuf::io::Closeable extends mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

@@ -16,6 +16,7 @@
 
 //-----------------------------------------------------------------------------------------
 #include "hal/general/EdgeTriggerStatus.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -30,7 +31,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::EdgeTriggerEvent{
+interface hal::general::EdgeTriggerEvent extends mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */

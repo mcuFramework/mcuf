@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_1D4DAF94_D58D_4809_BD65_27453AE83AF8
-#define MCUF_1D4DAF94_D58D_4809_BD65_27453AE83AF8
+#ifndef MCUF_FA62995E_4B43_44E2_9381_2F42480339B5
+#define MCUF_FA62995E_4B43_44E2_9381_2F42480339B5
 
 /* ****************************************************************************************
  * Include folder
@@ -24,6 +24,7 @@
 #include "Data.h"
 #include "ErrorCode.h"
 #include "Integer.h"
+#include "Interface.h"
 #include "Iterable.h"
 #include "Linked.h"
 #include "LinkedEntity.h"
@@ -31,6 +32,7 @@
 #include "Memory.h"
 #include "Number.h"
 #include "Object.h"
+#include "ObjectBase.h"
 #include "Pointer.h"
 #include "Short.h"
 #include "String.h"
@@ -46,4 +48,4 @@
  * End of file
  */
 
-#endif /* MCUF_1D4DAF94_D58D_4809_BD65_27453AE83AF8 */
+#endif /* MCUF_FA62995E_4B43_44E2_9381_2F42480339B5 */

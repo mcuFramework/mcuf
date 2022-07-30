@@ -17,6 +17,8 @@
 //-----------------------------------------------------------------------------------------
 #include "mcuf/io/InputStreamBuffer.h"
 #include "mcuf/io/PrintStream.h"
+#include "mcuf/lang/Interface.h"
+
 
 /* ****************************************************************************************
  * Namespace
@@ -31,7 +33,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::io::Console{
+interface mcuf::io::Console extends mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

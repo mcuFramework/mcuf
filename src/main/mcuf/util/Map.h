@@ -15,6 +15,7 @@
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 #include "mcuf/function/BiConsumer.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -29,7 +30,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename K, typename V>
-interface mcuf::util::Map{
+interface mcuf::util::Map extends mcuf::lang::Interface{
   
   /* **************************************************************************************
    * Method

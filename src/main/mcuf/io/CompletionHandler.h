@@ -13,6 +13,8 @@
  */
 #include "mcuf_base.h"
 #include "mcuf/lang/Object.h"
+#include "mcuf/lang/Interface.h"
+
 
 /* ****************************************************************************************
  * Namespace
@@ -27,7 +29,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */
 template<typename V, typename A>
-interface mcuf::io::CompletionHandler{
+interface mcuf::io::CompletionHandler extends mcuf::lang::Interface{
 
   /* **************************************************************************************
    *  Method

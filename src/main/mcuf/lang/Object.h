@@ -13,9 +13,12 @@
  */  
 #include <stdint.h>
 #include <string.h>
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf/lang/Allocator.h"
 
-
+//-----------------------------------------------------------------------------------------
+#include "mcuf/lang/ObjectBase.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -31,7 +34,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::lang::Object{
+class mcuf::lang::Object : virtual public mcuf::lang::ObjectBase{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -68,7 +71,7 @@ class mcuf::lang::Object{
      * @brief Destroy the Object object
      * 
      */
-    virtual ~Object(void);
+    virtual ~Object(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -106,24 +109,15 @@ class mcuf::lang::Object{
    */
 
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> - mcuf::lang::ObjectBase
    */
-   
-  /* **************************************************************************************
-   * Public Method <Inline>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-  public: 
-  
+  public:
     /**
      * @brief 
      * 
      * @param milliseconds 
      */
-    void delay(int milliseconds) const;
+    virtual void delay(int milliseconds) const override;
 
     /**
      * @brief 
@@ -132,7 +126,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool equal(Object* object) const;
+    virtual bool equal(Object* object) const override;
 
     /**
      * @brief 
@@ -141,20 +135,20 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool equal(Object& object) const;
+    virtual bool equal(Object& object) const override;
 
     /**
      * @brief 
      * 
      */
-    virtual void finalize(void);
+    virtual void finalize(void) override;
 
     /**
      * @brief 
      * 
      */
-    virtual void wait(void) const;
-    
+    virtual void wait(void) const override;
+
     /**
      * @brief 
      * 
@@ -162,7 +156,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool wait(int timeout) const;
+    virtual bool wait(int timeout) const override;
     
     /**
      * @brief 
@@ -170,7 +164,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool yield(void) const;
+    virtual bool yield(void) const override;
     
     /**
      * @brief 
@@ -178,7 +172,7 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool systemLock(void) const;
+    virtual bool systemLock(void) const override;
     
     /**
      * @brief 
@@ -186,7 +180,15 @@ class mcuf::lang::Object{
      * @return true 
      * @return false 
      */
-    virtual bool systemUnlock(void) const;
+    virtual bool systemUnlock(void) const override;
+
+  /* **************************************************************************************
+   * Public Method <Inline>
+   */
+
+  /* **************************************************************************************
+   * Public Method
+   */
 
   /* **************************************************************************************
    * Protected Method <Static>

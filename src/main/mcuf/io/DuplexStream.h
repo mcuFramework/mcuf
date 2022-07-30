@@ -19,6 +19,7 @@
 #include "mcuf/io/OutputBuffer.h"
 #include "mcuf/io/Future.h"
 #include "mcuf/io/CompletionHandler.h"
+#include "mcuf/lang/Interface.h"
 
 
 /* ****************************************************************************************
@@ -34,7 +35,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::io::DuplexStream{
+interface mcuf::io::DuplexStream extends mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

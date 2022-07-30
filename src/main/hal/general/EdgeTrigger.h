@@ -32,12 +32,10 @@ namespace hal{
  * Class/Interface/Struct
  */  
 interface hal::general::EdgeTrigger extends hal::Base,
-  hal::general::EdgeTriggerControl{
+hal::general::EdgeTriggerControl{
   /* **************************************************************************************
    * Method
    */
-
-
 
 };
 

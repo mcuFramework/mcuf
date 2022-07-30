@@ -11,6 +11,8 @@
  * Include
  */  
 #include "mcuf_base.h"
+#include "mcuf/lang/Interface.h"
+
 
 /* ****************************************************************************************
  * Namespace
@@ -25,7 +27,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename T>
-interface mcuf::function::Consumer{
+interface mcuf::function::Consumer extends mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

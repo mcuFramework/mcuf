@@ -12,6 +12,7 @@
  * Include
  */  
 #include "mcuf_base.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -25,7 +26,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::lang::Allocator{
+interface mcuf::lang::Allocator extends mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */

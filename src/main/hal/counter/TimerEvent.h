@@ -13,6 +13,7 @@
  */  
 #include "mcuf_base.h"
 #include "hal/counter/TimerStatus.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -27,7 +28,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::counter::TimerEvent{
+interface hal::counter::TimerEvent extends mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

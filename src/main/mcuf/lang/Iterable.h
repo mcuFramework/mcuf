@@ -15,7 +15,7 @@
 #include "mcuf/lang/Object.h"
 #include "mcuf/function/Consumer.h"
 #include "mcuf/function/BiConsumer.h"
-
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -32,7 +32,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename E>
-interface mcuf::lang::Iterable{
+interface mcuf::lang::Iterable extends mcuf::lang::Interface{
   
   /* **************************************************************************************
    * Method

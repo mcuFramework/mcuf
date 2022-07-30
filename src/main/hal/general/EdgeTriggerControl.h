@@ -13,6 +13,7 @@
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
+#include "mcuf/lang/Interface.h"
 
 //-----------------------------------------------------------------------------------------
 #include "hal/general/EdgeTriggerEvent.h"
@@ -29,7 +30,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::EdgeTriggerControl{
+interface hal::general::EdgeTriggerControl extends mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */

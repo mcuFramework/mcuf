@@ -11,6 +11,7 @@
  * Include
  */  
 #include "mcuf_base.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -25,7 +26,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename T, typename R>
-interface mcuf::function::Function{
+interface mcuf::function::Function extends mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

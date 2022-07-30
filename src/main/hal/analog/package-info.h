@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_20502AD8_64C4_40F4_8A64_3264F47DB1CB
-#define MCUF_20502AD8_64C4_40F4_8A64_3264F47DB1CB
+#ifndef MCUF_4082F3E5_72A9_4556_AEE6_D2346FAB6FCE
+#define MCUF_4082F3E5_72A9_4556_AEE6_D2346FAB6FCE
 
 /* ****************************************************************************************
  * Include folder
@@ -22,4 +22,4 @@
  * End of file
  */
 
-#endif /* MCUF_20502AD8_64C4_40F4_8A64_3264F47DB1CB */
+#endif /* MCUF_4082F3E5_72A9_4556_AEE6_D2346FAB6FCE */

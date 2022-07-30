@@ -12,6 +12,7 @@
  */  
 #include "mcuf_base.h"
 #include "hal/Base.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -26,7 +27,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::counter::PulseWidthPortControl{
+interface hal::counter::PulseWidthPortControl extends mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

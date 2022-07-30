@@ -33,8 +33,8 @@ namespace hal{
  * Class/Interface/Struct/Enum
  */
 interface hal::counter::PulseWidthPort extends 
-  hal::Base,
-  hal::counter::PulseWidthPortControl{
+hal::Base,
+hal::counter::PulseWidthPortControl{
 
   /* **************************************************************************************
    * Method

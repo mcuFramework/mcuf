@@ -12,6 +12,7 @@
  * Include
  */  
 #include "mcuf_base.h"
+#include "mcuf/lang/Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -30,7 +31,7 @@ namespace mcuf{
  * Class Future
  */  
 template<typename V>
-interface mcuf::util::concurrent::Future{
+interface mcuf::util::concurrent::Future extends mcuf::lang::Interface{
   
   /* **************************************************************************************
    * Subclass

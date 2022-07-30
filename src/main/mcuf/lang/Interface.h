@@ -12,8 +12,10 @@
  */
 
 //-----------------------------------------------------------------------------------------
+#include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
+#include "mcuf/lang/ObjectBase.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -28,11 +30,17 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::lang::Interface{
+interface mcuf::lang::Interface extends virtual mcuf::lang::ObjectBase{
 
   /* **************************************************************************************
    * Method
    */
+
+  /**
+   * @brief Destroy the Interface object
+   * 
+   */
+  virtual ~Interface(void) override;
 
 };
 
