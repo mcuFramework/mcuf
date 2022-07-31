@@ -173,6 +173,19 @@ int RingBufferInputStream::put(const void *data, int num){
   return result; 
 }
 
+/* **************************************************************************************
+ * Public Method <Override> - mcuf::io::InputStreamBuffer
+ */
+
+/**
+ * @brief Get the Output Buffer object
+ * 
+ * @return mcuf::io::OutputBuffer& 
+ */
+mcuf::io::OutputBuffer& RingBufferInputStream::getOutputBuffer(void){
+  return *this;
+}
+
 /* ****************************************************************************************
  * Public Method <Override> - mcuf::io::InputStream 
  */

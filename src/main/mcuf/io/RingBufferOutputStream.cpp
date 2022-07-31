@@ -187,6 +187,19 @@ int RingBufferOutputStream::skip(int value){
   return result; 
 }
 
+/* **************************************************************************************
+ * Public Method <Override> - mcuf::io::OutputStreamBuffer
+ */
+
+/**
+ * @brief Get the Input Buffer object
+ * 
+ * @return mcuf::io::InputBuffer& 
+ */
+mcuf::io::InputBuffer& RingBufferOutputStream::getInputBuffer(void){
+  return *this;
+}
+
 /* ****************************************************************************************
  * Public Method <Override> - mcuf::io::OutputStream
  */

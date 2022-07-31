@@ -33,8 +33,8 @@ namespace mcuf{
  * Class/Interface/Struct/Enum
  */  
 class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
-  public mcuf::io::InputStreamBuffer,
-  public mcuf::function::Runnable{
+public mcuf::io::InputStreamBuffer,
+public mcuf::function::Runnable{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -144,6 +144,17 @@ class mcuf::io::RingBufferInputStream extends mcuf::io::RingBuffer implements
      * @return int 移動資料數量(byte)
      */
     virtual int put(const void* buffer, int length) override;
+    
+  /* **************************************************************************************
+   * Public Method <Override> - mcuf::io::InputStreamBuffer
+   */
+  public:
+    /**
+     * @brief Get the Output Buffer object
+     * 
+     * @return mcuf::io::OutputBuffer& 
+     */
+    virtual mcuf::io::OutputBuffer& getOutputBuffer(void) override;
 
   /* **************************************************************************************
    * Public Method <Override> - mcuf::io::InputStream 

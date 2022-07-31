@@ -33,7 +33,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */
 class mcuf::io::ByteBuffer extends mcuf::lang::Memory implements
-  public mcuf::io::Buffer{
+public mcuf::io::Buffer{
 
   /* **************************************************************************************
    *  Variable <Public>

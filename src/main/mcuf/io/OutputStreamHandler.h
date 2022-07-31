@@ -32,7 +32,7 @@ namespace mcuf{
  * Class/Interface/Struct/Enum
  */  
 class mcuf::io::OutputStreamHandler extends mcuf::io::RingBufferOutputStream implements
-  public mcuf::io::CompletionHandler<int, void*>{
+public mcuf::io::CompletionHandler<int, void*>{
 
   /* **************************************************************************************
    * Variable <Public>

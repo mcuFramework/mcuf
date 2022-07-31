@@ -32,8 +32,8 @@ namespace mcuf{
  * Class/Interface/Struct/Enum
  */
 interface mcuf::io::Buffer extends 
-virtual mcuf::io::OutputBuffer, 
-virtual mcuf::io::InputBuffer{
+mcuf::io::OutputBuffer, 
+mcuf::io::InputBuffer{
 
   /* **************************************************************************************
    * Method
