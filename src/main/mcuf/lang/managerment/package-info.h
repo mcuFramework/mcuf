@@ -16,8 +16,6 @@
  */
 #include "CoreThread.h"
 #include "CoreTick.h"
-#include "DefaultOperatorSystemInterface.h"
-#include "OperatorSystemInterface.h"
 #include "SystemRegister.h"
 
 /* ****************************************************************************************
