@@ -12,9 +12,6 @@
 #include <stdlib.h>
 
 //-----------------------------------------------------------------------------------------
-
-#include "cmsis_rtos/rtx_os.h"
-
 #include "mcuf/lang/Math.h"
 #include "mcuf/lang/System.h"
 #include "mcuf/lang/ThreadEvent.h"
@@ -124,7 +121,7 @@ void System::initialize(void){
   if(System::mSystemRegister != nullptr)
     return;
   
-  osKernelInitialize();
+  System::sInterfaceKernel->kernelInitialize();
   System::mSystemRegister = new SystemRegister();
 }
 
@@ -134,14 +131,14 @@ void System::initialize(void){
  * @param userThread 
  */
 void System::start(mcuf::lang::Thread& userThread){
-
+  
   System::mCoreThread 
-    = new CoreThread(mcufCoreStackMemorySize, mcufCoreEcecutorTaskNumber, 
+    = new CoreThread(mcufCoreEcecutorTaskNumber, 
                      mcufTickTaskNumber, mcufTickBaseTime, 
                      &userThread);
   
   System::mCoreThread->start();
-  osKernelStart();
+  System::sInterfaceKernel->kernelStart();
   
   delete System::mCoreThread;
   System::mCoreThread = nullptr;

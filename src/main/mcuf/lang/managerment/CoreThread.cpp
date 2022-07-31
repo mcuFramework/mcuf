@@ -10,7 +10,6 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "cmsis_rtos/rtx_os.h"
 #include "mcuf/lang/managerment/CoreThread.h"
 #include "mcuf/lang/ErrorCode.h"
 #include "mcuf/util/Timer.h"
@@ -36,8 +35,8 @@ using mcuf::util::Timer;
 /**
  *
  */
-CoreThread::CoreThread(uint32_t stackSize, uint32_t executeQueue, uint32_t tickQueue, uint32_t tickBase, Thread* userThread) : 
-Thread(stackSize),
+CoreThread::CoreThread(uint32_t executeQueue, uint32_t tickQueue, uint32_t tickBase, Thread* userThread) : 
+Thread(),
 mCoreTick(tickQueue, tickBase),
 mExecutor(executeQueue){
   

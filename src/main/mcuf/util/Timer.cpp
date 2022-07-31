@@ -10,9 +10,6 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#ifndef MCUF_CMSISRTOS2_DISABLE
-#include "cmsis_rtos/rtx_os.h"
-#endif
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf/util/Timer.h"
@@ -20,13 +17,17 @@
 /* ****************************************************************************************
  * Macro
  */  
-#define getTimerHandle(TASK)       (*reinterpret_cast<osRtxTimer_t*>(&TASK.mHandler[0]))
 
 /* ****************************************************************************************
  * Using
  */  
 using mcuf::util::Timer;
 using mcuf::util::TimerTask;
+
+/* ****************************************************************************************
+ * Static Variable
+ */  
+mcuf::lang::rtos::InterfaceTimer* Timer::sInterfaceTimer;
 
 /* ****************************************************************************************
  * Construct Method
@@ -110,25 +111,17 @@ bool Timer::schedule(TimerTask& task, uint32_t delay, bool mode){
     return false;
   
   if(task.mTimerID){
-    if(osTimerDelete(task.mTimerID) != osOK)
+    if(Timer::sInterfaceTimer->timerFree(task) == false)
       return false;
   }
   
-  osTimerAttr_t attr;
-  attr.name = "";
-  attr.attr_bits = 0;
-  attr.cb_mem = &getTimerHandle(task);
-  attr.cb_size = sizeof(task.mHandler);
+  task.mTimerID = Timer::sInterfaceTimer->timerAlloc(task);
+
   
-  if(mode)
-    task.mTimerID = osTimerNew(Timer::entryPoint, osTimerOnce, &task, &attr);
-  else
-    task.mTimerID = osTimerNew(Timer::entryPoint, osTimerPeriodic, &task, &attr);
-  
-  if(task.mTimerID == nullptr)
+  if(task.mTimerID == 0x00000000)
     return false;
   
-  return (osTimerStart(task.mTimerID, delay) == osOK);
+  return Timer::sInterfaceTimer->timerStart(task, delay, mode);
 }
 
 /* ****************************************************************************************

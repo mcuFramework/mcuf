@@ -13,7 +13,7 @@
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf/io/Future.h"
-#include "mcuf/lang/Threads.h"
+#include "mcuf/lang/Thread.h"
 
 /* ****************************************************************************************
  * Macro
@@ -27,7 +27,7 @@
 
 //-----------------------------------------------------------------------------------------
 using mcuf::io::Future;
-using mcuf::lang::Threads;
+using mcuf::lang::Thread;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -78,7 +78,8 @@ void Future::completed(int result, void* attachment){
   this->mResult = result;
   this->mStatus = Status::DONE_COMPLETED;
   if(this->mThreadID != 0)
-    Threads::notify(this->mThreadID);
+    Thread::notify(this->mThreadID);
+  
 }
     
 /**
@@ -94,7 +95,9 @@ void Future::failed(void* exc, void* attachment){
   this->mResult = -1;
   this->mStatus = Status::DONE_FAILED;
   if(this->mThreadID != 0)
-    Threads::notify(this->mThreadID);
+    Thread::notify(this->mThreadID);
+  
+  return;
 }
 
 /* ****************************************************************************************
@@ -150,7 +153,7 @@ bool Future::get(int& result){
   
   if(this->mStatus == Status::WAIT){
     
-    this->mThreadID = Threads::getThreadID();
+    this->mThreadID = Thread::getThreadID();
     
     if(this->mThreadID != 0){
    
@@ -175,7 +178,7 @@ bool Future::get(int& result, int timeout){
     return false;  
   
   if(this->mStatus == Status::WAIT){
-    this->mThreadID = Threads::getThreadID();
+    this->mThreadID = Thread::getThreadID();
     
     if(this->mThreadID != 0){
       this->wait(timeout);

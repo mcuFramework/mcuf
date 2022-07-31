@@ -4,13 +4,14 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_FA62995E_4B43_44E2_9381_2F42480339B5
-#define MCUF_FA62995E_4B43_44E2_9381_2F42480339B5
+#ifndef MCUF_CE201E7D_A742_4972_9C89_0CEE46662550
+#define MCUF_CE201E7D_A742_4972_9C89_0CEE46662550
 
 /* ****************************************************************************************
  * Include folder
  */
 #include "managerment/package-info.h"
+#include "rtos/package-info.h"
 
 /* ****************************************************************************************
  * Include
@@ -39,7 +40,6 @@
 #include "Thread.h"
 #include "ThreadEvent.h"
 #include "ThreadPriority.h"
-#include "Threads.h"
 #include "ThreadState.h"
 #include "Throwable.h"
 
@@ -47,4 +47,4 @@
  * End of file
  */
 
-#endif /* MCUF_FA62995E_4B43_44E2_9381_2F42480339B5 */
+#endif /* MCUF_CE201E7D_A742_4972_9C89_0CEE46662550 */

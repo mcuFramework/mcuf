@@ -29,21 +29,10 @@ using mcuf::function::Runnable;
 /**
  * @brief Construct a new Thread Event:: Thread Event object
  * 
- * @param memory 
- * @param runnable 
- */
-ThreadEvent::ThreadEvent(const Memory& memory, Runnable& runnable) : Thread(memory){
-  this->mRunnable = &runnable;
-  return;
-}
-
-/**
- * @brief Construct a new Thread Event:: Thread Event object
- * 
  * @param stackSize 
  * @param runnable 
  */
-ThreadEvent::ThreadEvent(uint32_t stackSize, Runnable& runnable) : Thread(stackSize){
+ThreadEvent::ThreadEvent(Runnable& runnable) : Thread(){
   this->mRunnable = &runnable;
   return;
 }

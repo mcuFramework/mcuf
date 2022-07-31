@@ -76,7 +76,7 @@ class mcuf::lang::managerment::CoreThread extends mcuf::lang::Thread{
      * 
      * @param attachment 
      */
-    CoreThread(uint32_t stackSize, uint32_t executeQueue, uint32_t tickQueue, uint32_t tickBase, mcuf::lang::Thread* userThread);
+    CoreThread(uint32_t executeQueue, uint32_t tickQueue, uint32_t tickBase, mcuf::lang::Thread* userThread);
 
   public: 
 

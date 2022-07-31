@@ -10,15 +10,22 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "cmsis_rtos/rtx_os.h"
+
+//-----------------------------------------------------------------------------------------
 #include "mcuf/lang/Object.h"
+#include "mcuf/lang/System.h"
+
  
 /* ****************************************************************************************
  * Using
  */  
 using mcuf::lang::Object;
 using mcuf::lang::Allocator;
- 
+
+/* ****************************************************************************************
+ * Variable <Static>
+ */
+
 /* ****************************************************************************************
  * Construct Method
  */
@@ -93,10 +100,7 @@ void* Object::operator new(size_t n, Allocator& allocator){
  * @param milliseconds 
  */
 void Object::delay(int milliseconds) const{
-  if(milliseconds <= 0)
-    return;
-  
-  osDelay(static_cast<uint32_t>(milliseconds));
+  System::sInterfaceKernel->delay(milliseconds);
   return;
 }
 
@@ -127,7 +131,7 @@ bool Object::equal(Object& object) const{
  * 
  */
 void Object::finalize(void){
-  delete this;
+  return;
 }
 
 /**
@@ -135,8 +139,8 @@ void Object::finalize(void){
  * 
  */
 void Object::wait(void) const{
-  osThreadFlagsClear(0x00000001U);
-  osThreadFlagsWait(0x00000001U, osFlagsWaitAny, osWaitForever);
+  System::sInterfaceKernel->wait();
+  return;
 }
 
 /**
@@ -147,14 +151,7 @@ void Object::wait(void) const{
  * @return false 
  */
 bool Object::wait(int timeout) const{
-  if(timeout <= 0)
-    return false;
-  
-  osThreadFlagsClear(0x00000001U);
-  if(osThreadFlagsWait(0x00000001U, osFlagsWaitAny, static_cast<uint32_t>(timeout)) == osFlagsErrorTimeout)
-    return true;
-  
-  return false;
+  return System::sInterfaceKernel->wait(timeout);
 }
 
 /**
@@ -164,10 +161,7 @@ bool Object::wait(int timeout) const{
  * @return false 
  */
 bool Object::yield(void) const{
-  if(osThreadYield() == osOK)
-    return true;
-  
-  return false;
+  return System::sInterfaceKernel->yield();
 }
 
 /**
@@ -177,11 +171,7 @@ bool Object::yield(void) const{
  * @return false 
  */
 bool Object::systemLock(void) const{
-  if(osKernelLock() > 0)
-    return true;
-  
-  else
-    return false;
+  return System::sInterfaceKernel->systemLock();
 }
 
 /**
@@ -191,11 +181,7 @@ bool Object::systemLock(void) const{
  * @return false 
  */
 bool Object::systemUnlock(void) const{
-  if(osKernelUnlock() == 0)
-    return true;
-  
-  else
-    return false;
+  return System::sInterfaceKernel->systemUnlock();
 }
 
 /* ****************************************************************************************

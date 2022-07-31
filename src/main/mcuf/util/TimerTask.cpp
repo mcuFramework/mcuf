@@ -10,12 +10,10 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#ifndef MCUF_CMSISRTOS2_DISABLE
-#include "cmsis_rtos/rtx_os.h"
-#endif
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf/util/TimerTask.h"
+#include "mcuf/util/Timer.h"
 
 /* ****************************************************************************************
  * Using
@@ -31,7 +29,7 @@ using mcuf::util::TimerTask;
  * 
  */
 TimerTask::TimerTask(void){
-  this->mTimerID = nullptr;
+  this->mTimerID = 0;
 }
     
 /**
@@ -39,14 +37,16 @@ TimerTask::TimerTask(void){
  * 
  */
 TimerTask::~TimerTask(void){
-  if(this->mTimerID == nullptr)
+  
+  if(this->mTimerID == 0)
     return;
   
   if(this->isRunning())
-    osTimerStop(this->mTimerID);
+    this->cancel();
   
-  osTimerDelete(this->mTimerID);
-  this->mTimerID = nullptr;
+  Timer::sInterfaceTimer->timerFree(*this);
+  this->mTimerID = 0;
+  
 }
 
 /* ****************************************************************************************
@@ -87,7 +87,7 @@ bool TimerTask::cancel(void){
   if(!this->isRunning())
     return false;
   
-  return (osTimerStop(this->mTimerID) == osOK);
+  return Timer::sInterfaceTimer->timerStop(*this);
 }
 
 /**
@@ -97,10 +97,10 @@ bool TimerTask::cancel(void){
  * @return false 
  */
 bool TimerTask::isRunning(void){
-  if(this->mTimerID == nullptr)
+  if(this->mTimerID == 0)
     return false;
   
-  return osTimerIsRunning(this->mTimerID);
+  return Timer::sInterfaceTimer->timerIsStart(*this);
 }
 
 /* ****************************************************************************************

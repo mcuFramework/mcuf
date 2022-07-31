@@ -1209,16 +1209,6 @@
               <FilePath>.\src\main\mcuf\lang\ThreadPriority.h</FilePath>
             </File>
             <File>
-              <FileName>Threads.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Threads.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
-            </File>
-            <File>
               <FileName>ThreadState.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadState.h</FilePath>
@@ -2837,16 +2827,6 @@
               <FileName>ThreadPriority.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadPriority.h</FilePath>
-            </File>
-            <File>
-              <FileName>Threads.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Threads.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
             </File>
             <File>
               <FileName>ThreadState.h</FileName>
@@ -4469,16 +4449,6 @@
               <FilePath>.\src\main\mcuf\lang\ThreadPriority.h</FilePath>
             </File>
             <File>
-              <FileName>Threads.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Threads.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
-            </File>
-            <File>
               <FileName>ThreadState.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadState.h</FilePath>
@@ -6097,16 +6067,6 @@
               <FileName>ThreadPriority.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadPriority.h</FilePath>
-            </File>
-            <File>
-              <FileName>Threads.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Threads.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
             </File>
             <File>
               <FileName>ThreadState.h</FileName>
@@ -7729,16 +7689,6 @@
               <FilePath>.\src\main\mcuf\lang\ThreadPriority.h</FilePath>
             </File>
             <File>
-              <FileName>Threads.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Threads.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
-            </File>
-            <File>
               <FileName>ThreadState.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadState.h</FilePath>
@@ -9357,16 +9307,6 @@
               <FileName>ThreadPriority.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\ThreadPriority.h</FilePath>
-            </File>
-            <File>
-              <FileName>Threads.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\lang\Threads.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Threads.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\lang\Threads.h</FilePath>
             </File>
             <File>
               <FileName>ThreadState.h</FileName>

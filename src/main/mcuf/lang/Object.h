@@ -35,7 +35,6 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 class mcuf::lang::Object : virtual public mcuf::lang::Interface{
-
   /* **************************************************************************************
    * Variable <Public>
    */

@@ -22,6 +22,7 @@
 #include "mcuf/lang/managerment/CoreTick.h"
 #include "mcuf/lang/managerment/CoreThread.h"
 #include "mcuf/lang/managerment/SystemRegister.h"
+#include "mcuf/lang/rtos/InterfaceKernel.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -36,7 +37,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 class mcuf::lang::System final extends mcuf::lang::Object{
-
+  friend Object;
   
   /* **************************************************************************************
    * Variable <Public>
@@ -50,6 +51,7 @@ class mcuf::lang::System final extends mcuf::lang::Object{
    * Variable <Private>
    */
   private: 
+    static mcuf::lang::rtos::InterfaceKernel* sInterfaceKernel;
     static mcuf::lang::managerment::SystemRegister* mSystemRegister;
     static mcuf::lang::managerment::CoreThread* mCoreThread;
 

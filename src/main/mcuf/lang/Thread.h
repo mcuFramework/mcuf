@@ -27,14 +27,18 @@ namespace mcuf{
   namespace lang{
     class Thread;
     class System;
+    
+    namespace rtos{
+      interface InterfaceThread;
+    }
   }
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
- class mcuf::lang::Thread extends mcuf::lang::Memory implements 
-  public mcuf::function::Runnable{
+class mcuf::lang::Thread extends mcuf::lang::Object implements 
+public mcuf::function::Runnable{
 
   friend System;
 
@@ -50,13 +54,14 @@ namespace mcuf{
    * Variable <Private>
    */
   private: 
-    void* mThreadID = nullptr;
+    uint32_t mThreadID;
     Thread* mNextNode;
   
   /* **************************************************************************************
    * Variable <Static Private>
    */  
   private: 
+    static mcuf::lang::rtos::InterfaceThread* sInterfaceThread;
     static Thread* threadNodeHead;
 
   /* **************************************************************************************
@@ -70,22 +75,12 @@ namespace mcuf{
   /* **************************************************************************************
    * Construct Method
    */
-  public:
-
+  public: 
     /**
      * @brief Construct a new Thread object
      * 
-     * @param memory 
      */
-    Thread(const Memory& memory);
-
-    /**
-     * @brief Construct a new Thread object
-     * 
-     * @param memory 
-     * @param name 
-     */
-    Thread(uint32_t stackSize);
+    Thread(void);
 
     /**
      * @brief Destroy the Thread object
@@ -108,7 +103,20 @@ namespace mcuf{
      * @param threadID 
      * @return Thread* 
      */
-    static Thread* getThread(uint32_t threadID);   
+    static Thread* getThread(uint32_t threadID);
+
+    /**
+     * @brief 喚醒指定執行序
+     * 
+     */
+    static void notify(uint32_t threadID);
+
+    /**
+     * @brief 取得當前執行序ID;
+     * 
+     * @return uint32_t 
+     */
+    static uint32_t getThreadID(void);
 
   /* **************************************************************************************
    * Public Method <Override>
@@ -149,21 +157,21 @@ namespace mcuf{
      * 
      * @return mcuf::lang::ThreadPriority 
      */
-    mcuf::lang::ThreadPriority getPriority(void);
+    mcuf::lang::ThreadPriority getPriority(void) const;
 
     /**
      * @brief Get the State object
      * 
      * @return mcuf::lang::ThreadState 
      */
-     mcuf::lang::ThreadState getState(void);
+     mcuf::lang::ThreadState getState(void) const;
     
     /**
      * @brief Get the Stack Size object
      * 
      * @return uint32_t 
      */
-    uint32_t getStackSize(void);  
+    int getStackSize(void) const;
     
     /**
      * @brief 
@@ -180,7 +188,7 @@ namespace mcuf{
      * @return true 
      * @return false 
      */
-     bool start(mcuf::lang::ThreadPriority priority);
+    bool start(mcuf::lang::ThreadPriority priority);
     
     /**
      * @brief 
@@ -213,6 +221,12 @@ namespace mcuf{
    * Private Method <Static>
    */
   private:
+    /**
+     * @brief Set the Interface Thread object
+     * 
+     * @param interfaceThread 
+     */
+    static void setInterfaceThread(mcuf::lang::rtos::InterfaceThread& interfaceThread);
 
     /**
      * @brief 

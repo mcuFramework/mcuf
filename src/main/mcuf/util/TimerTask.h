@@ -48,7 +48,7 @@ class mcuf::util::TimerTask extends mcuf::lang::Object implements
    */
   private:
     uint32_t mHandler[8];
-    void* mTimerID;
+    uint32_t mTimerID;
 
 
   /* **************************************************************************************

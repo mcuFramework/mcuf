@@ -17,6 +17,7 @@
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 #include "mcuf/util/TimerTask.h"
+#include "mcuf/lang/rtos/InterfaceTimer.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -25,13 +26,19 @@ namespace mcuf{
   namespace util{
     class Timer;
   }
+
+  namespace lang{
+    class System;
+  }
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
 class mcuf::util::Timer extends mcuf::lang::Object{
-    
+  
+  friend mcuf::lang::System;
+  friend mcuf::util::TimerTask;
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -43,6 +50,8 @@ class mcuf::util::Timer extends mcuf::lang::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
+  private:
+    static mcuf::lang::rtos::InterfaceTimer* sInterfaceTimer;
     
   /* **************************************************************************************
    * Abstract method <Public>
@@ -120,6 +129,13 @@ class mcuf::util::Timer extends mcuf::lang::Object{
    * Private Method <Static>
    */
   private:
+
+    /**
+     * @brief Set the Interface Timer object
+     * 
+     * @param imterfaceTimer 
+     */
+    static void setInterfaceTimer(mcuf::lang::rtos::InterfaceTimer& imterfaceTimer);
 
     /**
      * @brief 
