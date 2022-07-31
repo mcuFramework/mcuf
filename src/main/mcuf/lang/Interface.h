@@ -45,7 +45,7 @@ interface mcuf::lang::Interface{
   /**
    *
    */
-  virtual mcuf::lang::Object& getObject(void);
+  virtual mcuf::lang::Object& getObject(void) abstract;
 
 };
 

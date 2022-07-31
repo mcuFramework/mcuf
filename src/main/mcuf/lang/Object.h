@@ -177,7 +177,7 @@ class mcuf::lang::Object : virtual public mcuf::lang::Interface{
      */
     bool systemUnlock(void) const;
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::lang::ObjectBase
+   * Public Method <Override> - mcuf::lang::Interface
    */
   public:
     /**
