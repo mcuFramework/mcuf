@@ -98,6 +98,23 @@ Thread* Thread::getThread(uint32_t threadID){
   return nullptr;
 }
 
+/**
+ * @brief 取得當前執行序ID;
+ * 
+ * @return uint32_t 
+ */
+uint32_t Thread::getThreadID(void){
+  return 0;
+}
+
+/**
+ * @brief 喚醒指定執行序
+ * 
+ */
+void Thread::notify(uint32_t threadID){
+  return;
+}
+
 /* ****************************************************************************************
  * Public Method <Override>
  */

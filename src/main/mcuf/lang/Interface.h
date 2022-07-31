@@ -43,74 +43,9 @@ interface mcuf::lang::Interface{
   virtual ~Interface(void) = default;
   
   /**
-   * @brief 
-   * 
-   * @param milliseconds 
+   *
    */
-  virtual void delay(int milliseconds) const abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param object 
-   * @return true 
-   * @return false 
-   */
-  virtual bool equal(Object* object) const abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param object 
-   * @return true 
-   * @return false 
-   */
-  virtual bool equal(Object& object) const abstract;
-
-  /**
-   * @brief 
-   * 
-   */
-  virtual void finalize(void) abstract;
-
-  /**
-   * @brief 
-   * 
-   */
-  virtual void wait(void) const abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param timeout 
-   * @return true 
-   * @return false 
-   */
-  virtual bool wait(int timeout) const abstract;
-  
-  /**
-   * @brief 
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool yield(void) const abstract;
-  
-  /**
-   * @brief 
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool systemLock(void) const abstract;
-  
-  /**
-   * @brief 
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool systemUnlock(void) const abstract;
+  virtual mcuf::lang::Object& getObject(void);
 
 };
 

@@ -14,8 +14,9 @@
 //-----------------------------------------------------------------------------------------
 #include "mcuf/lang/Object.h"
 #include "mcuf/lang/System.h"
+#include "mcuf/lang/Thread.h"
+#include "mcuf/lang/rtos/InterfaceThread.h"
 
- 
 /* ****************************************************************************************
  * Using
  */  
@@ -100,7 +101,7 @@ void* Object::operator new(size_t n, Allocator& allocator){
  * @param milliseconds 
  */
 void Object::delay(int milliseconds) const{
-  System::sInterfaceKernel->delay(milliseconds);
+  System::sInterfaceKernel->kernelDelay(milliseconds);
   return;
 }
 
@@ -139,7 +140,7 @@ void Object::finalize(void){
  * 
  */
 void Object::wait(void) const{
-  System::sInterfaceKernel->wait();
+  Thread::sInterfaceThread->threadWait();
   return;
 }
 
@@ -151,7 +152,7 @@ void Object::wait(void) const{
  * @return false 
  */
 bool Object::wait(int timeout) const{
-  return System::sInterfaceKernel->wait(timeout);
+  return Thread::sInterfaceThread->threadWait(static_cast<uint32_t>(timeout));
 }
 
 /**
@@ -161,7 +162,7 @@ bool Object::wait(int timeout) const{
  * @return false 
  */
 bool Object::yield(void) const{
-  return System::sInterfaceKernel->yield();
+  return false;
 }
 
 /**
@@ -171,7 +172,7 @@ bool Object::yield(void) const{
  * @return false 
  */
 bool Object::systemLock(void) const{
-  return System::sInterfaceKernel->systemLock();
+  return System::sInterfaceKernel->kernelLock();
 }
 
 /**
@@ -181,7 +182,11 @@ bool Object::systemLock(void) const{
  * @return false 
  */
 bool Object::systemUnlock(void) const{
-  return System::sInterfaceKernel->systemUnlock();
+  return System::sInterfaceKernel->kernelUnlock();
+}
+
+mcuf::lang::Object& Object::getObject(void){
+  return *this;
 }
 
 /* ****************************************************************************************

@@ -106,17 +106,13 @@ class mcuf::lang::Object : virtual public mcuf::lang::Interface{
   /* **************************************************************************************
    * Public Method <Static>
    */
-
-  /* **************************************************************************************
-   * Public Method <Override> - mcuf::lang::ObjectBase
-   */
   public:
     /**
      * @brief 
      * 
      * @param milliseconds 
      */
-    virtual void delay(int milliseconds) const override;
+    void delay(int milliseconds) const;
 
     /**
      * @brief 
@@ -125,7 +121,7 @@ class mcuf::lang::Object : virtual public mcuf::lang::Interface{
      * @return true 
      * @return false 
      */
-    virtual bool equal(Object* object) const override;
+    bool equal(Object* object) const;
 
     /**
      * @brief 
@@ -134,20 +130,20 @@ class mcuf::lang::Object : virtual public mcuf::lang::Interface{
      * @return true 
      * @return false 
      */
-    virtual bool equal(Object& object) const override;
+    bool equal(Object& object) const;
 
     /**
      * @brief 
      * 
      */
-    virtual void finalize(void) override;
+    void finalize(void);
 
     /**
      * @brief 
      * 
      */
-    virtual void wait(void) const override;
-
+    void wait(void) const;
+    
     /**
      * @brief 
      * 
@@ -155,7 +151,7 @@ class mcuf::lang::Object : virtual public mcuf::lang::Interface{
      * @return true 
      * @return false 
      */
-    virtual bool wait(int timeout) const override;
+    bool wait(int timeout) const;
     
     /**
      * @brief 
@@ -163,7 +159,7 @@ class mcuf::lang::Object : virtual public mcuf::lang::Interface{
      * @return true 
      * @return false 
      */
-    virtual bool yield(void) const override;
+    bool yield(void) const;
     
     /**
      * @brief 
@@ -171,7 +167,7 @@ class mcuf::lang::Object : virtual public mcuf::lang::Interface{
      * @return true 
      * @return false 
      */
-    virtual bool systemLock(void) const override;
+    bool systemLock(void) const;
     
     /**
      * @brief 
@@ -179,7 +175,15 @@ class mcuf::lang::Object : virtual public mcuf::lang::Interface{
      * @return true 
      * @return false 
      */
-    virtual bool systemUnlock(void) const override;
+    bool systemUnlock(void) const;
+  /* **************************************************************************************
+   * Public Method <Override> - mcuf::lang::ObjectBase
+   */
+  public:
+    /**
+     *
+     */
+    virtual mcuf::lang::Object& getObject(void) override;
 
   /* **************************************************************************************
    * Public Method <Inline>

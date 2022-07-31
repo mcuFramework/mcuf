@@ -80,6 +80,12 @@ interface mcuf::lang::rtos::InterfaceKernel extends virtual mcuf::lang::Interfac
    * @return uint32_t 
    */
   virtual uint32_t kernelGetTickFreq(void) abstract;
+  
+  /**
+   * @brief 
+   *  
+   */
+  virtual void kernelDelay(int milliseconds) abstract;
 };
 
 /* ****************************************************************************************

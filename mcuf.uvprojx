@@ -1271,6 +1271,31 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>main\mcuf\lang\rtos</GroupName>
+          <Files>
+            <File>
+              <FileName>InterfaceKernel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceKernel.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterfaceThread.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceThread.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterfaceTimer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceTimer.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>main\mcuf\net</GroupName>
           <Files>
             <File>
@@ -2887,6 +2912,31 @@
               <FileName>CoreTick.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\lang\rtos</GroupName>
+          <Files>
+            <File>
+              <FileName>InterfaceKernel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceKernel.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterfaceThread.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceThread.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterfaceTimer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceTimer.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\package-info.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4511,6 +4561,31 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>main\mcuf\lang\rtos</GroupName>
+          <Files>
+            <File>
+              <FileName>InterfaceKernel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceKernel.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterfaceThread.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceThread.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterfaceTimer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceTimer.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>main\mcuf\net</GroupName>
           <Files>
             <File>
@@ -6127,6 +6202,31 @@
               <FileName>CoreTick.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\lang\rtos</GroupName>
+          <Files>
+            <File>
+              <FileName>InterfaceKernel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceKernel.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterfaceThread.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceThread.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterfaceTimer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceTimer.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\package-info.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -7751,6 +7851,31 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>main\mcuf\lang\rtos</GroupName>
+          <Files>
+            <File>
+              <FileName>InterfaceKernel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceKernel.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterfaceThread.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceThread.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterfaceTimer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceTimer.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\package-info.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>main\mcuf\net</GroupName>
           <Files>
             <File>
@@ -9367,6 +9492,31 @@
               <FileName>CoreTick.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\lang\managerment\CoreTick.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>main\mcuf\lang\rtos</GroupName>
+          <Files>
+            <File>
+              <FileName>InterfaceKernel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceKernel.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterfaceThread.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceThread.h</FilePath>
+            </File>
+            <File>
+              <FileName>InterfaceTimer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\InterfaceTimer.h</FilePath>
+            </File>
+            <File>
+              <FileName>package-info.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\main\mcuf\lang\rtos\package-info.h</FilePath>
             </File>
           </Files>
         </Group>

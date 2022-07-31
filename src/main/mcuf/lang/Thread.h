@@ -41,6 +41,7 @@ class mcuf::lang::Thread extends mcuf::lang::Object implements
 public mcuf::function::Runnable{
 
   friend System;
+  friend Object;
 
   /* **************************************************************************************
    * Variable <Public>

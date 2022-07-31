@@ -55,7 +55,7 @@ using mcuf::util::Timer;
 /* ****************************************************************************************
  * Static Variable
  */  
-
+ mcuf::lang::rtos::InterfaceKernel* System::sInterfaceKernel;
 SystemRegister* System::mSystemRegister = nullptr;
 CoreThread* System::mCoreThread = nullptr;
 
