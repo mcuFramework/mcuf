@@ -86,6 +86,23 @@ interface mcuf::lang::rtos::InterfaceKernel extends virtual mcuf::lang::Interfac
    *  
    */
   virtual bool kernelDelay(int milliseconds) abstract;
+  
+  /**
+   * @brief 
+   * 
+   * @return true 
+   * @return false 
+   */
+  virtual bool kernelWait(void);
+  
+  /**
+   * @brief 
+   * 
+   * @param timeout 
+   * @return true 
+   * @return false 
+   */
+  virtual bool kernelWait(uint32_t timeout);
 };
 
 /* ****************************************************************************************

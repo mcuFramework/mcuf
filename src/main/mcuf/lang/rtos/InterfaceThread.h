@@ -41,16 +41,8 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * Method
    */
 
-  /**
-   * @brief 
-   * 
-   * @param thread 
-   * @param priority 
-   * @param stackSize 
-   * @return void* ThreadID
-   */
-  virtual void* threadAlloc(mcuf::lang::Thread& thread, mcuf::lang::ThreadPriority priority, mcuf::lang::Memory& stack) abstract;
-
+  virtual mcuf::lang::Memory threadCreate(void) abstract;
+  
   /**
    * @brief 
    * 
@@ -92,7 +84,7 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * @return true 
    * @return false 
    */
-  virtual bool threatStart(mcuf::lang::Thread& thread, int stackSize, mcuf::lang::ThreadPriority priority) abstract;
+  virtual bool threatStart(mcuf::lang::Thread& thread, mcuf::lang::ThreadPriority priority, mcuf::lang::Memory& stack) abstract;
 
   /**
    * @brief 
@@ -127,23 +119,6 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * @return int 
    */
   virtual int threadGetStackSize(const mcuf::lang::Thread& thread) const abstract;
-
-  /**
-   * @brief 
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool threadWait(void);
-  
-  /**
-   * @brief 
-   * 
-   * @param timeout 
-   * @return true 
-   * @return false 
-   */
-  virtual bool threadWait(uint32_t timeout);
 
   /**
    * @brief 

@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_2CE3D737_08BC_488F_86C2_17449C4ABD6A
-#define MCUF_2CE3D737_08BC_488F_86C2_17449C4ABD6A
+#ifndef MCUF_A8BA11F0_6FF2_485D_9406_E49539C6492C
+#define MCUF_A8BA11F0_6FF2_485D_9406_E49539C6492C
 
 /* ****************************************************************************************
  * Include folder
@@ -14,6 +14,9 @@
 /* ****************************************************************************************
  * Include
  */
+#include "DefaultInterfaceKernel.h"
+#include "DefaultInterfaceThread.h"
+#include "DefaultInterfaceTimer.h"
 #include "InterfaceKernel.h"
 #include "InterfaceThread.h"
 #include "InterfaceTimer.h"
@@ -22,4 +25,4 @@
  * End of file
  */
 
-#endif /* MCUF_2CE3D737_08BC_488F_86C2_17449C4ABD6A */
+#endif /* MCUF_A8BA11F0_6FF2_485D_9406_E49539C6492C */
