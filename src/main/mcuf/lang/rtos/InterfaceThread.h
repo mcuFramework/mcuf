@@ -49,7 +49,7 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * @param stackSize 
    * @return void* ThreadID
    */
-  virtual void* threadAlloc(mcuf::lang::Thread& thread, mcuf::lang::ThreadPriority priority, uint32_t stackSize) abstract;
+  virtual void* threadAlloc(mcuf::lang::Thread& thread, mcuf::lang::ThreadPriority priority, mcuf::lang::Memory& stack) abstract;
 
   /**
    * @brief 
