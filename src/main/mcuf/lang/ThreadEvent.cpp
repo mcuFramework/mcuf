@@ -32,7 +32,7 @@ using mcuf::function::Runnable;
  * @param stackSize 
  * @param runnable 
  */
-ThreadEvent::ThreadEvent(Runnable& runnable) : Thread(){
+ThreadEvent::ThreadEvent(Runnable& runnable, uint32_t stackSize) : Thread(stackSize){
   this->mRunnable = &runnable;
   return;
 }

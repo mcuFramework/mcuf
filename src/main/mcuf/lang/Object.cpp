@@ -140,7 +140,7 @@ void Object::finalize(void){
  * 
  */
 void Object::wait(void) const{
-  Thread::sInterfaceThread->threadWait();
+  //Thread::sInterfaceThread->threadWait();
   return;
 }
 
@@ -152,7 +152,8 @@ void Object::wait(void) const{
  * @return false 
  */
 bool Object::wait(int timeout) const{
-  return Thread::sInterfaceThread->threadWait(static_cast<uint32_t>(timeout));
+  //return Thread::sInterfaceThread->threadWait(static_cast<uint32_t>(timeout));
+  return false;
 }
 
 /**

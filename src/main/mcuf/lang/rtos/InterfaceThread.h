@@ -101,15 +101,6 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * @return true 
    * @return false 
    */
-  virtual bool threadYield(mcuf::lang::Thread& thread) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param thread 
-   * @return true 
-   * @return false 
-   */
   virtual bool threadExit(mcuf::lang::Thread& thread) abstract;
   
   /**

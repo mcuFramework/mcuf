@@ -37,7 +37,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::lang::Thread extends mcuf::lang::Object implements 
+class mcuf::lang::Thread extends mcuf::lang::Memory implements 
 public mcuf::function::Runnable{
 
   friend System;
@@ -81,7 +81,13 @@ public mcuf::function::Runnable{
      * @brief Construct a new Thread object
      * 
      */
-    Thread(void);
+    Thread(uint32_t stackSize);
+  
+    /**
+     * @brief Construct a new Thread object
+     * 
+     */
+    Thread(const mcuf::lang::Data& stackMemory);
 
     /**
      * @brief Destroy the Thread object
@@ -144,7 +150,7 @@ public mcuf::function::Runnable{
      * 
      * @param name 
      */
-    void setName(const char* name);
+    void setThreadName(const char* name);
   
     /**
      * @brief Get the Thread Name object

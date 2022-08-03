@@ -47,10 +47,19 @@ Thread* Thread::threadNodeHead = nullptr;
  */
 
 /**
- * @brief Construct a new Thread:: Thread object
+ * @brief Construct a new Thread object
  * 
  */
-Thread::Thread(void){
+Thread::Thread(uint32_t stackSize) : Memory(stackSize){
+  this->mThreadID = 0;
+  return;
+}
+  
+/**
+ * @brief Construct a new Thread object
+ * 
+ */
+Thread::Thread(const mcuf::lang::Data& stackMemory) : Memory(stackMemory){
   this->mThreadID = 0;
   return;
 }
@@ -137,7 +146,7 @@ uint32_t Thread::getID(void) const{
  * 
  * @param name 
  */
-void Thread::setName(const char* name){
+void Thread::setThreadName(const char* name){
   Thread::sInterfaceThread->threadSetName(*this, name);
   return;
 }
@@ -208,7 +217,7 @@ bool Thread::start(ThreadPriority priority){
   if(this->mThreadID)
     return false;
   
-  this->mThreadID = Thread::sInterfaceThread->threatStart(*this, 1024, priority);
+  this->mThreadID = Thread::sInterfaceThread->threatStart(*this, priority, *this);
   
   return this->mThreadID;
   

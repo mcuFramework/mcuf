@@ -56,7 +56,7 @@ class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
   /* **************************************************************************************
    * Construct Method
    */
-  public: 
+  public:
 
     /**
      * @brief Construct a new Thread Event object
@@ -65,7 +65,7 @@ class mcuf::lang::ThreadEvent extends mcuf::lang::Thread{
      * @param name 
      * @param runnable 
      */
-    ThreadEvent(mcuf::function::Runnable& runnable);
+    ThreadEvent(mcuf::function::Runnable& runnable, uint32_t stackSize);
 
     /**
      * @brief Destroy the Thread Event object

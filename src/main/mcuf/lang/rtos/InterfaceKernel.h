@@ -85,7 +85,7 @@ interface mcuf::lang::rtos::InterfaceKernel extends virtual mcuf::lang::Interfac
    * @brief 
    *  
    */
-  virtual bool kernelDelay(int milliseconds) abstract;
+  virtual bool kernelDelay(int milliseconds) const abstract;
   
   /**
    * @brief 
@@ -93,7 +93,7 @@ interface mcuf::lang::rtos::InterfaceKernel extends virtual mcuf::lang::Interfac
    * @return true 
    * @return false 
    */
-  virtual bool kernelWait(void);
+  virtual bool kernelWait(void) const abstract;
   
   /**
    * @brief 
@@ -102,7 +102,16 @@ interface mcuf::lang::rtos::InterfaceKernel extends virtual mcuf::lang::Interfac
    * @return true 
    * @return false 
    */
-  virtual bool kernelWait(uint32_t timeout);
+  virtual bool kernelWait(uint32_t timeout) const abstract;
+  
+  /**
+   * @brief 將控制權傳遞給具有相同優先級且處於 READY 狀態的下一個線程。 
+   *        如果READY狀態下沒有其他相同優先級的線程，則當前線程繼續執行，不發生線程切換。
+   * 
+   * @return true 控制已成功傳遞給下一個線程。
+   * @return false 發生了未指定的錯誤。或者無法從中斷服務例程調用該函數。
+   */
+  virtual bool kernelYield(void) const abstract;
 };
 
 /* ****************************************************************************************

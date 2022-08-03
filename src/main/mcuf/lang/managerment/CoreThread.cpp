@@ -36,7 +36,7 @@ using mcuf::util::Timer;
  *
  */
 CoreThread::CoreThread(uint32_t executeQueue, uint32_t tickQueue, uint32_t tickBase, Thread* userThread) : 
-Thread(),
+Thread(1024),
 mCoreTick(tickQueue, tickBase),
 mExecutor(executeQueue){
   
