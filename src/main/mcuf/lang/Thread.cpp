@@ -50,8 +50,8 @@ Thread* Thread::threadNodeHead = nullptr;
  * @brief Construct a new Thread object
  * 
  */
-Thread::Thread(uint32_t stackSize) : Memory(stackSize){
-  this->mThreadID = 0;
+Thread::Thread(uint32_t stackSize) : Memory(stackSize),
+mHandlerMemroy(Thread::sInterfaceThread->threadGetHandlerSize()){
   return;
 }
   
@@ -59,8 +59,8 @@ Thread::Thread(uint32_t stackSize) : Memory(stackSize){
  * @brief Construct a new Thread object
  * 
  */
-Thread::Thread(const mcuf::lang::Data& stackMemory) : Memory(stackMemory){
-  this->mThreadID = 0;
+Thread::Thread(const mcuf::lang::Data& stackMemory) : Memory(stackMemory),
+mHandlerMemroy(Thread::sInterfaceThread->threadGetHandlerSize()){
   return;
 }
 
@@ -69,7 +69,7 @@ Thread::Thread(const mcuf::lang::Data& stackMemory) : Memory(stackMemory){
  * 
  */
 Thread::~Thread(void){
-  if(this->mThreadID)
+  if(this->isActive())
     System::error(__CLASSPATH__, ErrorCode::NULL_POINTER);
   
   Thread::nodeRemove(this);
@@ -96,7 +96,7 @@ Thread* Thread::getThread(uint32_t threadID){
   }
   
   while(true){
-    if(reinterpret_cast<uint32_t>(next->mThreadID) == threadID)
+    if(next->getID() == threadID)
       return next;
     
     next = next->mNextNode;
@@ -113,14 +113,15 @@ Thread* Thread::getThread(uint32_t threadID){
  * @return uint32_t 
  */
 uint32_t Thread::getThreadID(void){
-  return 0;
+  return Thread::sInterfaceThread->threadGetCurrentID();
 }
 
 /**
  * @brief 喚醒指定執行序
  * 
  */
-void Thread::notify(uint32_t threadID){
+void Thread::notify(uint32_t thread){
+  Thread::sInterfaceThread->threadNotify(thread);
   return;
 }
 
@@ -138,7 +139,7 @@ void Thread::notify(uint32_t threadID){
  * @return uint32_t 
  */
 uint32_t Thread::getID(void) const{
-  return this->mThreadID;
+  return Thread::sInterfaceThread->threadGetID(this->mHandlerMemroy);
 }
 
 /**
@@ -147,7 +148,7 @@ uint32_t Thread::getID(void) const{
  * @param name 
  */
 void Thread::setThreadName(const char* name){
-  Thread::sInterfaceThread->threadSetName(*this, name);
+  Thread::sInterfaceThread->threadSetName(this->mHandlerMemroy, name);
   return;
 }
 
@@ -157,7 +158,7 @@ void Thread::setThreadName(const char* name){
  * @return const char* 
  */
 const char* Thread::getThreadName(void) const{
-  return Thread::sInterfaceThread->threadGetName(*this);
+  return Thread::sInterfaceThread->threadGetName(this->mHandlerMemroy);
 }
 
 /**
@@ -166,7 +167,7 @@ const char* Thread::getThreadName(void) const{
  * @return ThreadPriority 
  */
 ThreadPriority Thread::getPriority(void) const{
-  return Thread::sInterfaceThread->threadGetPriority(*this);
+  return Thread::sInterfaceThread->threadGetPriority(this->mHandlerMemroy);
 }
 
 /**
@@ -175,7 +176,7 @@ ThreadPriority Thread::getPriority(void) const{
  * @return ThreadState 
  */
 ThreadState Thread::getState(void) const{
-  return Thread::sInterfaceThread->threadGetStatus(*this);
+  return Thread::sInterfaceThread->threadGetState(this->mHandlerMemroy);
 }
 
 /**
@@ -184,7 +185,7 @@ ThreadState Thread::getState(void) const{
  * @return uint32_t 
  */
 int Thread::getStackSize(void) const{
-  return Thread::sInterfaceThread->threadGetStackSize(*this);
+  return Thread::sInterfaceThread->threadGetStackSize(this->mHandlerMemroy);
 }
 
 /**
@@ -192,7 +193,7 @@ int Thread::getStackSize(void) const{
  * 
  */
 void Thread::notify(void){
-  Thread::sInterfaceThread->threadNotify(*this);
+  Thread::sInterfaceThread->threadNotify(this->mHandlerMemroy);
   return;
 }
 
@@ -214,13 +215,10 @@ bool Thread::start(void){
  * @return false 
  */
 bool Thread::start(ThreadPriority priority){
-  if(this->mThreadID)
+  if(this->isActive())
     return false;
   
-  this->mThreadID = Thread::sInterfaceThread->threatStart(*this, priority, *this);
-  
-  return this->mThreadID;
-  
+  return Thread::sInterfaceThread->threatStart(this->mHandlerMemroy, priority, *this);
 }
 
 /**
@@ -233,6 +231,29 @@ bool Thread::start(ThreadPriority priority){
 bool Thread::setPriority(ThreadPriority priority){
   return Thread::sInterfaceThread->threadSetPriority(*this, priority);
 }  
+
+/**
+ * @brief 
+ * 
+ * @return true 
+ * @return false 
+ */
+bool Thread::isActive(void){
+  ThreadState state = this->getState();
+  
+  switch(state){
+    case ThreadState::INACTIVE:
+    case ThreadState::ERROR:
+      return false;
+    
+    case ThreadState::BLOCKED:
+    case ThreadState::READY:
+    case ThreadState::RUNNING:
+    case ThreadState::TERMINATED:
+      return true;
+      
+  }
+}
 
 /* ****************************************************************************************
  * Protected Method <Static>
@@ -260,7 +281,6 @@ void Thread::entryPoint(void* attachment){
   
   Thread* thread = static_cast<Thread*>(attachment);
   thread->run();
-  thread->mThreadID = 0;
   Thread::sInterfaceThread->threadExit(*thread);
 }
 

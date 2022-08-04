@@ -28,7 +28,7 @@ using mcuf::util::TimerTask;
  * @brief Construct a new Timer Task object
  * 
  */
-TimerTask::TimerTask(void){
+TimerTask::TimerTask(void) : mHandlerMemory(mcuf::util::Timer::sInterfaceTimer->timerGetHandlerSize()){
   this->mTimerID = 0;
 }
     
@@ -44,9 +44,7 @@ TimerTask::~TimerTask(void){
   if(this->isRunning())
     this->cancel();
   
-  Timer::sInterfaceTimer->timerFree(*this);
   this->mTimerID = 0;
-  
 }
 
 /* ****************************************************************************************
@@ -87,7 +85,7 @@ bool TimerTask::cancel(void){
   if(!this->isRunning())
     return false;
   
-  return Timer::sInterfaceTimer->timerStop(*this);
+  return Timer::sInterfaceTimer->timerStop(this->mHandlerMemory);
 }
 
 /**
@@ -100,7 +98,7 @@ bool TimerTask::isRunning(void){
   if(this->mTimerID == 0)
     return false;
   
-  return Timer::sInterfaceTimer->timerIsStart(*this);
+  return Timer::sInterfaceTimer->timerIsStart(this->mHandlerMemory);
 }
 
 /* ****************************************************************************************

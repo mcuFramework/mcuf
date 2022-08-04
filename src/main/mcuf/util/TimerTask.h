@@ -16,6 +16,7 @@
 #include "mcuf_base.h"
 #include "mcuf/function/Runnable.h"
 #include "mcuf/lang/Object.h"
+#include "mcuf/lang/Memory.h"
   
 
 /* ****************************************************************************************
@@ -32,7 +33,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 class mcuf::util::TimerTask extends mcuf::lang::Object implements 
-  public mcuf::function::Runnable{
+public mcuf::function::Runnable{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -47,7 +48,7 @@ class mcuf::util::TimerTask extends mcuf::lang::Object implements
    * Variable <Private>
    */
   private:
-    uint32_t mHandler[8];
+    mcuf::lang::Memory mHandlerMemory;
     uint32_t mTimerID;
 
 

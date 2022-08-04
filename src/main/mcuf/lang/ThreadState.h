@@ -17,21 +17,55 @@
  */  
 namespace mcuf{
   namespace lang{
-    enum struct ThreadState : int;
+    enum struct ThreadState : char;
   }
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct mcuf::lang::ThreadState : int{
-  INACTIVE        =  0,           ///< Inactive.
-  READY           =  1,           ///< Ready.
-  RUNNING         =  2,           ///< Running.
-  BLOCKED         =  3,           ///< Blocked.
-  TERMINATED      =  4,           ///< Terminated.
-  ERROR           = -1,           ///< ErrorCode.
-  RESERVED        = 0x7FFFFFFF    ///< Prevents enum down-size compiler optimization.
+enum struct mcuf::lang::ThreadState : char{
+  /**
+   * @brief Inactive.
+   *        The thread is created but not actively used, or has been terminated
+   * 
+   */
+  INACTIVE,
+
+  /**
+   * @brief Ready.
+   *        The thread is ready for execution but not currently running.
+   * 
+   */
+  READY,
+
+  /**
+   * @brief Running.
+   *        The thread is currently running.
+   * 
+   */
+  RUNNING,
+
+  /**
+   * @brief Blocked.
+   *        The thread is currently blocked (delayed, waiting for an event or suspended). 
+   * 
+   */
+  BLOCKED,
+
+  /**
+   * @brief Terminated.
+   *        The thread is terminated and all its resources are not yet freed
+   * 
+   */
+  TERMINATED,
+  
+  /**
+   * @brief Error.
+   *        The thread does not exist
+   * 
+   */
+  ERROR
 };
 
 /* *****************************************************************************************

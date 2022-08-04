@@ -55,7 +55,7 @@ public mcuf::function::Runnable{
    * Variable <Private>
    */
   private: 
-    uint32_t mThreadID;
+    mcuf::lang::Memory mHandlerMemroy;
     Thread* mNextNode;
   
   /* **************************************************************************************
@@ -111,7 +111,7 @@ public mcuf::function::Runnable{
      * @return Thread* 
      */
     static Thread* getThread(uint32_t threadID);
-
+  
     /**
      * @brief 喚醒指定執行序
      * 
@@ -210,8 +210,16 @@ public mcuf::function::Runnable{
      * @return true 
      * @return false 
      */
-     bool setPriority(mcuf::lang::ThreadPriority priority);  
-  
+    bool setPriority(mcuf::lang::ThreadPriority priority);  
+
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    bool isActive(void);
+
   /* **************************************************************************************
    * Protected Method <Static>
    */

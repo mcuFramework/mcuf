@@ -16,6 +16,7 @@
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf/lang/Interface.h"
+#include "mcuf/lang/Memory.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -43,21 +44,11 @@ interface mcuf::lang::rtos::InterfaceTimer extends virtual mcuf::lang::Interface
    */
 
   /**
-   * @brief 建立一個新的Timer記憶體資源
+   * @brief 
    * 
-   * @param timerTask 
-   * @return uint32_t TimerTask ID
+   * @return uint32_t 
    */
-  virtual uint32_t timerAlloc(mcuf::util::TimerTask& timerTask);
-
-  /**
-   * @brief 釋放Timer記憶體資源
-   * 
-   * @param timerTask 
-   * @return true 
-   * @return false 
-   */
-  virtual bool timerFree(mcuf::util::TimerTask& timerTask);
+  virtual uint32_t timerGetHandlerSize(void) const abstract;
 
   /**
    * @brief 
@@ -65,10 +56,9 @@ interface mcuf::lang::rtos::InterfaceTimer extends virtual mcuf::lang::Interface
    * @param timerTask 
    * @param delay 延遲時間 單位ms
    * @param mode false = 單次; true = 循環
-   * @return true 開始成功
-   * @return false 開始失敗
+   * @return true TimerID
    */
-  virtual bool timerStart(mcuf::util::TimerTask& timerTask, uint32_t delay, bool mode);
+  virtual uint32_t timerStart(mcuf::lang::Memory& handler, uint32_t delay, bool mode);
 
   /**
    * @brief 停止Timer
@@ -77,7 +67,7 @@ interface mcuf::lang::rtos::InterfaceTimer extends virtual mcuf::lang::Interface
    * @return true 停止成功
    * @return false Timer尚未啟動
    */
-  virtual bool timerStop(mcuf::util::TimerTask& timerTask);
+  virtual bool timerStop(mcuf::lang::Memory& handler);
 
   /**
    * @brief 回傳timer是否已啟動
@@ -86,7 +76,7 @@ interface mcuf::lang::rtos::InterfaceTimer extends virtual mcuf::lang::Interface
    * @return true Timer狀態啟動
    * @return false Timer狀態閒置
    */
-  virtual bool timerIsStart(mcuf::util::TimerTask& timerTask);
+  virtual bool timerIsStart(mcuf::lang::Memory& handler);
 
 };
 
