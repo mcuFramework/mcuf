@@ -41,7 +41,13 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * Method
    */
 
-  virtual mcuf::lang::Memory threadCreate(void) abstract;
+  /**
+   * @brief 
+   * 
+   * @param stack 
+   * @return void* 
+   */
+  virtual void* threadCreate(mcuf::lang::Data& stack) abstract;
   
   /**
    * @brief 
@@ -49,15 +55,23 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * @param thread 
    * @param name 
    */
-  virtual void threadSetName(mcuf::lang::Thread& thread, const char* name) abstract;
+  virtual void threadSetName(void* handler, const char* name) abstract;
   
+  /**
+   * @brief 
+   * 
+   * @param handler 
+   * @return uint32_t 
+   */
+  virtual uint32_t threadGetID(void* handler) const abstract;
+
   /**
    * @brief 
    * 
    * @param thread 
    * @return const char* 
    */
-  virtual const char* threadGetName(const mcuf::lang::Thread& thread) const abstract;
+  virtual const char* threadGetName(void* handler) const abstract;
 
   /**
    * @brief 
@@ -65,7 +79,7 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * @param thread 
    * @return mcuf::lang::ThreadState 
    */
-  virtual mcuf::lang::ThreadState threadGetStatus(const mcuf::lang::Thread& thread) const abstract;
+  virtual mcuf::lang::ThreadState threadGetStatus(void* handler) const abstract;
 
   /**
    * @brief 
@@ -73,7 +87,7 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * @param thread 
    * @return mcuf::lang::ThreadPriority 
    */
-  virtual mcuf::lang::ThreadPriority threadGetPriority(const mcuf::lang::Thread& thread) const abstract;
+  virtual mcuf::lang::ThreadPriority threadGetPriority(void* handler) const abstract;
 
   /**
    * @brief 
@@ -84,7 +98,7 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * @return true 
    * @return false 
    */
-  virtual bool threatStart(mcuf::lang::Thread& thread, mcuf::lang::ThreadPriority priority, mcuf::lang::Memory& stack) abstract;
+  virtual bool threatStart(void* handler, mcuf::lang::ThreadPriority priority) abstract;
 
   /**
    * @brief 
@@ -92,7 +106,7 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * @param thread 
    * @return mcuf::lang::ThreadPriority 
    */
-  virtual bool threadSetPriority(mcuf::lang::Thread& thread, mcuf::lang::ThreadPriority) abstract;
+  virtual bool threadSetPriority(void* handler,  mcuf::lang::ThreadPriority) const abstract;
 
   /**
    * @brief 
@@ -101,7 +115,7 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * @return true 
    * @return false 
    */
-  virtual bool threadExit(mcuf::lang::Thread& thread) abstract;
+  virtual bool threadExit(void* handler) abstract;
   
   /**
    * @brief 
@@ -109,7 +123,7 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * @param thread 
    * @return int 
    */
-  virtual int threadGetStackSize(const mcuf::lang::Thread& thread) const abstract;
+  virtual int threadGetStackSize(void* handler) const abstract;
 
   /**
    * @brief 
@@ -118,7 +132,7 @@ interface mcuf::lang::rtos::InterfaceThread extends virtual mcuf::lang::Interfac
    * @return true 
    * @return false 
    */
-  virtual bool threadNotify(mcuf::lang::Thread& thread);
+  virtual bool threadNotify(void* handler) const abstract;
 };
 
 /* ****************************************************************************************

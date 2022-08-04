@@ -14,9 +14,6 @@
 /* ****************************************************************************************
  * Include
  */
-#include "DefaultInterfaceKernel.h"
-#include "DefaultInterfaceThread.h"
-#include "DefaultInterfaceTimer.h"
 #include "InterfaceKernel.h"
 #include "InterfaceThread.h"
 #include "InterfaceTimer.h"
