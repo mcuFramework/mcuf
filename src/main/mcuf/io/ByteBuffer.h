@@ -241,13 +241,6 @@ public mcuf::io::Buffer{
    *  Public Method <Override> - mcuf::lang::Memory
    */
   public:
-    /**
-     * @brief 
-     * 
-     * @param ch 
-     * @return int 
-     */
-    virtual int indexOf(char ch) const override;
     
     /**
      * @brief 
@@ -257,14 +250,6 @@ public mcuf::io::Buffer{
      * @return int 
      */
     virtual int indexOf(char ch, int offset) const override;
-    
-    /**
-     * @brief 
-     * 
-     * @param str 
-     * @return int 
-     */
-    virtual int indexOfString(const char* str) const override;
     
     /**
      * @brief 

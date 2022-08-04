@@ -279,7 +279,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copy(const void* source, int length);
+    int copy(const void* source, int length);
 
     /**
      * @brief 
@@ -289,7 +289,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copy(const void* source, int start, int length);
+    int copy(const void* source, int start, int length);
 
     /**
      * @brief 
@@ -309,7 +309,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copyTo(void* destination, int length) const;
+    int copyTo(void* destination, int length) const;
 
     /**
      * @brief 
@@ -319,7 +319,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param length 
      * @return int 
      */
-    virtual int copyTo(void* destination, int start, int length) const;
+    int copyTo(void* destination, int start, int length) const;
 
     /**
      * @brief 
@@ -339,7 +339,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return true equal
      * @return false not equal
      */
-    virtual bool compairString(const char* str) const;    
+    bool compairString(const char* str) const;    
     
     /**
      * @brief 
@@ -360,7 +360,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return true equal
      * @return false not equal
      */
-    virtual bool compair(const void* source, int length) const;    
+    bool compair(const void* source, int length) const;    
     
     /**
      * @brief 
@@ -371,7 +371,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @return true equal
      * @return false not equal
      */
-    virtual bool compair(const void* source, int start, int length) const;
+    bool compair(const void* source, int start, int length) const;
     
     /**
      * @brief 
@@ -403,7 +403,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param limit 
      * @return int 
      */
-    virtual int indexOfString(const char* str, int limit) const;
+    int indexOfString(const char* str, int limit) const;
 
     /**
      * @brief 
@@ -413,7 +413,7 @@ class mcuf::lang::Pointer extends mcuf::lang::Object{
      * @param limit 
      * @return int 
      */
-    virtual int indexOfString(const char* str, int start, int limit) const;
+    int indexOfString(const char* str, int start, int limit) const;
 
     /**
      * @brief 

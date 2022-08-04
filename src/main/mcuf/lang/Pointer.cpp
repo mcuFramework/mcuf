@@ -166,7 +166,7 @@ void Pointer::move(void* destination, const void* source, int length){
  * @return int 
  */
 int Pointer::copy(const void* source, int length){
-  return Pointer::copy(source, 0, 0, length);
+  return this->copy(source, 0, 0, length);
 }
 
 /**
@@ -178,7 +178,7 @@ int Pointer::copy(const void* source, int length){
  * @return int 
  */
 int Pointer::copy(const void* source, int start, int length){
-  return Pointer::copy(source, 0, start, length);
+  return this->copy(source, 0, start, length);
 }
 
 /**
@@ -194,13 +194,13 @@ int Pointer::copy(const void* source, int offset, int start, int length){
   if(length <= 0)
     return 0;  
   
-  if((source == nullptr) || (Pointer::mPointer == nullptr))
+  if((source == nullptr) || (this->mPointer == nullptr))
     return 0;  
   
   if(length <= 0)
     return 0;
   
-  memcpy(Pointer::pointer(start), (static_cast<const char*>(source) + offset), static_cast<size_t>(length));
+  memcpy(this->pointer(start), (static_cast<const char*>(source) + offset), static_cast<size_t>(length));
   return length;
 }
 
@@ -212,7 +212,7 @@ int Pointer::copy(const void* source, int offset, int start, int length){
  * @return int 
  */
 int Pointer::copyTo(void* destination, int length) const{
-  return Pointer::copyTo(destination, 0, 0, length);
+  return this->copyTo(destination, 0, 0, length);
 }
 
 /**
@@ -224,7 +224,7 @@ int Pointer::copyTo(void* destination, int length) const{
  * @return int 
  */
 int Pointer::copyTo(void* destination, int start, int length) const{
-  return Pointer::copyTo(destination, 0, start, length);
+  return this->copyTo(destination, 0, start, length);
 }
 
 /**
@@ -240,7 +240,7 @@ int Pointer::copyTo(void* destination, int shift, int start, int length) const{
   if(length <= 0)
     return 0;
   
-  if((destination == nullptr) || (Pointer::mPointer == nullptr))
+  if((destination == nullptr) || (this->mPointer == nullptr))
     return 0;  
   
   if(length <= 0)
@@ -258,7 +258,7 @@ int Pointer::copyTo(void* destination, int shift, int start, int length) const{
  * @return false not equal
  */
 bool Pointer::compairString(const char* str) const{
-  return Pointer::compair(str, 0, 0, static_cast<int>(strlen(str)));
+  return this->compair(str, 0, 0, static_cast<int>(strlen(str)));
 }
 
 /**
@@ -270,7 +270,7 @@ bool Pointer::compairString(const char* str) const{
  * @return false not equal
  */
 bool Pointer::compairString(const char* str, int start) const{
-  return Pointer::compair(str, 0, start, static_cast<int>(strlen(str)));
+  return this->compair(str, 0, start, static_cast<int>(strlen(str)));
 }
 
 /**
@@ -282,7 +282,7 @@ bool Pointer::compairString(const char* str, int start) const{
  * @return false not equal
  */
 bool Pointer::compair(const void* source, int length) const{
-  return Pointer::compair(source, 0, 0, length);
+  return this->compair(source, 0, 0, length);
 }
 
 /**
@@ -295,7 +295,7 @@ bool Pointer::compair(const void* source, int length) const{
  * @return false not equal
  */
 bool Pointer::compair(const void* source, int start, int length) const{
-  return Pointer::compair(source, 0, start, length);
+  return this->compair(source, 0, start, length);
 }
 
 /**
@@ -313,7 +313,7 @@ bool Pointer::compair(const void* source, int shift, int start, int length) cons
     return false;
   
   const char* str1 = static_cast<const char*>(source) + shift;
-  const char* str2 = static_cast<const char*>(Pointer::pointer()) + start;
+  const char* str2 = static_cast<const char*>(this->pointer()) + start;
   
   return (memcmp(str1, str2, static_cast<size_t>(length)) == 0);  
 }
@@ -327,7 +327,7 @@ bool Pointer::compair(const void* source, int shift, int start, int length) cons
  * @return int 
  */
 int Pointer::indexOf(char ch, int start, int limit) const{
-  return Pointer::indexOfData(&ch, 1, start, limit);
+  return this->indexOfData(&ch, 1, start, limit);
 }
 
 /**
@@ -338,7 +338,7 @@ int Pointer::indexOf(char ch, int start, int limit) const{
  * @return int 
  */
 int Pointer::indexOfString(const char* str, int limit) const{
-  return Pointer::indexOfData(str, static_cast<int>(strlen(str)), 0, limit);
+  return this->indexOfData(str, static_cast<int>(strlen(str)), 0, limit);
 }
 
 /**
@@ -350,7 +350,7 @@ int Pointer::indexOfString(const char* str, int limit) const{
  * @return int 
  */
 int Pointer::indexOfString(const char* str, int start, int limit) const{
-  return Pointer::indexOfData(str, static_cast<int>(strlen(str)), start, limit);
+  return this->indexOfData(str, static_cast<int>(strlen(str)), start, limit);
 }
 
 /**

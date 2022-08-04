@@ -71,16 +71,6 @@ ByteBuffer::~ByteBuffer(void){
  * @brief 
  * 
  * @param ch 
- * @return int 
- */
-int ByteBuffer::indexOf(char ch) const{
-  return ByteBuffer::indexOf(ch, 0);
-}
-
-/**
- * @brief 
- * 
- * @param ch 
  * @param offset 
  * @return int 
  */
@@ -98,16 +88,6 @@ int ByteBuffer::indexOf(char ch, int start) const{
  */
 int ByteBuffer::indexOfData(const void* destination, int destinationLen, int start) const{
   return Pointer::indexOfData(destination, destinationLen, start, ByteBuffer::limit());
-}
-
-/**
- * @brief 
- * 
- * @param str 
- * @return int 
- */
-int ByteBuffer::indexOfString(const char* str) const{
-  return Pointer::indexOfString(str, ByteBuffer::limit());
 }
 
 /* ****************************************************************************************

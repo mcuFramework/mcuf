@@ -230,37 +230,6 @@ int String::stringLength(const char* src){
 /**
  * @brief 
  * 
- * @param ch 
- * @return int 
- */
-int String::indexOf(char ch) const{
-  return this->indexOf(ch, 0);
-}
-
-/**
- * @brief 
- * 
- * @param ch 
- * @param offset 
- * @return int 
- */
-int String::indexOf(char ch, int start) const{
-  return Pointer::indexOf(ch, start, this->size());
-}
-
-/**
- * @brief 
- * 
- * @param str 
- * @return int 
- */
-int String::indexOfString(const char* str) const{
-  return Pointer::indexOfString(str, this->size());
-}
-
-/**
- * @brief 
- * 
  * @param destination 
  * @param destinationLen 
  * @param start 

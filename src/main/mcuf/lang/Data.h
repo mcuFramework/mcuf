@@ -129,25 +129,6 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @brief 
      * 
      * @param source 
-     * @param length 
-     * @return int 
-     */
-    virtual int copy(const void* source, int length) override;
-
-    /**
-     * @brief 
-     * 
-     * @param source 
-     * @param start 
-     * @param length 
-     * @return int 
-     */
-    virtual int copy(const void* source, int start, int length) override;
-
-    /**
-     * @brief 
-     * 
-     * @param source 
      * @param shift 
      * @param start 
      * @param length 
@@ -166,7 +147,7 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @return true 
      * @return false 
      */
-    virtual inline bool isReadOnly(void) const{
+    inline bool isReadOnly(void) const{
       return (Data::mLength & 0x80000000);
     }
 
@@ -193,6 +174,7 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
    * Public Method
    */
   public:
+    using Pointer::copy;
     using Pointer::indexOf;
     using Pointer::indexOfString;
     using Pointer::indexOfData;
@@ -200,9 +182,18 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
     /**
      * @brief 
      * 
+     * @param address 
+     * @return true in range.
+     * @return false isn't range.
+     */
+    bool inRange(void* address) const;
+
+    /**
+     * @brief 
+     * 
      * @return int 
      */
-    virtual int wipe(void);
+    int wipe(void);
 
     /**
      * @brief 
@@ -210,7 +201,7 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @param value 
      * @return int 
      */
-    virtual int wipe(uint8_t value);
+    int wipe(uint8_t value);
   
     /**
      * @brief 
@@ -219,8 +210,8 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @param length 
      * @return int 
      */
-    virtual int wipe(uint8_t value, int length);
-  
+    int wipe(uint8_t value, int length);
+
     /**
      * @brief 
      * 
@@ -229,16 +220,7 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @param length 
      * @return int 
      */
-    virtual int wipe(uint8_t value, int start, int length);
-
-    /**
-     * @brief 
-     * 
-     * @param address 
-     * @return true in range.
-     * @return false isn't range.
-     */
-    virtual bool inRange(void* address) const;
+    int wipe(uint8_t value, int start, int length);
 
     /**
      * @brief 
@@ -246,7 +228,58 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @param beginIndex 
      * @return mcuf::lang::Memory 
      */
-    virtual mcuf::lang::Data subData(uint32_t beginIndex) const;
+    mcuf::lang::Data subData(uint32_t beginIndex) const;
+
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param shift 
+     * @param start 
+     * @param length 
+     * @return int32_t 
+     */
+    int insertArray(const void* source, int start, int length);
+
+    /**
+     * @brief 
+     * 
+     * @param start 
+     * @param length 
+     * @return int32_t 
+     */
+    int popArray(int start, int length);
+
+    /**
+     * @brief 
+     * 
+     * @param source 
+     * @param start 
+     * @param length 
+     * @return int32_t 
+     */
+    int popArray(void* source, int start, int length);
+
+    /**
+     * @brief 
+     * 
+     * @param ch 
+     * @return int 
+     */
+    int indexOf(char ch) const;
+    
+    /**
+     * @brief 
+     * 
+     * @param str 
+     * @return int 
+     */
+    int indexOfString(const char* str) const;
+    
+  /* **************************************************************************************
+   * Public Method <Vitrual>
+   */
+  public:
 
     /**
      * @brief 
@@ -266,37 +299,7 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @param length 
      * @return int32_t 
      */
-    virtual int insertArray(const void* source, int start, int length);
-
-    /**
-     * @brief 
-     * 
-     * @param source 
-     * @param shift 
-     * @param start 
-     * @param length 
-     * @return int32_t 
-     */
     virtual int insertArray(const void* source, int shift, int start, int length);
-
-    /**
-     * @brief 
-     * 
-     * @param start 
-     * @param length 
-     * @return int32_t 
-     */
-    virtual int popArray(int start, int length);
-
-    /**
-     * @brief 
-     * 
-     * @param source 
-     * @param start 
-     * @param length 
-     * @return int32_t 
-     */
-    virtual int popArray(void* source, int start, int length);
 
     /**
      * @brief 
@@ -314,27 +317,11 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @brief 
      * 
      * @param ch 
-     * @return int 
-     */
-    virtual int indexOf(char ch) const;
-    
-    /**
-     * @brief 
-     * 
-     * @param ch 
      * @param offset 
      * @return int 
      */
     virtual int indexOf(char ch, int offset) const;
-    
-    /**
-     * @brief 
-     * 
-     * @param str 
-     * @return int 
-     */
-    virtual int indexOfString(const char* str) const;
-    
+
     /**
      * @brief 
      * 
@@ -345,7 +332,7 @@ class mcuf::lang::Data extends mcuf::lang::Pointer{
      * @return int 
      */
     virtual int indexOfData(const void* destination, int destinationLen, int start) const;
-    
+
   /* **************************************************************************************
    * Protected Method <Static>
    */

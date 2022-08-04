@@ -31,7 +31,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::lang::String extends mcuf::lang::Memory{
+class mcuf::lang::String final extends mcuf::lang::Memory{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -133,7 +133,6 @@ class mcuf::lang::String extends mcuf::lang::Memory{
    * Public Method <Static>
    */
   public:
-
     /**
      * @brief 
      * 
@@ -224,30 +223,6 @@ class mcuf::lang::String extends mcuf::lang::Memory{
    * Public Method <Override> - mcuf::lang::Memory
    */
   public:
-    /**
-     * @brief 
-     * 
-     * @param ch 
-     * @return int 
-     */
-    virtual int indexOf(char ch) const override;
-    
-    /**
-     * @brief 
-     * 
-     * @param ch 
-     * @param offset 
-     * @return int 
-     */
-    virtual int indexOf(char ch, int offset) const override;
-    
-    /**
-     * @brief 
-     * 
-     * @param str 
-     * @return int 
-     */
-    virtual int indexOfString(const char* str) const override;  
   
     /**
      * @brief 

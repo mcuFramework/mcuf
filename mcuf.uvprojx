@@ -1479,16 +1479,6 @@
               <FilePath>.\src\main\mcuf\util\TimerTick.h</FilePath>
             </File>
             <File>
-              <FileName>MemoryPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
-            </File>
-            <File>
               <FileName>NioExecuteMethod.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\NioExecuteMethod.h</FilePath>
@@ -3122,16 +3112,6 @@
               <FileName>TimerTick.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTick.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
             </File>
             <File>
               <FileName>NioExecuteMethod.h</FileName>
@@ -4769,16 +4749,6 @@
               <FilePath>.\src\main\mcuf\util\TimerTick.h</FilePath>
             </File>
             <File>
-              <FileName>MemoryPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
-            </File>
-            <File>
               <FileName>NioExecuteMethod.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\NioExecuteMethod.h</FilePath>
@@ -6412,16 +6382,6 @@
               <FileName>TimerTick.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTick.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
             </File>
             <File>
               <FileName>NioExecuteMethod.h</FileName>
@@ -8059,16 +8019,6 @@
               <FilePath>.\src\main\mcuf\util\TimerTick.h</FilePath>
             </File>
             <File>
-              <FileName>MemoryPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
-            </File>
-            <File>
               <FileName>NioExecuteMethod.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\NioExecuteMethod.h</FilePath>
@@ -9702,16 +9652,6 @@
               <FileName>TimerTick.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\main\mcuf\util\TimerTick.h</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>MemoryPool.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\main\mcuf\util\MemoryPool.h</FilePath>
             </File>
             <File>
               <FileName>NioExecuteMethod.h</FileName>

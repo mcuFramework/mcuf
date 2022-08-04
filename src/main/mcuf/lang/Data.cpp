@@ -136,29 +136,6 @@ void Data::wipe(void* pointer, int length){
  * @brief 
  * 
  * @param source 
- * @param length 
- * @return int32_t 
- */
-int Data::copy(const void* source, int length){
-  return Data::copy(source, 0, 0, length);
-}
-
-/**
- * @brief 
- * 
- * @param source 
- * @param start 
- * @param length 
- * @return int32_t 
- */
-int Data::copy(const void* source, int start, int length){
-  return Data::copy(source, 0, start, length);
-}
-
-/**
- * @brief 
- * 
- * @param source 
  * @param shift 
  * @param start 
  * @param length 
