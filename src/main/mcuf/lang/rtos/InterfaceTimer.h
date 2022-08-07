@@ -58,7 +58,7 @@ interface mcuf::lang::rtos::InterfaceTimer extends virtual mcuf::lang::Interface
    * @param mode false = 單次; true = 循環
    * @return true TimerID
    */
-  virtual uint32_t timerStart(mcuf::lang::Memory& handler, uint32_t delay, bool mode);
+  virtual uint32_t timerStart(mcuf::lang::Memory& handler, uint32_t delay, bool mode) abstract;
 
   /**
    * @brief 停止Timer
@@ -67,7 +67,7 @@ interface mcuf::lang::rtos::InterfaceTimer extends virtual mcuf::lang::Interface
    * @return true 停止成功
    * @return false Timer尚未啟動
    */
-  virtual bool timerStop(mcuf::lang::Memory& handler);
+  virtual bool timerStop(mcuf::lang::Memory& handler) abstract;
 
   /**
    * @brief 回傳timer是否已啟動
@@ -76,7 +76,7 @@ interface mcuf::lang::rtos::InterfaceTimer extends virtual mcuf::lang::Interface
    * @return true Timer狀態啟動
    * @return false Timer狀態閒置
    */
-  virtual bool timerIsStart(mcuf::lang::Memory& handler);
+  virtual bool timerIsStart(mcuf::lang::Memory& handler) abstract;
 
 };
 
