@@ -56,14 +56,12 @@ public mcuf::function::Runnable{
    */
   private: 
     mcuf::lang::Memory mHandlerMemroy;
-    Thread* mNextNode;
   
   /* **************************************************************************************
    * Variable <Static Private>
    */  
   private: 
     static mcuf::lang::rtos::InterfaceThread* sInterfaceThread;
-    static Thread* threadNodeHead;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -103,14 +101,6 @@ public mcuf::function::Runnable{
    * Public Method <Static>
    */
   public:
-  
-    /**
-     * @brief Get the Thread object
-     * 
-     * @param threadID 
-     * @return Thread* 
-     */
-    static Thread* getThread(uint32_t threadID);
   
     /**
      * @brief 喚醒指定執行序
@@ -242,31 +232,6 @@ public mcuf::function::Runnable{
      * @param interfaceThread 
      */
     static void setInterfaceThread(mcuf::lang::rtos::InterfaceThread& interfaceThread);
-
-    /**
-     * @brief 
-     * 
-     * @param attachment 
-     */
-    static void entryPoint(void* attachment);
-    
-    /**
-     * @brief 
-     * 
-     * @param thread 
-     * @return true 
-     * @return false 
-     */
-    static bool nodeAdd(Thread* thread);
-    
-    /**
-     * @brief 
-     * 
-     * @param thread 
-     * @return true 
-     * @return false 
-     */
-    static bool nodeRemove(Thread* thread);
    
   /* **************************************************************************************
    * Private Method <Override>

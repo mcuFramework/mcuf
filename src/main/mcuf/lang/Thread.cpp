@@ -36,7 +36,6 @@ using mcuf::lang::ThreadState;
  * Variable <Static>
  */
 mcuf::lang::rtos::InterfaceThread* Thread::sInterfaceThread;
-Thread* Thread::threadNodeHead = nullptr;
 
 /* ****************************************************************************************
  * Construct Method
@@ -72,40 +71,12 @@ Thread::~Thread(void){
   if(this->isActive())
     System::error(__CLASSPATH__, ErrorCode::NULL_POINTER);
   
-  Thread::nodeRemove(this);
   return;
 }
 
 /* ****************************************************************************************
  * Public Method <Static>
  */
-
-/**
- * @brief 
- * 
- * @param threadID 
- * @return Thread* 
- */
-Thread* Thread::getThread(uint32_t threadID){
-  if(threadID == 0)
-    return nullptr;
-  
-  Thread* next = Thread::threadNodeHead;
-  if(next == nullptr){
-    return nullptr;
-  }
-  
-  while(true){
-    if(next->getID() == threadID)
-      return next;
-    
-    next = next->mNextNode;
-    if(next == nullptr)
-      break;
-  }
-  
-  return nullptr;
-}
 
 /**
  * @brief 取得當前執行序ID;
@@ -218,7 +189,7 @@ bool Thread::start(ThreadPriority priority){
   if(this->isActive())
     return false;
   
-  return Thread::sInterfaceThread->threatStart(this->mHandlerMemroy, priority, *this);
+  return Thread::sInterfaceThread->threatStart(this->mHandlerMemroy, priority, *this, *this);
 }
 
 /**
@@ -272,80 +243,13 @@ bool Thread::isActive(void){
  */
 
 /**
- * @brief 
+ * @brief Set the Interface Thread object
  * 
- * @param attachment 
+ * @param interfaceThread 
  */
-void Thread::entryPoint(void* attachment){
-  ASSERT(attachment, __CLASSPATH__, ErrorCode::NULL_POINTER);
-  
-  Thread* thread = static_cast<Thread*>(attachment);
-  thread->run();
-  Thread::sInterfaceThread->threadExit(*thread);
-}
-
-/**
- * @brief 
- * 
- * @param thread 
- * @return true 
- * @return false 
- */
-bool Thread::nodeAdd(Thread* thread){
-  if(thread == nullptr)
-    return false;
-  
-  if(Thread::threadNodeHead == nullptr){
-    Thread::threadNodeHead = thread;
-    return true;
-  }
-  
-  Thread* next = Thread::threadNodeHead;
-  
-  while(true){
-    if(next == thread)
-      return false;
-    
-    if(next->mNextNode == nullptr){
-      next->mNextNode = thread;
-      break;
-    }
-    
-    next = next->mNextNode;
-  }
-    
-  return true;
-}
-
-/**
- * @brief 
- * 
- * @param thread 
- * @return true 
- * @return false 
- */
-bool Thread::nodeRemove(Thread* thread){
-  if(thread == nullptr)
-    return false;
-  
-  if(Thread::threadNodeHead == nullptr)
-    return false;
-  
-  Thread* next = Thread::threadNodeHead;
-  
-  while(true){
-    if(next == nullptr)
-      return false;
-    
-    if(next->mNextNode == thread){
-      next->mNextNode = next->mNextNode->mNextNode;
-      break;
-    }
-    
-    next = next->mNextNode;
-  }
-  
-  return true;
+void Thread::setInterfaceThread(mcuf::lang::rtos::InterfaceThread& interfaceThread){
+  Thread::sInterfaceThread = &interfaceThread;
+  return;
 }
 
 /* ****************************************************************************************
