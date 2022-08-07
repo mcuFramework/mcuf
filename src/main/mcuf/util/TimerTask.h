@@ -49,8 +49,6 @@ public mcuf::function::Runnable{
    */
   private:
     mcuf::lang::Memory mHandlerMemory;
-    uint32_t mTimerID;
-
 
   /* **************************************************************************************
    * Abstract method <Public>

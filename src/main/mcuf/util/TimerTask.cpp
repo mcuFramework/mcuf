@@ -29,7 +29,8 @@ using mcuf::util::TimerTask;
  * 
  */
 TimerTask::TimerTask(void) : mHandlerMemory(mcuf::util::Timer::sInterfaceTimer->timerGetHandlerSize()){
-  this->mTimerID = 0;
+  this->mHandlerMemory.wipe(0x00);
+  return;
 }
     
 /**
@@ -37,14 +38,8 @@ TimerTask::TimerTask(void) : mHandlerMemory(mcuf::util::Timer::sInterfaceTimer->
  * 
  */
 TimerTask::~TimerTask(void){
-  
-  if(this->mTimerID == 0)
-    return;
-  
-  if(this->isRunning())
-    this->cancel();
-  
-  this->mTimerID = 0;
+  this->cancel();
+  return;
 }
 
 /* ****************************************************************************************
@@ -95,9 +90,6 @@ bool TimerTask::cancel(void){
  * @return false 
  */
 bool TimerTask::isRunning(void){
-  if(this->mTimerID == 0)
-    return false;
-  
   return Timer::sInterfaceTimer->timerIsStart(this->mHandlerMemory);
 }
 

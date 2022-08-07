@@ -110,17 +110,7 @@ bool Timer::schedule(TimerTask& task, uint32_t delay, bool mode){
   if(task.isRunning())
     return false;
   
-  if(task.mTimerID){
-    if(Timer::sInterfaceTimer->timerIsStart(task.mHandlerMemory))
-      return false;
-  }
-  
-  task.mTimerID = Timer::sInterfaceTimer->timerStart(task.mHandlerMemory, delay, mode);
-
-  if(task.mTimerID == 0x00000000)
-    return false;
-  
-  return true;
+  return Timer::sInterfaceTimer->timerStart(task.mHandlerMemory, delay, mode, task);
 }
 
 /* ****************************************************************************************

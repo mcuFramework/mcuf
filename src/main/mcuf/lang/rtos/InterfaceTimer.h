@@ -16,6 +16,7 @@
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf/lang/Interface.h"
+#include "mcuf/function/Runnable.h"
 #include "mcuf/lang/Memory.h"
 
 /* ****************************************************************************************
@@ -56,9 +57,10 @@ interface mcuf::lang::rtos::InterfaceTimer extends virtual mcuf::lang::Interface
    * @param timerTask 
    * @param delay 延遲時間 單位ms
    * @param mode false = 單次; true = 循環
-   * @return true TimerID
+   * @param runnable 直行進入點
+   * @return 
    */
-  virtual uint32_t timerStart(mcuf::lang::Memory& handler, uint32_t delay, bool mode) abstract;
+  virtual bool timerStart(mcuf::lang::Memory& handler, uint32_t delay, bool mode, mcuf::function::Runnable& runnable) abstract;
 
   /**
    * @brief 停止Timer
@@ -77,6 +79,14 @@ interface mcuf::lang::rtos::InterfaceTimer extends virtual mcuf::lang::Interface
    * @return false Timer狀態閒置
    */
   virtual bool timerIsStart(mcuf::lang::Memory& handler) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @param handler 
+   * @return uint32_t 
+   */
+  virtual uint32_t timerGetID(mcuf::lang::Memory& handler) abstract;
 
 };
 
