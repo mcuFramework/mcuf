@@ -135,7 +135,7 @@ class mcuf::util::Timer extends mcuf::lang::Object{
      * 
      * @param imterfaceTimer 
      */
-    static void setInterfaceTimer(mcuf::lang::rtos::InterfaceTimer& imterfaceTimer);
+    static void setInterfaceTimer(mcuf::lang::rtos::InterfaceTimer& interfaceTimer);
 
     /**
      * @brief 

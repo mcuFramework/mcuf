@@ -114,6 +114,12 @@ class mcuf::lang::System final extends mcuf::lang::Object{
      * 
      */
     static void initialize(void);
+    
+    /**
+     * @brief 
+     * 
+     */
+    static void setup(void);    
       
     /**
      * @brief 

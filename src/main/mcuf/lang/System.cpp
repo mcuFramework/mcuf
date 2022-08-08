@@ -122,6 +122,21 @@ void System::initialize(void){
     return;
   
   System::mSystemRegister = new SystemRegister();
+  return;
+}
+
+/**
+ * @brief 
+ * 
+ */
+void System::setup(void){
+  if(System::mSystemRegister == nullptr)
+    return;
+  
+  Thread::setInterfaceThread(*System::mSystemRegister->mInterfaceThread);
+  System::setInterfaceKernel(*System::mSystemRegister->mInterfaceKernel);
+  Timer::setInterfaceTimer(*System::mSystemRegister->mInterfaceTimer);
+  return;
 }
 
 /**
@@ -132,9 +147,7 @@ void System::initialize(void){
 void System::start(mcuf::lang::Thread& userThread){
   System::sInterfaceKernel->kernelInitialize();
   
-  Thread::setInterfaceThread(*System::mSystemRegister->mInterfaceThread);
-  System::setInterfaceKernel(*System::mSystemRegister->mInterfaceKernel);
-  Timer::setInterfaceTimer(*System::mSystemRegister->mInterfaceTimer);
+
   
   
   System::mCoreThread 
@@ -251,7 +264,10 @@ void System::idleTask(void){
  * @brief 
  *
  */
-void setInterfaceKernel(mcuf::lang::rtos::InterfaceKernel& interfacrKernel);
+void System::setInterfaceKernel(mcuf::lang::rtos::InterfaceKernel& interfacrKernel){
+  System::sInterfaceKernel = &interfacrKernel;
+  return;
+}
  
 /* ****************************************************************************************
  * End of file

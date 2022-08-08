@@ -93,6 +93,15 @@ bool Timer::scheduleAtFixedRate(TimerTask& task, uint32_t delay){
  */
 
 /**
+ * @brief Set the Interface Timer object
+ * 
+ * @param imterfaceTimer 
+ */
+void Timer::setInterfaceTimer(mcuf::lang::rtos::InterfaceTimer& interfaceTimer){
+  Timer::sInterfaceTimer = &interfaceTimer;
+}
+
+/**
  *
  */
 void Timer::entryPoint(void* attachment){
