@@ -208,6 +208,13 @@ class mcuf::lang::System final extends mcuf::lang::Object{
   /* **************************************************************************************
    * Private Method
    */  
+  private:
+    
+    /**
+     * @brief 
+     *
+     */
+    static void setInterfaceKernel(mcuf::lang::rtos::InterfaceKernel& interfacrKernel);
   
 };
 

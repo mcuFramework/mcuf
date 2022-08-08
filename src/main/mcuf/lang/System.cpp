@@ -55,7 +55,7 @@ using mcuf::util::Timer;
 /* ****************************************************************************************
  * Static Variable
  */  
- mcuf::lang::rtos::InterfaceKernel* System::sInterfaceKernel;
+mcuf::lang::rtos::InterfaceKernel* System::sInterfaceKernel;
 SystemRegister* System::mSystemRegister = nullptr;
 CoreThread* System::mCoreThread = nullptr;
 
@@ -121,7 +121,6 @@ void System::initialize(void){
   if(System::mSystemRegister != nullptr)
     return;
   
-  System::sInterfaceKernel->kernelInitialize();
   System::mSystemRegister = new SystemRegister();
 }
 
@@ -131,6 +130,12 @@ void System::initialize(void){
  * @param userThread 
  */
 void System::start(mcuf::lang::Thread& userThread){
+  System::sInterfaceKernel->kernelInitialize();
+  
+  Thread::setInterfaceThread(*System::mSystemRegister->mInterfaceThread);
+  System::setInterfaceKernel(*System::mSystemRegister->mInterfaceKernel);
+  Timer::setInterfaceTimer(*System::mSystemRegister->mInterfaceTimer);
+  
   
   System::mCoreThread 
     = new CoreThread(mcufCoreEcecutorTaskNumber, 
@@ -242,6 +247,11 @@ void System::idleTask(void){
 /* ****************************************************************************************
  * Private Method
  */
+/**
+ * @brief 
+ *
+ */
+void setInterfaceKernel(mcuf::lang::rtos::InterfaceKernel& interfacrKernel);
  
 /* ****************************************************************************************
  * End of file

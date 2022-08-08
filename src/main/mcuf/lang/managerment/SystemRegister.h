@@ -20,6 +20,9 @@
 #include "mcuf/io/InputStreamBuffer.h"
 #include "mcuf/lang/ErrorCode.h"
 #include "mcuf/function/RunnableEntity.h"
+#include "mcuf/lang/rtos/InterfaceKernel.h"
+#include "mcuf/lang/rtos/InterfaceThread.h"
+#include "mcuf/lang/rtos/InterfaceTimer.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -63,6 +66,9 @@ class mcuf::lang::managerment::SystemRegister extends mcuf::lang::Object{
     SystemReset mSystemReset;
     mcuf::io::PrintStream* mPrintStream;
     mcuf::io::InputStreamBuffer* mInputStreamBuffer;
+    mcuf::lang::rtos::InterfaceKernel* mInterfaceKernel;
+    mcuf::lang::rtos::InterfaceThread* mInterfaceThread;
+    mcuf::lang::rtos::InterfaceTimer* mInterfaceTimer;
   
   /* **************************************************************************************
    * Abstract method <Public>
@@ -139,6 +145,27 @@ class mcuf::lang::managerment::SystemRegister extends mcuf::lang::Object{
      * @param task 
      */
     void setIdleTask(mcuf::function::RunnableEntity task);
+
+    /**
+     * @brief Set the Interface Kernel object
+     * 
+     * @param interfaceKernel 
+     */
+    void setInterfaceKernel(mcuf::lang::rtos::InterfaceKernel* interfaceKernel);
+
+    /**
+     * @brief Set the Interface Thread object
+     * 
+     * @param interfaceThread 
+     */
+    void setInterfaceThread(mcuf::lang::rtos::InterfaceThread* interfaceThread);
+    
+    /**
+     * @brief Set the Interface Timer object
+     * 
+     * @param interfaceTimer 
+     */
+    void setInterfaceTimer(mcuf::lang::rtos::InterfaceTimer* interfaceTimer);
 
   /* **************************************************************************************
    * Protected Method <Static>

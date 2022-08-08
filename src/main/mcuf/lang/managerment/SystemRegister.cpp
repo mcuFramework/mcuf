@@ -106,6 +106,37 @@ void SystemRegister::setIdleTask(mcuf::function::RunnableEntity task){
   this->mIdleTask = task;
   return;
 }
+
+/**
+ * @brief Set the Interface Kernel object
+ * 
+ * @param interfaceKernel 
+ */
+void SystemRegister::setInterfaceKernel(mcuf::lang::rtos::InterfaceKernel* interfaceKernel){
+  this->mInterfaceKernel = interfaceKernel;
+  return;
+}
+
+/**
+ * @brief Set the Interface Thread object
+ * 
+ * @param interfaceThread 
+ */
+void SystemRegister::setInterfaceThread(mcuf::lang::rtos::InterfaceThread* interfaceThread){
+  this->mInterfaceThread = interfaceThread;
+  return;
+}
+
+/** 
+ * @brief Set the Interface Timer object
+ * 
+ * @param interfaceTimer 
+ */
+void SystemRegister::setInterfaceTimer(mcuf::lang::rtos::InterfaceTimer* interfaceTimer){
+  this->mInterfaceTimer = interfaceTimer;
+  return;
+}
+
 /* ****************************************************************************************
  * Protected Method <Static>
  */
