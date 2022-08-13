@@ -336,7 +336,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-fexceptions -frtti</MiscControls>
+              <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
               <IncludePath>.\src\main;.\src\resources</IncludePath>
@@ -357,7 +357,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\framework</IncludePath>
+              <IncludePath></IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -1992,7 +1992,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\framework</IncludePath>
+              <IncludePath></IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -3627,7 +3627,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\framework</IncludePath>
+              <IncludePath></IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -5262,7 +5262,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\framework</IncludePath>
+              <IncludePath></IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -6897,7 +6897,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\framework</IncludePath>
+              <IncludePath></IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -8532,7 +8532,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\framework</IncludePath>
+              <IncludePath></IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
