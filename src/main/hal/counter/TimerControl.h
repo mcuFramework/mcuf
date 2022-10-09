@@ -54,6 +54,12 @@ interface hal::counter::TimerControl extends virtual mcuf::lang::Interface{
    * @return false 
    */
   virtual bool isDone(void) abstract;
+
+  /**
+   * @brief 
+   * 
+   */
+  virtual void waitDone(void) abstract;
   
   /**
    * @brief Get the Timer Clock object
