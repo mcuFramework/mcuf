@@ -27,15 +27,13 @@
  */  
  
 namespace hal{
-  namespace serial{
-    interface SerialBusTransfer;
-  }
+  interface SerialBusTransfer;
 }
 
 /* ****************************************************************************************
  * Interface/Class/Struct
  */  
-interface hal::serial::SerialBusTransfer extends virtual mcuf::lang::Interface{
+interface hal::SerialBusTransfer extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method
@@ -67,7 +65,7 @@ interface hal::serial::SerialBusTransfer extends virtual mcuf::lang::Interface{
   virtual bool read(uint16_t address, 
                     mcuf::io::InputBuffer& in,
                     void* attachment,
-                    hal::serial::SerialBusEvent* event) abstract;
+                    hal::SerialBusEvent* event) abstract;
 
   /**
    * @brief 
@@ -79,7 +77,7 @@ interface hal::serial::SerialBusTransfer extends virtual mcuf::lang::Interface{
   virtual bool write(uint16_t address, 
                      mcuf::io::OutputBuffer& out,
                      void* attachment,
-                     hal::serial::SerialBusEvent* event) abstract;
+                     hal::SerialBusEvent* event) abstract;
   
   /**
    * @brief 
@@ -95,7 +93,7 @@ interface hal::serial::SerialBusTransfer extends virtual mcuf::lang::Interface{
                         mcuf::io::OutputBuffer& out, 
                         mcuf::io::InputBuffer& in,
                         void* attachment,
-                        hal::serial::SerialBusEvent* event) abstract;
+                        hal::SerialBusEvent* event) abstract;
 
 };
 

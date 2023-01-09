@@ -24,15 +24,13 @@
  */  
 
 namespace hal{
-  namespace serial{
-    interface SerialPortConfig;
-  }
+  interface SerialPortConfig;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPortConfig extends virtual mcuf::lang::Interface{
+interface hal::SerialPortConfig extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

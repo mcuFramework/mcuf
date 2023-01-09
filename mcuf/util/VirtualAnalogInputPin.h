@@ -34,7 +34,7 @@ namespace mcuf{
  * Class/Interface/Struct/Enum
  */  
 class mcuf::util::VirtualAnalogInputPin extends mcuf::lang::Object implements
-public hal::analog::AnalogInputPin{
+public hal::AnalogInputPin{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -84,7 +84,7 @@ public hal::analog::AnalogInputPin{
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - hal::analog::AnalogInputPin
+   * Public Method <Override> - hal::AnalogInputPin
    */
   public:
     /**

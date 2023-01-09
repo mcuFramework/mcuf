@@ -23,15 +23,13 @@
  */  
 
 namespace hal{
-  namespace serial{
-    enum struct SerialPeriphPolarity : char;
-  }
+  enum struct SerialPeriphPolarity : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::serial::SerialPeriphPolarity : char{
+enum struct hal::SerialPeriphPolarity : char{
   ACTIVE_HIGH,
   ACTIVE_LOW 
 };

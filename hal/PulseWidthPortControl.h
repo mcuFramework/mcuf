@@ -25,15 +25,13 @@
  */  
 
 namespace hal{
-  namespace counter{
-    interface PulseWidthPortControl;
-  }
+  interface PulseWidthPortControl;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::counter::PulseWidthPortControl extends virtual mcuf::lang::Interface{
+interface hal::PulseWidthPortControl extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

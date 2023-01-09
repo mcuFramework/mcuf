@@ -25,15 +25,13 @@
  */  
 
 namespace hal{
-  namespace general{
-    interface GeneralPinConfig;
-  }
+  interface GeneralPinConfig;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::GeneralPinConfig extends virtual mcuf::lang::Interface{
+interface hal::GeneralPinConfig extends virtual mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */
@@ -43,7 +41,7 @@ interface hal::general::GeneralPinConfig extends virtual mcuf::lang::Interface{
    * 
    * @return PinMode 
    */
-  virtual hal::general::GeneralPinMode pinMode(void) abstract;
+  virtual hal::GeneralPinMode pinMode(void) abstract;
 
   /**
    * @brief 
@@ -52,7 +50,7 @@ interface hal::general::GeneralPinConfig extends virtual mcuf::lang::Interface{
    * @return true 
    * @return false 
    */
-  virtual bool pinMode(hal::general::GeneralPinMode mode) abstract; 
+  virtual bool pinMode(hal::GeneralPinMode mode) abstract; 
 
 };
 

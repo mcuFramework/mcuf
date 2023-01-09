@@ -25,15 +25,13 @@
  */  
 
 namespace hal{  
-  namespace counter{
-    interface TimerControl;
-  }
+  interface TimerControl;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::counter::TimerControl extends virtual mcuf::lang::Interface{
+interface hal::TimerControl extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method
@@ -91,7 +89,7 @@ interface hal::counter::TimerControl extends virtual mcuf::lang::Interface{
    * @return true 
    * @return false 
    */
-  virtual bool startAtTick(uint32_t tick, hal::counter::TimerEvent* event) abstract;
+  virtual bool startAtTick(uint32_t tick, hal::TimerEvent* event) abstract;
   
   /**
    * @brief 
@@ -110,7 +108,7 @@ interface hal::counter::TimerControl extends virtual mcuf::lang::Interface{
    * @return true 
    * @return false 
    */
-  virtual bool startAtTime(uint32_t microSecond, hal::counter::TimerEvent* event) abstract;
+  virtual bool startAtTime(uint32_t microSecond, hal::TimerEvent* event) abstract;
   
   /**
    * @brief 

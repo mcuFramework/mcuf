@@ -26,15 +26,13 @@
  */  
 
 namespace hal{
-  namespace serial{
-    interface SerialPeriphEvent;
-  }
+  interface SerialPeriphEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPeriphEvent extends virtual mcuf::lang::Interface{
+interface hal::SerialPeriphEvent extends virtual mcuf::lang::Interface{
   
   /* **************************************************************************************
    * Method
@@ -47,7 +45,7 @@ interface hal::serial::SerialPeriphEvent extends virtual mcuf::lang::Interface{
    * @param transfer 
    * @param receiver 
    */
-  virtual void onSerialPeriphEvent(hal::serial::SerialPeriphStatus status, 
+  virtual void onSerialPeriphEvent(hal::SerialPeriphStatus status, 
                                    mcuf::io::ByteBuffer* transfer,
                                    mcuf::io::ByteBuffer* receiver) abstract;
 };

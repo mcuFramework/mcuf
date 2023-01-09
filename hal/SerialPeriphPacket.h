@@ -27,21 +27,19 @@
  */  
 
 namespace hal{
-  namespace serial{
-    struct SerialPeriphPacket;
-  }
+  struct SerialPeriphPacket;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-struct hal::serial::SerialPeriphPacket{
+struct hal::SerialPeriphPacket{
   mcuf::io::ByteBuffer* tx;
   mcuf::io::ByteBuffer* rx;
   uint32_t clock;
-  hal::serial::SerialPeriphPhase phase;
-  hal::serial::SerialPeriphPolarity polarity;
-  hal::serial::SerialPeriphSignificantBit significantBit;
+  hal::SerialPeriphPhase phase;
+  hal::SerialPeriphPolarity polarity;
+  hal::SerialPeriphSignificantBit significantBit;
 };
 
 /* *****************************************************************************************

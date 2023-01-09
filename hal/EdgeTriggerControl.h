@@ -26,15 +26,13 @@
  * Namespace
  */  
 namespace hal{
-  namespace general{
-    interface EdgeTriggerControl;
-  }
+  interface EdgeTriggerControl;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::EdgeTriggerControl extends virtual mcuf::lang::Interface{
+interface hal::EdgeTriggerControl extends virtual mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */
@@ -64,7 +62,7 @@ interface hal::general::EdgeTriggerControl extends virtual mcuf::lang::Interface
    * @return true 設定成功
    * @return false 設定失敗
    */
-  virtual bool enableFall(hal::general::EdgeTriggerEvent* event) abstract;
+  virtual bool enableFall(hal::EdgeTriggerEvent* event) abstract;
 
   /**
    * @brief 
@@ -73,7 +71,7 @@ interface hal::general::EdgeTriggerControl extends virtual mcuf::lang::Interface
    * @return true 設定成功
    * @return false 設定失敗
    */
-  virtual bool enableRise(hal::general::EdgeTriggerEvent* event) abstract;
+  virtual bool enableRise(hal::EdgeTriggerEvent* event) abstract;
 
 };
 

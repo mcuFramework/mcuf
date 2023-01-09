@@ -25,17 +25,15 @@
  */  
 
 namespace hal{
-  namespace general{
-    interface GeneralPinControl;
-  }
+  interface GeneralPinControl;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::GeneralPinControl extends 
-hal::general::GeneralInput,
-hal::general::GeneralOutput{
+interface hal::GeneralPinControl extends 
+hal::GeneralInput,
+hal::GeneralOutput{
 
   /* **************************************************************************************
    * Method

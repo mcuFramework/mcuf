@@ -26,15 +26,13 @@
  */  
 
 namespace hal{  
-  namespace storage{
-    interface FlashStorageEvent;
-  }
+  interface FlashStorageEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::storage::FlashStorageEvent extends virtual mcuf::lang::Interface{
+interface hal::FlashStorageEvent extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method
@@ -46,7 +44,7 @@ interface hal::storage::FlashStorageEvent extends virtual mcuf::lang::Interface{
    * @param status 
    * @param byteBuffer 
    */
-  virtual void onFlashStorageEvent(hal::storage::FlashStorageStatus status, 
+  virtual void onFlashStorageEvent(hal::FlashStorageStatus status, 
                                    int result,
                                    void* attachment) abstract;
 

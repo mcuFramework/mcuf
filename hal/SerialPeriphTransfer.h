@@ -28,15 +28,13 @@
  */  
 
 namespace hal{
-  namespace serial{
-    interface SerialPeriphTransfer;
-  }
+  interface SerialPeriphTransfer;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPeriphTransfer extends virtual mcuf::lang::Interface{
+interface hal::SerialPeriphTransfer extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method
@@ -68,8 +66,8 @@ interface hal::serial::SerialPeriphTransfer extends virtual mcuf::lang::Interfac
    * @return false 
    */
   virtual bool transfer(uint32_t chipSelect, 
-                        hal::serial::SerialPeriphPacket* packet,
-                        hal::serial::SerialPeriphEvent* event) abstract;
+                        hal::SerialPeriphPacket* packet,
+                        hal::SerialPeriphEvent* event) abstract;
 
 };
 

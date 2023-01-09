@@ -22,15 +22,13 @@
  * Namespace
  */  
 namespace hal{
-  namespace serial{
-    enum struct SerialPeriphPhase : char;
-  }
+  enum struct SerialPeriphPhase : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::serial::SerialPeriphPhase : char{
+enum struct hal::SerialPeriphPhase : char{
     FIRST_EDGE,
     SECOND_EDGE
 };

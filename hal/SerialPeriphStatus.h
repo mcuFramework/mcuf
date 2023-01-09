@@ -23,15 +23,13 @@
  */  
 
 namespace hal{
-  namespace serial{
-    enum struct SerialPeriphStatus : char;
-  }
+  enum struct SerialPeriphStatus : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::serial::SerialPeriphStatus : char{
+enum struct hal::SerialPeriphStatus : char{
   SUCCESSFUL,
   FAIL,
   ABORT

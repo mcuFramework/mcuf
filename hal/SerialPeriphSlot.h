@@ -29,15 +29,13 @@
  */  
 
 namespace hal{
-  namespace serial{
-    interface SerialPeriphSlot;
-  }
+  interface SerialPeriphSlot;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPeriphSlot extends 
+interface hal::SerialPeriphSlot extends 
 hal::Base{
 
   /* **************************************************************************************
@@ -78,9 +76,9 @@ hal::Base{
   /**
    * @brief 
    * 
-   * @return hal::serial::SerialPeriphSignificantBit 
+   * @return hal::SerialPeriphSignificantBit 
    */
-  virtual hal::serial::SerialPeriphSignificantBit significantBit(void) abstract;
+  virtual hal::SerialPeriphSignificantBit significantBit(void) abstract;
 
   /**
    * @brief 
@@ -89,30 +87,14 @@ hal::Base{
    * @return true 
    * @return false 
    */
-  virtual bool significantBit(hal::serial::SerialPeriphSignificantBit newStatus) abstract;
+  virtual bool significantBit(hal::SerialPeriphSignificantBit newStatus) abstract;
 
   /**
    * @brief 
    * 
-   * @return hal::serial::SerialPeriphPolarity 
+   * @return hal::SerialPeriphPolarity 
    */
-  virtual hal::serial::SerialPeriphPolarity polarity(void) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param newStatus 
-   * @return true 
-   * @return false 
-   */
-  virtual bool polarity(hal::serial::SerialPeriphPolarity snewStatustatus) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @return hal::serial::SerialPeriphPhase 
-   */
-  virtual hal::serial::SerialPeriphPhase phase(void) abstract;
+  virtual hal::SerialPeriphPolarity polarity(void) abstract;
 
   /**
    * @brief 
@@ -121,7 +103,23 @@ hal::Base{
    * @return true 
    * @return false 
    */
-  virtual bool phase(hal::serial::SerialPeriphPhase newStatus) abstract;
+  virtual bool polarity(hal::SerialPeriphPolarity snewStatustatus) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @return hal::SerialPeriphPhase 
+   */
+  virtual hal::SerialPeriphPhase phase(void) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @param newStatus 
+   * @return true 
+   * @return false 
+   */
+  virtual bool phase(hal::SerialPeriphPhase newStatus) abstract;
 
   /**
    * @brief 

@@ -25,18 +25,16 @@
  * Namespace
  */  
 namespace hal{
-  namespace serial{
-    interface SerialBus;
-  }
+  interface SerialBus;
 }
 
 /* ****************************************************************************************
  * Interface/Class/Struct
  */  
-interface hal::serial::SerialBus extends 
+interface hal::SerialBus extends 
 hal::Base,
-hal::serial::SerialBusControl,
-hal::serial::SerialBusTransfer{
+hal::SerialBusControl,
+hal::SerialBusTransfer{
 
   /* **************************************************************************************
    * Method

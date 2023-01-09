@@ -26,15 +26,13 @@
  */  
 
 namespace hal{  
-  namespace counter{
-    interface TimerEvent;
-  }
+  interface TimerEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::counter::TimerEvent extends virtual mcuf::lang::Interface{
+interface hal::TimerEvent extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method
@@ -45,7 +43,7 @@ interface hal::counter::TimerEvent extends virtual mcuf::lang::Interface{
    * 
    * @param status 
    */
-  virtual void onTimerEvent(hal::counter::TimerStatus status) abstract;
+  virtual void onTimerEvent(hal::TimerStatus status) abstract;
 };
 
 #endif /* MCUF_DF0EC699_78D6_4243_A75D_F321C92D88BB */

@@ -25,17 +25,15 @@
  */  
 
 namespace hal{
-  namespace counter{
-    interface Timer;
-  }
+  interface Timer;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::counter::Timer extends 
+interface hal::Timer extends 
 hal::Base,
-hal::counter::TimerControl{
+hal::TimerControl{
 
   /* **************************************************************************************
    * Method

@@ -31,9 +31,9 @@
 using mcuf::io::SerialBusQueue;
 using mcuf::io::OutputBuffer;
 using mcuf::io::InputBuffer;
-using hal::serial::SerialBus;
-using hal::serial::SerialBusStatus;
-using hal::serial::SerialBusEvent;
+using hal::SerialBus;
+using hal::SerialBusStatus;
+using hal::SerialBusEvent;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -109,7 +109,7 @@ bool SerialBusQueue::isInit(void){
 }
 
 /* ****************************************************************************************
- * Public Method <Override> - hal::serial::SerialBusControl
+ * Public Method <Override> - hal::SerialBusControl
  */
 /**
  * @brief 
@@ -131,7 +131,7 @@ uint32_t SerialBusQueue::clockRate(uint32_t clock){
 }
 
 /* ****************************************************************************************
- * Public Method <Override> - hal::serial::SerialBusTransfer
+ * Public Method <Override> - hal::SerialBusTransfer
  */
 /**
  * @brief 
@@ -217,7 +217,7 @@ bool SerialBusQueue::transfer(uint16_t address, OutputBuffer& out, InputBuffer& 
 }
 
 /* ****************************************************************************************
- * Public Method <Override> - hal::serial::SerialBusEvent
+ * Public Method <Override> - hal::SerialBusEvent
  */
 /**
  * @brief 

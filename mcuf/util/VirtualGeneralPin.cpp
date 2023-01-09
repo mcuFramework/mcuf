@@ -41,7 +41,7 @@ using mcuf::util::VirtualGeneralPin;
 VirtualGeneralPin::VirtualGeneralPin(void){
   this->mDir = 0;
   this->mValue = 0;
-  this->mGeneralPinMode = hal::general::GeneralPinMode::PUSH_PULL;
+  this->mGeneralPinMode = hal::GeneralPinMode::PUSH_PULL;
   return;
 }
 /**
@@ -51,7 +51,7 @@ VirtualGeneralPin::VirtualGeneralPin(void){
 VirtualGeneralPin::~VirtualGeneralPin(void){
   this->mDir = 0;
   this->mValue = 0;
-  this->mGeneralPinMode = hal::general::GeneralPinMode::PUSH_PULL;
+  this->mGeneralPinMode = hal::GeneralPinMode::PUSH_PULL;
   return;
 }
 /* ****************************************************************************************
@@ -87,9 +87,9 @@ void VirtualGeneralPin::dir(bool dir){
 /**
  * @brief 
  * 
- * @return hal::general::GeneralPinMode 
+ * @return hal::GeneralPinMode 
  */
-hal::general::GeneralPinMode VirtualGeneralPin::pinMode(void){
+hal::GeneralPinMode VirtualGeneralPin::pinMode(void){
   return this->mGeneralPinMode;
 }
 /**
@@ -99,7 +99,7 @@ hal::general::GeneralPinMode VirtualGeneralPin::pinMode(void){
  * @return true 
  * @return false 
  */
-bool VirtualGeneralPin::pinMode(hal::general::GeneralPinMode mode){
+bool VirtualGeneralPin::pinMode(hal::GeneralPinMode mode){
   this->mGeneralPinMode = mode;
   return true;
 } 

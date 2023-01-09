@@ -23,15 +23,13 @@
  */  
 
 namespace hal{
-  namespace general{
-    enum struct GeneralPinMode : char;
-  }
+  enum struct GeneralPinMode : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::general::GeneralPinMode : char{
+enum struct hal::GeneralPinMode : char{
   NOT_SUPPORT,
   PUSH_PULL,
   PULL_UP,

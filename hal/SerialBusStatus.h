@@ -23,15 +23,13 @@
  */  
 
 namespace hal{
-  namespace serial{
-    enum struct SerialBusStatus : char;
-  }
+  enum struct SerialBusStatus : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::serial::SerialBusStatus : char{
+enum struct hal::SerialBusStatus : char{
   WRITE_SUCCESSFUL,
   WRITE_FAIL,
   READ_SUCCESSFUL,

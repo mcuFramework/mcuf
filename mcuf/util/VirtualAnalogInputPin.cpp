@@ -63,7 +63,7 @@ VirtualAnalogInputPin::~VirtualAnalogInputPin(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override> - hal::analog::AnalogInputPin
+ * Public Method <Override> - hal::AnalogInputPin
  */
 /**
  * @brief 

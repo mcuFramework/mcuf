@@ -23,15 +23,13 @@
  */  
 
 namespace hal{
-  namespace serial{
-    enum struct SerialPeriphSignificantBit : char;
-  }
+  enum struct SerialPeriphSignificantBit : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::serial::SerialPeriphSignificantBit : char{
+enum struct hal::SerialPeriphSignificantBit : char{
   LSB,
   MSB 
 };

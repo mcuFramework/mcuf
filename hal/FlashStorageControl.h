@@ -22,16 +22,14 @@
  * Namespace
  */  
 namespace hal{  
-  namespace storage{
-    interface FlashStorageControl;    
-  }
+  interface FlashStorageControl;    
 }
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::storage::FlashStorageControl extends virtual mcuf::lang::Interface{
+interface hal::FlashStorageControl extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method
@@ -101,7 +99,7 @@ interface hal::storage::FlashStorageControl extends virtual mcuf::lang::Interfac
    */
   virtual bool write(mcuf::io::ByteBuffer& bytebuffer, 
                      void* attachment,
-                     hal::storage::FlashStorageEvent* event) abstract;
+                     hal::FlashStorageEvent* event) abstract;
 
   /**
    * @brief 
@@ -114,7 +112,7 @@ interface hal::storage::FlashStorageControl extends virtual mcuf::lang::Interfac
    */
   virtual bool read(mcuf::io::ByteBuffer& bytebuffer, 
                     void* attachment,
-                    hal::storage::FlashStorageEvent* event) abstract;
+                    hal::FlashStorageEvent* event) abstract;
 
 };
 

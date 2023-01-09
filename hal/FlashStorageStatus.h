@@ -23,15 +23,13 @@
  */  
 
 namespace hal{
-  namespace storage{
-    enum struct FlashStorageStatus : char;
-  }
+  enum struct FlashStorageStatus : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::storage::FlashStorageStatus : char{
+enum struct hal::FlashStorageStatus : char{
   WRITE_SUCCESSFUL,
   WRITE_FAIL,
   READ_SUCCESSFUL,

@@ -25,18 +25,16 @@
  */  
 
 namespace hal{  
-  namespace storage{
-    interface FlashStorage;
-  }
+  interface FlashStorage;
 }
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::storage::FlashStorage extends 
+interface hal::FlashStorage extends 
 hal::Base,
-hal::storage::FlashStorageControl{
+hal::FlashStorageControl{
 
   /* **************************************************************************************
    * Method

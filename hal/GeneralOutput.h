@@ -23,16 +23,14 @@
  * Namespace
  */
 namespace hal{
-  namespace general{
-    interface GeneralOutput;
-  }
+  interface GeneralOutput;
 }
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface hal::general::GeneralOutput extends virtual mcuf::lang::Interface{
+interface hal::GeneralOutput extends virtual mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */

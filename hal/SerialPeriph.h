@@ -25,17 +25,15 @@
  * Namespace
  */  
 namespace hal{
-  namespace serial{
-    interface SerialPeriph;
-  }
+  interface SerialPeriph;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPeriph extends 
+interface hal::SerialPeriph extends 
 hal::Base,
-hal::serial::SerialPeriphTransfer{
+hal::SerialPeriphTransfer{
 
   /* **************************************************************************************
    * Method

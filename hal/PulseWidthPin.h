@@ -24,16 +24,14 @@
  */
 
 namespace hal{
-  namespace counter{
-    interface PulseWidthPin;
-  }
+  interface PulseWidthPin;
 }
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface hal::counter::PulseWidthPin extends virtual mcuf::lang::Interface{
+interface hal::PulseWidthPin extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

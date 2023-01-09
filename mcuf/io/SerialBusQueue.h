@@ -34,8 +34,8 @@ namespace mcuf{
  * Class/Interface/Struct/Enum
  */  
 class mcuf::io::SerialBusQueue extends mcuf::util::Fifo implements
-public hal::serial::SerialBus,
-public hal::serial::SerialBusEvent{
+public hal::SerialBus,
+public hal::SerialBusEvent{
 
   private:
     struct Packet{
@@ -44,7 +44,7 @@ public hal::serial::SerialBusEvent{
       mcuf::io::OutputBuffer* out;
       mcuf::io::InputBuffer* in;
       void* attachment;
-      hal::serial::SerialBusEvent* event;
+      hal::SerialBusEvent* event;
     };
 
   /* **************************************************************************************
@@ -59,7 +59,7 @@ public hal::serial::SerialBusEvent{
    * Variable <Private>
    */
   private:
-    hal::serial::SerialBus& mSerialBus;
+    hal::SerialBus& mSerialBus;
     Packet mPacket;
 
   /* **************************************************************************************
@@ -80,7 +80,7 @@ public hal::serial::SerialBusEvent{
      * @param serialBus 
      * @param queueSize 
      */
-    SerialBusQueue(hal::serial::SerialBus& serialBus, uint32_t queueSize);
+    SerialBusQueue(hal::SerialBus& serialBus, uint32_t queueSize);
 
     /**
      * @brief Destroy the Serial Bus Queue object
@@ -125,7 +125,7 @@ public hal::serial::SerialBusEvent{
     virtual bool isInit(void) override;
 
   /* **************************************************************************************
-   * Public Method <Override> - hal::serial::SerialBusControl
+   * Public Method <Override> - hal::SerialBusControl
    */
   public:
     /**
@@ -144,7 +144,7 @@ public hal::serial::SerialBusEvent{
     virtual uint32_t clockRate(uint32_t clock) override;
 
   /* **************************************************************************************
-   * Public Method <Override> - hal::serial::SerialBusTransfer
+   * Public Method <Override> - hal::SerialBusTransfer
    */
   public:
     /**
@@ -174,7 +174,7 @@ public hal::serial::SerialBusEvent{
     virtual bool read(uint16_t address, 
                       mcuf::io::InputBuffer& in, 
                       void* attachment,
-                      hal::serial::SerialBusEvent* event) override;
+                      hal::SerialBusEvent* event) override;
 
     /**
      * @brief 
@@ -187,7 +187,7 @@ public hal::serial::SerialBusEvent{
     virtual bool write(uint16_t address, 
                        mcuf::io::OutputBuffer& out,
                        void* attachment,
-                       hal::serial::SerialBusEvent* event) override;
+                       hal::SerialBusEvent* event) override;
     
     /**
      * @brief 
@@ -204,10 +204,10 @@ public hal::serial::SerialBusEvent{
                           mcuf::io::OutputBuffer& out, 
                           mcuf::io::InputBuffer& in,
                           void* attachment,
-                          hal::serial::SerialBusEvent* event) override;
+                          hal::SerialBusEvent* event) override;
                           
   /* **************************************************************************************
-   * Public Method <Override> - hal::serial::SerialBusEvent
+   * Public Method <Override> - hal::SerialBusEvent
    */
   public:
     /**
@@ -217,7 +217,7 @@ public hal::serial::SerialBusEvent{
      * @param result 0 = successful, other = remaining byte count.
      * @param attachment user data
      */
-    virtual void onSerialBusEvent(hal::serial::SerialBusStatus status, 
+    virtual void onSerialBusEvent(hal::SerialBusStatus status, 
                                   int result,
                                   void* attachment) override;
 

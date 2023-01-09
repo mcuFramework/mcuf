@@ -66,7 +66,7 @@ class mcuf::util::Ammeter extends mcuf::util::Voltmeter{
      * @param voltageMax 
      * @param amperDelta 1V/Amper
      */
-    Ammeter(hal::analog::AnalogInputPin& analogPin, float voltageMin, float voltageMax, float amperDelta);
+    Ammeter(hal::AnalogInputPin& analogPin, float voltageMin, float voltageMax, float amperDelta);
 
     /**
      * @brief Construct a new Ammeter object

@@ -24,15 +24,13 @@
  */  
 
 namespace hal{
-  namespace serial{
-    interface SerialBusControl;
-  }
+  interface SerialBusControl;
 }
 
 /* ****************************************************************************************
  * Interface/Class/Struct
  */  
-interface hal::serial::SerialBusControl extends virtual mcuf::lang::Interface{
+interface hal::SerialBusControl extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

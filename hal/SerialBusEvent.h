@@ -26,15 +26,13 @@
  */  
 
 namespace hal{
-  namespace serial{
-    interface SerialBusEvent;
-  }
+  interface SerialBusEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialBusEvent extends virtual mcuf::lang::Interface{
+interface hal::SerialBusEvent extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method
@@ -47,7 +45,7 @@ interface hal::serial::SerialBusEvent extends virtual mcuf::lang::Interface{
    * @param result 0 = successful, other = remaining byte count.
    * @param attachment user data
    */
-  virtual void onSerialBusEvent(hal::serial::SerialBusStatus status, 
+  virtual void onSerialBusEvent(hal::SerialBusStatus status, 
                                 int result,
                                 void* attachment) abstract;
   

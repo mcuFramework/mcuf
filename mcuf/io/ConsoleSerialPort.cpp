@@ -26,7 +26,7 @@
 
 //-----------------------------------------------------------------------------------------
 using mcuf::io::ConsoleSerialPort;
-using hal::serial::SerialPort;
+using hal::SerialPort;
 using mcuf::io::PrintStream;
 using mcuf::io::InputStreamBuffer;
 

@@ -34,7 +34,7 @@ namespace mcuf{
  * Class/Interface/Struct/Enum
  */  
 class mcuf::util::VirtualGeneralPin extends mcuf::lang::Object implements
-public hal::general::GeneralPin{
+public hal::GeneralPin{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -50,7 +50,7 @@ public hal::general::GeneralPin{
   private:
     uint8_t mDir;
     uint8_t mValue;
-    hal::general::GeneralPinMode mGeneralPinMode;
+    hal::GeneralPinMode mGeneralPinMode;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -106,9 +106,9 @@ public hal::general::GeneralPin{
     /**
      * @brief 
      * 
-     * @return hal::general::GeneralPinMode 
+     * @return hal::GeneralPinMode 
      */
-    virtual hal::general::GeneralPinMode pinMode(void) override;
+    virtual hal::GeneralPinMode pinMode(void) override;
 
     /**
      * @brief 
@@ -117,7 +117,7 @@ public hal::general::GeneralPin{
      * @return true 
      * @return false 
      */
-    virtual bool pinMode(hal::general::GeneralPinMode mode) override; 
+    virtual bool pinMode(hal::GeneralPinMode mode) override; 
 
     /**
      * @brief Set the High object

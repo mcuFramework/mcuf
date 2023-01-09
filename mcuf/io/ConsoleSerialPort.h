@@ -50,7 +50,7 @@ public mcuf::io::Console{
    * Variable <Private>
    */
   private:
-    hal::serial::SerialPort& mSerialPort;
+    hal::SerialPort& mSerialPort;
     mcuf::io::OutputStreamHandler mOutputStreamHandler;
     mcuf::io::PrintStream mPrintStream;
 
@@ -73,7 +73,7 @@ public mcuf::io::Console{
      * @param formatSize 
      * @param bufferSize 
      */
-    ConsoleSerialPort(hal::serial::SerialPort& serialPort, uint32_t formatSize, uint32_t bufferSize);
+    ConsoleSerialPort(hal::SerialPort& serialPort, uint32_t formatSize, uint32_t bufferSize);
 
     /**
      * @brief Destroy the Console Serial Port object

@@ -23,15 +23,13 @@
  */  
 
 namespace hal{
-  namespace counter{
-    enum struct TimerStatus : char;
-  }
+  enum struct TimerStatus : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::counter::TimerStatus : char{
+enum struct hal::TimerStatus : char{
   TRIGGER,
   CANCEL
 };

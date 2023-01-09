@@ -25,15 +25,13 @@
  */  
 
 namespace hal{
-  namespace general{
-    interface GeneralPortControl;
-  }
+  interface GeneralPortControl;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::GeneralPortControl extends virtual mcuf::lang::Interface{
+interface hal::GeneralPortControl extends virtual mcuf::lang::Interface{
   /* **************************************************************************************
    * Method 
    */

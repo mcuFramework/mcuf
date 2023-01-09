@@ -41,7 +41,7 @@ class mcuf::io::SerialBusStream extends mcuf::lang::Object implements
 public mcuf::io::InputStream,
 public mcuf::io::OutputStream,
 public mcuf::io::DuplexStream,
-public hal::serial::SerialBusEvent{
+public hal::SerialBusEvent{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -55,7 +55,7 @@ public hal::serial::SerialBusEvent{
    * Variable <Private>
    */
   private:
-    hal::serial::SerialBus& mSerialBus;
+    hal::SerialBus& mSerialBus;
     mcuf::io::StreamSkipper mStreamSkipper;
     void* mAttachment;
     mcuf::io::CompletionHandler<int, void*>* mHandler;
@@ -79,7 +79,7 @@ public hal::serial::SerialBusEvent{
      * 
      * @param serialBus 
      */
-    SerialBusStream(hal::serial::SerialBus& serialBus, uint16_t address);
+    SerialBusStream(hal::SerialBus& serialBus, uint16_t address);
 
     /**
      * @brief Destroy the Serial Bus Stream object
@@ -284,7 +284,7 @@ public hal::serial::SerialBusEvent{
                           mcuf::io::Future& future) override;
 
   /* **************************************************************************************
-   * Public Method <Override> - hal::serial::SerialBusEvent
+   * Public Method <Override> - hal::SerialBusEvent
    */    
   public:
     /**
@@ -294,7 +294,7 @@ public hal::serial::SerialBusEvent{
      * @param result 0 = successful, other = remaining byte count.
      * @param attachment user data
      */
-    virtual void onSerialBusEvent(hal::serial::SerialBusStatus status, 
+    virtual void onSerialBusEvent(hal::SerialBusStatus status, 
                                   int result,
                                   void* attachment) override;
 

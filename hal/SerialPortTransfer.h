@@ -24,15 +24,13 @@
  * Namespace
  */  
 namespace hal{
-  namespace serial{
-    interface SerialPortTransfer;
-  }
+  interface SerialPortTransfer;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPortTransfer extends 
+interface hal::SerialPortTransfer extends 
 mcuf::io::InputStreamBuffer,
 mcuf::io::OutputStream{
 

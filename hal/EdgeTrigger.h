@@ -25,17 +25,15 @@
  */  
 
 namespace hal{
-  namespace general{
-    interface EdgeTrigger;
-  }
+  interface EdgeTrigger;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::EdgeTrigger extends 
+interface hal::EdgeTrigger extends 
 hal::Base,
-hal::general::EdgeTriggerControl{
+hal::EdgeTriggerControl{
   /* **************************************************************************************
    * Method
    */

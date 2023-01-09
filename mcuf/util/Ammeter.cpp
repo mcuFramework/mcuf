@@ -27,7 +27,7 @@
 //-----------------------------------------------------------------------------------------
 using mcuf::util::Ammeter;
 using mcuf::util::Voltmeter;
-using hal::analog::AnalogInputPin;
+using hal::AnalogInputPin;
 
 /* ****************************************************************************************
  * Variable <Static>

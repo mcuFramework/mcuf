@@ -23,15 +23,13 @@
  */  
 
 namespace hal{
-  namespace general{
-    enum struct EdgeTriggerStatus : char;
-  }
+  enum struct EdgeTriggerStatus : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::general::EdgeTriggerStatus : char{
+enum struct hal::EdgeTriggerStatus : char{
   RISE,
   FALL
 };

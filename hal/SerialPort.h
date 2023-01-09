@@ -25,18 +25,16 @@
  * Namespace
  */  
 namespace hal{
-  namespace serial{
-    interface SerialPort;
-  }
+  interface SerialPort;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::serial::SerialPort extends 
+interface hal::SerialPort extends 
 hal::Base,
-hal::serial::SerialPortConfig,
-hal::serial::SerialPortTransfer{
+hal::SerialPortConfig,
+hal::SerialPortTransfer{
 
   /* **************************************************************************************
    * Method

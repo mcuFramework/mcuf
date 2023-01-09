@@ -25,16 +25,14 @@
  */
 
 namespace hal{
-  namespace analog{
-    interface AnalogInputPin;
-  }
+  interface AnalogInputPin;
 }
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::analog::AnalogInputPin extends virtual mcuf::lang::Interface{
+interface hal::AnalogInputPin extends virtual mcuf::lang::Interface{
 
   /* **************************************************************************************
    * Method

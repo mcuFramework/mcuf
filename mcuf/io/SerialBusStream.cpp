@@ -26,7 +26,7 @@
 
 //-----------------------------------------------------------------------------------------
 using mcuf::io::SerialBusStream;
-using hal::serial::SerialBusStatus;
+using hal::SerialBusStatus;
 using mcuf::io::InputBuffer;
 using mcuf::io::OutputBuffer;
 using mcuf::io::CompletionHandler;
@@ -45,7 +45,7 @@ using mcuf::io::Future;
  * 
  * @param serialBus 
  */
-SerialBusStream::SerialBusStream(hal::serial::SerialBus& serialBus, uint16_t address) :
+SerialBusStream::SerialBusStream(hal::SerialBus& serialBus, uint16_t address) :
 mSerialBus(serialBus),
 mStreamSkipper(){
   this->mAddress = address;
@@ -380,7 +380,7 @@ bool SerialBusStream::transfer(InputBuffer& inputBuffer, OutputBuffer& outputBuf
 }
 
 /* ****************************************************************************************
- * Public Method <Override> - hal::serial::SerialBusEvent
+ * Public Method <Override> - hal::SerialBusEvent
  */
 /**
  * @brief 

@@ -47,7 +47,7 @@ class mcuf::util::Voltmeter extends mcuf::lang::Object{
    * Variable <Private>
    */
   private:
-    hal::analog::AnalogInputPin& mAnalogPin;
+    hal::AnalogInputPin& mAnalogPin;
     float mVoltageMin;
     float mVoltageMax;
     float mVoltageDelta;
@@ -71,7 +71,7 @@ class mcuf::util::Voltmeter extends mcuf::lang::Object{
      * @param voltmeterMin 
      * @param voltmeterMax 
      */
-    Voltmeter(hal::analog::AnalogInputPin& analogPin, float voltmeterMin, float voltmeterMax);
+    Voltmeter(hal::AnalogInputPin& analogPin, float voltmeterMin, float voltmeterMax);
 
     /**
      * @brief Destroy the Voltmeter object

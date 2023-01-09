@@ -25,17 +25,15 @@
  */  
 
 namespace hal{
-  namespace general{
-    interface GeneralPort;
-  }
+  interface GeneralPort;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::GeneralPort extends 
+interface hal::GeneralPort extends 
 hal::Base, 
-hal::general::GeneralPortControl{
+hal::GeneralPortControl{
   /* **************************************************************************************
    * Method 
    */

@@ -25,15 +25,13 @@
  */
 
 namespace hal{
-  namespace general{
-    interface EdgeTriggerEvent;
-  }
+  interface EdgeTriggerEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::general::EdgeTriggerEvent extends virtual mcuf::lang::Interface{
+interface hal::EdgeTriggerEvent extends virtual mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */
@@ -43,7 +41,7 @@ interface hal::general::EdgeTriggerEvent extends virtual mcuf::lang::Interface{
    * 
    * @param status 
    */
-  virtual void onEdgeTriggerEvent(hal::general::EdgeTriggerStatus status) abstract;
+  virtual void onEdgeTriggerEvent(hal::EdgeTriggerStatus status) abstract;
   
 };
 
