@@ -15,14 +15,14 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/io/ByteBuffer.h"
+#include "mcuf\ByteBuffer.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/Base.h"
-#include "hal/SerialPeriphEvent.h"
-#include "hal/SerialPeriphPhase.h"
-#include "hal/SerialPeriphPolarity.h"
-#include "hal/SerialPeriphSignificantBit.h"
+#include "hal\Base.h"
+#include "hal\SerialPeriphEvent.h"
+#include "hal\SerialPeriphPhase.h"
+#include "hal\SerialPeriphPolarity.h"
+#include "hal\SerialPeriphSignificantBit.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -130,8 +130,8 @@ hal::Base{
    * @return true 
    * @return false 
    */
-  virtual bool transfer(mcuf::io::ByteBuffer* tx,
-                        mcuf::io::ByteBuffer* rx,
+  virtual bool transfer(mcuf::ByteBuffer* tx,
+                        mcuf::ByteBuffer* rx,
                         SerialPeriphEvent* event) abstract;
 
 };

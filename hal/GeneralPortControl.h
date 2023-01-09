@@ -15,10 +15,10 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
+#include "mcuf\Interface.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/Base.h"
+#include "hal\Base.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -31,7 +31,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::GeneralPortControl extends virtual mcuf::lang::Interface{
+interface hal::GeneralPortControl extends virtual mcuf::Interface{
   /* **************************************************************************************
    * Method 
    */

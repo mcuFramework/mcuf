@@ -15,12 +15,12 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
-#include "mcuf/io/OutputBuffer.h"
-#include "mcuf/io/InputBuffer.h"
+#include "mcuf\Interface.h"
+#include "mcuf\OutputBuffer.h"
+#include "mcuf\InputBuffer.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/SerialBusEvent.h"
+#include "hal\SerialBusEvent.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -33,7 +33,7 @@ namespace hal{
 /* ****************************************************************************************
  * Interface/Class/Struct
  */  
-interface hal::SerialBusTransfer extends virtual mcuf::lang::Interface{
+interface hal::SerialBusTransfer extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method
@@ -63,7 +63,7 @@ interface hal::SerialBusTransfer extends virtual mcuf::lang::Interface{
    * @param event 
    */
   virtual bool read(uint16_t address, 
-                    mcuf::io::InputBuffer& in,
+                    mcuf::InputBuffer& in,
                     void* attachment,
                     hal::SerialBusEvent* event) abstract;
 
@@ -75,7 +75,7 @@ interface hal::SerialBusTransfer extends virtual mcuf::lang::Interface{
    * @param event 
    */
   virtual bool write(uint16_t address, 
-                     mcuf::io::OutputBuffer& out,
+                     mcuf::OutputBuffer& out,
                      void* attachment,
                      hal::SerialBusEvent* event) abstract;
   
@@ -90,8 +90,8 @@ interface hal::SerialBusTransfer extends virtual mcuf::lang::Interface{
    * @return false 
    */
   virtual bool transfer(uint16_t address, 
-                        mcuf::io::OutputBuffer& out, 
-                        mcuf::io::InputBuffer& in,
+                        mcuf::OutputBuffer& out, 
+                        mcuf::InputBuffer& in,
                         void* attachment,
                         hal::SerialBusEvent* event) abstract;
 

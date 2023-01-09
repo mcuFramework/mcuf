@@ -15,10 +15,10 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
+#include "mcuf\Interface.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/GeneralPinMode.h"
+#include "hal\GeneralPinMode.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -31,7 +31,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::GeneralPinConfig extends virtual mcuf::lang::Interface{
+interface hal::GeneralPinConfig extends virtual mcuf::Interface{
   /* **************************************************************************************
    * Method
    */

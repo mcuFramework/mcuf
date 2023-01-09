@@ -15,8 +15,8 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/io/InputStreamBuffer.h"
-#include "mcuf/io/OutputStream.h"
+#include "mcuf\InputStreamBuffer.h"
+#include "mcuf\OutputStream.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -31,8 +31,8 @@ namespace hal{
  * Class/Interface/Struct
  */  
 interface hal::SerialPortTransfer extends 
-mcuf::io::InputStreamBuffer,
-mcuf::io::OutputStream{
+mcuf::InputStreamBuffer,
+mcuf::OutputStream{
 
   /* **************************************************************************************
    * Method

@@ -15,10 +15,10 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
+#include "mcuf\Interface.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/TimerEvent.h"
+#include "hal\TimerEvent.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -31,7 +31,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::TimerControl extends virtual mcuf::lang::Interface{
+interface hal::TimerControl extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method

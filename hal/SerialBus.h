@@ -17,9 +17,9 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "hal/Base.h"
-#include "hal/SerialBusControl.h"
-#include "hal/SerialBusTransfer.h"
+#include "hal\Base.h"
+#include "hal\SerialBusControl.h"
+#include "hal\SerialBusTransfer.h"
 
 /* ****************************************************************************************
  * Namespace

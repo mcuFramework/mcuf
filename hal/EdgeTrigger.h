@@ -15,8 +15,8 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/Base.h"
-#include "hal/EdgeTriggerControl.h"
+#include "hal\Base.h"
+#include "hal\EdgeTriggerControl.h"
 
 //-----------------------------------------------------------------------------------------
 

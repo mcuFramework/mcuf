@@ -15,7 +15,7 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
+#include "mcuf\Interface.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -32,7 +32,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface hal::InterruptEvent extends virtual mcuf::lang::Interface{
+interface hal::InterruptEvent extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method

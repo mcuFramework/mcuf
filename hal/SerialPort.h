@@ -17,9 +17,9 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "hal/Base.h"
-#include "hal/SerialPortConfig.h"
-#include "hal/SerialPortTransfer.h"
+#include "hal\Base.h"
+#include "hal\SerialPortConfig.h"
+#include "hal\SerialPortTransfer.h"
 
 /* ****************************************************************************************
  * Namespace

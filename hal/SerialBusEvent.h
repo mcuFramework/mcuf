@@ -15,11 +15,11 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
-#include "mcuf/io/ByteBuffer.h"
+#include "mcuf\Interface.h"
+#include "mcuf\ByteBuffer.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/SerialBusStatus.h"
+#include "hal\SerialBusStatus.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -32,7 +32,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::SerialBusEvent extends virtual mcuf::lang::Interface{
+interface hal::SerialBusEvent extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method

@@ -46,7 +46,7 @@
   #endif
 
   #ifndef ASSERT
-  #define ASSERT(expr, m, e) if(!expr) mcuf::lang::System::error(m, e)
+  #define ASSERT(expr, m, e) if(!expr) mcuf::System::error(m, e)
   #endif
 #else  
   #ifndef __CLASSPATH__

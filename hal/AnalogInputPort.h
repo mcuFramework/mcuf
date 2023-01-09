@@ -15,8 +15,8 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/Base.h"
-#include "hal/AnalogInputPortControl.h"
+#include "hal\Base.h"
+#include "hal\AnalogInputPortControl.h"
 
 /* ****************************************************************************************
  * Namespace

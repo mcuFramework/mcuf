@@ -15,11 +15,11 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/io/ByteBuffer.h"
-#include "mcuf/lang/Interface.h"
+#include "mcuf\ByteBuffer.h"
+#include "mcuf\Interface.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/FlashStorageStatus.h"
+#include "hal\FlashStorageStatus.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -32,7 +32,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::FlashStorageEvent extends virtual mcuf::lang::Interface{
+interface hal::FlashStorageEvent extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method

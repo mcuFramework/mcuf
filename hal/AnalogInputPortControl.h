@@ -15,7 +15,7 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
+#include "mcuf\Interface.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::AnalogInputPortControl extends virtual mcuf::lang::Interface{
+interface hal::AnalogInputPortControl extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method

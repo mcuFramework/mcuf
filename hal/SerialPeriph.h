@@ -15,11 +15,11 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/io/ByteBuffer.h"
+#include "mcuf\ByteBuffer.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal/Base.h"
-#include "hal/SerialPeriphTransfer.h"
+#include "hal\Base.h"
+#include "hal\SerialPeriphTransfer.h"
 
 /* ****************************************************************************************
  * Namespace

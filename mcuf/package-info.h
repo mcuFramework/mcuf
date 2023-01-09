@@ -4,24 +4,22 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_D78F912C_69B7_4208_8CDB_3DE86E08645B
-#define MCUF_D78F912C_69B7_4208_8CDB_3DE86E08645B
+#ifndef MCUF_BDF67CB2_684A_43A8_B611_3DC0AC15A709
+#define MCUF_BDF67CB2_684A_43A8_B611_3DC0AC15A709
 
 /* ****************************************************************************************
  * Include folder
  */
-#include "function/package-info.h"
-#include "io/package-info.h"
-#include "lang/package-info.h"
-#include "net/package-info.h"
-#include "util/package-info.h"
 
 /* ****************************************************************************************
  * Include
  */
+#include "InternetProtocolAddress.h"
+#include "MediaAccessControlAddress.h"
+#include "SocketAddress.h"
 
 /* ****************************************************************************************
  * End of file
  */
 
-#endif /* MCUF_D78F912C_69B7_4208_8CDB_3DE86E08645B */
+#endif /* MCUF_BDF67CB2_684A_43A8_B611_3DC0AC15A709 */
