@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_9E61DE90_7223_4EE7_BB33_FE3C45509F28
-#define MCUF_9E61DE90_7223_4EE7_BB33_FE3C45509F28
+#ifndef MCUF_9C2CA0D2_D921_428A_B411_A41968013B4F
+#define MCUF_9C2CA0D2_D921_428A_B411_A41968013B4F
 
 /* ****************************************************************************************
  * Include
@@ -15,7 +15,8 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
+#include "hal/Base.h"
+#include "hal/PulseWidthPortControl.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -24,24 +25,22 @@
  */
 
 namespace hal{
-  interface InterruptEvent;
+  namespace counter{
+    interface PulseWidthPort;
+  }
 }
-
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface hal::InterruptEvent extends virtual mcuf::lang::Interface{
+interface hal::counter::PulseWidthPort extends 
+hal::Base,
+hal::counter::PulseWidthPortControl{
 
   /* **************************************************************************************
    * Method
    */
-  
-  /**
-   *
-   */
-  virtual void interruptEvent(void) abstract;
 
 };
 
@@ -49,4 +48,4 @@ interface hal::InterruptEvent extends virtual mcuf::lang::Interface{
  * End of file
  */
 
-#endif /* MCUF_9E61DE90_7223_4EE7_BB33_FE3C45509F28 */
+#endif /* MCUF_9C2CA0D2_D921_428A_B411_A41968013B4F */

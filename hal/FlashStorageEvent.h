@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_D9F1072A_3AF8_4A2E_9CFA_09471F1D5AA0
+#define MCUF_D9F1072A_3AF8_4A2E_9CFA_09471F1D5AA0
 
 /* ****************************************************************************************
  * Include
@@ -15,50 +15,41 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
+#include "mcuf/io/ByteBuffer.h"
 #include "mcuf/lang/Interface.h"
 
 //-----------------------------------------------------------------------------------------
+#include "hal/FlashStorageStatus.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
-  interface Base;
-}
 
+namespace hal{  
+  namespace storage{
+    interface FlashStorageEvent;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool deinit(void) abstract;
+interface hal::storage::FlashStorageEvent extends virtual mcuf::lang::Interface{
 
-  /**
-   * @brief initialze hardware;
-   * 
-   * @return true 
-   * @return false 
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool init(void) abstract;
+  
+  /**
+   * @brief 
+   * 
+   * @param status 
+   * @param byteBuffer 
+   */
+  virtual void onFlashStorageEvent(hal::storage::FlashStorageStatus status, 
+                                   int result,
+                                   void* attachment) abstract;
 
-  /**
-   * @brief get hardware initialzed status.
-   * 
-   * @return true not init
-   * @return false initd
-   */
-  virtual bool isInit(void) abstract;
-   
 };
 
-/* *****************************************************************************************
- * End of file
- */ 
-
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_D9F1072A_3AF8_4A2E_9CFA_09471F1D5AA0 */

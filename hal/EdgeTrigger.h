@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_EFF1A157_A291_4313_A742_99FB124D0B71
+#define MCUF_EFF1A157_A291_4313_A742_99FB124D0B71
 
 /* ****************************************************************************************
  * Include
@@ -15,50 +15,35 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
+#include "hal/Base.h"
+#include "hal/EdgeTriggerControl.h"
 
 //-----------------------------------------------------------------------------------------
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
-  interface Base;
-}
 
+namespace hal{
+  namespace general{
+    interface EdgeTrigger;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
+interface hal::general::EdgeTrigger extends 
+hal::Base,
+hal::general::EdgeTriggerControl{
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool deinit(void) abstract;
 
-  /**
-   * @brief initialze hardware;
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool init(void) abstract;
-
-  /**
-   * @brief get hardware initialzed status.
-   * 
-   * @return true not init
-   * @return false initd
-   */
-  virtual bool isInit(void) abstract;
-   
 };
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_EFF1A157_A291_4313_A742_99FB124D0B71 */

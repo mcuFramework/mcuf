@@ -16,12 +16,13 @@
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf/lang/Object.h"
-#include "hal/serial/SerialBus.h"
 #include "mcuf/io/InputStream.h"
 #include "mcuf/io/OutputStream.h"
 #include "mcuf/io/DuplexStream.h"
 #include "mcuf/io/StreamSkipper.h"
 
+//-----------------------------------------------------------------------------------------
+#include "hal/SerialBus.h"
 
 /* ****************************************************************************************
  * Namespace

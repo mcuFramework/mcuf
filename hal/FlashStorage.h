@@ -4,61 +4,48 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_DE1F2BD6_EFF1_4410_A5B2_5A1C14D00695
+#define MCUF_DE1F2BD6_EFF1_4410_A5B2_5A1C14D00695
 
 /* ****************************************************************************************
  * Include
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/io/ByteBuffer.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
+#include "hal/Base.h"
+#include "hal/FlashStorageControl.h"
 
 //-----------------------------------------------------------------------------------------
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
-  interface Base;
+
+namespace hal{  
+  namespace storage{
+    interface FlashStorage;
+  }
 }
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool deinit(void) abstract;
+interface hal::storage::FlashStorage extends 
+hal::Base,
+hal::storage::FlashStorageControl{
 
-  /**
-   * @brief initialze hardware;
-   * 
-   * @return true 
-   * @return false 
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool init(void) abstract;
-
-  /**
-   * @brief get hardware initialzed status.
-   * 
-   * @return true not init
-   * @return false initd
-   */
-  virtual bool isInit(void) abstract;
-   
+  
 };
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_DE1F2BD6_EFF1_4410_A5B2_5A1C14D00695 */

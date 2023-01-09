@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_B9EBB8B5_7716_4DD7_907B_6BA3C9F0756C
+#define MCUF_B9EBB8B5_7716_4DD7_907B_6BA3C9F0756C
 
 /* ****************************************************************************************
  * Include
@@ -22,43 +22,41 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
-  interface Base;
-}
 
+namespace hal{
+  namespace serial{
+    interface SerialPortConfig;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
+interface hal::serial::SerialPortConfig extends virtual mcuf::lang::Interface{
+
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool deinit(void) abstract;
 
   /**
-   * @brief initialze hardware;
+   * @brief 
    * 
-   * @return true 
-   * @return false 
+   * @return uint32_t 
    */
-  virtual bool init(void) abstract;
+  virtual uint32_t baudrate(void) abstract;
 
   /**
-   * @brief get hardware initialzed status.
+   * @brief 
    * 
-   * @return true not init
-   * @return false initd
+   * @param rate 
+   * @return uint32_t 
    */
-  virtual bool isInit(void) abstract;
-   
+  virtual uint32_t baudrate(uint32_t rate) abstract;
+  
 };
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_B9EBB8B5_7716_4DD7_907B_6BA3C9F0756C */

@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_AD1E32C3_0942_4DB6_9C48_5D17FA9BFA04
+#define MCUF_AD1E32C3_0942_4DB6_9C48_5D17FA9BFA04
 
 /* ****************************************************************************************
  * Include
@@ -15,50 +15,59 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
 
 //-----------------------------------------------------------------------------------------
+#include "hal/GeneralInput.h"
+#include "hal/GeneralOutput.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
-  interface Base;
-}
 
+namespace hal{
+  namespace general{
+    interface GeneralPinControl;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
+interface hal::general::GeneralPinControl extends 
+hal::general::GeneralInput,
+hal::general::GeneralOutput{
+
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool deinit(void) abstract;
+  using GeneralInput::value;
+  using GeneralOutput::value;
 
   /**
-   * @brief initialze hardware;
+   * @brief  Get io direction.
    * 
-   * @return true 
-   * @return false 
+   * @return true output
+   * @return false input
    */
-  virtual bool init(void) abstract;
+  virtual bool dir(void) abstract;
+  
+  /**
+   * @brief Set io direction.
+   * 
+   * @param dir false = input, true = output.
+   */
+  virtual void dir(bool dir) abstract;
 
   /**
-   * @brief get hardware initialzed status.
+   * @brief Set the Input object
    * 
-   * @return true not init
-   * @return false initd
    */
-  virtual bool isInit(void) abstract;
-   
+  virtual void setInput(void) abstract;
+
 };
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_AD1E32C3_0942_4DB6_9C48_5D17FA9BFA04 */

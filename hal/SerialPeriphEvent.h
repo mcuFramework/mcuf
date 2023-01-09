@@ -4,61 +4,57 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_B4701C5A_F9C9_4C60_AF27_09CD2013EE9A
+#define MCUF_B4701C5A_F9C9_4C60_AF27_09CD2013EE9A
 
 /* ****************************************************************************************
  * Include
- */  
+ */
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
+#include "mcuf/io/ByteBuffer.h"
 #include "mcuf/lang/Interface.h"
 
 //-----------------------------------------------------------------------------------------
+#include "hal/SerialPeriphStatus.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
-  interface Base;
-}
 
+namespace hal{
+  namespace serial{
+    interface SerialPeriphEvent;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
+interface hal::serial::SerialPeriphEvent extends virtual mcuf::lang::Interface{
+  
+  /* **************************************************************************************
+   * Method
+   */  
+  
   /**
-   * @brief uninitialze hardware.
+   * @brief 
    * 
-   * @return true 
-   * @return false 
+   * @param status 
+   * @param transfer 
+   * @param receiver 
    */
-  virtual bool deinit(void) abstract;
-
-  /**
-   * @brief initialze hardware;
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool init(void) abstract;
-
-  /**
-   * @brief get hardware initialzed status.
-   * 
-   * @return true not init
-   * @return false initd
-   */
-  virtual bool isInit(void) abstract;
-   
+  virtual void onSerialPeriphEvent(hal::serial::SerialPeriphStatus status, 
+                                   mcuf::io::ByteBuffer* transfer,
+                                   mcuf::io::ByteBuffer* receiver) abstract;
 };
+
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_B4701C5A_F9C9_4C60_AF27_09CD2013EE9A */

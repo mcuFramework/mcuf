@@ -4,8 +4,9 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+
+#ifndef MCUF_DF0EC699_78D6_4243_A75D_F321C92D88BB
+#define MCUF_DF0EC699_78D6_4243_A75D_F321C92D88BB
 
 /* ****************************************************************************************
  * Include
@@ -18,47 +19,33 @@
 #include "mcuf/lang/Interface.h"
 
 //-----------------------------------------------------------------------------------------
+#include "hal/TimerStatus.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
-  interface Base;
-}
 
+namespace hal{  
+  namespace counter{
+    interface TimerEvent;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool deinit(void) abstract;
+interface hal::counter::TimerEvent extends virtual mcuf::lang::Interface{
 
-  /**
-   * @brief initialze hardware;
-   * 
-   * @return true 
-   * @return false 
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool init(void) abstract;
-
+  
   /**
-   * @brief get hardware initialzed status.
+   * @brief 
    * 
-   * @return true not init
-   * @return false initd
+   * @param status 
    */
-  virtual bool isInit(void) abstract;
-   
+  virtual void onTimerEvent(hal::counter::TimerStatus status) abstract;
 };
 
-/* *****************************************************************************************
- * End of file
- */ 
-
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_DF0EC699_78D6_4243_A75D_F321C92D88BB */

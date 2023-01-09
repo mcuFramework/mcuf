@@ -479,9 +479,104 @@
           <GroupName>hal</GroupName>
           <Files>
             <File>
+              <FileName>AnalogInputPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>AnalogInputPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>AnalogInputPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPortControl.h</FilePath>
+            </File>
+            <File>
               <FileName>Base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\hal\Base.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTrigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTrigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorage.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralInput.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralInput.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralOutput.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralOutput.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinMode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinMode.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPortControl.h</FilePath>
             </File>
             <File>
               <FileName>InterruptEvent.h</FileName>
@@ -493,270 +588,125 @@
               <FileType>5</FileType>
               <FilePath>.\hal\package-info.h</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/analog</GroupName>
-          <Files>
-            <File>
-              <FileName>AnalogInputPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPin.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPort.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPortControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\package-info.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/counter</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\package-info.h</FilePath>
-            </File>
             <File>
               <FileName>PulseWidthPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPin.h</FilePath>
+              <FilePath>.\hal\PulseWidthPin.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPort.h</FilePath>
+              <FilePath>.\hal\PulseWidthPort.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthPortControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerStatus.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/general</GroupName>
-          <Files>
-            <File>
-              <FileName>EdgeTrigger.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTrigger.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerStatus.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralInput.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralInput.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralOutput.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralOutput.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPin.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinConfig.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinMode.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinMode.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPort.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPortControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\package-info.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/serial</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\serial\package-info.h</FilePath>
+              <FilePath>.\hal\PulseWidthPortControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBus.h</FilePath>
+              <FilePath>.\hal\SerialBus.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusControl.h</FilePath>
+              <FilePath>.\hal\SerialBusControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusEvent.h</FilePath>
+              <FilePath>.\hal\SerialBusEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusStatus.h</FilePath>
+              <FilePath>.\hal\SerialBusStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusTransfer.h</FilePath>
+              <FilePath>.\hal\SerialBusTransfer.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriph.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriph.h</FilePath>
+              <FilePath>.\hal\SerialPeriph.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphEvent.h</FilePath>
+              <FilePath>.\hal\SerialPeriphEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPacket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPacket.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPacket.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPhase.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPhase.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPhase.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPolarity.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPolarity.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPolarity.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphSignificantBit.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphSignificantBit.h</FilePath>
+              <FilePath>.\hal\SerialPeriphSignificantBit.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphSlot.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphSlot.h</FilePath>
+              <FilePath>.\hal\SerialPeriphSlot.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphStatus.h</FilePath>
+              <FilePath>.\hal\SerialPeriphStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphTransfer.h</FilePath>
+              <FilePath>.\hal\SerialPeriphTransfer.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPort.h</FilePath>
+              <FilePath>.\hal\SerialPort.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPortConfig.h</FilePath>
+              <FilePath>.\hal\SerialPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPortTransfer.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/storage</GroupName>
-          <Files>
-            <File>
-              <FileName>FlashStorage.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorage.h</FilePath>
+              <FilePath>.\hal\SerialPortTransfer.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageControl.h</FileName>
+              <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageControl.h</FilePath>
+              <FilePath>.\hal\Timer.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageEvent.h</FileName>
+              <FileName>TimerControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageEvent.h</FilePath>
+              <FilePath>.\hal\TimerControl.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageStatus.h</FileName>
+              <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageStatus.h</FilePath>
+              <FilePath>.\hal\TimerEvent.h</FilePath>
             </File>
             <File>
-              <FileName>package-info.h</FileName>
+              <FileName>TimerStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\package-info.h</FilePath>
+              <FilePath>.\hal\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2100,9 +2050,104 @@
           <GroupName>hal</GroupName>
           <Files>
             <File>
+              <FileName>AnalogInputPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>AnalogInputPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>AnalogInputPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPortControl.h</FilePath>
+            </File>
+            <File>
               <FileName>Base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\hal\Base.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTrigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTrigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorage.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralInput.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralInput.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralOutput.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralOutput.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinMode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinMode.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPortControl.h</FilePath>
             </File>
             <File>
               <FileName>InterruptEvent.h</FileName>
@@ -2114,270 +2159,125 @@
               <FileType>5</FileType>
               <FilePath>.\hal\package-info.h</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/analog</GroupName>
-          <Files>
-            <File>
-              <FileName>AnalogInputPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPin.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPort.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPortControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\package-info.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/counter</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\package-info.h</FilePath>
-            </File>
             <File>
               <FileName>PulseWidthPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPin.h</FilePath>
+              <FilePath>.\hal\PulseWidthPin.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPort.h</FilePath>
+              <FilePath>.\hal\PulseWidthPort.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthPortControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerStatus.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/general</GroupName>
-          <Files>
-            <File>
-              <FileName>EdgeTrigger.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTrigger.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerStatus.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralInput.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralInput.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralOutput.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralOutput.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPin.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinConfig.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinMode.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinMode.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPort.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPortControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\package-info.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/serial</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\serial\package-info.h</FilePath>
+              <FilePath>.\hal\PulseWidthPortControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBus.h</FilePath>
+              <FilePath>.\hal\SerialBus.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusControl.h</FilePath>
+              <FilePath>.\hal\SerialBusControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusEvent.h</FilePath>
+              <FilePath>.\hal\SerialBusEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusStatus.h</FilePath>
+              <FilePath>.\hal\SerialBusStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusTransfer.h</FilePath>
+              <FilePath>.\hal\SerialBusTransfer.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriph.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriph.h</FilePath>
+              <FilePath>.\hal\SerialPeriph.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphEvent.h</FilePath>
+              <FilePath>.\hal\SerialPeriphEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPacket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPacket.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPacket.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPhase.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPhase.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPhase.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPolarity.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPolarity.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPolarity.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphSignificantBit.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphSignificantBit.h</FilePath>
+              <FilePath>.\hal\SerialPeriphSignificantBit.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphSlot.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphSlot.h</FilePath>
+              <FilePath>.\hal\SerialPeriphSlot.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphStatus.h</FilePath>
+              <FilePath>.\hal\SerialPeriphStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphTransfer.h</FilePath>
+              <FilePath>.\hal\SerialPeriphTransfer.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPort.h</FilePath>
+              <FilePath>.\hal\SerialPort.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPortConfig.h</FilePath>
+              <FilePath>.\hal\SerialPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPortTransfer.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/storage</GroupName>
-          <Files>
-            <File>
-              <FileName>FlashStorage.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorage.h</FilePath>
+              <FilePath>.\hal\SerialPortTransfer.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageControl.h</FileName>
+              <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageControl.h</FilePath>
+              <FilePath>.\hal\Timer.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageEvent.h</FileName>
+              <FileName>TimerControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageEvent.h</FilePath>
+              <FilePath>.\hal\TimerControl.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageStatus.h</FileName>
+              <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageStatus.h</FilePath>
+              <FilePath>.\hal\TimerEvent.h</FilePath>
             </File>
             <File>
-              <FileName>package-info.h</FileName>
+              <FileName>TimerStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\package-info.h</FilePath>
+              <FilePath>.\hal\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3721,9 +3621,104 @@
           <GroupName>hal</GroupName>
           <Files>
             <File>
+              <FileName>AnalogInputPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>AnalogInputPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>AnalogInputPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPortControl.h</FilePath>
+            </File>
+            <File>
               <FileName>Base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\hal\Base.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTrigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTrigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorage.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralInput.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralInput.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralOutput.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralOutput.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinMode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinMode.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPortControl.h</FilePath>
             </File>
             <File>
               <FileName>InterruptEvent.h</FileName>
@@ -3735,270 +3730,125 @@
               <FileType>5</FileType>
               <FilePath>.\hal\package-info.h</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/analog</GroupName>
-          <Files>
-            <File>
-              <FileName>AnalogInputPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPin.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPort.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPortControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\package-info.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/counter</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\package-info.h</FilePath>
-            </File>
             <File>
               <FileName>PulseWidthPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPin.h</FilePath>
+              <FilePath>.\hal\PulseWidthPin.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPort.h</FilePath>
+              <FilePath>.\hal\PulseWidthPort.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthPortControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerStatus.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/general</GroupName>
-          <Files>
-            <File>
-              <FileName>EdgeTrigger.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTrigger.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerStatus.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralInput.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralInput.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralOutput.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralOutput.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPin.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinConfig.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinMode.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinMode.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPort.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPortControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\package-info.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/serial</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\serial\package-info.h</FilePath>
+              <FilePath>.\hal\PulseWidthPortControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBus.h</FilePath>
+              <FilePath>.\hal\SerialBus.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusControl.h</FilePath>
+              <FilePath>.\hal\SerialBusControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusEvent.h</FilePath>
+              <FilePath>.\hal\SerialBusEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusStatus.h</FilePath>
+              <FilePath>.\hal\SerialBusStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusTransfer.h</FilePath>
+              <FilePath>.\hal\SerialBusTransfer.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriph.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriph.h</FilePath>
+              <FilePath>.\hal\SerialPeriph.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphEvent.h</FilePath>
+              <FilePath>.\hal\SerialPeriphEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPacket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPacket.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPacket.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPhase.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPhase.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPhase.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPolarity.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPolarity.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPolarity.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphSignificantBit.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphSignificantBit.h</FilePath>
+              <FilePath>.\hal\SerialPeriphSignificantBit.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphSlot.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphSlot.h</FilePath>
+              <FilePath>.\hal\SerialPeriphSlot.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphStatus.h</FilePath>
+              <FilePath>.\hal\SerialPeriphStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphTransfer.h</FilePath>
+              <FilePath>.\hal\SerialPeriphTransfer.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPort.h</FilePath>
+              <FilePath>.\hal\SerialPort.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPortConfig.h</FilePath>
+              <FilePath>.\hal\SerialPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPortTransfer.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/storage</GroupName>
-          <Files>
-            <File>
-              <FileName>FlashStorage.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorage.h</FilePath>
+              <FilePath>.\hal\SerialPortTransfer.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageControl.h</FileName>
+              <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageControl.h</FilePath>
+              <FilePath>.\hal\Timer.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageEvent.h</FileName>
+              <FileName>TimerControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageEvent.h</FilePath>
+              <FilePath>.\hal\TimerControl.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageStatus.h</FileName>
+              <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageStatus.h</FilePath>
+              <FilePath>.\hal\TimerEvent.h</FilePath>
             </File>
             <File>
-              <FileName>package-info.h</FileName>
+              <FileName>TimerStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\package-info.h</FilePath>
+              <FilePath>.\hal\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -5342,9 +5192,104 @@
           <GroupName>hal</GroupName>
           <Files>
             <File>
+              <FileName>AnalogInputPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>AnalogInputPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>AnalogInputPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPortControl.h</FilePath>
+            </File>
+            <File>
               <FileName>Base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\hal\Base.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTrigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTrigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorage.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralInput.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralInput.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralOutput.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralOutput.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinMode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinMode.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPortControl.h</FilePath>
             </File>
             <File>
               <FileName>InterruptEvent.h</FileName>
@@ -5356,270 +5301,125 @@
               <FileType>5</FileType>
               <FilePath>.\hal\package-info.h</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/analog</GroupName>
-          <Files>
-            <File>
-              <FileName>AnalogInputPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPin.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPort.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPortControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\package-info.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/counter</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\package-info.h</FilePath>
-            </File>
             <File>
               <FileName>PulseWidthPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPin.h</FilePath>
+              <FilePath>.\hal\PulseWidthPin.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPort.h</FilePath>
+              <FilePath>.\hal\PulseWidthPort.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthPortControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerStatus.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/general</GroupName>
-          <Files>
-            <File>
-              <FileName>EdgeTrigger.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTrigger.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerStatus.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralInput.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralInput.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralOutput.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralOutput.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPin.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinConfig.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinMode.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinMode.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPort.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPortControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\package-info.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/serial</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\serial\package-info.h</FilePath>
+              <FilePath>.\hal\PulseWidthPortControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBus.h</FilePath>
+              <FilePath>.\hal\SerialBus.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusControl.h</FilePath>
+              <FilePath>.\hal\SerialBusControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusEvent.h</FilePath>
+              <FilePath>.\hal\SerialBusEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusStatus.h</FilePath>
+              <FilePath>.\hal\SerialBusStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusTransfer.h</FilePath>
+              <FilePath>.\hal\SerialBusTransfer.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriph.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriph.h</FilePath>
+              <FilePath>.\hal\SerialPeriph.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphEvent.h</FilePath>
+              <FilePath>.\hal\SerialPeriphEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPacket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPacket.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPacket.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPhase.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPhase.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPhase.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPolarity.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPolarity.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPolarity.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphSignificantBit.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphSignificantBit.h</FilePath>
+              <FilePath>.\hal\SerialPeriphSignificantBit.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphSlot.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphSlot.h</FilePath>
+              <FilePath>.\hal\SerialPeriphSlot.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphStatus.h</FilePath>
+              <FilePath>.\hal\SerialPeriphStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphTransfer.h</FilePath>
+              <FilePath>.\hal\SerialPeriphTransfer.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPort.h</FilePath>
+              <FilePath>.\hal\SerialPort.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPortConfig.h</FilePath>
+              <FilePath>.\hal\SerialPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPortTransfer.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/storage</GroupName>
-          <Files>
-            <File>
-              <FileName>FlashStorage.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorage.h</FilePath>
+              <FilePath>.\hal\SerialPortTransfer.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageControl.h</FileName>
+              <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageControl.h</FilePath>
+              <FilePath>.\hal\Timer.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageEvent.h</FileName>
+              <FileName>TimerControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageEvent.h</FilePath>
+              <FilePath>.\hal\TimerControl.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageStatus.h</FileName>
+              <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageStatus.h</FilePath>
+              <FilePath>.\hal\TimerEvent.h</FilePath>
             </File>
             <File>
-              <FileName>package-info.h</FileName>
+              <FileName>TimerStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\package-info.h</FilePath>
+              <FilePath>.\hal\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6963,9 +6763,104 @@
           <GroupName>hal</GroupName>
           <Files>
             <File>
+              <FileName>AnalogInputPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>AnalogInputPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>AnalogInputPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPortControl.h</FilePath>
+            </File>
+            <File>
               <FileName>Base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\hal\Base.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTrigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTrigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorage.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralInput.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralInput.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralOutput.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralOutput.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinMode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinMode.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPortControl.h</FilePath>
             </File>
             <File>
               <FileName>InterruptEvent.h</FileName>
@@ -6977,270 +6872,125 @@
               <FileType>5</FileType>
               <FilePath>.\hal\package-info.h</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/analog</GroupName>
-          <Files>
-            <File>
-              <FileName>AnalogInputPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPin.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPort.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPortControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\package-info.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/counter</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\package-info.h</FilePath>
-            </File>
             <File>
               <FileName>PulseWidthPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPin.h</FilePath>
+              <FilePath>.\hal\PulseWidthPin.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPort.h</FilePath>
+              <FilePath>.\hal\PulseWidthPort.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthPortControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerStatus.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/general</GroupName>
-          <Files>
-            <File>
-              <FileName>EdgeTrigger.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTrigger.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerStatus.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralInput.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralInput.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralOutput.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralOutput.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPin.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinConfig.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinMode.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinMode.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPort.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPortControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\package-info.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/serial</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\serial\package-info.h</FilePath>
+              <FilePath>.\hal\PulseWidthPortControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBus.h</FilePath>
+              <FilePath>.\hal\SerialBus.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusControl.h</FilePath>
+              <FilePath>.\hal\SerialBusControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusEvent.h</FilePath>
+              <FilePath>.\hal\SerialBusEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusStatus.h</FilePath>
+              <FilePath>.\hal\SerialBusStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusTransfer.h</FilePath>
+              <FilePath>.\hal\SerialBusTransfer.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriph.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriph.h</FilePath>
+              <FilePath>.\hal\SerialPeriph.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphEvent.h</FilePath>
+              <FilePath>.\hal\SerialPeriphEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPacket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPacket.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPacket.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPhase.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPhase.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPhase.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPolarity.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPolarity.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPolarity.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphSignificantBit.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphSignificantBit.h</FilePath>
+              <FilePath>.\hal\SerialPeriphSignificantBit.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphSlot.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphSlot.h</FilePath>
+              <FilePath>.\hal\SerialPeriphSlot.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphStatus.h</FilePath>
+              <FilePath>.\hal\SerialPeriphStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphTransfer.h</FilePath>
+              <FilePath>.\hal\SerialPeriphTransfer.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPort.h</FilePath>
+              <FilePath>.\hal\SerialPort.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPortConfig.h</FilePath>
+              <FilePath>.\hal\SerialPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPortTransfer.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/storage</GroupName>
-          <Files>
-            <File>
-              <FileName>FlashStorage.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorage.h</FilePath>
+              <FilePath>.\hal\SerialPortTransfer.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageControl.h</FileName>
+              <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageControl.h</FilePath>
+              <FilePath>.\hal\Timer.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageEvent.h</FileName>
+              <FileName>TimerControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageEvent.h</FilePath>
+              <FilePath>.\hal\TimerControl.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageStatus.h</FileName>
+              <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageStatus.h</FilePath>
+              <FilePath>.\hal\TimerEvent.h</FilePath>
             </File>
             <File>
-              <FileName>package-info.h</FileName>
+              <FileName>TimerStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\package-info.h</FilePath>
+              <FilePath>.\hal\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -8584,9 +8334,104 @@
           <GroupName>hal</GroupName>
           <Files>
             <File>
+              <FileName>AnalogInputPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>AnalogInputPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>AnalogInputPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\AnalogInputPortControl.h</FilePath>
+            </File>
+            <File>
               <FileName>Base.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\hal\Base.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTrigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTrigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>EdgeTriggerStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\EdgeTriggerStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorage.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorage.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageEvent.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageEvent.h</FilePath>
+            </File>
+            <File>
+              <FileName>FlashStorageStatus.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\FlashStorageStatus.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralInput.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralInput.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralOutput.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralOutput.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPin.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinConfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinControl.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPinMode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPinMode.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPort.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPort.h</FilePath>
+            </File>
+            <File>
+              <FileName>GeneralPortControl.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\hal\GeneralPortControl.h</FilePath>
             </File>
             <File>
               <FileName>InterruptEvent.h</FileName>
@@ -8598,270 +8443,125 @@
               <FileType>5</FileType>
               <FilePath>.\hal\package-info.h</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/analog</GroupName>
-          <Files>
-            <File>
-              <FileName>AnalogInputPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPin.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPort.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>AnalogInputPortControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\AnalogInputPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\analog\package-info.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/counter</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\package-info.h</FilePath>
-            </File>
             <File>
               <FileName>PulseWidthPin.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPin.h</FilePath>
+              <FilePath>.\hal\PulseWidthPin.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPort.h</FilePath>
+              <FilePath>.\hal\PulseWidthPort.h</FilePath>
             </File>
             <File>
               <FileName>PulseWidthPortControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\counter\PulseWidthPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>Timer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>TimerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\counter\TimerStatus.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/general</GroupName>
-          <Files>
-            <File>
-              <FileName>EdgeTrigger.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTrigger.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerEvent.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerEvent.h</FilePath>
-            </File>
-            <File>
-              <FileName>EdgeTriggerStatus.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\EdgeTriggerStatus.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralInput.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralInput.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralOutput.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralOutput.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPin.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinConfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinConfig.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPinMode.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPinMode.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPort.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPort.h</FilePath>
-            </File>
-            <File>
-              <FileName>GeneralPortControl.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\GeneralPortControl.h</FilePath>
-            </File>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\general\package-info.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/serial</GroupName>
-          <Files>
-            <File>
-              <FileName>package-info.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\serial\package-info.h</FilePath>
+              <FilePath>.\hal\PulseWidthPortControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBus.h</FilePath>
+              <FilePath>.\hal\SerialBus.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusControl.h</FilePath>
+              <FilePath>.\hal\SerialBusControl.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusEvent.h</FilePath>
+              <FilePath>.\hal\SerialBusEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusStatus.h</FilePath>
+              <FilePath>.\hal\SerialBusStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialBusTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialBusTransfer.h</FilePath>
+              <FilePath>.\hal\SerialBusTransfer.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriph.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriph.h</FilePath>
+              <FilePath>.\hal\SerialPeriph.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphEvent.h</FilePath>
+              <FilePath>.\hal\SerialPeriphEvent.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPacket.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPacket.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPacket.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPhase.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPhase.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPhase.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphPolarity.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphPolarity.h</FilePath>
+              <FilePath>.\hal\SerialPeriphPolarity.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphSignificantBit.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphSignificantBit.h</FilePath>
+              <FilePath>.\hal\SerialPeriphSignificantBit.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphSlot.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphSlot.h</FilePath>
+              <FilePath>.\hal\SerialPeriphSlot.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphStatus.h</FilePath>
+              <FilePath>.\hal\SerialPeriphStatus.h</FilePath>
             </File>
             <File>
               <FileName>SerialPeriphTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPeriphTransfer.h</FilePath>
+              <FilePath>.\hal\SerialPeriphTransfer.h</FilePath>
             </File>
             <File>
               <FileName>SerialPort.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPort.h</FilePath>
+              <FilePath>.\hal\SerialPort.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortConfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPortConfig.h</FilePath>
+              <FilePath>.\hal\SerialPortConfig.h</FilePath>
             </File>
             <File>
               <FileName>SerialPortTransfer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\serial\SerialPortTransfer.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>hal/storage</GroupName>
-          <Files>
-            <File>
-              <FileName>FlashStorage.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorage.h</FilePath>
+              <FilePath>.\hal\SerialPortTransfer.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageControl.h</FileName>
+              <FileName>Timer.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageControl.h</FilePath>
+              <FilePath>.\hal\Timer.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageEvent.h</FileName>
+              <FileName>TimerControl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageEvent.h</FilePath>
+              <FilePath>.\hal\TimerControl.h</FilePath>
             </File>
             <File>
-              <FileName>FlashStorageStatus.h</FileName>
+              <FileName>TimerEvent.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\FlashStorageStatus.h</FilePath>
+              <FilePath>.\hal\TimerEvent.h</FilePath>
             </File>
             <File>
-              <FileName>package-info.h</FileName>
+              <FileName>TimerStatus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\hal\storage\package-info.h</FilePath>
+              <FilePath>.\hal\TimerStatus.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -18,7 +18,9 @@
 #include "mcuf/io/Console.h"
 #include "mcuf/io/PrintStream.h"
 #include "mcuf/io/OutputStreamHandler.h"
-#include "hal/serial/SerialPort.h"
+
+//-----------------------------------------------------------------------------------------
+#include "hal/SerialPort.h"
 
 /* ****************************************************************************************
  * Namespace

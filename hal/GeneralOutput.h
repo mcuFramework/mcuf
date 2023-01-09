@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_9E61DE90_7223_4EE7_BB33_FE3C45509F28
-#define MCUF_9E61DE90_7223_4EE7_BB33_FE3C45509F28
+#ifndef MCUF_F5896110_0162_406F_9ECE_A67699B0938F
+#define MCUF_F5896110_0162_406F_9ECE_A67699B0938F
 
 /* ****************************************************************************************
  * Include
@@ -22,26 +22,52 @@
 /* ****************************************************************************************
  * Namespace
  */
-
 namespace hal{
-  interface InterruptEvent;
+  namespace general{
+    interface GeneralOutput;
+  }
 }
-
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface hal::InterruptEvent extends virtual mcuf::lang::Interface{
-
+interface hal::general::GeneralOutput extends virtual mcuf::lang::Interface{
   /* **************************************************************************************
    * Method
    */
+
+  /**
+   * @brief Set the High object
+   * 
+   */
+  virtual void setHigh(void) abstract;
+
+/**
+   * @brief Set the Low object
+   * 
+   */
+  virtual void setLow(void) abstract;
   
   /**
-   *
+   * @brief Set the Output object
+   * 
    */
-  virtual void interruptEvent(void) abstract;
+  virtual void setOutput(void) abstract;
+
+  /**
+   * @brief Set the Toggle object
+   * 
+   */
+  virtual void setToggle(void) abstract;  
+
+  /**
+   * @brief Get io pin.
+   * 
+   * @return true high
+   * @return false low
+   */
+  virtual bool value(void) abstract;
 
 };
 
@@ -49,4 +75,4 @@ interface hal::InterruptEvent extends virtual mcuf::lang::Interface{
  * End of file
  */
 
-#endif /* MCUF_9E61DE90_7223_4EE7_BB33_FE3C45509F28 */
+#endif /* MCUF_F5896110_0162_406F_9ECE_A67699B0938F */

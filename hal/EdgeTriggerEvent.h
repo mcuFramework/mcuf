@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_BA8DBAF0_DCE9_4F33_B776_7C5470172961
+#define MCUF_BA8DBAF0_DCE9_4F33_B776_7C5470172961
 
 /* ****************************************************************************************
  * Include
@@ -18,47 +18,39 @@
 #include "mcuf/lang/Interface.h"
 
 //-----------------------------------------------------------------------------------------
+#include "hal/EdgeTriggerStatus.h"
 
 /* ****************************************************************************************
  * Namespace
- */  
-namespace hal{
-  interface Base;
-}
+ */
 
+namespace hal{
+  namespace general{
+    interface EdgeTriggerEvent;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
+interface hal::general::EdgeTriggerEvent extends virtual mcuf::lang::Interface{
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool deinit(void) abstract;
 
   /**
-   * @brief initialze hardware;
+   * @brief 
    * 
-   * @return true 
-   * @return false 
+   * @param status 
    */
-  virtual bool init(void) abstract;
-
-  /**
-   * @brief get hardware initialzed status.
-   * 
-   * @return true not init
-   * @return false initd
-   */
-  virtual bool isInit(void) abstract;
-   
+  virtual void onEdgeTriggerEvent(hal::general::EdgeTriggerStatus status) abstract;
+  
 };
+
+
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_BA8DBAF0_DCE9_4F33_B776_7C5470172961 */

@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_A6C99BE5_AB26_4FEE_B210_6549D41C6EDF
+#define MCUF_A6C99BE5_AB26_4FEE_B210_6549D41C6EDF
 
 /* ****************************************************************************************
  * Include
@@ -18,47 +18,46 @@
 #include "mcuf/lang/Interface.h"
 
 //-----------------------------------------------------------------------------------------
+#include "hal/GeneralPinMode.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
-  interface Base;
-}
 
+namespace hal{
+  namespace general{
+    interface GeneralPinConfig;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
+interface hal::general::GeneralPinConfig extends virtual mcuf::lang::Interface{
+  /* **************************************************************************************
+   * Method
+   */
+  
   /**
-   * @brief uninitialze hardware.
+   * @brief 
    * 
+   * @return PinMode 
+   */
+  virtual hal::general::GeneralPinMode pinMode(void) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @param mode 
    * @return true 
    * @return false 
    */
-  virtual bool deinit(void) abstract;
+  virtual bool pinMode(hal::general::GeneralPinMode mode) abstract; 
 
-  /**
-   * @brief initialze hardware;
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool init(void) abstract;
-
-  /**
-   * @brief get hardware initialzed status.
-   * 
-   * @return true not init
-   * @return false initd
-   */
-  virtual bool isInit(void) abstract;
-   
 };
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_A6C99BE5_AB26_4FEE_B210_6549D41C6EDF */

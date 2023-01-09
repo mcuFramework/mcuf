@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_BCEF8EF1_8E8F_4C7F_B575_41D3DEE77164
+#define MCUF_BCEF8EF1_8E8F_4C7F_B575_41D3DEE77164
 
 /* ****************************************************************************************
  * Include
@@ -15,50 +15,37 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
 
 //-----------------------------------------------------------------------------------------
+#include "hal/GeneralPinControl.h"
+#include "hal/GeneralPinConfig.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
-  interface Base;
-}
 
+namespace hal{
+  namespace general{
+    interface GeneralPin;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool deinit(void) abstract;
+interface hal::general::GeneralPin extends 
+hal::general::GeneralPinConfig,
+hal::general::GeneralPinControl{
 
-  /**
-   * @brief initialze hardware;
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool init(void) abstract;
 
-  /**
-   * @brief get hardware initialzed status.
-   * 
-   * @return true not init
-   * @return false initd
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool isInit(void) abstract;
-   
+
 };
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_BCEF8EF1_8E8F_4C7F_B575_41D3DEE77164 */

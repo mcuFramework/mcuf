@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_D62227AD_6C8A_4906_8DEB_0269D2F0EBF1
+#define MCUF_D62227AD_6C8A_4906_8DEB_0269D2F0EBF1
 
 /* ****************************************************************************************
  * Include
@@ -22,43 +22,41 @@
 /* ****************************************************************************************
  * Namespace
  */  
+
 namespace hal{
-  interface Base;
+  namespace serial{
+    interface SerialBusControl;
+  }
 }
 
-
 /* ****************************************************************************************
- * Class/Interface/Struct
+ * Interface/Class/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
+interface hal::serial::SerialBusControl extends virtual mcuf::lang::Interface{
+
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool deinit(void) abstract;
+  
+  /**
+   * @brief 
+   * 
+   * @return uint32_t 
+   */
+  virtual uint32_t clockRate(void) abstract;
 
   /**
-   * @brief initialze hardware;
+   * @brief 
    * 
-   * @return true 
-   * @return false 
+   * @param clock 
+   * @return uint32_t 
    */
-  virtual bool init(void) abstract;
+  virtual uint32_t clockRate(uint32_t clock) abstract;
 
-  /**
-   * @brief get hardware initialzed status.
-   * 
-   * @return true not init
-   * @return false initd
-   */
-  virtual bool isInit(void) abstract;
-   
 };
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_D62227AD_6C8A_4906_8DEB_0269D2F0EBF1 */

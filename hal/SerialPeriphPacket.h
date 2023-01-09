@@ -4,61 +4,48 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_FE4F2681_1D7B_4D15_9CE7_36A02315CBED
+#define MCUF_FE4F2681_1D7B_4D15_9CE7_36A02315CBED
 
 /* ****************************************************************************************
  * Include
- */  
+ */
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
+#include "mcuf/io/ByteBuffer.h"
 
 //-----------------------------------------------------------------------------------------
+#include "hal/SerialPeriphPhase.h"
+#include "hal/SerialPeriphPolarity.h"
+#include "hal/SerialPeriphSignificantBit.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
-  interface Base;
-}
 
+namespace hal{
+  namespace serial{
+    struct SerialPeriphPacket;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool deinit(void) abstract;
-
-  /**
-   * @brief initialze hardware;
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool init(void) abstract;
-
-  /**
-   * @brief get hardware initialzed status.
-   * 
-   * @return true not init
-   * @return false initd
-   */
-  virtual bool isInit(void) abstract;
-   
+struct hal::serial::SerialPeriphPacket{
+  mcuf::io::ByteBuffer* tx;
+  mcuf::io::ByteBuffer* rx;
+  uint32_t clock;
+  hal::serial::SerialPeriphPhase phase;
+  hal::serial::SerialPeriphPolarity polarity;
+  hal::serial::SerialPeriphSignificantBit significantBit;
 };
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_FE4F2681_1D7B_4D15_9CE7_36A02315CBED */

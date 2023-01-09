@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_DF7E59DB_F968_49E3_A7B7_7304120298F4
+#define MCUF_DF7E59DB_F968_49E3_A7B7_7304120298F4
 
 /* ****************************************************************************************
  * Include
@@ -21,44 +21,41 @@
 
 /* ****************************************************************************************
  * Namespace
- */  
-namespace hal{
-  interface Base;
-}
+ */
 
+namespace hal{
+  namespace analog{
+    interface AnalogInputPortControl;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
+interface hal::analog::AnalogInputPortControl extends virtual mcuf::lang::Interface{
+
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool deinit(void) abstract;
 
   /**
-   * @brief initialze hardware;
+   * @brief 
    * 
-   * @return true 
-   * @return false 
+   * @param pin 
+   * @return uint32_t 
    */
-  virtual bool init(void) abstract;
+  virtual uint32_t read(int channel) abstract;
 
   /**
-   * @brief get hardware initialzed status.
+   * @brief Get the adc convert bit.
    * 
-   * @return true not init
-   * @return false initd
+   * @return uint32_t 
    */
-  virtual bool isInit(void) abstract;
-   
-};
+  virtual uint32_t getConvertLevel(void) abstract;
+};  
 
 /* *****************************************************************************************
  * End of file
- */ 
+ */
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_DF7E59DB_F968_49E3_A7B7_7304120298F4 */

@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_AD0B942D_EE2D_4080_BDAD_3E9AACE341DA
+#define MCUF_AD0B942D_EE2D_4080_BDAD_3E9AACE341DA
 
 /* ****************************************************************************************
  * Include
@@ -15,50 +15,36 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
 
 //-----------------------------------------------------------------------------------------
+#include "hal/Base.h"
+#include "hal/TimerControl.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
-  interface Base;
-}
 
+namespace hal{
+  namespace counter{
+    interface Timer;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool deinit(void) abstract;
+interface hal::counter::Timer extends 
+hal::Base,
+hal::counter::TimerControl{
 
-  /**
-   * @brief initialze hardware;
-   * 
-   * @return true 
-   * @return false 
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool init(void) abstract;
 
-  /**
-   * @brief get hardware initialzed status.
-   * 
-   * @return true not init
-   * @return false initd
-   */
-  virtual bool isInit(void) abstract;
-   
 };
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_AD0B942D_EE2D_4080_BDAD_3E9AACE341DA */

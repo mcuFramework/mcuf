@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_C04F29D8_8794_4EA6_A3AD_CFBD1C61458B
+#define MCUF_C04F29D8_8794_4EA6_A3AD_CFBD1C61458B
 
 /* ****************************************************************************************
  * Include
@@ -15,50 +15,34 @@
 #include "mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/lang/Interface.h"
-
-//-----------------------------------------------------------------------------------------
+#include "hal/Base.h"
+#include "hal/AnalogInputPortControl.h"
 
 /* ****************************************************************************************
  * Namespace
- */  
-namespace hal{
-  interface Base;
-}
+ */
 
+namespace hal{
+  namespace analog{
+    interface AnalogInputPort;
+  }
+}
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
-   */
-  virtual bool deinit(void) abstract;
+interface hal::analog::AnalogInputPort extends 
+hal::Base,
+hal::analog::AnalogInputPortControl{
 
-  /**
-   * @brief initialze hardware;
-   * 
-   * @return true 
-   * @return false 
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool init(void) abstract;
-
-  /**
-   * @brief get hardware initialzed status.
-   * 
-   * @return true not init
-   * @return false initd
-   */
-  virtual bool isInit(void) abstract;
-   
-};
+  
+};  
 
 /* *****************************************************************************************
  * End of file
- */ 
+ */
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_C04F29D8_8794_4EA6_A3AD_CFBD1C61458B */

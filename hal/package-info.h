@@ -4,26 +4,64 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_4C123662_9F90_4523_B67F_83C1419B4CB7
-#define MCUF_4C123662_9F90_4523_B67F_83C1419B4CB7
+#ifndef MCUF_67386E5E_2F62_4A28_B772_7D216836AE9D
+#define MCUF_67386E5E_2F62_4A28_B772_7D216836AE9D
 
 /* ****************************************************************************************
  * Include folder
  */
-#include "analog/package-info.h"
-#include "counter/package-info.h"
-#include "general/package-info.h"
-#include "serial/package-info.h"
-#include "storage/package-info.h"
 
 /* ****************************************************************************************
  * Include
  */
+#include "AnalogInputPin.h"
+#include "AnalogInputPort.h"
+#include "AnalogInputPortControl.h"
 #include "Base.h"
+#include "EdgeTrigger.h"
+#include "EdgeTriggerControl.h"
+#include "EdgeTriggerEvent.h"
+#include "EdgeTriggerStatus.h"
+#include "FlashStorage.h"
+#include "FlashStorageControl.h"
+#include "FlashStorageEvent.h"
+#include "FlashStorageStatus.h"
+#include "GeneralInput.h"
+#include "GeneralOutput.h"
+#include "GeneralPin.h"
+#include "GeneralPinConfig.h"
+#include "GeneralPinControl.h"
+#include "GeneralPinMode.h"
+#include "GeneralPort.h"
+#include "GeneralPortControl.h"
 #include "InterruptEvent.h"
+#include "PulseWidthPin.h"
+#include "PulseWidthPort.h"
+#include "PulseWidthPortControl.h"
+#include "SerialBus.h"
+#include "SerialBusControl.h"
+#include "SerialBusEvent.h"
+#include "SerialBusStatus.h"
+#include "SerialBusTransfer.h"
+#include "SerialPeriph.h"
+#include "SerialPeriphEvent.h"
+#include "SerialPeriphPacket.h"
+#include "SerialPeriphPhase.h"
+#include "SerialPeriphPolarity.h"
+#include "SerialPeriphSignificantBit.h"
+#include "SerialPeriphSlot.h"
+#include "SerialPeriphStatus.h"
+#include "SerialPeriphTransfer.h"
+#include "SerialPort.h"
+#include "SerialPortConfig.h"
+#include "SerialPortTransfer.h"
+#include "Timer.h"
+#include "TimerControl.h"
+#include "TimerEvent.h"
+#include "TimerStatus.h"
 
 /* ****************************************************************************************
  * End of file
  */
 
-#endif /* MCUF_4C123662_9F90_4523_B67F_83C1419B4CB7 */
+#endif /* MCUF_67386E5E_2F62_4A28_B772_7D216836AE9D */

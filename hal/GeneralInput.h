@@ -4,12 +4,12 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
-#define MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7
+#ifndef MCUF_9C655B34_D715_4F1E_957C_F1BFB3213FB8
+#define MCUF_9C655B34_D715_4F1E_957C_F1BFB3213FB8
 
 /* ****************************************************************************************
  * Include
- */  
+ */
 
 //-----------------------------------------------------------------------------------------
 #include "mcuf_base.h"
@@ -21,44 +21,33 @@
 
 /* ****************************************************************************************
  * Namespace
- */  
+ */
 namespace hal{
-  interface Base;
+  namespace general{
+    interface GeneralInput;
+  }
 }
 
 
 /* ****************************************************************************************
- * Class/Interface/Struct
- */  
-interface hal::Base extends virtual mcuf::lang::Interface{
-  /**
-   * @brief uninitialze hardware.
-   * 
-   * @return true 
-   * @return false 
+ * Class/Interface/Struct/Enum
+ */
+interface hal::general::GeneralInput extends virtual mcuf::lang::Interface{
+  /* **************************************************************************************
+   * Method
    */
-  virtual bool deinit(void) abstract;
 
   /**
-   * @brief initialze hardware;
+   * @brief Set io pin to high or low.
    * 
-   * @return true 
-   * @return false 
+   * @param level false = low, true = high.
    */
-  virtual bool init(void) abstract;
+  virtual void value(bool level) abstract; 
 
-  /**
-   * @brief get hardware initialzed status.
-   * 
-   * @return true not init
-   * @return false initd
-   */
-  virtual bool isInit(void) abstract;
-   
 };
 
-/* *****************************************************************************************
+/* ****************************************************************************************
  * End of file
- */ 
+ */
 
-#endif /* MCUF_C49120BF_2531_4068_86B3_87BA2D347ED7 */
+#endif /* MCUF_9C655B34_D715_4F1E_957C_F1BFB3213FB8 */
