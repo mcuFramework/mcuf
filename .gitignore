@@ -3,3 +3,6 @@
 *.uvoptx
 *.uvguix.*
 *.exe
+*.lib
+*.htm
+*.dep

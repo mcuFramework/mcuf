@@ -1,7 +1,4 @@
 cd %~dp0
-SET GenFolder=..\target\
+SET GenFolder=..\
 
-if not exist %GenFolder% (
-	md ..\target
-)
-copy .\Objects\%1 ..\target\%1 /y
+copy .\Objects\%1 ..\%1 /y
