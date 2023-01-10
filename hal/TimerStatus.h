@@ -12,7 +12,7 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -22,14 +22,14 @@
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   enum struct TimerStatus : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::TimerStatus : char{
+enum struct mcuf::hal::TimerStatus : char{
   TRIGGER,
   CANCEL
 };

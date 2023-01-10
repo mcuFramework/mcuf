@@ -12,17 +12,17 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\Interface.h"
+#include "mcuf/Interface.h"
 
 //-----------------------------------------------------------------------------------------
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace hal{
+namespace mcuf::hal{
   interface GeneralInput;
 }
 
@@ -30,7 +30,7 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface hal::GeneralInput extends virtual mcuf::Interface{
+interface mcuf::hal::GeneralInput extends virtual mcuf::Interface{
   /* **************************************************************************************
    * Method
    */

@@ -12,27 +12,27 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\Interface.h"
+#include "mcuf/Interface.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\EdgeTriggerEvent.h"
+#include "mcuf/hal/EdgeTriggerEvent.h"
 
 //-----------------------------------------------------------------------------------------
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
+namespace mcuf::hal{
   interface EdgeTriggerControl;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::EdgeTriggerControl extends virtual mcuf::Interface{
+interface mcuf::hal::EdgeTriggerControl extends virtual mcuf::Interface{
   /* **************************************************************************************
    * Method
    */
@@ -62,7 +62,7 @@ interface hal::EdgeTriggerControl extends virtual mcuf::Interface{
    * @return true 設定成功
    * @return false 設定失敗
    */
-  virtual bool enableFall(hal::EdgeTriggerEvent* event) abstract;
+  virtual bool enableFall(mcuf::hal::EdgeTriggerEvent* event) abstract;
 
   /**
    * @brief 
@@ -71,7 +71,7 @@ interface hal::EdgeTriggerControl extends virtual mcuf::Interface{
    * @return true 設定成功
    * @return false 設定失敗
    */
-  virtual bool enableRise(hal::EdgeTriggerEvent* event) abstract;
+  virtual bool enableRise(mcuf::hal::EdgeTriggerEvent* event) abstract;
 
 };
 

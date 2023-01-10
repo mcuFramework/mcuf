@@ -12,26 +12,26 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\Interface.h"
+#include "mcuf/Interface.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\GeneralPinMode.h"
+#include "mcuf/hal/GeneralPinMode.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   interface GeneralPinConfig;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::GeneralPinConfig extends virtual mcuf::Interface{
+interface mcuf::hal::GeneralPinConfig extends virtual mcuf::Interface{
   /* **************************************************************************************
    * Method
    */
@@ -41,7 +41,7 @@ interface hal::GeneralPinConfig extends virtual mcuf::Interface{
    * 
    * @return PinMode 
    */
-  virtual hal::GeneralPinMode pinMode(void) abstract;
+  virtual mcuf::hal::GeneralPinMode pinMode(void) abstract;
 
   /**
    * @brief 
@@ -50,7 +50,7 @@ interface hal::GeneralPinConfig extends virtual mcuf::Interface{
    * @return true 
    * @return false 
    */
-  virtual bool pinMode(hal::GeneralPinMode mode) abstract; 
+  virtual bool pinMode(mcuf::hal::GeneralPinMode mode) abstract; 
 
 };
 

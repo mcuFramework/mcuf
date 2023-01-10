@@ -12,31 +12,31 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\ByteBuffer.h"
+#include "mcuf/ByteBuffer.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\Base.h"
-#include "hal\SerialPeriphEvent.h"
-#include "hal\SerialPeriphPhase.h"
-#include "hal\SerialPeriphPolarity.h"
-#include "hal\SerialPeriphSignificantBit.h"
+#include "mcuf/hal/Base.h"
+#include "mcuf/hal/SerialPeriphEvent.h"
+#include "mcuf/hal/SerialPeriphPhase.h"
+#include "mcuf/hal/SerialPeriphPolarity.h"
+#include "mcuf/hal/SerialPeriphSignificantBit.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   interface SerialPeriphSlot;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::SerialPeriphSlot extends 
-hal::Base{
+interface mcuf::hal::SerialPeriphSlot extends 
+mcuf::hal::Base{
 
   /* **************************************************************************************
    * Method
@@ -76,9 +76,9 @@ hal::Base{
   /**
    * @brief 
    * 
-   * @return hal::SerialPeriphSignificantBit 
+   * @return mcuf::hal::SerialPeriphSignificantBit 
    */
-  virtual hal::SerialPeriphSignificantBit significantBit(void) abstract;
+  virtual mcuf::hal::SerialPeriphSignificantBit significantBit(void) abstract;
 
   /**
    * @brief 
@@ -87,30 +87,14 @@ hal::Base{
    * @return true 
    * @return false 
    */
-  virtual bool significantBit(hal::SerialPeriphSignificantBit newStatus) abstract;
+  virtual bool significantBit(mcuf::hal::SerialPeriphSignificantBit newStatus) abstract;
 
   /**
    * @brief 
    * 
-   * @return hal::SerialPeriphPolarity 
+   * @return mcuf::hal::SerialPeriphPolarity 
    */
-  virtual hal::SerialPeriphPolarity polarity(void) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param newStatus 
-   * @return true 
-   * @return false 
-   */
-  virtual bool polarity(hal::SerialPeriphPolarity snewStatustatus) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @return hal::SerialPeriphPhase 
-   */
-  virtual hal::SerialPeriphPhase phase(void) abstract;
+  virtual mcuf::hal::SerialPeriphPolarity polarity(void) abstract;
 
   /**
    * @brief 
@@ -119,7 +103,23 @@ hal::Base{
    * @return true 
    * @return false 
    */
-  virtual bool phase(hal::SerialPeriphPhase newStatus) abstract;
+  virtual bool polarity(mcuf::hal::SerialPeriphPolarity snewStatustatus) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @return mcuf::hal::SerialPeriphPhase 
+   */
+  virtual mcuf::hal::SerialPeriphPhase phase(void) abstract;
+
+  /**
+   * @brief 
+   * 
+   * @param newStatus 
+   * @return true 
+   * @return false 
+   */
+  virtual bool phase(mcuf::hal::SerialPeriphPhase newStatus) abstract;
 
   /**
    * @brief 

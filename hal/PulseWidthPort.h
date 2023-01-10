@@ -12,11 +12,11 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\Base.h"
-#include "hal\PulseWidthPortControl.h"
+#include "mcuf/hal/Base.h"
+#include "mcuf/hal/PulseWidthPortControl.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@
  * Namespace
  */
 
-namespace hal{
+namespace mcuf::hal{
   interface PulseWidthPort;
 }
 
@@ -32,9 +32,9 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface hal::PulseWidthPort extends 
-hal::Base,
-hal::PulseWidthPortControl{
+interface mcuf::hal::PulseWidthPort extends 
+mcuf::hal::Base,
+mcuf::hal::PulseWidthPortControl{
 
   /* **************************************************************************************
    * Method

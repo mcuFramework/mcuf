@@ -12,29 +12,29 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "hal\Base.h"
-#include "hal\SerialBusControl.h"
-#include "hal\SerialBusTransfer.h"
+#include "mcuf/hal/Base.h"
+#include "mcuf/hal/SerialBusControl.h"
+#include "mcuf/hal/SerialBusTransfer.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
+namespace mcuf::hal{
   interface SerialBus;
 }
 
 /* ****************************************************************************************
  * Interface/Class/Struct
  */  
-interface hal::SerialBus extends 
-hal::Base,
-hal::SerialBusControl,
-hal::SerialBusTransfer{
+interface mcuf::hal::SerialBus extends 
+mcuf::hal::Base,
+mcuf::hal::SerialBusControl,
+mcuf::hal::SerialBusTransfer{
 
   /* **************************************************************************************
    * Method

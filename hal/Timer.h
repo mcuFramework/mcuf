@@ -12,28 +12,28 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "hal\Base.h"
-#include "hal\TimerControl.h"
+#include "mcuf/hal/Base.h"
+#include "mcuf/hal/TimerControl.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   interface Timer;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::Timer extends 
-hal::Base,
-hal::TimerControl{
+interface mcuf::hal::Timer extends 
+mcuf::hal::Base,
+mcuf::hal::TimerControl{
 
   /* **************************************************************************************
    * Method

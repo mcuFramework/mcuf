@@ -12,7 +12,7 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -22,14 +22,14 @@
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   enum struct SerialPeriphSignificantBit : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::SerialPeriphSignificantBit : char{
+enum struct mcuf::hal::SerialPeriphSignificantBit : char{
   LSB,
   MSB 
 };

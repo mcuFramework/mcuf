@@ -12,29 +12,29 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\ByteBuffer.h"
-#include "mcuf\Interface.h"
+#include "mcuf/ByteBuffer.h"
+#include "mcuf/Interface.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\Base.h"
-#include "hal\SerialPeriphEvent.h"
-#include "hal\SerialPeriphPacket.h"
+#include "mcuf/hal/Base.h"
+#include "mcuf/hal/SerialPeriphEvent.h"
+#include "mcuf/hal/SerialPeriphPacket.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   interface SerialPeriphTransfer;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::SerialPeriphTransfer extends virtual mcuf::Interface{
+interface mcuf::hal::SerialPeriphTransfer extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method
@@ -66,8 +66,8 @@ interface hal::SerialPeriphTransfer extends virtual mcuf::Interface{
    * @return false 
    */
   virtual bool transfer(uint32_t chipSelect, 
-                        hal::SerialPeriphPacket* packet,
-                        hal::SerialPeriphEvent* event) abstract;
+                        mcuf::hal::SerialPeriphPacket* packet,
+                        mcuf::hal::SerialPeriphEvent* event) abstract;
 
 };
 

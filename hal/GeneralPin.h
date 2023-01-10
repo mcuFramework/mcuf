@@ -12,28 +12,28 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "hal\GeneralPinControl.h"
-#include "hal\GeneralPinConfig.h"
+#include "mcuf/hal/GeneralPinControl.h"
+#include "mcuf/hal/GeneralPinConfig.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   interface GeneralPin;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::GeneralPin extends 
-hal::GeneralPinConfig,
-hal::GeneralPinControl{
+interface mcuf::hal::GeneralPin extends 
+mcuf::hal::GeneralPinConfig,
+mcuf::hal::GeneralPinControl{
 
 
   /* **************************************************************************************

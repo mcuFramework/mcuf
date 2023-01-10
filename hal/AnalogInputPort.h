@@ -12,26 +12,26 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\Base.h"
-#include "hal\AnalogInputPortControl.h"
+#include "mcuf/hal/Base.h"
+#include "mcuf/hal/AnalogInputPortControl.h"
 
 /* ****************************************************************************************
  * Namespace
  */
 
-namespace hal{
+namespace mcuf::hal{
   interface AnalogInputPort;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::AnalogInputPort extends 
-hal::Base,
-hal::AnalogInputPortControl{
+interface mcuf::hal::AnalogInputPort extends 
+mcuf::hal::Base,
+mcuf::hal::AnalogInputPortControl{
 
   /* **************************************************************************************
    * Method

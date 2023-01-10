@@ -12,27 +12,27 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\Interface.h"
-#include "mcuf\ByteBuffer.h"
+#include "mcuf/Interface.h"
+#include "mcuf/ByteBuffer.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\SerialBusStatus.h"
+#include "mcuf/hal/SerialBusStatus.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   interface SerialBusEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::SerialBusEvent extends virtual mcuf::Interface{
+interface mcuf::hal::SerialBusEvent extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method
@@ -45,7 +45,7 @@ interface hal::SerialBusEvent extends virtual mcuf::Interface{
    * @param result 0 = successful, other = remaining byte count.
    * @param attachment user data
    */
-  virtual void onSerialBusEvent(hal::SerialBusStatus status, 
+  virtual void onSerialBusEvent(mcuf::hal::SerialBusStatus status, 
                                 int result,
                                 void* attachment) abstract;
   

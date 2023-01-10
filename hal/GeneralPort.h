@@ -12,28 +12,28 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "hal\Base.h"
-#include "hal\GeneralPortControl.h"
+#include "mcuf/hal/Base.h"
+#include "mcuf/hal/GeneralPortControl.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   interface GeneralPort;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::GeneralPort extends 
-hal::Base, 
-hal::GeneralPortControl{
+interface mcuf::hal::GeneralPort extends 
+mcuf::hal::Base, 
+mcuf::hal::GeneralPortControl{
   /* **************************************************************************************
    * Method 
    */

@@ -12,29 +12,29 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "hal\Base.h"
-#include "hal\SerialPortConfig.h"
-#include "hal\SerialPortTransfer.h"
+#include "mcuf/hal/Base.h"
+#include "mcuf/hal/SerialPortConfig.h"
+#include "mcuf/hal/SerialPortTransfer.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
+namespace mcuf::hal{
   interface SerialPort;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::SerialPort extends 
-hal::Base,
-hal::SerialPortConfig,
-hal::SerialPortTransfer{
+interface mcuf::hal::SerialPort extends 
+mcuf::hal::Base,
+mcuf::hal::SerialPortConfig,
+mcuf::hal::SerialPortTransfer{
 
   /* **************************************************************************************
    * Method

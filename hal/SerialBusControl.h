@@ -12,10 +12,10 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\Interface.h"
+#include "mcuf/Interface.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -23,14 +23,14 @@
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   interface SerialBusControl;
 }
 
 /* ****************************************************************************************
  * Interface/Class/Struct
  */  
-interface hal::SerialBusControl extends virtual mcuf::Interface{
+interface mcuf::hal::SerialBusControl extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method

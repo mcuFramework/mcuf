@@ -12,10 +12,10 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\Interface.h"
+#include "mcuf/Interface.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -23,14 +23,14 @@
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   interface SerialPortConfig;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::SerialPortConfig extends virtual mcuf::Interface{
+interface mcuf::hal::SerialPortConfig extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method

@@ -12,7 +12,7 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -22,14 +22,14 @@
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   enum struct SerialPeriphPolarity : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::SerialPeriphPolarity : char{
+enum struct mcuf::hal::SerialPeriphPolarity : char{
   ACTIVE_HIGH,
   ACTIVE_LOW 
 };

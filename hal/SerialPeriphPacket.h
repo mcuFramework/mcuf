@@ -12,34 +12,34 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\ByteBuffer.h"
+#include "mcuf/ByteBuffer.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\SerialPeriphPhase.h"
-#include "hal\SerialPeriphPolarity.h"
-#include "hal\SerialPeriphSignificantBit.h"
+#include "mcuf/hal/SerialPeriphPhase.h"
+#include "mcuf/hal/SerialPeriphPolarity.h"
+#include "mcuf/hal/SerialPeriphSignificantBit.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   struct SerialPeriphPacket;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-struct hal::SerialPeriphPacket{
+struct mcuf::hal::SerialPeriphPacket{
   mcuf::ByteBuffer* tx;
   mcuf::ByteBuffer* rx;
   uint32_t clock;
-  hal::SerialPeriphPhase phase;
-  hal::SerialPeriphPolarity polarity;
-  hal::SerialPeriphSignificantBit significantBit;
+  mcuf::hal::SerialPeriphPhase phase;
+  mcuf::hal::SerialPeriphPolarity polarity;
+  mcuf::hal::SerialPeriphSignificantBit significantBit;
 };
 
 /* *****************************************************************************************

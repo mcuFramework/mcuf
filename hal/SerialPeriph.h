@@ -12,28 +12,28 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\ByteBuffer.h"
+#include "mcuf/ByteBuffer.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\Base.h"
-#include "hal\SerialPeriphTransfer.h"
+#include "mcuf/hal/Base.h"
+#include "mcuf/hal/SerialPeriphTransfer.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
+namespace mcuf::hal{
   interface SerialPeriph;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::SerialPeriph extends 
-hal::Base,
-hal::SerialPeriphTransfer{
+interface mcuf::hal::SerialPeriph extends 
+mcuf::hal::Base,
+mcuf::hal::SerialPeriphTransfer{
 
   /* **************************************************************************************
    * Method

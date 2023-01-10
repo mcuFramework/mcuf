@@ -12,11 +12,11 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\ByteBuffer.h"
+#include "mcuf/ByteBuffer.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\Base.h"
-#include "hal\FlashStorageControl.h"
+#include "mcuf/hal/Base.h"
+#include "mcuf/hal/FlashStorageControl.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -24,7 +24,7 @@
  * Namespace
  */  
 
-namespace hal{  
+namespace mcuf::hal{  
   interface FlashStorage;
 }
 
@@ -32,9 +32,9 @@ namespace hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::FlashStorage extends 
-hal::Base,
-hal::FlashStorageControl{
+interface mcuf::hal::FlashStorage extends 
+mcuf::hal::Base,
+mcuf::hal::FlashStorageControl{
 
   /* **************************************************************************************
    * Method

@@ -12,7 +12,7 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -21,14 +21,14 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace hal{
+namespace mcuf::hal{
   enum struct SerialPeriphPhase : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct hal::SerialPeriphPhase : char{
+enum struct mcuf::hal::SerialPeriphPhase : char{
     FIRST_EDGE,
     SECOND_EDGE
 };

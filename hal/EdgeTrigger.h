@@ -12,11 +12,11 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\Base.h"
-#include "hal\EdgeTriggerControl.h"
+#include "mcuf/hal/Base.h"
+#include "mcuf/hal/EdgeTriggerControl.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -24,16 +24,16 @@
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   interface EdgeTrigger;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::EdgeTrigger extends 
-hal::Base,
-hal::EdgeTriggerControl{
+interface mcuf::hal::EdgeTrigger extends 
+mcuf::hal::Base,
+mcuf::hal::EdgeTriggerControl{
   /* **************************************************************************************
    * Method
    */

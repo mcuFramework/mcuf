@@ -13,26 +13,26 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\Interface.h"
+#include "mcuf/Interface.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\TimerStatus.h"
+#include "mcuf/hal/TimerStatus.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 
-namespace hal{  
+namespace mcuf::hal{  
   interface TimerEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::TimerEvent extends virtual mcuf::Interface{
+interface mcuf::hal::TimerEvent extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method
@@ -43,7 +43,7 @@ interface hal::TimerEvent extends virtual mcuf::Interface{
    * 
    * @param status 
    */
-  virtual void onTimerEvent(hal::TimerStatus status) abstract;
+  virtual void onTimerEvent(mcuf::hal::TimerStatus status) abstract;
 };
 
 #endif /* MCUF_DF0EC699_78D6_4243_A75D_F321C92D88BB */

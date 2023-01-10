@@ -12,26 +12,26 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf_base.h"
+#include "mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf\Interface.h"
+#include "mcuf/Interface.h"
 
 //-----------------------------------------------------------------------------------------
-#include "hal\Base.h"
+#include "mcuf/hal/Base.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 
-namespace hal{
+namespace mcuf::hal{
   interface PulseWidthPortControl;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface hal::PulseWidthPortControl extends virtual mcuf::Interface{
+interface mcuf::hal::PulseWidthPortControl extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method
