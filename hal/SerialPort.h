@@ -12,14 +12,14 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "../mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/hal/Base.h"
-#include "mcuf/hal/SerialPortConfig.h"
-#include "mcuf/hal/SerialPortTransfer.h"
+#include "./Base.h"
+#include "./SerialPortConfig.h"
+#include "./SerialPortTransfer.h"
 
 /* ****************************************************************************************
  * Namespace

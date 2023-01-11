@@ -13,16 +13,16 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/ErrorCode.h"
-#include "mcuf/Object.h"
-#include "mcuf/Thread.h"
-#include "mcuf/CoreTick.h"
-#include "mcuf/CoreThread.h"
-#include "mcuf/SystemRegister.h"
-#include "mcuf/rtos/InterfaceKernel.h"
+#include "./ErrorCode.h"
+#include "./Object.h"
+#include "./Thread.h"
+#include "./CoreTick.h"
+#include "./CoreThread.h"
+#include "./SystemRegister.h"
+#include "./rtos/InterfaceKernel.h"
 
 /* ****************************************************************************************
  * Namespace

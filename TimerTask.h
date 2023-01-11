@@ -13,10 +13,10 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
-#include "mcuf/Runnable.h"
-#include "mcuf/Object.h"
-#include "mcuf/Memory.h"
+#include "./mcuf_base.h"
+#include "./Runnable.h"
+#include "./Object.h"
+#include "./Memory.h"
   
 
 /* ****************************************************************************************

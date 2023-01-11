@@ -10,9 +10,9 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "mcuf/mcuf_base.h"
-#include "mcuf/BiConsumer.h"
-#include "mcuf/Object.h"
+#include "./mcuf_base.h"
+#include "./BiConsumer.h"
+#include "./Object.h"
 
 /* ****************************************************************************************
  * Namespace

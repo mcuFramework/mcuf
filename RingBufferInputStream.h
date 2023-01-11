@@ -12,12 +12,12 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/InputStreamBuffer.h"
-#include "mcuf/RingBuffer.h"
-#include "mcuf/Runnable.h"
+#include "./InputStreamBuffer.h"
+#include "./RingBuffer.h"
+#include "./Runnable.h"
 
 /* ****************************************************************************************
  * Namespace

@@ -12,12 +12,12 @@
 #include <stdlib.h>
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Math.h"
-#include "mcuf/System.h"
-#include "mcuf/ThreadEvent.h"
-#include "mcuf/CoreThread.h"
-#include "mcuf/Timer.h"
-#include "mcuf/Stacker.h"
+#include "./Math.h"
+#include "./System.h"
+#include "./ThreadEvent.h"
+#include "./CoreThread.h"
+#include "./Timer.h"
+#include "./Stacker.h"
 
 /* ****************************************************************************************
  * Namespace

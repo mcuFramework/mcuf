@@ -11,9 +11,9 @@
 /* ****************************************************************************************
  * Include
  */
-#include "mcuf/mcuf_base.h"
-#include "mcuf/Object.h"
-#include "mcuf/Interface.h"
+#include "./mcuf_base.h"
+#include "./Object.h"
+#include "./Interface.h"
 
 
 /* ****************************************************************************************

@@ -12,15 +12,15 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "../mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Interface.h"
-#include "mcuf/OutputBuffer.h"
-#include "mcuf/InputBuffer.h"
+#include "../Interface.h"
+#include "../OutputBuffer.h"
+#include "../InputBuffer.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/hal/SerialBusEvent.h"
+#include "./SerialBusEvent.h"
 
 /* ****************************************************************************************
  * Namespace

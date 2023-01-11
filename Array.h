@@ -12,10 +12,10 @@
  * Include
  */
 
-#include "mcuf/mcuf_base.h"
-#include "mcuf/ArrayPrototype.h"
-#include "mcuf/Memory.h"
-#include "mcuf/Pointer.h"
+#include "./mcuf_base.h"
+#include "./ArrayPrototype.h"
+#include "./Memory.h"
+#include "./Pointer.h"
 
 
 

@@ -10,9 +10,9 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/CoreThread.h"
-#include "mcuf/ErrorCode.h"
-#include "mcuf/Timer.h"
+#include "./CoreThread.h"
+#include "./ErrorCode.h"
+#include "./Timer.h"
 
 /* ****************************************************************************************
  * Using

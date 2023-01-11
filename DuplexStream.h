@@ -12,14 +12,14 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/InputBuffer.h"
-#include "mcuf/OutputBuffer.h"
-#include "mcuf/Future.h"
-#include "mcuf/CompletionHandler.h"
-#include "mcuf/Interface.h"
+#include "./InputBuffer.h"
+#include "./OutputBuffer.h"
+#include "./Future.h"
+#include "./CompletionHandler.h"
+#include "./Interface.h"
 
 
 /* ****************************************************************************************

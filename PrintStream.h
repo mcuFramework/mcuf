@@ -13,13 +13,13 @@
 #include <stdarg.h>
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Memory.h"
-#include "mcuf/ByteBuffer.h"
-#include "mcuf/OutputStream.h"
-#include "mcuf/OutputBuffer.h"
+#include "./Memory.h"
+#include "./ByteBuffer.h"
+#include "./OutputStream.h"
+#include "./OutputBuffer.h"
 
 /* ****************************************************************************************
  * Namespace

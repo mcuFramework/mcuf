@@ -12,11 +12,11 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
-#include "mcuf/Interface.h"
-#include "mcuf/Thread.h"
-#include "mcuf/ThreadPriority.h"
-#include "mcuf/ThreadState.h"
+#include "../mcuf_base.h"
+#include "../Interface.h"
+#include "../Thread.h"
+#include "../ThreadPriority.h"
+#include "../ThreadState.h"
 
 //-----------------------------------------------------------------------------------------
 

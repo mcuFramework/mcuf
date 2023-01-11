@@ -9,10 +9,10 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "mcuf/mcuf_base.h"
-#include "mcuf/Object.h"
-#include "mcuf/Memory.h"
-#include "mcuf/Collection.h"
+#include "./mcuf_base.h"
+#include "./Object.h"
+#include "./Memory.h"
+#include "./Collection.h"
 
 /* ****************************************************************************************
  * Namespace

@@ -12,17 +12,17 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Object.h"
-#include "mcuf/PrintStream.h"
-#include "mcuf/InputStreamBuffer.h"
-#include "mcuf/ErrorCode.h"
-#include "mcuf/RunnableEntity.h"
-#include "mcuf/rtos/InterfaceKernel.h"
-#include "mcuf/rtos/InterfaceThread.h"
-#include "mcuf/rtos/InterfaceTimer.h"
+#include "./Object.h"
+#include "./PrintStream.h"
+#include "./InputStreamBuffer.h"
+#include "./ErrorCode.h"
+#include "./RunnableEntity.h"
+#include "./rtos/InterfaceKernel.h"
+#include "./rtos/InterfaceThread.h"
+#include "./rtos/InterfaceTimer.h"
 
 /* ****************************************************************************************
  * Namespace

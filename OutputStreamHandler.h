@@ -12,11 +12,11 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/RingBufferOutputStream.h"
-#include "mcuf/CompletionHandler.h"
+#include "./RingBufferOutputStream.h"
+#include "./CompletionHandler.h"
 
 /* ****************************************************************************************
  * Namespace

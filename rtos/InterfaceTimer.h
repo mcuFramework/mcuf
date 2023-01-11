@@ -12,12 +12,12 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "../mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Interface.h"
-#include "mcuf/Runnable.h"
-#include "mcuf/Memory.h"
+#include "../Interface.h"
+#include "../Runnable.h"
+#include "../Memory.h"
 
 /* ****************************************************************************************
  * Namespace

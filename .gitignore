@@ -1,8 +1,16 @@
 # Keil project
-/target
 *.uvoptx
 *.uvguix.*
+
+# object file
+*.d
+*.o
+*.Src
 *.exe
 *.lib
 *.htm
 *.dep
+
+*/target
+*/Listings
+*/Objects

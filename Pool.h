@@ -13,10 +13,10 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Consumer.h"
-#include "mcuf/Array.h"
-#include "mcuf/Memory.h"
-#include "mcuf/Collection.h"
+#include "./Consumer.h"
+#include "./Array.h"
+#include "./Memory.h"
+#include "./Collection.h"
 
 /* ****************************************************************************************
  * Namespace

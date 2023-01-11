@@ -12,11 +12,11 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/ByteBuffer.h"
-#include "mcuf/Interface.h"
+#include "./ByteBuffer.h"
+#include "../Interface.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/hal/FlashStorageEvent.h"
+#include "./FlashStorageEvent.h"
 
 /* ****************************************************************************************
  * Namespace

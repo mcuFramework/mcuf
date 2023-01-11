@@ -11,10 +11,10 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "mcuf/mcuf_base.h"
-#include "mcuf/ArrayQueuePrototype.h"
-#include "mcuf/Collection.h"
-#include "mcuf/Queue.h"
+#include "./mcuf_base.h"
+#include "./ArrayQueuePrototype.h"
+#include "./Collection.h"
+#include "./Queue.h"
 
 /* ****************************************************************************************
  * Namespace

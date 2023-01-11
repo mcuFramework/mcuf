@@ -13,10 +13,10 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
-#include "mcuf/Memory.h"
-#include "mcuf/Object.h"
-#include "mcuf/Buffer.h"
+#include "./mcuf_base.h"
+#include "./Memory.h"
+#include "./Object.h"
+#include "./Buffer.h"
 
 /* ****************************************************************************************
  * Namespace

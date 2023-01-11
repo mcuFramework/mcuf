@@ -13,8 +13,8 @@
 #include <string.h>
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/ReadonlyOutputBuffer.h"
-#include "mcuf/InputBuffer.h"
+#include "./ReadonlyOutputBuffer.h"
+#include "./InputBuffer.h"
 
 /* ****************************************************************************************
  * Macro

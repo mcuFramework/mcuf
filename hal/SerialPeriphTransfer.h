@@ -12,16 +12,16 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "../mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/ByteBuffer.h"
-#include "mcuf/Interface.h"
+#include "./ByteBuffer.h"
+#include "../Interface.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/hal/Base.h"
-#include "mcuf/hal/SerialPeriphEvent.h"
-#include "mcuf/hal/SerialPeriphPacket.h"
+#include "./Base.h"
+#include "./SerialPeriphEvent.h"
+#include "./SerialPeriphPacket.h"
 
 /* ****************************************************************************************
  * Namespace

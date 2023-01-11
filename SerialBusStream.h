@@ -12,17 +12,17 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Object.h"
-#include "mcuf/InputStream.h"
-#include "mcuf/OutputStream.h"
-#include "mcuf/DuplexStream.h"
-#include "mcuf/StreamSkipper.h"
+#include "./Object.h"
+#include "./InputStream.h"
+#include "./OutputStream.h"
+#include "./DuplexStream.h"
+#include "./StreamSkipper.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/hal/SerialBus.h"
+#include "./hal/SerialBus.h"
 
 /* ****************************************************************************************
  * Namespace

@@ -12,13 +12,13 @@
 #include <string.h>
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Math.h"
-#include "mcuf/System.h"
-#include "mcuf/Thread.h"
-#include "mcuf/rtos/InterfaceThread.h"
+#include "./Math.h"
+#include "./System.h"
+#include "./Thread.h"
+#include "./rtos/InterfaceThread.h"
 
 /* ****************************************************************************************
  * Macro

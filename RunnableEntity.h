@@ -15,12 +15,12 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Runnable.h"
-#include "mcuf/RunnableEvent.h"
-#include "mcuf/Object.h"
+#include "./Runnable.h"
+#include "./RunnableEvent.h"
+#include "./Object.h"
 
 /* ****************************************************************************************
  * Namespace

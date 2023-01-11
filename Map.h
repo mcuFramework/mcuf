@@ -13,9 +13,9 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
-#include "mcuf/BiConsumer.h"
-#include "mcuf/Interface.h"
+#include "./mcuf_base.h"
+#include "./BiConsumer.h"
+#include "./Interface.h"
 
 /* ****************************************************************************************
  * Namespace

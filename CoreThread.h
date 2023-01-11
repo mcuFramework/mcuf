@@ -13,12 +13,12 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
-#include "mcuf/CoreTick.h"
-#include "mcuf/Memory.h"
-#include "mcuf/ThreadEvent.h"
-#include "mcuf/Executor.h"
-#include "mcuf/Timer.h"
+#include "./mcuf_base.h"
+#include "./CoreTick.h"
+#include "./Memory.h"
+#include "./ThreadEvent.h"
+#include "./Executor.h"
+#include "./Timer.h"
 
 
 /* ****************************************************************************************

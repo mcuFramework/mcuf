@@ -13,12 +13,12 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
-#include "mcuf/Runnable.h"
-#include "mcuf/Memory.h"
-#include "mcuf/Object.h"
-#include "mcuf/ThreadPriority.h"
-#include "mcuf/ThreadState.h"
+#include "./mcuf_base.h"
+#include "./Runnable.h"
+#include "./Memory.h"
+#include "./Object.h"
+#include "./ThreadPriority.h"
+#include "./ThreadState.h"
 
 /* ****************************************************************************************
  * Namespace

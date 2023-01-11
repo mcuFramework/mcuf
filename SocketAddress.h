@@ -12,12 +12,12 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/InternetProtocolAddress.h"
-#include "mcuf/Object.h"
-#include "mcuf/String.h"
+#include "./InternetProtocolAddress.h"
+#include "./Object.h"
+#include "./String.h"
 
 /* ****************************************************************************************
  * Namespace

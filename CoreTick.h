@@ -12,12 +12,12 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Executor.h"
-#include "mcuf/Timer.h"
-#include "mcuf/TimerTask.h"
+#include "./Executor.h"
+#include "./Timer.h"
+#include "./TimerTask.h"
 
 /* ****************************************************************************************
  * Namespace

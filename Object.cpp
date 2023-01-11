@@ -12,10 +12,10 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Object.h"
-#include "mcuf/System.h"
-#include "mcuf/Thread.h"
-#include "mcuf/rtos/InterfaceThread.h"
+#include "./Object.h"
+#include "./System.h"
+#include "./Thread.h"
+#include "./rtos/InterfaceThread.h"
 
 /* ****************************************************************************************
  * Using

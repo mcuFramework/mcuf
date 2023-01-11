@@ -11,10 +11,10 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
-#include "mcuf/Array.h"
-#include "mcuf/BiConsumer.h"
+#include "./Array.h"
+#include "./BiConsumer.h"
 
 /* ****************************************************************************************
  * Namespace

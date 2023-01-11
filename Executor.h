@@ -11,10 +11,10 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "mcuf/mcuf_base.h"
-#include "mcuf/Object.h"
-#include "mcuf/Runnable.h"
-#include "mcuf/ArrayQueue.h"
+#include "./mcuf_base.h"
+#include "./Object.h"
+#include "./Runnable.h"
+#include "./ArrayQueue.h"
 
 
 /* ****************************************************************************************

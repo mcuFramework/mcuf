@@ -11,11 +11,11 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "mcuf/mcuf_base.h"
-#include "mcuf/Object.h"
-#include "mcuf/Consumer.h"
-#include "mcuf/BiConsumer.h"
-#include "mcuf/Interface.h"
+#include "./mcuf_base.h"
+#include "./Object.h"
+#include "./Consumer.h"
+#include "./BiConsumer.h"
+#include "./Interface.h"
 
 /* ****************************************************************************************
  * Namespace

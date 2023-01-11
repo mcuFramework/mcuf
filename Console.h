@@ -12,12 +12,12 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/InputStreamBuffer.h"
-#include "mcuf/PrintStream.h"
-#include "mcuf/Interface.h"
+#include "./InputStreamBuffer.h"
+#include "./PrintStream.h"
+#include "./Interface.h"
 
 
 /* ****************************************************************************************

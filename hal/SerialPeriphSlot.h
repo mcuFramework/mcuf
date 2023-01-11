@@ -12,17 +12,17 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "../mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/ByteBuffer.h"
+#include "./ByteBuffer.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/hal/Base.h"
-#include "mcuf/hal/SerialPeriphEvent.h"
-#include "mcuf/hal/SerialPeriphPhase.h"
-#include "mcuf/hal/SerialPeriphPolarity.h"
-#include "mcuf/hal/SerialPeriphSignificantBit.h"
+#include "./Base.h"
+#include "./SerialPeriphEvent.h"
+#include "./SerialPeriphPhase.h"
+#include "./SerialPeriphPolarity.h"
+#include "./SerialPeriphSignificantBit.h"
 
 /* ****************************************************************************************
  * Namespace

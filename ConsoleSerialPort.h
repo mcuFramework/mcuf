@@ -12,15 +12,15 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Console.h"
-#include "mcuf/PrintStream.h"
-#include "mcuf/OutputStreamHandler.h"
+#include "./Console.h"
+#include "./PrintStream.h"
+#include "./OutputStreamHandler.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/hal/SerialPort.h"
+#include "./hal/SerialPort.h"
 
 /* ****************************************************************************************
  * Namespace

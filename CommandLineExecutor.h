@@ -12,13 +12,13 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/Iterable.h"
-#include "mcuf/ByteBuffer.h"
-#include "mcuf/OutputBuffer.h"
-#include "mcuf/CommandLineHandler.h"
+#include "./Iterable.h"
+#include "./ByteBuffer.h"
+#include "./OutputBuffer.h"
+#include "./CommandLineHandler.h"
 
 /* ****************************************************************************************
  * Namespace

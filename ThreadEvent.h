@@ -13,9 +13,9 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "mcuf/mcuf_base.h"
-#include "mcuf/Runnable.h"
-#include "mcuf/Thread.h"
+#include "./mcuf_base.h"
+#include "./Runnable.h"
+#include "./Thread.h"
 
 /* ****************************************************************************************
  * Namespace
