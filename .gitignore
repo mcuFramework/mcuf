@@ -11,6 +11,6 @@
 *.htm
 *.dep
 
-*/target
-*/Listings
-*/Objects
+**/target
+**/Listings
+**/Objects
