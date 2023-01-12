@@ -1,6 +1,7 @@
 # Keil project
 *.uvoptx
 *.uvguix.*
+*.uvgui.*
 
 # object file
 *.d
