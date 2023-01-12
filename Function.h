@@ -17,9 +17,7 @@
  * Namespace
  */  
 namespace mcuf{
-  namespace function{
-    template<typename T, typename R> interface Function;
-  }
+  template<typename T, typename R> interface Function;
 }
 
 /* ****************************************************************************************

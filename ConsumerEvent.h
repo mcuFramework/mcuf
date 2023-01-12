@@ -17,9 +17,7 @@
  * Namespace
  */  
 namespace mcuf{
-  namespace function{
-    template<typename T> class ConsumerEvent;
-  }
+  template<typename T> class ConsumerEvent;
 }
 
 /* ****************************************************************************************

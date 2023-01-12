@@ -18,9 +18,7 @@
  * Namespace
  */  
 namespace mcuf{
-  namespace function{
-    template<typename T, typename U> class BiConsumerEvent;
-  }
+  template<typename T, typename U> class BiConsumerEvent;
 }
 
 /* ****************************************************************************************
