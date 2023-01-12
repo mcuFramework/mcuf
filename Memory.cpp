@@ -13,7 +13,7 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "./Math.h"
+#include "./Maths.h"
 #include "./Memory.h"
 #include "./Pointer.h"
 #include "./System.h"
@@ -21,7 +21,7 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::Math;
+using mcuf::Maths;
 using mcuf::Memory;
 using mcuf::Pointer;
 
@@ -199,7 +199,7 @@ bool Memory::resize(int size){
   if(newMemory == nullptr)
     return false;
   
-  Pointer::move(newMemory, Memory::pointer(), Math::min(size, Memory::length()));
+  Pointer::move(newMemory, Memory::pointer(), Maths::min(size, Memory::length()));
   char* oldPointer = static_cast<char*>(Memory::pointer());
   Memory* next = this;
   

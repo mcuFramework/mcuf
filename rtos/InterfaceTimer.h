@@ -56,7 +56,7 @@ interface mcuf::rtos::InterfaceTimer extends virtual mcuf::Interface{
    * @param runnable 直行進入點
    * @return 
    */
-  virtual bool timerStart(mcuf::Memory& handler, uint32_t delay, bool mode, mcuf::function::Runnable& runnable) abstract;
+  virtual bool timerStart(mcuf::Memory& handler, uint32_t delay, bool mode, mcuf::Runnable& runnable) abstract;
 
   /**
    * @brief 停止Timer

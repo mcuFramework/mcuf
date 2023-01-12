@@ -16,7 +16,7 @@
 
 //-----------------------------------------------------------------------------------------
 #include "./Object.h"
-#include "./String.h"
+#include "./Strings.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -94,7 +94,7 @@ class mcuf::net::InternetProtocolAddress extends mcuf::Object{
      * 
      * @param address 
      */
-    InternetProtocolAddress(const mcuf::String& address);
+    InternetProtocolAddress(const mcuf::Strings& address);
 
     /**
      * @brief Destroy the Internet Protocol Address object
@@ -148,7 +148,7 @@ class mcuf::net::InternetProtocolAddress extends mcuf::Object{
      * 
      * @param address 
      */
-    virtual void getAddress(mcuf::String& result) const;
+    virtual void getAddress(mcuf::Strings& result) const;
     
     /**
      * @brief Set the Address object
@@ -179,14 +179,14 @@ class mcuf::net::InternetProtocolAddress extends mcuf::Object{
      * 
      * @param address 
      */
-    virtual void setAddress(const mcuf::String& address);
+    virtual void setAddress(const mcuf::Strings& address);
 
     /**
      * @brief 
      * 
-     * @return mcuf::String 
+     * @return mcuf::Strings 
      */
-    virtual mcuf::String toString(void) const;
+    virtual mcuf::Strings toStrings(void) const;
     
     /**
      * @brief 

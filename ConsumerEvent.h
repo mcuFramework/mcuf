@@ -26,8 +26,8 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename T>
-class mcuf::function::ConsumerEvent extends mcuf::Object implements 
-  public mcuf::function::Consumer<T>{
+class mcuf::ConsumerEvent extends mcuf::Object implements 
+  public mcuf::Consumer<T>{
 
   typedef void (*Method)(T);
   /* **************************************************************************************

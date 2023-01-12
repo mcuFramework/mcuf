@@ -16,7 +16,7 @@
  * Using
  */  
 using mcuf::Throwable;
-using mcuf::String;
+using mcuf::Strings;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -41,7 +41,7 @@ mMessage("NULL"){
  * 
  * @param message 
  */
-Throwable::Throwable(const String& message) : 
+Throwable::Throwable(const Strings& message) : 
 mMessage(message.clone()){
 
   return;
@@ -52,7 +52,7 @@ mMessage(message.clone()){
  * 
  * @param message 
  */
-Throwable::Throwable(mcuf::String&& message) : 
+Throwable::Throwable(mcuf::Strings&& message) : 
 mMessage(message){
 
   return;

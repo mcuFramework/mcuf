@@ -17,7 +17,7 @@
  * Namespace
  */  
 namespace mcuf{
-  class Math;
+  class Maths;
 }
 
 
@@ -25,7 +25,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class Math
  */  
-class mcuf::Math extends mcuf::Object{
+class mcuf::Maths extends mcuf::Object{
 
   /* **************************************************************************************
    * Subclass
@@ -60,13 +60,13 @@ class mcuf::Math extends mcuf::Object{
      * @brief Construct a new Math object
      * 
      */
-    Math(void);
+    Maths(void);
 
     /**
      * @brief Destroy the Math object
      * 
      */
-    virtual ~Math(void) override;
+    virtual ~Maths(void) override;
 
   /* **************************************************************************************
    * Operator Method

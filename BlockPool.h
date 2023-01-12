@@ -169,7 +169,7 @@ class mcuf::BlockPool extends mcuf::Memory implements
      * @param action 
      */
     virtual void forEach(void* attachment, 
-                         mcuf::function::BiConsumer<mcuf::Memory*, void*>& action) const override;
+                         mcuf::BiConsumer<mcuf::Memory*, void*>& action) const override;
   
   /* **************************************************************************************
    * Public Method

@@ -36,7 +36,7 @@ namespace mcuf::rtos{
  * Class/Interface/Struct
  */  
 class mcuf::Thread extends mcuf::Memory implements 
-public mcuf::function::Runnable{
+public mcuf::Runnable{
 
   friend System;
   friend Object;

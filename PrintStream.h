@@ -221,7 +221,7 @@ public mcuf::OutputStream{
      * @return true 
      * @return false 
      */
-    inline bool print(const mcuf::String& string){
+    inline bool print(const mcuf::Strings& string){
       return this->print(string, false);
     }
 
@@ -320,7 +320,7 @@ public mcuf::OutputStream{
      * @return true 
      * @return false 
      */
-    inline bool println(const mcuf::String& string){
+    inline bool println(const mcuf::Strings& string){
       return this->print(string, true);
     }
 
@@ -409,7 +409,7 @@ public mcuf::OutputStream{
      * @return true 
      * @return false 
      */
-    bool print(const mcuf::String& string, bool newLine);
+    bool print(const mcuf::Strings& string, bool newLine);
 
     /**
      * @brief 

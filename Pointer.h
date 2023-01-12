@@ -337,7 +337,7 @@ class mcuf::Pointer extends mcuf::Object{
      * @return true equal
      * @return false not equal
      */
-    bool compairString(const char* str) const;    
+    bool compairStrings(const char* str) const;    
     
     /**
      * @brief 
@@ -347,7 +347,7 @@ class mcuf::Pointer extends mcuf::Object{
      * @return true equal
      * @return false not equal
      */
-    virtual bool compairString(const char* str, int start) const;
+    virtual bool compairStrings(const char* str, int start) const;
     
     /**
      * @brief 
@@ -401,7 +401,7 @@ class mcuf::Pointer extends mcuf::Object{
      * @param limit 
      * @return int 
      */
-    int indexOfString(const char* str, int limit) const;
+    int indexOfStrings(const char* str, int limit) const;
 
     /**
      * @brief 
@@ -411,7 +411,7 @@ class mcuf::Pointer extends mcuf::Object{
      * @param limit 
      * @return int 
      */
-    int indexOfString(const char* str, int start, int limit) const;
+    int indexOfStrings(const char* str, int start, int limit) const;
 
     /**
      * @brief 

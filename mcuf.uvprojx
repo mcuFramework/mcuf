@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>ARMCM0</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.9.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -186,6 +186,7 @@
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
+            <nBranchProt>0</nBranchProt>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -734,14 +735,14 @@
               <FilePath>.\Map.h</FilePath>
             </File>
             <File>
-              <FileName>Math.cpp</FileName>
+              <FileName>Maths.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Math.cpp</FilePath>
+              <FilePath>.\Maths.cpp</FilePath>
             </File>
             <File>
-              <FileName>Math.h</FileName>
+              <FileName>Maths.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Math.h</FilePath>
+              <FilePath>.\Maths.h</FilePath>
             </File>
             <File>
               <FileName>mcuf_base.h</FileName>
@@ -999,16 +1000,6 @@
               <FilePath>.\StreamSkipper.h</FilePath>
             </File>
             <File>
-              <FileName>String.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\String.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>String.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\String.h</FilePath>
-            </File>
-            <File>
               <FileName>Supplier.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Supplier.h</FilePath>
@@ -1157,6 +1148,16 @@
               <FileName>Voltmeter.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Voltmeter.h</FilePath>
+            </File>
+            <File>
+              <FileName>Strings.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Strings.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Strings.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Strings.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1516,7 +1517,7 @@
         <TargetCommonOption>
           <Device>ARMCM0P</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.9.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0+") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -1686,6 +1687,7 @@
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
+            <nBranchProt>0</nBranchProt>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -2234,14 +2236,14 @@
               <FilePath>.\Map.h</FilePath>
             </File>
             <File>
-              <FileName>Math.cpp</FileName>
+              <FileName>Maths.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Math.cpp</FilePath>
+              <FilePath>.\Maths.cpp</FilePath>
             </File>
             <File>
-              <FileName>Math.h</FileName>
+              <FileName>Maths.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Math.h</FilePath>
+              <FilePath>.\Maths.h</FilePath>
             </File>
             <File>
               <FileName>mcuf_base.h</FileName>
@@ -2499,16 +2501,6 @@
               <FilePath>.\StreamSkipper.h</FilePath>
             </File>
             <File>
-              <FileName>String.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\String.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>String.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\String.h</FilePath>
-            </File>
-            <File>
               <FileName>Supplier.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Supplier.h</FilePath>
@@ -2657,6 +2649,16 @@
               <FileName>Voltmeter.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Voltmeter.h</FilePath>
+            </File>
+            <File>
+              <FileName>Strings.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Strings.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Strings.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Strings.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3016,7 +3018,7 @@
         <TargetCommonOption>
           <Device>ARMCM3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.9.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M3") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -3186,6 +3188,7 @@
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
+            <nBranchProt>0</nBranchProt>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -3734,14 +3737,14 @@
               <FilePath>.\Map.h</FilePath>
             </File>
             <File>
-              <FileName>Math.cpp</FileName>
+              <FileName>Maths.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Math.cpp</FilePath>
+              <FilePath>.\Maths.cpp</FilePath>
             </File>
             <File>
-              <FileName>Math.h</FileName>
+              <FileName>Maths.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Math.h</FilePath>
+              <FilePath>.\Maths.h</FilePath>
             </File>
             <File>
               <FileName>mcuf_base.h</FileName>
@@ -3999,16 +4002,6 @@
               <FilePath>.\StreamSkipper.h</FilePath>
             </File>
             <File>
-              <FileName>String.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\String.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>String.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\String.h</FilePath>
-            </File>
-            <File>
               <FileName>Supplier.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Supplier.h</FilePath>
@@ -4157,6 +4150,16 @@
               <FileName>Voltmeter.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Voltmeter.h</FilePath>
+            </File>
+            <File>
+              <FileName>Strings.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Strings.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Strings.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Strings.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4516,7 +4519,7 @@
         <TargetCommonOption>
           <Device>ARMCM4</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.9.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -4686,6 +4689,7 @@
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
+            <nBranchProt>0</nBranchProt>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -5234,14 +5238,14 @@
               <FilePath>.\Map.h</FilePath>
             </File>
             <File>
-              <FileName>Math.cpp</FileName>
+              <FileName>Maths.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Math.cpp</FilePath>
+              <FilePath>.\Maths.cpp</FilePath>
             </File>
             <File>
-              <FileName>Math.h</FileName>
+              <FileName>Maths.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Math.h</FilePath>
+              <FilePath>.\Maths.h</FilePath>
             </File>
             <File>
               <FileName>mcuf_base.h</FileName>
@@ -5499,16 +5503,6 @@
               <FilePath>.\StreamSkipper.h</FilePath>
             </File>
             <File>
-              <FileName>String.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\String.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>String.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\String.h</FilePath>
-            </File>
-            <File>
               <FileName>Supplier.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Supplier.h</FilePath>
@@ -5657,6 +5651,16 @@
               <FileName>Voltmeter.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Voltmeter.h</FilePath>
+            </File>
+            <File>
+              <FileName>Strings.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Strings.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Strings.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Strings.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -6016,7 +6020,7 @@
         <TargetCommonOption>
           <Device>ARMCM4_FP</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.9.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M4") FPU2 CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -6186,6 +6190,7 @@
             <RvdsVP>2</RvdsVP>
             <RvdsMve>0</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
+            <nBranchProt>0</nBranchProt>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -6734,14 +6739,14 @@
               <FilePath>.\Map.h</FilePath>
             </File>
             <File>
-              <FileName>Math.cpp</FileName>
+              <FileName>Maths.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Math.cpp</FilePath>
+              <FilePath>.\Maths.cpp</FilePath>
             </File>
             <File>
-              <FileName>Math.h</FileName>
+              <FileName>Maths.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Math.h</FilePath>
+              <FilePath>.\Maths.h</FilePath>
             </File>
             <File>
               <FileName>mcuf_base.h</FileName>
@@ -6999,16 +7004,6 @@
               <FilePath>.\StreamSkipper.h</FilePath>
             </File>
             <File>
-              <FileName>String.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\String.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>String.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\String.h</FilePath>
-            </File>
-            <File>
               <FileName>Supplier.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Supplier.h</FilePath>
@@ -7157,6 +7152,16 @@
               <FileName>Voltmeter.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Voltmeter.h</FilePath>
+            </File>
+            <File>
+              <FileName>Strings.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Strings.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Strings.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Strings.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -7516,7 +7521,7 @@
         <TargetCommonOption>
           <Device>ARMCM7</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.8.0</PackID>
+          <PackID>ARM.CMSIS.5.9.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M7") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -7686,6 +7691,7 @@
             <RvdsVP>0</RvdsVP>
             <RvdsMve>0</RvdsMve>
             <RvdsCdeCp>0</RvdsCdeCp>
+            <nBranchProt>0</nBranchProt>
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
@@ -8234,14 +8240,14 @@
               <FilePath>.\Map.h</FilePath>
             </File>
             <File>
-              <FileName>Math.cpp</FileName>
+              <FileName>Maths.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Math.cpp</FilePath>
+              <FilePath>.\Maths.cpp</FilePath>
             </File>
             <File>
-              <FileName>Math.h</FileName>
+              <FileName>Maths.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Math.h</FilePath>
+              <FilePath>.\Maths.h</FilePath>
             </File>
             <File>
               <FileName>mcuf_base.h</FileName>
@@ -8499,16 +8505,6 @@
               <FilePath>.\StreamSkipper.h</FilePath>
             </File>
             <File>
-              <FileName>String.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\String.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>String.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\String.h</FilePath>
-            </File>
-            <File>
               <FileName>Supplier.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Supplier.h</FilePath>
@@ -8657,6 +8653,16 @@
               <FileName>Voltmeter.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Voltmeter.h</FilePath>
+            </File>
+            <File>
+              <FileName>Strings.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Strings.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Strings.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Strings.h</FilePath>
             </File>
           </Files>
         </Group>

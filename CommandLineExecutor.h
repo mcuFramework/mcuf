@@ -107,7 +107,7 @@ public mcuf::Iterable<mcuf::CommandLineHandler>{
      * @param action The action to be performed for each element.
      */
     virtual void forEach(void* attachment, 
-                        mcuf::function::BiConsumer<mcuf::CommandLineHandler*, void*>& action) const override;
+                        mcuf::BiConsumer<mcuf::CommandLineHandler*, void*>& action) const override;
                         
   /* **************************************************************************************
    * Public Method

@@ -46,7 +46,7 @@ interface mcuf::Iterable extends virtual mcuf::Interface{
    * @param action The action to be performed for each element.
    */
   virtual void forEach(void* attachment, 
-                       mcuf::function::BiConsumer<E*, void*>& action) const abstract;
+                       mcuf::BiConsumer<E*, void*>& action) const abstract;
 
 };
  

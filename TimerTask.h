@@ -31,7 +31,7 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 class mcuf::TimerTask extends mcuf::Object implements 
-public mcuf::function::Runnable{
+public mcuf::Runnable{
 
   /* **************************************************************************************
    * Variable <Public>

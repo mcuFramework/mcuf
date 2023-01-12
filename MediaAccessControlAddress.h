@@ -16,7 +16,7 @@
 
 //-----------------------------------------------------------------------------------------
 #include "./Object.h"
-#include "./String.h"
+#include "./Strings.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -77,7 +77,7 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::Object{
      * 
      * @param address 
      */
-    MediaAccessControlAddress(const mcuf::String& address);
+    MediaAccessControlAddress(const mcuf::Strings& address);
 
     /**
      * @brief Destroy the Media Access Control Address object
@@ -113,7 +113,7 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::Object{
      * 
      * @param address 
      */
-    virtual void setMediaAccessControlAddress(const mcuf::String& address);
+    virtual void setMediaAccessControlAddress(const mcuf::Strings& address);
   
     /**
      * @brief Get the Media Access Control Address object
@@ -127,14 +127,14 @@ class mcuf::net::MediaAccessControlAddress extends mcuf::Object{
      * 
      * @param result 
      */
-    virtual void getMediaAccessControlAddress(mcuf::String& result) const;
+    virtual void getMediaAccessControlAddress(mcuf::Strings& result) const;
   
     /**
      * @brief 
      * 
-     * @return mcuf::String 
+     * @return mcuf::Strings 
      */
-    virtual mcuf::String toString(void) const;
+    virtual mcuf::Strings toStrings(void) const;
     
     /**
      * @brief 

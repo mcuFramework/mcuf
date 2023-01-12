@@ -108,7 +108,7 @@ interface mcuf::rtos::InterfaceThread extends virtual mcuf::Interface{
    * @return true 
    * @return false 
    */
-  virtual bool threatStart(mcuf::Memory& handler, mcuf::ThreadPriority priority, mcuf::Memory& stackMemory, mcuf::function::Runnable& runnable) abstract;
+  virtual bool threatStart(mcuf::Memory& handler, mcuf::ThreadPriority priority, mcuf::Memory& stackMemory, mcuf::Runnable& runnable) abstract;
 
   /**
    * @brief 

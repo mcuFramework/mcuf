@@ -300,7 +300,7 @@ bool RingBufferOutputStream::write(OutputBuffer& outputBuffer, Future& future){
 }
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::function::Runnable
+ * Public Method <Override> - mcuf::Runnable
  */
 
 /**

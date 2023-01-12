@@ -32,7 +32,7 @@ namespace mcuf{
  */  
 class mcuf::RingBufferOutputStream extends mcuf::RingBuffer implements
 public mcuf::OutputStreamBuffer,
-public mcuf::function::Runnable{
+public mcuf::Runnable{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -212,7 +212,7 @@ public mcuf::function::Runnable{
     virtual bool write(mcuf::OutputBuffer& byteBuffer, mcuf::Future& future) override;
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::function::Runnable
+   * Public Method <Override> - mcuf::Runnable
    */
   public:
     /**

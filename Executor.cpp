@@ -15,7 +15,7 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::function::Runnable;
+using mcuf::Runnable;
 using mcuf::Memory;
 using mcuf::Executor;
 using mcuf::ArrayQueue;
@@ -59,7 +59,7 @@ Executor::~Executor(void){
  */
  
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::function::Runnable
+ * Public Method <Override> - mcuf::Runnable
  */
 
 /* ****************************************************************************************

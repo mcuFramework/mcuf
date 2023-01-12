@@ -15,7 +15,7 @@
 #include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "./Math.h"
+#include "./Maths.h"
 #include "./System.h"
 #include "./Thread.h"
 #include "./rtos/InterfaceThread.h"

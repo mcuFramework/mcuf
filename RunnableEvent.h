@@ -18,16 +18,14 @@
  * Namespace
  */  
 namespace mcuf{
-  namespace function{
-    class RunnableEvent;
-  }
+  class RunnableEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::function::RunnableEvent final extends mcuf::Object implements 
-public mcuf::function::Runnable{
+class mcuf::RunnableEvent final extends mcuf::Object implements 
+public mcuf::Runnable{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -83,7 +81,7 @@ public mcuf::function::Runnable{
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::function::Runnable
+   * Public Method <Override> - mcuf::Runnable
    */
   public:
   

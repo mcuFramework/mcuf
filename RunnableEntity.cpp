@@ -25,7 +25,7 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-using mcuf::function::RunnableEntity;
+using mcuf::RunnableEntity;
 
 /* ****************************************************************************************
  * Variable <Static>
@@ -47,7 +47,7 @@ RunnableEntity:: RunnableEntity(void) : RunnableEntity(nullptr){
  * 
  * @param runnable 
  */
-RunnableEntity::RunnableEntity(mcuf::function::Runnable& runnable) :
+RunnableEntity::RunnableEntity(mcuf::Runnable& runnable) :
 mRunnableEvent(nullptr){
   this->mRunnable = &runnable;
   return;
@@ -96,7 +96,7 @@ RunnableEntity::~RunnableEntity(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::function::Runnable
+ * Public Method <Override> - mcuf::Runnable
  */
 /**
  * @brief 

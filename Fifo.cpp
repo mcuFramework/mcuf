@@ -15,7 +15,7 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::function::BiConsumer;
+using mcuf::BiConsumer;
 using mcuf::Memory;
 using mcuf::Pointer;
 using mcuf::Fifo;

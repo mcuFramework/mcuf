@@ -257,7 +257,7 @@ int Pointer::copyTo(void* destination, int shift, int start, int length) const{
  * @return true equal
  * @return false not equal
  */
-bool Pointer::compairString(const char* str) const{
+bool Pointer::compairStrings(const char* str) const{
   return this->compair(str, 0, 0, static_cast<int>(strlen(str)));
 }
 
@@ -269,7 +269,7 @@ bool Pointer::compairString(const char* str) const{
  * @return true equal
  * @return false not equal
  */
-bool Pointer::compairString(const char* str, int start) const{
+bool Pointer::compairStrings(const char* str, int start) const{
   return this->compair(str, 0, start, static_cast<int>(strlen(str)));
 }
 
@@ -337,7 +337,7 @@ int Pointer::indexOf(char ch, int start, int limit) const{
  * @param limit 
  * @return int 
  */
-int Pointer::indexOfString(const char* str, int limit) const{
+int Pointer::indexOfStrings(const char* str, int limit) const{
   return this->indexOfData(str, static_cast<int>(strlen(str)), 0, limit);
 }
 
@@ -349,7 +349,7 @@ int Pointer::indexOfString(const char* str, int limit) const{
  * @param limit 
  * @return int 
  */
-int Pointer::indexOfString(const char* str, int start, int limit) const{
+int Pointer::indexOfStrings(const char* str, int start, int limit) const{
   return this->indexOfData(str, static_cast<int>(strlen(str)), start, limit);
 }
 

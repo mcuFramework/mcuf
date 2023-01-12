@@ -28,8 +28,8 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename T>
-class mcuf::function::SupplierEvent extends mcuf::Object implements 
-  public mcuf::function::Supplier<T>{
+class mcuf::SupplierEvent extends mcuf::Object implements 
+  public mcuf::Supplier<T>{
   
   typedef T (*Method)(void);
   /* **************************************************************************************

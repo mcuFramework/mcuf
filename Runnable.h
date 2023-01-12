@@ -17,15 +17,13 @@
  * Namespace
  */  
 namespace mcuf{
-  namespace function{
-    interface Runnable;
-  }
+  interface Runnable;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::function::Runnable extends virtual mcuf::Interface{
+interface mcuf::Runnable extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method

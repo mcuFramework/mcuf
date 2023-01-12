@@ -14,7 +14,7 @@
 //-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
-#include "./String.h"
+#include "./Strings.h"
 
 /* ****************************************************************************************
  * Macro
@@ -23,7 +23,7 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::String;
+using mcuf::Strings;
 using mcuf::System;
 using mcuf::Memory;
 
@@ -36,47 +36,47 @@ using mcuf::Memory;
  */
 
 /**
- * @brief Construct a new String:: String object
+ * @brief Construct a new Strings:: Strings object
  * 
  * @param pointer 
  * @param size 
  */
-String::String(void* pointer, uint32_t size) : Memory(pointer, size){
+Strings::Strings(void* pointer, uint32_t size) : Memory(pointer, size){
   return;
 }
 
 /**
- * @brief Construct a new String:: String object
+ * @brief Construct a new Strings:: Strings object
  * 
  * @param str 
  */
-String::String(const char* str) : Memory(str, strlen(str) + 1){
+Strings::Strings(const char* str) : Memory(str, strlen(str) + 1){
   return;
 }
 
 /**
- * @brief Construct a new String:: String object
+ * @brief Construct a new Strings:: Strings object
  * 
  * @param length 
  */
-String::String(size_t length) : Memory(length){
+Strings::Strings(size_t length) : Memory(length){
   return;
 }
 
 /**
- * @brief Construct a new String:: String object
+ * @brief Construct a new Strings:: Strings object
  * 
  * @param memory 
  */
-String::String(const Memory& memory) : Memory(memory){
+Strings::Strings(const Memory& memory) : Memory(memory){
   return;
 }
 
 /**
- * @brief Destroy the String:: String object
+ * @brief Destroy the Strings:: Strings object
  * 
  */
-String::~String(void){
+Strings::~Strings(void){
   return;
 }
 
@@ -97,7 +97,7 @@ String::~String(void){
  * @param arg 
  * @return int 
  */
-int String::format(void* buffer, size_t bufferSize, const char* format, va_list args){
+int Strings::format(void* buffer, size_t bufferSize, const char* format, va_list args){
   return vsnprintf(static_cast<char*>(buffer), bufferSize, format, args);
 }
 
@@ -109,7 +109,7 @@ int String::format(void* buffer, size_t bufferSize, const char* format, va_list 
  * @param arg 
  * @return int 
  */
-int String::format(const mcuf::Memory& memory, const char* format, va_list args){
+int Strings::format(const mcuf::Memory& memory, const char* format, va_list args){
   if(memory.isReadOnly())
     return 0;
 
@@ -125,7 +125,7 @@ int String::format(const mcuf::Memory& memory, const char* format, va_list args)
  * @param ... 
  * @return int 
  */
-int String::format(void* buffer, uint32_t bufferSize, const char* format, ...){
+int Strings::format(void* buffer, uint32_t bufferSize, const char* format, ...){
   va_list args;
   va_start(args, format);
   int result = vsnprintf(static_cast<char*>(buffer), bufferSize, format, args);
@@ -141,7 +141,7 @@ int String::format(void* buffer, uint32_t bufferSize, const char* format, ...){
  * @param ... 
  * @return int 
  */
-int String::format(const mcuf::Memory& memory, const char* format, ...){
+int Strings::format(const mcuf::Memory& memory, const char* format, ...){
   if(memory.isReadOnly())
     return 0;
   
@@ -158,10 +158,10 @@ int String::format(const mcuf::Memory& memory, const char* format, ...){
  * @param bufferSize 
  * @param format 
  * @param ... 
- * @return String 
+ * @return Strings 
  */
-String String::format(int bufferSize, const char* format, ...){
-  String buffer = String(static_cast<size_t>(bufferSize));
+Strings Strings::format(int bufferSize, const char* format, ...){
+  Strings buffer = Strings(static_cast<size_t>(bufferSize));
 
   va_list args;
   va_start(args, format);  
@@ -171,7 +171,7 @@ String String::format(int bufferSize, const char* format, ...){
   if(buffer.size() >= static_cast<int>((static_cast<float>(buffer.length()) * 0.9f)))
     return buffer;
 
-  String result = String(static_cast<uint32_t>(buffer.size()));
+  Strings result = Strings(static_cast<uint32_t>(buffer.size()));
   result.copy(buffer, static_cast<int>(result.length()));
   return result;
 }
@@ -184,7 +184,7 @@ String String::format(int bufferSize, const char* format, ...){
  * @param args 
  * @return int 
  */
-int String::scanFormat(const char* src, const char* format, va_list args){
+int Strings::scanFormat(const char* src, const char* format, va_list args){
   return vsscanf(src, format, args);
 }
 
@@ -196,7 +196,7 @@ int String::scanFormat(const char* src, const char* format, va_list args){
  * @param ... 
  * @return int 
  */
-int String::scanFormat(const char* src, const char* format, ...){
+int Strings::scanFormat(const char* src, const char* format, ...){
   va_list args;
   va_start(args, format);
   int result = vsscanf(src, format, args);
@@ -207,10 +207,10 @@ int String::scanFormat(const char* src, const char* format, ...){
 /**
  * @brief 
  * 
- * @return String 
+ * @return Strings 
  */
-String String::empty(void){
-  return String("\0");
+Strings Strings::empty(void){
+  return Strings("\0");
 }
 
 /**
@@ -219,7 +219,7 @@ String String::empty(void){
  * @param src 
  * @return int 
  */
-int String::stringLength(const char* src){
+int Strings::stringLength(const char* src){
   return static_cast<int>(strlen(src));
 }
 
@@ -235,7 +235,7 @@ int String::stringLength(const char* src){
  * @param start 
  * @return int 
  */
-int String::indexOfData(const void* destination, int destinationLen, int start) const{
+int Strings::indexOfData(const void* destination, int destinationLen, int start) const{
   return Pointer::indexOfData(destination, destinationLen, start, this->size());
 }
 
@@ -248,7 +248,7 @@ int String::indexOfData(const void* destination, int destinationLen, int start) 
  * 
  * @return int 
  */
-int String::bufferSize(void){
+int Strings::bufferSize(void){
   return Memory::length();
 }
 
@@ -259,7 +259,7 @@ int String::bufferSize(void){
  * @param ... 
  * @return int 
  */
-int String::scanFormat(const char* format, ...){
+int Strings::scanFormat(const char* format, ...){
   va_list args;
   va_start(args, format);
   int result = vsscanf(static_cast<char*>(this->pointer()), format, args);
@@ -274,7 +274,7 @@ int String::scanFormat(const char* format, ...){
  * @param args 
  * @return int 
  */
-int String::format(const char* format, va_list args){
+int Strings::format(const char* format, va_list args){
   if(this->isReadOnly())
     return 0;  
   
@@ -289,7 +289,7 @@ int String::format(const char* format, va_list args){
  * @param ... 
  * @return int 
  */
-int String::format(const char* format, ...){
+int Strings::format(const char* format, ...){
   if(this->isReadOnly())
     return 0;
   
@@ -304,7 +304,7 @@ int String::format(const char* format, ...){
  * @brief 
  * 
  */
-void String::convertUpper(void){
+void Strings::convertUpper(void){
   int max = this->size();
   char* ptr = static_cast<char*>(this->pointer());
 
@@ -319,7 +319,7 @@ void String::convertUpper(void){
  * @brief 
  * 
  */
-void String::convertLower(void){
+void Strings::convertLower(void){
   int max = this->size();
   char* ptr = static_cast<char*>(this->pointer());
 
@@ -333,11 +333,11 @@ void String::convertLower(void){
 /**
  * @brief 
  * 
- * @return String 
+ * @return Strings 
  */
-String String::toUpper(void) const{
+Strings Strings::toUpper(void) const{
   int max = this->size();
-  String result = String(static_cast<uint32_t>(max + 1));
+  Strings result = Strings(static_cast<uint32_t>(max + 1));
 
   const char* src = static_cast<char*>(this->pointer());
   char* dst = static_cast<char*>(result.pointer());
@@ -357,11 +357,11 @@ String String::toUpper(void) const{
 /**
  * @brief 
  * 
- * @return String 
+ * @return Strings 
  */
-String String::toLower(void) const{
+Strings Strings::toLower(void) const{
   int max = this->size();
-  String result = String(static_cast<uint32_t>(max + 1));
+  Strings result = Strings(static_cast<uint32_t>(max + 1));
 
   const char* src = static_cast<char*>(this->pointer());
   char* dst = static_cast<char*>(result.pointer());
@@ -381,11 +381,11 @@ String String::toLower(void) const{
 /**
  * @brief 
  * 
- * @return String 
+ * @return Strings 
  */
-String String::clone(void) const{
+Strings Strings::clone(void) const{
   if(this->isReadOnly())
-    return String(static_cast<const char*>(this->pointer()));
+    return Strings(static_cast<const char*>(this->pointer()));
   
   else
     return this->clone(0, this->size());
@@ -395,9 +395,9 @@ String String::clone(void) const{
  * @brief 
  * 
  * @param length 
- * @return String 
+ * @return Strings 
  */
-String String::clone(int length) const{
+Strings Strings::clone(int length) const{
   return this->clone(0, length);
 }
 
@@ -405,17 +405,17 @@ String String::clone(int length) const{
  * @brief 
  * 
  * @param offset 
- * @return String 
+ * @return Strings 
  */
-String String::clone(int offset, int length) const{
+Strings Strings::clone(int offset, int length) const{
   int size = this->size();
   if(offset >= size)
-    return String::empty();
+    return Strings::empty();
 
   if(length > size)
     length = size;
 
-  String result = String(static_cast<size_t>(length + 1));
+  Strings result = Strings(static_cast<size_t>(length + 1));
   result.copy(this->pointer(offset), static_cast<int>(length));
   result[length] = 0x00;
   return result;
@@ -426,7 +426,7 @@ String String::clone(int offset, int length) const{
  * 
  * @return uint32_t 
  */
-int String::size(void) const{
+int Strings::size(void) const{
   size_t result = strlen(static_cast<const char*>(this->pointer()));
   
   if(result >= static_cast<uint32_t>(this->length()))
@@ -442,7 +442,7 @@ int String::size(void) const{
  * @param newChar 
  * @return int 
  */
-int String::replace(char oldChar, char newChar){
+int Strings::replace(char oldChar, char newChar){
   int result = 0;
   if(this->isReadOnly())
     return 0;
@@ -465,8 +465,8 @@ int String::replace(char oldChar, char newChar){
  * @param str 
  * @return int 
  */
-String& String::append(const char* str){
-  int len = String::stringLength(str);
+Strings& Strings::append(const char* str){
+  int len = Strings::stringLength(str);
   int entityLen = this->size();
   this->copy(str, entityLen ,0, (len + 1));
   return *this;
@@ -478,8 +478,8 @@ String& String::append(const char* str){
  * @param str 
  * @return int 
  */
-String& String::set(const char* str){
-  int len = String::stringLength(str);
+Strings& Strings::set(const char* str){
+  int len = Strings::stringLength(str);
   this->copy(str, 0 ,0, (len + 1));
   return *this;
 }

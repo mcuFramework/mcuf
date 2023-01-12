@@ -102,7 +102,7 @@ void SystemRegister::setErrorCodeHandler(ErrorCodeHandler errorCodeHandler){
  * 
  * @param task 
  */
-void SystemRegister::setIdleTask(mcuf::function::RunnableEntity task){
+void SystemRegister::setIdleTask(mcuf::RunnableEntity task){
   this->mIdleTask = task;
   return;
 }

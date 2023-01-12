@@ -26,17 +26,15 @@
  * Namespace
  */  
 namespace mcuf{
-  namespace function{
-    class RunnableEntity;
-  }
+  class RunnableEntity;
 }
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::function::RunnableEntity final extends mcuf::Object implements
-public mcuf::function::Runnable{
+class mcuf::RunnableEntity final extends mcuf::Object implements
+public mcuf::Runnable{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -50,8 +48,8 @@ public mcuf::function::Runnable{
    * Variable <Private>
    */
   private:
-    mcuf::function::RunnableEvent mRunnableEvent;
-    mcuf::function::Runnable* mRunnable;
+    mcuf::RunnableEvent mRunnableEvent;
+    mcuf::Runnable* mRunnable;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -76,7 +74,7 @@ public mcuf::function::Runnable{
      * 
      * @param runnable 
      */
-    RunnableEntity(mcuf::function::Runnable& runnable);
+    RunnableEntity(mcuf::Runnable& runnable);
 
     /**
      * @brief Construct a new Runnable Entity object
@@ -107,7 +105,7 @@ public mcuf::function::Runnable{
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::function::Runnable
+   * Public Method <Override> - mcuf::Runnable
    */
   public:
     /**

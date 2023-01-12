@@ -91,7 +91,7 @@ CommandLineExecutor::~CommandLineExecutor(void){
  * @param attachment User data.
  * @param action The action to be performed for each element.
  */
-void CommandLineExecutor::forEach(void* attachment, mcuf::function::BiConsumer<mcuf::CommandLineHandler*, void*>& action) const{
+void CommandLineExecutor::forEach(void* attachment, mcuf::BiConsumer<mcuf::CommandLineHandler*, void*>& action) const{
   for(int i=0; i<32; ++i){
     if(this->mCommand[i] == nullptr)
       continue;

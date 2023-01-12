@@ -29,7 +29,7 @@
 
 //-----------------------------------------------------------------------------------------
 using mcuf::net::MediaAccessControlAddress;
-using mcuf::String;
+using mcuf::Strings;
 using mcuf::Character;
 
 /* ****************************************************************************************
@@ -64,7 +64,7 @@ MediaAccessControlAddress::MediaAccessControlAddress(const uint8_t address[6]){
  * 
  * @param address 
  */
-MediaAccessControlAddress::MediaAccessControlAddress(const String& address){
+MediaAccessControlAddress::MediaAccessControlAddress(const Strings& address){
   this->setMediaAccessControlAddress(address);
   return;
 }
@@ -108,7 +108,7 @@ void MediaAccessControlAddress::setMediaAccessControlAddress(const uint8_t addre
  * 
  * @param address 
  */
-void MediaAccessControlAddress::setMediaAccessControlAddress(const mcuf::String& address){
+void MediaAccessControlAddress::setMediaAccessControlAddress(const mcuf::Strings& address){
   if(address.size() < 17){
     memset(this->mMediaAccessControlAddress, 0x00, 6);
     return;
@@ -134,7 +134,7 @@ void MediaAccessControlAddress::getMediaAccessControlAddress(uint8_t* result) co
  * 
  * @param result 
  */
-void MediaAccessControlAddress::getMediaAccessControlAddress(mcuf::String& result) const{
+void MediaAccessControlAddress::getMediaAccessControlAddress(mcuf::Strings& result) const{
   result.format("%02x:%02x:%02x:%02x:%02x:%02x\0", this->mMediaAccessControlAddress[0]
                                                  , this->mMediaAccessControlAddress[1]
                                                  , this->mMediaAccessControlAddress[2]
@@ -147,10 +147,10 @@ void MediaAccessControlAddress::getMediaAccessControlAddress(mcuf::String& resul
 /**
  * @brief 
  * 
- * @return mcuf::String 
+ * @return mcuf::Strings 
  */
-String MediaAccessControlAddress::toString(void) const{
-  String result = String(18);
+Strings MediaAccessControlAddress::toStrings(void) const{
+  Strings result = Strings(18);
   this->getMediaAccessControlAddress(result);
   return result;
 }

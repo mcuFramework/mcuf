@@ -176,7 +176,7 @@ class mcuf::ArrayQueuePrototype extends mcuf::Array<void*>{
      * @param attachment 
      * @param action 
      */
-    void foreachPrototype(void* attachment, mcuf::function::BiConsumer<void*, void*>& action) const;
+    void foreachPrototype(void* attachment, mcuf::BiConsumer<void*, void*>& action) const;
 
   /* **************************************************************************************
    * Private Method <Static>

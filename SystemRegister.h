@@ -58,7 +58,7 @@ class mcuf::SystemRegister extends mcuf::Object{
    * Variable <Private>
    */
   private:
-    mcuf::function::RunnableEntity mIdleTask;
+    mcuf::RunnableEntity mIdleTask;
     ErrorCodeHandler mErrorCodeHandler;
     SystemReset mSystemReset;
     mcuf::PrintStream* mPrintStream;
@@ -141,7 +141,7 @@ class mcuf::SystemRegister extends mcuf::Object{
      * 
      * @param task 
      */
-    void setIdleTask(mcuf::function::RunnableEntity task);
+    void setIdleTask(mcuf::RunnableEntity task);
 
     /**
      * @brief Set the Interface Kernel object

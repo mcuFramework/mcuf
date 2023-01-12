@@ -17,7 +17,7 @@
 #include "./ArrayPrototype.h"
 #include "./Object.h"
 #include "./Memory.h"
-#include "./String.h"
+#include "./Strings.h"
 #include "./Buffer.h"
 
 /* ****************************************************************************************
@@ -122,7 +122,7 @@ public mcuf::Buffer{
     /**
      *
      */
-    inline ByteBuffer& operator<<(mcuf::String& string){
+    inline ByteBuffer& operator<<(mcuf::Strings& string){
       ByteBuffer::put(string);
       return *this;
     }        
@@ -558,7 +558,7 @@ public mcuf::Buffer{
      * @return true 
      * @return false 
      */
-    bool put(const mcuf::String& string);
+    bool put(const mcuf::Strings& string);
     
     /**
      * @brief 

@@ -162,14 +162,14 @@ class mcuf::System final extends mcuf::Object{
      * @return true 
      * @return false 
      */
-    static void execute(mcuf::function::Runnable& runnable);
+    static void execute(mcuf::Runnable& runnable);
 
     /**
      * @brief 
      * 
      * @param runnable 
      */
-    static void tick(mcuf::function::Runnable& runnable);
+    static void tick(mcuf::Runnable& runnable);
     
     /**
      * @brief 執行idle是件

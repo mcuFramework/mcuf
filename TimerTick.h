@@ -77,7 +77,7 @@ class mcuf::TimerTick extends mcuf::TimerTask{
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::function::Runnable
+   * Public Method <Override> - mcuf::Runnable
    */
   public:
     /**

@@ -112,7 +112,7 @@ interface mcuf::Map extends virtual mcuf::Interface{
    * 
    * @param function 
    */
-  virtual void forEach(mcuf::function::BiConsumer<K, V>& function) abstract;
+  virtual void forEach(mcuf::BiConsumer<K, V>& function) abstract;
 
 };
 

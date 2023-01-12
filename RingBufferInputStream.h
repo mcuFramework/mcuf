@@ -32,7 +32,7 @@ namespace mcuf{
  */  
 class mcuf::RingBufferInputStream extends mcuf::RingBuffer implements
 public mcuf::InputStreamBuffer,
-public mcuf::function::Runnable{
+public mcuf::Runnable{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -231,7 +231,7 @@ public mcuf::function::Runnable{
     
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::function::Runnable
+   * Public Method <Override> - mcuf::Runnable
    */
   public:
     /**

@@ -41,7 +41,7 @@ class mcuf::ThreadEvent extends mcuf::Thread{
    * Variable <Private>
    */
   private:
-    mcuf::function::Runnable* mRunnable;
+    mcuf::Runnable* mRunnable;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -63,7 +63,7 @@ class mcuf::ThreadEvent extends mcuf::Thread{
      * @param name 
      * @param runnable 
      */
-    ThreadEvent(mcuf::function::Runnable& runnable, uint32_t stackSize);
+    ThreadEvent(mcuf::Runnable& runnable, uint32_t stackSize);
 
     /**
      * @brief Destroy the Thread Event object

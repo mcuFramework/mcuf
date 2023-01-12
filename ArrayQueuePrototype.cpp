@@ -178,7 +178,7 @@ int ArrayQueuePrototype::size(void) const{
  * @param attachment 
  * @param action 
  */
-void ArrayQueuePrototype::foreachPrototype(void* attachment, mcuf::function::BiConsumer<void*, void*>& action) const{
+void ArrayQueuePrototype::foreachPrototype(void* attachment, mcuf::BiConsumer<void*, void*>& action) const{
   if(this->isEmpty())
     return;
   void** p = static_cast<void**>(this->Pointer::pointer());

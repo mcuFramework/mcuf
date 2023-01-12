@@ -21,7 +21,7 @@ using mcuf::InputBuffer;
 using mcuf::OutputBuffer;
 using mcuf::Memory;
 using mcuf::System;
-using mcuf::String;
+using mcuf::Strings;
 
 /* ****************************************************************************************
  * Construct Method
@@ -317,7 +317,7 @@ bool ByteBuffer::put(char const* string){
  * @return true 
  * @return false 
  */
-bool ByteBuffer::put(const String& string){
+bool ByteBuffer::put(const Strings& string){
   return ByteBuffer::put(string.pointer(), string.size());
 }
 
@@ -334,7 +334,7 @@ int ByteBuffer::putFormat(const char* format, ...){
   
   va_list args;
   va_start(args, format);
-  int result = String::format(ByteBuffer::pointer(ByteBuffer::mPosition), static_cast<size_t>(ByteBuffer::remaining()), format, args);
+  int result = Strings::format(ByteBuffer::pointer(ByteBuffer::mPosition), static_cast<size_t>(ByteBuffer::remaining()), format, args);
   
   va_end(args);
   
@@ -350,7 +350,7 @@ int ByteBuffer::putFormat(const char* format, ...){
  * @return int 
  */
 int ByteBuffer::putFormat(const char* format, va_list args){
-  int result = String::format(ByteBuffer::pointer(ByteBuffer::mPosition), static_cast<size_t>(ByteBuffer::remaining()), format, args);
+  int result = Strings::format(ByteBuffer::pointer(ByteBuffer::mPosition), static_cast<size_t>(ByteBuffer::remaining()), format, args);
   ByteBuffer::mPosition += result;
   return result; 
 }

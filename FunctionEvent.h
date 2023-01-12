@@ -27,8 +27,8 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<typename T, typename R>
-class mcuf::function::FunctionEvent extends mcuf::Object implements 
-  public mcuf::function::Function<T, R>{
+class mcuf::FunctionEvent extends mcuf::Object implements 
+  public mcuf::Function<T, R>{
 
   typedef R (*Method)(T);
   /* **************************************************************************************

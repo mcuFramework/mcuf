@@ -27,7 +27,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::Executor extends mcuf::ArrayQueue<mcuf::function::Runnable>{
+class mcuf::Executor extends mcuf::ArrayQueue<mcuf::Runnable>{
   
   /* **************************************************************************************
    * Variable <Public>
@@ -84,7 +84,7 @@ class mcuf::Executor extends mcuf::ArrayQueue<mcuf::function::Runnable>{
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::function::Runnable
+   * Public Method <Override> - mcuf::Runnable
    */
    
   /* **************************************************************************************
@@ -99,7 +99,7 @@ class mcuf::Executor extends mcuf::ArrayQueue<mcuf::function::Runnable>{
      * @return true 
      * @return false 
      */
-    bool execute(mcuf::function::Runnable* runnable);
+    bool execute(mcuf::Runnable* runnable);
 
     /**
      * @brief 

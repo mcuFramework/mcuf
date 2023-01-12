@@ -407,8 +407,8 @@ int Data::indexOfData(const void* destination, int destinationLen, int start) co
  * @param str 
  * @return int 
  */
-int Data::indexOfString(const char* str) const{
-  return Pointer::indexOfString(str, Data::length());
+int Data::indexOfStrings(const char* str) const{
+  return Pointer::indexOfStrings(str, Data::length());
 }
 
 /* ****************************************************************************************

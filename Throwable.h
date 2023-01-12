@@ -17,7 +17,7 @@
 
 //-----------------------------------------------------------------------------------------
 #include "./Object.h"
-#include "./String.h"
+#include "./Strings.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -43,7 +43,7 @@ class mcuf::Throwable extends mcuf::Object{
    * Variable <Protected>
    */
   protected: 
-    mcuf::String mMessage;
+    mcuf::Strings mMessage;
 
   /* **************************************************************************************
    * Variable <Private>
@@ -73,14 +73,14 @@ class mcuf::Throwable extends mcuf::Object{
      * 
      * @param message 
      */
-    Throwable(const mcuf::String& message);
+    Throwable(const mcuf::Strings& message);
 
     /**
      * @brief Construct a new Throwable object
      * 
      * @param message 
      */
-    Throwable(mcuf::String&& message);
+    Throwable(mcuf::Strings&& message);
 
     /**
      * @brief Destroy the Throwable object

@@ -142,8 +142,8 @@ class mcuf::ArrayQueue extends mcuf::ArrayQueuePrototype implements
      * @param attachment user data.
      * @param action action The action to be performed for each element.
      */
-    virtual void forEach(void* attachment, mcuf::function::BiConsumer<E*, void*>& action) const override{
-      this->foreachPrototype(attachment, reinterpret_cast<mcuf::function::BiConsumer<void*, void*>&>(action));
+    virtual void forEach(void* attachment, mcuf::BiConsumer<E*, void*>& action) const override{
+      this->foreachPrototype(attachment, reinterpret_cast<mcuf::BiConsumer<void*, void*>&>(action));
     }
   
   /* **************************************************************************************

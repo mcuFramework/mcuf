@@ -23,13 +23,13 @@
  * Namespace
  */  
 namespace mcuf{
-  class String;
+  class Strings;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::String final extends mcuf::Memory{
+class mcuf::Strings final extends mcuf::Memory{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -57,39 +57,39 @@ class mcuf::String final extends mcuf::Memory{
   public: 
   
     /**
-     * @brief Construct a new String object
+     * @brief Construct a new Strings object
      * 
      * @param pointer 
      * @param size 
      */
-    String(void* pointer, unsigned int size);
+    Strings(void* pointer, unsigned int size);
 
     /**
-     * @brief Construct a new String object
+     * @brief Construct a new Strings object
      * 
      * @param str 
      */
-    String(const char* str);
+    Strings(const char* str);
     
     /**
-     * @brief Construct a new String object
+     * @brief Construct a new Strings object
      * 
      * @param memory 
      */
-    String(const mcuf::Memory& memory);
+    Strings(const mcuf::Memory& memory);
 
     /**
-     * @brief Construct a new String object
+     * @brief Construct a new Strings object
      * 
      * @param length 
      */
-    String(size_t length);
+    Strings(size_t length);
 
     /**
-     * @brief Destroy the String object
+     * @brief Destroy the Strings object
      * 
      */
-    virtual ~String(void) override;
+    virtual ~Strings(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -109,9 +109,9 @@ class mcuf::String final extends mcuf::Memory{
      * @brief 
      * 
      * @param str 
-     * @return String& 
+     * @return Strings& 
      */
-    inline String& operator+=(const char* str){
+    inline Strings& operator+=(const char* str){
       this->append(str);
       return *this;
     }
@@ -120,9 +120,9 @@ class mcuf::String final extends mcuf::Memory{
      * @brief 
      * 
      * @param str 
-     * @return String& 
+     * @return Strings& 
      */
-    inline String& operator=(const char* str){
+    inline Strings& operator=(const char* str){
       this->set(str);
       return *this;
     }
@@ -134,9 +134,9 @@ class mcuf::String final extends mcuf::Memory{
     /**
      * @brief 
      * 
-     * @return String 
+     * @return Strings 
      */
-    static String empty(void);
+    static Strings empty(void);
 
     /**
      * @brief 
@@ -185,9 +185,9 @@ class mcuf::String final extends mcuf::Memory{
      * 
      * @param format 
      * @param ... 
-     * @return String 
+     * @return Strings 
      */
-    static String format(int bufferSize, const char* format, ...);    
+    static Strings format(int bufferSize, const char* format, ...);    
     
     /**
      * @brief 
@@ -294,39 +294,39 @@ class mcuf::String final extends mcuf::Memory{
     /**
      * @brief 
      * 
-     * @return String 
+     * @return Strings 
      */
-    String toUpper(void) const;
+    Strings toUpper(void) const;
 
     /**
      * @brief 
      * 
-     * @return String 
+     * @return Strings 
      */
-    String toLower(void) const;
+    Strings toLower(void) const;
     
     /**
      * @brief 
      * 
-     * @return String 
+     * @return Strings 
      */
-    String clone(void) const;
+    Strings clone(void) const;
     
     /**
      * @brief 
      * 
      * @param length 
-     * @return String 
+     * @return Strings 
      */
-    String clone(int length) const;
+    Strings clone(int length) const;
     
     /**
      * @brief 
      * 
      * @param offset  
-     * @return String 
+     * @return Strings 
      */
-    String clone(int offset, int length) const;
+    Strings clone(int offset, int length) const;
 
     /**
      * @brief 
@@ -343,7 +343,7 @@ class mcuf::String final extends mcuf::Memory{
      * @param str 
      * @return int 
      */
-    String& append(const char* str);
+    Strings& append(const char* str);
     
     /**
      * @brief 
@@ -351,7 +351,7 @@ class mcuf::String final extends mcuf::Memory{
      * @param str 
      * @return int 
      */
-    String& set(const char* str);
+    Strings& set(const char* str);
 
   /* **************************************************************************************
    * Public Method <Inline>

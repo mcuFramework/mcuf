@@ -13,12 +13,12 @@
 #include <math.h>
 
 //-----------------------------------------------------------------------------------------
-#include "./Math.h"
+#include "./Maths.h"
  
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::Math;
+using mcuf::Maths;
  
 /* ****************************************************************************************
  * Construct Method
@@ -27,7 +27,7 @@ using mcuf::Math;
  * @brief Construct a new Math object
  * 
  */
-Math::Math(void){
+Maths::Maths(void){
   return;
 }
 
@@ -35,7 +35,7 @@ Math::Math(void){
  * @brief Destroy the Math object
  * 
  */
-Math::~Math(void){
+Maths::~Maths(void){
   return;
 }
 
@@ -52,7 +52,7 @@ Math::~Math(void){
  * @param x 
  * @return std::double
  */
-double Math::acos(double x){
+double Maths::acos(double x){
   return std::acos(x);
 }
 
@@ -62,7 +62,7 @@ double Math::acos(double x){
  * @param x 
  * @return std::double
  */
-double Math::asin(double x){
+double Maths::asin(double x){
   return std::asin(x);
 }
 
@@ -72,7 +72,7 @@ double Math::asin(double x){
  * @param x 
  * @return std::double
  */
-double Math::atan(double x){
+double Maths::atan(double x){
   return std::atan(x);
 }
 
@@ -83,7 +83,7 @@ double Math::atan(double x){
  * @param x 
  * @return std::double
  */
-double Math::atan2(double y, double x){
+double Maths::atan2(double y, double x){
   return std::atan2(y, x);
 }
 
@@ -93,7 +93,7 @@ double Math::atan2(double y, double x){
  * @param x 
  * @return std::double
  */
-double Math::cos(double x){
+double Maths::cos(double x){
   return std::cos(x);
 }
 
@@ -103,7 +103,7 @@ double Math::cos(double x){
  * @param x 
  * @return std::double
  */
-double Math::cosh(double x){
+double Maths::cosh(double x){
   return std::cosh(x);
 }
 
@@ -113,7 +113,7 @@ double Math::cosh(double x){
  * @param x 
  * @return std::double
  */
-double Math::sin(double x){
+double Maths::sin(double x){
   return std::sin(x);
 }
 
@@ -123,7 +123,7 @@ double Math::sin(double x){
  * @param x 
  * @return std::double
  */
-double Math::sinh(double x){
+double Maths::sinh(double x){
   return std::sinh(x);
 }
 
@@ -133,7 +133,7 @@ double Math::sinh(double x){
  * @param x 
  * @return std::double
  */
-double Math::tanh(double x){
+double Maths::tanh(double x){
   return std::tanh(x);
 }
 
@@ -145,7 +145,7 @@ double Math::tanh(double x){
  * @param exponent 
  * @return std::double
  */
-double Math::frexp(double x, int *exponent){
+double Maths::frexp(double x, int *exponent){
   return std::frexp(x, exponent);
 }
 
@@ -156,7 +156,7 @@ double Math::frexp(double x, int *exponent){
  * @param exponent 
  * @return std::double
  */
-double Math::ldexp(double x, int exponent){
+double Maths::ldexp(double x, int exponent){
   return std::ldexp(x, exponent);
 }
   
@@ -166,7 +166,7 @@ double Math::ldexp(double x, int exponent){
  * @param x 
  * @return std::double
  */
-double Math::log(double x){
+double Maths::log(double x){
   return std::log(x);
 }
 
@@ -176,7 +176,7 @@ double Math::log(double x){
  * @param x 
  * @return std::double
  */
-double Math::log10(double x){
+double Maths::log10(double x){
   return std::log10(x);
 }
 
@@ -187,7 +187,7 @@ double Math::log10(double x){
  * @param integer 
  * @return std::double
  */
-double Math::modf(double x, double *integer){
+double Maths::modf(double x, double *integer){
   return std::modf(x, integer);
 }
 
@@ -198,7 +198,7 @@ double Math::modf(double x, double *integer){
  * @param y 
  * @return std::double
  */
-double Math::pow(double x, double y){
+double Maths::pow(double x, double y){
   return std::pow(x, y);
 }
 
@@ -208,7 +208,7 @@ double Math::pow(double x, double y){
  * @param x 
  * @return std::double
  */
-double Math::sqrt(double x){
+double Maths::sqrt(double x){
   return std::sqrt(x);
 }
 
@@ -218,7 +218,7 @@ double Math::sqrt(double x){
  * @param x 
  * @return std::double
  */
-double Math::ceil(double x){
+double Maths::ceil(double x){
   return std::ceil(x);
 }
 
@@ -228,7 +228,7 @@ double Math::ceil(double x){
  * @param x 
  * @return std::double
  */
-double Math::fabs(double x){
+double Maths::fabs(double x){
   return std::fabs(x);
 }
 
@@ -238,7 +238,7 @@ double Math::fabs(double x){
  * @param x 
  * @return std::double
  */
-double Math::floor(double x){
+double Maths::floor(double x){
   return std::floor(x);
 }
 
@@ -249,7 +249,7 @@ double Math::floor(double x){
  * @param y 
  * @return std::double
  */
-double Math::fmod(double x, double y){
+double Maths::fmod(double x, double y){
   return std::fmod(x, y);
 }
 

@@ -174,7 +174,7 @@ class mcuf::Data extends mcuf::Pointer{
   public:
     using Pointer::copy;
     using Pointer::indexOf;
-    using Pointer::indexOfString;
+    using Pointer::indexOfStrings;
     using Pointer::indexOfData;
   
     /**
@@ -272,7 +272,7 @@ class mcuf::Data extends mcuf::Pointer{
      * @param str 
      * @return int 
      */
-    int indexOfString(const char* str) const;
+    int indexOfStrings(const char* str) const;
     
   /* **************************************************************************************
    * Public Method <Vitrual>

@@ -27,7 +27,7 @@
 
 //-----------------------------------------------------------------------------------------
 using mcuf::net::InternetProtocolAddress;
-using mcuf::String;
+using mcuf::Strings;
 using mcuf::Byte;
 
 /* ****************************************************************************************
@@ -84,7 +84,7 @@ InternetProtocolAddress::InternetProtocolAddress(const uint8_t address[4]){
  * 
  * @param address 
  */
-InternetProtocolAddress::InternetProtocolAddress(const String& address){
+InternetProtocolAddress::InternetProtocolAddress(const Strings& address){
   this->setAddress(address);
   return;
 }
@@ -153,7 +153,7 @@ void InternetProtocolAddress::getAddress(uint8_t* result) const{
  * 
  * @param address 
  */
-void InternetProtocolAddress::getAddress(mcuf::String& result) const{
+void InternetProtocolAddress::getAddress(mcuf::Strings& result) const{
   result.format("%d.%d.%d.%d\0", this->mInternetProtocolAddress[0], 
                                  this->mInternetProtocolAddress[1], 
                                  this->mInternetProtocolAddress[2], 
@@ -164,10 +164,10 @@ void InternetProtocolAddress::getAddress(mcuf::String& result) const{
 /**
  * @brief 
  * 
- * @return mcuf::String 
+ * @return mcuf::Strings 
  */
-String InternetProtocolAddress::toString(void) const{
-  String result = String(16);
+Strings InternetProtocolAddress::toStrings(void) const{
+  Strings result = Strings(16);
   this->getAddress(result);                                 
   return result;
 }
@@ -213,7 +213,7 @@ void InternetProtocolAddress::setAddress(const uint8_t address[4]){
  * 
  * @param address 
  */
-void InternetProtocolAddress::setAddress(const mcuf::String& address){
+void InternetProtocolAddress::setAddress(const mcuf::Strings& address){
   *reinterpret_cast<uint32_t*>(this->mInternetProtocolAddress) = 0;
   char cache[4];
   int head = 0;

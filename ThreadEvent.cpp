@@ -16,7 +16,7 @@
  * Using
  */  
 using mcuf::ThreadEvent;
-using mcuf::function::Runnable;
+using mcuf::Runnable;
 
 /* ****************************************************************************************
  * Variable <Static>

@@ -267,7 +267,7 @@ bool PrintStream::print(int i, bool newLine, bool unsign){
  * @return true 
  * @return false 
  */
-bool PrintStream::print(const mcuf::String& string, bool newLine){
+bool PrintStream::print(const mcuf::Strings& string, bool newLine){
   if(this->mOutputStream.writeBusy())
     return false;
 

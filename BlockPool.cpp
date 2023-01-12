@@ -10,16 +10,16 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "./Math.h"
+#include "./Maths.h"
 #include "./BlockPool.h"
 
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::Math;
+using mcuf::Maths;
 using mcuf::BlockPool;
 using mcuf::Memory;
-using mcuf::function::BiConsumer;
+using mcuf::BiConsumer;
 
 /* ****************************************************************************************
  * Construct Method
@@ -31,7 +31,7 @@ using mcuf::function::BiConsumer;
 BlockPool::BlockPool(const Memory& memory, uint32_t elementSize) : Memory(memory){
   this->mElementSize = elementSize;
   this->mCapacity = static_cast<uint32_t>(this->length()) / this->mElementSize;
-  this->mFlagSize = Math::ceil(this->mCapacity, 8U);
+  this->mFlagSize = Maths::ceil(this->mCapacity, 8U);
   this->mFlags = static_cast<uint8_t*>(this->pointer(static_cast<uint32_t>(this->length()) - this->mFlagSize));
   this->mLastFlag = 0xFFFFFFFF;
   this->mSize = 0;

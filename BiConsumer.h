@@ -17,16 +17,14 @@
  * Namespace
  */  
 namespace mcuf{
-  namespace function{
-    template<typename T, typename U> interface BiConsumer;
-  }
+  template<typename T, typename U> interface BiConsumer;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
 template<typename T, typename U>
-interface mcuf::function::BiConsumer extends virtual mcuf::Interface{
+interface mcuf::BiConsumer extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method 

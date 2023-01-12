@@ -17,7 +17,7 @@
 //-----------------------------------------------------------------------------------------
 #include "./InternetProtocolAddress.h"
 #include "./Object.h"
-#include "./String.h"
+#include "./Strings.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -105,7 +105,7 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
      * @param address 
      * @param port 
      */
-    SocketAddress(const mcuf::String& address, const uint16_t port);
+    SocketAddress(const mcuf::Strings& address, const uint16_t port);
 
     /**
      * @brief Destroy the Socket Address object
@@ -128,9 +128,9 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
     /**
      * @brief 
      * 
-     * @return mcuf::String 
+     * @return mcuf::Strings 
      */
-    virtual mcuf::String toString(void) const override;
+    virtual mcuf::Strings toStrings(void) const override;
 
   /* **************************************************************************************
    * Public Method
@@ -149,7 +149,7 @@ class mcuf::net::SocketAddress extends mcuf::net::InternetProtocolAddress{
      * 
      * @param result 
      */
-    virtual void getSocketAddress(mcuf::String& result) const;
+    virtual void getSocketAddress(mcuf::Strings& result) const;
 
     /**
      * @brief Set the Port object

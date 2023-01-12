@@ -18,16 +18,14 @@
  * Namespace
  */  
 namespace mcuf{
-  namespace function{
-    template<typename T> interface Consumer;
-  }
+  template<typename T> interface Consumer;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
 template<typename T>
-interface mcuf::function::Consumer extends virtual mcuf::Interface{
+interface mcuf::Consumer extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method

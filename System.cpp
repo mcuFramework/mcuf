@@ -12,7 +12,7 @@
 #include <stdlib.h>
 
 //-----------------------------------------------------------------------------------------
-#include "./Math.h"
+#include "./Maths.h"
 #include "./System.h"
 #include "./ThreadEvent.h"
 #include "./CoreThread.h"
@@ -37,8 +37,8 @@ extern const uint32_t mcufTickTaskNumber;
  * Using
  */  
 
-using mcuf::function::Runnable;
-using mcuf::Math;
+using mcuf::Runnable;
+using mcuf::Maths;
 using mcuf::Memory;
 using mcuf::System;
 using mcuf::CoreTick;
@@ -201,7 +201,7 @@ uint32_t System::getCoreClock(void){
  * @return true 
  * @return false 
  */
-void System::execute(mcuf::function::Runnable& runnable){
+void System::execute(mcuf::Runnable& runnable){
   if(System::mCoreThread->execute(runnable) == false)
     runnable.run();
 }
@@ -211,7 +211,7 @@ void System::execute(mcuf::function::Runnable& runnable){
  * 
  * @param runnable 
  */
-void System::tick(mcuf::function::Runnable& runnable){
+void System::tick(mcuf::Runnable& runnable){
   if(System::mCoreThread->tick(runnable) == false)
     System::error(nullptr, mcuf::ErrorCode::OUT_OF_MEMORY);
 }

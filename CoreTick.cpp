@@ -66,7 +66,7 @@ CoreTick::~CoreTick(void){
  */
 
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::function::Runnable
+ * Public Method <Override> - mcuf::Runnable
  */
 
 /**

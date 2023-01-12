@@ -27,7 +27,7 @@
 
 //-----------------------------------------------------------------------------------------
 using mcuf::net::SocketAddress;
-using mcuf::String;
+using mcuf::Strings;
 using mcuf::Byte;
 using mcuf::net::InternetProtocolAddress;
 
@@ -103,7 +103,7 @@ InternetProtocolAddress(address){
  * @param address 
  * @param port 
  */
-SocketAddress::SocketAddress(const String& address, const uint16_t port) : 
+SocketAddress::SocketAddress(const Strings& address, const uint16_t port) : 
 InternetProtocolAddress(address){
   this->mPort = port;
 }
@@ -131,10 +131,10 @@ SocketAddress::~SocketAddress(void){
 /**
  * @brief 
  * 
- * @return mcuf::String 
+ * @return mcuf::Strings 
  */
-String SocketAddress::toString(void) const{
-  String result = String(22);
+Strings SocketAddress::toStrings(void) const{
+  Strings result = Strings(22);
   this->getSocketAddress(result);
   return result;
 }
@@ -157,7 +157,7 @@ uint16_t SocketAddress::getPort(void) const{
  * 
  * @param result 
  */
-void SocketAddress::getSocketAddress(mcuf::String& result) const{
+void SocketAddress::getSocketAddress(mcuf::Strings& result) const{
   result.format("%d.%d.%d.%d:%d\0", this->mInternetProtocolAddress[0], 
                                     this->mInternetProtocolAddress[1], 
                                     this->mInternetProtocolAddress[2], 

@@ -27,8 +27,8 @@ namespace mcuf{
  * Class/Interface/Struct
  */  
 template<class T, class U>
-class mcuf::function::BiConsumerEvent extends mcuf::Object implements 
-  public mcuf::function::BiConsumer<T, U> {
+class mcuf::BiConsumerEvent extends mcuf::Object implements 
+  public mcuf::BiConsumer<T, U> {
 
   /* **************************************************************************************
    * Variable <Public>
@@ -83,7 +83,7 @@ class mcuf::function::BiConsumerEvent extends mcuf::Object implements
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::function::BiConsumer<T, U>
+   * Public Method <Override> - mcuf::BiConsumer<T, U>
    */
   public:
 

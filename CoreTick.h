@@ -84,7 +84,7 @@ class mcuf::CoreTick extends mcuf::TimerTask{
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::function::Runnable
+   * Public Method <Override> - mcuf::Runnable
    */
   public:
     /**

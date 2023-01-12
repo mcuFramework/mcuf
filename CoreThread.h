@@ -95,7 +95,7 @@ class mcuf::CoreThread extends mcuf::Thread{
    */
   
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::function::Runnable
+   * Public Method <Override> - mcuf::Runnable
    */
   public: 
   
@@ -109,7 +109,7 @@ class mcuf::CoreThread extends mcuf::Thread{
    * Public Method <Inline>
    */
   public:   
-    bool tick(mcuf::function::Runnable& runnable){
+    bool tick(mcuf::Runnable& runnable){
       return this->mCoreTick.mExecutor.execute(&runnable);
     }
   
@@ -125,7 +125,7 @@ class mcuf::CoreThread extends mcuf::Thread{
      * @return true 
      * @return false 
      */
-    bool execute(mcuf::function::Runnable& runnable);
+    bool execute(mcuf::Runnable& runnable);
 
     /**
      * @brief 
