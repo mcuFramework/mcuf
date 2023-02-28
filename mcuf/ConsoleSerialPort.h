@@ -4,36 +4,38 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
-#ifndef MCUF_F7B1526F_354D_4CB2_A881_9E0684740E59
-#define MCUF_F7B1526F_354D_4CB2_A881_9E0684740E59
+#ifndef MCUF_55715FD2_5F5F_42BC_B7D1_A46F23C6500E
+#define MCUF_55715FD2_5F5F_42BC_B7D1_A46F23C6500E
 
 /* ****************************************************************************************
  * Include
  */  
 
 //-----------------------------------------------------------------------------------------
+#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "./mcuf_base.h"
-#include "./TimerTask.h"
-#include "./rtos/InterfaceTimer.h"
+#include "./Console.h"
+#include "./PrintStream.h"
+#include "./OutputStreamHandler.h"
+
+//-----------------------------------------------------------------------------------------
+#include "./../hal/SerialPort.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  class Timer;
-  class System;
+  class ConsoleSerialPort;
 }
 
+
 /* ****************************************************************************************
- * Class/Interface/Struct
+ * Class/Interface/Struct/Enum
  */  
-class mcuf::Timer extends mcuf::Object{
-  
-  friend mcuf::System;
-  friend mcuf::TimerTask;
+class mcuf::ConsoleSerialPort extends mcuf::Object implements
+public mcuf::Console{
+
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -46,8 +48,10 @@ class mcuf::Timer extends mcuf::Object{
    * Variable <Private>
    */
   private:
-    static mcuf::rtos::InterfaceTimer* sInterfaceTimer;
-    
+    mcuf::hal::SerialPort& mSerialPort;
+    mcuf::OutputStreamHandler mOutputStreamHandler;
+    mcuf::PrintStream mPrintStream;
+
   /* **************************************************************************************
    * Abstract method <Public>
    */
@@ -59,21 +63,22 @@ class mcuf::Timer extends mcuf::Object{
   /* **************************************************************************************
    * Construct Method
    */
-  private:
+  public: 
     /**
-     * @brief Construct a new Timer Scheduler object
+     * @brief Construct a new Console Serial Port object
      * 
-     * @param memory 
+     * @param mSerialPort 
+     * @param formatSize 
+     * @param bufferSize 
      */
-    Timer(void);
-    
-  public:  
+    ConsoleSerialPort(mcuf::hal::SerialPort& serialPort, uint32_t formatSize, uint32_t bufferSize);
+
     /**
-     * @brief Destroy the Timer Scheduler object
+     * @brief Destroy the Console Serial Port object
      * 
      */
-    virtual ~Timer(void) override;
-  
+    virtual ~ConsoleSerialPort(void) override;
+
   /* **************************************************************************************
    * Operator Method
    */
@@ -81,33 +86,29 @@ class mcuf::Timer extends mcuf::Object{
   /* **************************************************************************************
    * Public Method <Static>
    */
-  public:
 
+  /* **************************************************************************************
+   * Public Method <Override> - mcuf::Console
+   */
+  public:
     /**
-     * @brief Schedules the specified task for execution after the specified delay.
+     * @brief 
      * 
-     * @param task task to be scheduled.
-     * @param delay  delay in milliseconds before task is to be executed.
-     * @return true successful.
-     * @return false 
+     * @return mcuf::PrintStream& 
      */
-    static bool schedule(mcuf::TimerTask& task, uint32_t delay);
+    virtual mcuf::PrintStream& out(void) override;
 
     /**
      * @brief 
      * 
-     * @param task 
-     * @param delay 
-     * @param period 
-     * @return true successful
-     * @return false this task was already scheduled or cancelled.
+     * @return mcuf::InputStreamBuffer& 
      */
-    static bool scheduleAtFixedRate(mcuf::TimerTask& task, uint32_t delay);
-    
+    virtual mcuf::InputStreamBuffer& in(void) override;
+
   /* **************************************************************************************
-   * Public Method 
+   * Public Method
    */
-   
+
   /* **************************************************************************************
    * Protected Method <Static>
    */
@@ -123,47 +124,19 @@ class mcuf::Timer extends mcuf::Object{
   /* **************************************************************************************
    * Private Method <Static>
    */
-  private:
-
-    /**
-     * @brief Set the Interface Timer object
-     * 
-     * @param imterfaceTimer 
-     */
-    static void setInterfaceTimer(mcuf::rtos::InterfaceTimer& interfaceTimer);
-
-    /**
-     * @brief 
-     * 
-     * @param attachment 
-     */
-    static void entryPoint(void* attachment);   
-  
-  /* **************************************************************************************
-   * Private Method <Static Inline>
-   */
 
   /* **************************************************************************************
    * Private Method <Override>
    */
-   
-  /* **************************************************************************************
-   * Private Method <Inline>
-   */  
-    
+
   /* **************************************************************************************
    * Private Method
-   */  
-  private:
-    /**
-     *
-     */
-    static bool schedule(mcuf::TimerTask& task, uint32_t delay, bool mode); 
+   */
 
 };
 
-/* *****************************************************************************************
+/* ****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_F7B1526F_354D_4CB2_A881_9E0684740E59 */
+#endif /* MCUF_55715FD2_5F5F_42BC_B7D1_A46F23C6500E */

@@ -4,39 +4,43 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_68E08971_6DB0_4724_A5F9_B11D8FDC7B5B
-#define MCUF_68E08971_6DB0_4724_A5F9_B11D8FDC7B5B
+
+#ifndef MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C
+#define MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C
 
 /* ****************************************************************************************
  * Include
- */  
+ */
 
 //-----------------------------------------------------------------------------------------
 #include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
+#include "./ErrorCode.h"
 #include "./Object.h"
-
-//-----------------------------------------------------------------------------------------
-#include "./hal/AnalogInputPin.h"
+#include "./Thread.h"
+#include "./CoreTick.h"
+#include "./CoreThread.h"
+#include "./SystemRegister.h"
+#include "./../rtos/InterfaceKernel.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  class Voltmeter;
+  class System;
 }
 
-
 /* ****************************************************************************************
- * Class/Interface/Struct/Enum
+ * Class/Interface/Struct
  */  
-class mcuf::Voltmeter extends mcuf::Object{
-
+class mcuf::System final extends mcuf::Object{
+  friend Object;
+  
   /* **************************************************************************************
    * Variable <Public>
    */
-
+  
   /* **************************************************************************************
    * Variable <Protected>
    */
@@ -44,11 +48,10 @@ class mcuf::Voltmeter extends mcuf::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private:
-    mcuf::hal::AnalogInputPin& mAnalogPin;
-    float mVoltageMin;
-    float mVoltageMax;
-    float mVoltageDelta;
+  private: 
+    static mcuf::rtos::InterfaceKernel* sInterfaceKernel;
+    static mcuf::SystemRegister* mSystemRegister;
+    static mcuf::CoreThread* mCoreThread;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -61,21 +64,19 @@ class mcuf::Voltmeter extends mcuf::Object{
   /* **************************************************************************************
    * Construct Method
    */
-  public: 
+  private:
+  
     /**
-     * @brief Construct a new Voltmeter object
+     * @brief Construct a new System object
      * 
-     * @param analogPin 
-     * @param voltmeterMin 
-     * @param voltmeterMax 
      */
-    Voltmeter(mcuf::hal::AnalogInputPin& analogPin, float voltmeterMin, float voltmeterMax);
+    System(void);
 
     /**
-     * @brief Destroy the Voltmeter object
+     * @brief Destroy the System object
      * 
      */
-    virtual ~Voltmeter(void) override;
+    virtual ~System(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -83,6 +84,101 @@ class mcuf::Voltmeter extends mcuf::Object{
 
   /* **************************************************************************************
    * Public Method <Static>
+   */
+  public:
+
+    /**
+     * @brief 
+     * 
+     */
+    static void reboot(void);
+
+    /**
+     * @brief 
+     * 
+     * @return mcuf::InputStream& 
+     */
+    static mcuf::InputStreamBuffer& in(void);
+
+    /**
+     * @brief 
+     * 
+     * @return mcuf::PrintStream& 
+     */
+    static mcuf::PrintStream& out(void);
+      
+    /**
+     * @brief 
+     * 
+     */
+    static void initialize(void);
+    
+    /**
+     * @brief 
+     * 
+     */
+    static void setup(void);    
+      
+    /**
+     * @brief 
+     * 
+     * @param userThread 
+     */
+    static void start(mcuf::Thread& userThread);
+
+    /**
+     * @brief 
+     * 
+     * @param address 
+     * @param code
+     */
+    static void error(const void* address, ErrorCode code);
+    
+    /**
+     * @brief Get the Register object
+     * 
+     * @return mcuf::SystemRegister 
+     */
+    static mcuf::SystemRegister& getRegister(void);
+    
+    /**
+     * @brief Get the Core Clock object
+     * 
+     * @return uint32_t 
+     */
+    static uint32_t getCoreClock(void);
+    
+    /**
+     * @brief 
+     * 
+     * @param times 
+     */
+    static void lowerDelay(uint32_t times);
+  
+    /**
+     * @brief 
+     * 
+     * @param runnable 
+     * @return true 
+     * @return false 
+     */
+    static void execute(mcuf::Runnable& runnable);
+
+    /**
+     * @brief 
+     * 
+     * @param runnable 
+     */
+    static void tick(mcuf::Runnable& runnable);
+    
+    /**
+     * @brief 執行idle是件
+     * 
+     */
+    static void idleTask(void);
+  
+  /* **************************************************************************************
+   * Public Method <Inline Static>
    */
 
   /* **************************************************************************************
@@ -92,41 +188,6 @@ class mcuf::Voltmeter extends mcuf::Object{
   /* **************************************************************************************
    * Public Method
    */
-  public:
-    /**
-     * @brief 
-     * 
-     * @return float 
-     */
-    float voltage(void);
-
-    /**
-     * @brief 
-     * 
-     * @return float 
-     */
-    float voltageMax(void);
-
-    /**
-     * @brief 
-     * 
-     * @param value 
-     */
-    void voltageMax(float value);
-
-    /**
-     * @brief 
-     * 
-     * @return float 
-     */
-    float voltageMin(void);
-
-    /**
-     * @brief 
-     * 
-     * @param value 
-     */
-    void voltageMin(float value);    
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -143,19 +204,28 @@ class mcuf::Voltmeter extends mcuf::Object{
   /* **************************************************************************************
    * Private Method <Static>
    */
-
+  
   /* **************************************************************************************
    * Private Method <Override>
    */
-
+   
   /* **************************************************************************************
    * Private Method
-   */
-
+   */  
+  private:
+    
+    /**
+     * @brief 
+     *
+     */
+    static void setInterfaceKernel(mcuf::rtos::InterfaceKernel& interfacrKernel);
+  
 };
 
-/* ****************************************************************************************
+using mcuf::System;
+
+/* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_68E08971_6DB0_4724_A5F9_B11D8FDC7B5B */
+#endif /* MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C */

@@ -20,9 +20,9 @@
 #include "./InputStreamBuffer.h"
 #include "./ErrorCode.h"
 #include "./RunnableEntity.h"
-#include "./rtos/InterfaceKernel.h"
-#include "./rtos/InterfaceThread.h"
-#include "./rtos/InterfaceTimer.h"
+#include "./../rtos/InterfaceKernel.h"
+#include "./../rtos/InterfaceThread.h"
+#include "./../rtos/InterfaceTimer.h"
 
 /* ****************************************************************************************
  * Namespace

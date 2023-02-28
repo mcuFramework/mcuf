@@ -18,7 +18,7 @@
 #include "./Maths.h"
 #include "./System.h"
 #include "./Thread.h"
-#include "./rtos/InterfaceThread.h"
+#include "./../rtos/InterfaceThread.h"
 
 /* ****************************************************************************************
  * Macro

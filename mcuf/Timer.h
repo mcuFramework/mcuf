@@ -5,42 +5,39 @@
  * SPDX-License-Identifier: MIT
  */
 
-#ifndef MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C
-#define MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C
+#ifndef MCUF_F7B1526F_354D_4CB2_A881_9E0684740E59
+#define MCUF_F7B1526F_354D_4CB2_A881_9E0684740E59
 
 /* ****************************************************************************************
  * Include
- */
+ */  
+
+//-----------------------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------------------
 #include "./mcuf_base.h"
-
-//-----------------------------------------------------------------------------------------
-#include "./ErrorCode.h"
-#include "./Object.h"
-#include "./Thread.h"
-#include "./CoreTick.h"
-#include "./CoreThread.h"
-#include "./SystemRegister.h"
-#include "./rtos/InterfaceKernel.h"
+#include "./TimerTask.h"
+#include "./../rtos/InterfaceTimer.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
+  class Timer;
   class System;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::System final extends mcuf::Object{
-  friend Object;
+class mcuf::Timer extends mcuf::Object{
   
+  friend mcuf::System;
+  friend mcuf::TimerTask;
   /* **************************************************************************************
    * Variable <Public>
    */
-  
+
   /* **************************************************************************************
    * Variable <Protected>
    */
@@ -48,11 +45,9 @@ class mcuf::System final extends mcuf::Object{
   /* **************************************************************************************
    * Variable <Private>
    */
-  private: 
-    static mcuf::rtos::InterfaceKernel* sInterfaceKernel;
-    static mcuf::SystemRegister* mSystemRegister;
-    static mcuf::CoreThread* mCoreThread;
-
+  private:
+    static mcuf::rtos::InterfaceTimer* sInterfaceTimer;
+    
   /* **************************************************************************************
    * Abstract method <Public>
    */
@@ -65,19 +60,20 @@ class mcuf::System final extends mcuf::Object{
    * Construct Method
    */
   private:
+    /**
+     * @brief Construct a new Timer Scheduler object
+     * 
+     * @param memory 
+     */
+    Timer(void);
+    
+  public:  
+    /**
+     * @brief Destroy the Timer Scheduler object
+     * 
+     */
+    virtual ~Timer(void) override;
   
-    /**
-     * @brief Construct a new System object
-     * 
-     */
-    System(void);
-
-    /**
-     * @brief Destroy the System object
-     * 
-     */
-    virtual ~System(void) override;
-
   /* **************************************************************************************
    * Operator Method
    */
@@ -88,107 +84,30 @@ class mcuf::System final extends mcuf::Object{
   public:
 
     /**
-     * @brief 
+     * @brief Schedules the specified task for execution after the specified delay.
      * 
-     */
-    static void reboot(void);
-
-    /**
-     * @brief 
-     * 
-     * @return mcuf::InputStream& 
-     */
-    static mcuf::InputStreamBuffer& in(void);
-
-    /**
-     * @brief 
-     * 
-     * @return mcuf::PrintStream& 
-     */
-    static mcuf::PrintStream& out(void);
-      
-    /**
-     * @brief 
-     * 
-     */
-    static void initialize(void);
-    
-    /**
-     * @brief 
-     * 
-     */
-    static void setup(void);    
-      
-    /**
-     * @brief 
-     * 
-     * @param userThread 
-     */
-    static void start(mcuf::Thread& userThread);
-
-    /**
-     * @brief 
-     * 
-     * @param address 
-     * @param code
-     */
-    static void error(const void* address, ErrorCode code);
-    
-    /**
-     * @brief Get the Register object
-     * 
-     * @return mcuf::SystemRegister 
-     */
-    static mcuf::SystemRegister& getRegister(void);
-    
-    /**
-     * @brief Get the Core Clock object
-     * 
-     * @return uint32_t 
-     */
-    static uint32_t getCoreClock(void);
-    
-    /**
-     * @brief 
-     * 
-     * @param times 
-     */
-    static void lowerDelay(uint32_t times);
-  
-    /**
-     * @brief 
-     * 
-     * @param runnable 
-     * @return true 
+     * @param task task to be scheduled.
+     * @param delay  delay in milliseconds before task is to be executed.
+     * @return true successful.
      * @return false 
      */
-    static void execute(mcuf::Runnable& runnable);
+    static bool schedule(mcuf::TimerTask& task, uint32_t delay);
 
     /**
      * @brief 
      * 
-     * @param runnable 
+     * @param task 
+     * @param delay 
+     * @param period 
+     * @return true successful
+     * @return false this task was already scheduled or cancelled.
      */
-    static void tick(mcuf::Runnable& runnable);
+    static bool scheduleAtFixedRate(mcuf::TimerTask& task, uint32_t delay);
     
-    /**
-     * @brief 執行idle是件
-     * 
-     */
-    static void idleTask(void);
-  
   /* **************************************************************************************
-   * Public Method <Inline Static>
+   * Public Method 
    */
-
-  /* **************************************************************************************
-   * Public Method <Override>
-   */
-
-  /* **************************************************************************************
-   * Public Method
-   */
-
+   
   /* **************************************************************************************
    * Protected Method <Static>
    */
@@ -204,28 +123,47 @@ class mcuf::System final extends mcuf::Object{
   /* **************************************************************************************
    * Private Method <Static>
    */
+  private:
+
+    /**
+     * @brief Set the Interface Timer object
+     * 
+     * @param imterfaceTimer 
+     */
+    static void setInterfaceTimer(mcuf::rtos::InterfaceTimer& interfaceTimer);
+
+    /**
+     * @brief 
+     * 
+     * @param attachment 
+     */
+    static void entryPoint(void* attachment);   
   
+  /* **************************************************************************************
+   * Private Method <Static Inline>
+   */
+
   /* **************************************************************************************
    * Private Method <Override>
    */
    
   /* **************************************************************************************
+   * Private Method <Inline>
+   */  
+    
+  /* **************************************************************************************
    * Private Method
    */  
   private:
-    
     /**
-     * @brief 
      *
      */
-    static void setInterfaceKernel(mcuf::rtos::InterfaceKernel& interfacrKernel);
-  
-};
+    static bool schedule(mcuf::TimerTask& task, uint32_t delay, bool mode); 
 
-using mcuf::System;
+};
 
 /* *****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_DB2618AE_F498_4792_900C_A4BD1DC2E35C */
+#endif /* MCUF_F7B1526F_354D_4CB2_A881_9E0684740E59 */

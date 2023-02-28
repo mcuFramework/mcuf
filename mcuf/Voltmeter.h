@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_5D254320_94DB_4B27_879F_9BDACF1C3A0E
-#define MCUF_5D254320_94DB_4B27_879F_9BDACF1C3A0E
+#ifndef MCUF_68E08971_6DB0_4724_A5F9_B11D8FDC7B5B
+#define MCUF_68E08971_6DB0_4724_A5F9_B11D8FDC7B5B
 
 /* ****************************************************************************************
  * Include
@@ -18,21 +18,20 @@
 #include "./Object.h"
 
 //-----------------------------------------------------------------------------------------
-#include "./hal/AnalogInputPin.h"
+#include "./../hal/AnalogInputPin.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  class VirtualAnalogInputPin;
+  class Voltmeter;
 }
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::VirtualAnalogInputPin extends mcuf::Object implements
-public mcuf::hal::AnalogInputPin{
+class mcuf::Voltmeter extends mcuf::Object{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -46,8 +45,10 @@ public mcuf::hal::AnalogInputPin{
    * Variable <Private>
    */
   private:
-    uint32_t mLevel;
-    uint32_t mValue;
+    mcuf::hal::AnalogInputPin& mAnalogPin;
+    float mVoltageMin;
+    float mVoltageMax;
+    float mVoltageDelta;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -62,16 +63,19 @@ public mcuf::hal::AnalogInputPin{
    */
   public: 
     /**
-     * @brief Construct a new Virtual Analog Input Pin object
+     * @brief Construct a new Voltmeter object
      * 
+     * @param analogPin 
+     * @param voltmeterMin 
+     * @param voltmeterMax 
      */
-    VirtualAnalogInputPin(void);
+    Voltmeter(mcuf::hal::AnalogInputPin& analogPin, float voltmeterMin, float voltmeterMax);
 
     /**
-     * @brief Destroy the Virtual Analog Input Pin object
+     * @brief Destroy the Voltmeter object
      * 
      */
-    virtual ~VirtualAnalogInputPin(void) override;
+    virtual ~Voltmeter(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -82,40 +86,47 @@ public mcuf::hal::AnalogInputPin{
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::hal::AnalogInputPin
+   * Public Method <Override>
    */
-  public:
-    /**
-     * @brief 
-     * 
-     * @return uint32_t 
-     */
-    virtual uint32_t convert(void) override;
-
-    /**
-     * @brief Get the adc convert level.
-     * 
-     * @return uint32_t 
-     */
-    virtual uint32_t getConvertLevel(void) override;
 
   /* **************************************************************************************
    * Public Method
    */
   public:
     /**
-     * @brief Set the Value object
+     * @brief 
+     * 
+     * @return float 
+     */
+    float voltage(void);
+
+    /**
+     * @brief 
+     * 
+     * @return float 
+     */
+    float voltageMax(void);
+
+    /**
+     * @brief 
      * 
      * @param value 
      */
-    virtual void setValue(uint32_t value);
+    void voltageMax(float value);
 
     /**
-     * @brief Set the Convert Level object
+     * @brief 
      * 
-     * @param level 
+     * @return float 
      */
-    virtual void setConvertLevel(uint32_t level);
+    float voltageMin(void);
+
+    /**
+     * @brief 
+     * 
+     * @param value 
+     */
+    void voltageMin(float value);    
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -147,4 +158,4 @@ public mcuf::hal::AnalogInputPin{
  * End of file
  */ 
 
-#endif /* MCUF_5D254320_94DB_4B27_879F_9BDACF1C3A0E */
+#endif /* MCUF_68E08971_6DB0_4724_A5F9_B11D8FDC7B5B */

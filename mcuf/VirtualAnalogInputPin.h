@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_422910B3_C829_4F28_9F7E_4A928F53DA5A
-#define MCUF_422910B3_C829_4F28_9F7E_4A928F53DA5A
+#ifndef MCUF_5D254320_94DB_4B27_879F_9BDACF1C3A0E
+#define MCUF_5D254320_94DB_4B27_879F_9BDACF1C3A0E
 
 /* ****************************************************************************************
  * Include
@@ -18,21 +18,21 @@
 #include "./Object.h"
 
 //-----------------------------------------------------------------------------------------
-#include "./hal/GeneralPin.h"
+#include "./../hal/AnalogInputPin.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  class VirtualGeneralPin;
+  class VirtualAnalogInputPin;
 }
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::VirtualGeneralPin extends mcuf::Object implements
-public mcuf::hal::GeneralPin{
+class mcuf::VirtualAnalogInputPin extends mcuf::Object implements
+public mcuf::hal::AnalogInputPin{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -46,9 +46,8 @@ public mcuf::hal::GeneralPin{
    * Variable <Private>
    */
   private:
-    uint8_t mDir;
-    uint8_t mValue;
-    mcuf::hal::GeneralPinMode mGeneralPinMode;
+    uint32_t mLevel;
+    uint32_t mValue;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -63,16 +62,16 @@ public mcuf::hal::GeneralPin{
    */
   public: 
     /**
-     * @brief Construct a new Virtual General Pin object
+     * @brief Construct a new Virtual Analog Input Pin object
      * 
      */
-    VirtualGeneralPin(void);
+    VirtualAnalogInputPin(void);
 
     /**
-     * @brief Destroy the Virtual General Pin object
+     * @brief Destroy the Virtual Analog Input Pin object
      * 
      */
-    virtual ~VirtualGeneralPin(void) override;
+    virtual ~VirtualAnalogInputPin(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -83,97 +82,40 @@ public mcuf::hal::GeneralPin{
    */
 
   /* **************************************************************************************
-   * Public Method <Override>
+   * Public Method <Override> - mcuf::hal::AnalogInputPin
    */
   public:
     /**
-     * @brief Get io direction.
-     * 
-     * @return true output
-     * @return false input
-     */
-    virtual bool dir(void) override;
-
-    /**
      * @brief 
      * 
-     * @param dir false = input, true = output.
+     * @return uint32_t 
      */
-    virtual void dir(bool dir) override;
-    
-    /**
-     * @brief 
-     * 
-     * @return mcuf::hal::GeneralPinMode 
-     */
-    virtual mcuf::hal::GeneralPinMode pinMode(void) override;
+    virtual uint32_t convert(void) override;
 
     /**
-     * @brief 
+     * @brief Get the adc convert level.
      * 
-     * @param mode 
-     * @return true 
-     * @return false 
+     * @return uint32_t 
      */
-    virtual bool pinMode(mcuf::hal::GeneralPinMode mode) override; 
-
-    /**
-     * @brief Set the High object
-     * 
-     */
-    virtual void setHigh(void) override;
-    
-    /**
-     * @brief Set the Input object
-     * 
-     */
-    virtual void setInput(void) override;
-
-    /**
-     * @brief Set the Low object
-     * 
-     */
-    virtual void setLow(void) override;
-    
-    /**
-     * @brief Set the Output object
-     * 
-     */
-    virtual void setOutput(void) override;
-
-    /**
-     * @brief Set the Toggle object
-     * 
-     */
-    virtual void setToggle(void) override;
-
-    /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
-     */
-    virtual bool value(void) override;
-
-    /**
-     * @brief 
-     * 
-     * @param level 
-     */
-    virtual void value(bool level) override;
+    virtual uint32_t getConvertLevel(void) override;
 
   /* **************************************************************************************
    * Public Method
    */
   public:
     /**
-     * @brief Set the Input Value object
+     * @brief Set the Value object
+     * 
+     * @param value 
+     */
+    virtual void setValue(uint32_t value);
+
+    /**
+     * @brief Set the Convert Level object
      * 
      * @param level 
-     * @return true 
-     * @return false 
      */
-    virtual bool setInputValue(bool level);
+    virtual void setConvertLevel(uint32_t level);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -205,4 +147,4 @@ public mcuf::hal::GeneralPin{
  * End of file
  */ 
 
-#endif /* MCUF_422910B3_C829_4F28_9F7E_4A928F53DA5A */
+#endif /* MCUF_5D254320_94DB_4B27_879F_9BDACF1C3A0E */

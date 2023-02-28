@@ -15,7 +15,7 @@
 #include "./Object.h"
 #include "./System.h"
 #include "./Thread.h"
-#include "./rtos/InterfaceThread.h"
+#include "./../rtos/InterfaceThread.h"
 
 /* ****************************************************************************************
  * Using

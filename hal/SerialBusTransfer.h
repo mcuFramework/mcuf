@@ -12,12 +12,12 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf_base.h"
+#include "../mcuf/mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "../Interface.h"
-#include "../OutputBuffer.h"
-#include "../InputBuffer.h"
+#include "../mcuf/Interface.h"
+#include "../mcuf/OutputBuffer.h"
+#include "../mcuf/InputBuffer.h"
 
 //-----------------------------------------------------------------------------------------
 #include "./SerialBusEvent.h"

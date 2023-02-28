@@ -4,8 +4,8 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-#ifndef MCUF_55715FD2_5F5F_42BC_B7D1_A46F23C6500E
-#define MCUF_55715FD2_5F5F_42BC_B7D1_A46F23C6500E
+#ifndef MCUF_422910B3_C829_4F28_9F7E_4A928F53DA5A
+#define MCUF_422910B3_C829_4F28_9F7E_4A928F53DA5A
 
 /* ****************************************************************************************
  * Include
@@ -15,26 +15,24 @@
 #include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
-#include "./Console.h"
-#include "./PrintStream.h"
-#include "./OutputStreamHandler.h"
+#include "./Object.h"
 
 //-----------------------------------------------------------------------------------------
-#include "./hal/SerialPort.h"
+#include "./../hal/GeneralPin.h"
 
 /* ****************************************************************************************
  * Namespace
  */  
 namespace mcuf{
-  class ConsoleSerialPort;
+  class VirtualGeneralPin;
 }
 
 
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::ConsoleSerialPort extends mcuf::Object implements
-public mcuf::Console{
+class mcuf::VirtualGeneralPin extends mcuf::Object implements
+public mcuf::hal::GeneralPin{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -48,9 +46,9 @@ public mcuf::Console{
    * Variable <Private>
    */
   private:
-    mcuf::hal::SerialPort& mSerialPort;
-    mcuf::OutputStreamHandler mOutputStreamHandler;
-    mcuf::PrintStream mPrintStream;
+    uint8_t mDir;
+    uint8_t mValue;
+    mcuf::hal::GeneralPinMode mGeneralPinMode;
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -65,19 +63,16 @@ public mcuf::Console{
    */
   public: 
     /**
-     * @brief Construct a new Console Serial Port object
+     * @brief Construct a new Virtual General Pin object
      * 
-     * @param mSerialPort 
-     * @param formatSize 
-     * @param bufferSize 
      */
-    ConsoleSerialPort(mcuf::hal::SerialPort& serialPort, uint32_t formatSize, uint32_t bufferSize);
+    VirtualGeneralPin(void);
 
     /**
-     * @brief Destroy the Console Serial Port object
+     * @brief Destroy the Virtual General Pin object
      * 
      */
-    virtual ~ConsoleSerialPort(void) override;
+    virtual ~VirtualGeneralPin(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -88,26 +83,97 @@ public mcuf::Console{
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::Console
+   * Public Method <Override>
    */
   public:
     /**
-     * @brief 
+     * @brief Get io direction.
      * 
-     * @return mcuf::PrintStream& 
+     * @return true output
+     * @return false input
      */
-    virtual mcuf::PrintStream& out(void) override;
+    virtual bool dir(void) override;
 
     /**
      * @brief 
      * 
-     * @return mcuf::InputStreamBuffer& 
+     * @param dir false = input, true = output.
      */
-    virtual mcuf::InputStreamBuffer& in(void) override;
+    virtual void dir(bool dir) override;
+    
+    /**
+     * @brief 
+     * 
+     * @return mcuf::hal::GeneralPinMode 
+     */
+    virtual mcuf::hal::GeneralPinMode pinMode(void) override;
+
+    /**
+     * @brief 
+     * 
+     * @param mode 
+     * @return true 
+     * @return false 
+     */
+    virtual bool pinMode(mcuf::hal::GeneralPinMode mode) override; 
+
+    /**
+     * @brief Set the High object
+     * 
+     */
+    virtual void setHigh(void) override;
+    
+    /**
+     * @brief Set the Input object
+     * 
+     */
+    virtual void setInput(void) override;
+
+    /**
+     * @brief Set the Low object
+     * 
+     */
+    virtual void setLow(void) override;
+    
+    /**
+     * @brief Set the Output object
+     * 
+     */
+    virtual void setOutput(void) override;
+
+    /**
+     * @brief Set the Toggle object
+     * 
+     */
+    virtual void setToggle(void) override;
+
+    /**
+     * @brief 
+     * 
+     * @return true 
+     * @return false 
+     */
+    virtual bool value(void) override;
+
+    /**
+     * @brief 
+     * 
+     * @param level 
+     */
+    virtual void value(bool level) override;
 
   /* **************************************************************************************
    * Public Method
    */
+  public:
+    /**
+     * @brief Set the Input Value object
+     * 
+     * @param level 
+     * @return true 
+     * @return false 
+     */
+    virtual bool setInputValue(bool level);
 
   /* **************************************************************************************
    * Protected Method <Static>
@@ -139,4 +205,4 @@ public mcuf::Console{
  * End of file
  */ 
 
-#endif /* MCUF_55715FD2_5F5F_42BC_B7D1_A46F23C6500E */
+#endif /* MCUF_422910B3_C829_4F28_9F7E_4A928F53DA5A */

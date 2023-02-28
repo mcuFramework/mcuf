@@ -12,8 +12,8 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "../ByteBuffer.h"
-#include "../Interface.h"
+#include "../mcuf/ByteBuffer.h"
+#include "../mcuf/Interface.h"
 
 //-----------------------------------------------------------------------------------------
 #include "./FlashStorageEvent.h"
