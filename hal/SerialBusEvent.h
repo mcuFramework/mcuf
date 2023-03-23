@@ -12,7 +12,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 #include "../mcuf/Interface.h"
@@ -25,29 +25,27 @@
  * Namespace
  */  
 
-namespace mcuf::hal{
+namespace hal{
+  interface SerialBus;
   interface SerialBusEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::hal::SerialBusEvent extends virtual mcuf::Interface{
+interface hal::SerialBusEvent extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method
    */
   
   /**
-   * @brief 
+   * @brief SerialBus讀取事件
    * 
-   * @param status handle status
-   * @param result 0 = successful, other = remaining byte count.
-   * @param attachment user data
+   * @param status 事件狀態
+   * @param serialBus 執行本體
    */
-  virtual void onSerialBusEvent(mcuf::hal::SerialBusStatus status, 
-                                int result,
-                                void* attachment) abstract;
+  virtual void onSerialBusEvent(hal::SerialBusStatus status, hal::SerialBus& serialBus) abstract;
   
 };
 

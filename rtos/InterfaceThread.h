@@ -12,18 +12,18 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 #include "../mcuf/Interface.h"
-#include "../mcuf/Thread.h"
-#include "../mcuf/ThreadPriority.h"
-#include "../mcuf/ThreadState.h"
+#include "../sys/Thread.h"
+#include "../sys/ThreadPriority.h"
+#include "../sys/ThreadState.h"
 
 //-----------------------------------------------------------------------------------------
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace mcuf::rtos{
+namespace rtos{
   interface InterfaceThread;
 }
 
@@ -31,7 +31,7 @@ namespace mcuf::rtos{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::rtos::InterfaceThread extends virtual mcuf::Interface{
+interface rtos::InterfaceThread extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method
@@ -108,7 +108,7 @@ interface mcuf::rtos::InterfaceThread extends virtual mcuf::Interface{
    * @return true 
    * @return false 
    */
-  virtual bool threatStart(mcuf::Memory& handler, mcuf::ThreadPriority priority, mcuf::Memory& stackMemory, mcuf::Runnable& runnable) abstract;
+  virtual bool threatStart(mcuf::Memory& handler, mcuf::ThreadPriority priority, mcuf::Memory& stackMemory, func::Runnable& runnable) abstract;
 
   /**
    * @brief 

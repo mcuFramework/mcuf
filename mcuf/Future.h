@@ -12,7 +12,6 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "./mcuf_base.h"
 
 //-----------------------------------------------------------------------------------------
 #include "./CompletionHandler.h"
@@ -28,7 +27,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::Future extends mcuf::Object implements 
+class mcuf::Future :public mcuf::Object,
   public CompletionHandler<int, void*>
 {
 

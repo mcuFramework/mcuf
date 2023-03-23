@@ -11,11 +11,11 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "./mcuf_base.h"
-#include "./Object.h"
-#include "./Consumer.h"
-#include "./BiConsumer.h"
-#include "./Interface.h"
+
+//-----------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------
+#include "./../func/Consumer.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -45,8 +45,7 @@ interface mcuf::Iterable extends virtual mcuf::Interface{
    * @param attachment User data.
    * @param action The action to be performed for each element.
    */
-  virtual void forEach(void* attachment, 
-                       mcuf::BiConsumer<E*, void*>& action) const abstract;
+  virtual void forEach(func::Consumer<E*>& accept) const abstract;
 
 };
  

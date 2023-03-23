@@ -12,7 +12,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 #include "../mcuf/Interface.h"
@@ -24,14 +24,14 @@
  * Namespace
  */
 
-namespace mcuf::hal{
+namespace hal{
   interface EdgeTriggerEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::hal::EdgeTriggerEvent extends virtual mcuf::Interface{
+interface hal::EdgeTriggerEvent extends virtual mcuf::Interface{
   /* **************************************************************************************
    * Method
    */
@@ -41,7 +41,7 @@ interface mcuf::hal::EdgeTriggerEvent extends virtual mcuf::Interface{
    * 
    * @param status 
    */
-  virtual void onEdgeTriggerEvent(mcuf::hal::EdgeTriggerStatus status) abstract;
+  virtual void onEdgeTriggerEvent(hal::EdgeTriggerStatus status) abstract;
   
 };
 

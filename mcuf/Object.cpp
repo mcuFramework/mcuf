@@ -13,8 +13,8 @@
 
 //-----------------------------------------------------------------------------------------
 #include "./Object.h"
-#include "./System.h"
-#include "./Thread.h"
+#include "./../sys/System.h"
+#include "./../sys/Thread.h"
 #include "./../rtos/InterfaceThread.h"
 
 /* ****************************************************************************************
@@ -185,6 +185,11 @@ bool Object::systemUnlock(void) const{
   return System::sInterfaceKernel->kernelUnlock();
 }
 
+/**
+ * @brief 
+ * 
+ * @return mcuf::Object& 
+ */
 mcuf::Object& Object::getObject(void){
   return *this;
 }

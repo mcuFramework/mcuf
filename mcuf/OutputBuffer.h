@@ -12,10 +12,9 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "./mcuf_base.h"
-#include "./Interface.h"
 
 //-----------------------------------------------------------------------------------------
+#include "./Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -28,66 +27,67 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::OutputBuffer extends virtual mcuf::Interface{
+struct mcuf::OutputBuffer :public virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method
    */
 
   /**
-   * @brief 
+   * @brief 輸出緩存是否為空?
    * 
-   * @return true 
-   * @return false 
+   * @return true 輸出緩存為空
+   * @return false 輸出緩存不為空
    */
   virtual bool isEmpty(void) const abstract;
 
   /**
-   * @brief 
+   * @brief 取得輸出緩存內剩餘多少位元組
    * 
-   * @return int 
+   * @return int 緩存內有效位元組數量
    */
   virtual int avariable(void) const abstract;
 
   /**
-   * @brief pop buffer byte non blocking.
+   * @brief 輸出一個位元組
    * 
    * @param result 
-   * @return true has data in buffer.
-   * @return false no data in buffer.
+   * @return true 輸出成功
+   * @return false 緩存內為空
    */
   virtual bool getByte(char& result) abstract;
 
   /**
-   * @brief 
+   * @brief 輸出至InputBuffer
    * 
-   * @param byteBuffer 
-   * @return int 
+   * @param inputBuffer 輸出目標緩存空間 
+   * @return int 輸出至目標的位元組數量
    */
   virtual int get(mcuf::InputBuffer& inputBuffer) abstract;
 
   /**
-   * @brief 
+   * @brief 輸出至InputBuffer
    * 
-   * @param byteBuffer 
-   * @return int 
+   * @param inputBuffer 輸出目標緩存空間
+   * @param length 指定最大輸出位元組數量
+   * @return int 輸出至目標的位元組數量
    */
   virtual int get(mcuf::InputBuffer& inputBuffer, int length) abstract;
 
   /**
-   * @brief 
+   * @brief 輸出目標緩存空間
    * 
-   * @param buffer 
-   * @param bufferSize 
-   * @return int 
+   * @param buffer 緩衝區地址
+   * @param bufferSize 緩衝區大小
+   * @return int 複製的位元組數量
    */
   virtual int get(void* buffer, int bufferSize) abstract;
 
   /**
-   * @brief 
+   * @brief 跳躍數個緩衝區內位元組
    * 
-   * @param value 
-   * @return int 
+   * @param value 期望跳躍數量
+   * @return int 實際跳躍數量
    */
   virtual int skip(int value) abstract;
 

@@ -12,10 +12,9 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/ByteBuffer.h"
 #include "../mcuf/Interface.h"
 
 //-----------------------------------------------------------------------------------------
@@ -25,14 +24,14 @@
  * Namespace
  */  
 
-namespace mcuf::hal{  
+namespace hal{
   interface FlashStorageEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::hal::FlashStorageEvent extends virtual mcuf::Interface{
+interface hal::FlashStorageEvent extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method
@@ -42,11 +41,9 @@ interface mcuf::hal::FlashStorageEvent extends virtual mcuf::Interface{
    * @brief 
    * 
    * @param status 
-   * @param byteBuffer 
+   * @param flashStorage 
    */
-  virtual void onFlashStorageEvent(mcuf::hal::FlashStorageStatus status, 
-                                   int result,
-                                   void* attachment) abstract;
+  virtual void onFlashStorageEvent(hal::FlashStorageStatus status) abstract;
 
 };
 

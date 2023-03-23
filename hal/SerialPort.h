@@ -12,34 +12,48 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
+#include "../mcuf/InputStreamBuffer.h"
+#include "../mcuf/OutputStream.h"
 
 //-----------------------------------------------------------------------------------------
 #include "./Base.h"
-#include "./SerialPortConfig.h"
-#include "./SerialPortTransfer.h"
+
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf::hal{
+namespace hal{
   interface SerialPort;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::hal::SerialPort extends 
-mcuf::hal::Base,
-mcuf::hal::SerialPortConfig,
-mcuf::hal::SerialPortTransfer{
+interface hal::SerialPort extends hal::Base,
+    mcuf::InputStream,
+    mcuf::OutputStream{
 
   /* **************************************************************************************
    * Method
    */
-  
+
+  /**
+   * @brief 
+   * 
+   * @return uint32_t 
+   */
+  virtual uint32_t getBaudrate(void) abstract;
+
+  /**
+   * @brief Set the Baudrate object
+   * 
+   * @param baudrate 期望的輸出鮑率
+   * @return uint32_t 實際的輸出鮑率
+   */
+  virtual uint32_t setBaudrate(uint32_t baudrate) abstract;
 };
 
 /* *****************************************************************************************

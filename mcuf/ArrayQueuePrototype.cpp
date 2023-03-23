@@ -9,7 +9,6 @@
  * Include
  */  
 #include "./ArrayQueuePrototype.h"
-#include "./System.h"
 
 /* ****************************************************************************************
  * Macro
@@ -178,23 +177,23 @@ int ArrayQueuePrototype::size(void) const{
  * @param attachment 
  * @param action 
  */
-void ArrayQueuePrototype::foreachPrototype(void* attachment, mcuf::BiConsumer<void*, void*>& action) const{
+void ArrayQueuePrototype::foreachPrototype(func::Consumer<void*>& action) const{
   if(this->isEmpty())
     return;
   void** p = static_cast<void**>(this->Pointer::pointer());
 
   if(this->mHead >= this->mTail){
 		for(int i=this->mHead; i<this->mElementLength; ++i){
-      action.accept(p[i], attachment);
+      action.accept(p[i]);
 		}
 		
 		for(int i=0; i<this->mTail; ++i){
-      action.accept(p[i], attachment);
+      action.accept(p[i]);
 		}
 
   }else{
 		for(int i=this->mHead; i<this->mTail; ++i){
-			action.accept(p[i], attachment);
+			action.accept(p[i]);
 		}
   }
 }

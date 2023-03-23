@@ -12,7 +12,7 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 #include "../mcuf/ByteBuffer.h"
@@ -25,14 +25,15 @@
  * Namespace
  */  
 
-namespace mcuf::hal{
+namespace hal{
+  interface SerialPeriph;
   interface SerialPeriphEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::hal::SerialPeriphEvent extends virtual mcuf::Interface{
+struct hal::SerialPeriphEvent extends mcuf::Interface{
   
   /* **************************************************************************************
    * Method
@@ -45,9 +46,8 @@ interface mcuf::hal::SerialPeriphEvent extends virtual mcuf::Interface{
    * @param transfer 
    * @param receiver 
    */
-  virtual void onSerialPeriphEvent(mcuf::hal::SerialPeriphStatus status, 
-                                   mcuf::ByteBuffer* transfer,
-                                   mcuf::ByteBuffer* receiver) abstract;
+  virtual void onSerialPeriphEvent(hal::SerialPeriphStatus status, 
+                                   hal::SerialPeriph& serialPeriph) abstract;
 };
 
 

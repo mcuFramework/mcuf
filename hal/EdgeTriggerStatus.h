@@ -12,7 +12,7 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -22,14 +22,14 @@
  * Namespace
  */  
 
-namespace mcuf::hal{
+namespace hal{
   enum struct EdgeTriggerStatus : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct mcuf::hal::EdgeTriggerStatus : char{
+enum struct hal::EdgeTriggerStatus : char{
   RISE,
   FALL
 };

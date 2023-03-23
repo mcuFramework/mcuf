@@ -12,7 +12,7 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -22,14 +22,14 @@
  * Namespace
  */  
 
-namespace mcuf::hal{
+namespace hal{
   enum struct GeneralPinMode : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct mcuf::hal::GeneralPinMode : char{
+enum struct hal::GeneralPinMode : char{
   NOT_SUPPORT,
   PUSH_PULL,
   PULL_UP,

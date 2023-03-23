@@ -12,10 +12,9 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/Interface.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -23,7 +22,7 @@
  * Namespace
  */
 
-namespace mcuf::hal{
+namespace hal{
   interface PulseWidthPin;
 }
 
@@ -31,7 +30,7 @@ namespace mcuf::hal{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::hal::PulseWidthPin extends virtual mcuf::Interface{
+interface hal::PulseWidthPin extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method

@@ -12,14 +12,14 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 #include "../mcuf/Interface.h"
 //-----------------------------------------------------------------------------------------
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace mcuf::rtos{
+namespace rtos{
   interface InterfaceKernel;
 }
 
@@ -27,7 +27,7 @@ namespace mcuf::rtos{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::rtos::InterfaceKernel extends virtual mcuf::Interface{
+interface rtos::InterfaceKernel extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method

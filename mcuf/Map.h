@@ -13,8 +13,6 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "./mcuf_base.h"
-#include "./BiConsumer.h"
 #include "./Interface.h"
 
 /* ****************************************************************************************
@@ -106,13 +104,6 @@ interface mcuf::Map extends virtual mcuf::Interface{
    * @return uint32_t 
    */
   virtual int size(void) abstract;
-
-  /**
-   * @brief 
-   * 
-   * @param function 
-   */
-  virtual void forEach(mcuf::BiConsumer<K, V>& function) abstract;
 
 };
 

@@ -12,31 +12,41 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 #include "./Base.h"
-#include "./AnalogInputPortControl.h"
 
 /* ****************************************************************************************
  * Namespace
  */
 
-namespace mcuf::hal{
+namespace hal{
   interface AnalogInputPort;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::hal::AnalogInputPort extends 
-mcuf::hal::Base,
-mcuf::hal::AnalogInputPortControl{
+interface hal::AnalogInputPort extends hal::Base{
 
   /* **************************************************************************************
    * Method
    */
-  
+  /**
+   * @brief 
+   * 
+   * @param pin 
+   * @return uint32_t 
+   */
+  virtual uint32_t read(int channel) abstract;
+
+  /**
+   * @brief Get the adc convert bit.
+   * 
+   * @return uint32_t 
+   */
+  virtual uint32_t getConvertLevel(void) abstract;
 };  
 
 /* *****************************************************************************************

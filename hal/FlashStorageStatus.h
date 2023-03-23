@@ -12,7 +12,7 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -22,14 +22,14 @@
  * Namespace
  */  
 
-namespace mcuf::hal{
+namespace hal{
   enum struct FlashStorageStatus : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct mcuf::hal::FlashStorageStatus : char{
+enum struct hal::FlashStorageStatus : char{
   WRITE_SUCCESSFUL,
   WRITE_FAIL,
   READ_SUCCESSFUL,

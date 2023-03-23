@@ -12,7 +12,7 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 #include "../mcuf/Interface.h"
@@ -22,7 +22,7 @@
 /* ****************************************************************************************
  * Namespace
  */
-namespace mcuf::hal{
+namespace hal{
   interface GeneralInput;
 }
 
@@ -30,17 +30,18 @@ namespace mcuf::hal{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::hal::GeneralInput extends virtual mcuf::Interface{
+interface hal::GeneralInput extends virtual mcuf::Interface{
   /* **************************************************************************************
    * Method
    */
 
   /**
-   * @brief Set io pin to high or low.
+   * @brief Get io pin.
    * 
-   * @param level false = low, true = high.
+   * @return true high
+   * @return false low
    */
-  virtual void value(bool level) abstract; 
+  virtual bool getValue(void) abstract;
 
 };
 

@@ -12,7 +12,7 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 #include "../mcuf/Interface.h"
@@ -22,7 +22,7 @@
 /* ****************************************************************************************
  * Namespace
  */
-namespace mcuf::hal{
+namespace hal{
   interface GeneralOutput;
 }
 
@@ -30,7 +30,7 @@ namespace mcuf::hal{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::hal::GeneralOutput extends virtual mcuf::Interface{
+interface hal::GeneralOutput extends virtual mcuf::Interface{
   /* **************************************************************************************
    * Method
    */
@@ -41,31 +41,24 @@ interface mcuf::hal::GeneralOutput extends virtual mcuf::Interface{
    */
   virtual void setHigh(void) abstract;
 
-/**
+  /**
    * @brief Set the Low object
    * 
    */
   virtual void setLow(void) abstract;
-  
-  /**
-   * @brief Set the Output object
-   * 
-   */
-  virtual void setOutput(void) abstract;
 
   /**
    * @brief Set the Toggle object
    * 
    */
   virtual void setToggle(void) abstract;  
-
+  
   /**
-   * @brief Get io pin.
+   * @brief 
    * 
-   * @return true high
-   * @return false low
+   * @param level 
    */
-  virtual bool value(void) abstract;
+  virtual void setValue(bool level) abstract;
 
 };
 

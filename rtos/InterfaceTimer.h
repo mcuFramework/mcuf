@@ -12,17 +12,15 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
+#include "../func/package-info.h"
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/Interface.h"
-#include "../mcuf/Runnable.h"
-#include "../mcuf/Memory.h"
 
 /* ****************************************************************************************
  * Namespace
  */
-namespace mcuf::rtos{
+namespace rtos{
   interface InterfaceTimer;
   
 }
@@ -34,7 +32,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::rtos::InterfaceTimer extends virtual mcuf::Interface{
+interface rtos::InterfaceTimer extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method
@@ -56,7 +54,7 @@ interface mcuf::rtos::InterfaceTimer extends virtual mcuf::Interface{
    * @param runnable 直行進入點
    * @return 
    */
-  virtual bool timerStart(mcuf::Memory& handler, uint32_t delay, bool mode, mcuf::Runnable& runnable) abstract;
+  virtual bool timerStart(mcuf::Memory& handler, uint32_t delay, bool mode, func::Runnable& runnable) abstract;
 
   /**
    * @brief 停止Timer

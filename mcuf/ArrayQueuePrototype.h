@@ -11,10 +11,13 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "./mcuf_base.h"
 
+//-----------------------------------------------------------------------------------------
+#include "./../func/Consumer.h"
+
+//-----------------------------------------------------------------------------------------
 #include "./Array.h"
-#include "./BiConsumer.h"
+
 
 /* ****************************************************************************************
  * Namespace
@@ -59,7 +62,7 @@ class mcuf::ArrayQueuePrototype extends mcuf::Array<void*>{
   /* **************************************************************************************
    * Construct Method
    */
-  protected:
+  public:
     
     /**
      * @brief Construct a new Array Queue Prototype object
@@ -176,7 +179,7 @@ class mcuf::ArrayQueuePrototype extends mcuf::Array<void*>{
      * @param attachment 
      * @param action 
      */
-    void foreachPrototype(void* attachment, mcuf::BiConsumer<void*, void*>& action) const;
+    void foreachPrototype(func::Consumer<void*>& action) const;
 
   /* **************************************************************************************
    * Private Method <Static>

@@ -12,7 +12,7 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 
@@ -22,14 +22,14 @@
  * Namespace
  */  
 
-namespace mcuf::hal{
+namespace hal{
   enum struct SerialPeriphStatus : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct mcuf::hal::SerialPeriphStatus : char{
+enum struct hal::SerialPeriphStatus : char{
   SUCCESSFUL,
   FAIL,
   ABORT

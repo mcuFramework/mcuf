@@ -12,7 +12,7 @@
  */
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 #include "../mcuf/Interface.h"
@@ -23,7 +23,7 @@
  * Namespace
  */
 
-namespace mcuf::hal{
+namespace hal{
   interface InterruptEvent;
 }
 
@@ -32,7 +32,7 @@ namespace mcuf::hal{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */
-interface mcuf::hal::InterruptEvent extends virtual mcuf::Interface{
+interface hal::InterruptEvent extends virtual mcuf::Interface{
 
   /* **************************************************************************************
    * Method

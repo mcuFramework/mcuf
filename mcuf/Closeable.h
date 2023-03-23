@@ -12,9 +12,11 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "./mcuf_base.h"
-#include "./Interface.h"
 
+//-----------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------
+#include "./Interface.h"
 
 /* ****************************************************************************************
  * Namespace
@@ -33,16 +35,16 @@ interface mcuf::Closeable extends virtual mcuf::Interface{
    */
 
   /**
-   * @brief 
+   * @brief 關閉通道
    * 
    */
   virtual void close(void) abstract;
 
   /**
-   * @brief 
+   * @brief 通道是否被開啟
    * 
-   * @return true 
-   * @return false 
+   * @return true 通道是開啟的
+   * @return false 通道是關閉的
    */
   virtual bool isOpen(void) abstract;  
 

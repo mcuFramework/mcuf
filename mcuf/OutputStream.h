@@ -11,12 +11,9 @@
 /* ****************************************************************************************
  * Include
  */
-#include "./mcuf_base.h"
 #include "./OutputBuffer.h"
 #include "./CompletionHandler.h"
 #include "./Future.h"
-#include "./Object.h"
-#include "./Interface.h"
 
 /* ****************************************************************************************
  * Namespace

@@ -11,7 +11,7 @@
 /* ****************************************************************************************
  * Include
  */
-#include "./mcuf_base.h"
+
 #include "./InputBuffer.h"
 #include "./CompletionHandler.h"
 #include "./Future.h"

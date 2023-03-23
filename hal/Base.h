@@ -12,7 +12,7 @@
  */  
 
 //-----------------------------------------------------------------------------------------
-#include "../mcuf/mcuf_base.h"
+#include "../mcuf/package-info.h"
 
 //-----------------------------------------------------------------------------------------
 #include "../mcuf/Interface.h"
@@ -22,7 +22,7 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf::hal{
+namespace hal{
   interface Base;
 }
 
@@ -30,7 +30,7 @@ namespace mcuf::hal{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-interface mcuf::hal::Base extends virtual mcuf::Interface{
+interface hal::Base extends virtual mcuf::Interface{
   /**
    * @brief uninitialze hardware.
    * 

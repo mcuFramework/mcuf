@@ -11,7 +11,10 @@
 /* ****************************************************************************************
  * Include
  */  
-#include "./mcuf_base.h"
+
+//-----------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------
 #include "./ArrayQueuePrototype.h"
 #include "./Collection.h"
 #include "./Queue.h"
@@ -126,24 +129,6 @@ class mcuf::ArrayQueue extends mcuf::ArrayQueuePrototype implements
      */
     virtual E* peek(void) override{
       return static_cast<E*>(this->ArrayQueuePrototype::peekPointer());
-    }
-  
-  /* **************************************************************************************
-   * Public Method <Override> - mcuf::Iterable<E>
-   */
-  public:
-
-    /**
-     * @brief Performs the given action for each element of the Iterable until all 
-     *        elements have been processed or the action throws an exception. Unless 
-     *        otherwise specified by the implementing class, actions are performed in the 
-     *        order of iteration (if an iteration order is specified). 
-     * 
-     * @param attachment user data.
-     * @param action action The action to be performed for each element.
-     */
-    virtual void forEach(void* attachment, mcuf::BiConsumer<E*, void*>& action) const override{
-      this->foreachPrototype(attachment, reinterpret_cast<mcuf::BiConsumer<void*, void*>&>(action));
     }
   
   /* **************************************************************************************

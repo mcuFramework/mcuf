@@ -10,39 +10,25 @@
 /* ****************************************************************************************
  * Include folder
  */
+#include "./buf/package-info.h"
+#include "./cli/package-info.h"
+#include "./ctrl/package-info.h"
+#include "./func/package-info.h"
+#include "./hal/package-info.h"
 #include "./macro/package-info.h"
 #include "./mcuf/package-info.h" 
-#include "./hal/package-info.h"
+#include "./net/package-info.h"
+#include "./numb/package-info.h"
 #include "./rtos/package-info.h"
-
+#include "./sys/package-info.h"
 /* ****************************************************************************************
  * Include
  */
 
 /* ****************************************************************************************
- * Reference
- */
-
-/**
- * Module macro
- */
-#ifndef MODULE_VER_MACRO
-#error "module macro version not found"
-#endif
-#define VERSION_STATUS_CACHE VERSION_CHECK(MODULE_VER_MACRO, 1, 0, 0)
-#if VERSION_STATUS_CACHE != VERSION_PASS
-  #if VERSION_STATUS_CACHE == VERSION_WARN
-  	#warning "module macro reversion below request"
-  #else
-  	#error "module macro miner to low or majer not match"
-  #endif
-#endif
-#undef VERSION_STATUS_CACHE
-
-/* ****************************************************************************************
  * Version
  */
-#define MODULE_VER_MCUF VERSION_DEFINE(0, 1, 2)
+#define MODULE_VER_MCUF VERSION_DEFINE(0, 2, 0)
 
 
 /* ****************************************************************************************
