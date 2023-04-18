@@ -40,11 +40,11 @@ extern const uint32_t mcufTickTaskNumber;
 using func::Runnable;
 using mcuf::Maths;
 using mcuf::Memory;
-using mcuf::System;
+using sys::System;
 using mcuf::CoreThread;
-using mcuf::SystemRegister;
-using mcuf::ThreadEvent;
-using mcuf::Timer;
+using sys::SystemRegister;
+using sys::ThreadEvent;
+using sys::Timer;
 
 /* ****************************************************************************************
  * Global Operator
@@ -142,7 +142,7 @@ void System::setup(void){
  * 
  * @param userThread 
  */
-void System::start(mcuf::Thread& userThread){
+void System::start(sys::Thread& userThread){
   System::sInterfaceKernel->kernelInitialize();
   
 

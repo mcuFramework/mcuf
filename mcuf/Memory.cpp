@@ -107,7 +107,7 @@ Memory::~Memory(void){
     
     while(true){
       if(next->mNext == nullptr)
-        System::error(this, mcuf::ErrorCode::NULL_POINTER);
+        System::error(this, sys::ErrorCode::NULL_POINTER);
       
       if(next->mNext == this){
         next->mNext = Memory::mNext;

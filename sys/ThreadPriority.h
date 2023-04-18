@@ -19,14 +19,14 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
+namespace sys{
   enum struct ThreadPriority : int;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct mcuf::ThreadPriority : int{
+enum struct sys::ThreadPriority : int{
   LOW            =  8,         ///< PRIORITY_: low
   LOW1           =  8+1,       ///< PRIORITY_: low + 1
   LOW2           =  8+2,       ///< PRIORITY_: low + 2

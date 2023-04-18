@@ -7,49 +7,46 @@
 
 /* ****************************************************************************************
  * Include
- */  
+ */
 
 //-----------------------------------------------------------------------------------------
-#include "./Executor.h"
+
+//-----------------------------------------------------------------------------------------
+#include "boot/CoreEntry.h"
+
+/* ****************************************************************************************
+ * Macro
+ */
 
 /* ****************************************************************************************
  * Using
- */  
-using func::Runnable;
-using mcuf::Memory;
-using sys::Executor;
-using mcuf::ArrayQueue;
+ */
+
+//-----------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------
+using boot::CoreEntry;
+
+/* ****************************************************************************************
+ * Variable <Static>
+ */
 
 /* ****************************************************************************************
  * Construct Method
  */
-
 /**
- * @brief Construct a new Executor:: Executor object
- * 
- * @param memory 
+ *
  */
-Executor::Executor(const Memory& memory) : ArrayQueue<Runnable>(memory){
+CoreEntry::CoreEntry(uint32_t stackSize) : Thread(stackSize){
   return;
 }
 
 /**
- * @brief Construct a new Executor:: Executor object
- * 
- * @param size 
+ *
  */
-Executor::Executor(uint32_t size) : ArrayQueue<Runnable>(size){
+CoreEntry::~CoreEntry(void){
   return;
 }
-
-/**
- * @brief Destroy the Executor:: Executor object
- * 
- */
-Executor::~Executor(void){
-  return;
-}
-
 /* ****************************************************************************************
  * Operator Method
  */
@@ -57,58 +54,45 @@ Executor::~Executor(void){
 /* ****************************************************************************************
  * Public Method <Static>
  */
- 
+
 /* ****************************************************************************************
- * Public Method <Override> - func::Runnable
+ * Public Method <Override> - mcuf::function::Runnable
  */
+
+/**
+ *
+ */
+void CoreEntry::run(void){
+  this->mSetup(this);
+  while(true){
+    this->mLoop(this);
+  }
+}
 
 /* ****************************************************************************************
  * Public Method
  */
 
 /**
- * 
+ *
  */
-bool Executor::execute(Runnable* runnable){
-  return this->offer(runnable);
+void CoreEntry::setSetup(void (*setup)(sys::Thread*)){
+  this->mSetup = setup;
 }
 
 /**
- * 
+ *
  */
-void Executor::actionAll(void){
-  while(!this->isEmpty()){
-    
-    Runnable* command = this->poll();
-    if(command != nullptr)
-      command->run();
-  }
+void CoreEntry::setLoop(void (*loop)(sys::Thread*)){
+  this->mLoop = loop;
 }
-
-/**
- * 
- */
-bool Executor::actionSingle(void){
-  if(this->isEmpty())
-    return false;
-  
-  Runnable* command = this->poll();
-  
-  if(command != nullptr){
-    command->run();
-    return true;
-  }else{
-    return false;
-  }
-}
-
 /* ****************************************************************************************
  * Protected Method <Static>
  */
- 
+
 /* ****************************************************************************************
  * Protected Method <Override>
- */ 
+ */
 
 /* ****************************************************************************************
  * Protected Method
@@ -117,7 +101,7 @@ bool Executor::actionSingle(void){
 /* ****************************************************************************************
  * Private Method
  */
- 
+
 /* ****************************************************************************************
  * End of file
- */ 
+ */

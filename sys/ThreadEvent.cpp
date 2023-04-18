@@ -15,7 +15,7 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::ThreadEvent;
+using sys::ThreadEvent;
 using func::Runnable;
 
 /* ****************************************************************************************
@@ -54,7 +54,7 @@ ThreadEvent::~ThreadEvent(void){
  */
  
 /* ****************************************************************************************
- * Public Method <Override> - mcuf::Thread
+ * Public Method <Override> - sys::Thread
  */
 
 /**

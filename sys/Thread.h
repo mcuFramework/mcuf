@@ -23,7 +23,7 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
+namespace sys{
   class Thread;
   class System;
 }
@@ -35,7 +35,7 @@ namespace rtos{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::Thread extends mcuf::Memory implements 
+class sys::Thread extends mcuf::Memory implements 
 public func::Runnable{
 
   friend System;
@@ -150,16 +150,16 @@ public func::Runnable{
     /**
      * @brief Get the Priority object
      * 
-     * @return mcuf::ThreadPriority 
+     * @return sys::ThreadPriority 
      */
-    mcuf::ThreadPriority getPriority(void) const;
+    sys::ThreadPriority getPriority(void) const;
 
     /**
      * @brief Get the State object
      * 
-     * @return mcuf::ThreadState 
+     * @return sys::ThreadState 
      */
-     mcuf::ThreadState getState(void) const;
+     sys::ThreadState getState(void) const;
     
     /**
      * @brief Get the Stack Size object
@@ -183,7 +183,7 @@ public func::Runnable{
      * @return true 
      * @return false 
      */
-    bool start(mcuf::ThreadPriority priority);
+    bool start(sys::ThreadPriority priority);
     
     /**
      * @brief 
@@ -198,7 +198,7 @@ public func::Runnable{
      * @return true 
      * @return false 
      */
-    bool setPriority(mcuf::ThreadPriority priority);  
+    bool setPriority(sys::ThreadPriority priority);  
 
     /**
      * @brief 

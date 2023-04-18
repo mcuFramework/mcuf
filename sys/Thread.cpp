@@ -27,9 +27,10 @@
  * Using
  */  
 using mcuf::Memory;
-using mcuf::Thread;
-using mcuf::ThreadPriority;
-using mcuf::ThreadState;
+using sys::Thread;
+using sys::ThreadPriority;
+using sys::ThreadState;
+using sys::System;
 
 /* ****************************************************************************************
  * Variable <Static>

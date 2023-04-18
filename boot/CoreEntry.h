@@ -4,32 +4,32 @@
  * 
  * SPDX-License-Identifier: MIT
  */
-
-#ifndef MCUF_B33994C2_08DF_4AFD_A659_6CE8721463F1
-#define MCUF_B33994C2_08DF_4AFD_A659_6CE8721463F1
+#ifndef MCUF_08C85E2F_B814_4C16_BD4A_05789B0084E4
+#define MCUF_08C85E2F_B814_4C16_BD4A_05789B0084E4
 
 /* ****************************************************************************************
  * Include
- */
- 
+ */  
+
 //-----------------------------------------------------------------------------------------
 #include "./../mcuf/package-info.h"
-#include "./../func/Runnable.h"
+#include "./../sys/Thread.h"
 
 //-----------------------------------------------------------------------------------------
 
 /* ****************************************************************************************
  * Namespace
  */  
-namespace sys{
-  class Executor;
+namespace boot{
+  class CoreEntry;
 }
 
+
 /* ****************************************************************************************
- * Class/Interface/Struct
+ * Class/Interface/Struct/Enum
  */  
-class sys::Executor extends mcuf::ArrayQueue<func::Runnable>{
-  
+class boot::CoreEntry extends sys::Thread{
+
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -41,6 +41,9 @@ class sys::Executor extends mcuf::ArrayQueue<func::Runnable>{
   /* **************************************************************************************
    * Variable <Private>
    */
+  private:
+    void (*mSetup)(sys::Thread*);
+    void (*mLoop)(sys::Thread*);
 
   /* **************************************************************************************
    * Abstract method <Public>
@@ -53,28 +56,18 @@ class sys::Executor extends mcuf::ArrayQueue<func::Runnable>{
   /* **************************************************************************************
    * Construct Method
    */
-
   public: 
-
     /**
-     * @brief Construct a new Executor object
-     * 
-     * @param memory 
-     */
-    Executor(const mcuf::Memory& memory);
-
-    /**
-     * @brief Construct a new Executor object
-     * 
-     * @param size 
-     */
-    Executor(uint32_t size);
-
-    /**
-     * @brief Destroy the Executor object
+     * @brief Construct a new Core Entry object
      * 
      */
-    virtual ~Executor(void) override;
+    CoreEntry(uint32_t stackSize);
+
+    /**
+     * @brief Destroy the Core Entry object
+     * 
+     */
+    virtual ~CoreEntry(void) override;
 
   /* **************************************************************************************
    * Operator Method
@@ -85,37 +78,29 @@ class sys::Executor extends mcuf::ArrayQueue<func::Runnable>{
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - func::Runnable
+   * Public Method <Override> - mcuf::function::Runnable
    */
-   
+  public:
+    
+    /**
+     *
+     */
+    virtual void run(void) override;
+
   /* **************************************************************************************
    * Public Method
    */
-  public: 
+  public:  
+    /**
+     *
+     */
+    void setSetup(void (*setup)(sys::Thread*));
   
     /**
-     * @brief Add a new task in to executor.
-     * 
-     * @param runnable task
-     * @return true 
-     * @return false 
+     *
      */
-    bool execute(func::Runnable* runnable);
-
-    /**
-     * @brief 
-     * 
-     * @return true 
-     * @return false 
-     */
-    bool actionSingle(void);
-    
-    /**
-     * @brief 
-     * 
-     */
-    void actionAll(void);  
-
+    void setLoop(void (*loop)(sys::Thread*));
+  
   /* **************************************************************************************
    * Protected Method <Static>
    */
@@ -135,15 +120,15 @@ class sys::Executor extends mcuf::ArrayQueue<func::Runnable>{
   /* **************************************************************************************
    * Private Method <Override>
    */
-   
+
   /* **************************************************************************************
    * Private Method
    */
-  
+
 };
- 
-/* *****************************************************************************************
+
+/* ****************************************************************************************
  * End of file
  */ 
 
-#endif /* MCUF_B33994C2_08DF_4AFD_A659_6CE8721463F1 */
+#endif /* MCUF_08C85E2F_B814_4C16_BD4A_05789B0084E4 */

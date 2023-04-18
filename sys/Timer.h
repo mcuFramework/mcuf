@@ -22,7 +22,7 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
+namespace sys{
   class Timer;
   class System;
 }
@@ -30,10 +30,10 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::Timer extends mcuf::Object{
+class sys::Timer extends mcuf::Object{
   
-  friend mcuf::System;
-  friend mcuf::TimerTask;
+  friend sys::System;
+  friend sys::TimerTask;
   /* **************************************************************************************
    * Variable <Public>
    */
@@ -91,7 +91,7 @@ class mcuf::Timer extends mcuf::Object{
      * @return true successful.
      * @return false 
      */
-    static bool schedule(mcuf::TimerTask& task, uint32_t delay);
+    static bool schedule(sys::TimerTask& task, uint32_t delay);
 
     /**
      * @brief 
@@ -102,7 +102,7 @@ class mcuf::Timer extends mcuf::Object{
      * @return true successful
      * @return false this task was already scheduled or cancelled.
      */
-    static bool scheduleAtFixedRate(mcuf::TimerTask& task, uint32_t delay);
+    static bool scheduleAtFixedRate(sys::TimerTask& task, uint32_t delay);
     
   /* **************************************************************************************
    * Public Method 
@@ -158,7 +158,7 @@ class mcuf::Timer extends mcuf::Object{
     /**
      *
      */
-    static bool schedule(mcuf::TimerTask& task, uint32_t delay, bool mode); 
+    static bool schedule(sys::TimerTask& task, uint32_t delay, bool mode); 
 
 };
 

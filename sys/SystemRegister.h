@@ -24,7 +24,7 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
+namespace sys{
   class System;
   class SystemRegister;
 }
@@ -33,9 +33,9 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::SystemRegister extends mcuf::Object{
+class sys::SystemRegister extends mcuf::Object{
   
-  friend mcuf::System;
+  friend sys::System;
   /* **************************************************************************************
    * Typedef
    */

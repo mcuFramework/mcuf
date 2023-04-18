@@ -18,12 +18,12 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::ErrorCode;
+using sys::ErrorCode;
 using mcuf::Memory;
-using mcuf::Thread;
+using sys::Thread;
 using mcuf::CoreThread;
-using mcuf::Executor;
-using mcuf::Timer;
+using sys::Executor;
+using sys::Timer;
 
 /* ****************************************************************************************
  * Variable <Static>

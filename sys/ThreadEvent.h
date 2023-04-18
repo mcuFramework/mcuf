@@ -23,14 +23,14 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
+namespace sys{
   class ThreadEvent;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */    
-class mcuf::ThreadEvent extends mcuf::Thread{
+class sys::ThreadEvent extends sys::Thread{
 
   /* **************************************************************************************
    * Variable <Public>
@@ -83,7 +83,7 @@ class mcuf::ThreadEvent extends mcuf::Thread{
    */
 
   /* **************************************************************************************
-   * Public Method <Override> - mcuf::Thread
+   * Public Method <Override> - sys::Thread
    */
   public: 
 

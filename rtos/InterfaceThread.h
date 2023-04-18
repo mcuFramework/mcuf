@@ -63,9 +63,9 @@ interface rtos::InterfaceThread extends virtual mcuf::Interface{
   /**
    * @brief 
    * 
-   * @return mcuf::ThreadState 
+   * @return sys::ThreadState 
    */
-  virtual mcuf::ThreadState threadGetState(const mcuf::Memory& handler) const abstract;
+  virtual sys::ThreadState threadGetState(const mcuf::Memory& handler) const abstract;
 
   /**
    * @brief 
@@ -95,9 +95,9 @@ interface rtos::InterfaceThread extends virtual mcuf::Interface{
    * @brief 
    * 
    * @param thread 
-   * @return mcuf::ThreadPriority 
+   * @return sys::ThreadPriority 
    */
-  virtual mcuf::ThreadPriority threadGetPriority(const mcuf::Memory& handler) const abstract;
+  virtual sys::ThreadPriority threadGetPriority(const mcuf::Memory& handler) const abstract;
 
   /**
    * @brief 
@@ -108,15 +108,15 @@ interface rtos::InterfaceThread extends virtual mcuf::Interface{
    * @return true 
    * @return false 
    */
-  virtual bool threatStart(mcuf::Memory& handler, mcuf::ThreadPriority priority, mcuf::Memory& stackMemory, func::Runnable& runnable) abstract;
+  virtual bool threatStart(mcuf::Memory& handler, sys::ThreadPriority priority, mcuf::Memory& stackMemory, func::Runnable& runnable) abstract;
 
   /**
    * @brief 
    * 
    * @param thread 
-   * @return mcuf::ThreadPriority 
+   * @return sys::ThreadPriority 
    */
-  virtual bool threadSetPriority(mcuf::Memory& handler,  mcuf::ThreadPriority) const abstract;
+  virtual bool threadSetPriority(mcuf::Memory& handler,  sys::ThreadPriority) const abstract;
 
   /**
    * @brief 

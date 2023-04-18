@@ -20,7 +20,6 @@ using mcuf::ByteBuffer;
 using mcuf::InputBuffer;
 using mcuf::OutputBuffer;
 using mcuf::Memory;
-using mcuf::System;
 using mcuf::Strings;
 
 /* ****************************************************************************************

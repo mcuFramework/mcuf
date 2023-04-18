@@ -25,14 +25,14 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
+namespace sys{
   class System;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::System final extends mcuf::Object{
+class sys::System final extends mcuf::Object{
   friend Object;
   
   /* **************************************************************************************
@@ -48,7 +48,7 @@ class mcuf::System final extends mcuf::Object{
    */
   private: 
     static rtos::InterfaceKernel* sInterfaceKernel;
-    static mcuf::SystemRegister* mSystemRegister;
+    static sys::SystemRegister* mSystemRegister;
     static mcuf::CoreThread* mCoreThread;
 
   /* **************************************************************************************
@@ -122,7 +122,7 @@ class mcuf::System final extends mcuf::Object{
      * 
      * @param userThread 
      */
-    static void start(mcuf::Thread& userThread);
+    static void start(sys::Thread& userThread);
 
     /**
      * @brief 
@@ -135,9 +135,9 @@ class mcuf::System final extends mcuf::Object{
     /**
      * @brief Get the Register object
      * 
-     * @return mcuf::SystemRegister 
+     * @return sys::SystemRegister 
      */
-    static mcuf::SystemRegister& getRegister(void);
+    static sys::SystemRegister& getRegister(void);
     
     /**
      * @brief Get the Core Clock object
@@ -220,7 +220,7 @@ class mcuf::System final extends mcuf::Object{
   
 };
 
-using mcuf::System;
+using sys::System;
 
 /* *****************************************************************************************
  * End of file

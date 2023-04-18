@@ -18,7 +18,7 @@
 /* ****************************************************************************************
  * Using
  */  
-using mcuf::TimerTask;
+using sys::TimerTask;
 
 /* ****************************************************************************************
  * Construct Method
@@ -28,7 +28,7 @@ using mcuf::TimerTask;
  * @brief Construct a new Timer Task object
  * 
  */
-TimerTask::TimerTask(void) : mHandlerMemory(mcuf::Timer::sInterfaceTimer->timerGetHandlerSize()){
+TimerTask::TimerTask(void) : mHandlerMemory(sys::Timer::sInterfaceTimer->timerGetHandlerSize()){
   this->mHandlerMemory.wipe(0x00);
   return;
 }

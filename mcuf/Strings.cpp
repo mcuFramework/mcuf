@@ -24,7 +24,6 @@
  * Using
  */  
 using mcuf::Strings;
-using mcuf::System;
 using mcuf::Memory;
 
 /* ****************************************************************************************

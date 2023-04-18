@@ -25,16 +25,19 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
+namespace sys{
   class System;
+}
+
+namespace mcuf{
   class CoreThread;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::CoreThread extends mcuf::Thread{
-  friend mcuf::System;
+class mcuf::CoreThread extends sys::Thread{
+  friend sys::System;
   
   /* **************************************************************************************
    * Variable <Public>
@@ -48,8 +51,9 @@ class mcuf::CoreThread extends mcuf::Thread{
    * Variable <Private>
    */
   private: 
-    mcuf::Thread* mUserThread;
-    mcuf::Executor mExecutor;
+    
+    sys::Thread* mUserThread;
+    sys::Executor mExecutor;
     bool mStart;
     bool mOnWait;
 
@@ -71,7 +75,7 @@ class mcuf::CoreThread extends mcuf::Thread{
      * 
      * @param attachment 
      */
-    CoreThread(uint32_t executeQueue, mcuf::Thread* userThread);
+    CoreThread(uint32_t executeQueue, sys::Thread* userThread);
 
   public: 
 

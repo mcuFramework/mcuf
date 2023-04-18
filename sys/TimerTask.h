@@ -23,7 +23,7 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
+namespace sys{
   class Timer;
   class TimerTask;
 }
@@ -31,7 +31,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-class mcuf::TimerTask extends mcuf::Object implements 
+class sys::TimerTask extends mcuf::Object implements 
 public func::Runnable{
 
   /* **************************************************************************************

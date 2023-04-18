@@ -20,14 +20,14 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
+namespace sys{
   enum struct ErrorCode : int;
 }
 
 /* ****************************************************************************************
  * Class Object
  */  
-enum struct mcuf::ErrorCode : int{
+enum struct sys::ErrorCode : int{
   NONE                       = 0x00000000 + 0,
   HARD_FAULT                 = 0x00000000 + 1,
   SYSTEM_ERROR               = 0x00000000 + 2,

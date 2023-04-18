@@ -19,14 +19,14 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
+namespace sys{
   enum struct ThreadState : char;
 }
 
 /* ****************************************************************************************
  * Class/Interface/Struct
  */  
-enum struct mcuf::ThreadState : char{
+enum struct sys::ThreadState : char{
   /**
    * @brief Inactive.
    *        The thread is created but not actively used, or has been terminated

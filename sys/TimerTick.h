@@ -20,7 +20,7 @@
 /* ****************************************************************************************
  * Namespace
  */  
-namespace mcuf{
+namespace sys{
   class TimerTick;
 }
 
@@ -28,7 +28,7 @@ namespace mcuf{
 /* ****************************************************************************************
  * Class/Interface/Struct/Enum
  */  
-class mcuf::TimerTick extends mcuf::TimerTask{
+class sys::TimerTick extends sys::TimerTask{
 
   /* **************************************************************************************
    * Variable <Public>

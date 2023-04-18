@@ -162,7 +162,7 @@ bool Object::wait(int timeout) const{
  * @return false 
  */
 bool Object::yield(void) const{
-  return Thread::sInterfaceThread->threadYield();
+  return sys::Thread::sInterfaceThread->threadYield();
 }
 
 /**
